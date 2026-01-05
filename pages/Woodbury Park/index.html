@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woodbury Park - A Craig Community Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1596522354195-e84ae3c4a2a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center 60%;
+        }
+        .icon-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .icon-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .gallery-img {
+            transition: transform 0.3s ease, filter 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+        .rule-card {
+             background-color: rgba(255, 255, 255, 0.1);
+             backdrop-filter: blur(10px);
+             border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-green-800 flex items-center">
+                <i data-lucide="trees" class="inline-block mr-2"></i>
+                <span>Woodbury Park</span>
+            </div>
+            <div>
+                <a href="#amenities" class="text-gray-600 hover:text-green-700 mx-3 font-medium">Amenities</a>
+                <a href="#gallery" class="text-gray-600 hover:text-green-700 mx-3 font-medium">Gallery</a>
+                <a href="#visit" class="text-gray-600 hover:text-green-700 ml-3 font-medium">Visit</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white min-h-[85vh] flex items-center justify-center text-center">
+        <div class="max-w-4xl px-6">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-tight mb-4 drop-shadow-lg">Your Community's Backyard</h1>
+            <p class="text-lg md:text-xl font-light mb-8 max-w-2xl mx-auto drop-shadow-md">Discover Craig's largest and most vibrant park—a beautiful space for sports, family, and creating lasting memories.</p>
+            <a href="#rules" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg">
+                View Park Rules & Info
+            </a>
+        </div>
+    </section>
+    
+     <!-- Park Rules Section -->
+    <section id="rules" class="bg-gray-800 text-white py-16 scroll-mt-20">
+        <div class="container mx-auto px-6 text-center">
+             <h2 class="text-4xl font-bold mb-2">A Safe & Welcoming Place for All</h2>
+             <p class="text-green-300 mb-10">To ensure a positive experience for everyone, please respect the following rules.</p>
+             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="rule-card p-8 rounded-xl">
+                    <i data-lucide="beer-off" class="mx-auto h-12 w-12 text-green-300 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">No Alcohol</h3>
+                    <p class="text-gray-300">Alcoholic beverages are not permitted within the park.</p>
+                </div>
+                <div class="rule-card p-8 rounded-xl">
+                    <i data-lucide="wind" class="mx-auto h-12 w-12 text-green-300 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Smoke-Free Zone</h3>
+                    <p class="text-gray-300">Smoking of any kind, including marijuana, is strictly prohibited.</p>
+                </div>
+                <div class="rule-card p-8 rounded-xl">
+                    <i data-lucide="eye-off" class="mx-auto h-12 w-12 text-green-300 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Respectful Conduct</h3>
+                    <p class="text-gray-300">Public lewdness or inappropriate behavior will not be tolerated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-20">
+
+        <!-- Amenities Section -->
+        <section id="amenities" class="mb-24 scroll-mt-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900">Find Your Fun</h2>
+                <p class="text-gray-600 mt-4 max-w-3xl mx-auto">With a wide array of top-notch facilities, Woodbury Park has something for every athlete, family, and outdoor enthusiast.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="icon-card bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
+                    <div class="bg-green-100 p-4 rounded-full"><i data-lucide="baseball" class="h-8 w-8 text-green-700"></i></div>
+                    <div><h3 class="text-lg font-semibold">3 Baseball Fields</h3><p class="text-sm text-gray-500">For league play or a casual game.</p></div>
+                </div>
+                <div class="icon-card bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
+                    <div class="bg-green-100 p-4 rounded-full"><i data-lucide="dribbble" class="h-8 w-8 text-green-700"></i></div>
+                    <div><h3 class="text-lg font-semibold">Multipurpose Fields</h3><p class="text-sm text-gray-500">Ideal for soccer, football, and more.</p></div>
+                </div>
+                <div class="icon-card bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
+                    <div class="bg-green-100 p-4 rounded-full"><i data-lucide="swords" class="h-8 w-8 text-green-700"></i></div>
+                    <div><h3 class="text-lg font-semibold">2 T-Ball Fields</h3><p class="text-sm text-gray-500">For our youngest athletes.</p></div>
+                </div>
+                <div class="icon-card bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
+                    <div class="bg-green-100 p-4 rounded-full"><i data-lucide="puzzle" class="h-8 w-8 text-green-700"></i></div>
+                    <div><h3 class="text-lg font-semibold">Modern Playground</h3><p class="text-sm text-gray-500">A safe and fun place for kids.</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Improvements Section -->
+        <section class="mb-24 scroll-mt-24 bg-white p-8 md:p-12 rounded-xl shadow-xl">
+             <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Always Improving For You</h2>
+                    <p class="text-gray-700 mb-6">Through the "Woodbury Park Improvements Project," we've invested significantly to enhance your park experience. This dedication to growth ensures Woodbury remains a premier destination for our community.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                           <i data-lucide="check-circle-2" class="h-8 w-8 text-green-600 mr-4"></i>
+                           <p><span class="font-bold">Enhanced Accessibility:</span> New pathways and surfaces for all visitors.</p>
+                        </div>
+                         <div class="flex items-center">
+                           <i data-lucide="check-circle-2" class="h-8 w-8 text-green-600 mr-4"></i>
+                           <p><span class="font-bold">Six-Acre Expansion:</span> More room for future amenities and green space.</p>
+                        </div>
+                         <div class="flex items-center">
+                           <i data-lucide="check-circle-2" class="h-8 w-8 text-green-600 mr-4"></i>
+                            <p><span class="font-bold">Future Dugout Construction:</span> Continuing to improve our sports facilities.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0">
+                    <img src="https://images.unsplash.com/photo-1543039733-13a2d5a89362?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Beautiful park pathway" class="rounded-lg shadow-lg w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="mb-24 scroll-mt-24">
+             <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900">A Snapshot of Fun</h2>
+                <p class="text-gray-600 mt-4 max-w-3xl mx-auto">See for yourself why Woodbury Park is a cherished community treasure.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="grid gap-4">
+                    <div><img class="h-auto max-w-full rounded-lg shadow-md gallery-img" src="https://images.unsplash.com/photo-1559348344-3b4d18a1a389?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Kids playing on a slide"></div>
+                    <div><img class="h-auto max-w-full rounded-lg shadow-md gallery-img" src="https://images.unsplash.com/photo-1519921295399-be6d3a2a603a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Baseball player at bat"></div>
+                </div>
+                <div class="grid gap-4">
+                    <div><img class="h-auto max-w-full rounded-lg shadow-md gallery-img" src="https://images.unsplash.com/photo-1617935932295-a1314f3c0e3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Family having a picnic in the park"></div>
+                    <div><img class="h-auto max-w-full rounded-lg shadow-md gallery-img" src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="A happy dog playing in the grass"></div>
+                </div>
+                <div class="grid gap-4">
+                    <div><img class="h-auto max-w-full rounded-lg shadow-md gallery-img" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="People gathering for a community event"></div>
+                    <div><img class="h-auto max-w-full rounded-lg shadow-md gallery-img" src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Vibrant green soccer field"></div>
+                </div>
+                 <div class="grid gap-4">
+                    <div><img class="h-auto max-w-full rounded-lg shadow-md gallery-img" src="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Sunset over the park"></div>
+                    <div><img class="h-auto max-w-full rounded-lg shadow-md gallery-img" src="https://images.unsplash.com/photo-1604928230999-28c9b936e72a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="T-ball game in action"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Visit Us Section -->
+        <section id="visit" class="scroll-mt-24">
+             <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900">Plan Your Visit</h2>
+            </div>
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+                <div class="md:w-1/2 p-8 md:p-12">
+                    <h3 class="text-2xl font-bold mb-6">Park Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                             <i data-lucide="map-pin" class="h-7 w-7 text-green-600 mr-4 mt-1 flex-shrink-0"></i>
+                             <div>
+                                <h4 class="font-semibold text-lg">Address</h4>
+                                <p class="text-gray-600">1388-1398 W 3rd St, Craig, CO 81625</p>
+                                <a href="https://www.google.com/maps/place/Woodbury+Park/@40.5074,-107.5707,17z" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-800 font-semibold mt-1 inline-block">Get Directions &rarr;</a>
+                            </div>
+                        </div>
+                         <div class="flex items-start">
+                             <i data-lucide="clock" class="h-7 w-7 text-green-600 mr-4 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-semibold text-lg">Hours</h4>
+                                <p class="text-gray-600">Open Daily, Closes at 9:00 PM</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start">
+                             <i data-lucide="info" class="h-7 w-7 text-green-600 mr-4 mt-1 flex-shrink-0"></i>
+                             <div>
+                                <h4 class="font-semibold text-lg">Additional Info</h4>
+                                <ul class="list-disc list-inside text-gray-600 mt-1">
+                                    <li>Free entry for all visitors</li>
+                                    <li>Dogs are welcome on a leash</li>
+                                    <li>Please clean up after yourself & your pets</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 h-80 md:h-auto">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3032.548753239414!2d-107.5732296846006!3d40.5074049793547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874316d8a7a50157%3A0x633513e9a7862261!2sWoodbury%20Park!5e0!3m2!1sen!2sus!4v1687311654321!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-20">
+        <div class="container mx-auto px-6 py-10 text-center">
+            <div class="mb-4">
+                 <i data-lucide="trees" class="inline-block text-green-400 mr-2 h-8 w-8"></i>
+                 <h3 class="text-3xl font-bold">Woodbury Park</h3>
+                 <p class="text-gray-400">A service of the City of Craig Parks & Recreation</p>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2025 City of Craig. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
