@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Central Square Park, Westminster CO | Overview & Amenities</title>
+    <meta name="description" content="Discover Central Square Park (Center Park) in Westminster, CO. A family-friendly urban park featuring fountains, walking paths, and accessibility features.">
+    <meta name="keywords" content="Central Square Park, Center Park, Westminster CO, Urban Park, Downtown Westminster, Park Amenities">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.testedprofit.com/central-square-park">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Central Square Park - Westminster's New Urban Oasis">
+    <meta property="og:description" content="Explore amenities, visitor ratings, and development details for Central Square Park in Downtown Westminster.">
+    <meta property="og:image" content="https://placehold.co/1200x630/667EEA/ffffff?text=Central+Square+Park">
+    <meta property="og:url" content="https://www.testedprofit.com/central-square-park">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Schema Markup for Local Business/Park -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Park",
+      "name": "Central Square Park",
+      "alternateName": "Center Park",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5845 W 89th Ave",
+        "addressLocality": "Westminster",
+        "addressRegion": "CO",
+        "postalCode": "80031",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.858, 
+        "longitude": -105.060
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4",
+        "bestRating": "5",
+        "ratingCount": "25" 
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Fountains", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Wheelchair Accessible", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Dog Friendly", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Restrooms", "value": true }
+      ]
+    }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9; /* Slate-100 */
+        }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .hover-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex items-center justify-center p-4 md:p-8">
+
+    <main class="max-w-6xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-slate-200">
+        
+        <!-- Left Column: Visuals & Quick Stats -->
+        <div class="lg:w-2/5 bg-slate-50 relative flex flex-col">
+            <div class="h-64 lg:h-1/2 relative overflow-hidden group">
+                <img src="https://placehold.co/800x600/475569/ffffff?text=Central+Square+Park" 
+                     alt="Central Square Park fountain area and seating" 
+                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                     onerror="this.onerror=null;this.src='https://placehold.co/800x600/CCCCCC/666666?text=Image+Unavailable';">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent flex items-end p-6">
+                    <div class="text-white">
+                        <span class="bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded-full uppercase tracking-wide mb-2 inline-block">Open to Public</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-8 flex-grow flex flex-col justify-center space-y-6">
+                <div>
+                    <h2 class="text-sm uppercase tracking-wider text-slate-500 font-bold mb-2">Location</h2>
+                    <address class="not-italic text-lg font-medium text-slate-800">
+                        <a href="https://maps.google.com/?q=5845+W+89th+Ave,+Westminster,+CO+80031" target="_blank" class="flex items-center hover:text-blue-600 transition-colors">
+                            <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            5845 W 89th Ave<br>Westminster, CO 80031
+                        </a>
+                    </address>
+                </div>
+                
+                <div>
+                    <h2 class="text-sm uppercase tracking-wider text-slate-500 font-bold mb-2">Current Rating</h2>
+                    <div class="flex items-center space-x-2">
+                        <div class="flex text-yellow-400">
+                            ★★★★☆
+                        </div>
+                        <span class="text-slate-700 font-semibold">4.0 / 5.0</span>
+                    </div>
+                </div>
+
+                 <div class="pt-4 border-t border-slate-200">
+                    <a href="https://www.westminsterco.gov" target="_blank" class="w-full block text-center bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
+                        Visit Official Site
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Content -->
+        <div class="lg:w-3/5 p-8 lg:p-12 overflow-y-auto max-h-[90vh]">
+            <header class="mb-8">
+                <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">Central Square Park</h1>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    A cornerstone of the <strong>Downtown Westminster</strong> redevelopment. Also known as "Center Park," this modern urban space blends community gathering spots with accessible design.
+                </p>
+            </header>
+
+            <section class="mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                    <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mr-3 text-lg">✨</span>
+                    Features & Amenities
+                </h3>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="bg-slate-50 p-4 rounded-xl hover-card border border-slate-100">
+                        <strong class="block text-slate-900 mb-1">Family Friendly</strong>
+                        <p class="text-sm text-slate-600">Popular for children, featuring interactive water fountains.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl hover-card border border-slate-100">
+                        <strong class="block text-slate-900 mb-1">Dog Friendly</strong>
+                        <p class="text-sm text-slate-600">Leashed dogs are welcome to explore the grounds.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl hover-card border border-slate-100">
+                        <strong class="block text-slate-900 mb-1">Accessibility</strong>
+                        <p class="text-sm text-slate-600">Wheelchair-accessible parking, paths, and entrances.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl hover-card border border-slate-100">
+                        <strong class="block text-slate-900 mb-1">Facilities</strong>
+                        <p class="text-sm text-slate-600">Covered pavilion and well-ventilated restrooms.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                    <span class="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mr-3 text-lg">🏗️</span>
+                    Development Timeline
+                </h3>
+                <div class="relative pl-4 border-l-2 border-slate-200 space-y-6">
+                    <div class="relative">
+                        <span class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-300 ring-4 ring-white"></span>
+                        <p class="text-sm text-slate-500 font-mono">May 2024</p>
+                        <p class="font-medium text-slate-800">Construction Began</p>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-white animate-pulse"></span>
+                        <p class="text-sm text-emerald-600 font-mono font-bold">Late 2025 (Est)</p>
+                        <p class="font-medium text-slate-800">Project Completion</p>
+                    </div>
+                    <div class="relative pt-2">
+                        <div class="inline-flex items-center bg-slate-100 px-3 py-1 rounded-full text-sm font-medium text-slate-700">
+                            <span class="mr-2">💰</span> Total Budget: $10.7 Million
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                    <span class="w-8 h-8 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center mr-3 text-lg">📢</span>
+                    Visitor Insights
+                </h3>
+                <div class="bg-orange-50 border border-orange-100 rounded-xl p-5">
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-slate-700 text-sm"><strong>Maintenance Note:</strong> Some visitors report LED lights in fountains may be non-functional.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-orange-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                            <span class="text-slate-700 text-sm"><strong>Community Wishlist:</strong> Locals often express a desire for a dedicated playground and dog park in the area.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <footer class="border-t border-slate-200 pt-6 mt-8 flex flex-col sm:flex-row justify-between text-xs text-slate-400">
+                <p>&copy; 2025 Central Square Park Information.</p>
+                <div class="mt-2 sm:mt-0 space-x-4">
+                    <a href="mailto:testedprofit@gmail.com" class="hover:text-slate-600">Contact</a>
+                    <a href="http://www.testedprofit.com" target="_blank" class="hover:text-slate-600">TestedProfit.com</a>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+</body>
+</html>
