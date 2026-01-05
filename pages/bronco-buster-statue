@@ -1,1 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bronco Buster Statue - Denver</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light Slate */
+            color: #1e293b; /* Dark Slate */
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-heading {
+            font-size: 2.5rem; /* Equivalent to text-4xl */
+            font-weight: 700; /* Equivalent to font-bold */
+            color: #1e293b; /* Dark Slate */
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .sub-section-heading {
+            font-size: 1.75rem; /* Equivalent to text-2xl */
+            font-weight: 600; /* Equivalent to font-semibold */
+            color: #334155; /* Medium Slate */
+            margin-bottom: 1rem;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: #3b82f6; /* Blue-500 */
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background-color: #2563eb; /* Blue-600 */
+            transform: translateY(-2px);
+        }
+        .hero-section {
+            background-color: #8B4513; /* Saddle Brown - earthy tone */
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 1.5rem; /* rounded-3xl */
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.2); /* subtle inner shadow for depth */
+        }
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        .text-shadow-strong {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
 
+        /* Styling for the Statue visual block */
+        .statue-visual {
+            background: linear-gradient(to bottom right, #cd853f, #a0522d); /* Bronze-like gradient */
+            border-radius: 1rem;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .statue-emoji {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Styling for Artist visual block */
+        .artist-visual {
+            background: linear-gradient(to right, #b0e0e6, #87ceeb); /* Light blue tones */
+            border-radius: 1rem;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #1e293b;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .artist-emoji {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Styling for Context visual block */
+        .context-visual {
+            background: linear-gradient(to top, #d3d3d3, #a9a9a9); /* Grey gradient */
+            border-radius: 1rem;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #1e293b;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .context-emoji {
+            font-size: 4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .detailed-point {
+            background-color: #f0f8ff; /* AliceBlue */
+            border-left: 4px solid #3b82f6; /* Blue border */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+    </style>
+</head>
+<body class="selection:bg-blue-300">
+    <!-- Header/Navigation -->
+    <header class="bg-white py-4 shadow-sm">
+        <div class="container flex justify-between items-center px-4 md:px-8">
+            <h1 class="text-2xl font-extrabold text-blue-600">Denver's Bronco Buster</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a></li>
+                    <li><a href="#sculpture" class="text-gray-700 hover:text-blue-600 font-medium">The Sculpture</a></li>
+                    <li><a href="#artist" class="text-gray-700 hover:text-blue-600 font-medium">The Artist</a></li>
+                    <li><a href="#legacy" class="text-gray-700 hover:text-blue-600 font-medium">Legacy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-12 md:py-20 px-4 md:px-8">
+            <div class="container hero-section">
+                <div class="hero-overlay rounded-3xl">
+                    <h2 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight text-shadow-strong">
+                        The "Bronco Buster" Statue
+                    </h2>
+                    <p class="text-xl md:text-2xl text-white font-light max-w-3xl text-shadow-strong">
+                        Capturing the Spirit of the American West in Denver's Civic Center Park
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-12 px-4 md:px-8">
+            <div class="container card">
+                <h3 class="section-heading">About the "Bronco Buster"</h3>
+                <p class="text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
+                    Located prominently in Denver's Civic Center Park, the "Bronco Buster" is a bronze sculpture that embodies the raw energy and skill associated with the American cowboy and the frontier spirit. Dedicated in 1920, this iconic work is a significant piece of Denver's public art collection.
+                    It captures a dynamic moment of a cowboy wrestling to stay atop a bucking horse, symbolizing themes of control, strength, and the challenging nature of the untamed West.
+                </p>
+            </div>
+        </section>
+
+        <!-- The Sculpture Section -->
+        <section id="sculpture" class="py-12 px-4 md:px-8 bg-blue-50">
+            <div class="container">
+                <h3 class="section-heading">A Dynamic Depiction and Its Making</h3>
+
+                <div class="card grid md:grid-cols-2 gap-8 items-center">
+                    <div class="statue-visual">
+                        <span class="statue-emoji">🐎🤠</span>
+                        <p class="mt-2 text-xl font-bold">The Struggle Captured in Bronze</p>
+                        <p class="text-sm mt-1">Movement, power, and determination.</p>
+                    </div>
+                    <div>
+                        <h4 class="sub-section-heading">The Cowboy and the Wild Horse</h4>
+                        <p class="text-gray-700 mb-4">
+                            The "Bronco Buster" depicts a rugged cowboy fighting to maintain his seat on a rearing, plunging horse. Details like the cowboy's quirt (a short riding whip) in one hand and his grip on the mane and reins in the other convey the intensity of the struggle. The sculpture masterfully captures the vigorous movement and the lifelike quality of both horse and rider. The horse's neck twists, counterbalancing the cowboy's sharp pull, creating a moment of dramatic, suspended energy.
+                        </p>
+                        <p class="text-gray-700">
+                            The model for the cowboy in this sculpture was reportedly Bill "Slim" Ridings. Notably, Ridings was arrested for cattle rustling during the modeling process, and the artist, Alexander Phimister Proctor, reportedly paid his bail to allow the completion of the statue.
+                        </p>
+                        <h4 class="sub-section-heading mt-6">Behind the Bronze: The Casting Process</h4>
+                        <p class="text-gray-700 mb-4">
+                            Creating a monumental bronze sculpture like the "Bronco Buster" was a complex endeavor, typically involving several stages and a close collaboration between the artist and a specialized foundry.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="detailed-point">
+                                <p class="font-semibold text-blue-700">Initial Modeling:</p>
+                                <p class="text-gray-700 text-sm">Proctor would have first created a detailed model in clay or wax, capturing the intricate pose and dynamic energy. This initial model allowed for refinement and adjustment of the composition.</p>
+                            </div>
+                            <div class="detailed-point">
+                                <p class="font-semibold text-blue-700">Plaster Mold Creation:</p>
+                                <p class="text-gray-700 text-sm">From the clay or wax model, a plaster mold would be made. This plaster model served as the master for the bronze casting process.</p>
+                            </div>
+                            <div class="detailed-point">
+                                <p class="font-semibold text-blue-700">Bronze Casting (Lost-Wax Method):</p>
+                                <p class="text-gray-700 text-sm">While earlier American bronzes often used the sand-casting method, by the early 20th century, the lost-wax (cire perdu) method had become the preferred technique for fine art sculpture due to its ability to capture finer details and allow for more complex compositions in a single piece. In this process, a flexible gelatin or glue mold is made from the plaster. A wax positive is then created from this flexible mold. This wax model is encased in an investment material (a ceramic-like shell), heated to melt out the wax (hence "lost wax"), leaving a hollow cavity. Molten bronze is then poured into this cavity. Once cooled, the outer mold is broken away to reveal the raw bronze sculpture.</p>
+                            </div>
+                            <div class="detailed-point">
+                                <p class="font-semibold text-blue-700">Finishing and Patination:</p>
+                                <p class="text-gray-700 text-sm">After casting, the bronze sculpture undergoes extensive finishing, including chasing (refining surface details), welding seams if multiple sections were cast, and applying a patina. The patina, achieved through chemical treatments and heat, gives the bronze its characteristic color and protective layer, contributing significantly to the artwork's final appearance and longevity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Artist Section -->
+        <section id="artist" class="py-12 px-4 md:px-8">
+            <div class="container card">
+                <h3 class="section-heading">The Artist: Alexander Phimister Proctor</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h4 class="sub-section-heading">Master of Western Sculpture</h4>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            Denver's "Bronco Buster" was created by **Alexander Phimister Proctor** (1860-1950), a distinguished American sculptor often referred to as one of the nation's foremost "animaliers" (sculptors specializing in animals). Proctor's early life in the frontier town of Denver, starting in 1871, deeply influenced his artistic focus on Western subjects, including wildlife and figures from cowboy and Native American life.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Proctor's artistic journey included studies at the National Academy of Design and The Art Students League in New York City, and further training in Paris at the Académie Julian and Académie Colarossi. His reputation grew with commissions for the 1893 World's Columbian Exhibition in Chicago, where he displayed numerous Western animals and large equestrian monuments of Native Americans. He was known for blending the classical Beaux-Arts style with an authentic American vigor and dignity, emphasizing realism and dynamic action in his works. His deep personal connection to the West, which included living with the Crow Indians and modeling at events like the Pendleton Round-up Rodeo in Oregon, allowed him to imbue his sculptures with remarkable authenticity and kinetic energy.
+                        </p>
+                    </div>
+                    <div class="artist-visual">
+                        <span class="artist-emoji">👨‍🎨🏞️</span>
+                        <p class="font-bold text-xl mt-2">Alexander Phimister Proctor</p>
+                        <p class="text-sm mt-1">Capturing the soul of the West.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historical Context and Legacy Section -->
+        <section id="legacy" class="py-12 px-4 md:px-8 bg-blue-50">
+            <div class="container card text-center">
+                <h3 class="section-heading">Historical Context and Enduring Legacy</h3>
+                <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-6">
+                    The "Bronco Buster" was commissioned as part of a larger vision for Denver's Civic Center Park, heavily influenced by the **"City Beautiful" movement** of the early 20th century. This movement aimed to enhance cities through grand, neoclassical architecture, urban planning, and monumental public art, often reflecting civic ideals and regional identity.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-6">
+                    Commissioned by Mayor Robert Speer's administration and presented to the city by John Kernan Mullen in 1920, the "Bronco Buster" is paired with another significant statue in Civic Center Park, "On the War Trail," also by Proctor. Together, these two sculptures were intended to provide a visual narrative of Colorado's Western origins and the broader frontier era, celebrating the pioneering spirit and challenging life on the plains.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-6">
+                    While these statues celebrate the spirit of pioneering and the challenging life of the cowboy, it is also important to acknowledge that they represent one particular perspective of Western expansion. Public art from this era often highlighted themes of "taming" nature and land, which, from a contemporary viewpoint, may overlook or simplify the complex histories of Indigenous peoples and the diverse narratives of the West. The "Bronco Buster" remains a significant historical and artistic landmark in Denver, inviting ongoing reflection on the many layers of Western American heritage and its evolving interpretation.
+                </p>
+                <div class="context-visual mx-auto mt-6 max-w-4xl">
+                    <span class="context-emoji">🏛️📜</span>
+                    <p class="mt-2 text-xl font-bold">Reflecting on Western Heritage</p>
+                    <p class="text-sm mt-1">A piece of Denver's evolving story.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container px-4 md:px-8 text-center">
+            <p class="mb-2">&copy; 2025 Denver's Public Art. All rights reserved.</p>
+            <p class="mb-2">Located at: Civic Center Park, W. 14th Ave. & Bannock St., Denver, CO 80202</p>
+            <p>For inquiries, please contact: <a href="mailto:testedprofit@gmail.com" class="text-blue-400 hover:underline">testedprofit@gmail.com</a></p>
+            <p class="mt-4 text-sm text-gray-400">Website by Tested Profit</p>
+        </div>
+    </footer>
+</body>
+</html>
