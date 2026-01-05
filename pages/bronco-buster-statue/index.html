@@ -6,232 +6,235 @@
     <title>The Bronco Buster Statue - Denver</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Inter for Body, Playfair Display for Headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        bronze: {
+                            50: '#fbf7f4',
+                            100: '#f5ebe3',
+                            200: '#ebd6c5',
+                            300: '#debfa2',
+                            400: '#cd9c76',
+                            500: '#a87853',
+                            600: '#9b6645',
+                            700: '#825239',
+                            800: '#6b4533', // Deep bronze
+                            900: '#56392d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Light Slate */
-            color: #1e293b; /* Dark Slate */
-            line-height: 1.6;
+            background-color: #fbf7f4; /* Very light warmth */
+            color: #1c1917; /* Stone 900 */
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section-heading {
-            font-size: 2.5rem; /* Equivalent to text-4xl */
-            font-weight: 700; /* Equivalent to font-bold */
-            color: #1e293b; /* Dark Slate */
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        .sub-section-heading {
-            font-size: 1.75rem; /* Equivalent to text-2xl */
-            font-weight: 600; /* Equivalent to font-semibold */
-            color: #334155; /* Medium Slate */
-            margin-bottom: 1rem;
-        }
-        .card {
-            background-color: #ffffff;
-            border-radius: 1rem; /* rounded-xl */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem; /* rounded-lg */
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            text-align: center;
-            cursor: pointer;
-        }
-        .btn-primary {
-            background-color: #3b82f6; /* Blue-500 */
-            color: #ffffff;
-        }
-        .btn-primary:hover {
-            background-color: #2563eb; /* Blue-600 */
-            transform: translateY(-2px);
-        }
-        .hero-section {
-            background-color: #8B4513; /* Saddle Brown - earthy tone */
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            border-radius: 1.5rem; /* rounded-3xl */
-            overflow: hidden;
-            position: relative;
-            box-shadow: inset 0 0 50px rgba(0,0,0,0.2); /* subtle inner shadow for depth */
-        }
-        .hero-overlay {
-            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-        .text-shadow-strong {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
 
-        /* Styling for the Statue visual block */
-        .statue-visual {
-            background: linear-gradient(to bottom right, #cd853f, #a0522d); /* Bronze-like gradient */
-            border-radius: 1rem;
-            height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 2rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        .statue-emoji {
-            font-size: 5rem;
-            margin-bottom: 1rem;
+        /* Hero Pattern using CSS only */
+        .hero-pattern {
+            background-color: #1c1917;
+            background-image: radial-gradient(#825239 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
-        /* Styling for Artist visual block */
-        .artist-visual {
-            background: linear-gradient(to right, #b0e0e6, #87ceeb); /* Light blue tones */
-            border-radius: 1rem;
-            height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #1e293b;
-            padding: 2rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        .artist-emoji {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
+        .statue-gradient {
+            background: linear-gradient(135deg, #a87853 0%, #6b4533 100%);
         }
 
-        /* Styling for Context visual block */
-        .context-visual {
-            background: linear-gradient(to top, #d3d3d3, #a9a9a9); /* Grey gradient */
-            border-radius: 1rem;
-            height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #1e293b;
-            padding: 2rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        /* Custom Scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .context-emoji {
-            font-size: 4rem;
-            margin-bottom: 0.75rem;
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a87853; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #825239; 
         }
 
-        .detailed-point {
-            background-color: #f0f8ff; /* AliceBlue */
-            border-left: 4px solid #3b82f6; /* Blue border */
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
+        /* Timeline CSS */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e5e7eb;
+            transform: translateX(-50%);
         }
-
+        
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 20px;
+            }
+        }
     </style>
 </head>
-<body class="selection:bg-blue-300">
-    <!-- Header/Navigation -->
-    <header class="bg-white py-4 shadow-sm">
-        <div class="container flex justify-between items-center px-4 md:px-8">
-            <h1 class="text-2xl font-extrabold text-blue-600">Denver's Bronco Buster</h1>
-            <nav>
-                <ul class="flex space-x-4">
-                    <li><a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a></li>
-                    <li><a href="#sculpture" class="text-gray-700 hover:text-blue-600 font-medium">The Sculpture</a></li>
-                    <li><a href="#artist" class="text-gray-700 hover:text-blue-600 font-medium">The Artist</a></li>
-                    <li><a href="#legacy" class="text-gray-700 hover:text-blue-600 font-medium">Legacy</a></li>
-                </ul>
-            </nav>
+<body class="antialiased selection:bg-bronze-200 selection:text-bronze-900">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-100 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-serif text-2xl font-bold text-bronze-800 tracking-tight hover:text-bronze-600 transition">
+                Denver's <span class="italic">Bronco Buster</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide text-stone-600">
+                <a href="#history" class="hover:text-bronze-700 transition">History</a>
+                <a href="#process" class="hover:text-bronze-700 transition">The Process</a>
+                <a href="#artist" class="hover:text-bronze-700 transition">The Artist</a>
+                <a href="#legacy" class="hover:text-bronze-700 transition">Legacy</a>
+            </div>
+            <!-- Mobile Menu Button (Placeholder functionality) -->
+            <button class="md:hidden text-stone-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative hero-pattern text-white py-24 md:py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/80 to-transparent"></div>
+        <div class="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+            <div class="mb-6 inline-block p-3 rounded-full bg-bronze-900/50 border border-bronze-500/30 backdrop-blur-sm">
+                <span class="text-3xl filter drop-shadow-lg">🐎</span>
+            </div>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight text-bronze-100">
+                The Bronco Buster
+            </h1>
+            <p class="text-lg md:text-xl font-light text-stone-300 max-w-2xl leading-relaxed">
+                A masterpiece of Western realism located in the heart of Denver's Civic Center Park. Capturing the raw tension between man and nature.
+            </p>
+            <div class="mt-10 flex flex-col md:flex-row gap-4">
+                <a href="#history" class="bg-bronze-600 hover:bg-bronze-500 text-white px-8 py-3 rounded-md font-medium transition shadow-lg shadow-bronze-900/50">
+                    Explore History
+                </a>
+                <a href="#legacy" class="bg-transparent border border-stone-400 hover:border-white text-stone-300 hover:text-white px-8 py-3 rounded-md font-medium transition">
+                    View Significance
+                </a>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="py-12 md:py-20 px-4 md:px-8">
-            <div class="container hero-section">
-                <div class="hero-overlay rounded-3xl">
-                    <h2 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight text-shadow-strong">
-                        The "Bronco Buster" Statue
-                    </h2>
-                    <p class="text-xl md:text-2xl text-white font-light max-w-3xl text-shadow-strong">
-                        Capturing the Spirit of the American West in Denver's Civic Center Park
-                    </p>
+        <!-- History Timeline Section -->
+        <section id="history" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-4xl font-bold text-stone-800 mb-4">A Historic Timeline</h2>
+                    <div class="h-1 w-20 bg-bronze-500 mx-auto rounded-full"></div>
+                    <p class="mt-4 text-stone-600 max-w-2xl mx-auto">From the Columbian Exhibition to its permanent home in Denver, trace the journey of this iconic sculpture.</p>
+                </div>
+
+                <div class="relative max-w-4xl mx-auto">
+                    <!-- Vertical Line -->
+                    <div class="timeline-line"></div>
+
+                    <!-- Item 1 -->
+                    <div class="relative md:flex items-center justify-between mb-12 group">
+                        <div class="order-1 w-full md:w-5/12 md:text-right px-4">
+                            <h3 class="font-serif text-xl font-bold text-stone-800">The "Buckaroo" Debut</h3>
+                            <span class="text-bronze-600 font-bold text-sm tracking-widest uppercase">1893</span>
+                            <p class="text-stone-600 mt-2 text-sm leading-relaxed">Alexander Phimister Proctor debuts the original plaster model, titled "The Buckaroo," at the World's Columbian Exposition in Chicago, gaining national attention.</p>
+                        </div>
+                        <div class="z-10 flex items-center order-1 bg-bronze-600 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto"></div>
+                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <!-- Spacer -->
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative md:flex items-center justify-between mb-12 group">
+                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <!-- Spacer -->
+                        <div class="z-10 flex items-center order-1 bg-stone-700 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto"></div>
+                        <div class="order-1 w-full md:w-5/12 text-left px-4">
+                            <h3 class="font-serif text-xl font-bold text-stone-800">Modeling with Controversy</h3>
+                            <span class="text-bronze-600 font-bold text-sm tracking-widest uppercase">Early 1900s</span>
+                            <p class="text-stone-600 mt-2 text-sm leading-relaxed">Proctor refines the model. His cowboy model, Bill "Slim" Ridings, is arrested for cattle rustling. Proctor famously posts his bail to finish the sculpture.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative md:flex items-center justify-between mb-12 group">
+                        <div class="order-1 w-full md:w-5/12 md:text-right px-4">
+                            <h3 class="font-serif text-xl font-bold text-stone-800">Gift to the City</h3>
+                            <span class="text-bronze-600 font-bold text-sm tracking-widest uppercase">1920</span>
+                            <p class="text-stone-600 mt-2 text-sm leading-relaxed">Commissioned by Mayor Robert Speer's administration during the "City Beautiful" movement, the statue is gifted to Denver by philanthropist J.K. Mullen.</p>
+                        </div>
+                        <div class="z-10 flex items-center order-1 bg-bronze-600 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto"></div>
+                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <!-- Spacer -->
+                    </div>
+
+                     <!-- Item 4 -->
+                     <div class="relative md:flex items-center justify-between group">
+                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <!-- Spacer -->
+                        <div class="z-10 flex items-center order-1 bg-stone-700 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto"></div>
+                        <div class="order-1 w-full md:w-5/12 text-left px-4">
+                            <h3 class="font-serif text-xl font-bold text-stone-800">Civic Center Icon</h3>
+                            <span class="text-bronze-600 font-bold text-sm tracking-widest uppercase">Today</span>
+                            <p class="text-stone-600 mt-2 text-sm leading-relaxed">Paired with "On the War Trail," it remains a central fixture of Civic Center Park, representing the complexities of the American frontier.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-12 px-4 md:px-8">
-            <div class="container card">
-                <h3 class="section-heading">About the "Bronco Buster"</h3>
-                <p class="text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
-                    Located prominently in Denver's Civic Center Park, the "Bronco Buster" is a bronze sculpture that embodies the raw energy and skill associated with the American cowboy and the frontier spirit. Dedicated in 1920, this iconic work is a significant piece of Denver's public art collection.
-                    It captures a dynamic moment of a cowboy wrestling to stay atop a bucking horse, symbolizing themes of control, strength, and the challenging nature of the untamed West.
-                </p>
-            </div>
-        </section>
-
-        <!-- The Sculpture Section -->
-        <section id="sculpture" class="py-12 px-4 md:px-8 bg-blue-50">
-            <div class="container">
-                <h3 class="section-heading">A Dynamic Depiction and Its Making</h3>
-
-                <div class="card grid md:grid-cols-2 gap-8 items-center">
-                    <div class="statue-visual">
-                        <span class="statue-emoji">🐎🤠</span>
-                        <p class="mt-2 text-xl font-bold">The Struggle Captured in Bronze</p>
-                        <p class="text-sm mt-1">Movement, power, and determination.</p>
+        <!-- The Making / Process Section -->
+        <section id="process" class="py-20 bg-stone-100">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row gap-12 items-start">
+                    
+                    <!-- Left Side: Visual -->
+                    <div class="w-full md:w-1/3 sticky top-24">
+                        <div class="statue-gradient p-8 rounded-2xl shadow-2xl text-center text-white">
+                            <div class="text-6xl mb-4">⚒️</div>
+                            <h3 class="font-serif text-2xl font-bold mb-2">The Lost-Wax Method</h3>
+                            <p class="text-bronze-100 text-sm mb-6">A 6,000-year-old technique used to create the fine details of the Bronco Buster.</p>
+                            <div class="bg-white/10 rounded-lg p-4 text-left space-y-2">
+                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3">1</span> Clay Modeling</div>
+                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3">2</span> Wax Positive</div>
+                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3">3</span> Ceramic Shell</div>
+                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3">4</span> Bronze Pour</div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="sub-section-heading">The Cowboy and the Wild Horse</h4>
-                        <p class="text-gray-700 mb-4">
-                            The "Bronco Buster" depicts a rugged cowboy fighting to maintain his seat on a rearing, plunging horse. Details like the cowboy's quirt (a short riding whip) in one hand and his grip on the mane and reins in the other convey the intensity of the struggle. The sculpture masterfully captures the vigorous movement and the lifelike quality of both horse and rider. The horse's neck twists, counterbalancing the cowboy's sharp pull, creating a moment of dramatic, suspended energy.
-                        </p>
-                        <p class="text-gray-700">
-                            The model for the cowboy in this sculpture was reportedly Bill "Slim" Ridings. Notably, Ridings was arrested for cattle rustling during the modeling process, and the artist, Alexander Phimister Proctor, reportedly paid his bail to allow the completion of the statue.
-                        </p>
-                        <h4 class="sub-section-heading mt-6">Behind the Bronze: The Casting Process</h4>
-                        <p class="text-gray-700 mb-4">
-                            Creating a monumental bronze sculpture like the "Bronco Buster" was a complex endeavor, typically involving several stages and a close collaboration between the artist and a specialized foundry.
-                        </p>
-                        <div class="space-y-4">
-                            <div class="detailed-point">
-                                <p class="font-semibold text-blue-700">Initial Modeling:</p>
-                                <p class="text-gray-700 text-sm">Proctor would have first created a detailed model in clay or wax, capturing the intricate pose and dynamic energy. This initial model allowed for refinement and adjustment of the composition.</p>
+
+                    <!-- Right Side: Content -->
+                    <div class="w-full md:w-2/3">
+                        <h2 class="font-serif text-4xl font-bold text-stone-800 mb-8">From Clay to Bronze</h2>
+                        
+                        <div class="grid gap-6">
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-bronze-300 transition duration-300">
+                                <h4 class="font-bold text-lg text-stone-800 mb-2">1. The Dynamic Composition</h4>
+                                <p class="text-stone-600">Proctor's genius lies in the "suspended energy" of the piece. The horse's neck twists violently, counterbalancing the cowboy's sharp pull on the reins. This wasn't just imagination; Proctor attended rodeos and lived with western communities to study the anatomy of movement.</p>
                             </div>
-                            <div class="detailed-point">
-                                <p class="font-semibold text-blue-700">Plaster Mold Creation:</p>
-                                <p class="text-gray-700 text-sm">From the clay or wax model, a plaster mold would be made. This plaster model served as the master for the bronze casting process.</p>
+
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-bronze-300 transition duration-300">
+                                <h4 class="font-bold text-lg text-stone-800 mb-2">2. Cire Perdue (Lost Wax)</h4>
+                                <p class="text-stone-600">Unlike earlier sand-casting methods which were cheaper but cruder, this statue utilized the lost-wax method. A wax replica of the original clay model is encased in a heat-resistant mold. The wax is melted out, and molten bronze is poured into the void. This captures the artist's literal fingerprints from the clay.</p>
                             </div>
-                            <div class="detailed-point">
-                                <p class="font-semibold text-blue-700">Bronze Casting (Lost-Wax Method):</p>
-                                <p class="text-gray-700 text-sm">While earlier American bronzes often used the sand-casting method, by the early 20th century, the lost-wax (cire perdu) method had become the preferred technique for fine art sculpture due to its ability to capture finer details and allow for more complex compositions in a single piece. In this process, a flexible gelatin or glue mold is made from the plaster. A wax positive is then created from this flexible mold. This wax model is encased in an investment material (a ceramic-like shell), heated to melt out the wax (hence "lost wax"), leaving a hollow cavity. Molten bronze is then poured into this cavity. Once cooled, the outer mold is broken away to reveal the raw bronze sculpture.</p>
-                            </div>
-                            <div class="detailed-point">
-                                <p class="font-semibold text-blue-700">Finishing and Patination:</p>
-                                <p class="text-gray-700 text-sm">After casting, the bronze sculpture undergoes extensive finishing, including chasing (refining surface details), welding seams if multiple sections were cast, and applying a patina. The patina, achieved through chemical treatments and heat, gives the bronze its characteristic color and protective layer, contributing significantly to the artwork's final appearance and longevity.</p>
+
+                            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-bronze-300 transition duration-300">
+                                <h4 class="font-bold text-lg text-stone-800 mb-2">3. The Patina</h4>
+                                <p class="text-stone-600">The final stage involved chemical applications and heat to create the "patina"—the surface color. Over the last century, Denver's weather has interacted with this bronze, requiring careful conservation to maintain the intended aesthetic against oxidation.</p>
                             </div>
                         </div>
                     </div>
@@ -239,58 +242,85 @@
             </div>
         </section>
 
-        <!-- The Artist Section -->
-        <section id="artist" class="py-12 px-4 md:px-8">
-            <div class="container card">
-                <h3 class="section-heading">The Artist: Alexander Phimister Proctor</h3>
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h4 class="sub-section-heading">Master of Western Sculpture</h4>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
-                            Denver's "Bronco Buster" was created by **Alexander Phimister Proctor** (1860-1950), a distinguished American sculptor often referred to as one of the nation's foremost "animaliers" (sculptors specializing in animals). Proctor's early life in the frontier town of Denver, starting in 1871, deeply influenced his artistic focus on Western subjects, including wildlife and figures from cowboy and Native American life.
+        <!-- Artist Profile -->
+        <section id="artist" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="bg-stone-900 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
+                    <div class="md:w-1/2 p-12 flex flex-col justify-center">
+                        <span class="text-bronze-400 font-bold tracking-widest uppercase text-sm mb-2">The Sculptor</span>
+                        <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Alexander Phimister Proctor</h2>
+                        <p class="text-stone-300 leading-relaxed mb-6">
+                            Known as the "Sculptor in Buckskin," Proctor (1860–1950) was unique among his Beaux-Arts contemporaries. He didn't just observe the West; he lived it.
                         </p>
-                        <p class="text-gray-700 leading-relaxed mb-4">
-                            Proctor's artistic journey included studies at the National Academy of Design and The Art Students League in New York City, and further training in Paris at the Académie Julian and Académie Colarossi. His reputation grew with commissions for the 1893 World's Columbian Exhibition in Chicago, where he displayed numerous Western animals and large equestrian monuments of Native Americans. He was known for blending the classical Beaux-Arts style with an authentic American vigor and dignity, emphasizing realism and dynamic action in his works. His deep personal connection to the West, which included living with the Crow Indians and modeling at events like the Pendleton Round-up Rodeo in Oregon, allowed him to imbue his sculptures with remarkable authenticity and kinetic energy.
-                        </p>
+                        <ul class="space-y-4 text-stone-400">
+                            <li class="flex items-start">
+                                <span class="text-bronze-500 mr-2">✦</span> 
+                                Raised in Denver when it was still a frontier town (arrived 1871).
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-bronze-500 mr-2">✦</span> 
+                                Studied in Paris but returned to the Rockies to hunt and sketch.
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-bronze-500 mr-2">✦</span> 
+                                Often confused with Frederic Remington, though Proctor's work is considered by critics to be more anatomically precise.
+                            </li>
+                        </ul>
                     </div>
-                    <div class="artist-visual">
-                        <span class="artist-emoji">👨‍🎨🏞️</span>
-                        <p class="font-bold text-xl mt-2">Alexander Phimister Proctor</p>
-                        <p class="text-sm mt-1">Capturing the soul of the West.</p>
+                    <div class="md:w-1/2 bg-bronze-800 relative min-h-[400px]">
+                        <!-- Abstract representation of the artist's workspace -->
+                        <div class="absolute inset-0 flex items-center justify-center opacity-20">
+                            <div class="text-[15rem]">👨‍🎨</div>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-stone-900 to-transparent">
+                            <p class="text-white font-serif italic text-lg">"I am capturing the West that is passing."</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Historical Context and Legacy Section -->
-        <section id="legacy" class="py-12 px-4 md:px-8 bg-blue-50">
-            <div class="container card text-center">
-                <h3 class="section-heading">Historical Context and Enduring Legacy</h3>
-                <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-6">
-                    The "Bronco Buster" was commissioned as part of a larger vision for Denver's Civic Center Park, heavily influenced by the **"City Beautiful" movement** of the early 20th century. This movement aimed to enhance cities through grand, neoclassical architecture, urban planning, and monumental public art, often reflecting civic ideals and regional identity.
-                </p>
-                <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-6">
-                    Commissioned by Mayor Robert Speer's administration and presented to the city by John Kernan Mullen in 1920, the "Bronco Buster" is paired with another significant statue in Civic Center Park, "On the War Trail," also by Proctor. Together, these two sculptures were intended to provide a visual narrative of Colorado's Western origins and the broader frontier era, celebrating the pioneering spirit and challenging life on the plains.
-                </p>
-                <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-6">
-                    While these statues celebrate the spirit of pioneering and the challenging life of the cowboy, it is also important to acknowledge that they represent one particular perspective of Western expansion. Public art from this era often highlighted themes of "taming" nature and land, which, from a contemporary viewpoint, may overlook or simplify the complex histories of Indigenous peoples and the diverse narratives of the West. The "Bronco Buster" remains a significant historical and artistic landmark in Denver, inviting ongoing reflection on the many layers of Western American heritage and its evolving interpretation.
-                </p>
-                <div class="context-visual mx-auto mt-6 max-w-4xl">
-                    <span class="context-emoji">🏛️📜</span>
-                    <p class="mt-2 text-xl font-bold">Reflecting on Western Heritage</p>
-                    <p class="text-sm mt-1">A piece of Denver's evolving story.</p>
+        <!-- Legacy & Conclusion -->
+        <section id="legacy" class="py-20 bg-bronze-50">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="font-serif text-4xl font-bold text-stone-800 mb-6">A Legacy Set in Bronze</h2>
+                    <p class="text-lg text-stone-600 leading-relaxed mb-10">
+                        The Bronco Buster is more than metal; it is a time capsule of the 1920s "City Beautiful" movement. While it celebrates the grit of the American cowboy, modern viewers also reflect on the era it represents—a time of rapid expansion and changing landscapes. It stands today not just as art, but as a conversation starter about our history.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-bronze-500">
+                            <h4 class="font-bold text-stone-800">Location</h4>
+                            <p class="text-sm text-stone-600">Civic Center Park<br>W. 14th Ave & Bannock St</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-bronze-500">
+                            <h4 class="font-bold text-stone-800">Material</h4>
+                            <p class="text-sm text-stone-600">Cast Bronze<br>Granite Pedestal</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-bronze-500">
+                            <h4 class="font-bold text-stone-800">Year Dedicated</h4>
+                            <p class="text-sm text-stone-600">1920<br>Donor: J.K. Mullen</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 mt-12">
-        <div class="container px-4 md:px-8 text-center">
-            <p class="mb-2">&copy; 2025 Denver's Public Art. All rights reserved.</p>
-            <p class="mb-2">Located at: Civic Center Park, W. 14th Ave. & Bannock St., Denver, CO 80202</p>
-            <p>For inquiries, please contact: <a href="mailto:testedprofit@gmail.com" class="text-blue-400 hover:underline">testedprofit@gmail.com</a></p>
-            <p class="mt-4 text-sm text-gray-400">Website by Tested Profit</p>
+    <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <span class="font-serif text-2xl font-bold text-white block mb-2">Denver Public Art</span>
+                <p class="text-sm">Preserving history through bronze and stone.</p>
+            </div>
+            <div class="flex space-x-6 text-sm">
+                <a href="#" class="hover:text-white transition">Accessibility</a>
+                <a href="#" class="hover:text-white transition">Park Map</a>
+                <a href="mailto:testedprofit@gmail.com" class="hover:text-white transition">Contact Us</a>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-8 pt-8 border-t border-stone-800 text-center text-xs">
+            &copy; 2025 Denver Public Art Legacy. Website Design by Tested Profit.
         </div>
     </footer>
 </body>
