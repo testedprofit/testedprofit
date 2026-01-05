@@ -1,0 +1,440 @@
+<!--
+  Shopify Custom Liquid Section: Profitnet Ecosystem
+  Version: 2.0.0
+  Author: Master Coder, UI Designer, Director of IT
+  Description: A complete overhaul focusing on performance, UI/UX, accessibility, and code maintainability.
+-->
+
+<!--
+  [DIRECTOR'S NOTE]:
+  Dependencies are pre-loaded for performance. We're using TailwindCSS for utility-first styling,
+  Inter for typography, and Font Awesome for iconography. Pre-connecting to font origins
+  is a critical performance optimization.
+-->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    /*
+      [UI/UX NOTE]:
+      A centralized CSS variable system ensures brand consistency and easy theme updates.
+      The design language is futuristic, clean, and professional, using a dark-mode-first approach.
+      The animated aurora background adds a dynamic, premium feel without compromising performance.
+    */
+    #profitnet-section-wrapper {
+        --primary-dark: #0A091B;
+        --secondary-dark: #1A1838;
+        --card-bg: rgba(26, 24, 56, 0.4);
+        --border-color: rgba(255, 255, 255, 0.1);
+        --text-light: #E5E7EB;
+        --text-muted: #9CA3AF;
+        --accent-green: #34D399;
+        --accent-blue: #60A5FA;
+        --shadow-glow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+        
+        font-family: var(--font-family);
+        color: var(--text-light);
+        background-color: var(--primary-dark);
+        line-height: 1.6;
+        position: relative;
+        overflow: hidden; /* Prevent background bleed */
+    }
+
+    #profitnet-section-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 15% 25%, rgba(96, 165, 250, 0.15), transparent 40%),
+            radial-gradient(circle at 85% 75%, rgba(52, 211, 153, 0.15), transparent 40%);
+        z-index: 1;
+        animation: subtle-aurora 25s infinite alternate ease-in-out;
+    }
+    
+    #profitnet-section-wrapper > * {
+        position: relative;
+        z-index: 2;
+    }
+
+    @keyframes subtle-aurora {
+        0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+        50% { opacity: 1; }
+        100% { transform: translate(-20px, -30px) scale(1.2); opacity: 0.6; }
+    }
+    
+    .gradient-text {
+        background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
+
+    .cta-button {
+        background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 10px 20px rgba(52, 211, 153, 0.2), 0 6px 6px rgba(96, 165, 250, 0.2);
+    }
+    .cta-button:focus-visible {
+        outline: 2px solid var(--accent-blue);
+        outline-offset: 2px;
+    }
+
+    .glass-card {
+        background-color: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .glass-card:hover {
+        background-color: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.25);
+        transform: translateY(-5px);
+    }
+
+    .faq-item .faq-answer {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.4s ease-in-out;
+    }
+
+    .faq-item .faq-answer > div {
+        overflow: hidden;
+    }
+
+    .faq-item.open .faq-answer {
+        grid-template-rows: 1fr;
+    }
+</style>
+
+<div id="profitnet-section-wrapper" class="antialiased">
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center py-24 px-4 sm:px-6 lg:px-8">
+            <div class="absolute inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,white_5%,transparent_80%)]"></div>
+            
+            <div class="container mx-auto text-center z-10">
+                <a href="#" class="inline-flex items-center space-x-4 justify-center mb-6 group" aria-label="Profitnet Homepage">
+                    <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" alt="Profitnet Geometric Logo" class="h-14 w-14 object-contain transition-transform duration-300 group-hover:rotate-6">
+                    <span class="text-4xl font-bold gradient-text">Profitnet</span>
+                </a>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4">
+                    Unlock Your Digital Earnings
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10">
+                    Profitnet bridges the gap between Web2 earning platforms and Web3 utility, creating a sustainable, community-driven token ecosystem.
+                </p>
+
+                <!-- Navigation & CTA -->
+                <nav class="flex flex-wrap justify-center items-center gap-x-6 gap-y-4 mb-12">
+                    <a href="#earn-now" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Earn</a>
+                    <a href="#dashboard" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Leaderboard</a>
+                    <a href="#faq" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">FAQ</a>
+                    <a href="#community" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Community</a>
+                    <a href="#earn-now" class="cta-button text-white font-semibold px-6 py-3 rounded-lg shadow-lg">
+                        Get Started
+                    </a>
+                </nav>
+
+                <!-- Token Info Card -->
+                <div id="token" class="max-w-4xl mx-auto glass-card rounded-2xl p-6 md:p-8 border-0">
+                    <h2 class="text-2xl font-bold text-white mb-4">The $PNET Token</h2>
+                    <div class="mb-6">
+                        <p class="text-gray-400 uppercase text-sm font-semibold tracking-wider">Algorand Standard Asset (ASA) ID</p>
+                        <p class="text-xl lg:text-2xl font-mono text-white tracking-wider bg-gray-900/50 rounded-lg py-3 px-5 inline-block mt-2 border border-gray-700">3169177585</p>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
+                        <a href="https://www.testedprofit.com/pages/tokenomics" target="_blank" rel="noopener noreferrer" class="cta-button text-white font-semibold px-5 py-2 rounded-lg text-sm flex items-center gap-2">Tokenomics <i class="fa-solid fa-chart-pie fa-sm"></i></a>
+                        <a href="https://explorer.perawallet.app/asset/3169177585/" target="_blank" rel="noopener noreferrer" class="cta-button text-white font-semibold px-5 py-2 rounded-lg text-sm flex items-center gap-2">Pera Explorer <i class="fa-solid fa-search fa-sm"></i></a>
+                        <a href="https://vestige.fi/asset/3169177585" target="_blank" rel="noopener noreferrer" class="cta-button text-white font-semibold px-5 py-2 rounded-lg text-sm flex items-center gap-2">Vestige Tracker <i class="fa-solid fa-chart-line fa-sm"></i></a>
+                        <a href="https://www.testedprofit.com/pages/tools" target="_blank" rel="noopener noreferrer" class="cta-button text-white font-semibold px-5 py-2 rounded-lg text-sm flex items-center gap-2">Tools <i class="fa-solid fa-wrench fa-sm"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Earn Now Section -->
+        <section id="earn-now" class="py-20 bg-black/20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Start Earning with Our Partners</h2>
+                    <p class="text-gray-400 mt-3 max-w-2xl mx-auto">We've partnered with leading platforms to provide reliable income streams. We are expanding our network of partners daily.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Partner Card: Honeygain -->
+                    <div class="glass-card rounded-2xl p-8 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/100x100/10B981/FFFFFF?text=HG&font=inter" alt="Honeygain Logo" class="rounded-full mb-5 shadow-lg">
+                        <h3 class="text-2xl font-bold text-white mb-2">Honeygain</h3>
+                        <p class="text-gray-400 mb-6 flex-grow">Share your unused internet connection and get paid. A simple way to earn passive income effortlessly.</p>
+                        <a href="https://join.honeygain.com/TESTE927D4/" target="_blank" rel="noopener noreferrer" class="cta-button w-full text-white font-semibold py-3 px-6 rounded-lg">Join Honeygain</a>
+                    </div>
+                    <!-- Partner Card: Swagbucks -->
+                    <div class="glass-card rounded-2xl p-8 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/100x100/3B82F6/FFFFFF?text=SB&font=inter" alt="Swagbucks Logo" class="rounded-full mb-5 shadow-lg">
+                        <h3 class="text-2xl font-bold text-white mb-2">Swagbucks</h3>
+                        <p class="text-gray-400 mb-6 flex-grow">Earn points by shopping online, watching videos, searching the web, and answering surveys.</p>
+                        <a href="https://www.swagbucks.com/profile/r_219527912?rp=3" target="_blank" rel="noopener noreferrer" class="cta-button w-full text-white font-semibold py-3 px-6 rounded-lg">Join Swagbucks</a>
+                    </div>
+                    <!-- Partner Card: EarnApp -->
+                    <div class="glass-card rounded-2xl p-8 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/100x100/8B5CF6/FFFFFF?text=EA&font=inter" alt="EarnApp Logo" class="rounded-full mb-5 shadow-lg">
+                        <h3 class="text-2xl font-bold text-white mb-2">EarnApp</h3>
+                        <p class="text-gray-400 mb-6 flex-grow">Another great platform to earn passive income by sharing your unused bandwidth.</p>
+                        <a href="https://earnapp.com/i/iqBdX9xU" target="_blank" rel="noopener noreferrer" class="cta-button w-full text-white font-semibold py-3 px-6 rounded-lg">Join EarnApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaderboard Section -->
+        <section id="dashboard" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">The Oceanic Hierarchy</h2>
+                    <p class="text-gray-400 mt-3 max-w-2xl mx-auto">Witness the great oceanic food chain. Ascend from foundational Plankton to become a legendary Leviathan. Only the strong survive and rise to the top.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-4 md:p-6 max-w-4xl mx-auto shadow-2xl">
+                    <div id="leaderboard-list" class="space-y-2">
+                        <!-- Leaderboard items will be injected here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-black/20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Frequently Asked Questions</h2>
+                </div>
+                <div class="space-y-4" id="faq-accordion">
+                    <div class="faq-item glass-card rounded-lg"><button class="faq-question w-full flex justify-between items-center text-left p-6" aria-expanded="false"><span class="text-lg font-semibold text-white">What is Profitnet?</span><i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i></button><div class="faq-answer"><div class="px-6 pb-6 text-gray-300"><p>Profitnet is a crypto project on the Algorand blockchain. Our mission is to create real-world utility for our token ($PNET) by bridging Web2.0 earning platforms with Web3.0 technology.</p></div></div></div>
+                    <div class="faq-item glass-card rounded-lg"><button class="faq-question w-full flex justify-between items-center text-left p-6" aria-expanded="false"><span class="text-lg font-semibold text-white">How do I start earning?</span><i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i></button><div class="faq-answer"><div class="px-6 pb-6 text-gray-300"><p>Navigate to our "Earn Now" section, choose a partner platform, and sign up using our referral link. This ensures a portion of the kickbacks support the Profitnet project.</p></div></div></div>
+                    <div class="faq-item glass-card rounded-lg"><button class="faq-question w-full flex justify-between items-center text-left p-6" aria-expanded="false"><span class="text-lg font-semibold text-white">Why Algorand?</span><i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i></button><div class="faq-answer"><div class="px-6 pb-6 text-gray-300"><p>Algorand is a powerful, secure, and scalable blockchain known for its low fees and high speed. It's also a carbon-negative network, which aligns with our vision for a sustainable ecosystem.</p></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community & Footer Section -->
+        <footer id="community" class="py-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Join the Conversation</h2>
+                <p class="text-gray-400 mt-3 max-w-2xl mx-auto">Stay up to date with the latest news, announcements, and connect with the Profitnet community.</p>
+                <div class="flex justify-center space-x-8 mt-8">
+                    <a href="https://x.com/TestedProfit" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-transform duration-300 hover:scale-110" aria-label="Follow us on X"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+                    <a href="https://discord.com/invite/aWG3MJGR" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-transform duration-300 hover:scale-110" aria-label="Join our Discord server"><svg class="w-8 h-8" fill="currentColor" role="img" viewBox="0 0 24 24"><path d="M20.222 0H3.778A2.222 2.222 0 0 0 1.556 2.222v15.556A2.222 2.222 0 0 0 3.778 20h12.222l4.444 4V2.222A2.222 2.222 0 0 0 20.222 0zM8.667 13.333H6.444V9.444h2.223v3.889zm4.889 0h-2.222V9.444h2.222v3.889zm4.89 0h-2.223V9.444h2.223v3.889z"></path></svg></a>
+                </div>
+               <p class="text-gray-400 mt-8">Direct inquiries: <a href="mailto:testedprofit@gmail.com" class="text-accent-green hover:underline">testedprofit@gmail.com</a></p>
+               <p class="text-gray-500 mt-12 text-sm">&copy; <span id="current-year"></span> Profitnet. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+    
+    <script>
+    /**
+     * [DIRECTOR'S NOTE]:
+     * This entire script is architected for robustness and clarity. It's wrapped in an IIFE
+     * to prevent global scope pollution. The initialization logic is idempotent, making it safe
+     * for Shopify's dynamic section loading environment. All DOM interactions, API calls, and
+     * event listeners are modularized for easy maintenance and debugging.
+     */
+    (() => {
+        'use strict';
+
+        if (window.profitnetAppInitialized) {
+            return;
+        }
+        window.profitnetAppInitialized = true;
+
+        const CONFIG = {
+            ASA_ID: 3169177585,
+            INDEXER_BASE: 'https://mainnet-idx.algonode.cloud',
+            REFRESH_INTERVAL_MS: 60000,
+            LEADERBOARD_COUNT: 100,
+            DECIMALS: 6,
+        };
+
+        const DOM = {
+            leaderboardList: document.getElementById('leaderboard-list'),
+            faqAccordion: document.getElementById('faq-accordion'),
+            currentYear: document.getElementById('current-year'),
+            smoothScrollLinks: document.querySelectorAll('#profitnet-section-wrapper a[href^="#"]'),
+        };
+
+        const oceanicRanks = [
+            { name: 'Vault of the Deep', emoji: '🔱' }, { name: 'Vault of the Abyss', emoji: '🏛️' }, { name: 'Orca', emoji: '⚫️⚪️' }, { name: 'Sperm Whale Bull', emoji: '🐳' }, { name: 'Sperm Whale (female & young)', emoji: '🐋' }, { name: 'Colossal Squid', emoji: '💪🦑' }, { name: 'Giant Squid', emoji: '🦑' }, { name: 'Oarfish', emoji: '🎗️' }, { name: 'Gulper Eel', emoji: '😲' }, { name: 'Anglerfish', emoji: '💡' },
+            { name: 'Blue Whale', emoji: '🐋' }, { name: 'Fin Whale', emoji: '🐋' }, { name: 'Bowhead Whale', emoji: '🐋' }, { name: 'Gray Whale', emoji: '🌫️' }, { name: 'Humpback Whale', emoji: '🐋' }, { name: 'Beluga Whale', emoji: '⚪️' }, { name: 'Narwhal', emoji: '🦄' }, { name: 'Beaked Whale', emoji: '🐋' }, { name: 'False Killer Whale', emoji: '🤫' }, { name: 'Pilot Whale', emoji: '✈️' },
+            { name: 'Dusky Dolphin', emoji: '🤸' }, { name: 'Spinner Dolphin', emoji: '🔄' }, { name: 'Bottlenose Dolphin', emoji: '🐬' }, { name: 'Elephant Seal (bull)', emoji: '🦭' }, { name: 'Elephant Seal (female)', emoji: '🦭' }, { name: 'Leopard Seal', emoji: '🐆' }, { name: 'Harbor Seal', emoji: '🦭' }, { name: 'Fur Seal', emoji: '🦭' }, { name: 'Sea Lion', emoji: '🦭' }, { name: 'Sea Otter', emoji: '🦦' },
+            { name: 'Cooperative Shark Groups', emoji: '🦈🤝' }, { name: 'Schooling Sharks', emoji: '🦈🦈' }, { name: 'Apex Great White', emoji: '👑🦈' }, { name: 'Great White Shark (adult)', emoji: '🦈' }, { name: 'Great White Shark (juvenile)', emoji: '🦈' }, { name: 'Greenland Shark', emoji: '🇬🇱' }, { name: 'Whale Shark', emoji: '🌌' }, { name: 'Basking Shark', emoji: '😮' }, { name: 'Oceanic Whitetip Shark', emoji: '⚪' }, { name: 'Bull Shark', emoji: '🐂' },
+            { name: 'Tiger Shark', emoji: '🐅' }, { name: 'Mako Shark', emoji: '💨' }, { name: 'Hammerhead Shark', emoji: '🔨' }, { name: 'Lemon Shark', emoji: '🍋' }, { name: 'Reef Shark', emoji: '🏝️' }, { name: 'Thresher Shark', emoji: '🌾' }, { name: 'Blue Shark', emoji: '💙' }, { name: 'Sandbar Shark', emoji: '🏖️' }, { name: 'Blacktip Reef Shark', emoji: '⚫' }, { name: 'Dogfish Shark', emoji: '🐶' },
+            { name: 'Bonito', emoji: '🐟' }, { name: 'Mackerel', emoji: '🐟' }, { name: 'Grouper', emoji: '🐠' }, { name: 'Sea Bass', emoji: '🐠' }, { name: 'Red Snapper', emoji: '🐠' }, { name: 'Haddock', emoji: '🎣' }, { name: 'Cod', emoji: '🎣' }, { name: 'Halibut', emoji: '🐠' }, { name: 'Sole', emoji: '🐠' }, { name: 'Flounder', emoji: '🐠' },
+            { name: 'Sea Cucumber', emoji: '🥒' }, { name: 'Crown-of-Thorns Starfish', emoji: '👑⭐' }, { name: 'Starfish', emoji: '⭐' }, { name: 'Sea Urchin', emoji: '🌵' }, { name: 'Horseshoe Crab', emoji: '🛡️' }, { name: 'Crabs', emoji: '🦀' }, { name: 'Lobster', emoji: '🦞' }, { name: 'Octopus', emoji: '🐙' }, { name: 'Cuttlefish', emoji: '🦑' }, { name: 'Squid (juveniles)', emoji: '🦑' },
+            { name: 'Triggerfish', emoji: '🔫' }, { name: 'Parrotfish', emoji: '🦜' }, { name: 'Surgeonfish (tang)', emoji: '🐠' }, { name: 'Angelfish', emoji: '👼' }, { name: 'Butterflyfish', emoji: '🦋' }, { name: 'Filefish', emoji: '🐠' }, { name: 'Blennies', emoji: '🐠' }, { name: 'Wrasse', emoji: '🐠' }, { name: 'Damselfish', emoji: '🐠' }, { name: 'Gobies', emoji: '🐠' },
+            { name: 'Lanternfish', emoji: '💡' }, { name: 'Mysid Shrimp', emoji: '🦐' }, { name: 'Prawn', emoji: '🍤' }, { name: 'Shrimp', emoji: '🦐' }, { name: 'Sprats', emoji: '🐟' }, { name: 'Flying Fish', emoji: '✈️' }, { name: 'Silversides', emoji: '🥈' }, { name: 'Herring', emoji: '🐟' }, { name: 'Sardines', emoji: '🥫' }, { name: 'Anchovies', emoji: '🐟' },
+            { name: 'Larval Fish', emoji: '🍼' }, { name: 'Jellyfish larvae', emoji: '🍼' }, { name: 'Arrow Worms', emoji: '🏹' }, { name: 'Krill', emoji: '🦐' }, { name: 'Copepods', emoji: '🦐' }, { name: 'Zooplankton', emoji: '🔬' }, { name: 'Dinoflagellates', emoji: '✨' }, { name: 'Diatoms', emoji: '🔬' }, { name: 'Cyanobacteria', emoji: '🦠' }, { name: 'Phytoplankton', emoji: '🌱' }
+        ];
+        
+        const state = {
+            holders: [],
+            refreshTimeout: null
+        };
+
+        const Utils = {
+            formatInt: (n) => Number(n || 0).toLocaleString(undefined, { maximumFractionDigits: 0 }),
+            shortenAddress: (a) => a && a.length > 10 ? `${a.slice(0, 6)}…${a.slice(-6)}` : a || '—',
+            getRankForIndex: (i) => oceanicRanks[i] || oceanicRanks[oceanicRanks.length - 1],
+        };
+
+        const ApiService = {
+            async fetchTopBalances() {
+                const url = `${CONFIG.INDEXER_BASE}/v2/assets/${CONFIG.ASA_ID}/balances?limit=${CONFIG.LEADERBOARD_COUNT}`;
+                try {
+                    const response = await fetch(url, { headers: { 'Accept': 'application/json' } });
+                    if (!response.ok) throw new Error(`API Error: ${response.status} ${response.statusText}`);
+                    const data = await response.json();
+                    return data?.balances?.filter(b => !b['is-frozen']).sort((a, b) => b.amount - a.amount) || [];
+                } catch (error) {
+                    console.error("Failed to fetch leaderboard data:", error);
+                    return null; // Return null to indicate failure
+                }
+            }
+        };
+
+        const UI = {
+            renderLeaderboard() {
+                if (!DOM.leaderboardList) return;
+                
+                if (state.holders.length === 0) {
+                     DOM.leaderboardList.innerHTML = `<div class="text-center py-8 text-gray-400">Loading leaderboard... <i class="fas fa-spinner fa-spin ml-2"></i></div>`;
+                     return;
+                }
+
+                const topThreeStyles = {
+                    0: { bg: 'bg-amber-400/10', border: 'border-amber-400', text: 'text-amber-300', icon: '<i class="fas fa-crown"></i>' },
+                    1: { bg: 'bg-slate-400/10', border: 'border-slate-400', text: 'text-slate-300', icon: '<i class="fas fa-medal"></i>' },
+                    2: { bg: 'bg-yellow-600/10', border: 'border-yellow-600', text: 'text-yellow-500', icon: '<i class="fas fa-award"></i>' }
+                };
+
+                const listHTML = state.holders.map((holder, index) => {
+                    const balance = holder.amount / (10 ** CONFIG.DECIMALS);
+                    const explorerUrl = `https://explorer.perawallet.app/accounts/${holder.address}`;
+                    const rank = Utils.getRankForIndex(index);
+                    const styles = topThreeStyles[index] || { bg: 'bg-gray-500/5', border: 'border-transparent hover:border-gray-600', text: 'text-gray-400', icon: '' };
+
+                    return `
+                        <div class="transition-all duration-300 transform hover:scale-[1.01] flex items-center p-3 rounded-lg ${styles.bg} border ${styles.border}">
+                            <div class="flex items-center justify-center w-12 text-xl font-bold ${styles.text}">
+                                <span class="w-8 text-center">${index + 1}</span>
+                                ${styles.icon}
+                            </div>
+                            <div class="flex-1 min-w-0 mx-4">
+                                <a href="${explorerUrl}" target="_blank" rel="noopener noreferrer" class="font-mono text-sm text-gray-200 hover:text-accent-green truncate block" title="${holder.address}">${Utils.shortenAddress(holder.address)}</a>
+                                <div class="text-xs text-gray-500 truncate" title="${rank.name}">${rank.emoji || ''} ${rank.name}</div>
+                            </div>
+                            <div class="text-md font-semibold text-right text-gray-100 whitespace-nowrap">${Utils.formatInt(balance)} <span class="text-accent-blue font-mono">$PNET</span></div>
+                        </div>`;
+                }).join('');
+                
+                DOM.leaderboardList.innerHTML = listHTML;
+            },
+            
+            showLeaderboardError() {
+                if (DOM.leaderboardList) {
+                    DOM.leaderboardList.innerHTML = `<div class="text-center py-8 text-red-400">Error: Could not load leaderboard data. Please try again later.</div>`;
+                }
+            }
+        };
+
+        async function refreshData() {
+            clearTimeout(state.refreshTimeout);
+            try {
+                const holders = await ApiService.fetchTopBalances();
+                if (holders) {
+                    state.holders = holders;
+                    UI.renderLeaderboard();
+                } else {
+                    // Only show error if there's no existing data to display
+                    if (state.holders.length === 0) {
+                        UI.showLeaderboardError();
+                    }
+                }
+            } finally {
+                state.refreshTimeout = setTimeout(refreshData, CONFIG.REFRESH_INTERVAL_MS);
+            }
+        }
+
+        function setupEventListeners() {
+            // Smooth Scrolling
+            DOM.smoothScrollLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Accessible FAQ Accordion
+            if (DOM.faqAccordion) {
+                DOM.faqAccordion.addEventListener('click', (e) => {
+                    const questionBtn = e.target.closest('.faq-question');
+                    if (!questionBtn) return;
+                    
+                    const faqItem = questionBtn.parentElement;
+                    const isOpen = faqItem.classList.contains('open');
+                    
+                    // Close all other items for a classic accordion feel
+                    DOM.faqAccordion.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('open');
+                        item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                        item.querySelector('i').classList.remove('rotate-180');
+                    });
+                    
+                    if (!isOpen) {
+                        faqItem.classList.add('open');
+                        questionBtn.setAttribute('aria-expanded', 'true');
+                        questionBtn.querySelector('i').classList.add('rotate-180');
+                    }
+                });
+            }
+        }
+        
+        function initializeApp() {
+            if (DOM.currentYear) {
+                DOM.currentYear.textContent = new Date().getFullYear();
+            }
+            
+            setupEventListeners();
+            
+            // Initial render and data fetch
+            UI.renderLeaderboard();
+            refreshData();
+        }
+
+        // --- App Entry Point ---
+        // Ensure the script runs after the DOM is fully loaded, compatible with Shopify's environment.
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeApp);
+        } else {
+            initializeApp();
+        }
+        document.addEventListener('shopify:section:load', initializeApp);
+
+    })();
+    </script>
+</div>
