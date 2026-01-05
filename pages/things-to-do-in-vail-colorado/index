@@ -1,0 +1,400 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  Mountain, 
+  MapPin, 
+  Heart, 
+  Users, 
+  Leaf, 
+  Compass, 
+  Star, 
+  Coffee, 
+  Music, 
+  ExternalLink,
+  ChevronDown,
+  Info,
+  DollarSign,
+  Maximize2,
+  TreePine,
+  ShieldCheck
+} from 'lucide-react';
+
+const App = () => {
+  const [activeTab, setActiveTab] = useState('all');
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const activities = [
+    {
+      id: 1,
+      title: "Pirate Ship Playground",
+      category: "free",
+      tag: "Family",
+      description: "A legendary wooden ship playground in the heart of Vail Village.",
+      highlights: ["Multi-level climbing", "Splash pad nearby", "Central location"],
+      icon: <Users className="w-5 h-5" />,
+      image: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      id: 2,
+      title: "Betty Ford Alpine Gardens",
+      category: "free",
+      tag: "Nature / Date",
+      description: "The world's highest botanical garden, showcasing fragile alpine flora.",
+      highlights: ["High-altitude conservation", "Romantic walking paths", "Educational exhibits"],
+      icon: <Leaf className="w-5 h-5" />,
+      image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      id: 3,
+      title: "Epic Discovery",
+      category: "paid",
+      tag: "Adventure",
+      description: "Summer mountain adventure park with coasters, tubing, and ziplines.",
+      highlights: ["Forest Flyer Coaster", "Scenic Gondola ride", "Adventure passes"],
+      icon: <Mountain className="w-5 h-5" />,
+      image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      id: 4,
+      title: "10th Mountain Whiskey Tasting",
+      category: "paid",
+      tag: "Date Night",
+      description: "Hand-crafted spirits honoring the legacy of the 10th Mountain Division.",
+      highlights: ["Local distilling", "Historic atmosphere", "Spirit flights"],
+      icon: <Star className="w-5 h-5" />,
+      image: "https://images.unsplash.com/photo-1582819509237-35b896223b3a?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      id: 5,
+      title: "Walking Mountains Science Center",
+      category: "free",
+      tag: "Conservation",
+      description: "Award-winning environmental education center and nature preserve.",
+      highlights: ["Naturalist-led walks", "Sustainability focus", "Family programs"],
+      icon: <TreePine className="w-5 h-5" />,
+      image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      id: 6,
+      title: "DECA+BOL Bowling",
+      category: "paid",
+      tag: "Social",
+      description: "Luxury bowling lounge with elevated dining and mountain views.",
+      highlights: ["High-end dining", "Boutique bowling", "Great for groups"],
+      icon: <Info className="w-5 h-5" />,
+      image: "https://images.unsplash.com/photo-1538333581680-72990666072b?auto=format&fit=crop&q=80&w=800"
+    }
+  ];
+
+  const filteredActivities = activeTab === 'all' 
+    ? activities 
+    : activities.filter(a => a.category === activeTab);
+
+  return (
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 overflow-x-hidden">
+      {/* Meta/SEO Helper (Simulated) */}
+      <header className="hidden">
+        <h1>Things to do in Vail Colorado: The Ultimate Guide</h1>
+        <p>Explore free and paid activities in Vail, CO. Perfect for families, kids, and romantic date nights. Discover alpine gardens, ski history, and mountain adventures.</p>
+      </header>
+
+      {/* Navigation */}
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-6'}`}>
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <Mountain className={`w-8 h-8 ${scrolled ? 'text-blue-600' : 'text-white'}`} />
+            <span className={`text-xl font-bold tracking-tight ${scrolled ? 'text-slate-900' : 'text-white'}`}>VAIL GUIDE</span>
+          </div>
+          <div className="hidden md:flex gap-8 items-center">
+            {['Activities', 'Family', 'Date Night', 'Eco-Travel'].map((item) => (
+              <a key={item} href={`#${item.toLowerCase().replace(' ', '-')}`} className={`text-sm font-medium hover:opacity-70 transition-opacity ${scrolled ? 'text-slate-600' : 'text-white'}`}>
+                {item}
+              </a>
+            ))}
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition-colors">
+              Plan Trip
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center text-center text-white">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1486496146582-9ffcd0b2b2b7?auto=format&fit=crop&q=80&w=2000" 
+            className="w-full h-full object-cover brightness-50"
+            alt="Vail Mountain Landscape"
+          />
+        </div>
+        <div className="relative z-10 max-w-4xl px-6">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-lg">
+            Things to Do in <span className="text-blue-400">Vail, Colorado</span>
+          </h1>
+          <p className="text-lg md:text-xl mb-10 text-slate-200 max-w-2xl mx-auto leading-relaxed">
+            From world-class slopes to hidden alpine gardens, discover a curated list of free and premium experiences for every traveler.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-white text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-slate-100 transition-all flex items-center justify-center gap-2">
+              <Compass className="w-5 h-5" /> Start Exploring
+            </button>
+            <button className="bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">
+              Watch Experience
+            </button>
+          </div>
+        </div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+          <ChevronDown className="w-8 h-8 text-white/60" />
+        </div>
+      </section>
+
+      {/* Quick Links Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100 group hover:shadow-xl transition-all">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform">
+                <Users className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Family & Kids</h3>
+              <p className="text-slate-600 mb-4">Themed playgrounds, science museums, and adventure parks designed for all ages.</p>
+              <a href="#family" className="text-blue-600 font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                Learn more <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100 group hover:shadow-xl transition-all">
+              <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center text-rose-600 mb-6 group-hover:scale-110 transition-transform">
+                <Heart className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Date Night Ideas</h3>
+              <p className="text-slate-600 mb-4">Upscale dining, whiskey tastings, and romantic evening strolls in the village.</p>
+              <a href="#date-night" className="text-rose-600 font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                Learn more <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100 group hover:shadow-xl transition-all">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 transition-transform">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Conservation First</h3>
+              <p className="text-slate-600 mb-4">Support local nonprofits and explore Vail's delicate ecosystems responsibly.</p>
+              <a href="#eco-travel" className="text-green-600 font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                View partners <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Activity Filter Section */}
+      <section id="activities" className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Curated Experiences</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto">Browse the best of Vail. Filter by free activities to save your budget, or find premium experiences for something special.</p>
+            
+            <div className="flex justify-center gap-4 mt-8">
+              {['all', 'free', 'paid'].map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveTab(cat)}
+                  className={`px-6 py-2 rounded-full text-sm font-bold capitalize transition-all ${
+                    activeTab === cat 
+                      ? 'bg-blue-600 text-white shadow-lg scale-105' 
+                      : 'bg-white text-slate-600 border border-slate-200 hover:border-blue-400'
+                  }`}
+                >
+                  {cat === 'all' ? 'All Activities' : `${cat} Activities`}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredActivities.map((activity) => (
+              <div key={activity.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group border border-slate-100">
+                <div className="h-64 relative overflow-hidden">
+                  <img 
+                    src={activity.image} 
+                    alt={activity.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-slate-800 shadow-sm">
+                    {activity.tag}
+                  </div>
+                  <div className={`absolute top-4 right-4 p-2 rounded-full shadow-sm text-white ${activity.category === 'free' ? 'bg-green-500' : 'bg-blue-500'}`}>
+                    {activity.category === 'free' ? <Leaf className="w-4 h-4" /> : <DollarSign className="w-4 h-4" />}
+                  </div>
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-4 text-blue-600">
+                    {activity.icon}
+                    <h3 className="text-2xl font-bold text-slate-900">{activity.title}</h3>
+                  </div>
+                  <p className="text-slate-600 mb-6 line-clamp-2">
+                    {activity.description}
+                  </p>
+                  <ul className="space-y-2 mb-8">
+                    {activity.highlights.map((h, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm text-slate-500">
+                        <div className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="w-full py-3 rounded-xl border border-slate-200 text-slate-800 font-bold hover:bg-slate-50 transition-colors flex items-center justify-center gap-2">
+                    View Details <Maximize2 className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sustainable Travel / Conservation Section */}
+      <section id="eco-travel" className="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/10 -skew-x-12 translate-x-1/2" />
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold mb-6 border border-blue-500/30">
+                <Leaf className="w-4 h-4" /> Eco-Conscious Exploration
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+                Protect the Alpine <br />
+                <span className="text-blue-400">While You Explore</span>
+              </h2>
+              <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                As a conservation advocate, we know that every footprint counts. Vail's fragile ecosystems require sharp thinking and responsible stewardship. Discover how you can engage with local wildlife protection initiatives.
+              </p>
+              
+              <div className="space-y-6">
+                {[
+                  { title: "Walking Mountains", desc: "Support the leader in regional environmental education and sustainability." },
+                  { title: "Wildlife Corridors", desc: "Learn about the critical 10th Mountain Division terrain and protected habitats." },
+                  { title: "Leave No Trace", desc: "Practice high-altitude responsible tourism in the White River National Forest." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-blue-500/20 flex-shrink-0 flex items-center justify-center text-blue-400 font-bold border border-blue-500/30">
+                      {i + 1}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">{item.title}</h4>
+                      <p className="text-slate-400 text-sm">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-square rounded-3xl overflow-hidden border-8 border-slate-800 shadow-2xl relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1544198365-f5d60b6d8190?auto=format&fit=crop&q=80&w=1000" 
+                  alt="Wildlife Conservation"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
+                <div className="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/20">
+                  <p className="italic text-white/90 text-sm mb-4">"Vail isn't just a playground; it's a living ecosystem that depends on our shared commitment to protection."</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center font-bold">WP</div>
+                    <div>
+                      <p className="font-bold text-sm">Wildlife Protection Team</p>
+                      <p className="text-xs text-white/60">Vail Conservation Partners</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Seasonal Planner */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div className="max-w-xl">
+              <h2 className="text-4xl font-bold mb-4">Seasonal Inspiration</h2>
+              <p className="text-slate-600">Vail transforms with the seasons. Whether you're here for the golden aspen leaves or the fresh powder, there's always something to do.</p>
+            </div>
+            <div className="flex bg-slate-100 p-1.5 rounded-xl">
+              <button className="px-6 py-2 bg-white rounded-lg shadow-sm font-bold text-sm text-blue-600">Winter</button>
+              <button className="px-6 py-2 rounded-lg font-bold text-sm text-slate-500 hover:bg-slate-200">Summer</button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { month: "Dec - Feb", event: "Peak Ski Season", desc: "Fresh powder and magical village lights.", icon: <Mountain className="w-6 h-6" /> },
+              { month: "Mar - Apr", event: "Spring Apres", desc: "Long sunny days and outdoor concert vibes.", icon: <Music className="w-6 h-6" /> },
+              { month: "Jun - Aug", event: "Alpine Summer", desc: "Hiking, rafting, and floral gardens bloom.", icon: <Coffee className="w-6 h-6" /> },
+              { month: "Sep - Oct", event: "Fall Colors", desc: "Stunning gold aspens and quiet trails.", icon: <TreePine className="w-6 h-6" /> }
+            ].map((season, i) => (
+              <div key={i} className="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition-all cursor-pointer group">
+                <div className="text-blue-600 mb-4 group-hover:scale-110 transition-transform">
+                  {season.icon}
+                </div>
+                <div className="text-xs font-bold text-blue-500 mb-1 uppercase tracking-wider">{season.month}</div>
+                <h4 className="text-xl font-bold mb-2">{season.event}</h4>
+                <p className="text-sm text-slate-500 leading-relaxed">{season.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-900 pt-20 pb-10 text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div className="col-span-1 md:col-span-2">
+              <div className="flex items-center gap-2 mb-6">
+                <Mountain className="w-8 h-8 text-blue-500" />
+                <span className="text-2xl font-bold tracking-tight">VAIL GUIDE</span>
+              </div>
+              <p className="text-slate-400 max-w-sm mb-8">
+                Your premier resource for exploring the best of Vail, Colorado. From family-friendly fun to luxury mountain dates, we curate experiences that matter.
+              </p>
+              <div className="flex gap-4">
+                {[1,2,3,4].map(i => (
+                  <div key={i} className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 cursor-pointer transition-colors" />
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 className="font-bold mb-6 text-lg">Quick Links</h4>
+              <ul className="space-y-4 text-slate-400">
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Free Activities</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Family Travel</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Date Night Guide</a></li>
+                <li><a href="#" className="hover:text-blue-400 transition-colors">Conservation Partners</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-6 text-lg">Vail Stats</h4>
+              <ul className="space-y-4 text-slate-400">
+                <li className="flex justify-between border-b border-white/5 pb-2"><span>Elevation</span> <span className="text-white">8,150 ft</span></li>
+                <li className="flex justify-between border-b border-white/5 pb-2"><span>Skiable Acres</span> <span className="text-white">5,317</span></li>
+                <li className="flex justify-between border-b border-white/5 pb-2"><span>Free Parks</span> <span className="text-white">4+</span></li>
+                <li className="flex justify-between border-b border-white/5 pb-2"><span>Nature Centers</span> <span className="text-white">2</span></li>
+              </ul>
+            </div>
+          </div>
+          <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-sm text-slate-500 italic">Created for Conservation Advocates & Mountain Lovers.</p>
+            <p className="text-sm text-slate-500">&copy; 2026 Vail Experience Guide. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
