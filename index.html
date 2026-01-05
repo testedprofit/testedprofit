@@ -2,9 +2,9 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<!-- Added Playfair Display to the font import -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
 
 <style>
     /* --- MERGED STYES FOR SHOPIFY --- */
@@ -42,6 +42,7 @@
             radial-gradient(circle at 80% 90%, rgba(45, 212, 191, 0.15), transparent 35%);
         z-index: 1; /* Adjusted z-index */
         animation: move-aurora 20s infinite alternate;
+        pointer-events: none;
     }
     
     #profitnet-section-wrapper > * {
@@ -118,6 +119,103 @@
     .holders { margin-top: 50px; }
     .holders .dashboard-card { position: relative; overflow: hidden; }
 
+
+    /* --- NEW TOKENOMICS SECTION STYLES --- */
+    /* Scoped styles for the container */
+    #profitnet-tokenomics-container {
+        font-family: 'Inter', sans-serif;
+    }
+
+    #profitnet-tokenomics-container .font-display {
+        font-family: 'Playfair Display', serif;
+    }
+    
+    /* Tokenomics Gradient text */
+    .tokenomics-gradient-text {
+        background: linear-gradient(90deg, #2dd4bf, #67e8f9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
+
+    /* Improved vault card styles with glow effect */
+    .vault-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .vault-card:hover, .vault-card:focus-visible {
+        transform: translateY(-6px) scale(1.02);
+        outline: none;
+    }
+    .vault-card.border-blue-400:hover, .vault-card.border-blue-400:focus-visible { box-shadow: 0 0 20px 0 rgba(96, 165, 250, 0.4); }
+    .vault-card.border-purple-500:hover, .vault-card.border-purple-500:focus-visible { box-shadow: 0 0 20px 0 rgba(168, 85, 247, 0.4); }
+    .vault-card.border-yellow-400:hover, .vault-card.border-yellow-400:focus-visible { box-shadow: 0 0 20px 0 rgba(250, 204, 21, 0.4); }
+    .vault-card.border-orange-400:hover, .vault-card.border-orange-400:focus-visible { box-shadow: 0 0 20px 0 rgba(251, 146, 60, 0.4); }
+    .vault-card.border-green-400:hover, .vault-card.border-green-400:focus-visible { box-shadow: 0 0 20px 0 rgba(74, 222, 128, 0.4); }
+    .vault-card.border-red-500:hover, .vault-card.border-red-500:focus-visible { box-shadow: 0 0 20px 0 rgba(239, 68, 68, 0.4); }
+    .vault-card.border-indigo-500:hover, .vault-card.border-indigo-500:focus-visible { box-shadow: 0 0 20px 0 rgba(129, 140, 248, 0.4); }
+    .vault-card.border-slate-600:hover, .vault-card.border-slate-600:focus-visible { box-shadow: 0 0 20px 0 rgba(100, 116, 139, 0.4); }
+
+
+    /* Dynamic SVG Donut Chart */
+    .donut-chart-svg {
+        transform: rotate(-90deg);
+    }
+    .donut-track {
+        stroke: #374151; /* gray-700 */
+    }
+    .donut-progress {
+        stroke: #34D399; /* emerald-400 */
+        stroke-linecap: round;
+        transition: stroke-dashoffset 2s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* Fluid grid for vault cards */
+    .vault-grid-fluid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    /* Smooth transition for modal */
+    #vault-modal {
+        transition: opacity 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+    }
+    #modal-panel {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease-out;
+    }
+    
+    /* Smooth transition for partnership vaults */
+    #partnership-vaults {
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, margin-top 0.5s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+    #partnership-vaults.open {
+        max-height: 500px; /* Adjust if more content is added */
+        opacity: 1;
+        margin-top: 1rem;
+    }
+
+    /* Chevron rotation for toggle button */
+    #partnership-toggle-btn .chevron {
+        transition: transform 0.3s ease-in-out;
+    }
+    #partnership-toggle-btn[aria-expanded="true"] .chevron {
+        transform: rotate(180deg);
+    }
+
+    /* Custom Background for Tokenomics Section Only */
+    .tokenomics-bg-section {
+        background-color: #020617; /* slate-950 */
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 30px 30px;
+    }
+
 </style>
 
 <div id="profitnet-section-wrapper">
@@ -157,9 +255,7 @@
                             <p class="text-xl lg:text-2xl font-mono text-white tracking-wider bg-gray-900/50 rounded-lg py-2 px-4 inline-block mt-2 border border-gray-700">3169177585</p>
                         </div>
                         <div class="flex flex-wrap justify-center gap-4">
-                             <a href="https://www.testedprofit.com/pages/tokenomics" target="_blank" rel="noopener noreferrer" class="cta-button text-white font-semibold px-6 py-2 rounded-lg text-sm">
-                                Tokenomics
-                            </a>
+                            <!-- Removed Tokenomics Button -->
                             <a href="https://explorer.perawallet.app/asset/3169177585/" target="_blank" rel="noopener noreferrer" class="cta-button text-white font-semibold px-6 py-2 rounded-lg text-sm">
                                 Pera Explorer
                             </a>
@@ -174,6 +270,151 @@
                 </div>
             </div>
         </section>
+
+        <!-- START: INTEGRATED TOKENOMICS SECTION -->
+        <section id="tokenomics" class="tokenomics-bg-section w-full min-h-screen flex items-center justify-center p-4">
+             <div id="profitnet-tokenomics-container" class="w-full max-w-6xl mx-auto">
+                <div class="w-full bg-slate-900/70 backdrop-blur-xl rounded-2xl p-6 sm:p-8 lg:p-12 shadow-2xl border border-slate-700/50 relative overflow-hidden">
+                    <!-- Background glow element -->
+                    <div class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-500/10 rounded-full blur-3xl -z-10"></div>
+                    <div class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
+                    
+                    <div class="flex flex-col lg:flex-row gap-12 items-center">
+                        
+                        <!-- Left Column: Text Content -->
+                        <div class="flex flex-col w-full lg:w-1/2 flex-shrink-0">
+                            <h2 class="text-sm font-bold uppercase tracking-widest text-teal-400">PROFITNET TOKENOMICS</h2>
+                            <h1 class="font-display text-4xl md:text-5xl font-bold text-white mt-2 mb-2 tokenomics-gradient-text">Allocation Details</h1>
+                            <p class="mt-2 mb-6 text-gray-400 max-w-prose">Our tokenomics are designed for long-term stability and sustainable growth. Key allocations are locked and vested over extended periods to ensure community and team alignment.</p>
+                            <ul class="space-y-4 text-gray-300">
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-teal-400 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <div><strong class="text-white">Supply Lock:</strong> 25% of PNET is locked until September 2026.</div>
+                                </li>
+                                <!-- Countdown Timer -->
+                                <li class="flex items-start pl-9">
+                                    <div class="w-full bg-slate-800/50 rounded-lg p-3 text-center">
+                                        <p class="text-xs text-teal-300 font-semibold tracking-wider uppercase mb-2">Unlocks In</p>
+                                        <div id="countdown-timer" class="flex justify-center space-x-2 sm:space-x-4">
+                                                <div class="text-center"><div class="text-xl sm:text-2xl font-bold text-white" id="days">0</div><div class="text-xs text-gray-400">Days</div></div>
+                                                <div class="text-white text-xl sm:text-2xl font-bold pt-px">:</div>
+                                                <div class="text-center"><div class="text-xl sm:text-2xl font-bold text-white" id="hours">0</div><div class="text-xs text-gray-400">Hours</div></div>
+                                                <div class="text-white text-xl sm:text-2xl font-bold pt-px">:</div>
+                                                <div class="text-center"><div class="text-xl sm:text-2xl font-bold text-white" id="minutes">0</div><div class="text-xs text-gray-400">Minutes</div></div>
+                                                <div class="text-white text-xl sm:text-2xl font-bold pt-px">:</div>
+                                                <div class="text-center"><div class="text-xl sm:text-2xl font-bold text-white" id="seconds">0</div><div class="text-xs text-gray-400">Seconds</div></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                     <svg class="w-6 h-6 text-teal-400 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <div><strong class="text-white">Dev Wallet Vesting:</strong> 15% of supply is distributed gradually over 10 years.</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-teal-400 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <div><strong class="text-white">Long-Term Lock:</strong> A significant portion of the TVL is locked for 10 years, verifiable on-chain.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Right Column: Chart and Vaults -->
+                        <div class="flex flex-col items-center w-full lg:w-1/2">
+                            <!-- Donut Chart -->
+                            <div class="relative w-64 h-64">
+                                 <svg class="donut-chart-svg w-full h-full" viewBox="0 0 200 200">
+                                    <circle class="donut-track" cx="100" cy="100" r="90" fill="transparent" stroke-width="20"></circle>
+                                    <circle id="donut-progress-circle" class="donut-progress" cx="100" cy="100" r="90" fill="transparent" stroke-width="20"></circle>
+                                </svg>
+                                 <div class="absolute inset-0 flex flex-col items-center justify-center z-10 text-center">
+                                    <div class="font-bold text-lg text-white">Total Locked</div>
+                                    <div id="locked-percentage" class="text-4xl font-bold text-gray-300">46.6%</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-6 mt-4 text-sm">
+                                <div class="flex items-center">
+                                    <span class="w-3 h-3 rounded-full bg-emerald-400 mr-2"></span>
+                                    <span>Locked PNET<br><strong class="text-white">46.6%</strong></span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="w-3 h-3 rounded-full bg-gray-700 mr-2"></span>
+                                    <span>Circulating<br><strong class="text-white">53.4%</strong></span>
+                                </div>
+                            </div>
+
+                            <!-- Main Vault Grid -->
+                            <div class="vault-grid-fluid mt-8 w-full max-w-lg">
+                                <div class="vault-card p-3 bg-slate-800 border-2 border-blue-400 rounded-lg text-center cursor-pointer" role="button" tabindex="0" data-title="25M LOCK PNET Vault" data-details="The largest lock-up vault, containing 25 million PNET tokens to demonstrate founder and team commitment." data-link="https://legacy.vestige.fi/vault/3213110046">
+                                    <svg class="w-10 h-10 mx-auto text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                    <p class="text-sm font-bold mt-1">25M LOCK</p>
+                                    <p class="text-xs font-semibold text-blue-400">PNET</p>
+                                </div>
+                                <div class="vault-card p-3 bg-slate-800 border-2 border-purple-500 rounded-lg text-center cursor-pointer" role="button" tabindex="0" data-title="15M LOCK PNET Vault" data-details="A significant 15 million PNET tokens are locked in this vault as part of the long-term supply strategy." data-link="https://legacy.vestige.fi/vault/3218236689">
+                                    <svg class="w-10 h-10 mx-auto text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                    <p class="text-sm font-bold mt-1">15M LOCK</p>
+                                    <p class="text-xs font-semibold text-purple-500">PNET</p>
+                                </div>
+                                <div class="vault-card p-3 bg-slate-800 border-2 border-yellow-400 rounded-lg text-center cursor-pointer" role="button" tabindex="0" data-title="ALGO-PNET Vault" data-details="This vault contains Algorand and ProfitNet tokens. It is part of our cross-chain liquidity initiative." data-link="https://legacy.vestige.fi/vault/3219570337">
+                                    <svg class="w-10 h-10 mx-auto text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                                    <p class="text-sm font-bold mt-1">ALGO-</p>
+                                    <p class="text-xs font-semibold text-yellow-400">PNET</p>
+                                </div>
+                                <div class="vault-card p-3 bg-slate-800 border-2 border-orange-400 rounded-lg text-center cursor-pointer" role="button" tabindex="0" data-title="BONEZ-PNET Vault" data-details="Liquidity pool vault for the BONEZ and PNET pair, fostering a stable trading environment." data-link="https://legacy.vestige.fi/vault/3229590975">
+                                    <svg class="w-10 h-10 mx-auto text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                                    <p class="text-sm font-bold mt-1">BONEZ-</p>
+                                    <p class="text-xs font-semibold text-orange-400">PNET</p>
+                                </div>
+                                <div class="vault-card p-3 bg-slate-800 border-2 border-green-400 rounded-lg text-center cursor-pointer" role="button" tabindex="0" data-title="DDAO - $PNET Vault" data-details="Liquidity pool vault for the DDAO and PNET pair." data-link="https://legacy.vestige.fi/vault/3238174366">
+                                    <svg class="w-10 h-10 mx-auto text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                                    <p class="text-sm font-bold mt-1">DDAO-</p>
+                                    <p class="text-xs font-semibold text-green-400">PNET</p>
+                                </div>
+                                <div class="vault-card p-3 bg-slate-800 border-2 border-red-500 rounded-lg text-center cursor-pointer" role="button" tabindex="0" data-title="69420-PNET Vault" data-details="Liquidity pool vault for the 69420 and PNET pair." data-link="https://legacy.vestige.fi/vault/3241289614">
+                                   <svg class="w-10 h-10 mx-auto text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                                    <p class="text-sm font-bold mt-1">69420-</p>
+                                    <p class="text-xs font-semibold text-red-500">PNET</p>
+                                </div>
+                            </div>
+                             <!-- Partnership Vaults Toggle Button -->
+                            <button id="partnership-toggle-btn" class="mt-4 w-full max-w-lg flex items-center justify-between p-3 bg-slate-800 border-2 border-indigo-500 rounded-lg text-center cursor-pointer hover:border-indigo-400 transition-colors" aria-expanded="false" aria-controls="partnership-vaults">
+                                <div class="flex items-center">
+                                    <svg class="w-8 h-8 mr-3 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                    <span class="text-sm font-bold text-white">Partnership Vaults</span>
+                                </div>
+                                <svg class="chevron w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            
+                            <!-- Hidden Partnership Vaults Container -->
+                            <div id="partnership-vaults" class="w-full max-w-lg">
+                                <div class="vault-grid-fluid">
+                                    <div class="vault-card p-3 bg-slate-800 border-2 border-slate-600 hover:border-cyan-400 rounded-lg text-center cursor-pointer" role="button" tabindex="0" data-title="DeckardCain 1M PNET Vault" data-details="A special vault for the DeckardCain partnership, locking 1 million PNET tokens to ensure long-term collaboration." data-link="https://legacy.vestige.fi/vault/3224248640">
+                                        <svg class="w-10 h-10 mx-auto text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                        <p class="text-sm font-bold mt-1">1M PNET</p>
+                                        <p class="text-xs font-semibold text-slate-400">DeckardCain</p>
+                                    </div>
+                                    <div class="vault-card p-3 bg-slate-800 border-2 border-slate-600 hover:border-pink-500 rounded-lg text-center cursor-pointer" role="button" tabindex="0" data-title="AETF 1M PNET Vault" data-details="This vault secures 1 million PNET for the Asset Enhancement Trust Fund, dedicated to ecosystem growth." data-link="https://legacy.vestige.fi/vault/3223774803">
+                                        <svg class="w-10 h-10 mx-auto text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                        <p class="text-sm font-bold mt-1">1M PNET</p>
+                                        <p class="text-xs font-semibold text-slate-400">AETF</p>
+                                    </div>
+                                    <div class="vault-card p-3 bg-slate-800 border-2 border-slate-600 hover:border-green-400 rounded-lg text-center cursor-pointer" role="button" tabindex="0" data-title="GoldenBillion 1M PNET Vault" data-details="A partnership vault with GoldenBillion, locking 1 million PNET to solidify the alliance." data-link="https://legacy.vestige.fi/vault/3223785015">
+                                        <svg class="w-10 h-10 mx-auto text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                        <p class="text-sm font-bold mt-1">1M PNET</p>
+                                        <p class="text-xs font-semibold text-slate-400">GoldenBillion</p>
+                                    </div>
+                                    <div class="vault-card p-3 bg-slate-800 border-2 border-slate-600 hover:border-red-500 rounded-lg text-center cursor-pointer" role="button" tabindex="0" data-title="Tife 1M PNET Vault" data-details="Vault dedicated to the Tife project collaboration, securing 1 million PNET tokens." data-link="https://legacy.vestige.fi/vault/3223655839">
+                                        <svg class="w-10 h-10 mx-auto text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                        <p class="text-sm font-bold mt-1">1M PNET</p>
+                                        <p class="text-xs font-semibold text-slate-400">Tife</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: INTEGRATED TOKENOMICS SECTION -->
+
 
         <!-- Earn Now Section -->
         <section id="earn-now" class="py-16 bg-gray-900/50">
@@ -262,6 +503,30 @@
                <p class="text-gray-500 mt-8 text-sm">&copy; 2024 Profitnet. All rights reserved.</p>
             </div>
         </section>
+
+        <!-- Vault Modal -->
+        <div id="vault-modal" class="modal fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-[9999] hidden opacity-0" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+            <div id="modal-backdrop" class="fixed inset-0"></div>
+            <div id="modal-panel" class="bg-slate-800 rounded-xl shadow-2xl w-full max-w-md p-6 border border-slate-700 z-10 transform scale-95 opacity-0">
+                <div class="flex items-start justify-between">
+                    <h3 id="modal-title" class="text-xl font-bold text-white">Vault Details</h3>
+                    <button id="close-modal-btn" class="text-gray-400 hover:text-white transition-colors" aria-label="Close vault details modal">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+                <div class="mt-4">
+                    <p id="modal-details" class="text-gray-300">Details about the vault will appear here.</p>
+                </div>
+                <div class="mt-6 flex justify-end items-center space-x-4">
+                        <button id="close-modal-btn-2" class="px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg font-semibold transition-colors" aria-label="Close vault details modal">Close</button>
+                    <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 focus:ring-offset-slate-800">
+                        View on Vestige
+                        <svg class="w-4 h-4 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </main>
     
     <script>
@@ -391,6 +656,128 @@
                     });
                 });
             }
+
+            /* --- NEW TOKENOMICS SCRIPT --- */
+            // 1. Dynamic Countdown Timer
+            const countdownTimerEl = document.getElementById('countdown-timer');
+            if (countdownTimerEl) {
+                const unlockDate = new Date('2026-09-01T00:00:00Z').getTime();
+                const updateCountdown = () => {
+                    const now = new Date().getTime();
+                    const distance = unlockDate - now;
+                    if (distance < 0) {
+                        countdownTimerEl.innerHTML = '<div class="text-lg font-bold text-green-400">Supply Unlocked!</div>';
+                        if (countdownInterval) clearInterval(countdownInterval);
+                        return;
+                    }
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    document.getElementById('days').innerText = days;
+                    document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+                    document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+                    document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+                };
+                const countdownInterval = setInterval(updateCountdown, 1000);
+                updateCountdown();
+            }
+
+            // 2. Dynamic Donut Chart
+            const progressCircle = document.getElementById('donut-progress-circle');
+            const percentageEl = document.getElementById('locked-percentage');
+            if (progressCircle && percentageEl) {
+                const radius = progressCircle.r.baseVal.value;
+                const circumference = 2 * Math.PI * radius;
+                const percentage = parseFloat(percentageEl.textContent);
+
+                progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+                progressCircle.style.strokeDashoffset = circumference;
+                
+                setTimeout(() => {
+                    const offset = circumference - (percentage / 100) * circumference;
+                    progressCircle.style.strokeDashoffset = offset;
+                }, 100);
+            }
+
+            // 3. Partnership Vaults Toggle
+            const partnershipToggleBtn = document.getElementById('partnership-toggle-btn');
+            const partnershipVaultsContainer = document.getElementById('partnership-vaults');
+            if (partnershipToggleBtn && partnershipVaultsContainer) {
+                partnershipToggleBtn.addEventListener('click', () => {
+                    const isExpanded = partnershipToggleBtn.getAttribute('aria-expanded') === 'true';
+                    partnershipToggleBtn.setAttribute('aria-expanded', !isExpanded);
+                    partnershipVaultsContainer.classList.toggle('open');
+                });
+            }
+
+            // 4. Modal Logic
+            const modal = document.getElementById('vault-modal');
+            const tokenomicsContainer = document.getElementById('profitnet-tokenomics-container');
+            const vaultCards = tokenomicsContainer ? Array.from(tokenomicsContainer.querySelectorAll('.vault-card')) : [];
+            
+            if (modal && vaultCards.length) {
+                const modalTitle = modal.querySelector('#modal-title');
+                const modalDetails = modal.querySelector('#modal-details');
+                const modalLink = modal.querySelector('#modal-link');
+                const closeModalBtns = modal.querySelectorAll('#close-modal-btn, #close-modal-btn-2, #modal-backdrop');
+                const modalPanel = modal.querySelector('#modal-panel');
+                let previouslyFocusedElement = null;
+
+                const openModal = (card) => {
+                    const title = card.getAttribute('data-title');
+                    const details = card.getAttribute('data-details');
+                    const link = card.getAttribute('data-link');
+                    
+                    if (!title) return;
+
+                    previouslyFocusedElement = document.activeElement;
+
+                    modalTitle.textContent = title;
+                    modalDetails.textContent = details;
+                    modalLink.href = link;
+                    
+                    modal.classList.remove('hidden');
+                    setTimeout(() => {
+                        modal.classList.remove('opacity-0');
+                        modalPanel.classList.remove('scale-95', 'opacity-0');
+                        modal.querySelector('button').focus();
+                    }, 10);
+                };
+                
+                const closeModal = () => {
+                    modalPanel.classList.add('scale-95', 'opacity-0');
+                    modal.classList.add('opacity-0');
+                    setTimeout(() => {
+                        modal.classList.add('hidden');
+                        if (previouslyFocusedElement) {
+                            previouslyFocusedElement.focus();
+                        }
+                    }, 300);
+                };
+
+                vaultCards.forEach(card => {
+                    card.addEventListener('click', () => openModal(card));
+                    card.addEventListener('keydown', (event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            openModal(card);
+                        }
+                    });
+                });
+
+                closeModalBtns.forEach(btn => {
+                    btn.addEventListener('click', closeModal);
+                });
+
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                        closeModal();
+                    }
+                });
+            }
+
         } catch (e) {
             console.error("Error initializing Profitnet section:", e);
         }
@@ -404,5 +791,4 @@
 
     document.addEventListener('shopify:section:load', initializeProfitnetSection);
     </script>
-
 </div>
