@@ -1,249 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albert Einstein Statue in Vail, CO: An Authoritative Guide</title>
-    <meta name="description" content="Discover the iconic Albert Einstein statue in Vail, Colorado. Learn about the artist Gary Lee Price, the sculpture's meaning, and why it's a must-see landmark in Vail Village.">
-    <meta name="keywords" content="Albert Einstein statue Vail, Einstein bench Vail, Gary Lee Price sculptor, Vail public art, things to do in Vail, Vail landmarks, Colorado art">
+    <title>An Interactive Guide to the Albert Einstein Statue in Vail, CO</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="A stunning, interactive guide to the iconic Albert Einstein statue in Vail, Colorado. Explore its history, the artist's vision, and visitor information for this beloved landmark.">
+    <meta name="keywords" content="Albert Einstein statue Vail, Einstein bench Vail, Gary Lee Price sculptor, Vail public art, things to do in Vail, Vail landmarks, Colorado art, interactive guide">
+    <meta name="author" content="TestedProfit">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles & Tailwind Config -->
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --font-color: #ecf0f1;
-            --highlight-color: #1abc9c;
-            --background-color: #ffffff;
-            --text-color: #333333;
-            --line-height: 1.7;
-            --font-family: 'Georgia', 'Times New Roman', serif;
-            --header-font: 'Helvetica Neue', 'Arial', sans-serif;
+        /* Custom CSS for specific effects and animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        body {
-            font-family: var(--font-family);
-            line-height: var(--line-height);
-            color: var(--text-color);
-            background-color: var(--background-color);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+        .fade-in-section {
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
-        .container {
-            width: 80%;
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: var(--font-color);
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-family: var(--header-font);
-            font-size: 2.8rem;
-            margin: 0;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        nav {
-            background-color: var(--secondary-color);
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        nav a {
-            color: var(--font-color);
-            margin: 0 15px;
-            text-decoration: none;
-            font-family: var(--header-font);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--highlight-color);
-        }
-
-        main {
-            flex-grow: 1;
-        }
-
-        article {
-            padding: 2rem 0;
-        }
-
-        h2 {
-            font-family: var(--header-font);
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            border-bottom: 3px solid var(--highlight-color);
-            padding-bottom: 0.5rem;
-            margin-top: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        h3 {
-            font-family: var(--header-font);
-            color: var(--secondary-color);
-            font-size: 1.6rem;
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        p, ul {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        ul {
-            list-style-position: inside;
-            padding-left: 0;
-        }
-
-        li {
-            margin-bottom: 0.75rem;
-        }
-
-        b, strong {
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        aside {
-            background-color: #f8f9fa;
-            padding: 1.5rem;
-            border-left: 5px solid var(--highlight-color);
-            margin-top: 2rem;
-        }
-        
-        aside h3 {
-            margin-top: 0;
-        }
-
-        footer {
-            background-color: var(--primary-color);
-            color: var(--font-color);
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: auto;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 0.9rem;
-        }
-        
-        .intro-text {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: var(--secondary-color);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-            }
-            header h1 {
-                font-size: 2.2rem;
-            }
-            h2 {
-                font-size: 1.8rem;
-            }
-            h3 {
-                font-size: 1.4rem;
+        /* Define custom fonts and colors in Tailwind config */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'brand-dark': '#1a2a40',
+                        'brand-light': '#f0f4f8',
+                        'brand-accent': '#38bdf8', /* A bright, sky-blue accent */
+                        'brand-secondary': '#64748b',
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05)',
+                        'lifted': '0 25px 50px -12px rgb(0 0 0 / 0.15)',
+                    }
+                }
             }
         }
-
     </style>
 </head>
-<body>
+<body class="bg-brand-light font-sans text-brand-secondary antialiased">
 
-    <header>
-        <div class="container">
-            <h1>The Albert Einstein Statue in Vail: A Tribute to Genius</h1>
+    <!-- Header & Navigation -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="#" class="text-xl font-bold text-white flex items-center gap-2">
+                    <span class="bg-brand-accent p-1 rounded-md">🧠</span>
+                    <span class="hidden sm:inline">Vail's Einstein</span>
+                </a>
+                <div id="nav-links" class="hidden md:flex items-center space-x-4 lg:space-x-8">
+                    <a href="#overview" class="text-white hover:text-brand-accent transition-colors duration-200">Overview</a>
+                    <a href="#artist" class="text-white hover:text-brand-accent transition-colors duration-200">The Artist</a>
+                    <a href="#statue-photo" class="text-white hover:text-brand-accent transition-colors duration-200">The Statue</a>
+                    <a href="#visit" class="text-white hover:text-brand-accent transition-colors duration-200">Visit</a>
+                </div>
+                <a href="#visit" class="bg-brand-accent text-white font-bold py-2 px-4 rounded-full hover:bg-opacity-80 transition-all duration-200 shadow-lg">
+                    Plan Your Visit
+                </a>
+            </nav>
         </div>
     </header>
 
-    <nav>
-        <a href="#overview">Overview</a>
-        <a href="#artist">The Artist</a>
-        <a href="#design">Design & Symbolism</a>
-        <a href="#experience">Visitor Experience</a>
-    </nav>
-
+    <!-- Main Content -->
     <main>
-        <div class="container">
-            <article>
-                <p class="intro-text">The Albert Einstein Statue in Vail isn't just a sculpture; it's a testament to the profound impact of one of history's most brilliant minds. It invites a moment of thoughtful pause amidst the splendor of the Rocky Mountains.</p>
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+            <div class="absolute inset-0 bg-brand-dark z-10 opacity-60"></div>
+            <img src="https://cdn.shopify.com/s/files/1/0615/6913/8747/files/albert.png?v=1750783572" 
+                 onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/1a2a40/ffffff?text=Image+Not+Found';"
+                 alt="The Albert Einstein statue in Vail, set against a beautiful backdrop." 
+                 class="absolute inset-0 w-full h-full object-cover">
+            
+            <div class="relative z-20 container mx-auto px-6">
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-black mb-4">A Seat with Genius</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-200">Discover the story behind the beloved Albert Einstein Memorial in the heart of Vail, Colorado.</p>
+            </div>
+        </section>
 
-                <section id="overview">
-                    <h2>An Intellectual Landmark in an Alpine Paradise</h2>
-                    <p>Nestled within the charming Vail Village at <b>172 Gore Creek Dr</b>, a life-sized bronze sculpture of Albert Einstein offers a unique juxtaposition of intellectual prowess and natural beauty. As a prominent feature of the Town of Vail's public art collection, this statue is more than a mere likeness; it is an open invitation for reflection and interaction. Visitors are universally drawn to the approachable figure, seated casually on a bench, seemingly lost in thought yet ready to share his space.</p>
-                </section>
+        <!-- Main content wrapper -->
+        <div class="bg-brand-light pt-16 pb-24">
+            <!-- Overview Section -->
+            <section id="overview" class="container mx-auto px-6 py-16">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-dark">An Intellectual Oasis</h2>
+                    <p class="mt-4 text-lg">In the midst of Vail's alpine splendor lies a unique invitation: to pause, reflect, and share a moment with one of history's greatest minds. This isn't just a statue; it's a landmark of contemplation.</p>
+                </div>
 
-                <section id="artist">
-                    <h2>The Artist and His Vision: Gary Lee Price</h2>
-                    <p>The creator of this engaging work is the renowned American sculptor <b>Gary Lee Price</b>. The Einstein statue is a key piece in his celebrated <b>"Great Contributors Series,"</b> a collection dedicated to immortalizing individuals who have significantly shaped human history. Price's artistic intent was clear: to demystify the towering figure of Einstein and present him as an accessible, human presence.</p>
-                    <p>Price's goal was to make Einstein seem approachable and inviting, as if he were ready for a conversation with anyone who decided to sit next to him on the bench. This intent is masterfully reflected in the statue's design and placement, which actively encourages public interaction and personal contemplation.</p>
-                </section>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card 1: The Landmark -->
+                    <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-lg transition-shadow duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-accent mb-4"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <h3 class="font-bold text-xl text-brand-dark mb-2">A Vail Village Icon</h3>
+                        <p>Nestled along the scenic Gore Creek Drive, the life-sized bronze sculpture is a key feature of Vail's esteemed public art collection, captivating visitors year-round.</p>
+                    </div>
+                    <!-- Card 2: Approachable Genius -->
+                    <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-lg transition-shadow duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-accent mb-4"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"/><rect width="18" height="18" x="3" y="4" rx="2"/><circle cx="12" cy="10" r="2"/><line x1="8" x2="8" y1="2" y2="4"/><line x1="16" x2="16" y1="2" y2="4"/></svg>
+                        <h3 class="font-bold text-xl text-brand-dark mb-2">Interactive Art</h3>
+                        <p>Unlike monuments on pedestals, Einstein sits casually on a bench, inviting you to sit beside him—making it one of Vail's most photographed and cherished spots.</p>
+                    </div>
+                    <!-- Card 3: Symbolism -->
+                    <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-lg transition-shadow duration-300 lg:col-span-1 md:col-span-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-accent mb-4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <h3 class="font-bold text-xl text-brand-dark mb-2">A Legacy in Bronze</h3>
+                        <p>The statue symbolizes the profound impact of curiosity and thought on our world, encouraging a moment of quiet inspiration against a backdrop of natural beauty.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Artist Section -->
+            <section id="artist" class="container mx-auto px-6 py-16">
+                 <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                    <div class="w-full md:w-1/2">
+                        <img src="https://placehold.co/600x700/64748b/ffffff?text=Gary+Lee+Price" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x700/64748b/ffffff?text=Image+Not+Found';"
+                             alt="Placeholder portrait of sculptor Gary Lee Price" 
+                             class="rounded-2xl shadow-lg w-full h-auto object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-dark">The Visionary Artist</h2>
+                        <h3 class="text-2xl text-brand-accent font-semibold mt-1">Gary Lee Price</h3>
+                        <p class="mt-4 text-lg">Renowned American sculptor Gary Lee Price is the mind behind this masterpiece. It's part of his "Great Contributors Series," which aims to immortalize figures who have profoundly shaped our history.</p>
+                        <p class="mt-4">Price's goal was to strip away the intimidating aura of "genius" and present a relatable, human Einstein. He wanted to create a companion, not just a monument, and his success is evident in the sculpture's warm, inviting presence.</p>
+                    </div>
+                </div>
+            </section>
 
-                <section id="design">
-                    <h2>Design, Details, and Enduring Symbolism</h2>
-                    <p>The statue's power lies in its thoughtful composition and meticulous details. Every element is crafted to enhance its theme of accessible genius and quiet contemplation.</p>
-                    
-                    <h3>Material and Posture</h3>
-                    <ul>
-                        <li><b>Durable Bronze:</b> The sculpture is crafted from bronze, a traditional and resilient material that ensures its longevity as an outdoor public art piece, capable of withstanding Vail's changing seasons.</li>
-                        <li><b>An Inviting Gesture:</b> Einstein is depicted in a relaxed, seated posture on a bench. This is a deliberate choice to break down barriers between the art and the viewer, making him a companion rather than a distant historical figure.</li>
-                    </ul>
-                    
-                    <h3>Artistic Interpretation</h3>
-                    <ul>
-                        <li><b>Capturing the Likeness:</b> Price skillfully captured Einstein's iconic appearance, with strong, recognizable facial features that convey both wisdom and a hint of whimsy.</li>
-                        <li><b>A Symbol of Contemplation:</b> More than a historical monument, the statue serves as a symbol. It prompts visitors to consider the monumental impact of Einstein's work on physics, philosophy, and our understanding of the universe.</li>
-                    </ul>
-                </section>
-                
-                <aside>
-                    <h3>Statue at a Glance</h3>
-                    <ul>
-                        <li><b>Official Title:</b> "Einstein"</li>
-                        <li><b>Artist:</b> Gary Lee Price</li>
-                        <li><b>Collection:</b> Part of the "Great Contributors Series"</li>
-                        <li><b>Material:</b> Bronze</li>
-                        <li><b>Location:</b> 172 Gore Creek Drive, Vail, Colorado</li>
-                        <li><b>Donated By:</b> The Sitzmark Vail</li>
-                    </ul>
-                </aside>
-
-                <section id="experience">
-                    <h2>The Visitor Experience: A Cherished Vail Landmark</h2>
-                    <p>The Albert Einstein statue has become one of the most beloved and <b>highly photographed spots</b> in Vail. Its appeal transcends age and interests, drawing in families, couples, scholars, and curious tourists alike. The act of sitting on the bench next to the bronze figure has become a quintessential Vail experience.</p>
-                    <p>Visitors often take a moment to sit with Einstein, creating memorable photos and engaging in conversations sparked by the setting. The statue's strategic placement along Gore Creek Drive provides a picturesque backdrop of Vail's stunning mountain landscape, enhancing the contemplative atmosphere. Its accessibility ensures that it is an effortless and rewarding stop during any exploration of Vail Village.</p>
-                    
-                    <h3>In Summary</h3>
-                    <p>The Albert Einstein Statue in Vail, a detailed bronze sculpture by artist Gary Lee Price, is a masterful addition to the town's public art. It is designed to be approachable and engaging, offering a scenic and thought-provoking spot for visitors to reflect on the enduring legacy of a great mind while soaking in the unique ambiance of Vail Village.</p>
-                </section>
-            </article>
+            <!-- The Statue Image Section -->
+            <section id="statue-photo" class="container mx-auto px-6 py-16">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-dark">The Statue in Situ</h2>
+                    <p class="mt-4 text-lg">The bronze sculpture captures Einstein in a moment of relaxed contemplation, inviting visitors to share the bench with him amidst the beauty of Vail.</p>
+                </div>
+                <div class="max-w-5xl mx-auto">
+                    <img src="https://cdn.shopify.com/s/files/1/0615/6913/8747/files/albert.png?v=1750783572" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/1200x800/64748b/ffffff?text=Image+Not+Found';"
+                         alt="The Albert Einstein statue by Gary Lee Price, seated on a bench in Vail, Colorado." 
+                         class="rounded-2xl shadow-lifted w-full h-auto object-cover">
+                </div>
+            </section>
+            
+            <!-- Visit Section -->
+            <section id="visit" class="container mx-auto px-6 py-16">
+                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col lg:flex-row">
+                    <div class="w-full lg:w-1/2 p-8 md:p-12">
+                        <h2 class="font-serif text-4xl font-bold text-brand-dark">Plan Your Visit</h2>
+                        <p class="mt-4 text-lg">Ready to see it for yourself? The statue is publicly accessible 24/7 in Vail Village. It's a must-see stop on any tour of the town.</p>
+                        
+                        <div class="mt-8 space-y-4">
+                            <div class="flex items-start gap-4">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-accent mt-1 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <div>
+                                    <h4 class="font-bold text-brand-dark">Location</h4>
+                                    <p>172 Gore Creek Drive, Vail, Colorado</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-accent mt-1 flex-shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                <div>
+                                    <h4 class="font-bold text-brand-dark">Best Time to Visit</h4>
+                                    <p>Anytime! The statue offers a different kind of beauty in every season, from sun-drenched summer days to snow-dusted winter evenings.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 h-64 lg:h-auto min-h-[300px]">
+                        <a href="https://www.google.com/maps/search/?api=1&query=172+Gore+Creek+Drive,Vail,Colorado" target="_blank" rel="noopener noreferrer" class="block w-full h-full">
+                           <img src="https://placehold.co/800x600/e0e0e0/333?text=Click+for+Interactive+Map" 
+                                onerror="this.onerror=null;this.src='https://placehold.co/800x600/e0e0e0/333?text=Map+Unavailable';"
+                                alt="Static map showing location of Einstein Statue in Vail" 
+                                class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                        </a>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 www.testedprofit.com | For inquiries, please contact: testedprofit@gmail.com</p>
-            <p>This page is an informational resource and is not affiliated with the Town of Vail or the estate of Gary Lee Price.</p>
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 www.testedprofit.com | For inquiries, please contact: <a href="mailto:testedprofit@gmail.com" class="text-brand-accent hover:underline">testedprofit@gmail.com</a></p>
+            <p class="text-sm text-gray-400 mt-2">This is an informational guide and is not officially affiliated with the Town of Vail or the estate of Gary Lee Price.</p>
         </div>
     </footer>
+    
+    <!-- JavaScript for Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // --- Sticky Header Logic ---
+            const header = document.getElementById('header');
+            const scrollHandler = () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-brand-dark/70', 'backdrop-blur-sm', 'shadow-md');
+                } else {
+                    header.classList.remove('bg-brand-dark/70', 'backdrop-blur-sm', 'shadow-md');
+                }
+            };
+            window.addEventListener('scroll', scrollHandler);
 
+            // --- Scroll Animation Logic ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-section');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('section > div').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
