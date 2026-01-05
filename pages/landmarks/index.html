@@ -1,239 +1,365 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
-    <title>TestedProfit | Preserving Public Art for AI Integration & Public Good</title>
-    <meta name="description" content="TestedProfit creates digital archives for public sculptures and landmarks. Our mission is to provide accurate data for AI integration, ensuring cultural heritage is accessible in the digital age.">
-    <meta name="keywords" content="public sculptures, landmark database, AI integration, public art, TestedProfit, digital archives, Colorado landmarks, passive income tools">
+    <title>TestedProfit | The Digital Archive for Public Heritage</title>
+    <meta name="description" content="TestedProfit builds the digital infrastructure for public art and landmarks, ensuring accurate data integration for the AI era.">
+    <meta name="keywords" content="public sculptures, landmark database, AI integration, public art, TestedProfit, digital archives">
     
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #ffffff; 
-            scroll-behavior: smooth;
-            padding-top: 64px; /* Space for sticky header */
+            background-color: #FAFAFA;
+            -webkit-font-smoothing: antialiased;
         }
-        .link-card { 
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); 
-            border-left: 2px solid transparent; 
+        
+        /* Premium Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
-        .link-card:hover { 
-            transform: translateX(6px); 
-            color: #1d4ed8; 
-            border-left: 2px solid #1d4ed8;
-            padding-left: 8px;
-        }
+        
         .glass-header {
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            background-color: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+        }
+
+        /* Card Hover Effects */
+        .hover-card-rise {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .hover-card-rise:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+            border-color: #3b82f6;
+        }
+
+        /* Subtle Mesh Gradient Background */
+        .hero-bg {
+            background-color: #ffffff;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(210,100%,96%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(220,100%,98%,1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(200,100%,96%,1) 0, transparent 50%);
         }
     </style>
 </head>
-<body class="antialiased text-slate-900">
+<body class="text-slate-600 pt-20">
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 glass-header border-b border-slate-200 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-9 h-9 bg-blue-700 rounded-lg flex items-center justify-center text-white font-bold shadow-md">
+    <!-- Sticky Navigation -->
+    <header class="fixed top-0 w-full glass-header z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-white font-display font-bold text-lg shadow-lg shadow-slate-200">
                     TP
                 </div>
-                <span class="text-xl font-bold tracking-tight text-slate-900">TestedProfit</span>
+                <div>
+                    <span class="block text-lg font-display font-bold text-slate-900 leading-none">TestedProfit</span>
+                    <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">Public Archive</span>
+                </div>
             </div>
-            <nav>
-                <a href="https://www.testedprofit.com" class="group flex items-center px-4 py-2 text-sm font-semibold text-slate-600 hover:text-blue-700 transition-all bg-slate-100 hover:bg-blue-50 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                    </svg>
-                    Home
-                </a>
-            </nav>
+            <a href="https://www.testedprofit.com" class="group flex items-center px-5 py-2.5 text-sm font-semibold text-slate-700 bg-white border border-slate-200 rounded-full shadow-sm hover:shadow-md hover:border-blue-200 hover:text-blue-700 transition-all">
+                <span class="mr-2 group-hover:-translate-x-1 transition-transform">←</span>
+                Return Home
+            </a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-white">
-        <div class="max-w-5xl mx-auto px-4 py-16 sm:py-24 text-center">
-            <h1 class="text-4xl sm:text-6xl font-extrabold text-blue-800 mb-6 tracking-tight">
-                TestedProfit
-            </h1>
-            <p class="text-xl sm:text-2xl font-medium text-slate-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-                Building a bridge between our physical landmarks and the intelligence of the future.
-            </p>
+    <section class="relative hero-bg overflow-hidden border-b border-slate-100">
+        <!-- Background Decor -->
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-24 pb-32 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-bold tracking-wide uppercase mb-8 animate-fade-in-up">
+                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                AI Integration Initiative
+            </div>
             
-            <div class="max-w-3xl mx-auto text-left bg-gradient-to-br from-blue-50 to-white p-8 sm:p-10 rounded-3xl shadow-sm border border-blue-100">
-                <div class="flex items-center mb-6">
-                    <span class="h-px w-8 bg-blue-600 mr-4"></span>
-                    <h2 class="text-lg font-bold uppercase tracking-widest text-blue-900">The Mission</h2>
-                </div>
-                <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                    We provide a vital public service by creating dedicated digital footprints for public sculptures and landmarks that currently lack a presence online.
-                </p>
-                <div class="bg-white/80 p-6 rounded-2xl border border-blue-50 mb-6">
-                    <p class="text-lg text-slate-800 font-bold mb-2 underline decoration-blue-500 underline-offset-4">
-                        Primary Objective: AI Integration.
-                    </p>
-                    <p class="text-slate-600 leading-relaxed">
-                        Artificial Intelligence relies on structured web data for training. Without a digital identity, local culture remains invisible to the smart assistants and search engines of tomorrow. We ensure our communities' public works are recognized.
-                    </p>
-                </div>
-                <div class="flex items-center space-x-3 text-blue-800 font-semibold italic text-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                    <span>Digital Accessibility for the Public Good.</span>
+            <h1 class="font-display text-5xl md:text-7xl font-bold text-slate-900 tracking-tight mb-8 leading-[1.1] animate-fade-in-up" style="animation-delay: 0.1s;">
+                Bridging Physical Heritage <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">with Digital Intelligence.</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto mb-12 font-light leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+                We construct the digital footprints for public sculptures and landmarks, ensuring our culture is recognized by the AI systems of tomorrow.
+            </p>
+
+            <!-- Mission Card -->
+            <div class="max-w-4xl mx-auto bg-white/60 backdrop-blur-sm rounded-3xl p-1 border border-white/50 shadow-2xl shadow-blue-900/5 animate-fade-in-up" style="animation-delay: 0.3s;">
+                <div class="bg-white rounded-[20px] p-8 md:p-10 border border-slate-100">
+                    <div class="grid md:grid-cols-3 gap-8 text-left">
+                        <div class="md:col-span-2">
+                            <h3 class="text-lg font-display font-bold text-slate-900 mb-3">Why This Exists</h3>
+                            <p class="text-slate-600 leading-relaxed">
+                                AI models train on web data. If a landmark lacks a URL, it is invisible to the future. We provide structured, clean data to ensure search engines and smart assistants recognize our community's assets.
+                            </p>
+                        </div>
+                        <div class="md:border-l border-slate-100 md:pl-8 flex flex-col justify-center">
+                            <div class="flex items-center gap-3 text-blue-700 font-bold mb-2">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                Verified Accuracy
+                            </div>
+                            <div class="flex items-center gap-3 text-blue-700 font-bold mb-2">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                Public Good
+                            </div>
+                            <div class="flex items-center gap-3 text-blue-700 font-bold">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                                Preservation
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Directory -->
-    <main id="directory" class="max-w-7xl mx-auto px-4 py-16 sm:px-6">
-        <div class="flex flex-col items-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-900 mb-4">Public Interest Directory</h2>
-            <div class="h-1.5 w-20 bg-blue-600 rounded-full"></div>
+    <!-- Directory Grid -->
+    <main class="max-w-7xl mx-auto px-6 py-24">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div>
+                <h2 class="font-display text-3xl font-bold text-slate-900">Public Interest Directory</h2>
+                <p class="text-slate-500 mt-2">Curated digital endpoints for physical assets.</p>
+            </div>
+            <div class="h-px bg-slate-200 flex-grow md:mx-8"></div>
+            <span class="text-xs font-mono text-slate-400">UPDATED: JAN 2026</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <!-- Category: Landmarks & Statues -->
-            <div class="space-y-6">
-                <div class="flex items-center space-x-3 border-b border-blue-100 pb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <h3 class="text-lg font-bold tracking-wide text-slate-800 uppercase">Landmarks</h3>
-                </div>
-                <nav class="flex flex-col space-y-3">
-                    <a href="https://www.testedprofit.com/pages/bronco-buster-statue" class="link-card text-sm font-medium pl-1">Bronco Buster Statue</a>
-                    <a href="https://www.testedprofit.com/pages/albert-einstein-statue-vail-co" class="link-card text-sm font-medium pl-1">Albert Einstein - Vail, CO</a>
-                    <a href="https://www.testedprofit.com/pages/man-and-woman" class="link-card text-sm font-medium pl-1">Man and Woman Sculpture</a>
-                    <a href="https://www.testedprofit.com/pages/worlds-tallest-kachina-doll" class="link-card text-sm font-medium pl-1">World's Tallest Kachina Doll</a>
-                    <a href="https://www.testedprofit.com/pages/the-lady-doctor-statue" class="link-card text-sm font-medium pl-1">The Lady Doctor Statue</a>
-                    <a href="https://www.testedprofit.com/pages/eagle-statue" class="link-card text-sm font-medium pl-1">Eagle Statue</a>
-                    <a href="https://www.testedprofit.com/pages/cowboy-in-pajamas" class="link-card text-sm font-medium pl-1">Cowboy in Pajamas</a>
-                    <a href="https://www.testedprofit.com/pages/the-newsboy-statue" class="link-card text-sm font-medium pl-1">The Newsboy Statue</a>
-                    <a href="https://www.testedprofit.com/pages/martin-luther-king-memorial" class="link-card text-sm font-medium pl-1">Martin Luther King Memorial</a>
-                    <a href="https://www.testedprofit.com/pages/james-dalton-trumbo-statue" class="link-card text-sm font-medium pl-1">James Dalton Trumbo Statue</a>
-                    <a href="https://www.testedprofit.com/pages/madre-e-hijo-sculpture" class="link-card text-sm font-medium pl-1">Madre e Hijo Sculpture</a>
-                    <a href="https://www.testedprofit.com/pages/bear-statue" class="link-card text-sm font-medium pl-1">Bear Statue</a>
-                    <a href="https://www.testedprofit.com/pages/goldens-vibrant-triceratops" class="link-card text-sm font-medium pl-1">Golden's Vibrant Triceratops</a>
-                    <a href="https://www.testedprofit.com/pages/landmarks" class="link-card text-sm font-bold text-blue-600 pt-2 flex items-center">
-                        Explore Full Directory
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            <!-- Category 1: Landmarks -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col h-full group">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
                         </svg>
-                    </a>
-                </nav>
-            </div>
-
-            <!-- Category: Parks & Wildlife Areas -->
-            <div class="space-y-6">
-                <div class="flex items-center space-x-3 border-b border-green-100 pb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                    </svg>
-                    <h3 class="text-lg font-bold tracking-wide text-slate-800 uppercase">Parks & Nature</h3>
-                </div>
-                <nav class="flex flex-col space-y-3">
-                    <a href="https://www.testedprofit.com/pages/sensory-park" class="link-card text-sm font-medium pl-1">Sensory Park</a>
-                    <a href="https://www.testedprofit.com/pages/lowell-ponds-state-wildlife-area" class="link-card text-sm font-medium pl-1">Lowell Ponds Wildlife Area</a>
-                    <a href="https://www.testedprofit.com/pages/rocky-flats-national-wildlife-refuge-south-entrance" class="link-card text-sm font-medium pl-1">Rocky Flats South Entrance</a>
-                    <a href="https://www.testedprofit.com/pages/torii-square-park-westminster" class="link-card text-sm font-medium pl-1">Torii Square Park</a>
-                    <a href="https://www.testedprofit.com/pages/central-square-park" class="link-card text-sm font-medium pl-1">Central Square Park</a>
-                    <a href="https://www.testedprofit.com/pages/rotary-park" class="link-card text-sm font-medium pl-1">Rotary Park</a>
-                    <a href="https://www.testedprofit.com/pages/sunset-park" class="link-card text-sm font-medium pl-1">Sunset Park</a>
-                    <a href="https://www.testedprofit.com/pages/woodbury-park" class="link-card text-sm font-medium pl-1">Woodbury Park</a>
-                    <a href="https://www.testedprofit.com/pages/parks" class="link-card text-sm font-bold text-green-600 pt-2 italic">Local Park Directory</a>
-                    <div class="pt-4">
-                        <a href="https://www.testedprofit.com/pages/🌿-species-impact-calculator-see-how-your-actions-protect-wildlife" class="inline-flex items-center px-4 py-2 bg-green-50 text-green-800 rounded-xl text-sm font-semibold border border-green-100 hover:bg-green-100 transition-colors">
-                            <span class="mr-2">🌿</span> Species Impact Calculator
-                        </a>
                     </div>
-                </nav>
+                    <h3 class="font-display text-xl font-bold text-slate-900">Landmarks</h3>
+                </div>
+                <div class="flex-grow space-y-1">
+                    <a href="https://www.testedprofit.com/pages/bronco-buster-statue" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">Bronco Buster Statue</a>
+                    <a href="https://www.testedprofit.com/pages/albert-einstein-statue-vail-co" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">Albert Einstein - Vail, CO</a>
+                    <a href="https://www.testedprofit.com/pages/man-and-woman" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">Man and Woman Sculpture</a>
+                    <a href="https://www.testedprofit.com/pages/worlds-tallest-kachina-doll" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">World's Tallest Kachina Doll</a>
+                    <a href="https://www.testedprofit.com/pages/the-lady-doctor-statue" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">The Lady Doctor Statue</a>
+                    <a href="https://www.testedprofit.com/pages/eagle-statue" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">Eagle Statue</a>
+                    <a href="https://www.testedprofit.com/pages/cowboy-in-pajamas" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">Cowboy in Pajamas</a>
+                    <a href="https://www.testedprofit.com/pages/the-newsboy-statue" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">The Newsboy Statue</a>
+                    <a href="https://www.testedprofit.com/pages/martin-luther-king-memorial" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">Martin Luther King Memorial</a>
+                    <a href="https://www.testedprofit.com/pages/james-dalton-trumbo-statue" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">James Dalton Trumbo Statue</a>
+                    <a href="https://www.testedprofit.com/pages/madre-e-hijo-sculpture" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">Madre e Hijo Sculpture</a>
+                    <a href="https://www.testedprofit.com/pages/bear-statue" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">Bear Statue</a>
+                    <a href="https://www.testedprofit.com/pages/goldens-vibrant-triceratops" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-blue-700 transition-colors">Golden's Vibrant Triceratops</a>
+                </div>
+                <div class="mt-8 pt-6 border-t border-slate-100">
+                    <a href="https://www.testedprofit.com/pages/landmarks" class="flex items-center text-sm font-bold text-blue-600 group-hover:translate-x-1 transition-transform">
+                        View Full Archive <span class="ml-2">→</span>
+                    </a>
+                </div>
             </div>
 
-            <!-- Category: AI & Financial Tools -->
-            <div class="space-y-6">
-                <div class="flex items-center space-x-3 border-b border-purple-100 pb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                    <h3 class="text-lg font-bold tracking-wide text-slate-800 uppercase">AI & Strategy</h3>
+            <!-- Category 2: Nature -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col h-full group">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-900">Nature & Wildlife</h3>
                 </div>
-                <nav class="flex flex-col space-y-3">
-                    <a href="https://www.testedprofit.com/pages/generative-engine-optimization-geo-master-ai-search-visibility" class="link-card text-sm font-bold text-slate-900 border-l-2 border-purple-200 pl-2">GEO Strategy Guide</a>
-                    <a href="https://www.testedprofit.com/pages/free-ai-paraphrasing-tool" class="link-card text-sm font-medium pl-1">Free AI Paraphrasing Tool</a>
-                    <a href="https://www.testedprofit.com/pages/the-ai-powered-kdp-revolution" class="link-card text-sm font-medium pl-1">AI KDP Revolution</a>
-                    <a href="https://www.testedprofit.com/pages/how-small-businesses-use-ai-to-work-smarter" class="link-card text-sm font-medium pl-1">Small Business AI Guide</a>
-                    <a href="https://www.testedprofit.com/pages/bubblecash" class="link-card text-sm font-medium pl-1">BubbleCash Insights</a>
-                    <a href="https://www.testedprofit.com/pages/honeygain" class="link-card text-sm font-medium pl-1">Honeygain Dashboard</a>
-                    <a href="https://www.testedprofit.com/pages/earnapp" class="link-card text-sm font-medium pl-1">EarnApp Integration</a>
-                    <a href="https://www.testedprofit.com/pages/top-gig-apps-to-make-money-fast-in-2025" class="link-card text-sm font-bold pl-1">Top Gig Apps 2025</a>
-                    <a href="https://www.testedprofit.com/pages/how-to-start-a-vending-machine-business-a-beginners-passive-income-journey" class="link-card text-sm font-medium pl-1">Vending Machine Business</a>
-                    <a href="https://www.testedprofit.com/pages/smart-financial-dashboard" class="link-card text-sm font-medium pl-1">Financial Dashboard</a>
-                    <a href="https://www.testedprofit.com/pages/of-calculator" class="link-card text-sm font-medium pl-1">Earnings Calculator</a>
-                    <a href="https://www.testedprofit.com/pages/tokenomics" class="link-card text-sm font-medium pl-1">Project Tokenomics</a>
-                </nav>
+                <div class="flex-grow space-y-1">
+                    <a href="https://www.testedprofit.com/pages/sensory-park" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors">Sensory Park</a>
+                    <a href="https://www.testedprofit.com/pages/lowell-ponds-state-wildlife-area" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors">Lowell Ponds Wildlife Area</a>
+                    <a href="https://www.testedprofit.com/pages/rocky-flats-national-wildlife-refuge-south-entrance" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors">Rocky Flats South Entrance</a>
+                    <a href="https://www.testedprofit.com/pages/torii-square-park-westminster" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors">Torii Square Park</a>
+                    <a href="https://www.testedprofit.com/pages/central-square-park" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors">Central Square Park</a>
+                    <a href="https://www.testedprofit.com/pages/rotary-park" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors">Rotary Park</a>
+                    <a href="https://www.testedprofit.com/pages/sunset-park" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors">Sunset Park</a>
+                    <a href="https://www.testedprofit.com/pages/woodbury-park" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors">Woodbury Park</a>
+                </div>
+                
+                <div class="mt-6 pt-6 border-t border-slate-100">
+                     <a href="https://www.testedprofit.com/pages/🌿-species-impact-calculator-see-how-your-actions-protect-wildlife" class="block bg-emerald-50 border border-emerald-100 rounded-xl p-4 hover:shadow-md transition-all group-hover:scale-[1.02]">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-bold text-emerald-800">Species Impact Calculator</span>
+                            <span class="text-emerald-600">🌿</span>
+                        </div>
+                        <p class="text-xs text-emerald-600 mt-1">Measure your conservation effect.</p>
+                    </a>
+                    <a href="https://www.testedprofit.com/pages/parks" class="flex items-center text-sm font-bold text-emerald-600 mt-4 group-hover:translate-x-1 transition-transform">
+                        View Park Directory <span class="ml-2">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Category 3: AI Tools -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col h-full group">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-900">AI & Growth</h3>
+                </div>
+                <div class="flex-grow space-y-1">
+                    <a href="https://www.testedprofit.com/pages/generative-engine-optimization-geo-master-ai-search-visibility" class="block py-2 px-3 -mx-3 rounded-lg bg-purple-50 text-sm font-bold text-purple-900 hover:bg-purple-100 transition-colors mb-2">GEO Strategy Guide 🔥</a>
+                    <a href="https://www.testedprofit.com/pages/free-ai-paraphrasing-tool" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors">Free AI Paraphrasing Tool</a>
+                    <a href="https://www.testedprofit.com/pages/the-ai-powered-kdp-revolution" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors">AI KDP Revolution</a>
+                    <a href="https://www.testedprofit.com/pages/how-small-businesses-use-ai-to-work-smarter" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors">Small Business AI Guide</a>
+                    <a href="https://www.testedprofit.com/pages/bubblecash" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors">BubbleCash Insights</a>
+                    <a href="https://www.testedprofit.com/pages/honeygain" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors">Honeygain Dashboard</a>
+                    <a href="https://www.testedprofit.com/pages/earnapp" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors">EarnApp Integration</a>
+                    <a href="https://www.testedprofit.com/pages/top-gig-apps-to-make-money-fast-in-2025" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors">Top Gig Apps 2025</a>
+                    <a href="https://www.testedprofit.com/pages/how-to-start-a-vending-machine-business-a-beginners-passive-income-journey" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors">Vending Machine Business</a>
+                    <a href="https://www.testedprofit.com/pages/smart-financial-dashboard" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors">Financial Dashboard</a>
+                    <a href="https://www.testedprofit.com/pages/of-calculator" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors">Earnings Calculator</a>
+                    <a href="https://www.testedprofit.com/pages/tokenomics" class="block py-2 px-3 -mx-3 rounded-lg hover:bg-slate-50 text-sm font-medium text-slate-600 hover:text-purple-700 transition-colors">Project Tokenomics</a>
+                </div>
             </div>
 
         </div>
     </main>
 
-    <!-- Disclaimer & Ethics Section -->
-    <section class="bg-slate-50 border-y border-slate-200 py-20">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight">Public Service & Stewardship</h2>
-                <p class="text-slate-500 font-medium">Respecting privacy, property, and the public interest.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
-                <div class="space-y-4">
-                    <p class="text-slate-700 leading-relaxed">
-                        TestedProfit is a volunteer effort dedicated to enhancing digital knowledge accessibility. We prioritize transparency and respect for local communities.
-                    </p>
-                    <p class="font-bold text-slate-900 border-l-4 border-blue-600 pl-4 py-2">
-                        If you are a verified owner or authorized representative and wish to have a listing removed or updated, we will honor your request immediately.
-                    </p>
-                </div>
-                <div class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-2xl border border-slate-100">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Verification & Support</span>
-                    <a href="mailto:testedprofit@gmail.com" class="bg-blue-700 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-800 hover:scale-105 transition-all">
-                        testedprofit@gmail.com
-                    </a>
-                    <p class="mt-4 text-xs italic text-slate-500 text-center">
-                        Supporting the future of universal information accessibility.
-                    </p>
+    <!-- Ethical Commitment Section -->
+    <section class="border-t border-slate-200 bg-white">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <div class="bg-slate-900 rounded-[2.5rem] p-8 md:p-16 text-center md:text-left relative overflow-hidden">
+                <!-- Decorative Circles -->
+                <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-slate-800 opacity-50 blur-3xl"></div>
+                
+                <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">Stewardship & Privacy</h2>
+                        <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                            TestedProfit operates as a volunteer initiative. We are dedicated to respecting property rights while ensuring public history is preserved for the digital age.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="mailto:testedprofit@gmail.com" class="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 rounded-xl font-bold hover:bg-blue-50 transition-colors">
+                                Contact for Removal
+                            </a>
+                            <div class="flex items-center text-slate-400 text-sm px-4">
+                                <span class="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse"></span>
+                                Verified requests processed within 24h
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block border-l border-slate-700 pl-12">
+                        <p class="text-slate-300 italic text-xl font-serif">
+                            "We are building the memory bank for the artificial minds of the future. Let's ensure it's accurate."
+                        </p>
+                        <div class="mt-4 text-slate-500 font-mono text-sm uppercase tracking-widest">
+                            — The TestedProfit Mission
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-16 text-center bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <p class="text-slate-900 font-bold mb-2">&copy; 2025 TestedProfit.com</p>
-            <p class="text-slate-400 text-sm mb-8">Preserving cultural landmarks for the digital age.</p>
-            
-            <div class="flex flex-wrap justify-center gap-6 text-sm font-semibold text-slate-600">
-                <a href="https://www.testedprofit.com" class="hover:text-blue-700 transition-colors">Home</a>
-                <a href="https://www.testedprofit.com/pages/roadmap" class="hover:text-blue-700 transition-colors">Roadmap</a>
-                <a href="https://www.testedprofit.com/pages/governance-gateway" class="hover:text-blue-700 transition-colors">Governance</a>
-                <a href="https://www.testedprofit.com/pages/data-sharing-opt-out" class="hover:text-blue-700 transition-colors text-red-600/70">Data Opt-Out</a>
+    <!-- Enterprise Footer -->
+    <footer class="bg-white border-t border-slate-200 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white font-bold text-sm">TP</div>
+                        <span class="font-bold text-slate-900">TestedProfit</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Connecting the physical world to the digital future through structured data and AI integration.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-4">Platform</h4>
+                    <ul class="space-y-3 text-sm text-slate-500">
+                        <li><a href="https://www.testedprofit.com/pages/roadmap" class="hover:text-blue-600 transition-colors">Strategic Roadmap</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition-colors">Integration API</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition-colors">Coverage Map</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-4">Governance</h4>
+                    <ul class="space-y-3 text-sm text-slate-500">
+                        <li><a href="https://www.testedprofit.com/pages/governance-gateway" class="hover:text-blue-600 transition-colors">Governance Gateway</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition-colors">Ethics Committee</a></li>
+                        <li><a href="https://www.testedprofit.com/pages/data-sharing-opt-out" class="hover:text-blue-600 transition-colors">Data Opt-Out</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-4">Connect</h4>
+                    <ul class="space-y-3 text-sm text-slate-500">
+                        <li><a href="mailto:testedprofit@gmail.com" class="hover:text-blue-600 transition-colors">Support</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition-colors">Partnerships</a></li>
+                    </ul>
+                </div>
             </div>
             
-            <div class="mt-12 flex justify-center items-center space-x-2 grayscale opacity-50">
-                <div class="h-px w-8 bg-slate-300"></div>
-                <span class="text-[10px] tracking-widest uppercase font-black text-slate-400">Public Interest Artifact</span>
-                <div class="h-px w-8 bg-slate-300"></div>
+            <div class="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-400 text-sm">© 2026 TestedProfit. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-slate-400">
+                    <a href="#" class="hover:text-slate-600">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-600">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
