@@ -118,6 +118,22 @@
     .dashboard-card:hover { transform: translateY(-5px); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7); border-color: rgba(255, 255, 255, 0.2); }
     .holders { margin-top: 50px; }
     .holders .dashboard-card { position: relative; overflow: hidden; }
+    
+    /* Custom Scrollbar for Leaderboard */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
 
 
     /* --- NEW TOKENOMICS SECTION STYLES --- */
@@ -156,6 +172,8 @@
     .vault-card.border-red-500:hover, .vault-card.border-red-500:focus-visible { box-shadow: 0 0 20px 0 rgba(239, 68, 68, 0.4); }
     .vault-card.border-indigo-500:hover, .vault-card.border-indigo-500:focus-visible { box-shadow: 0 0 20px 0 rgba(129, 140, 248, 0.4); }
     .vault-card.border-slate-600:hover, .vault-card.border-slate-600:focus-visible { box-shadow: 0 0 20px 0 rgba(100, 116, 139, 0.4); }
+    .vault-card.border-pink-500:hover, .vault-card.border-pink-500:focus-visible { box-shadow: 0 0 20px 0 rgba(236, 72, 153, 0.4); }
+    .vault-card.border-cyan-500:hover, .vault-card.border-cyan-500:focus-visible { box-shadow: 0 0 20px 0 rgba(6, 182, 212, 0.4); }
 
 
     /* Dynamic SVG Donut Chart */
@@ -219,51 +237,64 @@
 </style>
 
 <div id="profitnet-section-wrapper">
+    <!-- NEW: Sticky Header -->
+    <header class="fixed w-full top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-700/50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" alt="Profitnet Logo" class="h-8 w-8 object-contain">
+                <span class="text-xl font-bold gradient-text">Profitnet</span>
+            </a>
+            <nav class="flex space-x-6">
+                <a href="#tokenomics" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Tokenomics</a>
+                <a href="#dashboard" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Leaderboard</a>
+                <a href="#faq" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">FAQ</a>
+                <a href="#community" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Community</a>
+            </nav>
+        </div>
+    </header>
+
     <main>
         <!-- Hero Section -->
-        <section class="relative min-h-screen flex items-center justify-center py-24 overflow-hidden">
+        <section class="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
             <div class="absolute inset-0 bg-grid-gray-700/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent_80%)]"></div>
             
             <div class="container mx-auto px-6 text-center z-10">
-                 <a href="#" class="flex items-center space-x-3 justify-center mb-6">
-                    <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" alt="Profitnet Logo" class="h-12 w-12 object-contain">
-                    <span class="text-3xl font-bold gradient-text">Profitnet</span>
-                </a>
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4">
                     Unlock Your Digital Earnings
                 </h1>
-                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+                <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10">
                     Profitnet bridges the gap between Web2.0 earning platforms and Web3.0 utility, creating a sustainable, community-driven token ecosystem.
                 </p>
 
-                <!-- Integrated Nav & Token Info -->
-                <div class="mt-10">
-                     <nav class="flex flex-wrap justify-center items-center gap-x-6 gap-y-4 mb-10">
-                        <a href="#earn-now" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Earn</a>
-                        <a href="#dashboard" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Leaderboard</a>
-                        <a href="#faq" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">FAQ</a>
-                        <a href="#community" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Community</a>
-                        <a href="#earn-now" class="cta-button text-white font-semibold px-5 py-2 rounded-lg">
-                            Get Started
-                        </a>
-                    </nav>
-
-                    <div id="token" class="max-w-4xl mx-auto card-bg rounded-2xl p-6 md:p-8">
-                        <h2 class="text-2xl font-bold text-white mb-4">The $PNET Token</h2>
-                         <div class="mb-6">
-                            <p class="text-gray-400 uppercase text-sm font-semibold">Algorand Standard Asset (ASA) ID</p>
-                            <p class="text-xl lg:text-2xl font-mono text-white tracking-wider bg-gray-900/50 rounded-lg py-2 px-4 inline-block mt-2 border border-gray-700">3169177585</p>
+                <!-- Hero Content: Earn Cards -->
+                <div class="mb-16">
+                    <h2 class="text-2xl font-bold text-white mb-8">Start Earning with Our Partners</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                        <!-- Honeygain -->
+                        <div class="card-bg rounded-2xl p-6 flex flex-col items-center text-center hover:shadow-2xl hover:shadow-emerald-500/10 transition-shadow duration-300">
+                            <img src="https://logo.clearbit.com/honeygain.com" alt="Honeygain Logo" class="w-20 h-20 rounded-full mb-4 object-contain bg-white p-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Honeygain</h3>
+                            <p class="text-gray-400 text-sm mb-4 flex-grow">Share your unused internet connection and get paid. A simple way to earn passive income effortlessly.</p>
+                            <a href="https://join.honeygain.com/TESTE927D4/" target="_blank" rel="noopener noreferrer" class="cta-button w-full text-white font-semibold py-2 px-4 rounded-lg">
+                                Join Honeygain
+                            </a>
                         </div>
-                        <div class="flex flex-wrap justify-center gap-4">
-                            <!-- Removed Tokenomics Button -->
-                            <a href="https://explorer.perawallet.app/asset/3169177585/" target="_blank" rel="noopener noreferrer" class="cta-button text-white font-semibold px-6 py-2 rounded-lg text-sm">
-                                Pera Explorer
+                        <!-- Swagbucks -->
+                        <div class="card-bg rounded-2xl p-6 flex flex-col items-center text-center hover:shadow-2xl hover:shadow-blue-500/10 transition-shadow duration-300">
+                            <img src="https://logo.clearbit.com/swagbucks.com" alt="Swagbucks Logo" class="w-20 h-20 rounded-full mb-4 object-contain bg-white p-1">
+                            <h3 class="text-xl font-bold text-white mb-2">Swagbucks</h3>
+                            <p class="text-gray-400 text-sm mb-4 flex-grow">Earn points by shopping online, watching videos, searching the web, and answering surveys.</p>
+                            <a href="https://www.swagbucks.com/profile/r_219527912?rp=3" target="_blank" rel="noopener noreferrer" class="cta-button w-full text-white font-semibold py-2 px-4 rounded-lg">
+                                Join Swagbucks
                             </a>
-                             <a href="https://vestige.fi/asset/3169177585" target="_blank" rel="noopener noreferrer" class="cta-button text-white font-semibold px-6 py-2 rounded-lg text-sm">
-                                Vestige Tracker
-                            </a>
-                            <a href="https://www.testedprofit.com/pages/tools" target="_blank" rel="noopener noreferrer" class="cta-button text-white font-semibold px-6 py-2 rounded-lg text-sm">
-                                Tools
+                        </div>
+                        <!-- EarnApp -->
+                        <div class="card-bg rounded-2xl p-6 flex flex-col items-center text-center hover:shadow-2xl hover:shadow-purple-500/10 transition-shadow duration-300">
+                           <img src="https://logo.clearbit.com/earnapp.com" alt="EarnApp Logo" class="w-20 h-20 rounded-full mb-4 object-contain bg-white p-1">
+                            <h3 class="text-xl font-bold text-white mb-2">EarnApp</h3>
+                            <p class="text-gray-400 text-sm mb-4 flex-grow">Another great platform to earn passive income by sharing your unused bandwidth.</p>
+                            <a href="https://earnapp.com/i/iqBdX9xU" target="_blank" rel="noopener noreferrer" class="cta-button w-full text-white font-semibold py-2 px-4 rounded-lg">
+                                Join EarnApp
                             </a>
                         </div>
                     </div>
@@ -373,6 +404,18 @@
                                     <p class="text-sm font-bold mt-1">69420-</p>
                                     <p class="text-xs font-semibold text-red-500">PNET</p>
                                 </div>
+                                <!-- NEW: BKIND-PNET Vault (Moved Up) -->
+                                <div class="vault-card p-3 bg-slate-800 border-2 border-pink-500 rounded-lg text-center cursor-pointer" role="button" tabindex="0" data-title="BKIND-PNET Vault" data-details="Locked for 10 years, PNET long term partner." data-link="https://legacy.vestige.fi/vault/3242466222">
+                                    <svg class="w-10 h-10 mx-auto text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                    <p class="text-sm font-bold mt-1">BKIND-</p>
+                                    <p class="text-xs font-semibold text-pink-500">PNET</p>
+                                </div>
+                                <!-- NEW: MAX-PNET Vault (Moved Up) -->
+                                <div class="vault-card p-3 bg-slate-800 border-2 border-cyan-500 rounded-lg text-center cursor-pointer" role="button" tabindex="0" data-title="MAX-PNET Vaults" data-details="Locked for 5 years, PNET long term partner." data-link="https://discord.com/channels/1419385127896748247/1419421938408886392/1424913503810228297">
+                                    <svg class="w-10 h-10 mx-auto text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                    <p class="text-sm font-bold mt-1">MAX-</p>
+                                    <p class="text-xs font-semibold text-cyan-500">PNET</p>
+                                </div>
                             </div>
                              <!-- Partnership Vaults Toggle Button -->
                             <button id="partnership-toggle-btn" class="mt-4 w-full max-w-lg flex items-center justify-between p-3 bg-slate-800 border-2 border-indigo-500 rounded-lg text-center cursor-pointer hover:border-indigo-400 transition-colors" aria-expanded="false" aria-controls="partnership-vaults">
@@ -415,46 +458,6 @@
         </section>
         <!-- END: INTEGRATED TOKENOMICS SECTION -->
 
-
-        <!-- Earn Now Section -->
-        <section id="earn-now" class="py-16 bg-gray-900/50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white">Start Earning with Our Partners</h2>
-                    <p class="text-gray-400 mt-2 max-w-2xl mx-auto">We've partnered with leading platforms to provide you with reliable income streams. We are working every day to get new partnerships.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Honeygain -->
-                    <div class="card-bg rounded-2xl p-8 flex flex-col items-center text-center hover:shadow-2xl hover:shadow-emerald-500/10 transition-shadow duration-300">
-                        <img src="https://placehold.co/100x100/10B981/FFFFFF?text=HG" alt="Honeygain Logo" class="rounded-full mb-4">
-                        <h3 class="text-2xl font-bold text-white mb-2">Honeygain</h3>
-                        <p class="text-gray-400 mb-6 flex-grow">Share your unused internet connection and get paid. A simple way to earn passive income effortlessly.</p>
-                        <a href="https://join.honeygain.com/TESTE927D4/" target="_blank" rel="noopener noreferrer" class="cta-button w-full text-white font-semibold py-3 px-6 rounded-lg">
-                            Join Honeygain
-                        </a>
-                    </div>
-                    <!-- Swagbucks -->
-                    <div class="card-bg rounded-2xl p-8 flex flex-col items-center text-center hover:shadow-2xl hover:shadow-blue-500/10 transition-shadow duration-300">
-                        <img src="https://placehold.co/100x100/3B82F6/FFFFFF?text=SB" alt="Swagbucks Logo" class="rounded-full mb-4">
-                        <h3 class="text-2xl font-bold text-white mb-2">Swagbucks</h3>
-                        <p class="text-gray-400 mb-6 flex-grow">Earn points by shopping online, watching videos, searching the web, and answering surveys.</p>
-                        <a href="https://www.swagbucks.com/profile/r_219527912?rp=3" target="_blank" rel="noopener noreferrer" class="cta-button w-full text-white font-semibold py-3 px-6 rounded-lg">
-                            Join Swagbucks
-                        </a>
-                    </div>
-                    <!-- EarnApp -->
-                    <div class="card-bg rounded-2xl p-8 flex flex-col items-center text-center hover:shadow-2xl hover:shadow-purple-500/10 transition-shadow duration-300">
-                       <img src="https://placehold.co/100x100/8B5CF6/FFFFFF?text=EA" alt="EarnApp Logo" class="rounded-full mb-4">
-                        <h3 class="text-2xl font-bold text-white mb-2">EarnApp</h3>
-                        <p class="text-gray-400 mb-6 flex-grow">Another great platform to earn passive income by sharing your unused bandwidth.</p>
-                        <a href="https://earnapp.com/i/iqBdX9xU" target="_blank" rel="noopener noreferrer" class="cta-button w-full text-white font-semibold py-3 px-6 rounded-lg">
-                            Join EarnApp
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- START: Integrated Dashboard Section -->
         <section id="dashboard" class="py-16 bg-gray-900/50">
             <div class="dashboard-container">
@@ -465,8 +468,8 @@
                         <p class="text-gray-400 mt-2 max-w-2xl mx-auto">Witness the great oceanic food chain. Ascend from the foundational Plankton to become a legendary Leviathan. In these depths, only the strong survive and rise to the top.</p>
                     </div>
                     <div class="dashboard-card p-4 md:p-6">
-                        <!-- NEW: Leaderboard List Container -->
-                        <div id="leaderboard-list" class="space-y-2">
+                        <!-- NEW: Leaderboard List Container with Scroll -->
+                        <div id="leaderboard-list" class="space-y-2 max-h-[500px] overflow-y-auto custom-scrollbar pr-2">
                             <!-- Leaderboard items will be injected here by JavaScript -->
                         </div>
                     </div>
@@ -499,10 +502,31 @@
                     <a href="https://x.com/TestedProfit" target="_blank" class="text-gray-400 hover:text-white transition-colors"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
                     <a href="https://discord.com/invite/aWG3MJGR" target="_blank" class="text-gray-400 hover:text-white transition-colors"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M21.533 3.237a2.034 2.034 0 0 0-1.83-1.168H4.297c-.836 0-1.55.55-1.83 1.348a2.013 2.013 0 0 0-.06.63v12.83c0 .28.06.55.12.812a1.94 1.94 0 0 0 1.83 1.288h12.08l-.55-1.83 1.34-1.22h1.83a1.94 1.94 0 0 0 1.89-1.89V3.867a2.013 2.013 0 0 0-.06-.63zM8.647 14.23h-1.3v-4.02h1.3zm6.706 0h-1.3v-4.02h1.3zm-3.353-6.424a1.55 1.55 0 1 1 0 3.1 1.55 1.55 0 0 1 0-3.1zm-3.353 0a1.55 1.55 0 1 1 0 3.1 1.55 1.55 0 0 1 0-3.1z"></path></svg></a>
                 </div>
-               <p class="text-gray-400 mt-8">For direct inquiries, email us at: <a href="mailto:testedprofit@gmail.com" class="text-emerald-400 hover:underline">testedprofit@gmail.com</a></p>
-               <p class="text-gray-500 mt-8 text-sm">&copy; 2024 Profitnet. All rights reserved.</p>
             </div>
         </section>
+
+        <!-- NEW: Footer / Token Info Section -->
+        <footer class="py-12 bg-slate-900 border-t border-slate-800">
+            <div class="container mx-auto px-6 flex flex-col items-center">
+                <div id="token" class="max-w-4xl w-full mx-auto card-bg rounded-2xl p-6 md:p-8 text-center">
+                    <h2 class="text-2xl font-bold text-white mb-4">The $PNET Token</h2>
+                        <div class="mb-6">
+                        <p class="text-gray-400 uppercase text-sm font-semibold">Algorand Standard Asset (ASA) ID</p>
+                        <p class="text-xl lg:text-2xl font-mono text-white tracking-wider bg-gray-900/50 rounded-lg py-2 px-4 inline-block mt-2 border border-gray-700">3169177585</p>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="https://explorer.perawallet.app/asset/3169177585/" target="_blank" rel="noopener noreferrer" class="cta-button text-white font-semibold px-6 py-2 rounded-lg text-sm">
+                            Pera Explorer
+                        </a>
+                            <a href="https://vestige.fi/asset/3169177585" target="_blank" rel="noopener noreferrer" class="cta-button text-white font-semibold px-6 py-2 rounded-lg text-sm">
+                            Vestige Tracker
+                        </a>
+                        <!-- Removed Tools Button -->
+                    </div>
+                </div>
+                <p class="text-gray-500 mt-8 text-sm">&copy; 2024 Profitnet. All rights reserved.</p>
+            </div>
+        </footer>
 
         <!-- Vault Modal -->
         <div id="vault-modal" class="modal fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-[9999] hidden opacity-0" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -520,7 +544,7 @@
                 <div class="mt-6 flex justify-end items-center space-x-4">
                         <button id="close-modal-btn-2" class="px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg font-semibold transition-colors" aria-label="Close vault details modal">Close</button>
                     <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 focus:ring-offset-slate-800">
-                        View on Vestige
+                        View Vault / Proof
                         <svg class="w-4 h-4 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     </a>
                 </div>
