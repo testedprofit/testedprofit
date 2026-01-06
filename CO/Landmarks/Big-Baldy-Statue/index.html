@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestedProfit | Big Baldy Statue</title>
+    <meta name="description" content="Landmark Profile: Big Baldy Statue in Dillon, CO">
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #0A091B;
+            --accent-teal: #2DD4BF;
+            --accent-emerald: #10B981;
+            --accent-blue: #60A5FA;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-dark);
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #34D399, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Background Utilities */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        .card-blur {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-blur:hover {
+            border-color: var(--accent-teal);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, #10B981, #3B82F6);
+            transition: all 0.3s ease;
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400 border-b-2 border-emerald-400/50 pb-1">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-20 container mx-auto px-6">
+        
+        <!-- Hero Section -->
+        <section class="mb-16 text-center lg:text-left grid lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-emerald-400 font-bold tracking-[0.3em] uppercase text-xs mb-4">Landmark Profile</h2>
+                <h1 class="text-5xl lg:text-7xl font-black text-white mb-6 tracking-tight leading-tight">
+                    Big Baldy <br>
+                    <span class="gradient-text">Statue</span>
+                </h1>
+                <p class="text-slate-400 text-lg max-w-xl mb-8">
+                    A majestic 2,800-pound bronze and copper sculpture of a bald eagle, standing as a symbolic guardian over the Dillon Reservoir and Tenmile Range.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=39.6297,-106.0433" target="_blank" class="px-8 py-4 cta-button rounded-xl font-bold text-white flex items-center gap-3">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Get Directions
+                    </a>
+                    <div class="px-8 py-4 bg-white/5 rounded-xl font-bold border border-white/10 text-white flex items-center gap-3">
+                        <i class="fa-solid fa-clock text-emerald-400"></i>
+                        Open 24/7
+                    </div>
+                </div>
+            </div>
+            
+            <div data-aos="fade-left" class="relative">
+                <div class="aspect-square rounded-3xl overflow-hidden border border-white/10 card-blur p-4 group">
+                    <div class="w-full h-full rounded-2xl bg-slate-800 flex items-center justify-center relative overflow-hidden">
+                        <!-- Icon representation since we don't have the image file, but styled nicely -->
+                        <i class="fa-solid fa-crow text-9xl text-slate-700/50"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent flex flex-col justify-end p-8">
+                            <span class="text-emerald-400 font-bold text-sm mb-1 uppercase tracking-widest">Summit County, CO</span>
+                            <h3 class="text-2xl font-bold text-white">Dillon Reservoir Landmark</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Floating Detail -->
+                <div class="absolute -bottom-6 -right-6 lg:right-4 card-blur p-6 rounded-2xl border-emerald-500/30 hidden sm:block">
+                    <div class="text-3xl font-black text-white">2,800 <span class="text-sm font-normal text-slate-400">LBS</span></div>
+                    <div class="text-[10px] uppercase tracking-widest text-emerald-400">Bronze & Copper</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Cards -->
+        <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1: Scenic Backdrop -->
+            <div class="card-blur p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="h-12 w-12 bg-emerald-500/20 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-camera text-emerald-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Scenic Backdrop</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Perfectly positioned to capture stunning views of the Tenmile Range and the reservoir. It is widely considered one of the best spots for sunrise and sunset photography in Dillon.
+                </p>
+            </div>
+
+            <!-- Card 2: Park Amenities -->
+            <div class="card-blur p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="h-12 w-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-mountain-sun text-blue-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Park Amenities</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Located within a "pocket park" on Tenderfoot St. Features include a convenient parking lot, waste disposal, and immediate access to the Dillon Lakeshore shoreline.
+                </p>
+            </div>
+
+            <!-- Card 3: Accessibility -->
+            <div class="card-blur p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
+                <div class="h-12 w-12 bg-teal-500/20 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-wheelchair text-teal-400 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Accessibility</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Designed for everyone. Features wheelchair-accessible parking and connects directly to the regional paved recreation path (Rec Path) for easy transit.
+                </p>
+            </div>
+        </section>
+
+        <!-- Detailed Info Table -->
+        <section class="mt-20 card-blur p-1 rounded-3xl overflow-hidden" data-aos="zoom-in">
+            <div class="bg-slate-950/40 p-8">
+                <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-4">
+                    <span class="w-8 h-1 bg-emerald-500 rounded-full"></span>
+                    Landmark Specifications
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-12">
+                    <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                        <span class="text-slate-400 text-sm uppercase tracking-widest font-bold">Artist</span>
+                        <span class="text-white font-medium">Craig Wagner</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                        <span class="text-slate-400 text-sm uppercase tracking-widest font-bold">Material</span>
+                        <span class="text-white font-medium">Bronze & Copper</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                        <span class="text-slate-400 text-sm uppercase tracking-widest font-bold">Location</span>
+                        <span class="text-white font-medium">US-6 & Tenderfoot St</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                        <span class="text-slate-400 text-sm uppercase tracking-widest font-bold">Coordinates</span>
+                        <span class="text-white font-medium font-mono text-xs">JXG7+W9 Dillon, CO</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                        <span class="text-slate-400 text-sm uppercase tracking-widest font-bold">Winter Use</span>
+                        <span class="text-white font-medium">Groomed Lake Loops Entry</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                        <span class="text-slate-400 text-sm uppercase tracking-widest font-bold">Nearby Path</span>
+                        <span class="text-white font-medium">Dillon Rec Path Hub</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-12 border-t border-white/5 bg-slate-950/50">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center space-x-3 mb-6">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-6 w-6 opacity-50" alt="Profitnet">
+                <span class="text-slate-500 font-bold uppercase tracking-widest text-xs">Profitnet Landmark Registry</span>
+            </div>
+            <p class="text-slate-600 text-[10px] uppercase tracking-[0.3em]">© 2024 testedprofit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            setTimeout(() => mobileMenu.classList.add('active'), 10);
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            }, 300);
+        });
+    });
+    </script>
+</body>
+</html>
