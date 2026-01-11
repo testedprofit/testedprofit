@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta Tags -->
+    <!-- SEO Meta Tags (Transferred) -->
     <title>Central Square Park, Westminster CO | Overview & Amenities</title>
     <meta name="description" content="Discover Central Square Park (Center Park) in Westminster, CO. A family-friendly urban park featuring fountains, walking paths, and accessibility features.">
     <meta name="keywords" content="Central Square Park, Center Park, Westminster CO, Urban Park, Downtown Westminster, Park Amenities">
@@ -17,14 +17,19 @@
     <meta property="og:description" content="Explore amenities, visitor ratings, and development details for Central Square Park in Downtown Westminster.">
     <meta property="og:image" content="https://placehold.co/1200x630/667EEA/ffffff?text=Central+Square+Park">
     <meta property="og:url" content="https://www.testedprofit.com/central-square-park">
-
-    <!-- Tailwind CSS CDN -->
+    
+    <!-- External Scripts & Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- JSON-LD Schema Markup for Local Business/Park -->
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- JSON-LD Schema Markup (Transferred) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -59,162 +64,295 @@
     }
     </script>
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f1f5f9; /* Slate-100 */
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
         }
-        
-        /* Smooth scrolling */
-        html { scroll-behavior: smooth; }
-
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
         .glass-panel {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
-
-        .hover-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
         }
-        .hover-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
         }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
     </style>
 </head>
-<body class="text-slate-800 antialiased min-h-screen flex items-center justify-center p-4 md:p-8">
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
 
-    <main class="max-w-6xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-slate-200">
-        
-        <!-- Left Column: Visuals & Quick Stats -->
-        <div class="lg:w-2/5 bg-slate-50 relative flex flex-col">
-            <div class="h-64 lg:h-1/2 relative overflow-hidden group">
-                <img src="https://placehold.co/800x600/475569/ffffff?text=Central+Square+Park" 
-                     alt="Central Square Park fountain area and seating" 
-                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                     onerror="this.onerror=null;this.src='https://placehold.co/800x600/CCCCCC/666666?text=Image+Unavailable';">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent flex items-end p-6">
-                    <div class="text-white">
-                        <span class="bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded-full uppercase tracking-wide mb-2 inline-block">Open to Public</span>
-                    </div>
-                </div>
-            </div>
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             
-            <div class="p-8 flex-grow flex flex-col justify-center space-y-6">
-                <div>
-                    <h2 class="text-sm uppercase tracking-wider text-slate-500 font-bold mb-2">Location</h2>
-                    <address class="not-italic text-lg font-medium text-slate-800">
-                        <a href="https://maps.google.com/?q=5845+W+89th+Ave,+Westminster,+CO+80031" target="_blank" class="flex items-center hover:text-blue-600 transition-colors">
-                            <svg class="w-5 h-5 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            5845 W 89th Ave<br>Westminster, CO 80031
-                        </a>
-                    </address>
-                </div>
-                
-                <div>
-                    <h2 class="text-sm uppercase tracking-wider text-slate-500 font-bold mb-2">Current Rating</h2>
-                    <div class="flex items-center space-x-2">
-                        <div class="flex text-yellow-400">
-                            ★★★★☆
-                        </div>
-                        <span class="text-slate-700 font-semibold">4.0 / 5.0</span>
-                    </div>
-                </div>
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
 
-                 <div class="pt-4 border-t border-slate-200">
-                    <a href="https://www.westminsterco.gov" target="_blank" class="w-full block text-center bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
-                        Visit Official Site
-                    </a>
-                </div>
-            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
         </div>
 
-        <!-- Right Column: Content -->
-        <div class="lg:w-3/5 p-8 lg:p-12 overflow-y-auto max-h-[90vh]">
-            <header class="mb-8">
-                <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">Central Square Park</h1>
-                <p class="text-lg text-slate-600 leading-relaxed">
-                    A cornerstone of the <strong>Downtown Westminster</strong> redevelopment. Also known as "Center Park," this modern urban space blends community gathering spots with accessible design.
-                </p>
-            </header>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
 
-            <section class="mb-10">
-                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
-                    <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mr-3 text-lg">✨</span>
-                    Features & Amenities
-                </h3>
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div class="bg-slate-50 p-4 rounded-xl hover-card border border-slate-100">
-                        <strong class="block text-slate-900 mb-1">Family Friendly</strong>
-                        <p class="text-sm text-slate-600">Popular for children, featuring interactive water fountains.</p>
-                    </div>
-                    <div class="bg-slate-50 p-4 rounded-xl hover-card border border-slate-100">
-                        <strong class="block text-slate-900 mb-1">Dog Friendly</strong>
-                        <p class="text-sm text-slate-600">Leashed dogs are welcome to explore the grounds.</p>
-                    </div>
-                    <div class="bg-slate-50 p-4 rounded-xl hover-card border border-slate-100">
-                        <strong class="block text-slate-900 mb-1">Accessibility</strong>
-                        <p class="text-sm text-slate-600">Wheelchair-accessible parking, paths, and entrances.</p>
-                    </div>
-                    <div class="bg-slate-50 p-4 rounded-xl hover-card border border-slate-100">
-                        <strong class="block text-slate-900 mb-1">Facilities</strong>
-                        <p class="text-sm text-slate-600">Covered pavilion and well-ventilated restrooms.</p>
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-20 container mx-auto px-4 md:px-6">
+        
+        <!-- Main Layout Grid -->
+        <div class="max-w-7xl mx-auto glass-panel rounded-3xl overflow-hidden shadow-2xl grid lg:grid-cols-12">
+            
+            <!-- Left Column: Visuals & Stats -->
+            <div class="lg:col-span-5 relative bg-slate-900/50 flex flex-col border-r border-white/5">
+                <!-- Image Section -->
+                <div class="h-64 lg:h-1/2 relative group overflow-hidden" data-aos="fade-in">
+                    <img src="https://placehold.co/800x600/475569/ffffff?text=Central+Square+Park" 
+                         alt="Central Square Park fountain area and seating" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                         onerror="this.onerror=null;this.src='https://placehold.co/800x600/0A091B/666666?text=Image+Unavailable';">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end p-6">
+                        <span class="bg-accent-emerald text-slate-950 text-xs font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-lg shadow-emerald-500/20">Open to Public</span>
                     </div>
                 </div>
-            </section>
 
-            <section class="mb-10">
-                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
-                    <span class="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mr-3 text-lg">🏗️</span>
-                    Development Timeline
-                </h3>
-                <div class="relative pl-4 border-l-2 border-slate-200 space-y-6">
-                    <div class="relative">
-                        <span class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-slate-300 ring-4 ring-white"></span>
-                        <p class="text-sm text-slate-500 font-mono">May 2024</p>
-                        <p class="font-medium text-slate-800">Construction Began</p>
+                <!-- Location & Rating -->
+                <div class="p-8 flex-grow flex flex-col justify-center space-y-8">
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <h2 class="text-xs uppercase tracking-[0.2em] text-accent-teal font-bold mb-3">Location</h2>
+                        <address class="not-italic text-lg font-medium text-white flex items-start">
+                            <svg class="w-6 h-6 mr-3 text-accent-emerald flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <a href="https://maps.google.com/?q=5845+W+89th+Ave,+Westminster,+CO+80031" target="_blank" class="hover:text-accent-teal transition-colors">
+                                5845 W 89th Ave<br><span class="text-gray-400">Westminster, CO 80031</span>
+                            </a>
+                        </address>
                     </div>
-                    <div class="relative">
-                        <span class="absolute -left-[21px] top-1 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-white animate-pulse"></span>
-                        <p class="text-sm text-emerald-600 font-mono font-bold">Late 2025 (Est)</p>
-                        <p class="font-medium text-slate-800">Project Completion</p>
-                    </div>
-                    <div class="relative pt-2">
-                        <div class="inline-flex items-center bg-slate-100 px-3 py-1 rounded-full text-sm font-medium text-slate-700">
-                            <span class="mr-2">💰</span> Total Budget: $10.7 Million
+
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <h2 class="text-xs uppercase tracking-[0.2em] text-accent-teal font-bold mb-3">Current Rating</h2>
+                        <div class="flex items-center space-x-3 bg-white/5 p-3 rounded-lg w-fit border border-white/5">
+                            <div class="flex text-yellow-400 text-lg">★★★★☆</div>
+                            <span class="text-white font-bold">4.0 <span class="text-gray-500 font-normal">/ 5.0</span></span>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <section class="mb-8">
-                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
-                    <span class="w-8 h-8 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center mr-3 text-lg">📢</span>
-                    Visitor Insights
-                </h3>
-                <div class="bg-orange-50 border border-orange-100 rounded-xl p-5">
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-orange-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span class="text-slate-700 text-sm"><strong>Maintenance Note:</strong> Some visitors report LED lights in fountains may be non-functional.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 text-orange-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                            <span class="text-slate-700 text-sm"><strong>Community Wishlist:</strong> Locals often express a desire for a dedicated playground and dog park in the area.</span>
-                        </li>
-                    </ul>
+                    <div class="pt-6 border-t border-white/10" data-aos="fade-up" data-aos-delay="300">
+                        <a href="https://www.westminsterco.gov" target="_blank" class="w-full block text-center bg-white/10 hover:bg-accent-emerald hover:text-slate-950 border border-white/10 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300">
+                            Visit Official Site
+                        </a>
+                    </div>
                 </div>
-            </section>
+            </div>
 
-            <footer class="border-t border-slate-200 pt-6 mt-8 flex flex-col sm:flex-row justify-between text-xs text-slate-400">
-                <p>&copy; 2025 Central Square Park Information.</p>
-                <div class="mt-2 sm:mt-0 space-x-4">
-                    <a href="mailto:testedprofit@gmail.com" class="hover:text-slate-600">Contact</a>
-                    <a href="http://www.testedprofit.com" target="_blank" class="hover:text-slate-600">TestedProfit.com</a>
-                </div>
-            </footer>
+            <!-- Right Column: Content Details -->
+            <div class="lg:col-span-7 p-8 lg:p-12 bg-white/[0.02]">
+                <header class="mb-10" data-aos="fade-down">
+                    <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+                        Central Square <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-teal to-accent-emerald">Park</span>
+                    </h1>
+                    <p class="text-lg text-gray-400 leading-relaxed max-w-2xl">
+                        A cornerstone of the <strong>Downtown Westminster</strong> redevelopment. Also known as "Center Park," this modern urban space blends community gathering spots with inclusive, accessible design.
+                    </p>
+                </header>
+
+                <!-- Amenities Grid -->
+                <section class="mb-12" data-aos="fade-up">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <span class="w-10 h-10 bg-accent-blue/10 text-accent-blue rounded-lg flex items-center justify-center mr-4 text-xl border border-accent-blue/20">✨</span>
+                        Features & Amenities
+                    </h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-white/5 p-5 rounded-xl border border-white/5 hover:border-accent-teal/50 transition-colors group">
+                            <strong class="block text-accent-teal mb-2 group-hover:text-white transition-colors">Family Friendly</strong>
+                            <p class="text-sm text-gray-400">Popular for children, featuring interactive water fountains and play areas.</p>
+                        </div>
+                        <div class="bg-white/5 p-5 rounded-xl border border-white/5 hover:border-accent-teal/50 transition-colors group">
+                            <strong class="block text-accent-teal mb-2 group-hover:text-white transition-colors">Dog Friendly</strong>
+                            <p class="text-sm text-gray-400">Leashed dogs are welcome to explore the grounds and walking paths.</p>
+                        </div>
+                        <div class="bg-white/5 p-5 rounded-xl border border-white/5 hover:border-accent-teal/50 transition-colors group">
+                            <strong class="block text-accent-teal mb-2 group-hover:text-white transition-colors">Accessibility</strong>
+                            <p class="text-sm text-gray-400">Fully wheelchair-accessible parking, paved paths, and facility entrances.</p>
+                        </div>
+                        <div class="bg-white/5 p-5 rounded-xl border border-white/5 hover:border-accent-teal/50 transition-colors group">
+                            <strong class="block text-accent-teal mb-2 group-hover:text-white transition-colors">Facilities</strong>
+                            <p class="text-sm text-gray-400">Includes a covered pavilion and well-ventilated modern restrooms.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Timeline -->
+                <section class="mb-12" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <span class="w-10 h-10 bg-accent-emerald/10 text-accent-emerald rounded-lg flex items-center justify-center mr-4 text-xl border border-accent-emerald/20">🏗️</span>
+                        Development Timeline
+                    </h3>
+                    <div class="relative pl-6 border-l border-white/10 space-y-8">
+                        <div class="relative">
+                            <span class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-gray-600 ring-4 ring-primary"></span>
+                            <p class="text-xs text-gray-500 font-mono uppercase tracking-widest mb-1">May 2024</p>
+                            <p class="font-medium text-gray-300">Construction Began</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent-emerald ring-4 ring-primary animate-pulse"></span>
+                            <p class="text-xs text-accent-emerald font-mono uppercase tracking-widest font-bold mb-1">Late 2025 (Est)</p>
+                            <p class="font-medium text-white">Project Completion</p>
+                        </div>
+                        <div class="relative pt-2">
+                            <div class="inline-flex items-center bg-white/5 border border-white/10 px-4 py-2 rounded-full text-sm font-medium text-gray-300">
+                                <span class="mr-2">💰</span> Total Budget: <span class="text-white font-bold ml-1">$10.7 Million</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Visitor Insights -->
+                <section class="mb-8" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center">
+                        <span class="w-10 h-10 bg-orange-500/10 text-orange-400 rounded-lg flex items-center justify-center mr-4 text-xl border border-orange-500/20">📢</span>
+                        Visitor Insights
+                    </h3>
+                    <div class="bg-orange-900/10 border border-orange-500/20 rounded-xl p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-orange-400 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span class="text-gray-300 text-sm"><strong class="text-orange-200">Maintenance Note:</strong> Some visitors report LED lights in fountains may currently be non-functional.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-orange-400 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                                <span class="text-gray-300 text-sm"><strong class="text-orange-200">Community Wishlist:</strong> Locals often express a desire for a dedicated playground and dog park in the immediate area.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Footer (Inside Panel) -->
+                <footer class="border-t border-white/10 pt-8 mt-12 flex flex-col sm:flex-row justify-between text-xs text-gray-500">
+                    <p>&copy; 2025 Central Square Park Information.</p>
+                    <div class="mt-2 sm:mt-0 space-x-6">
+                        <a href="mailto:testedprofit@gmail.com" class="hover:text-accent-teal transition-colors">Contact</a>
+                        <a href="http://www.testedprofit.com" target="_blank" class="hover:text-accent-teal transition-colors">TestedProfit.com</a>
+                    </div>
+                </footer>
+            </div>
         </div>
     </main>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
 </body>
 </html>
