@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorado's Ancient Guardians | TestedProfit</title>
+    <meta name="description" content="Witness the vibrant resurrection of the Triceratops through the visionary metalwork of artist Pat Madison.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA',
+                            gold: '#d4a373', // Added for new content
+                            bone: '#e3dcd2', // Added for new content
+                            forest: '#4a6741' // Added for new content
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            /* Content Specific Variables */
+            --bg-deep: #0A091B; 
+            --accent-bone: #e3dcd2;
+            --accent-gold: #d4a373;
+            --accent-green: #4a6741;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Hero Glow from Backbone */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(212, 163, 115, 0.1) 0%, transparent 60%); /* Adjusted to hints of gold */
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* --- New Content Styles (Integrated) --- */
+        
+        /* Typography overrides for the article */
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* Card Styling */
+        .glass-card {
+            background: rgba(37, 40, 46, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: var(--accent-gold);
+        }
+
+        /* Side accent bars */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            opacity: 0.8;
+        }
+
+        .card-green::before { background: var(--accent-green); }
+        .card-gold::before { background: var(--accent-gold); }
+        .card-bone::before { background: var(--accent-bone); }
+
+        .text-shadow-lg { text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <div class="relative z-10 pt-20">
+        
+        <header class="w-full py-20 px-4 sm:px-6 lg:px-8 text-center border-b border-accent-gold/20 bg-gradient-to-b from-transparent to-black/30">
+            <div class="relative z-10 max-w-4xl mx-auto" data-aos="fade-down">
+                <span class="text-accent-gold uppercase tracking-[0.3em] text-sm font-semibold mb-3 block">Golden, Colorado</span>
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white text-shadow-lg font-serif">
+                    The Ancient Guardians
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-300 max-w-2xl mx-auto font-light font-sans">
+                    Witness the vibrant resurrection of the Triceratops through the visionary metalwork of artist <span class="text-accent-gold font-semibold">Pat Madison</span>.
+                </p>
+            </div>
+        </header>
+
+        <main class="w-full max-w-6xl mx-auto px-6 py-16 grid gap-12">
+            
+            <section class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="glass-card card-gold" data-aos="fade-right">
+                    <h2 class="text-2xl font-serif text-accent-bone mb-4 border-b border-white/10 pb-2">A Vision in Metal & Color</h2>
+                    <p class="mb-4 text-gray-300 text-lg">
+                        In a striking fusion of paleontology and industrial art, local sculptor <strong>Pat Madison</strong> has summoned a herd of giants from the past. Using electrical conduit piping, painted wood, and reclaimed plastics, Madison constructs forms that are both skeletal and vibrantly alive.
+                    </p>
+                    <p class="text-gray-300">
+                        The installation features a family unit—a towering "dad," two "moms," and a playful "baby"—standing sentinel against the Colorado winds. The vivid coloration is a deliberate choice, breaking away from the drab greys of fossils to reimagine the prehistoric world in brilliant, living technicolor.
+                    </p>
+                </div>
+                
+                <div class="glass-card card-green" data-aos="fade-left">
+                    <h2 class="text-2xl font-serif text-accent-bone mb-4 border-b border-white/10 pb-2">The Triceratops Connection</h2>
+                    <p class="mb-4 text-gray-300">
+                        Golden, Colorado is not just a backdrop; it is hallowed ground for these creatures. During the late Cretaceous period (68–66 million years ago), this region teemed with Triceratops.
+                    </p>
+                    <ul class="space-y-3 mt-4 text-gray-400 list-disc pl-5">
+                        <li><span class="text-gray-200">The Three-Horned Face:</span> Known for skulls reaching 8 feet in length.</li>
+                        <li><span class="text-gray-200">The Frill:</span> Likely used for defense, temperature regulation, and mating displays.</li>
+                        <li><span class="text-gray-200">Local Heritage:</span> Some of the earliest Triceratops fossils were unearthed right here in this vicinity.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="glass-card card-bone w-full" data-aos="fade-up">
+                <div class="md:flex items-start gap-8">
+                    <div class="flex-1">
+                        <h2 class="text-3xl font-serif text-accent-bone mb-4">Meet the Artist: Pat Madison</h2>
+                        <p class="text-lg text-gray-300 mb-6">
+                            Pat Madison is a sculptor defined by his connection to the Western landscape. His work transcends mere representation, acting as a bridge between the industrial present and the biological past.
+                        </p>
+                        <p class="text-gray-400 mb-4">
+                            Beyond these prehistoric guardians, Madison's portfolio enriches Golden's outdoor gallery with pieces like the <em>"Return of the Cutthroat"</em> fish sculptures and the whimsical <em>"Rotary Butterflies."</em> His art is a subtle yet powerful call to conservation, inviting viewers to protect the biodiversity that remains.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="max-w-3xl mx-auto text-center mt-8" data-aos="zoom-in">
+                <div class="glass-card border-l-0 border-t-4 !border-t-accent-gold">
+                    <h3 class="text-xl font-semibold mb-3 text-white">Visiting the Guardians</h3>
+                    <p class="text-gray-400 mb-4">
+                        Located near <strong>Highway 93 and West 56th Avenue</strong>, north of Golden.
+                    </p>
+                    <p class="text-sm text-gray-500 italic">
+                        Note: The sculptures reside on private land owned by <span class="text-accent-gold">Wildlife Protection Solutions</span>. Please view and photograph safely from the roadside or designated pull-offs. Do not cross the fence line.
+                    </p>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="w-full py-12 text-center text-sm border-t border-white/5 bg-black/20">
+            <p>&copy; 2025 <span class="font-semibold text-accent-emerald">TestedProfit.com</span>. All rights reserved.</p>
+            <p class="mt-2 text-gray-500">Celebrating Art, History, and Nature in Colorado.</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
