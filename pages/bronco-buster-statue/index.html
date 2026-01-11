@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bronco Buster Statue - Denver</title>
-    <!-- Tailwind CSS CDN -->
+    <title>The Bronco Buster Statue | Denver Public Art</title>
+    <meta name="description" content="Explore the history, artistry, and legacy of the Bronco Buster statue in Denver's Civic Center Park. A masterpiece of Western realism by Alexander Phimister Proctor.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter for Body, Playfair Display for Headings -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
@@ -17,6 +23,10 @@
                         serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
+                        primary: '#fbf7f4', // Light Warmth
+                        stone: {
+                            900: '#1c1917',
+                        },
                         bronze: {
                             50: '#fbf7f4',
                             100: '#f5ebe3',
@@ -26,7 +36,7 @@
                             500: '#a87853',
                             600: '#9b6645',
                             700: '#825239',
-                            800: '#6b4533', // Deep bronze
+                            800: '#6b4533', 
                             900: '#56392d',
                         }
                     }
@@ -34,18 +44,16 @@
             }
         }
     </script>
+
     <style>
         body {
-            background-color: #fbf7f4; /* Very light warmth */
-            color: #1c1917; /* Stone 900 */
-        }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+            background-color: #fbf7f4;
+            color: #1c1917;
+            line-height: 1.6;
         }
 
-        /* Hero Pattern using CSS only */
+        /* Hero Pattern */
         .hero-pattern {
             background-color: #1c1917;
             background-image: radial-gradient(#825239 1px, transparent 1px);
@@ -56,20 +64,24 @@
             background: linear-gradient(135deg, #a87853 0%, #6b4533 100%);
         }
 
-        /* Custom Scrollbar for a cleaner look */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
         }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #a87853; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #825239; 
-        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #a87853; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #825239; }
 
         /* Timeline CSS */
         .timeline-line {
@@ -89,47 +101,72 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-bronze-200 selection:text-bronze-900">
+<body class="antialiased selection:bg-bronze-200 selection:text-bronze-900 overflow-x-hidden">
 
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-100 shadow-sm">
+    <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-100 shadow-sm transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-serif text-2xl font-bold text-bronze-800 tracking-tight hover:text-bronze-600 transition">
-                Denver's <span class="italic">Bronco Buster</span>
+            
+            <a href="#" class="font-serif text-2xl font-bold text-bronze-800 tracking-tight hover:text-bronze-600 transition flex items-center gap-2" aria-label="Homepage">
+                <span>🐎</span> Denver's <span class="italic">Bronco Buster</span>
             </a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide text-stone-600">
-                <a href="#history" class="hover:text-bronze-700 transition">History</a>
-                <a href="#process" class="hover:text-bronze-700 transition">The Process</a>
-                <a href="#artist" class="hover:text-bronze-700 transition">The Artist</a>
-                <a href="#legacy" class="hover:text-bronze-700 transition">Legacy</a>
+            
+            <div class="hidden lg:flex space-x-8 text-sm font-medium tracking-wide text-stone-600">
+                <a href="#history" class="hover:text-bronze-700 transition relative group">
+                    History
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-bronze-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#process" class="hover:text-bronze-700 transition relative group">
+                    The Process
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-bronze-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#artist" class="hover:text-bronze-700 transition relative group">
+                    The Artist
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-bronze-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#legacy" class="hover:text-bronze-700 transition relative group">
+                    Legacy
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-bronze-500 transition-all group-hover:w-full"></span>
+                </a>
             </div>
-            <!-- Mobile Menu Button (Placeholder functionality) -->
-            <button class="md:hidden text-stone-600">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+
+            <button id="mobile-menu-btn" class="lg:hidden text-stone-600 p-2 hover:bg-stone-100 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
         </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-stone-900/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="#history" class="text-2xl font-serif font-bold text-white hover:text-bronze-400 transition-colors">History</a>
+            <a href="#process" class="text-2xl font-serif font-bold text-white hover:text-bronze-400 transition-colors">The Process</a>
+            <a href="#artist" class="text-2xl font-serif font-bold text-white hover:text-bronze-400 transition-colors">The Artist</a>
+            <a href="#legacy" class="text-2xl font-serif font-bold text-white hover:text-bronze-400 transition-colors">Legacy</a>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative hero-pattern text-white py-24 md:py-32 overflow-hidden">
+    <header class="relative hero-pattern text-white pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/80 to-transparent"></div>
-        <div class="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">
-            <div class="mb-6 inline-block p-3 rounded-full bg-bronze-900/50 border border-bronze-500/30 backdrop-blur-sm">
-                <span class="text-3xl filter drop-shadow-lg">🐎</span>
+        <div class="container mx-auto px-6 relative z-10 flex flex-col items-center text-center" data-aos="fade-up">
+            <div class="mb-6 inline-block p-4 rounded-full bg-bronze-900/50 border border-bronze-500/30 backdrop-blur-sm shadow-[0_0_30px_rgba(168,120,83,0.3)]">
+                <span class="text-4xl filter drop-shadow-lg">🐎</span>
             </div>
             <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight text-bronze-100">
                 The Bronco Buster
             </h1>
-            <p class="text-lg md:text-xl font-light text-stone-300 max-w-2xl leading-relaxed">
+            <p class="text-lg md:text-xl font-light text-stone-300 max-w-2xl leading-relaxed mb-10">
                 A masterpiece of Western realism located in the heart of Denver's Civic Center Park. Capturing the raw tension between man and nature.
             </p>
-            <div class="mt-10 flex flex-col md:flex-row gap-4">
-                <a href="#history" class="bg-bronze-600 hover:bg-bronze-500 text-white px-8 py-3 rounded-md font-medium transition shadow-lg shadow-bronze-900/50">
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="#history" class="bg-bronze-600 hover:bg-bronze-500 text-white px-8 py-3.5 rounded-md font-medium transition shadow-lg shadow-bronze-900/50 text-center">
                     Explore History
                 </a>
-                <a href="#legacy" class="bg-transparent border border-stone-400 hover:border-white text-stone-300 hover:text-white px-8 py-3 rounded-md font-medium transition">
+                <a href="#legacy" class="bg-transparent border border-stone-400 hover:border-white text-stone-300 hover:text-white px-8 py-3.5 rounded-md font-medium transition text-center">
                     View Significance
                 </a>
             </div>
@@ -137,57 +174,47 @@
     </header>
 
     <main>
-        <!-- History Timeline Section -->
-        <section id="history" class="py-20 bg-white">
+        <section id="history" class="py-24 bg-white overflow-hidden">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16" data-aos="fade-up">
                     <h2 class="font-serif text-4xl font-bold text-stone-800 mb-4">A Historic Timeline</h2>
                     <div class="h-1 w-20 bg-bronze-500 mx-auto rounded-full"></div>
                     <p class="mt-4 text-stone-600 max-w-2xl mx-auto">From the Columbian Exhibition to its permanent home in Denver, trace the journey of this iconic sculpture.</p>
                 </div>
 
                 <div class="relative max-w-4xl mx-auto">
-                    <!-- Vertical Line -->
                     <div class="timeline-line"></div>
 
-                    <!-- Item 1 -->
-                    <div class="relative md:flex items-center justify-between mb-12 group">
-                        <div class="order-1 w-full md:w-5/12 md:text-right px-4">
+                    <div class="relative md:flex items-center justify-between mb-12 group" data-aos="fade-right">
+                        <div class="order-1 w-full md:w-5/12 md:text-right px-4 pl-12 md:pl-4">
                             <h3 class="font-serif text-xl font-bold text-stone-800">The "Buckaroo" Debut</h3>
                             <span class="text-bronze-600 font-bold text-sm tracking-widest uppercase">1893</span>
                             <p class="text-stone-600 mt-2 text-sm leading-relaxed">Alexander Phimister Proctor debuts the original plaster model, titled "The Buckaroo," at the World's Columbian Exposition in Chicago, gaining national attention.</p>
                         </div>
-                        <div class="z-10 flex items-center order-1 bg-bronze-600 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto"></div>
-                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <!-- Spacer -->
-                    </div>
+                        <div class="z-10 flex items-center order-1 bg-bronze-600 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto ml-[4px] md:ml-0"></div>
+                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> </div>
 
-                    <!-- Item 2 -->
-                    <div class="relative md:flex items-center justify-between mb-12 group">
-                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <!-- Spacer -->
-                        <div class="z-10 flex items-center order-1 bg-stone-700 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto"></div>
-                        <div class="order-1 w-full md:w-5/12 text-left px-4">
+                    <div class="relative md:flex items-center justify-between mb-12 group" data-aos="fade-left">
+                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <div class="z-10 flex items-center order-1 bg-stone-700 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto ml-[4px] md:ml-0"></div>
+                        <div class="order-1 w-full md:w-5/12 text-left px-4 pl-12 md:pl-4">
                             <h3 class="font-serif text-xl font-bold text-stone-800">Modeling with Controversy</h3>
                             <span class="text-bronze-600 font-bold text-sm tracking-widest uppercase">Early 1900s</span>
                             <p class="text-stone-600 mt-2 text-sm leading-relaxed">Proctor refines the model. His cowboy model, Bill "Slim" Ridings, is arrested for cattle rustling. Proctor famously posts his bail to finish the sculpture.</p>
                         </div>
                     </div>
 
-                    <!-- Item 3 -->
-                    <div class="relative md:flex items-center justify-between mb-12 group">
-                        <div class="order-1 w-full md:w-5/12 md:text-right px-4">
+                    <div class="relative md:flex items-center justify-between mb-12 group" data-aos="fade-right">
+                        <div class="order-1 w-full md:w-5/12 md:text-right px-4 pl-12 md:pl-4">
                             <h3 class="font-serif text-xl font-bold text-stone-800">Gift to the City</h3>
                             <span class="text-bronze-600 font-bold text-sm tracking-widest uppercase">1920</span>
                             <p class="text-stone-600 mt-2 text-sm leading-relaxed">Commissioned by Mayor Robert Speer's administration during the "City Beautiful" movement, the statue is gifted to Denver by philanthropist J.K. Mullen.</p>
                         </div>
-                        <div class="z-10 flex items-center order-1 bg-bronze-600 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto"></div>
-                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <!-- Spacer -->
-                    </div>
+                        <div class="z-10 flex items-center order-1 bg-bronze-600 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto ml-[4px] md:ml-0"></div>
+                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> </div>
 
-                     <!-- Item 4 -->
-                     <div class="relative md:flex items-center justify-between group">
-                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <!-- Spacer -->
-                        <div class="z-10 flex items-center order-1 bg-stone-700 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform -translate-x-1/2 md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto"></div>
-                        <div class="order-1 w-full md:w-5/12 text-left px-4">
+                     <div class="relative md:flex items-center justify-between group" data-aos="fade-left">
+                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <div class="z-10 flex items-center order-1 bg-stone-700 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto ml-[4px] md:ml-0"></div>
+                        <div class="order-1 w-full md:w-5/12 text-left px-4 pl-12 md:pl-4">
                             <h3 class="font-serif text-xl font-bold text-stone-800">Civic Center Icon</h3>
                             <span class="text-bronze-600 font-bold text-sm tracking-widest uppercase">Today</span>
                             <p class="text-stone-600 mt-2 text-sm leading-relaxed">Paired with "On the War Trail," it remains a central fixture of Civic Center Park, representing the complexities of the American frontier.</p>
@@ -197,56 +224,52 @@
             </div>
         </section>
 
-        <!-- The Making / Process Section -->
-        <section id="process" class="py-20 bg-stone-100">
+        <section id="process" class="py-24 bg-stone-100">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row gap-12 items-start">
                     
-                    <!-- Left Side: Visual -->
-                    <div class="w-full md:w-1/3 sticky top-24">
+                    <div class="w-full md:w-1/3 sticky top-24" data-aos="fade-up">
                         <div class="statue-gradient p-8 rounded-2xl shadow-2xl text-center text-white">
                             <div class="text-6xl mb-4">⚒️</div>
                             <h3 class="font-serif text-2xl font-bold mb-2">The Lost-Wax Method</h3>
                             <p class="text-bronze-100 text-sm mb-6">A 6,000-year-old technique used to create the fine details of the Bronco Buster.</p>
                             <div class="bg-white/10 rounded-lg p-4 text-left space-y-2">
-                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3">1</span> Clay Modeling</div>
-                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3">2</span> Wax Positive</div>
-                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3">3</span> Ceramic Shell</div>
-                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3">4</span> Bronze Pour</div>
+                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3 flex-shrink-0">1</span> Clay Modeling</div>
+                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3 flex-shrink-0">2</span> Wax Positive</div>
+                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3 flex-shrink-0">3</span> Ceramic Shell</div>
+                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3 flex-shrink-0">4</span> Bronze Pour</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right Side: Content -->
                     <div class="w-full md:w-2/3">
-                        <h2 class="font-serif text-4xl font-bold text-stone-800 mb-8">From Clay to Bronze</h2>
+                        <h2 class="font-serif text-4xl font-bold text-stone-800 mb-8" data-aos="fade-up" data-aos-delay="100">From Clay to Bronze</h2>
                         
                         <div class="grid gap-6">
-                            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-bronze-300 transition duration-300">
+                            <article class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-bronze-300 transition duration-300" data-aos="fade-up" data-aos-delay="200">
                                 <h4 class="font-bold text-lg text-stone-800 mb-2">1. The Dynamic Composition</h4>
                                 <p class="text-stone-600">Proctor's genius lies in the "suspended energy" of the piece. The horse's neck twists violently, counterbalancing the cowboy's sharp pull on the reins. This wasn't just imagination; Proctor attended rodeos and lived with western communities to study the anatomy of movement.</p>
-                            </div>
+                            </article>
 
-                            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-bronze-300 transition duration-300">
+                            <article class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-bronze-300 transition duration-300" data-aos="fade-up" data-aos-delay="300">
                                 <h4 class="font-bold text-lg text-stone-800 mb-2">2. Cire Perdue (Lost Wax)</h4>
                                 <p class="text-stone-600">Unlike earlier sand-casting methods which were cheaper but cruder, this statue utilized the lost-wax method. A wax replica of the original clay model is encased in a heat-resistant mold. The wax is melted out, and molten bronze is poured into the void. This captures the artist's literal fingerprints from the clay.</p>
-                            </div>
+                            </article>
 
-                            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-bronze-300 transition duration-300">
+                            <article class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-bronze-300 transition duration-300" data-aos="fade-up" data-aos-delay="400">
                                 <h4 class="font-bold text-lg text-stone-800 mb-2">3. The Patina</h4>
                                 <p class="text-stone-600">The final stage involved chemical applications and heat to create the "patina"—the surface color. Over the last century, Denver's weather has interacted with this bronze, requiring careful conservation to maintain the intended aesthetic against oxidation.</p>
-                            </div>
+                            </article>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Artist Profile -->
-        <section id="artist" class="py-20 bg-white">
+        <section id="artist" class="py-24 bg-white">
             <div class="container mx-auto px-6">
-                <div class="bg-stone-900 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
-                    <div class="md:w-1/2 p-12 flex flex-col justify-center">
+                <div class="bg-stone-900 rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row" data-aos="zoom-in">
+                    <div class="lg:w-1/2 p-12 flex flex-col justify-center">
                         <span class="text-bronze-400 font-bold tracking-widest uppercase text-sm mb-2">The Sculptor</span>
                         <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Alexander Phimister Proctor</h2>
                         <p class="text-stone-300 leading-relaxed mb-6">
@@ -254,50 +277,49 @@
                         </p>
                         <ul class="space-y-4 text-stone-400">
                             <li class="flex items-start">
-                                <span class="text-bronze-500 mr-2">✦</span> 
-                                Raised in Denver when it was still a frontier town (arrived 1871).
+                                <span class="text-bronze-500 mr-2 mt-1">✦</span> 
+                                <span>Raised in Denver when it was still a frontier town (arrived 1871).</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-bronze-500 mr-2">✦</span> 
-                                Studied in Paris but returned to the Rockies to hunt and sketch.
+                                <span class="text-bronze-500 mr-2 mt-1">✦</span> 
+                                <span>Studied in Paris but returned to the Rockies to hunt and sketch.</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="text-bronze-500 mr-2">✦</span> 
-                                Often confused with Frederic Remington, though Proctor's work is considered by critics to be more anatomically precise.
+                                <span class="text-bronze-500 mr-2 mt-1">✦</span> 
+                                <span>Often confused with Frederic Remington, though Proctor's work is considered by critics to be more anatomically precise.</span>
                             </li>
                         </ul>
                     </div>
-                    <div class="md:w-1/2 bg-bronze-800 relative min-h-[400px]">
-                        <!-- Abstract representation of the artist's workspace -->
-                        <div class="absolute inset-0 flex items-center justify-center opacity-20">
-                            <div class="text-[15rem]">👨‍🎨</div>
+                    <div class="lg:w-1/2 bg-bronze-800 relative min-h-[400px]">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-20 select-none">
+                            <div class="text-[12rem] md:text-[15rem]">👨‍🎨</div>
                         </div>
                         <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-stone-900 to-transparent">
-                            <p class="text-white font-serif italic text-lg">"I am capturing the West that is passing."</p>
+                            <p class="text-white font-serif italic text-lg text-center lg:text-left">"I am capturing the West that is passing."</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Legacy & Conclusion -->
-        <section id="legacy" class="py-20 bg-bronze-50">
+        <section id="legacy" class="py-24 bg-bronze-50">
             <div class="container mx-auto px-6 text-center">
-                <div class="max-w-3xl mx-auto">
+                <div class="max-w-3xl mx-auto" data-aos="fade-up">
                     <h2 class="font-serif text-4xl font-bold text-stone-800 mb-6">A Legacy Set in Bronze</h2>
                     <p class="text-lg text-stone-600 leading-relaxed mb-10">
                         The Bronco Buster is more than metal; it is a time capsule of the 1920s "City Beautiful" movement. While it celebrates the grit of the American cowboy, modern viewers also reflect on the era it represents—a time of rapid expansion and changing landscapes. It stands today not just as art, but as a conversation starter about our history.
                     </p>
+                    
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-bronze-500">
+                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-bronze-500 hover:shadow-md transition">
                             <h4 class="font-bold text-stone-800">Location</h4>
                             <p class="text-sm text-stone-600">Civic Center Park<br>W. 14th Ave & Bannock St</p>
                         </div>
-                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-bronze-500">
+                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-bronze-500 hover:shadow-md transition">
                             <h4 class="font-bold text-stone-800">Material</h4>
                             <p class="text-sm text-stone-600">Cast Bronze<br>Granite Pedestal</p>
                         </div>
-                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-bronze-500">
+                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-bronze-500 hover:shadow-md transition">
                             <h4 class="font-bold text-stone-800">Year Dedicated</h4>
                             <p class="text-sm text-stone-600">1920<br>Donor: J.K. Mullen</p>
                         </div>
@@ -308,20 +330,56 @@
     </main>
 
     <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <div class="mb-6 md:mb-0">
                 <span class="font-serif text-2xl font-bold text-white block mb-2">Denver Public Art</span>
                 <p class="text-sm">Preserving history through bronze and stone.</p>
             </div>
-            <div class="flex space-x-6 text-sm">
-                <a href="#" class="hover:text-white transition">Accessibility</a>
-                <a href="#" class="hover:text-white transition">Park Map</a>
-                <a href="mailto:testedprofit@gmail.com" class="hover:text-white transition">Contact Us</a>
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 text-sm">
+                <a href="#" class="hover:text-white transition py-2 md:py-0">Accessibility</a>
+                <a href="#" class="hover:text-white transition py-2 md:py-0">Park Map</a>
+                <a href="mailto:testedprofit@gmail.com" class="hover:text-white transition py-2 md:py-0">Contact Us</a>
             </div>
         </div>
         <div class="container mx-auto px-6 mt-8 pt-8 border-t border-stone-800 text-center text-xs">
             &copy; 2025 Denver Public Art Legacy. Website Design by Tested Profit.
         </div>
     </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS (from backbone)
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Toggle Logic (from backbone)
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
 </body>
 </html>
