@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hayden Town Park | Yampa Valley</title>
+    <meta name="description" content="Hayden Town Park - A community anchor in the Yampa Valley.">
+    
+    <!-- External Scripts & Styles -->
+    <!-- Note: For maximum production speed, replace this CDN script with a compiled CSS file -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts: Preconnected for speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Lucide Icons for Park Content -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B; /* Fallback */
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Improved Performance: Use opacity for animations instead of layout changes */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity; /* Hints browser to optimize rendering */
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none; /* Prevent clicks when hidden */
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <!-- Added animate-pulse-slow for subtle "living" effect -->
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation (EXACT HEADER FROM UPLOADED FILE) -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <!-- Added width/height for SEO (prevents layout shift) and fetchpriority for Load Speed -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button (Replaced Icon Font with SVG) -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <!-- Close Button (Replaced Icon Font with SVG) -->
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 container mx-auto px-6">
+        
+        <!-- Hero Section -->
+        <div class="relative rounded-3xl overflow-hidden mb-16 border border-white/10 shadow-2xl" data-aos="fade-up">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2832&auto=format&fit=crop" class="w-full h-full object-cover opacity-60" alt="Hayden Landscape">
+                <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
+            </div>
+            
+            <div class="relative z-10 py-24 px-8 text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/50 border border-emerald-500/30 text-emerald-300 text-xs font-semibold tracking-wide uppercase mb-6 backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Open Year Round
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-6">
+                    Hayden Town Park
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light mb-8">
+                    A central community anchor in the heart of the historic Yampa Valley. Simple, accessible, and functional green space.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#amenities" class="px-8 py-3 bg-accent-emerald hover:bg-emerald-400 text-primary rounded-lg font-bold transition-colors shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                        Explore Amenities
+                    </a>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Hayden+Town+Park+Hayden+CO" target="_blank" class="px-8 py-3 bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 text-white rounded-lg font-semibold transition-colors">
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white/5 border border-white/5 rounded-2xl p-6 text-center hover:bg-white/10 transition-colors">
+                <div class="text-3xl font-black text-white mb-1">4.4</div>
+                <div class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Google Rating</div>
+            </div>
+            <div class="bg-white/5 border border-white/5 rounded-2xl p-6 text-center hover:bg-white/10 transition-colors">
+                <div class="text-3xl font-black text-white mb-1">Daily</div>
+                <div class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Access</div>
+            </div>
+            <div class="bg-white/5 border border-white/5 rounded-2xl p-6 text-center hover:bg-white/10 transition-colors">
+                <div class="text-3xl font-black text-white mb-1">Dog</div>
+                <div class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Friendly</div>
+            </div>
+            <div class="bg-white/5 border border-white/5 rounded-2xl p-6 text-center hover:bg-white/10 transition-colors">
+                <div class="text-3xl font-black text-white mb-1">ADA</div>
+                <div class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Accessible</div>
+            </div>
+        </div>
+
+        <!-- Overview & Amenities -->
+        <div id="amenities" class="grid lg:grid-cols-3 gap-12 mb-24">
+            <!-- Left: Overview -->
+            <div class="lg:col-span-1" data-aos="fade-right">
+                <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <i data-lucide="map-pin" class="text-accent-emerald"></i>
+                    The Overview
+                </h3>
+                <div class="prose prose-invert prose-sm text-gray-400">
+                    <p class="mb-4">
+                        Located at <span class="text-white font-semibold">229 S 3rd St</span>, Hayden Town Park functions not as a wild nature reserve, but as a vital civic infrastructure. It provides essential open space for community cohesion, local events like "Hayden Daze," and casual recreation.
+                    </p>
+                    <p>
+                        For the conservation-minded, this park serves as an accessible entry point to the outdoors before venturing to the nearby Carpenter Ranch Preserve.
+                    </p>
+                </div>
+                
+                <div class="mt-8 bg-white/5 rounded-xl p-6 border border-white/5">
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Park Rules</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-accent-emerald"></i> Dogs allowed (Leash)
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-accent-emerald"></i> Dawn to Dusk
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check" class="w-4 h-4 text-accent-emerald"></i> No Camping
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right: Amenities Grid -->
+            <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="group p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-accent-emerald/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 rounded-xl bg-accent-emerald/10 flex items-center justify-center text-accent-emerald mb-4 group-hover:bg-accent-emerald group-hover:text-primary transition-colors">
+                        <i data-lucide="activity" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Tennis Courts</h4>
+                    <p class="text-sm text-gray-400">Two well-maintained hard-surface courts available for public use. Ideal for recreational matches.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-accent-emerald/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 rounded-xl bg-accent-emerald/10 flex items-center justify-center text-accent-emerald mb-4 group-hover:bg-accent-emerald group-hover:text-primary transition-colors">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Community Lawn</h4>
+                    <p class="text-sm text-gray-400">Expansive green space utilized for local festivals, picnics, and the "Ride the Cog" gravel staging.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-accent-emerald/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 rounded-xl bg-accent-emerald/10 flex items-center justify-center text-accent-emerald mb-4 group-hover:bg-accent-emerald group-hover:text-primary transition-colors">
+                        <i data-lucide="accessibility" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Accessibility</h4>
+                    <p class="text-sm text-gray-400">Wheelchair accessible pathways and parking ensure the park is usable by all members of the community.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-accent-emerald/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-12 h-12 rounded-xl bg-accent-emerald/10 flex items-center justify-center text-accent-emerald mb-4 group-hover:bg-accent-emerald group-hover:text-primary transition-colors">
+                        <i data-lucide="tree-pine" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Proximity</h4>
+                    <p class="text-sm text-gray-400">While urban, the park sits moments away from the Yampa River corridor and conservation easements.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conservation Context -->
+        <div id="conservation" class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-slate-900 to-slate-950 border border-white/10 p-8 md:p-12 text-center mb-24" data-aos="zoom-in">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-accent-emerald/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-accent-blue/10 rounded-full blur-3xl"></div>
+            
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <h2 class="text-3xl font-black text-white mb-6">The Carpenter Connection</h2>
+                <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                    While Hayden Town Park offers recreation, true conservationists should look just east to the <strong class="text-accent-emerald">Carpenter Ranch Preserve</strong>. Managed by The Nature Conservancy, it is a working model of how agriculture and riparian forest habitat protection can coexist along the Yampa River.
+                </p>
+                <button onclick="alert('Redirecting to TNC website...')" class="inline-flex items-center gap-2 text-accent-teal hover:text-white font-bold transition-colors uppercase tracking-wider text-sm">
+                    Learn about Carpenter Ranch <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer (Standardized) -->
+    <footer class="border-t border-white/5 bg-primary pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+                <div class="flex items-center gap-2">
+                    <div class="text-accent-emerald">
+                        <i data-lucide="leaf" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-white">Hayden Town Park</span>
+                </div>
+                <div class="text-sm text-gray-500">
+                    &copy; 2024 Town of Hayden Parks & Rec.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS (Copied settings)
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50 // Trigger animations slightly earlier
+        });
+
+        // Initialize Lucide Icons for main content
+        lucide.createIcons();
+
+        // Mobile Menu Toggle Logic (Exact Logic Preserved)
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        if(menuBtn) menuBtn.addEventListener('click', () => toggleMenu(true));
+        if(closeBtn) closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
