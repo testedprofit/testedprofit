@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Palmer Intersection Project | Conserving History</title>
+    <meta name="description" content="TestedProfit Blank Template">
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Merriweather:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Animation Styles -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        },
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            700: '#44403c',
+                            800: '#292524',
+                            900: '#1c1917',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Merriweather', serif;
+        }
+
+        /* Improved Performance: Use opacity for animations instead of layout changes */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+        .bronze-gradient {
+            background: linear-gradient(135deg, #4a3b2a 0%, #8c6a4a 100%);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation (Exact Header from fastloadingblank.html) -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <!-- Close Button -->
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 container mx-auto px-4 sm:px-6">
+        
+        <!-- Hero Section -->
+        <div class="relative pb-20 lg:pb-32" data-aos="fade-up">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center space-x-2 bg-amber-500/10 text-amber-500 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-6 border border-amber-500/20">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span>Traffic Hazard Rating: High</span>
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+                        The General Stands <br>
+                        <span class="text-gray-500 italic font-light">In the Way.</span>
+                    </h1>
+                    <p class="text-xl text-gray-400 mb-8 max-w-lg leading-relaxed">
+                        General William Jackson Palmer founded Colorado Springs. Now, his statue fights a daily battle against modern traffic at Nevada & Platte.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#solution" class="text-center px-8 py-4 bg-accent-teal text-primary rounded-lg font-bold shadow-[0_0_20px_rgba(45,212,191,0.3)] hover:bg-teal-300 transition transform hover:-translate-y-1">
+                            See the Proposal
+                        </a>
+                        <a href="#history" class="text-center px-8 py-4 border border-white/20 bg-white/5 text-white rounded-lg font-bold hover:bg-white/10 transition backdrop-blur-sm">
+                            Learn the History
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <!-- Abstract representation of the statue/intersection -->
+                    <div class="aspect-square rounded-2xl bronze-gradient shadow-2xl flex items-center justify-center p-8 relative overflow-hidden group border border-white/10">
+                        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                        
+                        <!-- The Statue Icon -->
+                        <div class="text-white text-9xl relative z-10 transform group-hover:scale-105 transition duration-700">
+                            <i class="fa-solid fa-horse-head"></i>
+                        </div>
+                        
+                        <!-- Traffic elements circling -->
+                        <div class="absolute inset-0 animate-[spin_10s_linear_infinite]">
+                            <div class="absolute top-10 left-1/2 -translate-x-1/2 bg-amber-500 w-2 h-2 rounded-full shadow-[0_0_20px_rgba(245,158,11,0.6)]"></div>
+                            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 bg-red-500 w-2 h-2 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.6)]"></div>
+                        </div>
+                        
+                        <!-- Overlay Text -->
+                        <div class="absolute bottom-6 left-6 bg-black/40 backdrop-blur-md border border-white/10 p-4 rounded-xl text-white">
+                            <p class="text-xs font-bold uppercase tracking-widest opacity-70">Established 1929</p>
+                            <p class="font-serif text-lg">General Palmer Statue</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Metrics Section -->
+        <section class="border-y border-white/5 bg-white/5 backdrop-blur-sm -mx-6 px-6 py-16" data-aos="fade-up" data-aos-delay="100">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-x divide-white/10">
+                    <div class="p-4">
+                        <div class="text-4xl font-black text-amber-500 mb-2">1.7</div>
+                        <div class="text-sm uppercase tracking-widest text-gray-500">Google Rating</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-4xl font-black text-gray-300">1871</div>
+                        <div class="text-sm uppercase tracking-widest text-gray-500">City Founded</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-4xl font-black text-gray-300">1929</div>
+                        <div class="text-sm uppercase tracking-widest text-gray-500">Statue Erected</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="text-4xl font-black text-amber-500">∞</div>
+                        <div class="text-sm uppercase tracking-widest text-gray-500">Near Misses</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Problem Section -->
+        <section id="problem" class="py-24" data-aos="fade-up">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <span class="text-accent-teal font-bold tracking-wider uppercase text-sm">The Conflict</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-white mt-2 mb-4">A Historic Landmark or a Traffic Circle of Doom?</h2>
+                <p class="text-gray-400 text-lg">
+                    The General sits in the median of Nevada Avenue. He faces Pikes Peak. Drivers face confusion.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+                <div class="bg-white/5 p-8 rounded-xl border border-white/10 hover:border-white/20 transition">
+                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-landmark text-gray-300"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">The Conservation View</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        The statue stands exactly where intended—watching over the city Palmer built. Moving it would strip the monument of its historical context and sightline to the Peak.
+                    </p>
+                </div>
+                <div class="bg-amber-500/5 p-8 rounded-xl border border-amber-500/20 hover:border-amber-500/40 transition">
+                    <div class="w-12 h-12 bg-amber-500/20 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-car-burst text-amber-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">The Driver's View</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        The massive concrete plinth blocks sightlines for left turns. It creates a bottleneck in a 3-lane thoroughfare. The 1.7-star rating isn't for the art—it's for the anxiety.
+                    </p>
+                </div>
+            </div>
+
+            <!-- PUBLIC HEARING / REVIEWS SECTION -->
+            <div class="max-w-5xl mx-auto">
+                <div class="flex items-center justify-center mb-8 space-x-4">
+                    <div class="h-px bg-white/10 w-20"></div>
+                    <h4 class="text-sm font-bold text-gray-500 uppercase tracking-widest">Public Comments: Google Reviews</h4>
+                    <div class="h-px bg-white/10 w-20"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    
+                    <!-- Review 1 -->
+                    <div class="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex flex-col">
+                                <span class="text-white font-bold text-sm">Jason M.</span>
+                                <span class="text-xs text-gray-500">Local Guide</span>
+                            </div>
+                            <div class="flex text-amber-500 text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic text-sm">"I tried to turn left. I am now living in the year 1871. The General forbids all left turns. Send help."</p>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex flex-col">
+                                <span class="text-white font-bold text-sm">Sarah L.</span>
+                                <span class="text-xs text-gray-500">Resident</span>
+                            </div>
+                            <div class="flex text-amber-500 text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic text-sm">"Great statue! Beautiful bronze work. My mechanic loves this intersection too. The body work on my sedan put his kids through college."</p>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex flex-col">
+                                <span class="text-white font-bold text-sm">Tourist_44</span>
+                                <span class="text-xs text-gray-500">Visitor</span>
+                            </div>
+                            <div class="flex text-amber-500 text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic text-sm">"Beautiful horse. I almost hit a Subaru while admiring it. 5/5 for adrenaline, 1/5 for urban planning."</p>
+                    </div>
+
+                    <!-- Review 4 -->
+                    <div class="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex flex-col">
+                                <span class="text-white font-bold text-sm">TrafficBot</span>
+                                <span class="text-xs text-gray-500">Automated</span>
+                            </div>
+                            <div class="flex text-red-500 text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 italic text-sm">"Alert: Detecting high levels of honking. Honking ineffective against bronze. Please proceed with caution."</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- The Solution / Conservation Plan -->
+        <section id="solution" class="py-24 border-t border-white/5" data-aos="fade-up">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">A Smart Solution for Nevada Ave</h2>
+                        <p class="text-lg text-gray-400 mb-6">
+                            We don't need to erase history to improve safety. We are advocating for a landscape-led redesign.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-accent-emerald mt-1 mr-3"></i>
+                                <span class="text-gray-300"><strong>Preserve In-Place:</strong> Keep the General exactly where he stands.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-accent-emerald mt-1 mr-3"></i>
+                                <span class="text-gray-300"><strong>Modern Roundabout:</strong> Replace the signalized deathtrap with a flow-based roundabout.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-accent-emerald mt-1 mr-3"></i>
+                                <span class="text-gray-300"><strong>Pedestrian Access:</strong> Create safe crossings to nearby Acacia Park.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/5 p-8 rounded-2xl border border-white/10 shadow-2xl backdrop-blur-xl" id="petition">
+                        <h3 class="text-xl font-bold text-white mb-2">Join the Movement</h3>
+                        <p class="text-gray-500 text-sm mb-6">Support the "Safe History" initiative.</p>
+                        
+                        <form onsubmit="event.preventDefault(); document.getElementById('success-msg').classList.remove('hidden'); this.classList.add('hidden');" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-3 bg-black/20 border border-white/10 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal transition placeholder-gray-600" placeholder="you@coloradosprings.com">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">I Support</label>
+                                <select class="w-full px-4 py-3 bg-black/20 border border-white/10 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-teal transition">
+                                    <option class="bg-primary">A Roundabout (Keep Statue)</option>
+                                    <option class="bg-primary">Moving the Statue to Acacia Park</option>
+                                    <option class="bg-primary">Doing Nothing (I like chaos)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-accent-teal text-primary font-bold py-4 rounded-lg hover:bg-teal-300 transition">
+                                Sign Petition
+                            </button>
+                            <p class="text-xs text-gray-600 text-center">We respect your privacy and hate spam as much as traffic.</p>
+                        </form>
+                        
+                        <div id="success-msg" class="hidden text-center py-8">
+                            <div class="w-16 h-16 bg-emerald-500/10 text-accent-emerald rounded-full flex items-center justify-center mx-auto mb-4 border border-emerald-500/20">
+                                <i class="fa-solid fa-check text-2xl"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">Thank You!</h4>
+                            <p class="text-gray-500">Your voice has been added. Drive safe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950/50 text-gray-400 py-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="font-serif text-white text-lg font-bold block">The Palmer Project</span>
+                <span class="text-xs">Conservation & Safety Advocacy Group</span>
+            </div>
+            <div class="flex space-x-6 text-sm">
+                <a href="#" class="hover:text-accent-teal transition">About Palmer</a>
+                <a href="#" class="hover:text-accent-teal transition">City Council Meetings</a>
+                <a href="#" class="hover:text-accent-teal transition">Contact</a>
+            </div>
+        </div>
+        <div class="text-center mt-8 text-xs text-gray-600">
+            &copy; 2025 The Palmer Project. Not affiliated with the City of Colorado Springs.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50 // Trigger animations slightly earlier
+        });
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        if (menuBtn && closeBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => toggleMenu(true));
+            closeBtn.addEventListener('click', () => toggleMenu(false));
+
+            // Close menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+        }
+    });
+    </script>
+</body>
+</html>
