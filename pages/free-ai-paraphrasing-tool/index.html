@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Optimization -->
-    <title>Profitnet | Free AI Paraphrasing Tool</title>
-    <meta name="description" content="Instantly rephrase and optimize your text with Profitnet's AI Paraphrasing Tool. Free, fast, and secure text refinement.">
+    <!-- SEO Optimization: Primary Keyword "AI Paraphrasing Tool" -->
+    <title>Free AI Paraphrasing Tool | Profitnet</title>
+    <meta name="description" content="Use our Free AI Paraphrasing Tool to instantly rewrite text, fix grammar, and summarize articles. High-speed, accurate, and optimized for clarity.">
+    <meta name="keywords" content="AI Paraphrasing Tool, Free Paraphraser, Rewrite Text, AI Content improver, Profitnet">
     <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="Free AI Paraphrasing Tool - Profitnet">
+    <meta property="og:description" content="Instantly rewrite and optimize your text with our advanced AI engine.">
+    <meta property="og:type" content="website">
 
     <!-- External Scripts & Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -127,12 +133,6 @@
             <nav class="hidden lg:flex space-x-10 items-center">
                 <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
                 <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
-                <button onclick="toggleKeyModal()" class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
-                    </svg>
-                    API Key
-                </button>
             </nav>
 
             <!-- Mobile Menu Button -->
@@ -142,38 +142,24 @@
                 </svg>
             </button>
         </div>
-        
-        <!-- API Key Modal (Hidden by default) -->
-        <div id="apiKeyModal" class="hidden absolute top-full right-0 mt-2 mr-6 w-80 glass-card rounded-xl p-6 z-50 animate-fade-in shadow-2xl border border-accent-teal/20">
-            <div class="flex justify-between items-start mb-4">
-                <h3 class="text-white font-bold">Configure AI Access</h3>
-                <button onclick="toggleKeyModal()" class="text-gray-400 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button>
-            </div>
-            <p class="text-xs text-gray-400 mb-4">To use the AI features for free, paste your Google Gemini API key below. It's stored locally on your device.</p>
-            <input type="password" id="apiKeyInput" placeholder="Paste Key (starts with AIza...)" class="w-full p-3 rounded-lg text-sm mb-3 focus:ring-2 focus:ring-accent-teal/50 transition-all">
-            <div class="flex gap-2">
-                <button onclick="saveApiKey()" class="flex-1 bg-accent-teal hover:bg-accent-emerald text-primary font-bold py-2 rounded-lg text-xs transition-colors">Save Key</button>
-                <a href="https://aistudio.google.com/app/apikey" target="_blank" class="flex-1 border border-white/10 hover:bg-white/5 text-center py-2 rounded-lg text-xs text-gray-300 transition-colors">Get Free Key &rarr;</a>
-            </div>
-             <div id="keyStatus" class="mt-2 text-center text-xs h-4"></div>
-        </div>
     </header>
 
     <!-- Main Tool Interface -->
     <main class="relative z-10 pt-28 pb-12 px-4 md:px-6 container mx-auto flex flex-col items-center min-h-screen">
         
-        <!-- Header Text -->
+        <!-- Header Text (SEO Optimized H1) -->
         <div class="text-center mb-10" data-aos="fade-down">
             <div class="inline-flex items-center space-x-2 px-3 py-1 mb-4 rounded-full border border-accent-teal/30 bg-accent-teal/5 backdrop-blur-sm">
                 <span class="w-2 h-2 rounded-full bg-accent-teal animate-pulse"></span>
-                <span class="text-[10px] font-bold text-accent-teal tracking-wide uppercase">AI Engine v2.5 Ready</span>
+                <span class="text-[10px] font-bold text-accent-teal tracking-wide uppercase">AI Engine v2.5 Online</span>
             </div>
+            
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
-                Redefine Your <br class="hidden md:block">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-teal to-accent-emerald">Narrative</span>
+                Free <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-teal to-accent-emerald">AI Paraphrasing Tool</span>
             </h1>
+            
             <p class="text-gray-400 max-w-xl mx-auto">
-                Paste your text below to instantly generate professional, clear, and optimized variations.
+                Redefine your narrative. Paste your text below to instantly rewrite content, check grammar, and optimize flow with our professional paraphrasing tool.
             </p>
         </div>
 
@@ -208,7 +194,6 @@
             <!-- Error Box -->
             <div id="errorBox" class="hidden p-4 rounded-lg bg-red-900/20 border border-red-500/30 text-red-400 text-sm text-center max-w-md w-full flex flex-col gap-2">
                 <p id="errorMessage"></p>
-                <button onclick="toggleKeyModal()" class="text-xs text-white underline hover:text-accent-teal">Configure API Key</button>
             </div>
         </div>
 
@@ -277,7 +262,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // --- Configuration ---
-        // This is where the user key will be stored. We don't hardcode it.
         const MODEL_NAME = "gemini-2.5-flash-preview-09-2025"; 
         
         // ADDED: User's embedded key for instant functionality (Obfuscated)
@@ -307,40 +291,14 @@
             loadingText: document.getElementById('loadingText'),
             errorBox: document.getElementById('errorBox'),
             errorMessage: document.getElementById('errorMessage'),
-            charCount: document.getElementById('charCount'),
-            apiKeyModal: document.getElementById('apiKeyModal'),
-            apiKeyInput: document.getElementById('apiKeyInput'),
-            keyStatus: document.getElementById('keyStatus')
+            charCount: document.getElementById('charCount')
         };
 
         // --- Logic ---
 
-        // API Key Management
+        // API Key Management - Simplified to use embedded key only
         function getApiKey() {
-            // Priority: Local Storage -> Embedded Key
-            return localStorage.getItem('user_gemini_key') || EMBEDDED_KEY;
-        }
-
-        function toggleKeyModal() {
-            els.apiKeyModal.classList.toggle('hidden');
-            if (!els.apiKeyModal.classList.contains('hidden')) {
-                els.apiKeyInput.value = getApiKey();
-                els.apiKeyInput.focus();
-            }
-        }
-
-        function saveApiKey() {
-            const key = els.apiKeyInput.value.trim();
-            if (key) {
-                localStorage.setItem('user_gemini_key', key);
-                els.keyStatus.textContent = "Saved!";
-                els.keyStatus.className = "mt-2 text-center text-xs h-4 text-green-400";
-                setTimeout(() => toggleKeyModal(), 1000);
-                els.errorBox.classList.add('hidden'); // Clear errors
-            } else {
-                localStorage.removeItem('user_gemini_key');
-                els.keyStatus.textContent = "Cleared";
-            }
+            return EMBEDDED_KEY;
         }
 
         // API Fetch with Backoff
@@ -363,14 +321,6 @@
 
         async function paraphraseText(text, mode = 'paraphrase') {
             const apiKey = getApiKey();
-
-            // Check for API Key
-            if (!apiKey) {
-                els.errorMessage.textContent = "Missing API Key. Please configure it in the menu.";
-                els.errorBox.classList.remove('hidden');
-                toggleKeyModal(); // Prompt user
-                return;
-            }
 
             // Determine prompt
             const basePrompt = PROMPTS[mode] || PROMPTS.paraphrase;
@@ -415,11 +365,6 @@
                 els.errorMessage.textContent = `Error: ${error.message || 'Connection failed'}`;
                 els.errorBox.classList.remove('hidden');
                 els.placeholder.classList.remove('hidden');
-                
-                // If permission denied, likely bad key
-                if (error.message.includes('403') || error.message.includes('API key')) {
-                    toggleKeyModal();
-                }
             } finally {
                 // UI State: Reset
                 els.loader.classList.add('hidden');
