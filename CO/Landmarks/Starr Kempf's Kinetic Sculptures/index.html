@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starr Kempf: Steel & Wind</title>
+    <meta name="description" content="Starr Kempf Kinetic Sculptures - Conservation and Art">
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts: Preconnected for speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@300;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace'],
+                        oswald: ['Oswald', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B; /* Fallback */
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Template Specific Styles */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+        /* Starr Kempf Specific Styles */
+        h1, h2, h3, h4 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .kinetic-text {
+            animation: drift 8s ease-in-out infinite alternate;
+        }
+        @keyframes drift {
+            0% { transform: translateX(0); opacity: 0.9; }
+            100% { transform: translateX(10px); opacity: 1; }
+        }
+        .steel-gradient {
+            background: linear-gradient(135deg, #cbd5e1 0%, #475569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation (Standardized) -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-20"> <!-- Added pt-20 to account for fixed header -->
+        
+        <!-- Hero Section -->
+        <header class="min-h-screen flex flex-col justify-center items-center px-4 relative overflow-hidden" data-aos="fade-up">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1465405908272-37887556d43e?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent"></div>
+            
+            <div class="relative z-10 text-center max-w-4xl">
+                <p class="text-accent-teal tracking-[0.3em] text-sm md:text-base mb-4 kinetic-text font-mono">KINETIC MONUMENTS OF COLORADO SPRINGS</p>
+                <h1 class="text-6xl md:text-9xl font-bold mb-6 leading-tight steel-gradient">STEEL & WIND</h1>
+                <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-mono">
+                    Fifty-foot steel structures that breathe with the Cheyenne Cañon drafts. 
+                    A testament to engineering precision and artistic defiance.
+                </p>
+                <div class="mt-12">
+                    <a href="#visit" class="px-8 py-3 border border-accent-teal text-accent-teal hover:bg-accent-teal hover:text-primary transition-all duration-300 font-bold tracking-wider font-mono">
+                        LOCATE THE WORKS
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Biography Section -->
+        <section id="biography" class="py-24 px-4 md:px-12 relative" data-aos="fade-up">
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white">The Blacksmith's Son</h2>
+                    <div class="space-y-6 text-gray-400 leading-relaxed font-mono">
+                        <p>
+                            <strong class="text-gray-200">Starr Gideon Kempf (1917–1995)</strong> was not born into high art. Raised on an Ohio farm, he learned the language of metal from his father and seven uncles—all blacksmiths and carpenters.
+                        </p>
+                        <p>
+                            He attended the Cleveland Institute of Art and served in the Air Force during WWII, experiences that fused his artistic vision with mechanical discipline. In 1948, he settled in Colorado Springs, building his own home in Cheyenne Cañon—a landscape that would become his canvas.
+                        </p>
+                        <p>
+                            While he began with bronze, his later years were defined by monumental steel. He didn't just sculpt; he engineered. He built wind turbines into art, creating massive, intricate birds and spires that required perfect balance to move silently in the mountain breeze.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative h-96 w-full border border-white/10 bg-white/5 p-8 flex flex-col justify-center items-center text-center">
+                    <div class="absolute w-full h-full border-t border-l border-white/10 top-4 left-4 -z-10"></div>
+                    <h3 class="text-6xl font-bold text-gray-600 mb-2">1917</h3>
+                    <p class="text-sm text-accent-teal tracking-widest mb-8 font-mono">BORN IN OHIO</p>
+                    <h3 class="text-6xl font-bold text-gray-600 mb-2">1995</h3>
+                    <p class="text-sm text-accent-teal tracking-widest font-mono">DIED IN COLORADO</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works / Engineering Section -->
+        <section id="works" class="py-24 px-4 md:px-12 border-y border-white/5 bg-black/20" data-aos="fade-up">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">Engineering the Breeze</h2>
+                    <p class="text-gray-400 max-w-2xl font-mono">Kempf’s sculptures are not static. They are machines designed to visualize the invisible forces of nature.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-primary p-8 hover:border-accent-teal border border-white/10 transition-colors duration-300 group">
+                        <div class="text-accent-teal mb-4 opacity-50 group-hover:opacity-100 transition-opacity font-mono">01</div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-200">The Material</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed font-mono">
+                            Constructed primarily of stainless steel, these works were built to withstand the harsh Colorado elements. The polished surfaces reflect the changing sky, making the heavy metal appear weightless.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-primary p-8 hover:border-accent-teal border border-white/10 transition-colors duration-300 group">
+                        <div class="text-accent-teal mb-4 opacity-50 group-hover:opacity-100 transition-opacity font-mono">02</div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-200">The Scale</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed font-mono">
+                            Reaching heights of 30 to 50 feet, the sculptures dominate their environment. "Metronome," "Sunrise Serenade," and "Space Needle" are among his most famous monumental works.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-primary p-8 hover:border-accent-teal border border-white/10 transition-colors duration-300 group">
+                        <div class="text-accent-teal mb-4 opacity-50 group-hover:opacity-100 transition-opacity font-mono">03</div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-200">The Mechanics</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed font-mono">
+                            Using complex bearing systems, entire multi-ton sections rotate and sway. Kempf calibrated them specifically for the wind currents of his front yard, creating a site-specific dialogue with the air.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conservation Section -->
+        <section id="conservation" class="py-24 px-4 md:px-12" data-aos="fade-up">
+            <div class="max-w-4xl mx-auto border-l-2 border-accent-teal pl-8 md:pl-16 py-4">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">The Conservation Paradox</h2>
+                <p class="text-lg text-gray-300 mb-6 font-light font-mono">
+                    "To save the art, do we destroy its context?"
+                </p>
+                <div class="space-y-4 text-gray-400 font-mono">
+                    <p>
+                        Starr Kempf designed his kinetic sculptures specifically for the topography of his Cheyenne Cañon estate. The wind there behaves in a way he studied for decades.
+                    </p>
+                    <p>
+                        However, the sheer scale of the work attracted crowds, leading to a bitter conflict between the artist's estate and the residential zoning laws of the neighborhood. After years of legal battles following Kempf's death, a compromise was reached.
+                    </p>
+                    <p>
+                        Several monumental pieces were removed from their original context and loaned to the <span class="text-accent-teal">UCCS Ent Center for the Arts</span>. While this protects the physical integrity of the steel and allows for public viewing, a conservationist must ask: <em class="text-gray-300">Is a site-specific kinetic sculpture the same artwork when moved to a different wind?</em>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visit Section -->
+        <section id="visit" class="py-24 px-4 md:px-12 bg-black/40" data-aos="fade-up">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-white">Where to View</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Location 1: Private -->
+                    <div class="border border-red-900/30 bg-red-900/10 p-8 rounded-sm">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold text-gray-200">The Original Estate</h3>
+                            <span class="bg-red-900/50 text-red-200 text-xs px-2 py-1 uppercase tracking-wider font-mono">Private Property</span>
+                        </div>
+                        <p class="text-gray-400 mb-6 font-mono">
+                            The artist's home still retains several sculptures. Seeing them in the dense trees of the canyon is the authentic experience, but access is restricted.
+                        </p>
+                        <div class="bg-primary border border-white/5 p-4 text-sm text-gray-300 font-mono mb-6">
+                            2057 Pine Grove Ave<br>Colorado Springs, CO 80906
+                        </div>
+                        <ul class="text-sm text-red-300 space-y-2 font-mono">
+                            <li>⚠ Strictly view from the street only.</li>
+                            <li>⚠ Do not enter the driveway or gate.</li>
+                            <li>⚠ Respect the neighbors' privacy.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Location 2: Public -->
+                    <div class="border border-green-900/30 bg-green-900/10 p-8 rounded-sm">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold text-gray-200">UCCS Ent Center</h3>
+                            <span class="bg-green-900/50 text-green-200 text-xs px-2 py-1 uppercase tracking-wider font-mono">Public Access</span>
+                        </div>
+                        <p class="text-gray-400 mb-6 font-mono">
+                            Several major works, including <em>Metronome</em> and <em>Space Needle</em>, were relocated here for preservation. They are fully accessible to the public.
+                        </p>
+                        <div class="bg-primary border border-white/5 p-4 text-sm text-gray-300 font-mono mb-6">
+                            5225 N Nevada Ave<br>Colorado Springs, CO 80918
+                        </div>
+                        <ul class="text-sm text-green-300 space-y-2 font-mono">
+                            <li>✓ Open to the public.</li>
+                            <li>✓ Close-up viewing allowed.</li>
+                            <li>✓ Photography encouraged.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-12 px-4 border-t border-white/5 text-center relative z-10">
+        <p class="text-gray-500 text-sm font-mono">
+            Designed for conservation awareness. <br class="md:hidden">
+            <span class="hidden md:inline"> | </span> 
+            Respect the Art. Respect the Land.
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        if(menuBtn) menuBtn.addEventListener('click', () => toggleMenu(true));
+        if(closeBtn) closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
