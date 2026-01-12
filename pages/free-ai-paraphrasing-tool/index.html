@@ -201,6 +201,23 @@
             </p>
         </div>
 
+        <!-- Controls (Moved to Top) -->
+        <div class="mb-8 w-full max-w-6xl flex flex-col items-center space-y-4" data-aos="fade-up" data-aos-delay="50">
+            <button id="paraphraseBtn" class="group relative px-10 py-4 rounded-full bg-accent-teal text-primary font-black text-lg tracking-wide uppercase transition-all duration-300 hover:bg-accent-emerald hover:shadow-[0_0_30px_rgba(45,212,191,0.4)] transform hover:-translate-y-1 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                <span class="relative z-10 flex items-center gap-2">
+                    Initialize Paraphrase
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 transition-transform group-hover:rotate-45">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                    </svg>
+                </span>
+            </button>
+
+            <!-- Error Box -->
+            <div id="errorBox" class="hidden p-4 rounded-lg bg-red-900/20 border border-red-500/30 text-red-400 text-sm text-center max-w-md w-full">
+                <p id="errorMessage"></p>
+            </div>
+        </div>
+
         <!-- Tool Container -->
         <div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="100">
             
@@ -250,23 +267,6 @@
                         <span class="text-gray-600 text-sm italic">Paraphrased result will appear here</span>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <div class="mt-8 w-full max-w-6xl flex flex-col items-center space-y-4" data-aos="fade-up" data-aos-delay="200">
-            <button id="paraphraseBtn" class="group relative px-10 py-4 rounded-full bg-accent-teal text-primary font-black text-lg tracking-wide uppercase transition-all duration-300 hover:bg-accent-emerald hover:shadow-[0_0_30px_rgba(45,212,191,0.4)] transform hover:-translate-y-1 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
-                <span class="relative z-10 flex items-center gap-2">
-                    Initialize Paraphrase
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 transition-transform group-hover:rotate-45">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                    </svg>
-                </span>
-            </button>
-
-            <!-- Error Box -->
-            <div id="errorBox" class="hidden p-4 rounded-lg bg-red-900/20 border border-red-500/30 text-red-400 text-sm text-center max-w-md w-full">
-                <p id="errorMessage"></p>
             </div>
         </div>
         
@@ -337,6 +337,13 @@
         }
 
         async function paraphraseText(text) {
+            // Check for API Key
+            if (!API_KEY) {
+                els.errorMessage.textContent = "Error: API Key is missing. Please check your configuration.";
+                els.errorBox.classList.remove('hidden');
+                return;
+            }
+
             // UI State: Loading
             els.loader.classList.remove('hidden');
             els.placeholder.classList.add('hidden');
