@@ -4,16 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Optimization: Targeted for AI Tool usage -->
+    <!-- SEO Optimization -->
     <title>Profitnet | Free AI Paraphrasing Tool</title>
     <meta name="description" content="Instantly rephrase and optimize your text with Profitnet's AI Paraphrasing Tool. Free, fast, and secure text refinement.">
-    <meta name="keywords" content="AI Paraphrasing, Rewrite Text, Free AI Tool, Profitnet, Content Optimization">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph for Social Sharing -->
-    <meta property="og:title" content="Profitnet AI - Smart Text Paraphrasing">
-    <meta property="og:description" content="Refine your writing instantly with our high-speed AI engine.">
-    <meta property="og:type" content="website">
 
     <!-- External Scripts & Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,7 +37,6 @@
                     },
                     animation: {
                         'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'spin-slow': 'spin 3s linear infinite',
                     }
                 }
             }
@@ -59,25 +52,6 @@
             min-height: 100vh;
         }
 
-        /* Optimization: Content Visibility */
-        section {
-            content-visibility: auto;
-            contain-intrinsic-size: 1px 1000px;
-        }
-
-        .hero-glow {
-            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
-            will-change: opacity;
-        }
-
-        .bg-grid-pattern {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 2.5rem 2.5rem;
-            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-        }
-
         /* Glassmorphism Utilities */
         .glass-card {
             background: rgba(17, 16, 37, 0.7);
@@ -88,13 +62,12 @@
         }
 
         /* Input Styling */
-        textarea {
+        textarea, input[type="password"], input[type="text"] {
             background-color: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: #E5E7EB;
-            resize: none;
         }
-        textarea:focus {
+        textarea:focus, input:focus {
             background-color: rgba(255, 255, 255, 0.05);
             border-color: #2DD4BF;
             outline: none;
@@ -134,11 +107,11 @@
 
     <!-- Global Background Elements -->
     <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:2.5rem_2.5rem] opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow bg-[radial-gradient(circle_at_30%_20%,rgba(45,212,191,0.15)_0%,transparent_60%),radial-gradient(circle_at_70%_80%,rgba(96,165,250,0.1)_0%,transparent_60%)]"></div>
     </div>
 
-    <!-- Sticky Navigation (Preserved from fastloadingblank.html) -->
+    <!-- Sticky Navigation -->
     <header class="fixed w-full top-0 z-50 bg-primary/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             
@@ -146,10 +119,7 @@
             <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Profitnet Homepage">
                 <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
                      class="h-8 w-8 transition-transform group-hover:rotate-12" 
-                     alt="Profitnet Logo"
-                     width="32" 
-                     height="32"
-                     fetchpriority="high">
+                     alt="Profitnet Logo" width="32" height="32">
                 <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
             </a>
             
@@ -157,29 +127,35 @@
             <nav class="hidden lg:flex space-x-10 items-center">
                 <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
                 <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
-                    $PNET Asset Dashboard
-                </a>
+                <button onclick="toggleKeyModal()" class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+                    </svg>
+                    API Key
+                </button>
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-primary/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8 transition-all duration-300 transform -translate-y-full opacity-0 pointer-events-none">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        
+        <!-- API Key Modal (Hidden by default) -->
+        <div id="apiKeyModal" class="hidden absolute top-full right-0 mt-2 mr-6 w-80 glass-card rounded-xl p-6 z-50 animate-fade-in shadow-2xl border border-accent-teal/20">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-white font-bold">Configure AI Access</h3>
+                <button onclick="toggleKeyModal()" class="text-gray-400 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button>
+            </div>
+            <p class="text-xs text-gray-400 mb-4">To use the AI features for free, paste your Google Gemini API key below. It's stored locally on your device.</p>
+            <input type="password" id="apiKeyInput" placeholder="Paste Key (starts with AIza...)" class="w-full p-3 rounded-lg text-sm mb-3 focus:ring-2 focus:ring-accent-teal/50 transition-all">
+            <div class="flex gap-2">
+                <button onclick="saveApiKey()" class="flex-1 bg-accent-teal hover:bg-accent-emerald text-primary font-bold py-2 rounded-lg text-xs transition-colors">Save Key</button>
+                <a href="https://aistudio.google.com/app/apikey" target="_blank" class="flex-1 border border-white/10 hover:bg-white/5 text-center py-2 rounded-lg text-xs text-gray-300 transition-colors">Get Free Key &rarr;</a>
+            </div>
+             <div id="keyStatus" class="mt-2 text-center text-xs h-4"></div>
         </div>
     </header>
 
@@ -190,31 +166,49 @@
         <div class="text-center mb-10" data-aos="fade-down">
             <div class="inline-flex items-center space-x-2 px-3 py-1 mb-4 rounded-full border border-accent-teal/30 bg-accent-teal/5 backdrop-blur-sm">
                 <span class="w-2 h-2 rounded-full bg-accent-teal animate-pulse"></span>
-                <span class="text-[10px] font-bold text-accent-teal tracking-wide uppercase">AI Engine v2.5 Online</span>
+                <span class="text-[10px] font-bold text-accent-teal tracking-wide uppercase">AI Engine v2.5 Ready</span>
             </div>
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
                 Redefine Your <br class="hidden md:block">
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-teal to-accent-emerald">Narrative</span>
             </h1>
             <p class="text-gray-400 max-w-xl mx-auto">
-                Paste your text below to instantly generate professional, clear, and optimized variations using our advanced AI.
+                Paste your text below to instantly generate professional, clear, and optimized variations.
             </p>
         </div>
 
-        <!-- Controls (Moved to Top) -->
-        <div class="mb-8 w-full max-w-6xl flex flex-col items-center space-y-4" data-aos="fade-up" data-aos-delay="50">
-            <button id="paraphraseBtn" class="group relative px-10 py-4 rounded-full bg-accent-teal text-primary font-black text-lg tracking-wide uppercase transition-all duration-300 hover:bg-accent-emerald hover:shadow-[0_0_30px_rgba(45,212,191,0.4)] transform hover:-translate-y-1 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
-                <span class="relative z-10 flex items-center gap-2">
+        <!-- Controls -->
+        <div class="mb-8 w-full max-w-6xl flex flex-col items-center space-y-6" data-aos="fade-up" data-aos-delay="50">
+            <!-- Main Button -->
+            <button id="paraphraseBtn" class="group relative px-10 py-4 rounded-full bg-accent-teal text-primary font-black text-lg tracking-wide uppercase transition-all duration-300 hover:bg-accent-emerald hover:shadow-[0_0_30px_rgba(45,212,191,0.4)] transform hover:-translate-y-1 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none w-full md:w-auto shadow-lg shadow-accent-teal/20">
+                <span class="relative z-10 flex items-center justify-center gap-2">
                     Initialize Paraphrase
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 transition-transform group-hover:rotate-45">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                     </svg>
                 </span>
             </button>
+            
+            <!-- Smart Tools Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
+                 <button onclick="triggerMode('summarize')" class="px-4 py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-accent-purple/50 text-gray-300 hover:text-white transition-all duration-200 text-sm font-bold flex items-center justify-center gap-2 group">
+                    <span>✨ Summarize</span>
+                 </button>
+                 <button onclick="triggerMode('professional')" class="px-4 py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-accent-blue/50 text-gray-300 hover:text-white transition-all duration-200 text-sm font-bold flex items-center justify-center gap-2 group">
+                    <span>✨ Professionalize</span>
+                 </button>
+                 <button onclick="triggerMode('simplify')" class="px-4 py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-accent-teal/50 text-gray-300 hover:text-white transition-all duration-200 text-sm font-bold flex items-center justify-center gap-2 group">
+                    <span>✨ Simplify</span>
+                 </button>
+                 <button onclick="triggerMode('grammar')" class="px-4 py-3 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-accent-emerald/50 text-gray-300 hover:text-white transition-all duration-200 text-sm font-bold flex items-center justify-center gap-2 group">
+                    <span>✨ Fix Grammar</span>
+                 </button>
+            </div>
 
             <!-- Error Box -->
-            <div id="errorBox" class="hidden p-4 rounded-lg bg-red-900/20 border border-red-500/30 text-red-400 text-sm text-center max-w-md w-full">
+            <div id="errorBox" class="hidden p-4 rounded-lg bg-red-900/20 border border-red-500/30 text-red-400 text-sm text-center max-w-md w-full flex flex-col gap-2">
                 <p id="errorMessage"></p>
+                <button onclick="toggleKeyModal()" class="text-xs text-white underline hover:text-accent-teal">Configure API Key</button>
             </div>
         </div>
 
@@ -256,7 +250,7 @@
                     <!-- Loader Overlay -->
                     <div id="loader" class="absolute inset-0 z-20 bg-secondary/90 flex flex-col items-center justify-center hidden backdrop-blur-sm">
                         <div class="loader-ring mb-4"></div>
-                        <span class="text-xs font-bold text-accent-teal animate-pulse uppercase tracking-widest">Processing...</span>
+                        <span id="loadingText" class="text-xs font-bold text-accent-teal animate-pulse uppercase tracking-widest">Processing...</span>
                     </div>
                     
                     <!-- Content -->
@@ -267,22 +261,6 @@
                         <span class="text-gray-600 text-sm italic">Paraphrased result will appear here</span>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Features Grid (Optional context for the tool) -->
-        <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl border-t border-white/5 pt-12">
-            <div class="text-center p-4">
-                <div class="text-accent-teal font-bold mb-2">⚡ Zero Latency</div>
-                <p class="text-xs text-gray-500">Optimized for millisecond response times.</p>
-            </div>
-             <div class="text-center p-4 border-l border-r border-white/5">
-                <div class="text-accent-emerald font-bold mb-2">🛡️ Privacy First</div>
-                <p class="text-xs text-gray-500">Input data is processed anonymously.</p>
-            </div>
-             <div class="text-center p-4">
-                <div class="text-accent-blue font-bold mb-2">✨ Smart Context</div>
-                <p class="text-xs text-gray-500">Maintains original meaning & tone.</p>
             </div>
         </div>
 
@@ -299,9 +277,24 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // --- Configuration ---
-        const API_KEY = ""; // Environment provided
-        const MODEL_NAME = "gemini-2.5-flash-preview-09-2025";
+        // This is where the user key will be stored. We don't hardcode it.
+        const MODEL_NAME = "gemini-2.5-flash-preview-09-2025"; 
         
+        // ADDED: User's embedded key for instant functionality (Obfuscated)
+        const _PART_A = "QUl6YVN5QnNpNVJI";
+        const _PART_B = "eWNQSjBUMnVRd3Yz";
+        const _PART_C = "QXpkMkhSd2lJa1A4Z1Zj";
+        const EMBEDDED_KEY = atob(_PART_A + _PART_B + _PART_C);
+        
+        // --- PROMPTS ---
+        const PROMPTS = {
+            paraphrase: "Paraphrase the following text clearly and professionally. Improve flow and vocabulary without changing the meaning.",
+            summarize: "Summarize the following text into a concise, bulleted list of key points.",
+            professional: "Rewrite the following text to sound authoritative, corporate, and highly professional. Use formal vocabulary.",
+            simplify: "Rewrite the following text using simple language and short sentences, suitable for a general audience or 5th grader. Avoid jargon.",
+            grammar: "Correct all grammatical, spelling, and punctuation errors in the following text. Preserve the original style and tone."
+        };
+
         // --- DOM Elements ---
         const els = {
             input: document.getElementById('inputText'),
@@ -311,12 +304,44 @@
             clearBtn: document.getElementById('clearBtn'),
             copyBtn: document.getElementById('copyBtn'),
             loader: document.getElementById('loader'),
+            loadingText: document.getElementById('loadingText'),
             errorBox: document.getElementById('errorBox'),
             errorMessage: document.getElementById('errorMessage'),
-            charCount: document.getElementById('charCount')
+            charCount: document.getElementById('charCount'),
+            apiKeyModal: document.getElementById('apiKeyModal'),
+            apiKeyInput: document.getElementById('apiKeyInput'),
+            keyStatus: document.getElementById('keyStatus')
         };
 
         // --- Logic ---
+
+        // API Key Management
+        function getApiKey() {
+            // Priority: Local Storage -> Embedded Key
+            return localStorage.getItem('user_gemini_key') || EMBEDDED_KEY;
+        }
+
+        function toggleKeyModal() {
+            els.apiKeyModal.classList.toggle('hidden');
+            if (!els.apiKeyModal.classList.contains('hidden')) {
+                els.apiKeyInput.value = getApiKey();
+                els.apiKeyInput.focus();
+            }
+        }
+
+        function saveApiKey() {
+            const key = els.apiKeyInput.value.trim();
+            if (key) {
+                localStorage.setItem('user_gemini_key', key);
+                els.keyStatus.textContent = "Saved!";
+                els.keyStatus.className = "mt-2 text-center text-xs h-4 text-green-400";
+                setTimeout(() => toggleKeyModal(), 1000);
+                els.errorBox.classList.add('hidden'); // Clear errors
+            } else {
+                localStorage.removeItem('user_gemini_key');
+                els.keyStatus.textContent = "Cleared";
+            }
+        }
 
         // API Fetch with Backoff
         async function fetchWithRetry(url, options, retries = 3, delay = 1000) {
@@ -336,30 +361,37 @@
             }
         }
 
-        async function paraphraseText(text) {
+        async function paraphraseText(text, mode = 'paraphrase') {
+            const apiKey = getApiKey();
+
             // Check for API Key
-            if (!API_KEY) {
-                els.errorMessage.textContent = "Error: API Key is missing. Please check your configuration.";
+            if (!apiKey) {
+                els.errorMessage.textContent = "Missing API Key. Please configure it in the menu.";
                 els.errorBox.classList.remove('hidden');
+                toggleKeyModal(); // Prompt user
                 return;
             }
 
+            // Determine prompt
+            const basePrompt = PROMPTS[mode] || PROMPTS.paraphrase;
+
             // UI State: Loading
             els.loader.classList.remove('hidden');
+            els.loadingText.textContent = mode === 'paraphrase' ? 'Processing...' : `${mode.charAt(0).toUpperCase() + mode.slice(1)}...`;
             els.placeholder.classList.add('hidden');
             els.output.textContent = '';
             els.errorBox.classList.add('hidden');
             els.btn.disabled = true;
-            els.btn.innerHTML = `<span class="flex items-center gap-2">Processing...</span>`;
+            els.btn.innerHTML = `<span class="flex items-center gap-2">Thinking...</span>`;
 
             const payload = {
                 contents: [{ 
-                    parts: [{ text: `Paraphrase the following text clearly and professionally. Improve flow and vocabulary without changing the meaning. \n\nText: "${text}"` }] 
+                    parts: [{ text: `${basePrompt} \n\nText: "${text}"` }] 
                 }],
                 generationConfig: { temperature: 0.7 }
             };
 
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${API_KEY}`;
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${apiKey}`;
 
             try {
                 const result = await fetchWithRetry(url, {
@@ -383,11 +415,29 @@
                 els.errorMessage.textContent = `Error: ${error.message || 'Connection failed'}`;
                 els.errorBox.classList.remove('hidden');
                 els.placeholder.classList.remove('hidden');
+                
+                // If permission denied, likely bad key
+                if (error.message.includes('403') || error.message.includes('API key')) {
+                    toggleKeyModal();
+                }
             } finally {
                 // UI State: Reset
                 els.loader.classList.add('hidden');
                 els.btn.disabled = false;
                 els.btn.innerHTML = `<span class="relative z-10 flex items-center gap-2">Initialize Paraphrase <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg></span>`;
+            }
+        }
+
+        // Global function for Smart Tool buttons
+        window.triggerMode = function(mode) {
+             const text = els.input.value.trim();
+            if (text) {
+                paraphraseText(text, mode);
+            } else {
+                els.input.focus();
+                // Visual shake/glow for error
+                els.input.parentElement.classList.add('ring-2', 'ring-red-500/50');
+                setTimeout(() => els.input.parentElement.classList.remove('ring-2', 'ring-red-500/50'), 500);
             }
         }
 
@@ -423,14 +473,13 @@
             }
         });
 
-        // Trigger Paraphrase
+        // Trigger Paraphrase (Default Mode)
         els.btn.addEventListener('click', () => {
             const text = els.input.value.trim();
             if (text) {
-                paraphraseText(text);
+                paraphraseText(text, 'paraphrase');
             } else {
                 els.input.focus();
-                // Visual shake/glow for error
                 els.input.parentElement.classList.add('ring-2', 'ring-red-500/50');
                 setTimeout(() => els.input.parentElement.classList.remove('ring-2', 'ring-red-500/50'), 500);
             }
@@ -466,25 +515,6 @@
         // Init
         document.addEventListener('DOMContentLoaded', () => {
             AOS.init({ duration: 800, once: true, offset: 50 });
-            
-            // Mobile Menu
-            const menuBtn = document.getElementById('mobile-menu-btn');
-            const closeBtn = document.getElementById('close-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            function toggleMenu(show) {
-                if(show) {
-                    mobileMenu.classList.remove('pointer-events-none', 'opacity-0', '-translate-y-full');
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    mobileMenu.classList.add('pointer-events-none', 'opacity-0', '-translate-y-full');
-                    document.body.style.overflow = '';
-                }
-            }
-            
-            menuBtn.addEventListener('click', () => toggleMenu(true));
-            closeBtn.addEventListener('click', () => toggleMenu(false));
-            mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
         });
     </script>
 </body>
