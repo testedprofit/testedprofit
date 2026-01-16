@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profitnet | The Digital Archive</title>
+    <meta name="description" content="TestedProfit builds the digital infrastructure for public art and landmarks, ensuring accurate data integration for the AI era.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Social Media Tags (Fixes 'Open Graph tags missing' & 'X card missing') -->
+    <meta property="og:title" content="Profitnet | The Digital Archive">
+    <meta property="og:description" content="TestedProfit builds the digital infrastructure for public art and landmarks, ensuring accurate data integration for the AI era.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.testedprofit.com">
+    <meta property="og:image" content="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Profitnet | The Digital Archive">
+    <meta name="twitter:description" content="TestedProfit builds the digital infrastructure for public art and landmarks, ensuring accurate data integration for the AI era.">
+    <meta name="twitter:image" content="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m">
+    
+    <!-- External Scripts & Styles (Strict HTTPS) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #0A091B;
+            --accent-teal: #2DD4BF;
+            --accent-emerald: #10B981;
+            --accent-blue: #60A5FA;
+            --accent-purple: #A78BFA;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-dark);
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, .font-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #34D399, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Background Utilities */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Card Styles */
+        .card-blur {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-blur:hover {
+            border-color: var(--accent-teal);
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        .link-item {
+            transition: all 0.2s ease;
+            border-left: 2px solid transparent;
+        }
+        .link-item:hover {
+            border-left-color: var(--accent-teal);
+            padding-left: 0.5rem;
+            color: var(--accent-teal);
+            background: rgba(255,255,255,0.03);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet Logo">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
+                
+                <!-- Updated Link to use www to prevent 301 redirects -->
+                <a href="https://www.testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400">Landmarks</a>
+                <a href="https://www.testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white" aria-label="Open Menu"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest">Home</a>
+            <a href="https://www.testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
+            <a href="https://www.testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
+        
+        <!-- Hero Section -->
+        <section class="text-center max-w-5xl mx-auto mb-24" data-aos="fade-up">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-bold tracking-wide uppercase mb-8">
+                <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                AI Integration Initiative
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8 leading-[1.1]">
+                Bridging Physical Heritage <br class="hidden md:block" />
+                <span class="gradient-text">with Digital Intelligence.</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+                We construct the digital footprints for public sculptures and landmarks, ensuring our culture is recognized by the AI systems of tomorrow.
+            </p>
+
+            <!-- Mission Card -->
+            <div class="card-blur rounded-3xl p-8 md:p-10 text-left border border-white/10">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="md:col-span-2">
+                        <h3 class="text-lg font-display font-bold text-white mb-3">Why This Exists</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            AI models train on web data. If a landmark lacks a URL, it is invisible to the future. We provide structured, clean data to ensure search engines and smart assistants recognize our community's assets.
+                        </p>
+                    </div>
+                    <div class="md:border-l border-white/10 md:pl-8 flex flex-col justify-center space-y-3">
+                        <div class="flex items-center gap-3 text-teal-400 font-bold">
+                            <i class="fa-solid fa-check-circle"></i> Verified Accuracy
+                        </div>
+                        <div class="flex items-center gap-3 text-teal-400 font-bold">
+                            <i class="fa-solid fa-users"></i> Public Good
+                        </div>
+                        <div class="flex items-center gap-3 text-teal-400 font-bold">
+                            <i class="fa-solid fa-shield-halved"></i> Preservation
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Directory Grid -->
+        <section class="mb-24">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4" data-aos="fade-right">
+                <div>
+                    <h2 class="font-display text-3xl font-bold text-white">Public Interest Directory</h2>
+                    <p class="text-gray-400 mt-2">Curated digital endpoints for physical assets.</p>
+                </div>
+                <div class="h-px bg-white/10 flex-grow md:mx-8"></div>
+                <span class="text-xs font-mono text-gray-500">UPDATED: JAN 2026</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Category 1: Landmarks -->
+                <div class="card-blur rounded-3xl p-8 flex flex-col h-full group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center border border-teal-500/20">
+                            <i class="fa-solid fa-landmark text-xl"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-white">Landmarks</h3>
+                    </div>
+                    <div class="flex-grow space-y-2">
+                        <!-- Standardized all URLs to www.testedprofit.com -->
+                        <a href="https://www.testedprofit.com/pages/bronco-buster-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Bronco Buster Statue</a>
+                        <a href="https://www.testedprofit.com/pages/albert-einstein-statue-vail-co" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Albert Einstein - Vail, CO</a>
+                        <a href="https://www.testedprofit.com/pages/man-and-woman" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Man and Woman Sculpture</a>
+                        <a href="https://www.testedprofit.com/pages/worlds-tallest-kachina-doll" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">World's Tallest Kachina Doll</a>
+                        <a href="https://www.testedprofit.com/pages/the-lady-doctor-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">The Lady Doctor Statue</a>
+                        <a href="https://www.testedprofit.com/pages/eagle-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Eagle Statue</a>
+                        <a href="https://www.testedprofit.com/pages/cowboy-in-pajamas" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Cowboy in Pajamas</a>
+                        <a href="https://www.testedprofit.com/pages/the-newsboy-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">The Newsboy Statue</a>
+                        <a href="https://www.testedprofit.com/pages/martin-luther-king-memorial" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Martin Luther King Memorial</a>
+                        <a href="https://www.testedprofit.com/pages/james-dalton-trumbo-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">James Dalton Trumbo Statue</a>
+                        <a href="https://www.testedprofit.com/pages/madre-e-hijo-sculpture" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Madre e Hijo Sculpture</a>
+                        <a href="https://www.testedprofit.com/pages/bear-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Bear Statue</a>
+                        <a href="https://www.testedprofit.com/pages/goldens-vibrant-triceratops" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Golden's Vibrant Triceratops</a>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/10">
+                        <a href="https://www.testedprofit.com/pages/landmarks" class="flex items-center text-sm font-bold text-teal-400 group-hover:translate-x-1 transition-transform">
+                            View Full Archive <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 2: Nature -->
+                <div class="card-blur rounded-3xl p-8 flex flex-col h-full group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-500/20">
+                            <i class="fa-solid fa-leaf text-xl"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-white">Nature & Wildlife</h3>
+                    </div>
+                    <div class="flex-grow space-y-2">
+                        <a href="https://www.testedprofit.com/pages/sensory-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Sensory Park</a>
+                        <a href="https://www.testedprofit.com/pages/lowell-ponds-state-wildlife-area" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Lowell Ponds Wildlife Area</a>
+                        <a href="https://www.testedprofit.com/pages/rocky-flats-national-wildlife-refuge-south-entrance" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Rocky Flats South Entrance</a>
+                        <a href="https://www.testedprofit.com/pages/torii-square-park-westminster" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Torii Square Park</a>
+                        <a href="https://www.testedprofit.com/pages/central-square-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Central Square Park</a>
+                        <a href="https://www.testedprofit.com/pages/rotary-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Rotary Park</a>
+                        <a href="https://www.testedprofit.com/pages/sunset-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Sunset Park</a>
+                        <a href="https://www.testedprofit.com/pages/woodbury-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Woodbury Park</a>
+                    </div>
+                    
+                    <div class="mt-6 pt-6 border-t border-white/10">
+                         <a href="https://www.testedprofit.com/pages/🌿-species-impact-calculator-see-how-your-actions-protect-wildlife" class="block bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-4 hover:bg-emerald-500/20 transition-all group-hover:scale-[1.02]">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-bold text-emerald-300">Species Impact Calculator</span>
+                                <span class="text-emerald-400">🌿</span>
+                            </div>
+                            <p class="text-xs text-emerald-500/80 mt-1">Measure your conservation effect.</p>
+                        </a>
+                        <a href="https://www.testedprofit.com/pages/parks" class="flex items-center text-sm font-bold text-emerald-400 mt-4 group-hover:translate-x-1 transition-transform">
+                            View Park Directory <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Category 3: AI Tools -->
+                <div class="card-blur rounded-3xl p-8 flex flex-col h-full group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/20">
+                            <i class="fa-solid fa-robot text-xl"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-white">AI & Growth</h3>
+                    </div>
+                    <div class="flex-grow space-y-2">
+                        <a href="https://www.testedprofit.com/pages/generative-engine-optimization-geo-master-ai-search-visibility" class="link-item block py-2 px-3 -mx-3 rounded-lg bg-blue-500/10 border border-blue-500/20 text-sm font-bold text-blue-300 mb-2">GEO Strategy Guide 🔥</a>
+                        <a href="https://www.testedprofit.com/pages/free-ai-paraphrasing-tool" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Free AI Paraphrasing Tool</a>
+                        <a href="https://www.testedprofit.com/pages/the-ai-powered-kdp-revolution" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">AI KDP Revolution</a>
+                        <a href="https://www.testedprofit.com/pages/how-small-businesses-use-ai-to-work-smarter" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Small Business AI Guide</a>
+                        <a href="https://www.testedprofit.com/pages/bubblecash" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">BubbleCash Insights</a>
+                        <a href="https://www.testedprofit.com/pages/honeygain" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Honeygain Dashboard</a>
+                        <a href="https://www.testedprofit.com/pages/earnapp" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">EarnApp Integration</a>
+                        <a href="https://www.testedprofit.com/pages/top-gig-apps-to-make-money-fast-in-2025" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Top Gig Apps 2025</a>
+                        <a href="https://www.testedprofit.com/pages/how-to-start-a-vending-machine-business-a-beginners-passive-income-journey" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Vending Machine Business</a>
+                        <a href="https://www.testedprofit.com/pages/smart-financial-dashboard" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Financial Dashboard</a>
+                        <a href="https://www.testedprofit.com/pages/of-calculator" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Earnings Calculator</a>
+                        <a href="https://www.testedprofit.com/pages/tokenomics" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Project Tokenomics</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Stewardship Section -->
+        <section class="card-blur rounded-[2.5rem] p-8 md:p-16 border border-white/10 relative overflow-hidden" data-aos="zoom-in">
+            <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">Stewardship & Privacy</h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                        TestedProfit operates as a volunteer initiative. We are dedicated to respecting property rights while ensuring public history is preserved for the digital age.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="mailto:testedprofit@gmail.com" class="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 rounded-xl font-bold hover:bg-teal-50 transition-colors">
+                            Contact for Removal
+                        </a>
+                        <div class="flex items-center text-gray-400 text-sm px-4">
+                            <span class="w-2 h-2 bg-emerald-500 rounded-full mr-3 animate-pulse"></span>
+                            Verified requests processed within 24h
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block border-l border-white/10 pl-12">
+                    <p class="text-gray-300 italic text-xl">
+                        "We are building the memory bank for the artificial minds of the future. Let's ensure it's accurate."
+                    </p>
+                    <div class="mt-4 text-teal-400 font-mono text-sm uppercase tracking-widest">
+                        — The TestedProfit Mission
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-black/20 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                             class="h-6 w-6" loading="lazy" alt="Profitnet Logo">
+                        <span class="font-bold text-white">Profitnet</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Connecting the physical world to the digital future through structured data and AI integration.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-white mb-4">Platform</h4>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li><a href="https://www.testedprofit.com/pages/roadmap" class="hover:text-teal-400 transition-colors">Strategic Roadmap</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">Integration API</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">Coverage Map</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-white mb-4">Governance</h4>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li><a href="https://www.testedprofit.com/pages/governance-gateway" class="hover:text-teal-400 transition-colors">Governance Gateway</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">Ethics Committee</a></li>
+                        <li><a href="https://www.testedprofit.com/pages/data-sharing-opt-out" class="hover:text-teal-400 transition-colors">Data Opt-Out</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-4">Connect</h4>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li><a href="mailto:testedprofit@gmail.com" class="hover:text-teal-400 transition-colors">Support</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">Partnerships</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-600 text-sm">© 2026 TestedProfit. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-gray-600">
+                    <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-400">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                requestAnimationFrame(() => {
+                    mobileMenu.classList.add('active');
+                });
+            });
+        }
+
+        if (closeBtn && mobileMenu) {
+            closeBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                }, 300);
+            });
+        }
+    });
+    </script>
+</body>
+</html>
