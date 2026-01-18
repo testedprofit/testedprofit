@@ -1,0 +1,646 @@
+import React, { useState, useEffect, useMemo } from 'react';
+import { 
+  Scale, 
+  ChefHat, 
+  ArrowRightLeft, 
+  Zap,
+  Menu,
+  X,
+  Search,
+  CheckCircle,
+  ShieldCheck
+} from 'lucide-react';
+
+// --- SEO: Schema Markup Component ---
+const SchemaMarkup = () => {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Profitnet US Kitchen & Unit Standard",
+    "url": "https://testedprofit.com/tools/converter",
+    "description": "Professional unit converter optimized for US baking conversions (cups to grams) and engineering standards.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": "Density-based ingredient conversion, Dark mode, Imperial to Metric conversion"
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+    />
+  );
+};
+
+// --- SEO & Document Head Management ---
+const useSEO = (title, description) => {
+  useEffect(() => {
+    document.title = title;
+    
+    // Manage Meta Description
+    let metaDesc = document.querySelector("meta[name='description']");
+    if (!metaDesc) {
+      metaDesc = document.createElement("meta");
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = description;
+
+    // Add Font from Template (if not already present)
+    if (!document.querySelector("link[href*='fonts.googleapis.com']")) {
+        const link = document.createElement('link');
+        link.href = "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap";
+        link.rel = "stylesheet";
+        document.head.appendChild(link);
+    }
+  }, [title, description]);
+};
+
+// --- Data & Logic ---
+
+const CATEGORIES = {
+  common: {
+    id: 'common',
+    label: 'Essentials',
+    Icon: Scale,
+    subcategories: ['length', 'weight', 'temperature', 'volume']
+  },
+  kitchen: {
+    id: 'kitchen',
+    label: 'Smart Kitchen',
+    Icon: ChefHat,
+    special: true
+  },
+  science: {
+    id: 'science',
+    label: 'Science',
+    Icon: Zap,
+    subcategories: ['speed', 'pressure', 'energy']
+  }
+};
+
+const UNITS = {
+  length: {
+    base: 'm',
+    units: {
+      m: { label: 'Meters', factor: 1 },
+      cm: { label: 'Centimeters', factor: 0.01 },
+      mm: { label: 'Millimeters', factor: 0.001 },
+      km: { label: 'Kilometers', factor: 1000 },
+      in: { label: 'Inches', factor: 0.0254 },
+      ft: { label: 'Feet', factor: 0.3048 },
+      yd: { label: 'Yards', factor: 0.9144 },
+      mi: { label: 'Miles', factor: 1609.344 },
+    }
+  },
+  weight: {
+    base: 'kg',
+    units: {
+      kg: { label: 'Kilograms', factor: 1 },
+      g: { label: 'Grams', factor: 0.001 },
+      mg: { label: 'Milligrams', factor: 0.000001 },
+      lb: { label: 'Pounds', factor: 0.453592 },
+      oz: { label: 'Ounces', factor: 0.0283495 },
+    }
+  },
+  temperature: {
+    base: 'c',
+    units: {
+      c: { label: 'Celsius' },
+      f: { label: 'Fahrenheit' },
+      k: { label: 'Kelvin' }
+    }
+  },
+  volume: {
+    base: 'l',
+    units: {
+      l: { label: 'Liters', factor: 1 },
+      ml: { label: 'Milliliters', factor: 0.001 },
+      gal: { label: 'Gallons (US)', factor: 3.78541 },
+      qt: { label: 'Quarts (US)', factor: 0.946353 },
+      pt: { label: 'Pints (US)', factor: 0.473176 },
+      cup: { label: 'Cups (US)', factor: 0.236588 },
+      floz: { label: 'Fluid Ounces', factor: 0.0295735 },
+    }
+  },
+  speed: {
+    base: 'mps',
+    units: {
+      mps: { label: 'Meters/Sec', factor: 1 },
+      kph: { label: 'Km/Hour', factor: 0.277778 },
+      mph: { label: 'Miles/Hour', factor: 0.44704 },
+      kn: { label: 'Knots', factor: 0.514444 },
+    }
+  },
+  pressure: {
+    base: 'pa',
+    units: {
+      pa: { label: 'Pascals', factor: 1 },
+      bar: { label: 'Bar', factor: 100000 },
+      psi: { label: 'PSI', factor: 6894.76 },
+      atm: { label: 'Atmosphere', factor: 101325 },
+    }
+  },
+  energy: {
+    base: 'j',
+    units: {
+      j: { label: 'Joules', factor: 1 },
+      kj: { label: 'Kilojoules', factor: 1000 },
+      cal: { label: 'Calories', factor: 4.184 },
+      kcal: { label: 'Kilocalories', factor: 4184 },
+      wh: { label: 'Watt-hour', factor: 3600 },
+      kwh: { label: 'Kilowatt-hour', factor: 3600000 },
+    }
+  }
+};
+
+// Precision densities for US Baking
+const INGREDIENTS = [
+  { id: 'flour_ap', label: 'All-Purpose Flour', density: 120 },
+  { id: 'flour_cake', label: 'Cake Flour', density: 113 },
+  { id: 'sugar_gran', label: 'Sugar (Granulated)', density: 200 },
+  { id: 'sugar_pow', label: 'Sugar (Powdered)', density: 120 },
+  { id: 'sugar_brown', label: 'Sugar (Brown, packed)', density: 220 },
+  { id: 'butter', label: 'Butter', density: 227 },
+  { id: 'water', label: 'Water / Milk', density: 236 },
+  { id: 'oil', label: 'Vegetable Oil', density: 218 },
+  { id: 'cocoa', label: 'Cocoa Powder', density: 85 },
+  { id: 'rice', label: 'Rice (Uncooked)', density: 185 },
+  { id: 'oats', label: 'Rolled Oats', density: 90 },
+];
+
+const KITCHEN_UNITS = {
+  vol: [
+    { id: 'cup', label: 'Cups (US)', factor: 1 },
+    { id: 'tbsp', label: 'Tablespoons', factor: 0.0625 },
+    { id: 'tsp', label: 'Teaspoons', factor: 0.0208333 },
+    { id: 'ml', label: 'Milliliters', factor: 0.00422675 },
+    { id: 'l', label: 'Liters', factor: 4.22675 },
+    { id: 'floz', label: 'Fluid Oz', factor: 0.125 },
+  ],
+  mass: [
+    { id: 'g', label: 'Grams', factor: 1 },
+    { id: 'kg', label: 'Kilograms', factor: 1000 },
+    { id: 'oz', label: 'Ounces', factor: 28.3495 },
+    { id: 'lb', label: 'Pounds', factor: 453.592 },
+  ]
+};
+
+// --- Conversion Logic ---
+
+const convert = (value, from, to, type) => {
+  if (value === '' || isNaN(value)) return '';
+  const val = parseFloat(value);
+  
+  if (type === 'temperature') {
+    let celsius;
+    if (from === 'c') celsius = val;
+    else if (from === 'f') celsius = (val - 32) * (5/9);
+    else if (from === 'k') celsius = val - 273.15;
+
+    if (to === 'c') return celsius;
+    if (to === 'f') return (celsius * 9/5) + 32;
+    if (to === 'k') return celsius + 273.15;
+  } else {
+    // Safety check: Ensure units exist in the dictionary before math
+    const fromUnit = UNITS[type]?.units[from];
+    const toUnit = UNITS[type]?.units[to];
+    
+    if (!fromUnit || !toUnit) return '';
+    
+    // Formula: (Value * BaseFactor) / TargetFactor
+    const baseValue = val * fromUnit.factor;
+    return baseValue / toUnit.factor;
+  }
+};
+
+const formatNumber = (num) => {
+  if (!num && num !== 0) return '';
+  const n = parseFloat(num);
+  // Avoid scientific notation for common cooking ranges unless extreme
+  if (Math.abs(n) < 0.0001 || Math.abs(n) > 1000000) return n.toExponential(4);
+  return Number(n.toPrecision(6)).toString(); 
+};
+
+const convertKitchen = (value, fromUnitId, toUnitId, ingredientId) => {
+  if (value === '' || isNaN(value)) return '';
+  const val = parseFloat(value);
+  const ingredient = INGREDIENTS.find(i => i.id === ingredientId);
+  const gramsPerCup = ingredient.density;
+
+  const fromIsVol = KITCHEN_UNITS.vol.find(u => u.id === fromUnitId);
+  const toIsVol = KITCHEN_UNITS.vol.find(u => u.id === toUnitId);
+
+  let grams = 0;
+  
+  // Normalize input to Grams
+  if (fromIsVol) {
+    const cups = val * fromIsVol.factor; 
+    grams = cups * gramsPerCup;
+  } else {
+    const fromUnit = KITCHEN_UNITS.mass.find(u => u.id === fromUnitId);
+    grams = val * fromUnit.factor;
+  }
+
+  // Convert Grams to Target
+  if (toIsVol) {
+    const cups = grams / gramsPerCup;
+    return cups / toIsVol.factor;
+  } else {
+    const toUnit = KITCHEN_UNITS.mass.find(u => u.id === toUnitId);
+    return grams / toUnit.factor;
+  }
+};
+
+// --- Sub-Components ---
+
+const GenericConverter = ({ subcategory }) => {
+  const [amount, setAmount] = useState('1');
+  const [from, setFrom] = useState(null);
+  const [to, setTo] = useState(null);
+
+  useEffect(() => {
+    // Synchronize units when subcategory changes
+    const keys = Object.keys(UNITS[subcategory].units);
+    // Intelligent Defaults for US Users
+    if (subcategory === 'length') { setFrom('ft'); setTo('m'); }
+    else if (subcategory === 'weight') { setFrom('lb'); setTo('kg'); }
+    else if (subcategory === 'temperature') { setFrom('f'); setTo('c'); }
+    else if (subcategory === 'volume') { setFrom('gal'); setTo('l'); }
+    else if (subcategory === 'speed') { setFrom('mph'); setTo('kph'); }
+    else { setFrom(keys[0]); setTo(keys[1] || keys[0]); }
+  }, [subcategory]);
+
+  const result = useMemo(() => {
+    if (!from || !to) return '';
+    
+    // Safety check: Ensure units belong to current subcategory
+    const currentUnits = UNITS[subcategory]?.units;
+    if (!currentUnits || !currentUnits[from] || !currentUnits[to]) {
+      return '';
+    }
+
+    return convert(amount, from, to, subcategory);
+  }, [amount, from, to, subcategory]);
+
+  // Don't render if units aren't initialized for this category
+  if (!from || !to || !UNITS[subcategory].units[from]) return null;
+
+  return (
+    <div className="animate-fade-in w-full max-w-2xl mx-auto">
+      <div className="flex flex-col md:flex-row gap-4 items-center justify-center p-6 bg-[#0F1021] rounded-2xl border border-white/5 shadow-2xl relative overflow-hidden">
+        {/* Subtle inner glow for aesthetic */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none"></div>
+
+        {/* Input */}
+        <div className="flex-1 w-full space-y-2 z-10">
+          <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">From</label>
+          <div className="flex bg-[#16182D] rounded-xl overflow-hidden ring-1 ring-white/5 focus-within:ring-accent-teal transition-all group">
+            <input 
+              type="number" 
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              className="w-full bg-transparent p-4 text-2xl font-bold text-white outline-none placeholder:text-gray-600"
+              placeholder="0"
+              aria-label="Value to convert"
+            />
+            <div className="relative border-l border-white/5">
+              <select 
+                value={from}
+                onChange={(e) => setFrom(e.target.value)}
+                className="h-full bg-[#1A1D36] pl-4 pr-8 text-sm font-medium text-gray-300 outline-none appearance-none cursor-pointer hover:bg-[#222542] transition-colors w-32"
+                aria-label="Unit to convert from"
+              >
+                {Object.entries(UNITS[subcategory].units).map(([key, u]) => (
+                  <option key={key} value={key}>{u.label}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button 
+          onClick={() => { setFrom(to); setTo(from); }}
+          className="p-3 rounded-full bg-[#1A1D36] hover:bg-accent-teal hover:text-primary text-gray-400 transition-all transform hover:rotate-180 z-10"
+          aria-label="Swap units"
+        >
+          <ArrowRightLeft className="w-5 h-5" />
+        </button>
+
+        {/* Output */}
+        <div className="flex-1 w-full space-y-2 z-10">
+          <label className="text-[10px] font-bold text-accent-teal uppercase tracking-widest ml-1">Result</label>
+          <div className="flex bg-[#131F2A] rounded-xl overflow-hidden ring-1 ring-accent-teal/30">
+            <div className="w-full p-4 text-2xl font-bold text-accent-teal overflow-x-auto whitespace-nowrap scrollbar-hide">
+              {result === '' ? '-' : formatNumber(result)}
+            </div>
+            <div className="relative border-l border-accent-teal/20">
+              <select 
+                value={to}
+                onChange={(e) => setTo(e.target.value)}
+                className="h-full bg-transparent pl-4 pr-8 text-sm font-medium text-teal-200/80 outline-none appearance-none cursor-pointer hover:bg-teal-900/20 transition-colors w-32"
+                aria-label="Unit to convert to"
+              >
+                {Object.entries(UNITS[subcategory].units).map(([key, u]) => (
+                  <option key={key} value={key}>{u.label}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Quick Lookup Table - SEO Friendly */}
+      <section className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 text-xs text-gray-400" aria-label="Quick Conversion Table">
+         {[1, 5, 10, 50].map(val => (
+           <div 
+            key={val}
+            className="p-3 rounded-lg bg-[#0F1021]/50 border border-white/5 text-center hover:bg-[#1A1D36] transition-colors"
+           >
+             {val} {UNITS[subcategory].units[from].label} <br/> 
+             <span className="text-accent-teal font-mono">= {formatNumber(convert(val, from, to, subcategory))} {UNITS[subcategory].units[to].label}</span>
+           </div>
+         ))}
+      </section>
+    </div>
+  );
+};
+
+const KitchenConverter = () => {
+  const [amount, setAmount] = useState('1');
+  const [ingredient, setIngredient] = useState('flour_ap');
+  const [fromUnit, setFromUnit] = useState('cup');
+  const [toUnit, setToUnit] = useState('g');
+
+  const result = useMemo(() => {
+    return convertKitchen(amount, fromUnit, toUnit, ingredient);
+  }, [amount, ingredient, fromUnit, toUnit]);
+
+  return (
+    <div className="animate-fade-in w-full max-w-2xl mx-auto">
+      {/* Tip Box - SEO Rich Text */}
+      <div className="bg-amber-900/10 border border-amber-500/20 p-4 rounded-xl mb-6 flex items-start gap-3">
+        <div className="p-2 bg-amber-500/10 rounded-lg text-amber-400 shrink-0">
+          <ChefHat className="w-5 h-5" />
+        </div>
+        <div>
+          <h3 className="text-sm font-bold text-amber-200">Why convert by weight?</h3>
+          <p className="text-xs text-amber-200/60 mt-1 leading-relaxed">
+            US recipes often use volumes (Cups), but density varies. 
+            <span className="hidden sm:inline"> 1 Cup of Flour (~120g) weighs much less than 1 Cup of Sugar (~200g).</span> 
+            This tool uses ingredient density for perfect baking results.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-6 p-6 bg-[#0F1021] rounded-2xl border border-white/5 shadow-2xl relative">
+        
+        {/* Ingredient */}
+        <div className="w-full">
+           <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1 mb-2 block">Ingredient</label>
+           <select 
+             value={ingredient}
+             onChange={(e) => setIngredient(e.target.value)}
+             className="w-full p-4 bg-[#16182D] border border-white/5 rounded-xl text-lg font-medium text-white outline-none focus:border-accent-teal transition-colors appearance-none cursor-pointer"
+             aria-label="Select Ingredient"
+           >
+             {INGREDIENTS.map(i => (
+               <option key={i.id} value={i.id}>{i.label}</option>
+             ))}
+           </select>
+        </div>
+
+        <div className="flex flex-col md:flex-row gap-4 items-center">
+          {/* From */}
+          <div className="flex-1 w-full space-y-2">
+            <div className="flex bg-[#16182D] rounded-xl overflow-hidden ring-1 ring-white/5 focus-within:ring-accent-teal">
+              <input 
+                type="number" 
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+                className="w-full bg-transparent p-4 text-2xl font-bold text-white outline-none"
+                placeholder="0"
+                aria-label="Amount"
+              />
+              <div className="relative border-l border-white/5">
+                <select 
+                  value={fromUnit}
+                  onChange={(e) => setFromUnit(e.target.value)}
+                  className="h-full bg-[#1A1D36] pl-4 pr-8 text-sm font-medium text-gray-300 outline-none appearance-none cursor-pointer w-32"
+                  aria-label="Unit"
+                >
+                  <optgroup label="Volume">
+                    {KITCHEN_UNITS.vol.map(u => <option key={u.id} value={u.id}>{u.label}</option>)}
+                  </optgroup>
+                  <optgroup label="Weight">
+                    {KITCHEN_UNITS.mass.map(u => <option key={u.id} value={u.id}>{u.label}</option>)}
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-gray-500">
+            <ArrowRightLeft className="w-5 h-5" />
+          </div>
+
+          {/* To */}
+          <div className="flex-1 w-full space-y-2">
+            <div className="flex bg-[#131F2A] rounded-xl overflow-hidden ring-1 ring-accent-teal/30">
+              <div className="w-full p-4 text-2xl font-bold text-accent-teal overflow-x-auto">
+                {result === '' ? '-' : formatNumber(result)}
+              </div>
+              <div className="relative border-l border-accent-teal/20">
+                <select 
+                  value={toUnit}
+                  onChange={(e) => setToUnit(e.target.value)}
+                  className="h-full bg-transparent pl-4 pr-8 text-sm font-medium text-teal-200/80 outline-none appearance-none cursor-pointer w-32"
+                  aria-label="Target Unit"
+                >
+                   <optgroup label="Weight">
+                    {KITCHEN_UNITS.mass.map(u => <option key={u.id} value={u.id}>{u.label}</option>)}
+                  </optgroup>
+                  <optgroup label="Volume">
+                    {KITCHEN_UNITS.vol.map(u => <option key={u.id} value={u.id}>{u.label}</option>)}
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+// --- Layout Components (Matches Attached HTML) ---
+
+const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <>
+      <header className="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            {/* Logo */}
+            <a href="/" className="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     className="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32" 
+                />
+                <span className="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            {/* Desktop Nav - Security Optimized with rel="noopener noreferrer" */}
+            <nav className="hidden lg:flex space-x-10 items-center">
+                <a href="/" className="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" rel="noopener noreferrer" className="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                
+                <a href="https://testedprofit.com/pages/PNET/" target="_blank" rel="noopener noreferrer" className="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button 
+              onClick={() => setMobileMenuOpen(true)}
+              className="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" 
+              aria-label="Open Menu"
+            >
+                <Menu className="w-6 h-6" />
+            </button>
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        <div className={`fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8 transition-transform duration-300 ${mobileMenuOpen ? 'translate-y-0 opacity-100 pointer-events-auto' : '-translate-y-full opacity-0 pointer-events-none'}`}>
+            <button 
+              onClick={() => setMobileMenuOpen(false)}
+              className="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" 
+              aria-label="Close Menu"
+            >
+                <X className="w-8 h-8" />
+            </button>
+
+            <a href="/" onClick={() => setMobileMenuOpen(false)} className="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" target="_blank" rel="noopener noreferrer" className="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" target="_blank" rel="noopener noreferrer" className="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+      </header>
+    </>
+  );
+};
+
+
+export default function App() {
+  const [activeTab, setActiveTab] = useState('common');
+  const [activeSub, setActiveSub] = useState('length');
+
+  // Inject SEO tags with Optimized Title
+  useSEO(
+    "US Kitchen & Unit Standard | Cups to Grams Converter", 
+    "Professional unit converter optimized for US baking standards. Convert cups of flour/sugar to grams accurately. Includes standard Imperial/Metric tools."
+  );
+
+  return (
+    <div className="min-h-screen bg-[#0A091B] text-gray-200 font-sans selection:bg-teal-500/30">
+      
+      {/* Schema for SEO */}
+      <SchemaMarkup />
+
+      {/* Background Effects */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:2.5rem_2.5rem] opacity-40"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(45,212,191,0.15)_0%,transparent_60%),radial-gradient(circle_at_70%_80%,rgba(96,165,250,0.1)_0%,transparent_60%)] animate-pulse"></div>
+      </div>
+
+      <Header />
+
+      <main className="relative z-10 pt-32 container mx-auto px-4 md:px-6 pb-20">
+        
+        {/* SEO-Optimized Hero */}
+        <div className="text-center mb-12 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-teal-500/10 border border-teal-500/20 text-accent-teal text-[10px] font-bold tracking-widest uppercase mb-4">
+            <ShieldCheck className="w-3 h-3" />
+            <span>Verified Secure & Accurate</span>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-black mb-6 text-white tracking-tight">
+             US Kitchen & Unit <span className="text-accent-teal">Standard</span>
+          </h1>
+          <p className="text-gray-400 text-lg leading-relaxed">
+            The professional choice for <strong className="text-gray-200">US to Metric conversions</strong>. 
+            Features a dedicated <strong className="text-gray-200">Baking Mode</strong> for converting cups of flour and sugar to grams with density precision.
+          </p>
+        </div>
+
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          {Object.values(CATEGORIES).map((cat) => {
+            const Icon = cat.Icon;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => { setActiveTab(cat.id); if (cat.subcategories) setActiveSub(cat.subcategories[0]); }}
+                className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wide transition-all ${
+                  activeTab === cat.id 
+                    ? 'bg-gradient-to-r from-teal-500 to-emerald-500 text-white shadow-lg shadow-teal-500/20' 
+                    : 'bg-[#16182D] border border-white/5 text-gray-400 hover:text-white hover:border-white/10'
+                }`}
+              >
+                <Icon className="w-4 h-4" />
+                {cat.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Sub-Category Chips */}
+        {!CATEGORIES[activeTab].special && (
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {CATEGORIES[activeTab].subcategories.map((sub) => (
+              <button
+                key={sub}
+                onClick={() => setActiveSub(sub)}
+                className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest transition-all ${
+                  activeSub === sub
+                    ? 'bg-white/10 text-accent-teal border border-accent-teal/20'
+                    : 'text-gray-500 hover:text-gray-300 hover:bg-white/5'
+                }`}
+              >
+                {sub}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Main Converter Card */}
+        <article className="min-h-[400px]">
+          {CATEGORIES[activeTab].special ? (
+            <KitchenConverter />
+          ) : (
+            <GenericConverter subcategory={activeSub} />
+          )}
+        </article>
+      </main>
+
+      <style>{`
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .animate-fade-in { animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .text-accent-teal { color: #2DD4BF; }
+        .bg-accent-teal { background-color: #2DD4BF; }
+        .text-accent-emerald { color: #10B981; }
+      `}</style>
+    </div>
+  );
+}
