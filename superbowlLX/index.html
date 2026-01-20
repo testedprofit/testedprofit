@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Bowl LX Official Hub | The Road to Santa Clara</title>
+    <meta name="description" content="The ultimate guide to Super Bowl 60. Playoff brackets, live scores, game day guide for Levi's Stadium, and ticket information.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .heading-font { font-family: 'Teko', sans-serif; }
+        
+        /* Custom Theme Colors */
+        .bg-nfl-navy { background-color: #0F172A; }
+        .text-nfl-navy { color: #0F172A; }
+        
+        .bg-sb-gold { background-color: #D4AF37; } /* Metallic Gold for SB LX */
+        .text-sb-gold { color: #D4AF37; }
+        .border-sb-gold { border-color: #D4AF37; }
+        
+        .bg-nfl-red { background-color: #C8102E; }
+        
+        /* Animations */
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        .slide-up { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        /* Bracket Connectors */
+        .bracket-line { position: absolute; background-color: #cbd5e1; z-index: 0; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen pt-20">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 bg-nfl-navy text-white shadow-xl border-b border-white/10 backdrop-blur-md bg-opacity-95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo Area -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
+                    <div class="bg-gradient-to-b from-slate-200 to-slate-400 p-1.5 rounded shadow-lg">
+                        <i data-lucide="trophy" class="h-8 w-8 text-nfl-navy fill-current"></i>
+                    </div>
+                    <div class="flex flex-col leading-none">
+                        <span class="text-2xl font-bold tracking-tighter text-white heading-font uppercase">Super Bowl</span>
+                        <span class="text-xl font-bold tracking-[0.2em] text-sb-gold heading-font">LX</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-1">
+                        <button onclick="switchTab('home')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all bg-white/10 text-white hover:bg-sb-gold hover:text-nfl-navy" data-target="home">Home</button>
+                        <button onclick="switchTab('bracket')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-300 hover:text-white hover:bg-white/10" data-target="bracket">Playoff Bracket</button>
+                        <button onclick="switchTab('schedule')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-300 hover:text-white hover:bg-white/10" data-target="schedule">Schedule & Odds</button>
+                        <button onclick="switchTab('gameday')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-300 hover:text-white hover:bg-white/10" data-target="gameday">Game Day Guide</button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-sb-gold hover:text-white focus:outline-none">
+                        <i data-lucide="menu" id="menu-icon" class="h-8 w-8"></i>
+                        <i data-lucide="x" id="close-icon" class="h-8 w-8 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-nfl-navy border-t border-white/10">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="switchTab('home')" class="block w-full text-left px-3 py-4 text-lg font-bold text-white heading-font uppercase hover:text-sb-gold">Home Hub</button>
+                <button onclick="switchTab('bracket')" class="block w-full text-left px-3 py-4 text-lg font-bold text-white heading-font uppercase hover:text-sb-gold">Playoff Bracket</button>
+                <button onclick="switchTab('schedule')" class="block w-full text-left px-3 py-4 text-lg font-bold text-white heading-font uppercase hover:text-sb-gold">Schedule & Odds</button>
+                <button onclick="switchTab('gameday')" class="block w-full text-left px-3 py-4 text-lg font-bold text-white heading-font uppercase hover:text-sb-gold">Game Day Guide</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- LIVE TICKER -->
+    <div class="bg-black text-white text-xs py-2 overflow-hidden whitespace-nowrap border-b border-white/10 relative z-40">
+        <div class="inline-block animate-[marquee_20s_linear_infinite] px-4">
+            <span class="text-sb-gold font-bold mr-2">BREAKING:</span> SUPER BOWL LX HALFTIME SHOW PERFORMER ANNOUNCED • <span class="text-green-400 font-bold ml-4">LIVE:</span> NFC CHAMPIONSHIP ODDS SHIFTING • <span class="text-sb-gold font-bold ml-4">ALERT:</span> LEVI'S STADIUM PARKING PASSES ON SALE NOW
+        </div>
+    </div>
+    <style>
+        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+    </style>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        
+        <!-- === HOME TAB === -->
+        <div id="tab-home" class="tab-content fade-in block">
+            <!-- Hero Section -->
+            <div class="relative bg-nfl-navy text-white overflow-hidden min-h-[60vh] flex items-center justify-center">
+                <!-- Abstract Background -->
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-nfl-navy via-transparent to-transparent"></div>
+                <div class="absolute top-0 right-0 w-96 h-96 bg-sb-gold rounded-full opacity-10 blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                
+                <div class="relative max-w-7xl mx-auto px-4 py-12 text-center z-10">
+                    <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-sb-gold font-bold text-sm mb-6 backdrop-blur-sm uppercase tracking-widest">
+                        <span class="w-2 h-2 rounded-full bg-red-500 mr-2 animate-pulse"></span>
+                        Road to Santa Clara
+                    </div>
+                    <h1 class="text-7xl md:text-9xl font-bold tracking-tighter mb-4 leading-none heading-font bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-400">
+                        SUPER BOWL
+                        <br /><span class="text-sb-gold drop-shadow-lg">LX</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto mb-10 font-light">
+                        The 60th Anniversary. The biggest stage in sports. <br class="hidden md:block"/>Follow every snap, score, and story on the road to the ring.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="switchTab('bracket')" class="px-8 py-4 bg-sb-gold hover:bg-yellow-500 text-nfl-navy text-xl font-bold rounded-lg transition-transform transform hover:scale-105 shadow-xl flex items-center justify-center heading-font uppercase tracking-wide">
+                            View Playoff Bracket <i data-lucide="git-merge" class="ml-2 w-5 h-5 rotate-90"></i>
+                        </button>
+                        <button onclick="switchTab('schedule')" class="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white text-xl font-bold rounded-lg transition-colors flex items-center justify-center heading-font uppercase tracking-wide">
+                            Upcoming Matchups
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats & Info Bar -->
+            <div class="bg-white border-b border-slate-200 relative z-20 -mt-8 mx-4 md:mx-auto max-w-6xl rounded-xl shadow-2xl p-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-slate-100">
+                    <div>
+                        <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Game Date</div>
+                        <div class="text-2xl font-black text-nfl-navy font-sans">Feb 8, 2026</div>
+                    </div>
+                    <div>
+                        <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Kickoff</div>
+                        <div class="text-2xl font-black text-nfl-navy font-sans">4:30 PM MST</div>
+                    </div>
+                    <div>
+                        <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Location</div>
+                        <div class="text-2xl font-black text-nfl-navy font-sans">Levi's Stadium</div>
+                    </div>
+                    <div>
+                        <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Network</div>
+                        <div class="text-2xl font-black text-nfl-navy font-sans">NBC / Peacock</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Matchups -->
+            <div class="max-w-7xl mx-auto px-4 py-20">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-4xl font-bold text-nfl-navy heading-font uppercase">Conference Championships</h2>
+                    <button onclick="switchTab('schedule')" class="text-nfl-navy font-bold hover:text-sb-gold flex items-center text-sm">View All <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i></button>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- AFC Card -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow border border-slate-100">
+                        <div class="bg-red-600 p-2 text-center text-white text-xs font-bold uppercase tracking-widest">AFC Championship</div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-6">
+                                <div class="text-center w-1/3">
+                                    <div class="w-16 h-16 bg-nfl-navy rounded-full mx-auto mb-2 flex items-center justify-center text-white font-bold text-xl border-4 border-slate-100">DEN</div>
+                                    <div class="font-black text-xl">Broncos</div>
+                                    <div class="text-xs text-slate-500 font-bold">13-4 • #2 Seed</div>
+                                </div>
+                                <div class="text-center w-1/3">
+                                    <div class="text-3xl font-black text-slate-300 font-sans">VS</div>
+                                    <div class="text-xs text-red-600 font-bold mt-1 uppercase">Sun 1:00 PM</div>
+                                </div>
+                                <div class="text-center w-1/3">
+                                    <div class="w-16 h-16 bg-red-700 rounded-full mx-auto mb-2 flex items-center justify-center text-white font-bold text-xl border-4 border-slate-100">KC</div>
+                                    <div class="font-black text-xl">Chiefs</div>
+                                    <div class="text-xs text-slate-500 font-bold">14-3 • #1 Seed</div>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 rounded p-3 flex justify-between items-center text-sm">
+                                <span class="text-slate-500 font-bold">Odds</span>
+                                <span class="font-mono font-bold text-nfl-navy">KC -3.5 | O/U 48.5</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NFC Card -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow border border-slate-100">
+                        <div class="bg-blue-700 p-2 text-center text-white text-xs font-bold uppercase tracking-widest">NFC Championship</div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-6">
+                                <div class="text-center w-1/3">
+                                    <div class="w-16 h-16 bg-blue-800 rounded-full mx-auto mb-2 flex items-center justify-center text-white font-bold text-xl border-4 border-slate-100">DET</div>
+                                    <div class="font-black text-xl">Lions</div>
+                                    <div class="text-xs text-slate-500 font-bold">12-5 • #3 Seed</div>
+                                </div>
+                                <div class="text-center w-1/3">
+                                    <div class="text-3xl font-black text-slate-300 font-sans">VS</div>
+                                    <div class="text-xs text-red-600 font-bold mt-1 uppercase">Sun 4:30 PM</div>
+                                </div>
+                                <div class="text-center w-1/3">
+                                    <div class="w-16 h-16 bg-red-600 rounded-full mx-auto mb-2 flex items-center justify-center text-white font-bold text-xl border-4 border-slate-100">SF</div>
+                                    <div class="font-black text-xl">49ers</div>
+                                    <div class="text-xs text-slate-500 font-bold">13-4 • #1 Seed</div>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 rounded p-3 flex justify-between items-center text-sm">
+                                <span class="text-slate-500 font-bold">Odds</span>
+                                <span class="font-mono font-bold text-nfl-navy">SF -5.0 | O/U 51.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Grid -->
+            <div class="bg-slate-100 py-20">
+                <div class="max-w-7xl mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-nfl-navy heading-font uppercase mb-8">Latest Headlines</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="text-xs font-bold text-sb-gold uppercase mb-2">Analysis</div>
+                            <h3 class="text-xl font-bold leading-tight mb-3">Why the AFC Championship might be the real Super Bowl this year</h3>
+                            <p class="text-slate-600 text-sm mb-4">The defensive metrics for both Denver and Kansas City are historically great entering Sunday.</p>
+                            <a href="#" class="text-nfl-navy font-bold text-sm hover:underline">Read More &rarr;</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="text-xs font-bold text-red-600 uppercase mb-2">Tickets</div>
+                            <h3 class="text-xl font-bold leading-tight mb-3">Ticket prices for SB LX trending record highs</h3>
+                            <p class="text-slate-600 text-sm mb-4">The cheapest "get-in" price for Levi's Stadium has officially crossed the $7,000 mark.</p>
+                            <a href="#" class="text-nfl-navy font-bold text-sm hover:underline">Read More &rarr;</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="text-xs font-bold text-blue-600 uppercase mb-2">Injury Report</div>
+                            <h3 class="text-xl font-bold leading-tight mb-3">Lions TE LaPorta cleared for NFC Championship</h3>
+                            <p class="text-slate-600 text-sm mb-4">Full participation in practice today signals a green light for the star tight end.</p>
+                            <a href="#" class="text-nfl-navy font-bold text-sm hover:underline">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === BRACKET TAB === -->
+        <div id="tab-bracket" class="tab-content hidden slide-up max-w-7xl mx-auto px-4 py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold text-nfl-navy heading-font uppercase mb-2">The Playoff Picture</h2>
+                <p class="text-slate-600">The road to the Lombardi Trophy.</p>
+            </div>
+            
+            <!-- Bracket Container -->
+            <div class="overflow-x-auto pb-12">
+                <div class="min-w-[1000px] flex justify-between relative px-4">
+                    
+                    <!-- AFC SIDE (Left) -->
+                    <div class="flex-1 pr-8">
+                        <h3 class="text-center font-bold text-red-600 uppercase tracking-widest border-b-2 border-red-600 mb-6 pb-2">AFC Conference</h3>
+                        <div class="grid grid-cols-3 gap-4">
+                            <!-- Wild Card Col -->
+                            <div class="flex flex-col justify-around h-[500px]">
+                                <div class="bg-white p-3 rounded shadow border-l-4 border-slate-300 opacity-60">
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">5. CLE</span><span>14</span></div>
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">4. HOU</span><span>31</span></div>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow border-l-4 border-slate-300 opacity-60">
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">7. MIA</span><span>17</span></div>
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">2. DEN</span><span>31</span></div>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow border-l-4 border-slate-300 opacity-60">
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">6. PIT</span><span>10</span></div>
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">3. BAL</span><span>27</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Div Col -->
+                            <div class="flex flex-col justify-around h-[500px]">
+                                <div class="bg-white p-3 rounded shadow border-l-4 border-slate-300 mb-8 opacity-60">
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">4. HOU</span><span>20</span></div>
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">1. KC</span><span>34</span></div>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow border-l-4 border-slate-300 mt-8 opacity-60">
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">3. BAL</span><span>21</span></div>
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">2. DEN</span><span>24</span></div>
+                                </div>
+                            </div>
+
+                            <!-- Conf Champ Col -->
+                            <div class="flex flex-col justify-center h-[500px]">
+                                <div class="bg-nfl-navy p-4 rounded shadow-lg border-l-4 border-sb-gold transform scale-110 z-10 relative">
+                                    <div class="absolute -top-3 -right-3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase animate-pulse">Live Next</div>
+                                    <div class="text-xs text-sb-gold font-bold uppercase mb-2 text-center">AFC Championship</div>
+                                    <div class="flex justify-between text-lg font-black text-white mb-1"><span>1. KC</span><span>--</span></div>
+                                    <div class="flex justify-between text-lg font-black text-white"><span>2. DEN</span><span>--</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUPER BOWL CENTER -->
+                    <div class="flex flex-col justify-center items-center px-8">
+                        <i data-lucide="trophy" class="w-24 h-24 text-sb-gold drop-shadow-lg mb-4"></i>
+                        <div class="bg-white border-2 border-sb-gold p-6 rounded-xl shadow-2xl text-center w-48">
+                            <div class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Feb 8</div>
+                            <div class="font-black text-3xl text-nfl-navy heading-font mb-1">SUPER BOWL</div>
+                            <div class="font-black text-4xl text-sb-gold heading-font">LX</div>
+                            <div class="mt-4 text-xs font-bold text-slate-500">Levi's Stadium</div>
+                        </div>
+                    </div>
+
+                    <!-- NFC SIDE (Right) -->
+                    <div class="flex-1 pl-8">
+                        <h3 class="text-center font-bold text-blue-700 uppercase tracking-widest border-b-2 border-blue-700 mb-6 pb-2">NFC Conference</h3>
+                        <div class="grid grid-cols-3 gap-4" dir="rtl">
+                             <!-- Wild Card Col -->
+                             <div class="flex flex-col justify-around h-[500px]">
+                                <div class="bg-white p-3 rounded shadow border-r-4 border-slate-300 opacity-60" dir="ltr">
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">5. PHI</span><span>32</span></div>
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">4. TB</span><span>9</span></div>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow border-r-4 border-slate-300 opacity-60" dir="ltr">
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">7. LAR</span><span>23</span></div>
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">2. DAL</span><span>24</span></div>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow border-r-4 border-slate-300 opacity-60" dir="ltr">
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">6. GB</span><span>21</span></div>
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">3. DET</span><span>24</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Div Col -->
+                            <div class="flex flex-col justify-around h-[500px]">
+                                <div class="bg-white p-3 rounded shadow border-r-4 border-slate-300 mb-8 opacity-60" dir="ltr">
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">5. PHI</span><span>17</span></div>
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">1. SF</span><span>27</span></div>
+                                </div>
+                                <div class="bg-white p-3 rounded shadow border-r-4 border-slate-300 mt-8 opacity-60" dir="ltr">
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">3. DET</span><span>30</span></div>
+                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">2. DAL</span><span>27</span></div>
+                                </div>
+                            </div>
+
+                            <!-- Conf Champ Col -->
+                            <div class="flex flex-col justify-center h-[500px]">
+                                <div class="bg-nfl-navy p-4 rounded shadow-lg border-r-4 border-sb-gold transform scale-110 z-10 relative" dir="ltr">
+                                    <div class="absolute -top-3 -right-3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase animate-pulse">Live Next</div>
+                                    <div class="text-xs text-sb-gold font-bold uppercase mb-2 text-center">NFC Championship</div>
+                                    <div class="flex justify-between text-lg font-black text-white mb-1"><span>1. SF</span><span>--</span></div>
+                                    <div class="flex justify-between text-lg font-black text-white"><span>3. DET</span><span>--</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- === SCHEDULE & ODDS TAB === -->
+        <div id="tab-schedule" class="tab-content hidden slide-up max-w-5xl mx-auto px-4 py-12">
+            <h2 class="text-5xl font-bold text-nfl-navy heading-font uppercase mb-8 text-center">Schedule & Odds</h2>
+            
+            <!-- Filter Bar -->
+            <div class="flex justify-center space-x-4 mb-8">
+                <button class="px-4 py-1 bg-nfl-navy text-white rounded-full text-sm font-bold">All</button>
+                <button class="px-4 py-1 bg-white border border-slate-300 text-slate-500 rounded-full text-sm font-bold hover:border-nfl-navy hover:text-nfl-navy">AFC</button>
+                <button class="px-4 py-1 bg-white border border-slate-300 text-slate-500 rounded-full text-sm font-bold hover:border-nfl-navy hover:text-nfl-navy">NFC</button>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Game 1 -->
+                <div class="bg-white rounded-xl shadow border border-slate-200 p-6 flex flex-col md:flex-row items-center justify-between">
+                    <div class="flex items-center space-x-6 w-full md:w-1/2">
+                        <div class="text-center">
+                            <span class="block text-2xl font-black text-nfl-navy">1:00 PM</span>
+                            <span class="block text-xs font-bold text-slate-500 uppercase">Sunday, Jan 25</span>
+                        </div>
+                        <div class="h-10 w-px bg-slate-200"></div>
+                        <div>
+                            <div class="font-bold text-lg text-nfl-navy">AFC Championship</div>
+                            <div class="text-slate-500 text-sm">Empower Field at Mile High / Arrowhead (TBD)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 md:mt-0 w-full md:w-1/2 flex items-center justify-between bg-slate-50 p-4 rounded-lg">
+                        <div class="text-center">
+                            <span class="block font-bold text-nfl-navy">Broncos</span>
+                            <span class="block text-xs text-green-600 font-bold">+145 ML</span>
+                        </div>
+                        <div class="text-center px-4">
+                            <span class="block text-xs font-bold text-slate-400 uppercase">Spread</span>
+                            <span class="block font-black text-xl text-nfl-navy">KC -3.5</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="block font-bold text-nfl-navy">Chiefs</span>
+                            <span class="block text-xs text-red-600 font-bold">-170 ML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 2 -->
+                <div class="bg-white rounded-xl shadow border border-slate-200 p-6 flex flex-col md:flex-row items-center justify-between">
+                    <div class="flex items-center space-x-6 w-full md:w-1/2">
+                        <div class="text-center">
+                            <span class="block text-2xl font-black text-nfl-navy">4:30 PM</span>
+                            <span class="block text-xs font-bold text-slate-500 uppercase">Sunday, Jan 25</span>
+                        </div>
+                        <div class="h-10 w-px bg-slate-200"></div>
+                        <div>
+                            <div class="font-bold text-lg text-nfl-navy">NFC Championship</div>
+                            <div class="text-slate-500 text-sm">Levi's Stadium, Santa Clara</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 md:mt-0 w-full md:w-1/2 flex items-center justify-between bg-slate-50 p-4 rounded-lg">
+                        <div class="text-center">
+                            <span class="block font-bold text-nfl-navy">Lions</span>
+                            <span class="block text-xs text-green-600 font-bold">+180 ML</span>
+                        </div>
+                        <div class="text-center px-4">
+                            <span class="block text-xs font-bold text-slate-400 uppercase">Spread</span>
+                            <span class="block font-black text-xl text-nfl-navy">SF -5.0</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="block font-bold text-nfl-navy">49ers</span>
+                            <span class="block text-xs text-red-600 font-bold">-210 ML</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <p class="text-xs text-slate-400">Odds provided by Major Sportsbook. Subject to change. Gambling Problem? Call 1-800-GAMBLER.</p>
+            </div>
+        </div>
+
+        <!-- === GAMEDAY TAB === -->
+        <div id="tab-gameday" class="tab-content hidden slide-up max-w-6xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Main Info -->
+                <div class="md:col-span-2 space-y-8">
+                    <section>
+                        <h2 class="text-4xl font-bold text-nfl-navy heading-font uppercase mb-4">Levi's Stadium Guide</h2>
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                            <div class="h-64 bg-slate-300 relative">
+                                <div class="absolute inset-0 flex items-center justify-center text-slate-500 font-bold">[Stadium Map Visualization]</div>
+                                <!-- Mock Stadium CSS -->
+                                <div class="absolute inset-x-10 inset-y-10 border-4 border-slate-400 rounded-full opacity-30"></div>
+                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-3/5 bg-green-100 border-2 border-white rounded"></div>
+                            </div>
+                            <div class="p-6">
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div class="flex items-center">
+                                        <i data-lucide="map-pin" class="w-5 h-5 text-sb-gold mr-2"></i>
+                                        <span class="text-sm font-bold text-slate-700">Santa Clara, CA</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i data-lucide="cloud-sun" class="w-5 h-5 text-sb-gold mr-2"></i>
+                                        <span class="text-sm font-bold text-slate-700">62°F / Sunny</span>
+                                    </div>
+                                </div>
+                                <h3 class="font-bold text-lg mb-2">Gate Information</h3>
+                                <p class="text-slate-600 text-sm mb-4">Gates open at 11:30 AM PST. Security checkpoints will be heavy; please use the Clear app for expedited entry at Gate A and Gate C.</p>
+                                <button class="w-full py-3 bg-nfl-navy text-white font-bold rounded hover:bg-slate-800 transition-colors">Download Parking Map</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                         <h2 class="text-4xl font-bold text-nfl-navy heading-font uppercase mb-4">Halftime Show</h2>
+                         <div class="bg-nfl-navy text-white rounded-xl p-8 flex items-center justify-between shadow-xl">
+                             <div>
+                                 <div class="text-sb-gold font-bold uppercase tracking-widest text-sm mb-1">Presented by Apple Music</div>
+                                 <h3 class="text-3xl font-bold mb-2">Mystery Headliner</h3>
+                                 <p class="text-slate-400 text-sm max-w-md">Rumors are swirling about a major pop icon returning to the stage. Official announcement expected Friday.</p>
+                             </div>
+                             <div class="h-16 w-16 bg-white/10 rounded-full flex items-center justify-center">
+                                 <i data-lucide="music" class="w-8 h-8 text-sb-gold"></i>
+                             </div>
+                         </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow border-t-4 border-sb-gold">
+                        <h3 class="font-bold text-lg mb-4 flex items-center"><i data-lucide="ticket" class="w-5 h-5 mr-2 text-sb-gold"></i> Ticket Exchange</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center text-sm border-b border-slate-100 pb-2">
+                                <span class="text-slate-600">Nosebleed (400s)</span>
+                                <span class="font-bold text-nfl-navy">$6,450</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm border-b border-slate-100 pb-2">
+                                <span class="text-slate-600">Lower Bowl (100s)</span>
+                                <span class="font-bold text-nfl-navy">$12,200</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm pb-2">
+                                <span class="text-slate-600">Club Level</span>
+                                <span class="font-bold text-nfl-navy">$25,000+</span>
+                            </div>
+                        </div>
+                        <button class="w-full mt-4 py-2 border-2 border-nfl-navy text-nfl-navy font-bold rounded hover:bg-nfl-navy hover:text-white transition-colors">View Verified Resale</button>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-6 rounded-xl shadow text-white">
+                        <h3 class="font-bold text-lg mb-2">Flying to the Bay?</h3>
+                        <p class="text-blue-100 text-sm mb-4">SFO and SJC airports are expecting record traffic. Book shuttles early.</p>
+                        <a href="#" class="inline-block text-white font-bold text-sm underline">View Travel Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-nfl-navy text-white py-12 mt-20 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <i data-lucide="trophy" class="w-12 h-12 mx-auto mb-6 text-sb-gold fill-current"></i>
+            <h2 class="text-3xl font-bold uppercase tracking-widest heading-font mb-4">Super Bowl LX</h2>
+            <div class="flex justify-center space-x-8 mb-8 text-slate-400">
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+                <a href="#" class="hover:text-white">Terms of Service</a>
+                <a href="#" class="hover:text-white">Ticket Terms</a>
+                <a href="#" class="hover:text-white">Contact</a>
+            </div>
+            <div class="text-sm text-slate-600">
+                &copy; 2026. This is a fan-made hub and is not affiliated with the NFL. All team names and logos are trademarks of their respective owners.
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // --- Icon Initialization ---
+        lucide.createIcons();
+
+        // --- Tab Logic ---
+        function switchTab(tabId) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.add('hidden'));
+            
+            // Show target tab
+            const target = document.getElementById('tab-' + tabId);
+            if (target) {
+                target.classList.remove('hidden');
+                // Re-trigger animation
+                target.classList.remove('slide-up');
+                void target.offsetWidth; // Force reflow
+                target.classList.add('slide-up');
+            }
+
+            // Update Nav Buttons State
+            const btns = document.querySelectorAll('.nav-btn');
+            btns.forEach(btn => {
+                if(btn.dataset.target === tabId) {
+                    btn.className = "nav-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all bg-sb-gold text-nfl-navy shadow-lg transform scale-105";
+                } else {
+                    btn.className = "nav-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-300 hover:text-white hover:bg-white/10";
+                }
+            });
+
+            // Close Mobile Menu if open
+            const menu = document.getElementById('mobile-menu');
+            if(!menu.classList.contains('hidden')) {
+                toggleMobileMenu();
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            menu.classList.toggle('hidden');
+            
+            if (menu.classList.contains('hidden')) {
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            } else {
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            }
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ensure icons render on load
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
