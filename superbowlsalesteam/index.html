@@ -1,0 +1,475 @@
+import React, { useState, useEffect } from 'react';
+import { Trophy, MapPin, Calendar, Clock, Shield, Star, Menu, X, ChevronRight, Music, Bus, CloudSun, DollarSign, Camera, Phone } from 'lucide-react';
+
+export default function App() {
+  const [activeTab, setActiveTab] = useState('home');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0 });
+
+  // Mock countdown to the hypothetical parade date (Tuesday after SB LX)
+  useEffect(() => {
+    const targetDate = new Date('February 10, 2026 10:00:00').getTime();
+    
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      
+      if (distance < 0) {
+        clearInterval(interval);
+        setCountdown({ days: 0, hours: 0, minutes: 0 });
+      } else {
+        setCountdown({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+        });
+      }
+    }, 60000); 
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const navItems = [
+    { id: 'home', label: 'Victory Hub' },
+    { id: 'route', label: 'Parade Route' },
+    { id: 'rally', label: 'Rally Info' },
+    { id: 'jobs', label: 'Join the Team' }, // New Tab
+    { id: 'transport', label: 'Transit' }
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+      {/* --- Navigation --- */}
+      <nav className="fixed top-0 w-full z-50 bg-[#002244] text-white shadow-lg border-b-4 border-[#FB4F14]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('home')}>
+              <div className="bg-white p-1.5 rounded-full">
+                <Shield className="h-8 w-8 text-[#002244] fill-current" />
+              </div>
+              <span className="text-2xl font-black tracking-tighter uppercase italic">
+                Broncos<span className="text-[#FB4F14]">Country</span>
+              </span>
+            </div>
+            
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-6">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => setActiveTab(item.id)}
+                    className={`px-3 py-2 rounded-md text-sm font-bold uppercase tracking-wide transition-colors ${
+                      activeTab === item.id 
+                        ? 'bg-[#FB4F14] text-white' 
+                        : 'text-slate-300 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="-mr-2 flex md:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="bg-[#002244] inline-flex items-center justify-center p-2 rounded-md text-[#FB4F14] hover:text-white focus:outline-none"
+              >
+                {isMenuOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-[#0A2343] pb-4">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setActiveTab(item.id);
+                    setIsMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-3 py-4 rounded-md text-base font-bold text-white hover:bg-[#FB4F14]"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* --- Main Content Switcher --- */}
+      <main className="pt-20">
+        {activeTab === 'home' && (
+          <div className="animate-in fade-in duration-500">
+            {/* Hero Section */}
+            <div className="relative bg-[#002244] text-white overflow-hidden">
+              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#FB4F14_1px,transparent_1px)] [background-size:16px_16px]"></div>
+              <div className="relative max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:py-32 lg:px-8 flex flex-col items-center text-center">
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#FB4F14]/20 border border-[#FB4F14] text-[#FB4F14] font-bold mb-8 animate-pulse">
+                  <Star className="w-4 h-4 mr-2 fill-current" />
+                  WORLD CHAMPIONS
+                </div>
+                <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-6 leading-tight">
+                  SUPER BOWL <span className="text-[#FB4F14]">LX</span>
+                  <br />VICTORY PARADE
+                </h1>
+                <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mb-10 font-light">
+                  The Lombardi Trophy returns to the Mile High City. Join millions of fans to celebrate our third World Championship.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                  <button 
+                    onClick={() => setActiveTab('route')}
+                    className="px-8 py-4 bg-[#FB4F14] hover:bg-[#e0400b] text-white text-lg font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-orange-900/50 flex items-center justify-center"
+                  >
+                    View Parade Route <ChevronRight className="ml-2 w-5 h-5" />
+                  </button>
+                  <button 
+                    onClick={() => setActiveTab('jobs')}
+                    className="px-8 py-4 bg-white text-[#002244] hover:bg-slate-200 text-lg font-bold rounded-lg transition-all flex items-center justify-center"
+                  >
+                    We Are Hiring!
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Info Grid */}
+            <div className="max-w-7xl mx-auto px-4 -mt-10 relative z-10 pb-20">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <InfoCard 
+                  icon={<Calendar className="w-8 h-8 text-[#FB4F14]" />}
+                  title="Date"
+                  value="Tuesday, Feb 10, 2026"
+                  sub="Rain, Snow, or Shine"
+                />
+                <InfoCard 
+                  icon={<Clock className="w-8 h-8 text-[#FB4F14]" />}
+                  title="Start Time"
+                  value="10:00 AM MST"
+                  sub="Arrive by 7:00 AM for spots"
+                />
+                <InfoCard 
+                  icon={<MapPin className="w-8 h-8 text-[#FB4F14]" />}
+                  title="Location"
+                  value="Downtown Denver"
+                  sub="Union Station to Civic Center"
+                />
+              </div>
+            </div>
+
+            {/* Countdown Section */}
+            <div className="bg-slate-900 text-white py-16">
+              <div className="max-w-4xl mx-auto px-4 text-center">
+                <h2 className="text-3xl font-bold mb-8 uppercase tracking-widest text-slate-400">Countdown to Celebration</h2>
+                <div className="grid grid-cols-3 gap-4 md:gap-8">
+                  <CountdownUnit value={countdown.days} label="Days" />
+                  <CountdownUnit value={countdown.hours} label="Hours" />
+                  <CountdownUnit value={countdown.minutes} label="Minutes" />
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'route' && (
+          <div className="max-w-5xl mx-auto px-4 py-12 animate-in slide-in-from-right-8 duration-300">
+            <h2 className="text-4xl font-black text-[#002244] mb-2">THE ROUTE</h2>
+            <p className="text-xl text-slate-600 mb-8">From Union Station to the steps of the Capitol.</p>
+            
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+              <div className="bg-slate-100 p-8 flex items-center justify-center h-96 relative bg-[url('https://www.transparenttextures.com/patterns/city-fields.png')]">
+                {/* Abstract CSS Map Mockup */}
+                <div className="relative w-full max-w-lg h-64">
+                  {/* Streets */}
+                  <div className="absolute top-0 left-1/2 w-4 h-full bg-slate-300 -translate-x-1/2"></div>
+                  <div className="absolute top-1/2 left-0 w-full h-4 bg-slate-300 -translate-y-1/2"></div>
+                  
+                  {/* Route Line */}
+                  <div className="absolute top-10 left-1/2 w-2 h-44 bg-[#FB4F14] -translate-x-1/2 z-10 animate-pulse"></div>
+                  <div className="absolute top-[13rem] left-1/2 w-24 h-2 bg-[#FB4F14] z-10"></div>
+                  
+                  {/* Points */}
+                  <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center group">
+                    <div className="w-6 h-6 bg-[#002244] rounded-full border-4 border-white shadow-md"></div>
+                    <span className="bg-[#002244] text-white text-xs px-2 py-1 rounded mt-1 font-bold">START: Union Station</span>
+                  </div>
+
+                  <div className="absolute top-[12.5rem] left-[14rem] z-20 flex flex-col items-center">
+                    <div className="w-8 h-8 bg-[#FB4F14] rounded-full border-4 border-white shadow-md flex items-center justify-center">
+                      <Trophy className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="bg-[#FB4F14] text-white text-xs px-2 py-1 rounded mt-1 font-bold">END: Civic Center</span>
+                  </div>
+                </div>
+                <div className="absolute bottom-4 right-4 bg-white/90 p-2 rounded text-xs text-slate-500 font-mono">
+                  *Map is illustrative
+                </div>
+              </div>
+              
+              <div className="p-8">
+                <h3 className="text-xl font-bold text-[#002244] mb-6 flex items-center">
+                  <MapPin className="mr-2 text-[#FB4F14]" /> Turn-by-Turn Guide
+                </h3>
+                <ol className="relative border-l-2 border-slate-200 ml-3 space-y-8">
+                  <RouteStep 
+                    time="10:00 AM" 
+                    title="Departure" 
+                    desc="Parade departs from Wynkoop St & 17th St (Union Station)." 
+                  />
+                  <RouteStep 
+                    time="10:30 AM" 
+                    title="17th Street Corridor" 
+                    desc="Proceeds southeast down 17th Street through the financial district. Best viewing for tall buildings." 
+                  />
+                  <RouteStep 
+                    time="11:00 AM" 
+                    title="Broadway Turn" 
+                    desc="Turns right onto Broadway. High capacity viewing areas available." 
+                  />
+                  <RouteStep 
+                    time="11:30 AM" 
+                    title="Arrival at Civic Center" 
+                    desc="Parade concludes at Civic Center Park for the main rally." 
+                  />
+                </ol>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'rally' && (
+          <div className="max-w-5xl mx-auto px-4 py-12 animate-in slide-in-from-bottom-8 duration-300">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-4xl font-black text-[#002244] mb-6">THE RALLY</h2>
+                <div className="prose prose-lg text-slate-600">
+                  <p className="mb-4">
+                    Join players, coaches, and alumni at Civic Center Park for the official celebration ceremony. 
+                  </p>
+                  <ul className="space-y-4 list-none pl-0">
+                    <li className="flex items-start">
+                      <Music className="w-6 h-6 text-[#FB4F14] mr-3 flex-shrink-0 mt-1" />
+                      <div>
+                        <strong className="block text-[#002244]">Live Music</strong>
+                        <span className="text-sm">Pre-rally concert starting at 9:00 AM featuring local bands and special guests.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <Trophy className="w-6 h-6 text-[#FB4F14] mr-3 flex-shrink-0 mt-1" />
+                      <div>
+                        <strong className="block text-[#002244]">Lombardi Presentation</strong>
+                        <span className="text-sm">The moment we've waited for. Team captains hoist the trophy at 12:30 PM.</span>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <CloudSun className="w-6 h-6 text-[#FB4F14] mr-3 flex-shrink-0 mt-1" />
+                      <div>
+                        <strong className="block text-[#002244]">Weather Advisory</strong>
+                        <span className="text-sm">Forecast is 45°F and Sunny. Dress in layers. Orange layers preferred.</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="bg-[#002244] rounded-2xl p-8 text-white shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-[#FB4F14] rounded-full opacity-50 blur-xl"></div>
+                <h3 className="text-2xl font-bold mb-6 border-b border-[#FB4F14] pb-4">Fan Guidelines</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                    <span>Alcohol Policy</span>
+                    <span className="text-[#FB4F14] font-bold">Prohibited</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                    <span>Bag Policy</span>
+                    <span className="text-green-400 font-bold">Clear Bags Only</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                    <span>Camping</span>
+                    <span className="text-[#FB4F14] font-bold">No Overnight</span>
+                  </div>
+                  <div className="mt-6 p-4 bg-[#FB4F14]/10 border border-[#FB4F14] rounded-lg text-sm">
+                    <strong className="block text-[#FB4F14] mb-1">Safety First</strong>
+                    Please do not climb traffic signals, bus stops, or trees. Stay behind the barricades.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* --- NEW JOBS SECTION --- */}
+        {activeTab === 'jobs' && (
+          <div className="max-w-4xl mx-auto px-4 py-12 animate-in zoom-in-95 duration-300">
+            <div className="text-center mb-10">
+              <span className="inline-block py-1 px-3 rounded-full bg-[#FB4F14]/10 text-[#FB4F14] font-bold text-sm mb-4">
+                JOIN THE TEAM
+              </span>
+              <h2 className="text-4xl font-black text-[#002244] mb-4">BE PART OF HISTORY</h2>
+              <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+                We are pre-hiring 40+ high-energy sales reps to sell Championship Flags during the parade.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+              <div className="bg-[#FB4F14] text-white p-6 text-center">
+                <h3 className="text-2xl font-bold uppercase tracking-wider">Sales Rep Position</h3>
+                <p className="opacity-90 font-medium mt-1">IF and WHEN the Broncos bring it home! 🏈🔥</p>
+              </div>
+              
+              <div className="p-8 grid md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="flex items-center text-[#002244] font-bold mb-2">
+                      <DollarSign className="w-5 h-5 mr-2 text-[#FB4F14]" /> Earnings
+                    </h4>
+                    <p className="text-slate-600">20% commission. Top reps average <span className="font-bold text-green-600">$250–$500+</span> for the day. Cash paid at the end!</p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="flex items-center text-[#002244] font-bold mb-2">
+                      <Clock className="w-5 h-5 mr-2 text-[#FB4F14]" /> Hours & Dates
+                    </h4>
+                    <p className="text-slate-600">
+                      <strong>Dates:</strong> Tue, Feb 10 or Wed, Feb 11<br/>
+                      <strong>Shift:</strong> 7:30 AM – 3:00 PM
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="flex items-center text-[#002244] font-bold mb-2">
+                      <Shield className="w-5 h-5 mr-2 text-[#FB4F14]" /> The Gig
+                    </h4>
+                    <p className="text-slate-600">
+                      Selling Stick Flags and 3x5ft Flags. This is a SALES gig — no hourly pay. High energy required!
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-slate-50 p-6 rounded-xl border-2 border-dashed border-slate-300 flex flex-col justify-center">
+                  <h4 className="text-xl font-bold text-[#002244] mb-4 text-center">How to Apply</h4>
+                  <div className="space-y-4">
+                    <div className="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                      <Phone className="w-6 h-6 text-[#FB4F14] mr-3" />
+                      <span className="text-slate-600">Send your <strong>Name</strong> & <strong>Cell #</strong></span>
+                    </div>
+                    <div className="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                      <Camera className="w-6 h-6 text-[#FB4F14] mr-3" />
+                      <span className="text-slate-600">Attach a <strong>recent photo</strong></span>
+                    </div>
+                  </div>
+                  <div className="mt-6 text-center text-sm text-slate-500 italic">
+                    "Once the Broncos win it all, we’ll text final details. Let’s go, Denver!"
+                  </div>
+                  <button className="mt-4 w-full py-3 bg-[#002244] text-white font-bold rounded-lg hover:bg-[#0A2343] transition-colors">
+                    Send Text Application
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'transport' && (
+          <div className="max-w-4xl mx-auto px-4 py-12 animate-in zoom-in-95 duration-300">
+             <h2 className="text-4xl font-black text-[#002244] mb-8 text-center">GETTING THERE</h2>
+             <div className="grid md:grid-cols-2 gap-6">
+               <div className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#FB4F14]">
+                 <div className="flex items-center mb-4">
+                   <Bus className="w-8 h-8 text-[#002244] mr-3" />
+                   <h3 className="text-xl font-bold text-[#002244]">RTD Services</h3>
+                 </div>
+                 <p className="text-slate-600 mb-4">
+                   RTD is adding capacity to all light rail lines (E, H, W). Union Station will be extremely busy. 
+                   Consider exiting at <span className="font-bold">Ball Arena/Elitch Gardens</span> and walking.
+                 </p>
+                 <button className="text-[#FB4F14] font-bold hover:underline">View RTD Special Schedule &rarr;</button>
+               </div>
+
+               <div className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#002244]">
+                 <div className="flex items-center mb-4">
+                   <Shield className="w-8 h-8 text-[#FB4F14] mr-3" />
+                   <h3 className="text-xl font-bold text-[#002244]">Road Closures</h3>
+                 </div>
+                 <p className="text-slate-600 mb-4">
+                   Downtown closures begin Monday at 8:00 PM. 
+                   Avoid Broadway, Colfax, and Speer Blvd. 
+                   Parking garages near the route will fill by 6:00 AM.
+                 </p>
+               </div>
+             </div>
+             
+             <div className="mt-12 text-center p-8 bg-slate-100 rounded-2xl">
+               <h3 className="text-2xl font-bold text-[#002244] mb-2">Ride Share Drop-off Zones</h3>
+               <p className="text-slate-600">
+                 Designated drop-off points are located at 20th & Lawrence and 14th & Bannock.
+               </p>
+             </div>
+          </div>
+        )}
+      </main>
+
+      {/* --- Footer --- */}
+      <footer className="bg-[#002244] text-white py-12 mt-20 border-t border-[#FB4F14]">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <Shield className="w-12 h-12 mx-auto mb-6 text-[#FB4F14] fill-current" />
+          <h2 className="text-3xl font-black uppercase tracking-widest mb-4">United in Orange</h2>
+          <p className="text-slate-400 mb-8 max-w-lg mx-auto">
+            Official Parade Guide for the Super Bowl LX Champions. 
+            Created for fans, by fans.
+          </p>
+          <div className="text-sm text-slate-500">
+            &copy; 2026 Broncos Country Celebration Committee.
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+// Sub-components for cleaner code
+function InfoCard({ icon, title, value, sub }) {
+  return (
+    <div className="bg-white p-8 rounded-xl shadow-lg border border-slate-100 flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-300">
+      <div className="mb-4 bg-slate-50 p-4 rounded-full">{icon}</div>
+      <h3 className="text-slate-500 font-bold uppercase text-xs tracking-wider mb-2">{title}</h3>
+      <p className="text-2xl md:text-3xl font-black text-[#002244] mb-1">{value}</p>
+      <p className="text-sm text-[#FB4F14] font-medium">{sub}</p>
+    </div>
+  );
+}
+
+function CountdownUnit({ value, label }) {
+  return (
+    <div className="flex flex-col items-center">
+      <div className="text-5xl md:text-7xl font-black text-[#FB4F14] font-mono bg-white/5 w-full py-4 rounded-lg backdrop-blur-sm border border-white/10">
+        {value.toString().padStart(2, '0')}
+      </div>
+      <span className="text-slate-400 uppercase text-xs tracking-widest mt-3 font-bold">{label}</span>
+    </div>
+  );
+}
+
+function RouteStep({ time, title, desc }) {
+  return (
+    <li className="ml-6">
+      <span className="absolute flex items-center justify-center w-8 h-8 bg-[#002244] rounded-full -left-4 ring-4 ring-white">
+        <Clock className="w-4 h-4 text-white" />
+      </span>
+      <h3 className="flex items-center mb-1 text-lg font-bold text-[#002244]">
+        {title}
+        <span className="bg-[#FB4F14] text-white text-xs font-medium mr-2 px-2.5 py-0.5 rounded ml-3">
+          {time}
+        </span>
+      </h3>
+      <p className="mb-4 text-base font-normal text-slate-500">
+        {desc}
+      </p>
+    </li>
+  );
+}
