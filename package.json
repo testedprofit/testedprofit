@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/things-to-do-in-vail.jsx --out-file \"pages/things to do in vail colorado/app.js\""
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,10 @@
   },
   "homepage": "https://github.com/testedprofit/testedprofit#readme",
   "devDependencies": {
+    "@babel/cli": "^7.28.6",
+    "@babel/core": "^7.28.6",
+    "@babel/preset-react": "^7.28.5",
+    "puppeteer": "^24.35.0",
     "tailwindcss": "^3.4.1"
   }
 }
