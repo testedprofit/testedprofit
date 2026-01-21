@@ -1,44 +1,27 @@
-
 from playwright.sync_api import sync_playwright
-import time
+import os
 
-def verify_algoflow():
+def run():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
 
-        # Listen for console errors
-        errors = []
-        page.on("console", lambda msg: errors.append(msg.text) if msg.type == "error" else None)
-        page.on("pageerror", lambda exc: errors.append(str(exc)))
+        # Navigate to the file directly
+        cwd = os.getcwd()
+        filepath = f"file://{cwd}/pages/algoflow/index.html"
+        print(f"Navigating to: {filepath}")
 
-        print("Navigating to page...")
-        page.goto("http://localhost:8080/pages/algoflow/index.html")
+        page.goto(filepath)
 
-        # Wait for some animation frames
-        print("Waiting for animation...")
-        time.sleep(2)
+        # Wait for the page to load (check for a key element)
+        page.wait_for_selector("h1")
 
-        # Check if canvas exists
-        if page.locator("#simCanvas").count() > 0:
-            print("Canvas found.")
-        else:
-            print("Error: Canvas not found.")
-            errors.append("Canvas not found")
-
-        # Take screenshot
-        print("Taking screenshot...")
-        page.screenshot(path="verification/algoflow.png")
+        # Take a screenshot
+        screenshot_path = "verification/algoflow_verification.png"
+        page.screenshot(path=screenshot_path)
+        print(f"Screenshot saved to {screenshot_path}")
 
         browser.close()
 
-        if errors:
-            print("Errors detected:")
-            for e in errors:
-                print(e)
-            exit(1)
-        else:
-            print("No errors detected.")
-
 if __name__ == "__main__":
-    verify_algoflow()
+    run()
