@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoFlow | Powered by Profitnet</title>
+    <meta name="description" content="Interactive simulation comparing Algorand's scalability against legacy blockchains.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0A091B;
+            color: #E5E7EB;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- Background Effects (From Uploaded File) --- */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* --- Tool Specific Styles --- */
+        #simCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: relative;
+            z-index: 10;
+            height: 100vh;
+            pointer-events: none;
+            padding-top: 80px; /* Offset for fixed header */
+        }
+
+        .interactive-panel {
+            pointer-events: auto;
+        }
+
+        .glass-panel {
+            background: rgba(10, 9, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .glow-text { text-shadow: 0 0 15px rgba(16, 185, 129, 0.6); }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #10B981;
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 0 10px #10B981;
+            border: 2px solid #fff;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Global Background (From Uploaded File) -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation (Integrated) -->
+    <header class="fixed w-full top-0 z-50 bg-primary/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <!-- Logo Section -->
+            <a href="/espanol/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12"
+                     alt="Profitnet Logo"
+                     width="32"
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white font-sans">Profitnet</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/espanol/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+
+                <a href="/espanol/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+
+                <a href="/espanol/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-primary/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="/espanol/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Inicio</a>
+            <a href="/espanol/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="/espanol/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION: Simulation & Controls -->
+    <div class="relative w-full h-screen overflow-hidden">
+        <canvas id="simCanvas"></canvas>
+
+        <div class="hero-overlay flex flex-col justify-between p-6 md:p-12">
+
+            <!-- Main Title Box -->
+            <div class="flex justify-between items-start mt-8">
+                <div class="glass-panel p-8 rounded-2xl max-w-lg interactive-panel" data-aos="fade-down">
+                    <h1 class="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent-emerald to-accent-teal mb-3 font-display tracking-tight">
+                        AlgoFlow
+                    </h1>
+                    <h2 class="text-sm text-accent-emerald font-bold uppercase tracking-[0.2em] mb-4">Scalability Sandbox</h2>
+                    <p class="text-gray-300 leading-relaxed font-light text-sm md:text-base border-l-2 border-accent-emerald/30 pl-4">
+                        Throw transactions at the screen. Watch <strong class="text-white">Algorand</strong> handle the load while legacy chains struggle.
+                    </p>
+                </div>
+
+                <!-- Stats Panel -->
+                <div class="hidden md:flex glass-panel p-4 rounded-xl space-x-8 text-center interactive-panel" data-aos="fade-left">
+                    <div>
+                        <div class="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Legacy Pending</div>
+                        <div id="legacyPending" class="text-2xl font-bold text-orange-500 font-display">0</div>
+                    </div>
+                    <div class="w-px bg-white/10"></div>
+                    <div>
+                        <div class="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Algo Finalized</div>
+                        <div id="algoFinalized" class="text-2xl font-bold text-accent-emerald glow-text font-display">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Controls -->
+            <div class="flex flex-col items-center interactive-panel pb-8">
+                <div class="glass-panel px-6 py-3 rounded-full flex items-center space-x-6 mb-8" data-aos="fade-up">
+                    <button onclick="setMode('casual')" class="text-sm font-bold text-white hover:text-accent-emerald transition font-display" id="modeCasual">Casual Flow</button>
+                    <div class="w-1 h-4 bg-white/10 rounded"></div>
+                    <button onclick="setMode('stress')" class="text-sm font-bold text-gray-500 hover:text-accent-emerald transition font-display" id="modeStress">Stress Test</button>
+                    <div class="w-1 h-4 bg-white/10 rounded"></div>
+                    <button onclick="clearSim()" class="text-xs text-gray-400 hover:text-white transition uppercase font-bold tracking-wider">Reset</button>
+                </div>
+
+                <a href="#data-section" class="flex flex-col items-center text-gray-400 hover:text-accent-emerald transition cursor-pointer group" aria-label="Scroll down">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] mb-2">Analyze Impact</span>
+                    <svg class="w-6 h-6 animate-bounce group-hover:text-accent-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </a>
+            </div>
+
+            <!-- Background Titles (Decorative) -->
+            <div class="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.03] hidden md:block">
+                <h2 class="text-9xl font-bold text-orange-500 text-center font-display">LEGACY</h2>
+            </div>
+            <div class="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.03] hidden md:block">
+                <h2 class="text-9xl font-bold text-accent-emerald text-center font-display">ALGORAND</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- DATA SECTION -->
+    <main id="data-section" class="relative z-10 py-24 container mx-auto px-6 border-t border-white/5 bg-primary">
+        <div class="max-w-6xl mx-auto">
+
+            <div class="mb-16 text-center max-w-3xl mx-auto" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 font-display bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">Speed meets Sustainability</h2>
+                <p class="text-gray-400 text-lg font-light leading-relaxed">
+                    Algorand consumes roughly <strong class="text-accent-emerald">0.000008 kWh per transaction</strong>.
+                    That's not just scalable technology—it's a carbon-negative asset class.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+                <!-- Left: Controls -->
+                <div class="lg:col-span-4 space-y-6" data-aos="fade-right" data-aos-delay="100">
+                    <div class="glass-panel p-8 rounded-2xl border-l-4 border-accent-emerald">
+                        <h3 class="text-xl font-bold mb-8 text-white font-display">Activity Profile</h3>
+
+                        <div class="mb-10">
+                            <div class="flex justify-between mb-3">
+                                <label class="text-xs text-gray-400 font-bold uppercase tracking-wider">Monthly Transactions</label>
+                                <span class="text-accent-emerald font-bold font-mono" id="txValueDisplay">50 Tx</span>
+                            </div>
+                            <input type="range" id="txRange" min="1" max="1000" value="50" class="w-full">
+                        </div>
+
+                        <div class="mb-2">
+                            <label class="text-xs text-gray-400 font-bold uppercase block mb-3 tracking-wider">Time Horizon</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button onclick="setTimeframe(1)" id="btn1y" class="py-2 text-xs font-bold rounded transition border border-accent-emerald/50 bg-accent-emerald/20 text-accent-emerald">1 Year</button>
+                                <button onclick="setTimeframe(5)" id="btn5y" class="py-2 text-xs font-bold rounded transition border border-white/10 text-gray-400 hover:text-white hover:bg-white/5">5 Years</button>
+                                <button onclick="setTimeframe(10)" id="btn10y" class="py-2 text-xs font-bold rounded transition border border-white/10 text-gray-400 hover:text-white hover:bg-white/5">10 Years</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl">
+                        <h4 class="text-[10px] text-gray-500 font-bold uppercase mb-4 tracking-widest">Efficiency Benchmarks</h4>
+                        <div class="space-y-4 text-sm font-medium">
+                            <div class="flex justify-between items-center text-gray-400">
+                                <span>1 Bitcoin Tx</span>
+                                <span class="text-orange-400 font-mono">~950 kWh</span>
+                            </div>
+                            <div class="flex justify-between items-center text-gray-400">
+                                <span>1 Visa Swipe</span>
+                                <span class="text-blue-400 font-mono">~0.0015 kWh</span>
+                            </div>
+                            <div class="flex justify-between items-center text-white bg-white/5 p-2 rounded border border-white/5">
+                                <span>1 Algorand Tx</span>
+                                <span class="text-accent-emerald font-mono">0.000008 kWh</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Data -->
+                <div class="lg:col-span-8 space-y-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group hover:border-accent-emerald/50 transition-colors">
+                            <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <div class="flex items-center space-x-2 mb-2">
+                                <span class="text-accent-emerald">⚡</span>
+                                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest">Energy Saved</h4>
+                            </div>
+                            <div class="text-3xl font-bold text-white mb-1 font-display" id="energySaved">0 kWh</div>
+                            <p class="text-[10px] text-accent-emerald font-mono uppercase">≈ <span id="treesPlanted">0</span> trees planted</p>
+                        </div>
+
+                        <div class="glass-panel p-6 rounded-2xl relative overflow-hidden group hover:border-blue-400/50 transition-colors">
+                            <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div class="flex items-center space-x-2 mb-2">
+                                <span class="text-blue-400">💎</span>
+                                <h4 class="text-xs font-bold text-gray-400 uppercase tracking-widest">Capital Preserved</h4>
+                            </div>
+                            <div class="text-3xl font-bold text-white mb-1 font-display" id="feesSaved">$0</div>
+                            <p class="text-[10px] text-blue-400 font-mono uppercase">vs. Avg L1 Gas Fees</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl h-80 flex flex-col">
+                        <div class="flex justify-between items-end mb-4 border-b border-white/5 pb-4">
+                            <div>
+                                <h3 class="font-bold text-lg text-white font-display">The "Green Yield" Effect</h3>
+                                <p class="text-xs text-gray-400">If fee savings were staked in Consensus (Est. 4% APY)</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Projected Value</div>
+                                <div class="text-2xl font-bold text-accent-emerald font-display" id="projectedValue">$0</div>
+                            </div>
+                        </div>
+                        <div class="relative flex-grow">
+                            <canvas id="impactChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-20 border-t border-white/5 pt-8 text-center text-gray-600 text-xs font-medium uppercase tracking-widest">
+            <p>Built with AlgoFlow Technology &copy; 2024</p>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({ duration: 800, once: true, offset: 50 });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+
+        /* -------------------------------------------------------------------------- */
+        /* SIMULATION LOGIC (Updated Colors for Profitnet)                            */
+        /* -------------------------------------------------------------------------- */
+        const canvas = document.getElementById('simCanvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        let mouse = { x: 0, y: 0, down: false };
+        let mode = 'casual';
+        let legacyPendingCount = 0;
+        let algoFinalizedCount = 0;
+
+        const SIM_CONFIG = {
+            legacy: { speed: 1.5, bottleneckWidth: 40, color: '#F97316' }, // Orange-500
+            algo: { speed: 12, bottleneckWidth: 400, color: '#10B981' } // Emerald-500 (Matches branding)
+        };
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor(x, y, type) {
+                this.x = x; this.y = y; this.type = type;
+                this.radius = Math.random() * 3 + 2;
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = Math.random() * 2 + 1;
+                this.status = 'pending';
+                this.color = type === 'legacy' ? SIM_CONFIG.legacy.color : SIM_CONFIG.algo.color;
+            }
+            update() {
+                const isLegacy = this.type === 'legacy';
+                const centerX = isLegacy ? width * 0.25 : width * 0.75;
+                const bottleneck = isLegacy ? SIM_CONFIG.legacy.bottleneckWidth : SIM_CONFIG.algo.bottleneckWidth;
+                const speedLimit = isLegacy ? SIM_CONFIG.legacy.speed : SIM_CONFIG.algo.speed;
+
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Funnel Logic
+                if (this.y < height * 0.6) {
+                    const dx = centerX - this.x;
+                    this.vx += dx * 0.005;
+                    this.vx *= 0.95;
+                } else {
+                    const dist = Math.abs(this.x - centerX);
+                    if (dist > bottleneck / 2) {
+                        this.x = this.x < centerX ? centerX - bottleneck/2 : centerX + bottleneck/2;
+                        this.vx *= -0.5;
+                        if (isLegacy) { this.vy *= 0.5; this.color = '#EF4444'; }
+                    } else {
+                        if (!isLegacy) {
+                            this.vy *= 1.1;
+                            if(this.vy > speedLimit) this.vy = speedLimit;
+                            this.color = '#34D399'; // Emerald-400 highlight
+                        } else {
+                            this.vy = Math.min(this.vy, 2);
+                        }
+                    }
+                }
+
+                if (this.y > height) {
+                    if (this.status !== 'finalized') {
+                        this.status = 'finalized';
+                        if (!isLegacy) { algoFinalizedCount++; }
+                        else { legacyPendingCount = Math.max(0, legacyPendingCount - 1); }
+                        updateSimStats();
+                    }
+                    return false;
+                }
+                return true;
+            }
+            draw(ctx) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                if (this.type === 'algo') { ctx.shadowBlur = 10; ctx.shadowColor = this.color; }
+                else { ctx.shadowBlur = 0; }
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        function updateSimStats() {
+            document.getElementById('legacyPending').innerText = legacyPendingCount;
+            document.getElementById('algoFinalized').innerText = algoFinalizedCount;
+        }
+
+        // Mouse Handlers
+        document.addEventListener('mousedown', (e) => {
+             if(e.target.tagName !== 'BUTTON' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'A') {
+                mouse.down = true;
+            }
+        });
+        document.addEventListener('mouseup', () => mouse.down = false);
+        document.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+        function spawnParticles(count) {
+            for (let i = 0; i < count; i++) {
+                const offsetX = (Math.random() - 0.5) * 100;
+                particles.push(new Particle(width * 0.25 + offsetX, height * 0.1, 'legacy'));
+                legacyPendingCount++;
+                particles.push(new Particle(width * 0.75 + offsetX, height * 0.1, 'algo'));
+            }
+            updateSimStats();
+        }
+
+        function setMode(m) {
+            mode = m;
+            document.getElementById('modeCasual').className = m === 'casual' ? "text-sm font-bold text-accent-emerald transition font-display" : "text-sm font-bold text-gray-500 hover:text-accent-emerald transition font-display";
+            document.getElementById('modeStress').className = m === 'stress' ? "text-sm font-bold text-accent-emerald transition font-display" : "text-sm font-bold text-gray-500 hover:text-accent-emerald transition font-display";
+        }
+
+        function clearSim() {
+            particles = [];
+            legacyPendingCount = 0;
+            algoFinalizedCount = 0;
+            updateSimStats();
+        }
+
+        function animate() {
+            // MATCHED BACKGROUND COLOR: #0A091B (rgba: 10, 9, 27)
+            ctx.fillStyle = 'rgba(10, 9, 27, 0.4)';
+            ctx.fillRect(0, 0, width, height);
+
+            // Draw Pipes
+            const drawPipe = (cx, w, col) => {
+                ctx.strokeStyle = col;
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(cx - 300, 0);
+                ctx.lineTo(cx - w/2, height * 0.6);
+                ctx.lineTo(cx - w/2, height);
+                ctx.moveTo(cx + 300, 0);
+                ctx.lineTo(cx + w/2, height * 0.6);
+                ctx.lineTo(cx + w/2, height);
+                ctx.stroke();
+            };
+            drawPipe(width * 0.25, SIM_CONFIG.legacy.bottleneckWidth, 'rgba(249, 115, 22, 0.1)');
+            drawPipe(width * 0.75, SIM_CONFIG.algo.bottleneckWidth, 'rgba(16, 185, 129, 0.1)');
+
+            if (mouse.down) spawnParticles(mode === 'stress' ? 10 : 2);
+            else if (mode === 'stress') spawnParticles(5);
+
+            particles = particles.filter(p => p.update());
+            particles.forEach(p => p.draw(ctx));
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        /* -------------------------------------------------------------------------- */
+        /* CALCULATOR LOGIC                             */
+        /* -------------------------------------------------------------------------- */
+        const ALGO_ENERGY = 0.000008;
+        const BTC_ENERGY = 950;
+        const ALGO_FEE = 0.002;
+        const ETH_FEE = 3.50;
+        const APY = 0.04;
+
+        let txPerMonth = 50;
+        let years = 1;
+        let chart;
+
+        const txRange = document.getElementById('txRange');
+
+        txRange.addEventListener('input', (e) => {
+            txPerMonth = e.target.value;
+            document.getElementById('txValueDisplay').innerText = txPerMonth + " Tx";
+            calculateData();
+        });
+
+        function setTimeframe(y) {
+            years = y;
+            ['btn1y', 'btn5y', 'btn10y'].forEach(id => {
+                const btn = document.getElementById(id);
+                btn.className = "py-2 text-xs font-bold rounded transition border border-white/10 text-gray-400 hover:text-white hover:bg-white/5";
+            });
+            const activeBtn = document.getElementById('btn' + y + 'y');
+            activeBtn.className = "py-2 text-xs font-bold rounded transition border border-accent-emerald/50 bg-accent-emerald/20 text-accent-emerald";
+            calculateData();
+        }
+
+        function calculateData() {
+            const totalTx = txPerMonth * 12 * years;
+            const savedE = totalTx * BTC_ENERGY - totalTx * ALGO_ENERGY;
+            const trees = Math.floor(savedE * 0.015);
+            const principal = totalTx * ETH_FEE - totalTx * ALGO_FEE;
+            const monthlySavings = (ETH_FEE - ALGO_FEE) * txPerMonth;
+            const r = APY / 12;
+            const n = years * 12;
+            const fv = monthlySavings * ((Math.pow(1 + r, n) - 1) / r);
+
+            document.getElementById('energySaved').innerText = new Intl.NumberFormat().format(Math.floor(savedE)) + " kWh";
+            document.getElementById('treesPlanted').innerText = new Intl.NumberFormat().format(trees);
+            document.getElementById('feesSaved').innerText = "$" + new Intl.NumberFormat().format(Math.floor(principal));
+            document.getElementById('projectedValue').innerText = "$" + new Intl.NumberFormat().format(Math.floor(fv));
+
+            updateChart(principal, fv);
+        }
+
+        function updateChart(principal, fv) {
+            const ctxChart = document.getElementById('impactChart').getContext('2d');
+            if (chart) chart.destroy();
+            chart = new Chart(ctxChart, {
+                type: 'bar',
+                data: {
+                    labels: ['Fees Lost', 'Principal', 'Compounded'],
+                    datasets: [{
+                        label: 'Value (USD)',
+                        data: [principal, principal, fv],
+                        backgroundColor: ['rgba(255, 255, 255, 0.05)', '#10B981', '#34D399'],
+                        borderRadius: 6,
+                        barPercentage: 0.6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6B7280' } },
+                        x: { grid: { display: false }, ticks: { color: '#6B7280' } }
+                    }
+                }
+            });
+        }
+
+        calculateData();
+    </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oakhurst Park II | Data Points for Nerds</title>
+    <meta name="description" content="Technical data and nerdy facts about Oakhurst Park II in Westminster, CO.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+        .data-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .data-card:hover {
+            border-color: rgba(45, 212, 191, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/espanol/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12"
+                     alt="Profitnet Logo" width="32" height="32">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/espanol/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                <a href="#" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                <a href="#" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Dashboard
+                </a>
+            </nav>
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-32 container mx-auto px-6 pb-20">
+        <div class="max-w-4xl mx-auto">
+            <div data-aos="fade-up">
+                <h1 class="text-5xl md:text-6xl font-black text-white mb-4 tracking-tighter italic uppercase">
+                    Oakhurst Park II
+                </h1>
+                <div class="h-1 w-24 bg-accent-teal mb-8"></div>
+                <p class="text-xl text-gray-400 mb-12 max-w-2xl leading-relaxed">
+                    Analyzing the technical infrastructure and logistical data of Westminster's residential green hub.
+                </p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <!-- Size & Scale -->
+                <div class="data-card p-8 rounded-2xl" data-aos="fade-right">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2 bg-teal-500/10 rounded-lg">
+                            <svg class="w-6 h-6 text-accent-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+                        </div>
+                        <h2 class="text-xl font-bold text-white uppercase tracking-wider">Size & Scale</h2>
+                    </div>
+                    <p class="text-3xl font-black text-white mb-2 italic">~2.7 ACRES</p>
+                    <p class="text-sm text-gray-500 font-medium">Estimated footprint based on Oakhurst East technical documentation.</p>
+                </div>
+
+                <!-- Budgetary Estimate -->
+                <div class="data-card p-8 rounded-2xl" data-aos="fade-left">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="p-2 bg-emerald-500/10 rounded-lg">
+                            <svg class="w-6 h-6 text-accent-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h2 class="text-xl font-bold text-white uppercase tracking-wider">Investment</h2>
+                    </div>
+                    <p class="text-3xl font-black text-white mb-2 italic">$800K - $1M</p>
+                    <p class="text-sm text-gray-500 font-medium">Typical development cost for a Westminster neighborhood park infrastructure.</p>
+                </div>
+            </div>
+
+            <!-- Detailed Data Sections -->
+            <div class="space-y-8">
+                <!-- Funding Sources -->
+                <section class="data-card p-8 rounded-3xl" data-aos="fade-up">
+                    <h3 class="text-sm font-black text-accent-blue uppercase tracking-[0.3em] mb-6">Financial Architecture</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-white font-bold mb-3 flex items-center">
+                                <span class="w-1.5 h-1.5 bg-accent-blue rounded-full mr-2"></span>
+                                Capital Improvement Plan (CIP)
+                            </h4>
+                            <p class="text-gray-400 text-sm">Primary funding source for municipal parks, recreation, and library facilities across the city network.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold mb-3 flex items-center">
+                                <span class="w-1.5 h-1.5 bg-accent-blue rounded-full mr-2"></span>
+                                Park Development Fees
+                            </h4>
+                            <p class="text-gray-400 text-sm">Levied on new residential developments to mitigate impacts and fund municipal infrastructure growth.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Technical Amenities -->
+                <section class="data-card p-8 rounded-3xl" data-aos="fade-up">
+                    <h3 class="text-sm font-black text-accent-teal uppercase tracking-[0.3em] mb-6">Infrastructure Modules</h3>
+                    <ul class="grid grid-cols-2 md:grid-cols-3 gap-4 text-xs font-bold uppercase">
+                        <li class="p-4 bg-white/5 rounded-xl border border-white/5 flex flex-col items-center justify-center text-center">
+                            <span class="text-accent-teal mb-2">Turf Fields</span>
+                            Multi-Use Surfaces
+                        </li>
+                        <li class="p-4 bg-white/5 rounded-xl border border-white/5 flex flex-col items-center justify-center text-center">
+                            <span class="text-accent-teal mb-2">Logistics</span>
+                            Paved Walking Paths
+                        </li>
+                        <li class="p-4 bg-white/5 rounded-xl border border-white/5 flex flex-col items-center justify-center text-center">
+                            <span class="text-accent-teal mb-2">Utility</span>
+                            BBQ & Picnic Hubs
+                        </li>
+                        <li class="p-4 bg-white/5 rounded-xl border border-white/5 flex flex-col items-center justify-center text-center">
+                            <span class="text-accent-teal mb-2">Connectivity</span>
+                            Big Dry Creek Link
+                        </li>
+                        <li class="p-4 bg-white/5 rounded-xl border border-white/5 flex flex-col items-center justify-center text-center">
+                            <span class="text-accent-teal mb-2">Hydraulic</span>
+                            Niver Canal Access
+                        </li>
+                        <li class="p-4 bg-white/5 rounded-xl border border-white/5 flex flex-col items-center justify-center text-center">
+                            <span class="text-accent-teal mb-2">Recreation</span>
+                            Play Equipment
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Contextual Analysis -->
+                <section class="data-card p-8 rounded-3xl" data-aos="fade-up">
+                    <h3 class="text-sm font-black text-accent-emerald uppercase tracking-[0.3em] mb-6">Strategic Context</h3>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        Oakhurst Park II operates within Westminster's <span class="text-white font-semibold italic">Resource Management Program (Tier Service Level Program)</span>, established in 2011. This program uses tiered maintenance cycles to ensure professional-grade park quality while optimizing municipal resources.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        The park fulfills the "Half-Mile Access Goal," ensuring critical green infrastructure is distributed geographically within 0.5 miles of all residential units.
+                    </p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({ duration: 800, once: true, offset: 50 });
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(!mobileMenu.classList.contains('active')));
+    });
+    </script>
+</body>
+</html>

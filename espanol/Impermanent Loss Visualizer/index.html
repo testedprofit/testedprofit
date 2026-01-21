@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impermanent Loss Visualizer | Profitnet</title>
+    <meta name="description" content="Calculate the cost of providing liquidity vs holding assets.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .card-glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+        }
+        input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.2s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #2DD4BF;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 10px rgba(45, 212, 191, 0.2);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/espanol/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12"
+                     alt="Profitnet Logo" width="32" height="32" fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/espanol/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                <a href="/espanol/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                <a href="/espanol/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="/espanol/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Inicio</a>
+            <a href="/espanol/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="/espanol/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-32 container mx-auto px-6 pb-20">
+        <div class="max-w-4xl mx-auto">
+            <div data-aos="fade-up" class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter">Impermanent Loss Visualizer</h2>
+                <p class="text-gray-400 max-w-xl mx-auto">Analyze your potential Liquidity Provider risk compared to holding assets.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Inputs Section -->
+                <div data-aos="fade-right" class="card-glass p-8 space-y-6">
+                    <div>
+                        <h3 class="text-xs font-black text-teal-400 uppercase tracking-widest mb-4">Initial Position</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold text-gray-400 uppercase">Token A Price ($)</label>
+                                <input type="number" id="tokenA_init" value="100" step="0.01" oninput="calculate()" class="w-full px-4 py-3 rounded-lg font-bold">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold text-gray-400 uppercase">Token B Price ($)</label>
+                                <input type="number" id="tokenB_init" value="100" step="0.01" oninput="calculate()" class="w-full px-4 py-3 rounded-lg font-bold">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-bold text-gray-400 uppercase">Total Investment ($)</label>
+                        <input type="number" id="total_invest" value="1000" step="1" oninput="calculate()" class="w-full px-4 py-3 rounded-lg font-bold text-xl text-teal-400">
+                    </div>
+
+                    <div class="pt-4">
+                        <h3 class="text-xs font-black text-teal-400 uppercase tracking-widest mb-4">Current Market</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold text-gray-400 uppercase">Token A Price ($)</label>
+                                <input type="number" id="tokenA_curr" value="150" step="0.01" oninput="calculate()" class="w-full px-4 py-3 rounded-lg font-bold">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold text-gray-400 uppercase">Token B Price ($)</label>
+                                <input type="number" id="tokenB_curr" value="100" step="0.01" oninput="calculate()" class="w-full px-4 py-3 rounded-lg font-bold">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div data-aos="fade-left" class="card-glass p-8 flex flex-col justify-between border-t-4 border-t-teal-500 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+                    <div class="text-center mb-8">
+                        <span class="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em]">Estimated Impermanent Loss</span>
+                        <h4 id="il_percent" class="text-6xl font-black text-red-400 mt-2 tracking-tighter">-0.00%</h4>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-white/5 rounded-xl">
+                            <span class="text-xs font-bold text-gray-400 uppercase">HODL Value</span>
+                            <span id="hodl_val" class="text-lg font-black text-white">$0.00</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-teal-500/10 border border-teal-500/20 rounded-xl">
+                            <span class="text-xs font-bold text-teal-400 uppercase">LP Pool Value</span>
+                            <span id="lp_val" class="text-lg font-black text-teal-400">$0.00</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-red-500/5 rounded-xl border border-red-500/10">
+                            <span class="text-xs font-bold text-red-400 uppercase tracking-widest">Net Loss vs Holding</span>
+                            <span id="loss_usd" class="text-lg font-black text-red-400">-$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Details -->
+            <div data-aos="fade-up" class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card-glass p-6 text-center">
+                    <h5 class="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-2">The Formula</h5>
+                    <code class="text-xs text-gray-400">IL = (2√r / (1+r)) - 1</code>
+                </div>
+                <div class="card-glass p-6 text-center">
+                    <h5 class="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-2">Strategy Tip</h5>
+                    <p class="text-xs text-gray-400">Fees earned must be &gt; IL to remain profitable.</p>
+                </div>
+                <div class="card-glass p-6 text-center">
+                    <h5 class="text-[10px] font-black text-teal-400 uppercase tracking-widest mb-2">Update Rate</h5>
+                    <p class="text-xs text-gray-400">Instant local computation.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="relative z-10 py-10 border-t border-white/5 text-center">
+        <p class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.5em]">&copy; 2026 PROFITNET | ALL RIGHTS RESERVED</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        function calculate() {
+            const aInit = parseFloat(document.getElementById('tokenA_init').value) || 0;
+            const bInit = parseFloat(document.getElementById('tokenB_init').value) || 0;
+            const aCurr = parseFloat(document.getElementById('tokenA_curr').value) || 0;
+            const bCurr = parseFloat(document.getElementById('tokenB_curr').value) || 0;
+            const investment = parseFloat(document.getElementById('total_invest').value) || 0;
+
+            if (aInit <= 0 || bInit <= 0 || aCurr <= 0 || bCurr <= 0) return;
+
+            const priceRatioA = aCurr / aInit;
+            const priceRatioB = bCurr / bInit;
+            const relativePriceRatio = priceRatioA / priceRatioB;
+
+            const il = (2 * Math.sqrt(relativePriceRatio) / (1 + relativePriceRatio)) - 1;
+            const ilPercent = il * 100;
+
+            const hodlA = (investment / 2) * priceRatioA;
+            const hodlB = (investment / 2) * priceRatioB;
+            const totalHodl = hodlA + hodlB;
+
+            const totalLp = totalHodl * (1 + il);
+            const lossUsd = totalHodl - totalLp;
+
+            document.getElementById('il_percent').innerText = ilPercent.toFixed(2) + '%';
+            document.getElementById('hodl_val').innerText = '$' + totalHodl.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('lp_val').innerText = '$' + totalLp.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('loss_usd').innerText = '-$' + lossUsd.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+            const ilElement = document.getElementById('il_percent');
+            if (ilPercent < -0.01) {
+                ilElement.classList.replace('text-teal-400', 'text-red-400');
+            } else {
+                ilElement.classList.replace('text-red-400', 'text-teal-400');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ duration: 800, once: true });
+
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const body = document.body;
+
+            function toggleMenu(show) {
+                if (show) {
+                    mobileMenu.classList.add('active');
+                    body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.remove('active');
+                    body.style.overflow = '';
+                }
+            }
+
+            menuBtn.addEventListener('click', () => toggleMenu(true));
+            closeBtn.addEventListener('click', () => toggleMenu(false));
+            calculate();
+        });
+    </script>
+</body>
+</html>

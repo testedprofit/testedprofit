@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Martin Luther King, Jr. Memorial - Denver</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light Slate */
+            color: #1e293b; /* Dark Slate */
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-heading {
+            font-size: 2.5rem; /* Equivalent to text-4xl */
+            font-weight: 700; /* Equivalent to font-bold */
+            color: #1e293b; /* Dark Slate */
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .sub-section-heading {
+            font-size: 1.75rem; /* Equivalent to text-2xl */
+            font-weight: 600; /* Equivalent to font-semibold */
+            color: #334155; /* Medium Slate */
+            margin-bottom: 1rem;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: #3b82f6; /* Blue-500 */
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background-color: #2563eb; /* Blue-600 */
+            transform: translateY(-2px);
+        }
+        .hero-section {
+            background-color: #a0d2eb; /* Soft blue background */
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 1.5rem; /* rounded-3xl */
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.1); /* subtle inner shadow for depth */
+        }
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        .text-shadow-strong {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Specific styling for the 'figures' cards */
+        .figure-card {
+            background-color: #e0f2fe; /* Light Blue */
+            padding: 1.5rem;
+            border-radius: 0.75rem; /* rounded-lg */
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .figure-card:hover {
+            transform: translateY(-5px);
+        }
+        .figure-emoji {
+            font-size: 3rem; /* Larger emoji size */
+            margin-bottom: 0.5rem;
+        }
+
+        /* Styling for the MLK Sculpture visual block */
+        .mlk-sculpture-visual {
+            background: linear-gradient(to bottom right, #5c748c, #334155); /* Darker blue/grey gradient */
+            border-radius: 1rem;
+            height: 400px; /* Fixed height for visual consistency */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Styling for Marade visual block */
+        .marade-visual {
+            background: linear-gradient(to top left, #87CEEB, #5C748C); /* Lighter blue gradient */
+            border-radius: 1rem;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .marade-emoji {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Styling for Rededication visual block */
+        .rededication-visual {
+            background: linear-gradient(to right, #B0C4DE, #8FA5C2); /* Grey-blue gradient */
+            border-radius: 1rem;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            font-size: 1.25rem;
+        }
+
+    </style>
+</head>
+<body class="selection:bg-blue-300">
+    <!-- Header/Navigation (Simple for a landing page) -->
+    <header class="bg-white py-4 shadow-sm">
+        <div class="container flex justify-between items-center px-4 md:px-8">
+            <h1 class="text-2xl font-extrabold text-blue-600">MLK Memorial Denver</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">Sobre Nosotros</a></li>
+                    <li><a href="#structure" class="text-gray-700 hover:text-blue-600 font-medium">Structure</a></li>
+                    <li><a href="#marade" class="text-gray-700 hover:text-blue-600 font-medium">The Marade</a></li>
+                    <li><a href="#artist" class="text-gray-700 hover:text-blue-600 font-medium">Artist</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-12 md:py-20 px-4 md:px-8">
+            <div class="container hero-section">
+                <div class="hero-overlay rounded-3xl">
+                    <h2 class="text-5xl md:text-7xl font-extrabold text-white mb-4 leading-tight text-shadow-strong">
+                        Dr. Martin Luther King, Jr. Memorial
+                    </h2>
+                    <p class="text-xl md:text-2xl text-white font-light max-w-3xl text-shadow-strong">
+                        A Symbol of Freedom, Justice, and Hope in the Heart of Denver's City Park
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction/About Section -->
+        <section id="about" class="py-12 px-4 md:px-8">
+            <div class="container card">
+                <h3 class="section-heading">About the Memorial</h3>
+                <p class="text-lg text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
+                    The Dr. Martin Luther King, Jr. Memorial in Denver is a powerful tribute to one of history's most influential civil rights leaders. Located in the beautiful City Park, this monument, created by renowned sculptor Ed Dwight, serves as a beacon of inspiration, reminding us of the enduring fight for equality and justice.
+                    It's more than just a statue; it's a profound visual narrative of the African American struggle for freedom and the universal principles Dr. King championed.
+                </p>
+            </div>
+        </section>
+
+        <!-- Memorial Structure Section -->
+        <section id="structure" class="py-12 px-4 md:px-8 bg-blue-50">
+            <div class="container">
+                <h3 class="section-heading">The Memorial's Profound Design</h3>
+
+                <!-- Central Sculpture and Figures -->
+                <div class="card grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h4 class="sub-section-heading">Standing on the Shoulders of Giants</h4>
+                        <p class="text-gray-700 mb-4">
+                            At the heart of the memorial stands a monumental bronze sculpture of Dr. Martin Luther King, Jr. Symbolically, he is depicted standing on the shoulders of four pivotal historical figures who profoundly influenced his philosophy of nonviolent resistance and his pursuit of civil rights. This visual metaphor powerfully conveys the cumulative effort of generations in the fight for freedom.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mt-6">
+                            <div class="figure-card">
+                                <span class="figure-emoji">🕊️</span>
+                                <p class="font-semibold text-blue-800">Mahatma Gandhi</p>
+                            </div>
+                            <div class="figure-card">
+                                <span class="figure-emoji">✊</span>
+                                <p class="font-semibold text-blue-800">Rosa Parks</p>
+                            </div>
+                            <div class="figure-card">
+                                <span class="figure-emoji">🗣️</span>
+                                <p class="font-semibold text-blue-800">Frederick Douglass</p>
+                            </div>
+                            <div class="figure-card">
+                                <span class="figure-emoji">📜</span>
+                                <p class="font-semibold text-blue-800">Sojourner Truth</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mlk-sculpture-visual">
+                        <span class="figure-emoji">🌟</span>
+                        <p class="mt-2 text-xl font-bold">Dr. King's Vision</p>
+                        <p class="text-sm mt-1">A beacon of hope and justice for all.</p>
+                    </div>
+                </div>
+
+                <!-- Tiered Pedestal and Panels -->
+                <div class="card mt-8">
+                    <h4 class="sub-section-heading text-center">A Chronological Journey: The Pedestal and Panels</h4>
+                    <p class="text-gray-700 text-center mb-6">
+                        The pedestal supporting Dr. King, along with four surrounding bas-relief panels, chronicles the profound historical narrative of the African American struggle for freedom and civil rights, interwoven with Dr. King's timeless quotations.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <h5 class="font-semibold text-lg mb-2 text-blue-700">Bottom Tier: Nobel Peace Prize</h5>
+                            <p class="text-gray-700 text-sm">Honors Dr. King's 1964 Nobel Peace Prize. Side panels depict the struggle from 1619 through 1960, marking the beginning of the African American journey in America.</p>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <h5 class="font-semibold text-lg mb-2 text-blue-700">Panel 1: Slavery to Freedom</h5>
+                            <p class="text-gray-700 text-sm">Illustrates the arduous journey from the chains of slavery towards the promise of liberation.</p>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <h5 class="font-semibold text-lg mb-2 text-blue-700">Panel 2: Civil Rights Struggle</h5>
+                            <p class="text-gray-700 text-sm">Highlights pivotal events and landmark legislation of the Civil Rights Movement, showcasing the fight for equal rights.</p>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <h5 class="font-semibold text-lg mb-2 text-blue-700">Panel 3: Justice & Quotes</h5>
+                            <p class="text-gray-700 text-sm">Features Lady Justice and powerful engravings of Dr. King's most impactful quotes on the pursuit of fairness and equity.</p>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-lg shadow-sm">
+                            <h5 class="font-semibold text-lg mb-2 text-blue-700">Panel 4: Living the Dream</h5>
+                            <p class="text-gray-700 text-sm">Focuses on the present and future, embodying themes of love, hope, and truth in the ongoing realization of Dr. King's vision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Marade Section -->
+        <section id="marade" class="py-12 px-4 md:px-8">
+            <div class="container card">
+                <h3 class="section-heading">The Denver MLK "Marade"</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            The Dr. Martin Luther King, Jr. Memorial is the sacred starting point for Denver's annual "Marade" (a blend of "march" and "parade"). This vibrant event is one of the largest and most significant celebrations of MLK Day in the entire United States, drawing tens of thousands of participants each January.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            The "Marade" embodies Dr. King's principles of nonviolent action and community engagement. It's a day when people from all walks of life come together to honor his enduring legacy, reflect on the progress made, and renew their commitment to social justice.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Spearheaded by the tireless efforts of former State Representative Wilma Webb, who helped make MLK Day a state holiday in Colorado in 1984, the Marade has become a powerful tradition in Denver.
+                        </p>
+                        <a href="https://www.drmartinlkingjrchc.org/" target="_blank" class="mt-6 btn btn-primary">Learn More about the Marade</a>
+                    </div>
+                    <div class="marade-visual">
+                        <span class="marade-emoji">🚶‍♀️🚶‍♂️🚶</span>
+                        <p class="text-xl font-bold mt-2">Join the March for Justice</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artist Section -->
+        <section id="artist" class="py-12 px-4 md:px-8 bg-blue-50">
+            <div class="container card">
+                <h3 class="section-heading">The Visionary Artist: Ed Dwight</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                            The Denver Martin Luther King, Jr. Memorial was created by the acclaimed Denver-based sculptor <span class="font-semibold text-blue-700">Ed Dwight</span>. A true pioneer, Dwight was not only a gifted artist but also the first African American astronaut candidate selected by NASA in 1961.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            After his career as an aerospace engineer and pilot, Dwight transitioned to art, focusing on sculptures that powerfully narrate African American history and celebrate its pioneers. He has created thousands of sculptures, with over 130 public memorials across the country. His deep understanding of history and his artistic mastery are evident in the profound symbolism and emotional resonance of the Denver MLK Memorial.
+                        </p>
+                    </div>
+                    <div class="bg-blue-200 rounded-xl shadow-md h-64 flex items-center justify-center text-blue-800 text-center font-bold text-lg p-4">
+                        <p>Ed Dwight: Artist & Pioneer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Events / Resilience Section -->
+        <section id="recent-events" class="py-12 px-4 md:px-8">
+            <div class="container card text-center">
+                <h3 class="section-heading">Resilience and Rededication</h3>
+                <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-6">
+                    In February 2024, the memorial faced an unfortunate act of vandalism, with several bronze pieces stolen. This incident caused profound distress, particularly for the artist Ed Dwight and the community.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-6">
+                    However, thanks to the swift recovery of the stolen pieces and dedicated efforts, the memorial was repaired and proudly rededicated in January 2025. This event underscored the community's unwavering commitment to Dr. King's legacy and the memorial's symbolic importance, demonstrating its resilience in the face of adversity.
+                </p>
+                <div class="rededication-visual mx-auto mt-6 max-w-4xl">
+                    <span class="figure-emoji">🤝✨</span>
+                    <p class="mt-2 text-xl font-bold">Community United in Restoration</p>
+                    <p class="text-sm mt-1">The Spirit of the Memorial Endures</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container px-4 md:px-8 text-center">
+            <p class="mb-2">&copy; 2025 Dr. Martin Luther King, Jr. Memorial, Denver. Todos los derechos reservados.</p>
+            <p class="mb-2">Located at: City Park, 1700 N York St, Denver, CO 80205</p>
+            <p>For inquiries, please contact: <a href="mailto:testedprofit@gmail.com" class="text-blue-400 hover:underline">testedprofit@gmail.com</a></p>
+            <p class="mt-4 text-sm text-gray-400">Website by Tested Profit</p>
+        </div>
+    </footer>
+</body>
+</html>

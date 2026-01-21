@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coolin' the Dogs | TestedProfit Local Guide</title>
+    <meta name="description" content="A local's guide to the Coolin' the Dogs statue in Castle Rock.">
+
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts: Preconnected for speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Merriweather:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        .bronze-gradient {
+            background: linear-gradient(135deg, #785a3c 0%, #a88b68 50%, #5d4037 100%);
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation (EXACTLY AS REQUESTED) -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <!-- Logo Section -->
+            <a href="/espanol/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12"
+                     alt="Profitnet Logo"
+                     width="32"
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/espanol/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+
+                <a href="/espanol/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+
+                <a href="/espanol/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="/espanol/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Inicio</a>
+            <a href="/espanol/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="/espanol/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 container mx-auto px-6 pb-24">
+
+        <!-- Hero Section -->
+        <div class="max-w-4xl mx-auto mb-20" data-aos="fade-up">
+            <span class="inline-block py-1 px-3 rounded-full bg-teal-500/10 border border-teal-500/20 text-accent-teal text-xs font-bold tracking-wider uppercase mb-6">
+                Public Art Spotlight
+            </span>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight font-serif">
+                Coolin' the Dogs <span class="italic text-gray-500">& Dusty</span>
+            </h1>
+            <p class="text-xl text-gray-400 leading-relaxed max-w-2xl mb-8">
+                A tribute to the Western spirit, resting right in the heart of downtown Castle Rock. The story behind the cowboy "Gus" and his loyal companion.
+            </p>
+            <a href="https://maps.app.goo.gl/8ZG3Q6LKMhnuiKAW9" target="_blank" class="inline-flex items-center text-sm font-bold text-accent-emerald hover:text-emerald-300 transition-colors">
+                Open in Google Maps <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+            </a>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+
+            <!-- Left Column: Story -->
+            <div class="md:col-span-7 space-y-12" data-aos="fade-up" data-aos-delay="100">
+                <section>
+                    <div class="prose prose-invert prose-lg text-gray-300">
+                        <p class="first-letter:text-5xl first-letter:font-serif first-letter:text-accent-emerald first-letter:float-left first-letter:mr-3">
+                            If you walk past the Philip S. Miller Library without looking closely, you might miss one of Castle Rock's quietest residents. He sits on a rock, boots worn from the trail, while his dog leans in for a drink.
+                        </p>
+                        <p>
+                            This is <strong>"Gus"</strong> (the cowboy) and <strong>"Dusty"</strong> (the dog). Created by sculptor <strong class="text-white">Craig Bergsgaard</strong>, this life-size bronze captures a moment of pause. It’s not an action shot; it’s a moment of reflection.
+                        </p>
+                        <p>
+                            For locals, it’s a touchstone of our town’s identity: a blend of rugged history and a modern appreciation for slowing down.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Artist Card -->
+                <section class="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-white">
+                        <i class="fa-solid fa-paintbrush text-accent-teal mr-3"></i>
+                        About the Artist
+                    </h3>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">
+                        <strong>Craig Bergsgaard</strong> is a Windsor-based artist known for his historical accuracy. He transitioned from construction to sculpture, focusing on the "spirits" of the West—the everyday characters rather than just the legends.
+                    </p>
+                    <div class="flex gap-6 text-xs border-t border-white/10 pt-6">
+                        <div>
+                            <span class="block text-gray-500 uppercase tracking-wide mb-1">Material</span>
+                            <span class="font-bold text-accent-emerald">Cast Bronze</span>
+                        </div>
+                        <div>
+                            <span class="block text-gray-500 uppercase tracking-wide mb-1">Location</span>
+                            <span class="font-bold text-white">100 S Wilcox St</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Visuals & Map -->
+            <div class="md:col-span-5 space-y-8" data-aos="fade-up" data-aos-delay="200">
+
+                <!-- Visual Placeholder -->
+                <div class="aspect-[4/3] rounded-2xl bronze-gradient flex items-center justify-center text-center p-8 relative overflow-hidden shadow-2xl group border border-white/10">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
+                    <div class="relative z-10 text-white/95">
+                        <i class="fa-solid fa-hat-cowboy text-6xl mb-4 opacity-90 drop-shadow-lg"></i>
+                        <p class="font-serif italic text-lg drop-shadow-md">"A moment of rest in bronze."</p>
+                    </div>
+                </div>
+
+                <!-- Local's Tip -->
+                <div class="bg-teal-900/10 border border-teal-500/20 rounded-2xl p-8">
+                    <h3 class="text-accent-teal font-bold text-lg mb-2">
+                        <i class="fa-solid fa-mug-hot mr-2"></i> The Local's Morning Loop
+                    </h3>
+                    <p class="text-gray-400 text-xs mb-6">
+                        Castle Rock is best seen on foot. Here is my recommended short loop to see the art and support local business.
+                    </p>
+                    <ol class="space-y-6 relative border-l border-teal-500/20 ml-2">
+                        <li class="pl-6 relative">
+                            <span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent-teal shadow-[0_0_10px_rgba(45,212,191,0.5)]"></span>
+                            <span class="block font-bold text-white text-sm">Start at the Library</span>
+                            <span class="text-xs text-gray-500">100 S Wilcox St. Visit Gus & Dusty.</span>
+                        </li>
+                        <li class="pl-6 relative">
+                            <span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-700 border border-slate-600"></span>
+                            <span class="block font-bold text-white text-sm">Coffee at Lost Coffee</span>
+                            <span class="text-xs text-gray-500">390 Perry St. Inside an old stone building.</span>
+                        </li>
+                        <li class="pl-6 relative">
+                            <span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-700 border border-slate-600"></span>
+                            <span class="block font-bold text-white text-sm">Festival Park</span>
+                            <span class="text-xs text-gray-500">Walk off the caffeine by the creek.</span>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Map Card -->
+                <a href="https://maps.app.goo.gl/8ZG3Q6LKMhnuiKAW9" target="_blank" class="block group">
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="font-bold text-lg text-white">Navigate to Statue</h3>
+                                <p class="text-gray-500 text-xs mt-1">Philip S. Miller Library Grounds</p>
+                            </div>
+                            <div class="bg-white/10 p-3 rounded-full text-accent-emerald group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-location-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
