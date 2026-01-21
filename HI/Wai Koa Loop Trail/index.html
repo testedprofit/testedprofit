@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestedProfit | Wai Koa Loop Trail</title>
+    <meta name="description" content="Wai Koa Loop Trail - Kilauea, Kauai Hiking & Biking">
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            trail: '#d97706',   // Earth Amber
+                            canopy: '#15803d',  // Mahogany Green
+                            sky: '#38bdf8'      // Open View Blue
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero-glow {
+            /* Trail Amber and Canopy Green tones */
+            background: radial-gradient(circle at 30% 20%, rgba(217, 119, 6, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(21, 128, 61, 0.15) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(21, 128, 61, 0.4); /* Canopy hover */
+            transform: translateY(-2px);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-canopy transition-colors duration-200">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-canopy hover:text-green-400 transition-colors duration-200">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-green-500/30 text-[10px] font-black text-green-400 hover:bg-green-500/10 hover:border-green-500/60 hover:shadow-[0_0_15px_rgba(21,128,61,0.3)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-canopy transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-canopy uppercase tracking-widest hover:text-green-400 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-trail transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-20 container mx-auto px-6">
+        
+        <!-- Hero / Title Section -->
+        <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-down">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accent-canopy/10 border border-accent-canopy/20 text-accent-canopy text-xs font-bold tracking-widest uppercase mb-6">
+                <span class="w-2 h-2 rounded-full bg-accent-canopy animate-pulse"></span>
+                <span>Working Landscape</span>
+            </div>
+            
+            <h1 class="text-5xl lg:text-7xl font-black text-white leading-[1.1] mb-4 tracking-tight">
+                Wai Koa <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-canopy to-accent-trail">Loop Trail.</span>
+            </h1>
+            
+            <p class="text-xl text-gray-400 font-medium mb-2">Kilauea, Kauai</p>
+            <p class="text-sm text-gray-500 uppercase tracking-widest">4.5 Mile Loop • North Shore Ag Land</p>
+        </div>
+
+        <!-- The Public Path (Split Grid) -->
+        <div class="grid lg:grid-cols-2 gap-8 mb-16 max-w-5xl mx-auto">
+            
+            <!-- Left: Overview -->
+            <div class="glass-card p-8 rounded-2xl" data-aos="fade-right">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                    <span class="w-8 h-1 bg-accent-trail rounded-full"></span>
+                    The Public Path
+                </h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    A popular <strong class="text-white">4.5 to 5-mile loop</strong> offering a flat, beautiful path through a working agricultural landscape. Suitable for hikers, runners, and mountain bikers seeking a safe, family-friendly route.
+                </p>
+                <div class="bg-red-500/10 p-4 rounded-xl border-l-2 border-red-500">
+                    <p class="text-sm text-gray-300"><strong class="text-red-400">Entry Requirement:</strong> Access is free, but all users <strong>must sign a liability waiver</strong> online or at the trailhead.</p>
+                </div>
+            </div>
+
+            <!-- Right: Landscape Context -->
+            <div class="relative glass-card p-8 rounded-2xl overflow-hidden group" data-aos="fade-left" data-aos-delay="100">
+                <!-- Subtle background decoration -->
+                <div class="absolute -right-10 -top-10 w-32 h-32 bg-accent-canopy/10 rounded-full blur-2xl group-hover:bg-accent-canopy/20 transition-all"></div>
+                
+                <h3 class="text-xl font-bold text-accent-canopy mb-4">Mahogany Canopy</h3>
+                <p class="text-gray-400 leading-relaxed mb-4">
+                    The trail passes through the <strong class="text-white">largest mahogany plantation</strong> in the United States, offering unique scenery and a pleasant tree canopy, alongside open views of the majestic Namahana Mountains.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-4 mt-6">
+                     <div class="flex items-center space-x-2 text-xs text-accent-trail font-bold uppercase tracking-wider">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        <span>Shared Use</span>
+                     </div>
+                     <div class="flex items-center space-x-2 text-xs text-accent-sky font-bold uppercase tracking-wider">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                        <span>Mountain Views</span>
+                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visitor Protocol (3 Column Grid) -->
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-lg font-bold text-white mb-6 uppercase tracking-widest pl-2 border-l-4 border-accent-canopy">Visitor Protocol</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Logistics -->
+                <article class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-10 h-10 rounded-lg bg-accent-trail/10 flex items-center justify-center mb-4 text-accent-trail">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Trailhead</h3>
+                    <p class="text-sm text-gray-400">North Shore Dog Park (Kahiliholo Rd).<br>Hours: Sunrise to 18:00.</p>
+                </article>
+
+                <!-- Terrain -->
+                <article class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-10 h-10 rounded-lg bg-accent-sky/10 flex items-center justify-center mb-4 text-accent-sky">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0121 18.382V7.618a1 1 0 01-.447-.894L15 7m0 13V7"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Terrain Status</h3>
+                    <p class="text-sm text-gray-400">Flat dirt/gravel road. Can become <strong class="text-accent-trail">very muddy</strong> after rain. Bring proper footwear.</p>
+                </article>
+
+                <!-- Amenities -->
+                <article class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-10 h-10 rounded-lg bg-gray-700/50 flex items-center justify-center mb-4 text-gray-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">No Amenities</h3>
+                    <p class="text-sm text-gray-400">Zero restrooms/water on trail. Facilities only at Common Ground entrance.</p>
+                </article>
+            </div>
+        </div>
+
+        <!-- Footer / Location Data -->
+        <div class="mt-16 pt-8 border-t border-white/5 text-center">
+            <p class="text-lg font-mono text-accent-canopy mb-2">Destination: The Stone Dam</p>
+            <p class="text-xs text-gray-600 uppercase tracking-[0.2em]">Safe, Accessible, Historically Rich</p>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
