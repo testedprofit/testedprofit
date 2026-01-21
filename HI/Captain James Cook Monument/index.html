@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestedProfit | Captain James Cook Monument</title>
+    <meta name="description" content="Captain James Cook Monument - Kealakekua Bay, Hawaii">
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            ocean: '#0c4a6e', // Fathom Blue
+                            coral: '#14b8a6', // Coral Teal
+                            foam: '#e0f2fe'   // Light accent
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero-glow {
+            /* Adjusted for Deep Ocean/Coral tones */
+            background: radial-gradient(circle at 30% 20%, rgba(20, 184, 166, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(12, 74, 110, 0.3) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(20, 184, 166, 0.4); /* Coral Teal hover */
+            transform: translateY(-2px);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-coral transition-colors duration-200">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-coral hover:text-teal-400 transition-colors duration-200">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(20,184,166,0.3)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-coral transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-coral uppercase tracking-widest hover:text-teal-400 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-ocean transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-20 container mx-auto px-6">
+        
+        <!-- Hero / Title Section -->
+        <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-down">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accent-ocean/30 border border-accent-ocean/50 text-accent-foam text-xs font-bold tracking-widest uppercase mb-6">
+                <span class="w-2 h-2 rounded-full bg-accent-coral animate-pulse"></span>
+                <span>History on the Edge</span>
+            </div>
+            
+            <h1 class="text-5xl lg:text-7xl font-black text-white leading-[1.1] mb-4 tracking-tight">
+                Captain James Cook <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-coral to-accent-ocean">Monument.</span>
+            </h1>
+            
+            <p class="text-xl text-gray-400 font-medium mb-2">Kealakekua Bay Marine Sanctuary</p>
+            <p class="text-sm text-gray-500 uppercase tracking-widest">Erected 1874 • Sovereign Soil</p>
+        </div>
+
+        <!-- The White Obelisk (Split Grid) -->
+        <div class="grid lg:grid-cols-2 gap-8 mb-16 max-w-5xl mx-auto">
+            
+            <!-- Left: Description -->
+            <div class="glass-card p-8 rounded-2xl" data-aos="fade-right">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                    <span class="w-8 h-1 bg-accent-coral rounded-full"></span>
+                    The White Obelisk
+                </h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    This <strong class="text-white">27-foot white stone obelisk</strong> stands in isolation on the shoreline, marking the approximate location where British explorer Captain James Cook fell during a skirmish with Native Hawaiians in 1779.
+                </p>
+                <div class="bg-white/5 p-4 rounded-xl border-l-2 border-accent-ocean">
+                    <p class="text-sm text-gray-300"><strong class="text-white">Sovereignty Note:</strong> Erected in 1874, the monument stands on a plot technically deeded to the United Kingdom, though managed today by Hawaii State Parks.</p>
+                </div>
+            </div>
+
+            <!-- Right: Marine Context -->
+            <div class="relative glass-card p-8 rounded-2xl overflow-hidden group" data-aos="fade-left" data-aos-delay="100">
+                <!-- Subtle background decoration -->
+                <div class="absolute -right-10 -top-10 w-32 h-32 bg-accent-ocean/20 rounded-full blur-2xl group-hover:bg-accent-ocean/30 transition-all"></div>
+                
+                <h3 class="text-xl font-bold text-accent-coral mb-4">Marine Sanctuary</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    The waters surrounding the monument are part of a protected <strong class="text-accent-foam">Marine Life Conservation District</strong>. The area offers some of the best snorkeling in Hawaiʻi due to high visibility and abundant coral reefs.
+                </p>
+                <div class="mt-6 flex items-center space-x-2 text-xs text-gray-500 uppercase tracking-wider">
+                    <svg class="w-4 h-4 text-accent-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <span>Protected Ecosystem</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Access Protocols (3 Column Grid) -->
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-lg font-bold text-white mb-6 uppercase tracking-widest pl-2 border-l-4 border-accent-ocean">Access Protocols</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Hiking -->
+                <article class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-10 h-10 rounded-lg bg-accent-coral/10 flex items-center justify-center mb-4 text-accent-coral">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Kaʻawaloa Trail</h3>
+                    <p class="text-sm text-gray-400">Strenuous <strong class="text-white">3.8-mile</strong> round-trip hike. 1,300ft elevation change. Steep, rocky, little shade.</p>
+                    <div class="mt-4 text-xs text-red-400 bg-red-500/10 inline-block px-2 py-1 rounded">High Exertion</div>
+                </article>
+
+                <!-- Kayaking -->
+                <article class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-10 h-10 rounded-lg bg-accent-ocean/20 flex items-center justify-center mb-4 text-accent-foam">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Vessel Landing</h3>
+                    <p class="text-sm text-gray-400">Kayaks available from vendors. <strong class="text-accent-coral">State permit legally required</strong> to land at the monument dock.</p>
+                </article>
+
+                <!-- Tours -->
+                <article class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4 text-blue-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Commercial Tours</h3>
+                    <p class="text-sm text-gray-400">Departures from Keauhou Bay or Honokōhau Harbor. Easy access to reef without the hike.</p>
+                </article>
+            </div>
+        </div>
+
+        <!-- Footer / Location Data -->
+        <div class="mt-16 pt-8 border-t border-white/5 text-center">
+            <p class="text-lg font-mono text-accent-coral mb-2">Kaʻawaloa Point, Kealakekua Bay</p>
+            <p class="text-xs text-gray-600 uppercase tracking-[0.2em]">Respect the history. Protect the reef.</p>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
