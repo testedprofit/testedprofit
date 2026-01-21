@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestedProfit | Lindbergh Landmark</title>
+    <meta name="description" content="Charles Lindbergh's Grave - Hana, Maui Landmark">
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(45, 212, 191, 0.3);
+            transform: translateY(-2px);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-20 container mx-auto px-6">
+        
+        <!-- Hero / Title Section -->
+        <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-down">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accent-teal/10 border border-accent-teal/20 text-accent-teal text-xs font-bold tracking-widest uppercase mb-6">
+                <span class="w-2 h-2 rounded-full bg-accent-teal animate-pulse"></span>
+                <span>Landmark ID: #1974</span>
+            </div>
+            
+            <h1 class="text-5xl lg:text-7xl font-black text-white leading-[1.1] mb-4 tracking-tight">
+                Charles Lindbergh's <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-teal to-accent-blue">Final Approach.</span>
+            </h1>
+            
+            <p class="text-xl text-accent-emerald font-serif italic opacity-90 mb-2">"If I take the wings of the morning..."</p>
+            <p class="text-sm text-gray-500 uppercase tracking-widest">Palapala Hoʻomau Church, Hana • 1974</p>
+        </div>
+
+        <!-- The Aviator's Rest (Split Grid) -->
+        <div class="grid lg:grid-cols-2 gap-8 mb-16 max-w-5xl mx-auto">
+            
+            <!-- Left: Description -->
+            <div class="glass-card p-8 rounded-2xl" data-aos="fade-right">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                    <span class="w-8 h-1 bg-accent-teal rounded-full"></span>
+                    The Aviator's Rest
+                </h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    Charles Lindbergh, the first pilot to fly solo nonstop across the Atlantic, personally sketched the simple design for his final resting place. Diagnosed with terminal cancer in 1974, he requested a "traditional Hawaiian style" burial.
+                </p>
+                <div class="bg-white/5 p-4 rounded-xl border-l-2 border-accent-emerald">
+                    <p class="text-sm text-gray-300"><strong class="text-white">Design Specs:</strong> A simple granite slab laid upon lava stones, resting under the shade of a Java plum tree. The headstone bears a verse from Psalm 139:9.</p>
+                </div>
+            </div>
+
+            <!-- Right: Church Context -->
+            <div class="relative glass-card p-8 rounded-2xl overflow-hidden group" data-aos="fade-left" data-aos-delay="100">
+                <!-- Subtle background decoration -->
+                <div class="absolute -right-10 -top-10 w-32 h-32 bg-accent-blue/10 rounded-full blur-2xl group-hover:bg-accent-blue/20 transition-all"></div>
+                
+                <h3 class="text-xl font-bold text-accent-emerald mb-4">Palapala Hoʻomau Church</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Built in 1857 from limestone coral and lava rock, this historic congregational church stands on a cliff overlooking the ocean. It is noted for its distinctive window painting of a Polynesian Christ, watching over the secluded grounds.
+                </p>
+                <div class="mt-6 flex items-center space-x-2 text-xs text-gray-500 uppercase tracking-wider">
+                    <svg class="w-4 h-4 text-accent-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Ocean Cliff Coordinates</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visitor Metrics (3 Column Grid) -->
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-lg font-bold text-white mb-6 uppercase tracking-widest pl-2 border-l-4 border-accent-blue">Visiting Protocol</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Directions -->
+                <article class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-10 h-10 rounded-lg bg-accent-teal/10 flex items-center justify-center mb-4 text-accent-teal">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0121 18.382V7.618a1 1 0 01-.447-.894L15 7m0 13V7"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Vector Approach</h3>
+                    <p class="text-sm text-gray-400">From Hana, drive 8–10 miles south. Turn left onto a small road just past <strong class="text-white">mile marker 41</strong>.</p>
+                    <div class="mt-4 text-xs text-accent-emerald bg-accent-emerald/5 inline-block px-2 py-1 rounded">Visual check required</div>
+                </article>
+
+                <!-- Access -->
+                <article class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-10 h-10 rounded-lg bg-accent-emerald/10 flex items-center justify-center mb-4 text-accent-emerald">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Access Level</h3>
+                    <p class="text-sm text-gray-400"><strong class="text-white">Open Access (No Fee)</strong>. Donations to Palapala Hoʻomau Preservation Society accepted.</p>
+                    <div class="mt-4 text-xs text-accent-blue bg-accent-blue/5 inline-block px-2 py-1 rounded">Respect Active Services</div>
+                </article>
+
+                <!-- Nearby -->
+                <article class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-10 h-10 rounded-lg bg-accent-blue/10 flex items-center justify-center mb-4 text-accent-blue">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Proximity Scan</h3>
+                    <p class="text-sm text-gray-400">5 min from <strong class="text-white">Kīpahulu District</strong> (Haleakalā National Park). Pipiwai Trail & Pools of ʻOheʻo.</p>
+                </article>
+            </div>
+        </div>
+
+        <!-- Footer / Location Data -->
+        <div class="mt-16 pt-8 border-t border-white/5 text-center">
+            <p class="text-lg font-mono text-accent-teal mb-2">40-990 Hana Hwy, Hana, HI 96713</p>
+            <p class="text-xs text-gray-600 uppercase tracking-[0.2em]">Dwelling in the uttermost parts of the sea</p>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
