@@ -119,8 +119,7 @@ export default function CryptoTaxPlanner() {
   // --- LOGIC ---
 
   const addHolding = () => {
-    // FIX: Handle empty array case safely
-    const newId = holdings.length > 0 ? Math.max(...holdings.map(h => h.id)) + 1 : 1;
+    const newId = holdings.reduce((max, h) => (h.id > max ? h.id : max), 0) + 1;
     setHoldings([...holdings, { id: newId, name: '', amount: '', buyPrice: '', currentPrice: '' }]);
   };
 
