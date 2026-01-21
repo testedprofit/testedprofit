@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portlandia Statue | Profitnet Landmarks</title>
+    <meta name="description" content="Visit Portlandia, the massive copper statue in Portland, Oregon. Second only to the Statue of Liberty in size, this icon watches over SW 5th Avenue.">
+
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts: Preconnected for speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome: Required for content icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B', /* Deep Profitnet Blue */
+                        accent: {
+                            teal: '#2DD4BF',
+                            copper: '#B87333', /* Hammered Copper */
+                            city: '#115E59',   /* City Teal */
+                            slate: '#64748B'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Optimization: Animations */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(184, 115, 51, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(17, 94, 89, 0.15) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Custom Content Styles */
+        .gradient-text {
+            background: linear-gradient(90deg, #B87333, #2DD4BF); /* Copper to Teal */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-blur {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-blur:hover {
+            border-color: #B87333;
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #115E59;
+        }
+
+        .stat-badge {
+            background: linear-gradient(135deg, rgba(184, 115, 51, 0.2), rgba(17, 94, 89, 0.2));
+            border: 1px solid rgba(184, 115, 51, 0.4);
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+            display: inline-block;
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, #B87333, #115E59);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(184, 115, 51, 0.4);
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #B87333; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #115E59; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <!-- Logo Section -->
+            <a href="/espanol/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12"
+                     alt="Profitnet Logo"
+                     width="32"
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/espanol/" class="text-sm font-bold text-white hover:text-accent-copper transition-colors duration-200">HOME</a>
+
+                <a href="/espanol/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-copper hover:text-teal-300 transition-colors duration-200">Landmarks</a>
+
+                <a href="/espanol/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="/espanol/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-copper transition-colors">Inicio</a>
+            <a href="/espanol/pages/landmarks/" class="text-xl font-black text-accent-copper uppercase tracking-widest hover:text-teal-300 transition-colors">Landmarks</a>
+            <a href="/espanol/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
+
+        <!-- Hero Section -->
+        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up">
+            <div class="inline-block mb-4">
+                <span class="stat-badge text-xs font-bold text-accent-copper uppercase tracking-wider">
+                    <i class="fa-solid fa-hand-holding-heart mr-2"></i>The Spirit of the City
+                </span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                <span class="gradient-text">Portlandia</span><br>
+                <span class="text-white">Statue</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl">
+                A monumental copper giant watching over SW 5th Avenue. The second-largest hammered copper repoussé sculpture in the United States, second only to the Statue of Liberty.
+            </p>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
+            <div class="info-card text-center">
+                <div class="text-3xl font-black gradient-text mb-2">1985</div>
+                <div class="text-sm text-gray-400 uppercase tracking-wide">Dedicated</div>
+            </div>
+            <div class="info-card text-center">
+                <div class="text-3xl font-black gradient-text mb-2">34' 10"</div>
+                <div class="text-sm text-gray-400 uppercase tracking-wide">Height</div>
+            </div>
+            <div class="info-card text-center">
+                <div class="text-3xl font-black gradient-text mb-2">6.5</div>
+                <div class="text-sm text-gray-400 uppercase tracking-wide">Tons (Weight)</div>
+            </div>
+            <div class="info-card text-center">
+                <div class="text-3xl font-black gradient-text mb-2">#2</div>
+                <div class="text-sm text-gray-400 uppercase tracking-wide">Largest in US</div>
+            </div>
+        </div>
+
+        <!-- The Copper Giant -->
+        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-blur rounded-2xl p-8 md:p-12">
+                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
+                    <i class="fa-solid fa-hammer text-accent-copper mr-4"></i>
+                    The Copper Giant
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-6 text-gray-300">
+                        <div class="border-l-4 border-accent-copper pl-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Monumental Feat</h3>
+                            <p>Sculpted by <strong>Raymond Kaskey</strong>, Portlandia was so large it had to be transported by barge and given a police escort through downtown upon arrival. It sits perched 30 feet above the street entrance.</p>
+                        </div>
+                        <div class="flex items-center space-x-3 text-accent-city">
+                            <i class="fa-solid fa-weight-hanging text-xl"></i>
+                            <span class="text-sm font-bold uppercase tracking-widest text-gray-500">Hammered Copper Repoussé</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Symbolism</h3>
+                        <p class="text-gray-400 mb-4">Modeled after the City of Portland's seal, the figure kneels at the building's edge. She holds a trident in her left hand and extends her right hand downward in a gesture of welcome.</p>
+                        <div class="flex items-center text-sm text-accent-copper">
+                            <i class="fa-solid fa-hands-bubbles mr-2"></i>
+                            <span>A gesture of peace to residents below.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History & Culture -->
+        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-blur rounded-2xl p-8 md:p-12">
+                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
+                    <i class="fa-solid fa-tv text-accent-city mr-4"></i>
+                    History & Culture
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Pop Culture -->
+                    <div class="bg-slate-900/50 rounded-xl p-6 border border-accent-copper/30">
+                        <div class="w-12 h-12 rounded-full bg-orange-900/30 border border-orange-500/30 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-video text-accent-copper"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Pop Culture</h3>
+                        <p class="text-gray-400 text-sm">Gained global fame in the opening credits of the show <em>Portlandia</em>, featuring Fred Armisen and Carrie Brownstein saluting the figure.</p>
+                    </div>
+
+                    <!-- Restoration -->
+                    <div class="bg-slate-900/50 rounded-xl p-6 border border-accent-city/30">
+                        <div class="w-12 h-12 rounded-full bg-teal-900/30 border border-teal-500/30 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-brush text-accent-city"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Restoration</h3>
+                        <p class="text-gray-400 text-sm">The statue was temporarily removed for major building renovations in 2018 and triumphantly reinstalled in 2019.</p>
+                    </div>
+
+                    <!-- Viewing -->
+                    <div class="bg-slate-900/50 rounded-xl p-6 border border-slate-500/30">
+                        <div class="w-12 h-12 rounded-full bg-slate-700/30 border border-slate-400/30 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-eye text-teal-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Viewing</h3>
+                        <p class="text-gray-400 text-sm">Located above the entrance of the Portland Building. Best viewed from the street level on 5th Avenue.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location & CTA -->
+        <div class="max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="400">
+            <div class="card-blur rounded-2xl p-12">
+                <h2 class="text-3xl font-black mb-4 text-white">Look Up</h2>
+                <p class="text-gray-400 mb-8">Find the copper guardian at 1120 SW 5th Avenue, Portland, OR 97204.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Portlandia+Statue+Portland+OR"
+                   target="_blank"
+                   class="cta-button inline-block px-8 py-4 rounded-full text-white font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-location-dot mr-2"></i>
+                    Get Directions
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>

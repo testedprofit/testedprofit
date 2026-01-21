@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octo-Maid (Iscariot) | TestedProfit Standard</title>
+    <meta name="description" content="Octo-Maid (Iscariot) Sculpture Info - Colorado Springs">
+
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts: Preconnected for speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- FontAwesome (Retained for the icons used in the Octo-Maid content) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        },
+                        // Preserving Octo-Maid specific accent colors adapted for dark mode
+                        'rust-500': '#b45309',
+                        'rust-400': '#d97706',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation (Standardized) -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <!-- Logo Section -->
+            <a href="/espanol/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12"
+                     alt="Profitnet Logo"
+                     width="32"
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/espanol/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+
+                <a href="/espanol/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+
+                <a href="/espanol/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="/espanol/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Inicio</a>
+            <a href="/espanol/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="/espanol/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 container mx-auto px-6 pb-20 max-w-5xl">
+
+        <!-- Octo-Maid Header Section -->
+        <div class="mb-10" data-aos="fade-up">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-2">
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-white">Octo-Maid</h1>
+                <div class="flex flex-col md:items-end">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-rust-400 font-bold text-xl">4.3</span>
+                        <div class="text-yellow-400 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm">(6 reviews)</span>
+                    </div>
+                    <p class="text-accent-teal text-sm font-medium tracking-wide">PUBLIC SCULPTURE</p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-gray-400 border-b border-white/10 pb-6">
+                <h2 class="text-xl italic text-gray-300">Official Title: "Iscariot"</h2>
+                <span class="hidden md:inline text-white/20">|</span>
+                <p class="text-rust-400 font-medium">By Trace O'Connor</p>
+            </div>
+        </div>
+
+        <!-- Quick Actions Bar -->
+        <div class="flex flex-wrap gap-4 mb-10" data-aos="fade-up" data-aos-delay="100">
+            <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=234+W+Colorado+Ave,+Colorado+Springs,+CO+80903', '_blank')"
+                class="flex items-center gap-3 px-6 py-3 rounded-lg glass-panel hover:bg-white/10 transition-all group border border-accent-blue/30">
+                <i class="fas fa-directions text-accent-blue text-lg group-hover:scale-110 transition-transform"></i>
+                <div class="text-left">
+                    <span class="block text-xs text-gray-400 uppercase tracking-wider">Navigate</span>
+                    <span class="font-bold text-white">Get Directions</span>
+                </div>
+            </button>
+
+            <button class="flex items-center gap-3 px-6 py-3 rounded-lg glass-panel hover:bg-white/10 transition-all group">
+                <i class="fas fa-bookmark text-gray-400 text-lg group-hover:text-white transition-colors"></i>
+                <div class="text-left">
+                    <span class="block text-xs text-gray-400 uppercase tracking-wider">Action</span>
+                    <span class="font-bold text-white">Save Location</span>
+                </div>
+            </button>
+
+            <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');"
+                class="flex items-center gap-3 px-6 py-3 rounded-lg glass-panel hover:bg-white/10 transition-all group">
+                <i class="fas fa-share-nodes text-gray-400 text-lg group-hover:text-white transition-colors"></i>
+                <div class="text-left">
+                    <span class="block text-xs text-gray-400 uppercase tracking-wider">Share</span>
+                    <span class="font-bold text-white">Copy Link</span>
+                </div>
+            </button>
+        </div>
+
+        <!-- Info Grid -->
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+
+            <!-- Details Column -->
+            <div class="md:col-span-2 space-y-6">
+
+                <!-- Main Info Card -->
+                <div class="glass-panel rounded-xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-white mb-4 border-l-4 border-rust-500 pl-4">About the Sculpture</h3>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        Perched atop the Colorado Springs Traffic Management Center, <strong class="text-white">Iscariot</strong> (locally nicknamed "Octo-Maid") is a striking example of adaptive reuse in art. The sculpture depicts a quasi-mermaid figure launching herself into flight, frozen in a moment of kinetic energy.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        The piece evokes a "steampunk" or Lovecraftian aesthetic, contrasting organic curves with harsh industrial materials. It was originally part of the 2018-2019 "Art on the Streets" exhibit.
+                    </p>
+                </div>
+
+                <!-- Conservation / Materials Card -->
+                <div class="glass-panel rounded-xl p-8 border-l border-accent-emerald/50" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-lg font-bold text-accent-emerald mb-4 flex items-center gap-3">
+                        <i class="fas fa-recycle"></i> Conservation & Materials
+                    </h3>
+                    <p class="text-sm text-gray-300 leading-relaxed mb-4">
+                        Trace O'Connor constructed the <strong class="text-white">4,200-pound figure</strong> entirely from recycled ferrous materials found in scrapyards. The body is composed of:
+                    </p>
+                    <ul class="grid grid-cols-2 gap-3">
+                        <li class="flex items-center gap-2 text-sm text-gray-400">
+                            <span class="w-1.5 h-1.5 bg-rust-500 rounded-full"></span> Galvanized steel poles
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-gray-400">
+                            <span class="w-1.5 h-1.5 bg-rust-500 rounded-full"></span> Sprinkler piping
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-gray-400">
+                            <span class="w-1.5 h-1.5 bg-rust-500 rounded-full"></span> Electrical conduit
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-gray-400">
+                            <span class="w-1.5 h-1.5 bg-rust-500 rounded-full"></span> Plate steel
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Community Reviews -->
+                <div class="mt-8" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-bold text-white mb-6">Community Reviews</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <!-- Review 1 -->
+                        <div class="glass-panel p-6 rounded-lg hover:bg-white/5 transition-colors">
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-xs text-gray-500">3 months ago</span>
+                            </div>
+                            <p class="text-gray-300 text-sm italic">"Unique sculpture. Kind of creepy but in a really cool, artistic way. Love that it's made from old pipes."</p>
+                        </div>
+                        <!-- Review 2 -->
+                        <div class="glass-panel p-6 rounded-lg hover:bg-white/5 transition-colors">
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="flex text-yellow-400 text-xs">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-xs text-gray-500">1 year ago</span>
+                            </div>
+                            <p class="text-gray-300 text-sm italic">"Hard to see from the sidewalk right under it, but it looks amazing from the highway. Very steampunk."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Sidebar / Location -->
+            <div class="space-y-6" data-aos="fade-left" data-aos-delay="500">
+                <div class="glass-panel rounded-xl p-6">
+                    <div class="flex items-start gap-3 mb-6">
+                        <i class="fas fa-map-marker-alt text-rust-500 mt-1 text-xl"></i>
+                        <div>
+                            <p class="font-bold text-white text-lg">234 W Colorado Ave</p>
+                            <p class="text-sm text-gray-400">Colorado Springs, CO 80903</p>
+                            <p class="text-xs text-gray-500 mt-2">Located in: Colorado Springs Traffic Management Center</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800 h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative group cursor-pointer border border-white/10" onclick="window.open('https://www.google.com/maps/search/?api=1&query=234+W+Colorado+Ave,+Colorado+Springs,+CO+80903', '_blank')">
+                         <!-- Simplified Map Placeholder Graphic -->
+                         <div class="absolute inset-0 bg-slate-900 opacity-50"></div>
+                         <div class="absolute inset-0 bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=38.832,-104.832&zoom=14&size=400x400&sensor=false')] bg-cover bg-center grayscale opacity-30"></div>
+
+                         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                             <i class="fas fa-map text-4xl text-gray-500 group-hover:text-accent-teal transition-colors"></i>
+                         </div>
+                         <div class="absolute bottom-3 right-3 bg-primary/90 px-3 py-1 text-xs font-bold text-white rounded border border-white/20">Open Map</div>
+                    </div>
+
+                    <div class="bg-yellow-900/20 p-4 rounded-lg border border-yellow-500/20">
+                        <p class="text-xs text-yellow-500">
+                            <i class="fas fa-eye mr-2"></i> <strong>Viewing Tip:</strong> Best viewed from a distance! Look up while driving on the I-25 overpass or from the bridge on Colorado Avenue.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50 // Trigger animations slightly earlier
+        });
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>

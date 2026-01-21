@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Spirit of the Rockies | TestedProfit</title>
+    <meta name="description" content="TestedProfit Blank Template">
+
+    <!-- External Scripts & Styles -->
+    <!-- Note: For maximum production speed, replace this CDN script with a compiled CSS file -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts: Preconnected for speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Removed FontAwesome to save ~70KB+ of load size. Using SVGs instead. -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        },
+                        // Added specific colors for the Spirit Monograph
+                        brand: {
+                            red: '#A84436',     // Red Rocks
+                            gold: '#CD7F32'     // Bronze
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B; /* Fallback */
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Improved Performance: Use opacity for animations instead of layout changes */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity; /* Hints browser to optimize rendering */
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none; /* Prevent clicks when hidden */
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <!-- Added animate-pulse-slow for subtle "living" effect -->
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation (Your Header) -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <!-- Logo Section -->
+            <!-- Added width/height for SEO (prevents layout shift) and fetchpriority for Load Speed -->
+            <a href="/espanol/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12"
+                     alt="Profitnet Logo"
+                     width="32"
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/espanol/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+
+                <a href="/espanol/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+
+                <a href="/espanol/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button (Replaced Icon Font with SVG) -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <!-- Close Button (Replaced Icon Font with SVG) -->
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="/espanol/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Inicio</a>
+            <a href="/espanol/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="/espanol/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-20">
+
+        <!-- HERO SECTION (Adapted for Dark Theme) -->
+        <div class="relative overflow-hidden mb-16" data-aos="fade-up">
+            <div class="absolute inset-0 z-0">
+                <!-- Abstract Background Pattern for Red Rocks vibe -->
+                <svg class="absolute bottom-0 left-0 w-full h-full text-brand-red opacity-10" preserveAspectRatio="none" viewBox="0 0 100 100">
+                    <path d="M0 100 L0 50 Q 50 20 100 50 L100 100 Z" fill="currentColor"/>
+                </svg>
+                <div class="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary"></div>
+            </div>
+
+            <div class="relative max-w-7xl mx-auto px-6 py-24 md:py-32 z-10 text-center md:text-left">
+                <span class="inline-block py-1 px-3 rounded-full bg-brand-gold/10 text-brand-gold text-xs font-bold tracking-widest uppercase mb-4 border border-brand-gold/20">
+                    Morrison, Colorado
+                </span>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-6 leading-tight text-white">
+                    The Spirit <br class="hidden md:block" /> of the Rockies
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed md:mr-auto">
+                    More than a likeness of John Denver—a complex locus of environmental philosophy, musical heritage, and the geological majesty of Red Rocks.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="#specs" class="px-6 py-3 rounded-lg bg-brand-red text-white font-bold hover:bg-red-700 transition shadow-[0_0_20px_rgba(168,68,54,0.3)]">
+                        View Specifications
+                    </a>
+                    <a href="#history" class="px-6 py-3 rounded-lg border border-white/20 text-white font-bold hover:bg-white/10 transition">
+                        Read the History
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXECUTIVE SUMMARY (Featured Card) -->
+        <section id="overview" class="max-w-7xl mx-auto px-6 -mt-16 relative z-20 mb-20" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white/5 backdrop-blur-lg rounded-2xl p-8 md:p-12 border border-white/10 shadow-2xl relative overflow-hidden">
+                <!-- Accent Line -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-red to-brand-gold"></div>
+
+                <div class="flex flex-col md:flex-row gap-12 items-start">
+                    <div class="flex-1">
+                        <h2 class="text-2xl font-bold text-white mb-4">A Monument to Nature & Sound</h2>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Located at <strong class="text-brand-gold">17900 Trading Post Road</strong>, the "Spirit" statue is a defining artifact of the Colorado landscape. Created in 2002 by sculptor <strong>Sue DiCicco</strong>, this 1,300-pound bronze figure captures John Denver in a moment of euphoric communion with nature.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            It serves as a pilgrimage site for a global fanbase that views Denver not just as an entertainer, but as an environmental prophet. The statue stands as a sentinel at the intersection of geology and melody.
+                        </p>
+                    </div>
+                    <!-- Quick Stats Grid -->
+                    <div class="w-full md:w-auto md:min-w-[300px] grid grid-cols-2 gap-4">
+                        <div class="bg-primary/50 p-4 rounded-xl text-center border border-white/5">
+                            <span class="block text-3xl font-bold text-brand-red">12ft</span>
+                            <span class="text-xs text-gray-500 uppercase font-semibold">Height</span>
+                        </div>
+                        <div class="bg-primary/50 p-4 rounded-xl text-center border border-white/5">
+                            <span class="block text-3xl font-bold text-brand-red">1.3k</span>
+                            <span class="text-xs text-gray-500 uppercase font-semibold">Pounds</span>
+                        </div>
+                        <div class="bg-primary/50 p-4 rounded-xl text-center border border-white/5">
+                            <span class="block text-3xl font-bold text-brand-red">2002</span>
+                            <span class="text-xs text-gray-500 uppercase font-semibold">Created</span>
+                        </div>
+                        <div class="bg-primary/50 p-4 rounded-xl text-center border border-white/5">
+                            <span class="block text-3xl font-bold text-brand-red">2015</span>
+                            <span class="text-xs text-gray-500 uppercase font-semibold">Relocated</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ICONOGRAPHY GRID -->
+        <section class="max-w-7xl mx-auto px-6 mb-24">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-white">Deconstructing the "Spirit"</h2>
+                <p class="text-gray-400 mt-2">The symbolism behind the bronze.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/5 hover:border-brand-red/50 hover:bg-white/10 transition duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-brand-red/20 rounded-full flex items-center justify-center text-brand-red mb-6 group-hover:bg-brand-red group-hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">The Eagle</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        With a 75-inch wingspan, the eagle represents freedom and ecological purity. It acts as a counterweight to the figure, elevating the statue from portrait to allegory.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/5 hover:border-brand-gold/50 hover:bg-white/10 transition duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-brand-gold/20 rounded-full flex items-center justify-center text-brand-gold mb-6 group-hover:bg-brand-gold group-hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">The Guitar</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        A specific Taylor Guitar model, slung across the back. This suggests a traveler moving through the landscape ("nature boy") rather than a performer on a stage.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/5 hover:border-gray-400/50 hover:bg-white/10 transition duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-gray-300 mb-6 group-hover:bg-gray-100 group-hover:text-primary transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">The Posture</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Face upturned, eyes on the horizon. A dynamic interaction with the environment, physically manifesting lyrics about "talking to the moon."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIMELINE / HISTORY SECTION (Split Layout) -->
+        <section id="history" class="relative py-24">
+            <!-- Background element for section separation -->
+            <div class="absolute inset-0 bg-white/5 skew-y-3 transform origin-top-left -z-10 h-full w-full"></div>
+
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                    <!-- Left: Content -->
+                    <div data-aos="fade-right">
+                        <span class="text-brand-red font-bold tracking-widest uppercase text-sm mb-2 block">Provenance</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">From Windstar to Red Rocks</h2>
+
+                        <div class="space-y-8">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <span class="h-8 w-8 rounded-full border border-brand-red/50 bg-brand-red/10 flex items-center justify-center text-brand-red font-bold text-sm">1</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Genesis (2002-2013)</h4>
+                                    <p class="text-gray-400 text-sm mt-1">Originally located at the Windstar Foundation in Snowmass. Financed entirely by fans through donations and replica sales.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <span class="h-8 w-8 rounded-full border border-brand-gold/50 bg-brand-gold/10 flex items-center justify-center text-brand-gold font-bold text-sm">2</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">The Rescue (2013)</h4>
+                                    <p class="text-gray-400 text-sm mt-1">Following Windstar's dissolution and sale ($8.5M), the statue was rescued. The Aspen Glow Fund granted $10,600 specifically for its relocation.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <span class="h-8 w-8 rounded-full border border-gray-500/50 bg-gray-500/10 flex items-center justify-center text-gray-400 font-bold text-sm">3</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">New Sanctuary (2015-Present)</h4>
+                                    <p class="text-gray-400 text-sm mt-1">Relocated to the Trading Post at Red Rocks. It now stands as a permanent "site-specific" installation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: "Quote" Card styling -->
+                    <div class="relative" data-aos="fade-left">
+                        <div class="absolute inset-0 bg-brand-red transform rotate-3 rounded-3xl opacity-20 blur-xl"></div>
+                        <div class="relative bg-black/40 backdrop-blur-xl p-10 rounded-3xl border border-white/10 shadow-xl">
+                            <h3 class="text-xl font-bold text-white mb-4">Sue DiCicco's Vision</h3>
+                            <p class="text-gray-300 italic mb-6">
+                                "The commission was not for a somber funerary monument, but for a celebration of life."
+                            </p>
+                            <div class="h-px w-full bg-white/10 mb-6"></div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-gray-500">Artist</span>
+                                <span class="font-semibold text-white">Sue DiCicco</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm mt-2">
+                                <span class="text-gray-500">Foundry</span>
+                                <span class="font-semibold text-white">Artworks Foundry, Berkeley</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm mt-2">
+                                <span class="text-gray-500">Method</span>
+                                <span class="font-semibold text-white">Lost-Wax Bronze Casting</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SPECS TABLE SECTION -->
+        <section id="specs" class="py-24">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-white">Technical Specifications</h2>
+                </div>
+
+                <div class="overflow-hidden bg-white/5 border border-white/10 rounded-xl shadow-sm backdrop-blur-md" data-aos="zoom-in">
+                    <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
+
+                        <!-- Col 1 -->
+                        <div class="divide-y divide-white/10">
+                            <div class="p-6">
+                                <dt class="text-xs font-medium text-gray-500 uppercase tracking-wider">Total Height</dt>
+                                <dd class="mt-1 text-2xl font-semibold text-white">143 inches</dd>
+                                <dd class="mt-1 text-sm text-gray-400">11.9 feet / 3.63 meters</dd>
+                            </div>
+                            <div class="p-6">
+                                <dt class="text-xs font-medium text-gray-500 uppercase tracking-wider">Total Weight</dt>
+                                <dd class="mt-1 text-2xl font-semibold text-white">~1,300 lbs</dd>
+                                <dd class="mt-1 text-sm text-gray-400">590 kg</dd>
+                            </div>
+                            <div class="p-6">
+                                <dt class="text-xs font-medium text-gray-500 uppercase tracking-wider">Base Dimensions</dt>
+                                <dd class="mt-1 text-2xl font-semibold text-white">54" x 32.25"</dd>
+                            </div>
+                        </div>
+
+                        <!-- Col 2 -->
+                        <div class="divide-y divide-white/10">
+                            <div class="p-6">
+                                <dt class="text-xs font-medium text-gray-500 uppercase tracking-wider">Eagle Wingspan</dt>
+                                <dd class="mt-1 text-2xl font-semibold text-white">75 inches</dd>
+                                <dd class="mt-1 text-sm text-gray-400">6.25 feet / 1.9 meters</dd>
+                            </div>
+                            <div class="p-6">
+                                <dt class="text-xs font-medium text-gray-500 uppercase tracking-wider">Material</dt>
+                                <dd class="mt-1 text-2xl font-semibold text-white">Bronze</dd>
+                                <dd class="mt-1 text-sm text-gray-400">Requires annual waxing for UV protection</dd>
+                            </div>
+                            <div class="p-6">
+                                <dt class="text-xs font-medium text-gray-500 uppercase tracking-wider">Location</dt>
+                                <dd class="mt-1 text-lg font-semibold text-white">Trading Post Garden</dd>
+                                <dd class="mt-1 text-sm text-gray-400">17900 Trading Post Rd, Morrison, CO</dd>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISITOR EXPERIENCE -->
+        <section id="visit" class="bg-black/30 py-24 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-6">
+                 <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-3xl font-bold mb-6 text-white">The Visitor Experience</h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Today, the "Spirit" statue is a central node in the Red Rocks visitor experience. It functions differently for different demographics.
+                        </p>
+                        <ul class="space-y-6">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-brand-red flex items-center justify-center mt-1">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold text-white">The Casual Tourist</h4>
+                                    <p class="text-gray-400 text-sm mt-1">A wayfinding landmark and photo opportunity on the official Walking Tour. Accessible year-round, free of charge.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 rounded-full bg-brand-gold flex items-center justify-center mt-1">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold text-white">The Pilgrim</h4>
+                                    <p class="text-gray-400 text-sm mt-1">A sacred site replacing Windstar. Visitors leave small tributes—flowers, stones, or notes—at the base.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Map / Location Placeholder -->
+                    <div class="bg-primary/50 rounded-2xl p-2 h-80 flex items-center justify-center border border-white/10" data-aos="fade-left">
+                        <div class="text-center text-gray-500">
+                            <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span class="block font-medium">Map View Placeholder</span>
+                            <span class="text-xs block mt-2">17900 Trading Post Rd</span>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black/50 border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-sm text-gray-500">
+                &copy; 2026 Conservation Archives. Todos los derechos reservados.
+            </div>
+            <div class="flex gap-6 text-sm text-gray-500">
+                 <a href="#" class="hover:text-white transition-colors">Política de Privacidad</a>
+                 <a href="#" class="hover:text-white transition-colors">Términos de Servicio</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50 // Trigger animations slightly earlier
+        });
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>

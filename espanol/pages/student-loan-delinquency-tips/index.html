@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profitnet | Student Loan Delinquency Strategy</title>
+    <meta name="description" content="Navigating the 2026 Student Loan Policy Shift">
+
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #0A091B;
+            --accent-teal: #2DD4BF;
+            --accent-emerald: #10B981;
+            --accent-blue: #60A5FA;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-dark);
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #34D399, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        .card-blur {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-blur:hover {
+            border-color: var(--accent-teal);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, #10B981, #3B82F6);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow"></div>
+    </div>
+
+    <!-- Sticky Navigation (UNCHANGED) -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/espanol/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/espanol/" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
+                <a href="/espanol/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400">Landmarks</a>
+                <a href="/espanol/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/espanol/" class="text-xl font-black text-white uppercase tracking-widest">Inicio</a>
+            <a href="/espanol/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
+            <a href="/espanol/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 container mx-auto px-6 pb-24">
+
+        <!-- Hero Section -->
+        <section class="text-center mb-20" data-aos="fade-up">
+            <span class="px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-6 inline-block">
+                Policy Alert: 2026 Deadlines
+            </span>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter">
+                Cure Delinquency. <br>
+                <span class="gradient-text">Master the Shift.</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-slate-400 text-lg md:text-xl">
+                The rules for student debt change on July 1, 2026. Don't let delinquency turn into default. Take strategic action today to protect your financial standing.
+            </p>
+        </section>
+
+        <!-- The 3 Pillar Strategy -->
+        <div class="grid md:grid-cols-3 gap-8 mb-24">
+            <!-- Card 1 -->
+            <div class="card-blur p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="h-12 w-12 bg-emerald-500/20 rounded-xl flex items-center justify-center text-emerald-400 mb-6 text-xl">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Stop The Clock</h3>
+                <p class="text-slate-400 text-sm mb-6">
+                    Request a <strong>retroactive administrative forbearance</strong> to wipe away delinquency and return to good standing instantly.
+                </p>
+                <ul class="space-y-3 text-xs text-slate-300">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Pauses payments immediately</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Clears "Missed Payment" records</li>
+                </ul>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card-blur p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="h-12 w-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 mb-6 text-xl">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">The RAP Guardrail</h3>
+                <p class="text-slate-400 text-sm mb-6">
+                    July 2026 introduces the <strong>RAP Plan</strong>. While it caps payments at $10/mo, it's less flexible than previous IDR plans.
+                </p>
+                <ul class="space-y-3 text-xs text-slate-300">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-400"></i> Compulsory $10 minimum</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-400"></i> Stricter consolidation rules</li>
+                </ul>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card-blur p-8 rounded-3xl border-rose-500/20" data-aos="fade-up" data-aos-delay="300">
+                <div class="h-12 w-12 bg-rose-500/20 rounded-xl flex items-center justify-center text-rose-400 mb-6 text-xl">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Parent PLUS Warning</h3>
+                <p class="text-slate-400 text-sm mb-6">
+                    Urgent: Consolidate Parent PLUS loans <strong>before July 1, 2026</strong> or lose access to most income-driven repayment options forever.
+                </p>
+                <ul class="space-y-3 text-xs text-slate-300">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-rose-400"></i> Lock in eligibility now</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-rose-400"></i> Avoid the 2026 "RAP" trap</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Comparison Section -->
+        <section class="card-blur rounded-[2.5rem] overflow-hidden mb-24" data-aos="fade-up">
+            <div class="p-10 md:p-16">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-2">Delinquency vs. Default</h2>
+                        <p class="text-slate-400">Understanding the 270-day window.</p>
+                    </div>
+                    <div class="bg-slate-900/50 p-2 rounded-xl flex gap-2 border border-white/5">
+                        <button class="px-4 py-2 bg-emerald-500 text-white rounded-lg text-xs font-bold">RECOVERY VIEW</button>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-white/10 text-xs font-black uppercase tracking-[0.2em] text-slate-500">
+                                <th class="pb-4">Status</th>
+                                <th class="pb-4">Timeframe</th>
+                                <th class="pb-4">Consequence</th>
+                                <th class="pb-4">Strategic Cure</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm">
+                            <tr class="border-b border-white/5">
+                                <td class="py-6 font-bold text-white">Delinquent</td>
+                                <td class="py-6 text-slate-400">Day 1 to 270</td>
+                                <td class="py-6 text-slate-400">Credit Score Drop</td>
+                                <td class="py-6">
+                                    <span class="text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full text-[10px] font-black uppercase">Retroactive Forbearance</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-6 font-bold text-white">Default</td>
+                                <td class="py-6 text-slate-400">After Day 270</td>
+                                <td class="py-6 text-rose-400 font-semibold">Wage Garnishment</td>
+                                <td class="py-6">
+                                    <span class="text-blue-400 bg-blue-400/10 px-3 py-1 rounded-full text-[10px] font-black uppercase">Loan Rehabilitation</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="text-center bg-gradient-to-b from-transparent to-emerald-500/5 py-16 rounded-[3rem]" data-aos="zoom-in">
+            <h2 class="text-4xl font-black text-white mb-6">Take Charge Before July 2026</h2>
+            <p class="text-slate-400 mb-10 max-w-xl mx-auto">
+                Waiting is the most expensive mistake you can make. Start your consolidation or recovery plan today.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#" class="cta-button px-10 py-4 rounded-full text-white font-black uppercase tracking-widest text-xs">
+                    Get Strategy Guide
+                </a>
+                <a href="#" class="px-10 py-4 rounded-full border border-white/10 text-white font-bold text-xs hover:bg-white/5 transition-all">
+                    Contact Specialist
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-white/5 bg-slate-950/50 py-12">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-6 w-6 grayscale opacity-50" alt="Profitnet">
+                <span class="text-xs font-bold text-slate-500">PROFITNET &copy; 2024</span>
+            </div>
+            <div class="flex space-x-6 text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                <a href="#" class="hover:text-emerald-400">Legal</a>
+                <a href="#" class="hover:text-emerald-400">Privacy</a>
+                <a href="#" class="hover:text-emerald-400">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-quad'
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            setTimeout(() => mobileMenu.classList.add('active'), 10);
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            }, 300);
+        });
+    });
+    </script>
+</body>
+</html>

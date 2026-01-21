@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestedProfit | Trabajos Secundarios Profesionales</title>
+    <meta name="description" content="Mercado exclusivo para profesionales con licencia. Monetiza tu título, no solo tu trabajo.">
+
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #0A091B;
+            --accent-teal: #2DD4BF;
+            --accent-emerald: #10B981;
+            --accent-blue: #60A5FA;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-dark);
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh; /* Ensure body takes full height */
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #34D399, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Background Utilities */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Utility Classes for Future Use */
+        .card-blur {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-blur:hover {
+            border-color: var(--accent-teal);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, #10B981, #3B82F6);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .filter-btn.active {
+            background-color: rgba(45, 212, 191, 0.1);
+            color: var(--accent-teal);
+            border-color: var(--accent-teal);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative">
+
+    <!-- Global Background (Fixed so it stays while scrolling) -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo Section -->
+            <a href="/espanol/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/espanol/" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">INICIO</a>
+
+                <a href="/espanol/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400">Puntos de Referencia</a>
+                <a href="/espanol/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">
+                    Tablero de Activos $PNET
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/espanol/" class="text-xl font-black text-white uppercase tracking-widest">Inicio</a>
+            <a href="/espanol/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Puntos de Referencia</a>
+            <a href="/espanol/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">Tablero $PNET</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 container mx-auto px-6">
+        <!-- Hero Section -->
+        <section class="text-center py-16 lg:py-32" data-aos="fade-up">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 text-teal-400 text-xs font-bold tracking-wider mb-8 uppercase">
+                <i class="fa-solid fa-star"></i>
+                <span>Mercado Exclusivo para Profesionales con Licencia</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white mb-6 leading-tight">
+                No Solo Trabajes Más Duro. <br />
+                <span class="gradient-text">Gana Más Inteligentemente.</span>
+            </h1>
+
+            <p class="mt-6 max-w-2xl mx-auto text-xl text-slate-400 font-medium">
+                Monetiza tu licencia, no solo tu labor. Conéctate con trabajos de consultoría de alto rendimiento, gigs de testigos expertos y contratos especializados.
+            </p>
+
+            <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#opportunities" class="cta-button px-8 py-4 rounded-full font-bold text-slate-900 text-lg flex items-center justify-center gap-3">
+                    Ver Potencial de Ganancias <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            <p class="mt-4 text-xs text-slate-500 font-medium uppercase tracking-widest">No se requiere registro para ver tarifas</p>
+        </section>
+
+        <!-- Value Proposition / How It Works -->
+        <section id="how-it-works" class="py-20">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Tu Título es Tu Activo</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">La economía gig fue construida para mano de obra no calificada. Tú no eres no calificado. Deja de intercambiar tiempo por centavos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Nurses -->
+                <div class="card-blur p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-6 text-emerald-400 text-xl border border-emerald-500/20">
+                        <i class="fa-solid fa-user-nurse"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Para Enfermeros</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Pasa del agotamiento clínico a <span class="text-emerald-400 font-bold">Consultoría Legal ($150/hr)</span> o Triaje de Telesalud.
+                    </p>
+                </div>
+
+                <!-- Engineers -->
+                <div class="card-blur p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 text-blue-400 text-xl border border-blue-500/20">
+                        <i class="fa-solid fa-ruler-combined"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Para Ingenieros</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Transición del trabajo corporativo a <span class="text-blue-400 font-bold">Testigo Experto ($300+/hr)</span> o Análisis de Patentes.
+                    </p>
+                </div>
+
+                <!-- Educators -->
+                <div class="card-blur p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-teal-500/10 rounded-lg flex items-center justify-center mb-6 text-teal-400 text-xl border border-teal-500/20">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Para Educadores</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Deja de calificar gratis. Comienza <span class="text-teal-400 font-bold">Desarrollo Curricular ($90/hr)</span> o Capacitación Corporativa.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Job Board -->
+        <section id="opportunities" class="py-20 border-t border-white/5">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-6" data-aos="fade-in">
+                <div>
+                    <h2 class="text-3xl font-bold text-white">Oportunidades Clasificadas</h2>
+                    <p class="text-slate-400 mt-2 text-sm">Niveles de ganancias superiores actuales para 2026</p>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="flex bg-slate-900 p-1 rounded-lg border border-white/5 overflow-x-auto max-w-full" id="filter-container">
+                    <button class="filter-btn active px-4 py-2 rounded-md text-xs font-bold uppercase tracking-wider text-slate-400 hover:text-white transition-all whitespace-nowrap" data-filter="All">Todo</button>
+                    <button class="filter-btn px-4 py-2 rounded-md text-xs font-bold uppercase tracking-wider text-slate-400 hover:text-white transition-all whitespace-nowrap" data-filter="Healthcare">Salud</button>
+                    <button class="filter-btn px-4 py-2 rounded-md text-xs font-bold uppercase tracking-wider text-slate-400 hover:text-white transition-all whitespace-nowrap" data-filter="Engineering">Ingeniería</button>
+                    <button class="filter-btn px-4 py-2 rounded-md text-xs font-bold uppercase tracking-wider text-slate-400 hover:text-white transition-all whitespace-nowrap" data-filter="Education">Educación</button>
+                </div>
+            </div>
+
+            <!-- Job Grid -->
+            <div id="job-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Jobs will be injected here via JS -->
+            </div>
+        </section>
+
+        <p class="mt-8 mb-8 text-xs text-slate-700 text-center">© 2026 ProHustle Elite. Todos los derechos reservados.</p>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+        });
+
+        // Job Board Logic
+        const jobs = [
+            {
+                role: "Consultor Legal de Enfermería",
+                category: "Healthcare",
+                rate: "$125 - $250/hr",
+                desc: "Revisar expedientes médicos para demandas por negligencia. Alta demanda.",
+                tier: "Experto",
+                iconClass: "fa-user-nurse",
+                colorClass: "text-emerald-400 bg-emerald-500/10"
+            },
+            {
+                role: "Testigo Experto",
+                category: "Engineering",
+                rate: "$300+/hr",
+                desc: "Testificar sobre fallas estructurales o disputas de patentes.",
+                tier: "Experto",
+                iconClass: "fa-ruler-combined",
+                colorClass: "text-blue-400 bg-blue-500/10"
+            },
+            {
+                role: "Diseñador Instruccional Corp.",
+                category: "Education",
+                rate: "$75 - $120/hr",
+                desc: "Diseñar módulos de capacitación para empresas Fortune 500.",
+                tier: "Experto",
+                iconClass: "fa-graduation-cap",
+                colorClass: "text-teal-400 bg-teal-500/10"
+            },
+            {
+                role: "Escritor / Editor Médico",
+                category: "Healthcare",
+                rate: "$60 - $100/hr",
+                desc: "Escribir propuestas de subvención, revistas o documentos regulatorios.",
+                tier: "Especialista",
+                iconClass: "fa-file-medical",
+                colorClass: "text-emerald-400 bg-emerald-500/10"
+            },
+            {
+                role: "Modelador CAD/BIM Freelance",
+                category: "Engineering",
+                rate: "$50 - $90/hr",
+                desc: "Modelado 3D a corto plazo para startups e inventores.",
+                tier: "Especialista",
+                iconClass: "fa-drafting-compass",
+                colorClass: "text-blue-400 bg-blue-500/10"
+            },
+            {
+                role: "Redactor de Pruebas Estandarizadas",
+                category: "Education",
+                rate: "$40 - $70/hr",
+                desc: "Crear preguntas para juntas de preparación SAT/ACT/MCAT.",
+                tier: "Especialista",
+                iconClass: "fa-pen-nib",
+                colorClass: "text-teal-400 bg-teal-500/10"
+            },
+            {
+                role: "Triaje de Telesalud",
+                category: "Healthcare",
+                rate: "$45/hr",
+                desc: "Admisión remota de pacientes y líneas de consejo.",
+                tier: "Bajo Demanda",
+                iconClass: "fa-headset",
+                colorClass: "text-emerald-400 bg-emerald-500/10"
+            },
+            {
+                role: "Análisis Técnico de Patentes",
+                category: "Engineering",
+                rate: "$120/hr",
+                desc: "Analizar diagramas técnicos para firmas de abogados de patentes.",
+                tier: "Experto",
+                iconClass: "fa-microscope",
+                colorClass: "text-blue-400 bg-blue-500/10"
+            }
+        ];
+
+        const jobGrid = document.getElementById('job-grid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        function renderJobs(filter = 'All') {
+            jobGrid.innerHTML = '';
+
+            const filtered = filter === 'All' ? jobs : jobs.filter(j => j.category === filter);
+
+            if(filtered.length === 0) {
+                jobGrid.innerHTML = `<div class="col-span-2 text-center py-10 text-slate-500">No se encontraron oportunidades para esta categoría.</div>`;
+                return;
+            }
+
+            filtered.forEach(job => {
+                const html = `
+                    <div class="card-blur p-6 rounded-xl flex flex-col sm:flex-row gap-4 group" data-aos="fade-up">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center ${job.colorClass}">
+                                <i class="fa-solid ${job.iconClass}"></i>
+                            </div>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">${job.role}</h3>
+                                    <span class="inline-block mt-1 text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 uppercase tracking-wide">
+                                        ${job.category}
+                                    </span>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-lg font-bold text-white">${job.rate}</p>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider ${job.tier === 'Experto' ? 'text-emerald-400' : 'text-slate-500'}">
+                                        ${job.tier}
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
+                                ${job.desc}
+                            </p>
+                        </div>
+                    </div>
+                `;
+                jobGrid.insertAdjacentHTML('beforeend', html);
+            });
+        }
+
+        // Init Jobs
+        renderJobs();
+
+        // Filter Click Events
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                renderJobs(e.target.getAttribute('data-filter'));
+            });
+        });
+    });
+    </script>
+</body>
+</html>
