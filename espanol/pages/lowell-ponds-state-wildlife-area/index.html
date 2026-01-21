@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lowell Ponds Natural Area | Thornton, CO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        p, li, a {
+            font-family: 'Lora', serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .card-hover {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in-down {
+            animation: fadeInDown 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-700">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-green-800">Lowell Ponds</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#rules" class="text-gray-600 hover:text-green-700 transition duration-300">Rules</a>
+                <a href="#history" class="text-gray-600 hover:text-green-700 transition duration-300">History</a>
+                <a href="#gallery" class="text-gray-600 hover:text-green-700 transition duration-300">Gallery</a>
+                <a href="#involved" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-green-700 transition duration-300 shadow-md">Get Involved</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+            <a href="#rules" class="block text-gray-600 hover:text-green-700">Rules</a>
+            <a href="#history" class="block text-gray-600 hover:text-green-700">History</a>
+            <a href="#gallery" class="block text-gray-600 hover:text-green-700">Gallery</a>
+            <a href="#involved" class="block bg-green-600 text-white font-semibold py-2 px-4 rounded-full text-center hover:bg-green-700">Get Involved</a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="hero-bg text-white shadow-lg h-[60vh] md:h-[80vh] flex items-center justify-center">
+        <div class="text-center px-6">
+            <h1 class="text-4xl md:text-7xl font-bold leading-tight mb-4 text-shadow fade-in-down">Lowell Ponds Natural Area</h1>
+            <p class="text-lg md:text-2xl text-gray-200 italic fade-in-down" style="animation-delay: 0.3s;">Your urban oasis for fishing, wildlife, and quiet reflection.</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 md:py-20">
+
+        <!-- Rules Section -->
+        <section id="rules" class="mb-16 scroll-mt-20">
+            <div class="bg-yellow-50 border-l-8 border-yellow-400 text-yellow-900 p-8 rounded-2xl shadow-lg card-hover">
+                <h2 class="text-3xl font-bold mb-6 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mr-4 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.21 3.03-1.742 3.03H4.42c-1.532 0-2.492-1.696-1.742-3.03l5.58-9.92zM10 13a1 1 0 110-2 1 1 0 010 2zm-1.75-5.25a.75.75 0 00-1.5 0v3a.75.75 0 001.5 0v-3z" clip-rule="evenodd" />
+                    </svg>
+                    Visitor Guidelines
+                </h2>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-lg">
+                    <li class="flex items-start"><span class="mr-3 text-yellow-500">&#10003;</span> Fishing permitted with a valid Colorado license.</li>
+                    <li class="flex items-start"><span class="mr-3 text-yellow-500">&#10003;</span> All state wildlife regulations apply.</li>
+                    <li class="flex items-start"><span class="mr-3 text-yellow-500">&#10003;</span> Leashed dogs welcome; please clean up.</li>
+                    <li class="flex items-start"><span class="mr-3 text-yellow-500">&#10003;</span> Park hours are sunrise to sunset.</li>
+                    <li class="flex items-start"><span class="mr-3 text-red-500">&#10007;</span> No swimming, wading, or boating.</li>
+                    <li class="flex items-start"><span class="mr-3 text-red-500">&#10007;</span> No overnight camping or fires.</li>
+                    <li class="flex items-start"><span class="mr-3 text-red-500">&#10007;</span> Do not feed or disturb wildlife.</li>
+                    <li class="flex items-start"><span class="mr-3 text-red-500">&#10007;</span> Pack it in, pack it out. Leave no trace.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-2">
+                <!-- History Section -->
+                <section id="history" class="bg-white p-8 md:p-10 rounded-2xl shadow-lg mb-12 card-hover scroll-mt-20">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">A Legacy of Conservation</h2>
+                    <p class="mb-4 text-lg leading-relaxed">Lowell Ponds, a beautiful 43-acre sanctuary in Adams County, boasts a rich history rooted in Colorado's dedication to wildlife conservation. It began as a State Wildlife Area, thoughtfully acquired and managed by Colorado Parks and Wildlife (CPW) to provide essential habitat and cherished recreational spots for fishing and wildlife enthusiasts.</p>
+                    <p class="mb-4 text-lg leading-relaxed">The original funding for these vital lands historically came from hunting and fishing license sales, highlighting the foundational role sportsmen and sportswomen played in its preservation.</p>
+                    <p class="text-lg leading-relaxed">Today, management has gracefully transitioned to the City of Thornton. As the Lowell Ponds Natural Area, it continues to serve the community, ensuring this natural gem is maintained for local access and enjoyment, preserving its legacy for future generations.</p>
+                </section>
+
+                <!-- Key Parties Section -->
+                <section id="stakeholders" class="scroll-mt-20">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Stewards of a Natural Treasure</h2>
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <!-- CPW -->
+                        <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+                            <div class="mx-auto bg-green-100 rounded-full h-20 w-20 flex items-center justify-center mb-4"><img src="https://img.icons8.com/plasticine/100/colorado.png" alt="Colorado Icon" class="h-14 w-14"></div>
+                            <h3 class="text-xl font-semibold text-green-800">Colorado Parks & Wildlife</h3>
+                            <p class="text-gray-600 mt-2">The original state agency that established and protected the area.</p>
+                        </div>
+                        <!-- City of Thornton -->
+                         <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+                            <div class="mx-auto bg-blue-100 rounded-full h-20 w-20 flex items-center justify-center mb-4"><img src="https://img.icons8.com/plasticine/100/city.png" alt="City Icon" class="h-14 w-14"></div>
+                            <h3 class="text-xl font-semibold text-blue-800">City of Thornton</h3>
+                            <p class="text-gray-600 mt-2">The current municipal body managing the area for community access.</p>
+                        </div>
+                        <!-- Hunters and Anglers -->
+                        <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+                             <div class="mx-auto bg-red-100 rounded-full h-20 w-20 flex items-center justify-center mb-4"><img src="https://img.icons8.com/plasticine/100/fishing-rod.png" alt="Fishing Rod Icon" class="h-14 w-14"></div>
+                            <h3 class="text-xl font-semibold text-red-800">Hunters & Anglers</h3>
+                            <p class="text-gray-600 mt-2">Provided foundational funding through license fees for conservation.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar / Gallery -->
+            <aside id="gallery" class="space-y-12 scroll-mt-20">
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+                    <h3 class="text-2xl font-bold mb-4 text-center">A Glimpse of the Ponds</h3>
+                    <div class="space-y-4">
+                        <img src="https://images.unsplash.com/photo-1547997932-c873634081ae?q=80&w=1974&auto=format&fit=crop" alt="A serene pond with lily pads and clear water" class="rounded-xl shadow-md w-full h-auto object-cover">
+                        <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?q=80&w=1974&auto=format&fit=crop" alt="A well-maintained walking trail curving through lush greenery" class="rounded-xl shadow-md w-full h-auto object-cover">
+                        <img src="https://images.unsplash.com/photo-1598463166988-5a11054f3b33?q=80&w=1974&auto=format&fit=crop" alt="A duck swimming peacefully on the pond surface" class="rounded-xl shadow-md w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div id="involved" class="bg-green-700 text-white p-8 rounded-2xl shadow-lg text-center card-hover">
+                     <h3 class="text-2xl font-bold mb-4">Get Involved</h3>
+                     <p class="mb-6">This precious space is preserved for everyone. Discover more about local conservation efforts through our partners.</p>
+                     <a href="/espanol/" target="_blank" class="inline-block w-full text-center bg-white text-green-700 font-bold py-3 px-6 rounded-full hover:bg-green-50 transition duration-300 shadow-lg">Aprender Más</a>
+                </div>
+            </aside>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 mt-20">
+        <div class="container mx-auto px-6 py-10">
+             <div class="text-center">
+                <p class="text-lg">&copy; 2025 City of Thornton Parks, Recreation & Community Programs.</p>
+                <p class="text-sm text-gray-400 mt-2">For inquiries, contact: <a href="mailto:testedprofit@gmail.com" class="text-green-400 hover:underline">testedprofit@gmail.com</a></p>
+                <p class="text-xs text-gray-500 mt-6 max-w-2xl mx-auto">This webpage is for informational purposes. While we strive for accuracy, details regarding historical transfers may not be fully public. Created with passion for our local natural spaces.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

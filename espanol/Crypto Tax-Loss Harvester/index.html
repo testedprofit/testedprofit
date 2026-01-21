@@ -1,0 +1,547 @@
+import React, { useState, useEffect, useMemo } from 'react';
+import {
+  Calculator,
+  Trash2,
+  PlusCircle,
+  TrendingDown,
+  ArrowRight,
+  Info,
+  AlertTriangle,
+  Wallet,
+  Menu,
+  X
+} from 'lucide-react';
+
+// --- 2026 PROJECTED TAX DATA (Estimates) ---
+const TAX_BRACKETS_2026 = {
+  single: [
+    { limit: 11925, rate: 0.10 },
+    { limit: 48475, rate: 0.12 },
+    { limit: 103350, rate: 0.22 },
+    { limit: 197300, rate: 0.24 },
+    { limit: 250525, rate: 0.32 },
+    { limit: 626350, rate: 0.35 },
+    { limit: Infinity, rate: 0.37 },
+  ],
+  married: [
+    { limit: 23850, rate: 0.10 },
+    { limit: 96950, rate: 0.12 },
+    { limit: 206700, rate: 0.22 },
+    { limit: 394600, rate: 0.24 },
+    { limit: 501050, rate: 0.32 },
+    { limit: 751600, rate: 0.35 },
+    { limit: Infinity, rate: 0.37 },
+  ],
+};
+
+const STANDARD_DEDUCTION = {
+  single: 15000,
+  married: 30000,
+};
+
+const LTCG_BRACKETS = {
+  single: [
+    { limit: 49200, rate: 0.0 },
+    { limit: 553850, rate: 0.15 },
+    { limit: Infinity, rate: 0.20 },
+  ],
+  married: [
+    { limit: 98400, rate: 0.0 },
+    { limit: 609350, rate: 0.15 },
+    { limit: Infinity, rate: 0.20 },
+  ]
+};
+
+// --- UI COMPONENTS (Styled to match TestedProfit Theme) ---
+
+const Card = ({ children, className = "" }) => (
+  <div className={`bg-[#0A091B]/80 backdrop-blur-md border border-white/10 rounded-xl shadow-lg ${className}`}>
+    {children}
+  </div>
+);
+
+const InputField = ({ label, value, onChange, prefix = "$", type = "number", placeholder = "0" }) => (
+  <div className="flex flex-col gap-1.5">
+    <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">{label}</label>
+    <div className="relative group">
+      {prefix && (
+        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-[#2DD4BF] transition-colors">
+          {prefix}
+        </span>
+      )}
+      <input
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        className={`w-full bg-[#141326] border border-gray-700 rounded-lg py-2.5 ${prefix ? 'pl-8' : 'pl-3'} pr-3 text-white placeholder-gray-600 focus:ring-1 focus:ring-[#2DD4BF] focus:border-[#2DD4BF] outline-none transition-all`}
+      />
+    </div>
+  </div>
+);
+
+const SelectField = ({ label, value, onChange, options }) => (
+  <div className="flex flex-col gap-1.5">
+    <label className="text-xs font-bold text-gray-400 uppercase tracking-wider">{label}</label>
+    <div className="relative">
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full bg-[#141326] border border-gray-700 rounded-lg py-2.5 px-3 text-white focus:ring-1 focus:ring-[#2DD4BF] focus:border-[#2DD4BF] outline-none appearance-none transition-all cursor-pointer"
+      >
+        {options.map(opt => (
+          <option key={opt.value} value={opt.value}>{opt.label}</option>
+        ))}
+      </select>
+      <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+        <ArrowRight size={14} className="rotate-90" />
+      </div>
+    </div>
+  </div>
+);
+
+// --- MAIN APP COMPONENT ---
+
+export default function CryptoTaxPlanner() {
+  // State: UI
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // State: Profile
+  const [income, setIncome] = useState(85000);
+  const [filingStatus, setFilingStatus] = useState('single');
+  const [realizedGains, setRealizedGains] = useState(0);
+
+  // State: Holdings (The "Bags")
+  const [holdings, setHoldings] = useState([
+    { id: 1, name: 'Bitcoin (High Buy)', amount: 0.5, buyPrice: 68000, currentPrice: 42000 },
+  ]);
+
+  // --- LOGIC ---
+
+  const addHolding = () => {
+    // FIX: Handle empty array case safely
+    const newId = holdings.length > 0 ? Math.max(...holdings.map(h => h.id)) + 1 : 1;
+    setHoldings([...holdings, { id: newId, name: '', amount: '', buyPrice: '', currentPrice: '' }]);
+  };
+
+  const removeHolding = (id) => {
+    setHoldings(holdings.filter(h => h.id !== id));
+  };
+
+  const updateHolding = (id, field, value) => {
+    setHoldings(holdings.map(h => h.id === id ? { ...h, [field]: value } : h));
+  };
+
+  const calculations = useMemo(() => {
+    let totalHarvestableLoss = 0;
+    let portfolioCurrentValue = 0;
+
+    holdings.forEach(h => {
+      const amount = parseFloat(h.amount) || 0;
+      const buy = parseFloat(h.buyPrice) || 0;
+      const curr = parseFloat(h.currentPrice) || 0;
+      const loss = (buy - curr) * amount;
+
+      if (loss > 0) totalHarvestableLoss += loss;
+      portfolioCurrentValue += (curr * amount);
+    });
+
+    const calculateTaxBill = (grossIncome, capGains) => {
+      const deduction = STANDARD_DEDUCTION[filingStatus];
+      let taxableOrdinary = Math.max(0, grossIncome - deduction);
+
+      let ordinaryTax = 0;
+      let previousLimit = 0;
+      const brackets = TAX_BRACKETS_2026[filingStatus];
+
+      for (let bracket of brackets) {
+        if (taxableOrdinary > previousLimit) {
+          const taxableInBracket = Math.min(taxableOrdinary, bracket.limit) - previousLimit;
+          ordinaryTax += taxableInBracket * bracket.rate;
+          previousLimit = bracket.limit;
+        }
+      }
+
+      let capGainsTax = 0;
+      const ltcgBrackets = LTCG_BRACKETS[filingStatus];
+
+      let currentStack = taxableOrdinary;
+      let gainsRemaining = Math.max(0, capGains);
+
+      // 0% Bucket
+      if (currentStack < ltcgBrackets[0].limit) {
+        const room = ltcgBrackets[0].limit - currentStack;
+        const used = Math.min(room, gainsRemaining);
+        capGainsTax += used * 0.0;
+        gainsRemaining -= used;
+        currentStack += used;
+      }
+
+      // 15% Bucket
+      if (gainsRemaining > 0 && currentStack < ltcgBrackets[1].limit) {
+        const room = ltcgBrackets[1].limit - currentStack;
+        const used = Math.min(room, gainsRemaining);
+        capGainsTax += used * 0.15;
+        gainsRemaining -= used;
+        currentStack += used;
+      }
+
+      // 20% Bucket
+      if (gainsRemaining > 0) {
+        capGainsTax += gainsRemaining * 0.20;
+      }
+
+      return ordinaryTax + capGainsTax;
+    };
+
+    const currentTaxBill = calculateTaxBill(parseFloat(income) || 0, parseFloat(realizedGains) || 0);
+
+    const grossRealizedGains = parseFloat(realizedGains) || 0;
+    let newRealizedGains = grossRealizedGains - totalHarvestableLoss;
+    let offsetAgainstIncome = 0;
+
+    if (newRealizedGains < 0) {
+      const excessLoss = Math.abs(newRealizedGains);
+      newRealizedGains = 0;
+      offsetAgainstIncome = Math.min(excessLoss, 3000);
+    }
+
+    const newOrdinaryIncome = Math.max(0, (parseFloat(income) || 0) - offsetAgainstIncome);
+    const newTaxBill = calculateTaxBill(newOrdinaryIncome, newRealizedGains);
+
+    const taxSavings = currentTaxBill - newTaxBill;
+
+    return {
+      totalHarvestableLoss,
+      currentTaxBill,
+      newTaxBill,
+      taxSavings,
+      offsetAgainstIncome,
+      portfolioCurrentValue
+    };
+  }, [income, filingStatus, realizedGains, holdings]);
+
+  // --- STYLES FOR THEME ---
+  // Using inline styles for the specific background logic to match the template provided
+  const bgGridStyle = {
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px)`,
+    backgroundSize: '2.5rem 2.5rem'
+  };
+
+  const heroGlowStyle = {
+    background: `radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%), radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%)`,
+  };
+
+  return (
+    <div className="min-h-screen bg-[#0A091B] text-gray-200 font-sans selection:bg-[#2DD4BF]/30 relative overflow-x-hidden">
+
+      {/* --- GLOBAL BACKGROUND --- */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 opacity-40" style={bgGridStyle}></div>
+        <div className="absolute inset-0 animate-pulse" style={{...heroGlowStyle, animationDuration: '8s'}}></div>
+      </div>
+
+      {/* --- HEADER --- */}
+      <header className="fixed w-full top-0 z-50 bg-[#020617]/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            {/* Logo */}
+            <a href="/espanol/" className="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     className="h-8 w-8 transition-transform group-hover:rotate-12"
+                     alt="Profitnet Logo"
+                />
+                <span className="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+
+            {/* Desktop Nav */}
+            <nav className="hidden lg:flex space-x-10 items-center">
+                <a href="/espanol/" className="text-sm font-bold text-white hover:text-[#10B981] transition-colors duration-200">HOME</a>
+
+                <a href="/espanol/pages/landmarks/" target="_blank" rel="noreferrer" className="text-xs font-bold uppercase tracking-widest text-[#10B981] hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+
+                <a href="/espanol/pages/PNET/" className="px-6 py-2 rounded-full border border-[#2DD4BF]/30 text-[10px] font-black text-[#2DD4BF] hover:bg-[#2DD4BF]/10 hover:border-[#2DD4BF]/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors"
+            >
+                <Menu size={24} />
+            </button>
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        <div className={`fixed inset-0 bg-[#020617]/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}`}>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors"
+            >
+                <X size={32} />
+            </button>
+
+            <a href="/espanol/" className="text-xl font-black text-white uppercase tracking-widest hover:text-[#10B981] transition-colors">Inicio</a>
+            <a href="/espanol/pages/landmarks/" className="text-xl font-black text-[#10B981] uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="/espanol/pages/PNET/" className="text-xl font-black text-white uppercase tracking-widest hover:text-[#2DD4BF] transition-colors">$PNET Dashboard</a>
+        </div>
+      </header>
+
+      {/* --- MAIN CONTENT --- */}
+      <main className="relative z-10 pt-32 container mx-auto px-6 max-w-6xl pb-20">
+
+        {/* Page Title Area */}
+        <div className="mb-10">
+          <div className="flex items-center gap-3 mb-2">
+             <div className="bg-[#2DD4BF]/10 p-2 rounded-lg border border-[#2DD4BF]/20">
+               <Calculator className="text-[#2DD4BF]" size={24} />
+             </div>
+             <h1 className="text-3xl font-bold text-white tracking-tight">Crypto Tax-Loss Harvester</h1>
+          </div>
+          <p className="text-gray-400 max-w-2xl text-sm">
+            Estimate your 2026 tax savings by selling underwater assets. This tool calculates your harvestable losses and applies the IRS logic: losses first offset Capital Gains (unlimited), then Ordinary Income (up to $3k).
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+          {/* LEFT COLUMN: Inputs & Portfolio */}
+          <div className="lg:col-span-7 space-y-6">
+
+            {/* Section 1: Tax Profile */}
+            <Card className="p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <Wallet className="text-[#2DD4BF]" size={20} />
+                <h2 className="text-lg font-semibold text-white">Your Tax Profile</h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <InputField
+                  label="Annual Ordinary Income"
+                  value={income}
+                  onChange={setIncome}
+                  placeholder="e.g. 85000"
+                />
+                <SelectField
+                  label="Filing Status"
+                  value={filingStatus}
+                  onChange={setFilingStatus}
+                  options={[
+                    { value: 'single', label: 'Single Filer' },
+                    { value: 'married', label: 'Married Filing Jointly' }
+                  ]}
+                />
+                <div className="md:col-span-2">
+                  <InputField
+                    label="Realized Capital Gains (YTD)"
+                    value={realizedGains}
+                    onChange={setRealizedGains}
+                    placeholder="e.g. 15000 (Profits taken this year)"
+                  />
+                  <p className="text-[10px] text-gray-500 mt-1.5 ml-1 flex items-center gap-1">
+                    <Info size={10} />
+                    Enter total profit locked in this year. Losses are most effective when offsetting these gains.
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            {/* Section 2: The Bags */}
+            <Card className="p-6">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-2">
+                  <TrendingDown className="text-red-400" size={20} />
+                  <h2 className="text-lg font-semibold text-white">Loss Harvester</h2>
+                </div>
+                <button
+                  onClick={addHolding}
+                  className="flex items-center gap-2 text-xs font-bold bg-[#141326] hover:bg-[#1E1C36] text-[#2DD4BF] px-4 py-2 rounded-full transition-all border border-gray-700 hover:border-[#2DD4BF]/50"
+                >
+                  <PlusCircle size={14} /> ADD ASSET
+                </button>
+              </div>
+
+              <div className="space-y-4">
+                {holdings.map((h) => {
+                  const loss = (parseFloat(h.buyPrice || 0) - parseFloat(h.currentPrice || 0)) * (parseFloat(h.amount || 0));
+                  const isLoss = loss > 0;
+
+                  return (
+                    <div key={h.id} className="bg-black/40 border border-gray-800 rounded-lg p-4 relative group hover:border-gray-700 transition-colors">
+                      <div className="grid grid-cols-12 gap-3 items-end">
+
+                        {/* Row 1: Asset Name */}
+                        <div className="col-span-12 md:col-span-4 mb-2 md:mb-0">
+                          <label className="text-[10px] text-gray-500 uppercase font-bold tracking-wider mb-1 block">Asset Name</label>
+                          <input
+                            type="text"
+                            placeholder="e.g. ETH"
+                            value={h.name}
+                            onChange={(e) => updateHolding(h.id, 'name', e.target.value)}
+                            className="w-full bg-transparent border-b border-gray-700 text-white pb-1 focus:border-[#2DD4BF] outline-none text-sm font-medium"
+                          />
+                        </div>
+
+                        {/* Row 2: Stats */}
+                        <div className="col-span-4 md:col-span-2">
+                          <label className="text-[10px] text-gray-500 uppercase font-bold tracking-wider mb-1 block">Quantity</label>
+                          <input
+                            type="number"
+                            value={h.amount}
+                            onChange={(e) => updateHolding(h.id, 'amount', e.target.value)}
+                            className="w-full bg-[#141326] rounded px-2 py-1 text-sm text-white outline-none border border-transparent focus:border-[#2DD4BF]/50 transition-colors"
+                          />
+                        </div>
+
+                        <div className="col-span-4 md:col-span-2">
+                          <label className="text-[10px] text-gray-500 uppercase font-bold tracking-wider mb-1 block">Buy Price</label>
+                          <input
+                            type="number"
+                            value={h.buyPrice}
+                            onChange={(e) => updateHolding(h.id, 'buyPrice', e.target.value)}
+                            className="w-full bg-[#141326] rounded px-2 py-1 text-sm text-white outline-none border border-transparent focus:border-[#2DD4BF]/50 transition-colors"
+                          />
+                        </div>
+
+                        <div className="col-span-4 md:col-span-2">
+                          <label className="text-[10px] text-gray-500 uppercase font-bold tracking-wider mb-1 block">Current $</label>
+                          <input
+                            type="number"
+                            value={h.currentPrice}
+                            onChange={(e) => updateHolding(h.id, 'currentPrice', e.target.value)}
+                            className="w-full bg-[#141326] rounded px-2 py-1 text-sm text-white outline-none border border-transparent focus:border-[#2DD4BF]/50 transition-colors"
+                          />
+                        </div>
+
+                        {/* Delete Button */}
+                        <div className="col-span-12 md:col-span-1 flex justify-end md:justify-center">
+                           <button
+                              onClick={() => removeHolding(h.id)}
+                              className="text-gray-600 hover:text-red-400 p-2 rounded hover:bg-white/5 transition-colors"
+                            >
+                              <Trash2 size={16} />
+                            </button>
+                        </div>
+                      </div>
+
+                      {/* Instant Feedback Line */}
+                      {h.amount && h.buyPrice && h.currentPrice && (
+                         <div className="mt-3 pt-3 border-t border-gray-800/50 flex justify-between items-center text-xs">
+                           <span className="text-gray-500">Value: ${((parseFloat(h.amount) || 0) * (parseFloat(h.currentPrice) || 0)).toLocaleString()}</span>
+                           <span className={isLoss ? "text-red-400 font-bold" : "text-[#10B981] font-bold"}>
+                              {isLoss ? "Harvestable Loss: " : "Unrealized Profit: "}
+                              ${Math.abs(loss).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                           </span>
+                         </div>
+                      )}
+                    </div>
+                  )
+                })}
+
+                {holdings.length === 0 && (
+                  <div className="text-center py-12 border-2 border-dashed border-gray-800 rounded-lg bg-white/5">
+                    <p className="text-gray-500 text-sm">No assets added.</p>
+                    <button onClick={addHolding} className="mt-2 text-[#2DD4BF] text-xs font-bold hover:underline">Add your first "heavy bag"</button>
+                  </div>
+                )}
+              </div>
+            </Card>
+          </div>
+
+          {/* RIGHT COLUMN: Results Dashboard */}
+          <div className="lg:col-span-5 space-y-6">
+
+            {/* Main Result Card */}
+            <div className="sticky top-28 space-y-6">
+              <Card className="overflow-hidden relative bg-gradient-to-br from-[#0f172a] to-[#020617] border-[#2DD4BF]/20">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#10B981] to-[#2DD4BF]"></div>
+
+                <div className="p-6">
+                  <h3 className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-6">Tax Optimization Report</h3>
+
+                  {/* Comparison Grid */}
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-8 mb-8 relative">
+                    {/* Vertical Divider */}
+                    <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2"></div>
+
+                    {/* Before */}
+                    <div className="text-center opacity-70">
+                      <p className="text-[10px] uppercase tracking-wider text-gray-500 mb-1">Current Bill</p>
+                      <p className="text-2xl font-bold text-gray-300">${Math.round(calculations.currentTaxBill).toLocaleString()}</p>
+                      <p className="text-[10px] text-gray-600 mt-1">Status Quo</p>
+                    </div>
+
+                    {/* After */}
+                    <div className="text-center">
+                      <p className="text-[10px] uppercase tracking-wider text-[#2DD4BF] mb-1 font-bold">Optimized Bill</p>
+                      <p className="text-2xl font-bold text-white">${Math.round(calculations.newTaxBill).toLocaleString()}</p>
+                      <p className="text-[10px] text-[#2DD4BF]/70 mt-1">After Harvesting</p>
+                    </div>
+                  </div>
+
+                  {/* Big Savings Number */}
+                  <div className="bg-[#2DD4BF]/5 rounded-xl p-5 border border-[#2DD4BF]/20 text-center relative overflow-hidden group">
+                     {/* Glow effect on hover */}
+                    <div className="absolute inset-0 bg-[#2DD4BF]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div className="relative z-10">
+                      <p className="text-sm text-[#2DD4BF] font-bold mb-1 uppercase tracking-wide">Estimated Cash Saved</p>
+                      <div className="text-5xl font-black text-white tracking-tight flex items-center justify-center gap-1 my-2">
+                         <span className="text-2xl text-[#2DD4BF]/50 self-start mt-2">$</span>
+                         {Math.round(calculations.taxSavings).toLocaleString()}
+                      </div>
+                      <p className="text-[10px] text-gray-500">
+                        {calculations.offsetAgainstIncome > 0
+                          ? `Offsets gains + $${calculations.offsetAgainstIncome} ordinary income`
+                          : 'Offsets realized capital gains'}
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Data Breakdown */}
+                <div className="bg-black/40 p-4 border-t border-white/5 grid grid-cols-2 gap-4">
+                   <div>
+                      <span className="text-[10px] text-gray-500 font-bold uppercase block mb-1">Harvestable Loss</span>
+                      <span className="text-red-400 font-mono text-lg font-bold">-${Math.round(calculations.totalHarvestableLoss).toLocaleString()}</span>
+                   </div>
+                   <div>
+                      <span className="text-[10px] text-gray-500 font-bold uppercase block mb-1">Portfolio Value</span>
+                      <span className="text-gray-300 font-mono text-lg font-bold">${Math.round(calculations.portfolioCurrentValue).toLocaleString()}</span>
+                   </div>
+                </div>
+              </Card>
+
+              {/* Wash Sale Educational Card */}
+              <Card className="p-5 border-blue-900/30 bg-blue-900/10">
+                <div className="flex gap-3">
+                  <div className="bg-blue-500/10 p-2 rounded h-fit">
+                    <AlertTriangle className="text-blue-400 shrink-0" size={16} />
+                  </div>
+                  <div className="space-y-2">
+                    <h4 className="text-sm font-bold text-blue-100">The "Wash Sale" Strategy</h4>
+                    <p className="text-xs text-blue-200/70 leading-relaxed">
+                      Crypto is currently treated as property, meaning the 30-day "Wash Sale" rule (buying back the same asset immediately after selling) often doesn't apply (check 2026 regulations).
+                    </p>
+                    <p className="text-xs text-blue-200/70 leading-relaxed">
+                      <strong className="text-blue-200">Strategy:</strong> Sell underwater assets to realize the loss for tax purposes, then immediately buy them back.
+                    </p>
+                    <div className="h-px bg-blue-500/20 my-2"></div>
+                    <p className="text-[10px] text-blue-300/50 italic">
+                      Disclaimer: This tool provides estimates for educational purposes only. Not financial or legal advice.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
+          </div>
+
+        </div>
+      </main>
+    </div>
+  );
+}

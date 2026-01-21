@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Maria Statue of Christ | Christ of the Rockies - Grant, CO</title>
+    <meta name="description" content="Explore the history and physical majesty of the Santa Maria Statue of Christ (Christ of the Rockies) in Grant, Colorado. A 55-foot historical landmark overlooking US Highway 285.">
+
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #0A091B;
+            --accent-teal: #2DD4BF;
+            --accent-emerald: #10B981;
+            --accent-blue: #60A5FA;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-dark);
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #34D399, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        .card-blur {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-blur:hover {
+            border-color: var(--accent-teal);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/espanol/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet Logo">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/espanol/" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
+                <a href="/espanol/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400 border-b-2 border-emerald-400 pb-1">Landmarks</a>
+                <a href="/espanol/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/espanol/" class="text-xl font-black text-white uppercase tracking-widest">Inicio</a>
+            <a href="/espanol/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
+            <a href="/espanol/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-20 container mx-auto px-6 max-w-6xl">
+
+        <!-- Hero Section -->
+        <section class="text-center mb-16" data-aos="fade-up">
+            <span class="inline-block py-1 px-3 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-bold uppercase tracking-widest mb-4 border border-emerald-500/20">
+                Historic Landmark | Grant, Colorado
+            </span>
+            <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tight">
+                Santa Maria <span class="gradient-text">Statue of Christ</span>
+            </h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                Known as "Christ of the Rockies," this iconic monument stands as a sentinel of faith and a tribute to service in the high mountains of the Colorado Rockies.
+            </p>
+        </section>
+
+        <!-- Quick Facts Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-blur p-8 rounded-2xl flex flex-col items-center text-center">
+                <i class="fa-solid fa-ruler-vertical text-3xl text-emerald-400 mb-4"></i>
+                <h3 class="text-sm font-bold text-white uppercase tracking-widest mb-2">Total Height</h3>
+                <p class="text-2xl font-black text-white">55 Feet</p>
+                <p class="text-xs text-gray-500 mt-1">33' Statue + 22' Pedestal</p>
+            </div>
+            <div class="card-blur p-8 rounded-2xl flex flex-col items-center text-center">
+                <i class="fa-solid fa-calendar-day text-3xl text-blue-400 mb-4"></i>
+                <h3 class="text-sm font-bold text-white uppercase tracking-widest mb-2">Established</h3>
+                <p class="text-2xl font-black text-white">1933</p>
+                <p class="text-xs text-gray-500 mt-1">Great Depression Era Gift</p>
+            </div>
+            <div class="card-blur p-8 rounded-2xl flex flex-col items-center text-center">
+                <i class="fa-solid fa-map-location-dot text-3xl text-purple-400 mb-4"></i>
+                <h3 class="text-sm font-bold text-white uppercase tracking-widest mb-2">Location</h3>
+                <p class="text-2xl font-black text-white">Grant, CO</p>
+                <p class="text-xs text-gray-500 mt-1">Hwy 285 & Co Rd 200</p>
+            </div>
+        </section>
+
+        <!-- Deep Content Sections -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+            <!-- Left Column: Details -->
+            <div class="lg:col-span-8 space-y-12">
+
+                <article class="space-y-4" data-aos="fade-right">
+                    <h2 class="text-2xl font-bold text-white flex items-center space-x-3">
+                        <span class="h-8 w-1 bg-emerald-400 rounded-full"></span>
+                        <span>Historical Significance</span>
+                    </h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        The formally titled "Villa Santa Maria del Monte" was the vision of <strong>Mary Dower</strong>. In 1930, alongside her husband John L. Dower, they transformed the former Cassells Hotel into a sanctuary for underprivileged children. During the height of the Great Depression, the camp followed a radical mission: "No child who attends may pay. No child who can pay may attend."
+                    </p>
+                </article>
+
+                <article class="space-y-4" data-aos="fade-right">
+                    <h2 class="text-2xl font-bold text-white flex items-center space-x-3">
+                        <span class="h-8 w-1 bg-blue-400 rounded-full"></span>
+                        <span>Engineering & Artistry</span>
+                    </h2>
+                    <ul class="space-y-6">
+                        <li class="flex items-start space-x-4">
+                            <div class="mt-1.5 h-2 w-2 rounded-full bg-blue-400 shrink-0"></div>
+                            <div>
+                                <h4 class="font-bold text-white">The Pedestal Grotto</h4>
+                                <p class="text-sm text-gray-400">The 22-foot pedestal was constructed on-site in one-foot sections. Hidden at the base is an open grotto containing a life-size statue of the reclining body of Christ attended by two angels.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <div class="mt-1.5 h-2 w-2 rounded-full bg-blue-400 shrink-0"></div>
+                            <div>
+                                <h4 class="font-bold text-white">The Terra Cotta Build</h4>
+                                <p class="text-sm text-gray-400">The 33-foot figure was carved from clay at the Northwest Terra Cotta Company. Its design features a unique ivory-colored robe that creates a sharp visual contrast against the white skin of the sculpture.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-4">
+                            <div class="mt-1.5 h-2 w-2 rounded-full bg-blue-400 shrink-0"></div>
+                            <div>
+                                <h4 class="font-bold text-white">World Standing</h4>
+                                <p class="text-sm text-gray-400">At the time of its completion in 1933, it was reportedly the second-tallest statue of Jesus in the world, serving as a beacon for travelers and camp residents alike.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </article>
+
+            </div>
+
+            <!-- Right Column: Visitor Info Sidebar -->
+            <aside class="lg:col-span-4 space-y-6">
+                <div class="card-blur p-6 rounded-2xl border-emerald-500/20" data-aos="fade-left">
+                    <h3 class="font-black text-white uppercase tracking-tighter mb-4 flex items-center">
+                        <i class="fa-solid fa-circle-info text-emerald-400 mr-2"></i> Visitor Information
+                    </h3>
+                    <div class="space-y-4 text-sm">
+                        <div>
+                            <span class="text-gray-500 block uppercase text-[10px] font-bold mb-1">Address</span>
+                            <p class="text-white">549 Co Rd 200, Grant, CO 80448</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-500 block uppercase text-[10px] font-bold mb-1">Best Viewpoint</span>
+                            <p class="text-white">Visible from US Hwy 285. Use the gravel turn-offs near the YMCA Camp Santa Maria entrance for the best photo angles.</p>
+                        </div>
+                        <div class="pt-4 border-t border-white/10">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=549+Co+Rd+200+Grant+CO+80448" target="_blank" class="w-full inline-block text-center py-3 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl transition-all border border-white/10">
+                                <i class="fa-solid fa-location-arrow mr-2"></i> Get Directions
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-blue-500/20 border border-white/10" data-aos="fade-left" data-aos-delay="200">
+                    <h3 class="font-bold text-white mb-2">Legacy Note</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        The statue remains on the grounds of Camp Santa Maria, which is now operated by the Boulder Valley YMCA. Please respect the private property boundaries while viewing the monument.
+                    </p>
+                </div>
+            </aside>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-white/5 py-10 bg-slate-950/50">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-500 text-xs font-medium uppercase tracking-[0.2em]">
+                &copy; 2024 TestedProfit | Landmark Data Archive
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-quad'
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            setTimeout(() => mobileMenu.classList.add('active'), 10);
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            }, 300);
+        });
+    });
+    </script>
+</body>
+</html>

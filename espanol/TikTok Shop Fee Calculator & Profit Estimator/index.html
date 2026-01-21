@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profitnet | TikTok Shop Profit Estimator</title>
+    <meta name="description" content="Calculate your true TikTok Shop margins with the 2026 fee structure.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA',
+                            tiktok: '#ff0050'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.1) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.05) 0%, transparent 60%);
+        }
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .slider-thumb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #2DD4BF;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(45, 212, 191, 0.4);
+        }
+        input[type="range"] { background: rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/espanol/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12"
+                     alt="Profitnet Logo" width="32" height="32" fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/espanol/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors">HOME</a>
+                <a href="/espanol/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors">Landmarks</a>
+                <a href="/espanol/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="/espanol/" class="text-xl font-black text-white uppercase tracking-widest">Inicio</a>
+            <a href="/espanol/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest">Landmarks</a>
+            <a href="/espanol/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-32 container mx-auto px-6 pb-20">
+        <!-- Header Section -->
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tighter mb-6">
+                TikTok Shop <span class="text-accent-teal">Reality Check</span>
+            </h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                The 2026 fee structure is more complex than ever. Calculate your net profit after referral fees, transaction costs, and shipping tiers.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+            <!-- Inputs -->
+            <div class="lg:col-span-3 bg-slate-900/40 backdrop-blur-md p-8 rounded-3xl border border-white/5 space-y-10" data-aos="fade-right">
+
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <label class="text-sm font-bold uppercase tracking-widest text-gray-500">Sale Price (MSRP)</label>
+                        <span class="text-3xl font-black text-white" id="display-salePrice">$49.00</span>
+                    </div>
+                    <input type="range" id="input-salePrice" min="5" max="500" step="1" value="49" class="w-full h-1.5 rounded-lg appearance-none cursor-pointer slider-thumb">
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <label class="text-sm font-bold uppercase tracking-widest text-gray-500">Product Cost (COGS)</label>
+                        <span class="text-3xl font-black text-white" id="display-productCost">$15.00</span>
+                    </div>
+                    <input type="range" id="input-productCost" min="1" max="250" step="0.5" value="15" class="w-full h-1.5 rounded-lg appearance-none cursor-pointer slider-thumb">
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">Shipping Weight</label>
+                        <select id="input-weight" class="w-full bg-slate-800/50 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-accent-teal transition-all">
+                            <option value="4">Under 4 oz (Lightweight)</option>
+                            <option value="8">4 - 8 oz</option>
+                            <option value="12" selected>8 - 12 oz (Standard)</option>
+                            <option value="16">12 - 16 oz</option>
+                            <option value="32">1 - 2 lbs</option>
+                            <option value="64">Over 2 lbs</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-3">Product Category</label>
+                        <select id="input-category" class="w-full bg-slate-800/50 border border-white/10 p-4 rounded-xl text-white outline-none focus:border-accent-teal transition-all">
+                            <option value="0.08">Electronics (8%)</option>
+                            <option value="0.08" selected>Apparel & Accessories (8%)</option>
+                            <option value="0.06">Beauty & Health (6%)</option>
+                            <option value="0.08">Home & Kitchen (8%)</option>
+                            <option value="0.10">Collectibles (10%)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-white/5">
+                    <label class="flex items-center gap-4 cursor-pointer group">
+                        <div class="relative">
+                            <input type="checkbox" id="input-ads" class="sr-only">
+                            <div class="w-12 h-6 bg-slate-800 rounded-full transition-colors group-hover:bg-slate-700"></div>
+                            <div id="toggle-dot" class="absolute left-1 top-1 w-4 h-4 bg-gray-400 rounded-full transition-all"></div>
+                        </div>
+                        <span class="text-sm font-bold text-gray-400 group-hover:text-white transition-colors">Apply TikTok Ads (Estimated 20% Spend)</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="lg:col-span-2 space-y-6" data-aos="fade-left">
+                <div class="bg-gradient-to-br from-slate-900 to-black p-8 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.89-.6-4.18-1.3-.14-.07-.27-.14-.41-.21-.08.01-.16.03-.24.03-.01 2.85-.01 5.71-.01 8.56 0 2.1-.64 4.31-2.26 5.67-1.63 1.37-3.97 1.77-5.99 1.18-1.92-.56-3.56-2.05-4.2-3.92-.7-1.99-.44-4.32.89-6.02 1.34-1.74 3.65-2.6 5.84-2.19v4.11c-.96-.21-2.03-.04-2.81.56-.63.48-.92 1.28-.86 2.06.05.67.43 1.27.99 1.63.78.49 1.8.49 2.62.05.65-.34 1.05-.99 1.11-1.72.01-3.09.01-6.18.01-9.27-.01-1.07-.01-2.14-.01-3.21z"/></svg>
+                    </div>
+
+                    <h3 class="text-xs font-black uppercase tracking-[0.2em] text-accent-teal mb-4">Estimated Net Profit</h3>
+                    <div class="text-6xl font-black text-white mb-6" id="res-netProfit">$0.00</div>
+
+                    <div id="res-margin" class="inline-block px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest bg-white/5 border border-white/10">
+                        Margin: 0%
+                    </div>
+
+                    <div class="mt-10 space-y-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500 font-medium">TikTok Referral Fee</span>
+                            <span id="res-referralFee" class="text-gray-300">-$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500 font-medium">Payment Processing</span>
+                            <span id="res-transFee" class="text-gray-300">-$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500 font-medium">Shipping Tier Cost</span>
+                            <span id="res-shipping" class="text-gray-300">-$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-sm pt-4 border-t border-white/5" id="row-ads">
+                            <span class="text-gray-500 font-medium">Estimated Ad Spend</span>
+                            <span id="res-ads" class="text-accent-tiktok">-$0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/5">
+                    <p class="text-sm text-gray-400 italic" id="res-advice">
+                        Adjust parameters to see real-time impact on your bottom line.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-white/5 text-center relative z-10">
+        <p class="text-xs text-gray-600 uppercase tracking-widest">&copy; 2026 Profitnet | Precision eCommerce Engineering</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ duration: 800, once: true });
+
+            const inputs = {
+                salePrice: document.getElementById('input-salePrice'),
+                productCost: document.getElementById('input-productCost'),
+                weight: document.getElementById('input-weight'),
+                category: document.getElementById('input-category'),
+                ads: document.getElementById('input-ads')
+            };
+
+            const displays = {
+                salePrice: document.getElementById('display-salePrice'),
+                productCost: document.getElementById('display-productCost'),
+                toggleDot: document.getElementById('toggle-dot')
+            };
+
+            const results = {
+                netProfit: document.getElementById('res-netProfit'),
+                margin: document.getElementById('res-margin'),
+                referralFee: document.getElementById('res-referralFee'),
+                transFee: document.getElementById('res-transFee'),
+                shipping: document.getElementById('res-shipping'),
+                ads: document.getElementById('res-ads'),
+                advice: document.getElementById('res-advice'),
+                rowAds: document.getElementById('row-ads')
+            };
+
+            function calculate() {
+                const salePrice = parseFloat(inputs.salePrice.value);
+                const productCost = parseFloat(inputs.productCost.value);
+                const refRate = parseFloat(inputs.category.value);
+                const weight = parseFloat(inputs.weight.value);
+                const includeAds = inputs.ads.checked;
+
+                displays.salePrice.innerText = `$${salePrice.toFixed(2)}`;
+                displays.productCost.innerText = `$${productCost.toFixed(2)}`;
+
+                // Toggle animation
+                displays.toggleDot.style.transform = includeAds ? 'translateX(24px)' : 'translateX(0)';
+                displays.toggleDot.classList.toggle('bg-accent-teal', includeAds);
+                displays.toggleDot.classList.toggle('bg-gray-400', !includeAds);
+
+                const referralFee = salePrice * refRate;
+                const transFee = (salePrice * 0.029) + 0.30;
+
+                let shipping = 3.99;
+                if (weight > 12) shipping = 4.99;
+                if (weight > 16) shipping = 6.49;
+                if (weight > 32) shipping = 10.99;
+
+                const adSpend = includeAds ? (salePrice * 0.20) : 0;
+                const totalFees = referralFee + transFee + shipping + adSpend;
+                const netProfit = salePrice - productCost - totalFees;
+                const margin = (netProfit / salePrice) * 100;
+
+                results.netProfit.innerText = `$${netProfit.toFixed(2)}`;
+                results.margin.innerText = `Net Margin: ${margin.toFixed(1)}%`;
+                results.referralFee.innerText = `-$${referralFee.toFixed(2)}`;
+                results.transFee.innerText = `-$${transFee.toFixed(2)}`;
+                results.shipping.innerText = `-$${shipping.toFixed(2)}`;
+                results.ads.innerText = `-$${adSpend.toFixed(2)}`;
+                results.rowAds.style.display = includeAds ? 'flex' : 'none';
+
+                if (margin < 15) {
+                    results.advice.innerText = "⚠️ High Risk: Your margins are extremely vulnerable. Consider bundling or price optimization.";
+                    results.margin.className = "inline-block px-4 py-2 rounded-full text-xs font-black bg-red-500/20 text-red-400 border border-red-500/30 uppercase tracking-widest";
+                } else if (margin < 35) {
+                    results.advice.innerText = "⚡ Standard: Healthy for organic growth, but tight if scaling heavy ads.";
+                    results.margin.className = "inline-block px-4 py-2 rounded-full text-xs font-black bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 uppercase tracking-widest";
+                } else {
+                    results.advice.innerText = "💎 Premium: Exceptional product positioning. High scalability potential.";
+                    results.margin.className = "inline-block px-4 py-2 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 uppercase tracking-widest";
+                }
+            }
+
+            // Mobile Menu Logic
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuBtn.onclick = () => { mobileMenu.classList.add('active'); document.body.style.overflow = 'hidden'; };
+            closeBtn.onclick = () => { mobileMenu.classList.remove('active'); document.body.style.overflow = ''; };
+
+            Object.values(inputs).forEach(input => input.addEventListener('input', calculate));
+            calculate();
+        });
+    </script>
+</body>
+</html>

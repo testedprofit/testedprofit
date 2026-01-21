@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jackalope Square | Profitnet Landmarks</title>
+    <meta name="description" content="Visit Jackalope Square in Douglas, Wyoming - The official Jackalope Capital of the World. Discover the legend, the statue, and the history of this mythical creature.">
+
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts: Preconnected for speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome: Required for content icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA',
+                            rust: '#EA580C', /* High Plains Rust */
+                            sage: '#65A30D'  /* High Plains Sage */
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Optimization: Animations */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(234, 88, 12, 0.1) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(101, 163, 13, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Custom Content Styles */
+        .gradient-text {
+            background: linear-gradient(90deg, #EA580C, #65A30D); /* Rust to Sage */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-blur {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-blur:hover {
+            border-color: #EA580C;
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #EA580C;
+        }
+
+        .stat-badge {
+            background: linear-gradient(135deg, rgba(234, 88, 12, 0.1), rgba(101, 163, 13, 0.1));
+            border: 1px solid rgba(234, 88, 12, 0.3);
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+            display: inline-block;
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, #EA580C, #65A30D);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(234, 88, 12, 0.4);
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <!-- Logo Section -->
+            <a href="/espanol/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12"
+                     alt="Profitnet Logo"
+                     width="32"
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/espanol/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+
+                <a href="/espanol/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+
+                <a href="/espanol/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="/espanol/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Inicio</a>
+            <a href="/espanol/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="/espanol/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
+
+        <!-- Hero Section -->
+        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up">
+            <div class="inline-block mb-4">
+                <span class="stat-badge text-xs font-bold text-accent-rust uppercase tracking-wider">
+                    <i class="fa-solid fa-paw mr-2"></i>Jackalope Capital of the World
+                </span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                <span class="gradient-text">Jackalope Square</span>
+            </h1>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Douglas, Wyoming</h2>
+            <p class="text-xl text-gray-400 max-w-3xl">
+                The whimsical heart of downtown Douglas and home to Wyoming's most famous mythical creature—the legendary jackrabbit-antelope hybrid.
+            </p>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
+            <div class="info-card text-center">
+                <div class="text-3xl font-black gradient-text mb-2">1990</div>
+                <div class="text-sm text-gray-400 uppercase tracking-wide">Dedicated</div>
+            </div>
+            <div class="info-card text-center">
+                <div class="text-3xl font-black gradient-text mb-2">8 ft</div>
+                <div class="text-sm text-gray-400 uppercase tracking-wide">Statue Height</div>
+            </div>
+            <div class="info-card text-center">
+                <div class="text-3xl font-black gradient-text mb-2">1932</div>
+                <div class="text-sm text-gray-400 uppercase tracking-wide">Legend Began</div>
+            </div>
+            <div class="info-card text-center">
+                <div class="text-3xl font-black gradient-text mb-2">24/7</div>
+                <div class="text-sm text-gray-400 uppercase tracking-wide">Open Access</div>
+            </div>
+        </div>
+
+        <!-- The Legend & The Landmark -->
+        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-blur rounded-2xl p-8 md:p-12">
+                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
+                    <i class="fa-solid fa-scroll text-accent-rust mr-4"></i>
+                    The Legend & Landmark
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-6 text-gray-300">
+                        <p class="text-lg leading-relaxed">
+                            Dedicated in 1990 to celebrate the state's centennial, Jackalope Square serves as a public park and historical landmark. An 8-foot-tall concrete statue of the creature anchors the park, providing the city's premier photo opportunity.
+                        </p>
+                        <div class="flex items-start space-x-3 text-sm text-accent-rust">
+                            <i class="fa-solid fa-camera mt-1"></i>
+                            <p>Visitors are encouraged to tag photos with <strong>#JackalopeCity</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-orange-900/10 border border-orange-500/20 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Jackalope Folklore</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start text-gray-400">
+                                <i class="fa-solid fa-bone text-accent-sage mr-3 mt-1"></i>
+                                <div>
+                                    <strong class="text-white">Origin Story:</strong> The modern legend began in 1932 when local brothers Douglas and Ralph Herrick created the first physical mount.
+                                </div>
+                            </li>
+                            <li class="flex items-start text-gray-400">
+                                <i class="fa-solid fa-ticket text-accent-sage mr-3 mt-1"></i>
+                                <div>
+                                    <strong class="text-white">Hunting Season:</strong> Licenses are available but strictly valid only on <strong>June 31</strong> between midnight and 2:00 a.m.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Amenities & Events -->
+        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-blur rounded-2xl p-8 md:p-12">
+                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
+                    <i class="fa-solid fa-tree text-accent-sage mr-4"></i>
+                    Amenities & Events
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Facilities -->
+                    <div class="bg-slate-900/50 rounded-xl p-6 border border-teal-500/20">
+                        <div class="w-12 h-12 rounded-full bg-teal-500/10 border border-teal-500/30 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-plug text-teal-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Facilities</h3>
+                        <p class="text-gray-400 text-sm">Designed for community gatherings with a gazebo, electricity, covered picnic tables, grills, and public restrooms.</p>
+                    </div>
+
+                    <!-- Access -->
+                    <div class="bg-slate-900/50 rounded-xl p-6 border border-emerald-500/20">
+                        <div class="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-wheelchair text-emerald-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Access</h3>
+                        <p class="text-gray-400 text-sm">Fully ADA-accessible and dog-friendly. Open to the public 24 hours a day.</p>
+                    </div>
+
+                    <!-- Events -->
+                    <div class="bg-slate-900/50 rounded-xl p-6 border border-accent-rust/20">
+                        <div class="w-12 h-12 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-calendar-days text-accent-rust"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Events</h3>
+                        <p class="text-gray-400 text-sm">Home to the <strong>Jackalope Days Celebration</strong> in early June and seasonal farmers markets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location & CTA -->
+        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="400">
+            <div class="card-blur rounded-2xl p-8 md:p-12">
+                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
+                    <i class="fa-solid fa-map-location-dot text-blue-400 mr-4"></i>
+                    Find the Myth
+                </h2>
+
+                <div class="bg-slate-900/50 rounded-xl p-6 border border-teal-500/20 mb-8">
+                    <div class="flex items-center mb-3">
+                        <i class="fa-solid fa-location-arrow text-teal-400 mr-3"></i>
+                        <h3 class="text-lg font-bold text-white">Address</h3>
+                    </div>
+                    <p class="text-gray-300 text-lg mb-4">100 S. 3rd St., Douglas, WY</p>
+                    <div class="flex items-start space-x-3 text-sm text-gray-400">
+                        <i class="fa-solid fa-binoculars text-accent-rust mt-1"></i>
+                        <p><strong>Other Sightings:</strong> Look for larger jackalope statues at the <em>Douglas Railroad Interpretive Center</em> and near the city's north entrance.</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Jackalope+Square+Douglas+WY"
+                       target="_blank"
+                       class="cta-button inline-block px-8 py-4 rounded-full text-white font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-map-pin mr-2"></i>
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>

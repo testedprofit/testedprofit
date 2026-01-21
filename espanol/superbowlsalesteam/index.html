@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broncos Super Bowl LX Victory Parade</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom Font Setup */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+        body { font-family: 'Inter', sans-serif; }
+
+        /* Custom Colors config for Tailwind */
+        .bg-broncos-navy { background-color: #002244; }
+        .text-broncos-navy { color: #002244; }
+        .border-broncos-navy { border-color: #002244; }
+
+        .bg-broncos-orange { background-color: #FB4F14; }
+        .text-broncos-orange { color: #FB4F14; }
+        .border-broncos-orange { border-color: #FB4F14; }
+
+        .hover\:bg-broncos-orange:hover { background-color: #FB4F14; }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        .slide-in { animation: slideIn 0.5s ease-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Map styling helper */
+        .city-pattern {
+            background-image: url('https://www.transparenttextures.com/patterns/city-fields.png');
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen pt-20">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-50 bg-broncos-navy text-white shadow-lg border-b-4 border-broncos-orange">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
+                    <div class="bg-white p-1.5 rounded-full">
+                        <i data-lucide="shield" class="h-8 w-8 text-broncos-navy fill-current text-[#002244]"></i>
+                    </div>
+                    <span class="text-2xl font-black tracking-tighter uppercase italic select-none">
+                        Broncos<span class="text-broncos-orange">Country</span>
+                    </span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6">
+                        <button onclick="switchTab('home')" class="nav-btn px-3 py-2 rounded-md text-sm font-bold uppercase tracking-wide transition-colors bg-broncos-orange text-white" data-target="home">Victory Hub</button>
+                        <button onclick="switchTab('route')" class="nav-btn px-3 py-2 rounded-md text-sm font-bold uppercase tracking-wide transition-colors text-slate-300 hover:text-white hover:bg-white/10" data-target="route">Parade Route</button>
+                        <button onclick="switchTab('rally')" class="nav-btn px-3 py-2 rounded-md text-sm font-bold uppercase tracking-wide transition-colors text-slate-300 hover:text-white hover:bg-white/10" data-target="rally">Rally Info</button>
+                        <button onclick="switchTab('jobs')" class="nav-btn px-3 py-2 rounded-md text-sm font-bold uppercase tracking-wide transition-colors text-slate-300 hover:text-white hover:bg-white/10" data-target="jobs">Join the Team</button>
+                        <button onclick="switchTab('transport')" class="nav-btn px-3 py-2 rounded-md text-sm font-bold uppercase tracking-wide transition-colors text-slate-300 hover:text-white hover:bg-white/10" data-target="transport">Transit</button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button onclick="toggleMobileMenu()" class="bg-broncos-navy inline-flex items-center justify-center p-2 rounded-md text-broncos-orange hover:text-white focus:outline-none">
+                        <i data-lucide="menu" id="menu-icon" class="h-8 w-8"></i>
+                        <i data-lucide="x" id="close-icon" class="h-8 w-8 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0A2343] pb-4">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="switchTab('home')" class="block w-full text-left px-3 py-4 rounded-md text-base font-bold text-white hover:bg-broncos-orange">Victory Hub</button>
+                <button onclick="switchTab('route')" class="block w-full text-left px-3 py-4 rounded-md text-base font-bold text-white hover:bg-broncos-orange">Parade Route</button>
+                <button onclick="switchTab('rally')" class="block w-full text-left px-3 py-4 rounded-md text-base font-bold text-white hover:bg-broncos-orange">Rally Info</button>
+                <button onclick="switchTab('jobs')" class="block w-full text-left px-3 py-4 rounded-md text-base font-bold text-white hover:bg-broncos-orange">Join the Team</button>
+                <button onclick="switchTab('transport')" class="block w-full text-left px-3 py-4 rounded-md text-base font-bold text-white hover:bg-broncos-orange">Transit</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT AREA -->
+    <main>
+
+        <!-- === HOME TAB === -->
+        <div id="tab-home" class="tab-content fade-in block">
+            <!-- Hero -->
+            <div class="relative bg-broncos-navy text-white overflow-hidden">
+                <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#FB4F14_1px,transparent_1px)]" style="background-size:16px 16px"></div>
+                <div class="relative max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:py-32 lg:px-8 flex flex-col items-center text-center">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-[#FB4F14]/20 border border-broncos-orange text-broncos-orange font-bold mb-8 animate-pulse">
+                        <i data-lucide="star" class="w-4 h-4 mr-2 fill-current"></i>
+                        WORLD CHAMPIONS
+                    </div>
+                    <h1 class="text-5xl md:text-8xl font-black tracking-tighter mb-6 leading-tight">
+                        SUPER BOWL <span class="text-broncos-orange">LX</span>
+                        <br />VICTORY PARADE
+                    </h1>
+                    <p class="text-xl md:text-2xl text-slate-300 max-w-2xl mb-10 font-light">
+                        The Lombardi Trophy returns to the Mile High City. Join millions of fans to celebrate our third World Championship.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                        <button onclick="switchTab('route')" class="px-8 py-4 bg-broncos-orange hover:bg-[#e0400b] text-white text-lg font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-orange-900/50 flex items-center justify-center">
+                            View Parade Route <i data-lucide="chevron-right" class="ml-2 w-5 h-5"></i>
+                        </button>
+                        <button onclick="switchTab('jobs')" class="px-8 py-4 bg-white text-broncos-navy hover:bg-slate-200 text-lg font-bold rounded-lg transition-all flex items-center justify-center">
+                            We Are Hiring!
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Info Grid -->
+            <div class="max-w-7xl mx-auto px-4 -mt-10 relative z-10 pb-20">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Date Card -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100 flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-300">
+                        <div class="mb-4 bg-slate-50 p-4 rounded-full"><i data-lucide="calendar" class="w-8 h-8 text-broncos-orange"></i></div>
+                        <h3 class="text-slate-500 font-bold uppercase text-xs tracking-wider mb-2">Date</h3>
+                        <p class="text-2xl md:text-3xl font-black text-broncos-navy mb-1">Tuesday, Feb 10, 2026</p>
+                        <p class="text-sm text-broncos-orange font-medium">Rain, Snow, or Shine</p>
+                    </div>
+                    <!-- Time Card -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100 flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-300">
+                        <div class="mb-4 bg-slate-50 p-4 rounded-full"><i data-lucide="clock" class="w-8 h-8 text-broncos-orange"></i></div>
+                        <h3 class="text-slate-500 font-bold uppercase text-xs tracking-wider mb-2">Start Time</h3>
+                        <p class="text-2xl md:text-3xl font-black text-broncos-navy mb-1">10:00 AM MST</p>
+                        <p class="text-sm text-broncos-orange font-medium">Arrive by 7:00 AM for spots</p>
+                    </div>
+                    <!-- Location Card -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100 flex flex-col items-center text-center hover:-translate-y-1 transition-transform duration-300">
+                        <div class="mb-4 bg-slate-50 p-4 rounded-full"><i data-lucide="map-pin" class="w-8 h-8 text-broncos-orange"></i></div>
+                        <h3 class="text-slate-500 font-bold uppercase text-xs tracking-wider mb-2">Location</h3>
+                        <p class="text-2xl md:text-3xl font-black text-broncos-navy mb-1">Downtown Denver</p>
+                        <p class="text-sm text-broncos-orange font-medium">Union Station to Civic Center</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Countdown Section -->
+            <div class="bg-slate-900 text-white py-16">
+                <div class="max-w-4xl mx-auto px-4 text-center">
+                    <h2 class="text-3xl font-bold mb-8 uppercase tracking-widest text-slate-400">Countdown to Celebration</h2>
+                    <div class="grid grid-cols-3 gap-4 md:gap-8">
+                        <div class="flex flex-col items-center">
+                            <div id="cd-days" class="text-5xl md:text-7xl font-black text-broncos-orange font-mono bg-white/5 w-full py-4 rounded-lg backdrop-blur-sm border border-white/10">00</div>
+                            <span class="text-slate-400 uppercase text-xs tracking-widest mt-3 font-bold">Days</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div id="cd-hours" class="text-5xl md:text-7xl font-black text-broncos-orange font-mono bg-white/5 w-full py-4 rounded-lg backdrop-blur-sm border border-white/10">00</div>
+                            <span class="text-slate-400 uppercase text-xs tracking-widest mt-3 font-bold">Hours</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div id="cd-minutes" class="text-5xl md:text-7xl font-black text-broncos-orange font-mono bg-white/5 w-full py-4 rounded-lg backdrop-blur-sm border border-white/10">00</div>
+                            <span class="text-slate-400 uppercase text-xs tracking-widest mt-3 font-bold">Minutes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === ROUTE TAB === -->
+        <div id="tab-route" class="tab-content hidden slide-in max-w-5xl mx-auto px-4 py-12">
+            <h2 class="text-4xl font-black text-broncos-navy mb-2">THE ROUTE</h2>
+            <p class="text-xl text-slate-600 mb-8">From Union Station to the steps of the Capitol.</p>
+
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+                <!-- CSS Map -->
+                <div class="bg-slate-100 p-8 flex items-center justify-center h-96 relative city-pattern">
+                    <div class="relative w-full max-w-lg h-64">
+                        <!-- Streets -->
+                        <div class="absolute top-0 left-1/2 w-4 h-full bg-slate-300 -translate-x-1/2"></div>
+                        <div class="absolute top-1/2 left-0 w-full h-4 bg-slate-300 -translate-y-1/2"></div>
+
+                        <!-- Route Line -->
+                        <div class="absolute top-10 left-1/2 w-2 h-44 bg-broncos-orange -translate-x-1/2 z-10 animate-pulse"></div>
+                        <div class="absolute top-[13rem] left-1/2 w-24 h-2 bg-broncos-orange z-10"></div>
+
+                        <!-- Start Point -->
+                        <div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center group">
+                            <div class="w-6 h-6 bg-broncos-navy rounded-full border-4 border-white shadow-md"></div>
+                            <span class="bg-broncos-navy text-white text-xs px-2 py-1 rounded mt-1 font-bold">START: Union Station</span>
+                        </div>
+
+                        <!-- End Point -->
+                        <div class="absolute top-[12.5rem] left-[14rem] z-20 flex flex-col items-center">
+                            <div class="w-8 h-8 bg-broncos-orange rounded-full border-4 border-white shadow-md flex items-center justify-center">
+                                <i data-lucide="trophy" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <span class="bg-broncos-orange text-white text-xs px-2 py-1 rounded mt-1 font-bold">END: Civic Center</span>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-4 right-4 bg-white/90 p-2 rounded text-xs text-slate-500 font-mono">
+                        *Map is illustrative
+                    </div>
+                </div>
+
+                <div class="p-8">
+                    <h3 class="text-xl font-bold text-broncos-navy mb-6 flex items-center">
+                        <i data-lucide="map-pin" class="mr-2 text-broncos-orange"></i> Turn-by-Turn Guide
+                    </h3>
+                    <ol class="relative border-l-2 border-slate-200 ml-3 space-y-8">
+                        <li class="ml-6">
+                            <span class="absolute flex items-center justify-center w-8 h-8 bg-broncos-navy rounded-full -left-4 ring-4 ring-white">
+                                <i data-lucide="clock" class="w-4 h-4 text-white"></i>
+                            </span>
+                            <h3 class="flex items-center mb-1 text-lg font-bold text-broncos-navy">
+                                Departure
+                                <span class="bg-broncos-orange text-white text-xs font-medium mr-2 px-2.5 py-0.5 rounded ml-3">10:00 AM</span>
+                            </h3>
+                            <p class="mb-4 text-base font-normal text-slate-500">Parade departs from Wynkoop St & 17th St (Union Station).</p>
+                        </li>
+                        <li class="ml-6">
+                            <span class="absolute flex items-center justify-center w-8 h-8 bg-broncos-navy rounded-full -left-4 ring-4 ring-white">
+                                <i data-lucide="clock" class="w-4 h-4 text-white"></i>
+                            </span>
+                            <h3 class="flex items-center mb-1 text-lg font-bold text-broncos-navy">
+                                17th Street Corridor
+                                <span class="bg-broncos-orange text-white text-xs font-medium mr-2 px-2.5 py-0.5 rounded ml-3">10:30 AM</span>
+                            </h3>
+                            <p class="mb-4 text-base font-normal text-slate-500">Proceeds southeast down 17th Street through the financial district.</p>
+                        </li>
+                        <li class="ml-6">
+                            <span class="absolute flex items-center justify-center w-8 h-8 bg-broncos-navy rounded-full -left-4 ring-4 ring-white">
+                                <i data-lucide="clock" class="w-4 h-4 text-white"></i>
+                            </span>
+                            <h3 class="flex items-center mb-1 text-lg font-bold text-broncos-navy">
+                                Arrival at Civic Center
+                                <span class="bg-broncos-orange text-white text-xs font-medium mr-2 px-2.5 py-0.5 rounded ml-3">11:30 AM</span>
+                            </h3>
+                            <p class="mb-4 text-base font-normal text-slate-500">Parade concludes at Civic Center Park for the main rally.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- === RALLY TAB === -->
+        <div id="tab-rally" class="tab-content hidden slide-in max-w-5xl mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-black text-broncos-navy mb-6">THE RALLY</h2>
+                    <div class="prose prose-lg text-slate-600">
+                        <p class="mb-4">Join players, coaches, and alumni at Civic Center Park for the official celebration ceremony.</p>
+                        <ul class="space-y-4 list-none pl-0">
+                            <li class="flex items-start">
+                                <i data-lucide="music" class="w-6 h-6 text-broncos-orange mr-3 flex-shrink-0 mt-1"></i>
+                                <div>
+                                    <strong class="block text-broncos-navy">Live Music</strong>
+                                    <span class="text-sm">Pre-rally concert starting at 9:00 AM.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="trophy" class="w-6 h-6 text-broncos-orange mr-3 flex-shrink-0 mt-1"></i>
+                                <div>
+                                    <strong class="block text-broncos-navy">Lombardi Presentation</strong>
+                                    <span class="text-sm">Team captains hoist the trophy at 12:30 PM.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="cloud-sun" class="w-6 h-6 text-broncos-orange mr-3 flex-shrink-0 mt-1"></i>
+                                <div>
+                                    <strong class="block text-broncos-navy">Weather Advisory</strong>
+                                    <span class="text-sm">Forecast is 45°F and Sunny. Dress in Orange.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-broncos-navy rounded-2xl p-8 text-white shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-broncos-orange rounded-full opacity-50 blur-xl"></div>
+                    <h3 class="text-2xl font-bold mb-6 border-b border-broncos-orange pb-4">Fan Guidelines</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                            <span>Alcohol Policy</span>
+                            <span class="text-broncos-orange font-bold">Prohibited</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                            <span>Bag Policy</span>
+                            <span class="text-green-400 font-bold">Clear Bags Only</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                            <span>Camping</span>
+                            <span class="text-broncos-orange font-bold">No Overnight</span>
+                        </div>
+                        <div class="mt-6 p-4 bg-broncos-orange/10 border border-broncos-orange rounded-lg text-sm">
+                            <strong class="block text-broncos-orange mb-1">Safety First</strong>
+                            Please do not climb traffic signals, bus stops, or trees.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === JOBS TAB === -->
+        <div id="tab-jobs" class="tab-content hidden slide-in max-w-4xl mx-auto px-4 py-12">
+            <div class="text-center mb-10">
+                <span class="inline-block py-1 px-3 rounded-full bg-broncos-orange/10 text-broncos-orange font-bold text-sm mb-4">JOIN THE TEAM</span>
+                <h2 class="text-4xl font-black text-broncos-navy mb-4">BE PART OF HISTORY</h2>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto">We are pre-hiring 40+ high-energy sales reps to sell Championship Flags during the parade.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+                <div class="bg-broncos-orange text-white p-6 text-center">
+                    <h3 class="text-2xl font-bold uppercase tracking-wider">Sales Rep Position</h3>
+                    <p class="opacity-90 font-medium mt-1">IF and WHEN the Broncos bring it home! 🏈🔥</p>
+                </div>
+
+                <div class="p-8 grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="flex items-center text-broncos-navy font-bold mb-2">
+                                <i data-lucide="dollar-sign" class="w-5 h-5 mr-2 text-broncos-orange"></i> Earnings
+                            </h4>
+                            <p class="text-slate-600">20% commission. Top reps average <span class="font-bold text-green-600">$250–$500+</span> for the day. Cash paid at the end!</p>
+                        </div>
+
+                        <div>
+                            <h4 class="flex items-center text-broncos-navy font-bold mb-2">
+                                <i data-lucide="clock" class="w-5 h-5 mr-2 text-broncos-orange"></i> Hours & Dates
+                            </h4>
+                            <p class="text-slate-600">
+                                <strong>Dates:</strong> Tue, Feb 10 or Wed, Feb 11<br/>
+                                <strong>Shift:</strong> 7:30 AM – 3:00 PM
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="flex items-center text-broncos-navy font-bold mb-2">
+                                <i data-lucide="shield" class="w-5 h-5 mr-2 text-broncos-orange"></i> The Gig
+                            </h4>
+                            <p class="text-slate-600">Selling Stick Flags and 3x5ft Flags. This is a SALES gig — no hourly pay. High energy required!</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-6 rounded-xl border-2 border-dashed border-slate-300 flex flex-col justify-center">
+                        <h4 class="text-xl font-bold text-broncos-navy mb-4 text-center">How to Apply</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                                <i data-lucide="phone" class="w-6 h-6 text-broncos-orange mr-3"></i>
+                                <span class="text-slate-600">Send your <strong>Name</strong> & <strong>Cell #</strong></span>
+                            </div>
+                            <div class="flex items-center p-3 bg-white rounded-lg shadow-sm">
+                                <i data-lucide="camera" class="w-6 h-6 text-broncos-orange mr-3"></i>
+                                <span class="text-slate-600">Attach a <strong>recent photo</strong></span>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center text-sm text-slate-500 italic">"Once the Broncos win it all, we’ll text final details. Let’s go, Denver!"</div>
+                        <button class="mt-4 w-full py-3 bg-broncos-navy text-white font-bold rounded-lg hover:bg-[#0A2343] transition-colors">Send Text Application</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === TRANSPORT TAB === -->
+        <div id="tab-transport" class="tab-content hidden slide-in max-w-4xl mx-auto px-4 py-12">
+            <h2 class="text-4xl font-black text-broncos-navy mb-8 text-center">GETTING THERE</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-broncos-orange">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="bus" class="w-8 h-8 text-broncos-navy mr-3"></i>
+                        <h3 class="text-xl font-bold text-broncos-navy">RTD Services</h3>
+                    </div>
+                    <p class="text-slate-600 mb-4">
+                        RTD is adding capacity to all light rail lines (E, H, W). Union Station will be extremely busy.
+                        Consider exiting at <span class="font-bold">Ball Arena/Elitch Gardens</span> and walking.
+                    </p>
+                    <button class="text-broncos-orange font-bold hover:underline">View RTD Special Schedule &rarr;</button>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-broncos-navy">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="shield" class="w-8 h-8 text-broncos-orange mr-3"></i>
+                        <h3 class="text-xl font-bold text-broncos-navy">Road Closures</h3>
+                    </div>
+                    <p class="text-slate-600 mb-4">
+                        Downtown closures begin Monday at 8:00 PM. Avoid Broadway, Colfax, and Speer Blvd.
+                        Parking garages near the route will fill by 6:00 AM.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center p-8 bg-slate-100 rounded-2xl">
+                <h3 class="text-2xl font-bold text-broncos-navy mb-2">Ride Share Drop-off Zones</h3>
+                <p class="text-slate-600">Designated drop-off points are located at 20th & Lawrence and 14th & Bannock.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-broncos-navy text-white py-12 mt-20 border-t border-broncos-orange">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <i data-lucide="shield" class="w-12 h-12 mx-auto mb-6 text-broncos-orange fill-current text-[#FB4F14]"></i>
+            <h2 class="text-3xl font-black uppercase tracking-widest mb-4">United in Orange</h2>
+            <p class="text-slate-400 mb-8 max-w-lg mx-auto">Official Parade Guide for the Super Bowl LX Champions. Created for fans, by fans.</p>
+            <div class="text-sm text-slate-500">&copy; 2026 Broncos Country Celebration Committee.</div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // --- Icon Initialization ---
+        lucide.createIcons();
+
+        // --- Logic ---
+        function switchTab(tabId) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.add('hidden'));
+
+            // Show target tab
+            const target = document.getElementById('tab-' + tabId);
+            if (target) {
+                target.classList.remove('hidden');
+                // Re-trigger animation hack
+                target.classList.remove('slide-in');
+                void target.offsetWidth;
+                target.classList.add('slide-in');
+            }
+
+            // Update Nav Buttons State (Desktop)
+            const btns = document.querySelectorAll('.nav-btn');
+            btns.forEach(btn => {
+                if(btn.dataset.target === tabId) {
+                    btn.className = "nav-btn px-3 py-2 rounded-md text-sm font-bold uppercase tracking-wide transition-colors bg-broncos-orange text-white";
+                } else {
+                    btn.className = "nav-btn px-3 py-2 rounded-md text-sm font-bold uppercase tracking-wide transition-colors text-slate-300 hover:text-white hover:bg-white/10";
+                }
+            });
+
+            // Close Mobile Menu if open
+            const menu = document.getElementById('mobile-menu');
+            if(!menu.classList.contains('hidden')) {
+                toggleMobileMenu();
+            }
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            menu.classList.toggle('hidden');
+
+            if (menu.classList.contains('hidden')) {
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            } else {
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            }
+        }
+
+        // --- Countdown Logic ---
+        function startCountdown() {
+            const targetDate = new Date('February 10, 2026 10:00:00').getTime();
+
+            function update() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    document.getElementById('cd-days').innerText = "00";
+                    document.getElementById('cd-hours').innerText = "00";
+                    document.getElementById('cd-minutes').innerText = "00";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+                document.getElementById('cd-days').innerText = days.toString().padStart(2, '0');
+                document.getElementById('cd-hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('cd-minutes').innerText = minutes.toString().padStart(2, '0');
+            }
+
+            update();
+            setInterval(update, 60000);
+        }
+
+        // --- Init ---
+        document.addEventListener('DOMContentLoaded', () => {
+            startCountdown();
+        });
+
+    </script>
+</body>
+</html>
