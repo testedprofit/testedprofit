@@ -526,7 +526,11 @@
             if (mouse.down) spawnParticles(mode === 'stress' ? 10 : 2);
             else if (mode === 'stress') spawnParticles(5);
 
-            particles = particles.filter(p => p.update());
+            for (let i = particles.length - 1; i >= 0; i--) {
+                if (!particles[i].update()) {
+                    particles.splice(i, 1);
+                }
+            }
             particles.forEach(p => p.draw(ctx));
             requestAnimationFrame(animate);
         }
