@@ -491,8 +491,19 @@
             updateCalculator();
         });
 
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                const context = this;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(context, args), wait);
+            };
+        }
+
+        const debouncedUpdate = debounce(updateCalculator, 50);
+
         Object.values(inputs).forEach(input => {
-            input.addEventListener('input', updateCalculator);
+            input.addEventListener('input', debouncedUpdate);
         });
 
         initChart();
