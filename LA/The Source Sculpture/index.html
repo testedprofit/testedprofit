@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestedProfit | The Source (La Source)</title>
+    <meta name="description" content="The Source Statue - 1984 World's Fair Monument, New Orleans">
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            concrete: '#a1a1aa', // Zinc/Concrete
+                            flow: '#06b6d4',     // Cyan/Water Source
+                            median: '#64748b'    // Urban Slate
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero-glow {
+            /* Concrete and Flow tones */
+            background: radial-gradient(circle at 30% 20%, rgba(161, 161, 170, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.4); /* Flow hover */
+            transform: translateY(-2px);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-flow transition-colors duration-200">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-flow hover:text-cyan-400 transition-colors duration-200">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-cyan-500/30 text-[10px] font-black text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-500/60 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-flow transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-flow uppercase tracking-widest hover:text-cyan-400 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-concrete transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-20 container mx-auto px-6">
+        
+        <!-- Hero / Title Section -->
+        <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-down">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accent-concrete/20 border border-accent-concrete/30 text-gray-300 text-xs font-bold tracking-widest uppercase mb-6">
+                <span class="w-2 h-2 rounded-full bg-accent-flow animate-pulse"></span>
+                <span>World's Fair 1984</span>
+            </div>
+            
+            <h1 class="text-5xl lg:text-7xl font-black text-white leading-[1.1] mb-4 tracking-tight">
+                "The Source" <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-concrete to-accent-flow">(La Source).</span>
+            </h1>
+            
+            <p class="text-xl text-gray-400 font-medium mb-2">Public Art on Elk Place</p>
+            <p class="text-sm text-gray-500 uppercase tracking-widest">Artists: Claude & François-Xavier Lalanne</p>
+        </div>
+
+        <!-- Commission & Concept (Split Grid) -->
+        <div class="grid lg:grid-cols-2 gap-8 mb-16 max-w-5xl mx-auto">
+            
+            <!-- Left: The Commission -->
+            <div class="glass-card p-8 rounded-2xl" data-aos="fade-right">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                    <span class="w-8 h-1 bg-accent-flow rounded-full"></span>
+                    Fair Legacy
+                </h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    Commissioned specifically for the <strong class="text-white">1984 Louisiana World Exposition</strong>. The fair's theme, "Fresh Water as a Source of Life," drove the design of this large, stylized concrete head, originally intended to function as a fountain.
+                </p>
+                <div class="bg-white/5 p-4 rounded-xl border-l-2 border-accent-flow">
+                    <p class="text-sm text-gray-300"><strong class="text-white">Design Intent:</strong> Water was meant to flow from the eyes into a pool below, symbolizing life's origin.</p>
+                </div>
+            </div>
+
+            <!-- Right: The Reality -->
+            <div class="relative glass-card p-8 rounded-2xl overflow-hidden group" data-aos="fade-left" data-aos-delay="100">
+                <!-- Subtle background decoration -->
+                <div class="absolute -right-10 -top-10 w-32 h-32 bg-accent-concrete/10 rounded-full blur-2xl group-hover:bg-accent-concrete/20 transition-all"></div>
+                
+                <h3 class="text-xl font-bold text-accent-concrete mb-4">Current State</h3>
+                <p class="text-gray-400 leading-relaxed mb-4">
+                    Moved to the Elk Place median after the fair. While it remains a unique piece of surrealist public art by the celebrated French duo, it has suffered from periods of neglect and hydraulic failure.
+                </p>
+                
+                <div class="bg-red-500/10 border border-red-500/20 p-4 rounded-lg mt-4">
+                    <div class="flex items-start space-x-3">
+                        <svg class="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <div>
+                            <h4 class="text-sm font-bold text-white uppercase tracking-wide">Conservation Note</h4>
+                            <p class="text-xs text-gray-400 mt-1">Water features are often inactive due to leaks. The sculpture stands dry, emphasizing its form over its function.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visitor Protocol (3 Column Grid) -->
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-lg font-bold text-white mb-6 uppercase tracking-widest pl-2 border-l-4 border-accent-median">Visitor Protocol</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Location -->
+                <article class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-10 h-10 rounded-lg bg-accent-concrete/20 flex items-center justify-center mb-4 text-gray-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Elk Place Median</h3>
+                    <p class="text-sm text-gray-400">135 Elk Place.<br>Across from Tulane School of Social Work.</p>
+                </article>
+
+                <!-- Access -->
+                <article class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-10 h-10 rounded-lg bg-accent-flow/10 flex items-center justify-center mb-4 text-accent-flow">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Access Level</h3>
+                    <p class="text-sm text-gray-400"><strong class="text-white">Free / 24 Hours.</strong> Located on a public street neutral ground.</p>
+                </article>
+
+                <!-- Context -->
+                <article class="glass-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-10 h-10 rounded-lg bg-accent-median/20 flex items-center justify-center mb-4 text-gray-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Urban Setting</h3>
+                    <p class="text-sm text-gray-400">Situated in a high-traffic corridor. Caution advised when accessing the median.</p>
+                </article>
+            </div>
+        </div>
+
+        <!-- Footer / Location Data -->
+        <div class="mt-16 pt-8 border-t border-white/5 text-center">
+            <p class="text-lg font-mono text-accent-concrete mb-2">Theme: Fresh Water as a Source of Life</p>
+            <p class="text-xs text-gray-600 uppercase tracking-[0.2em]">A surrealist remnant of 1984</p>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
