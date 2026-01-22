@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riverfront Park Statue (Unnamed) | Durango, CO Directory</title>
+    <meta name="description" content="A guide to the unnamed metal sculpture at Riverfront Park in Durango, CO. A distinctive landmark located along the scenic Animas River Trail.">
+    
+    <!-- External Scripts & Styles -->
+    <!-- Note: For maximum production speed, replace this CDN script with a compiled CSS file -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts: Preconnected for speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Removed FontAwesome to save ~70KB+ of load size. Using SVGs instead. -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B; /* Fallback */
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Improved Performance: Use opacity for animations instead of layout changes */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity; /* Hints browser to optimize rendering */
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none; /* Prevent clicks when hidden */
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <!-- Added animate-pulse-slow for subtle "living" effect -->
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <!-- Added width/height for SEO (prevents layout shift) and fetchpriority for Load Speed -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button (Replaced Icon Font with SVG) -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <!-- Close Button (Replaced Icon Font with SVG) -->
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6 max-w-4xl">
+        
+        <!-- Header Section -->
+        <div class="mb-12 border-b border-white/10 pb-8" data-aos="fade-up">
+            <span class="text-accent-teal font-bold tracking-widest text-xs uppercase mb-3 block">Public Art</span>
+            <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">Riverfront Park Statue (Unnamed)</h1>
+            <p class="text-lg text-gray-400 max-w-2xl">A distinctive metal sculpture located at 1129 Camino Del Rio, serving as a landmark along the scenic Animas River Trail.</p>
+        </div>
+
+        <!-- Introduction -->
+        <section class="mb-12" data-aos="fade-up" data-aos-delay="100">
+            <div class="prose prose-invert prose-lg max-w-none">
+                <p>
+                    Situated within the grassy expanse of Riverfront Park, the unnamed "Statue" at 1129 Camino Del Rio is a notable feature of Durango's public landscape. Though the specific artist and subject title are not widely publicized, the metal sculpture stands on a concrete base as a recognizable wayfinding point for recreational users of the area.
+                </p>
+                <p>
+                    The artwork is positioned directly adjacent to the Animas River Trail, the city's primary recreational artery that stretches over seven miles through the heart of Durango. As part of the city's broader commitment to public art, the piece contributes to the visual identity of the river corridor, complementing the natural beauty of the surrounding environment.
+                </p>
+                <p>
+                    Open to the public 24 hours a day, the site serves as a resting point for cyclists, runners, and pedestrians. Its location offers immediate access to the river's edge, making it a popular spot for observing local wildlife, including deer and waterfowl, amidst the urban setting.
+                </p>
+            </div>
+        </section>
+
+        <!-- Key Facts Grid -->
+        <section class="mb-12 bg-white/5 rounded-2xl p-8 border border-white/10" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-3 text-accent-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Key Facts
+            </h2>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-gray-300">
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Location:</span> 1129 Camino Del Rio, Durango, CO 81301</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Setting:</span> Riverfront Park / Animas River Trail</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Material:</span> Metal Sculpture on Concrete Base</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Access:</span> Open 24/7, Public Right-of-Way</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Admission:</span> Free</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Artist:</span> Unknown / Unnamed</li>
+            </ul>
+        </section>
+
+        <!-- Notable Features -->
+        <section class="mb-12" data-aos="fade-up" data-aos-delay="300">
+            <h2 class="text-2xl font-bold text-white mb-6">Notable Features & Attributes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-emerald mb-2">Trailside Landmark</h3>
+                    <p class="text-sm text-gray-400">Positioned in a grassy clearing, the sculpture acts as a distinct visual marker for travelers navigating the 7-mile Animas River Trail system.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-emerald mb-2">Artistic Context</h3>
+                    <p class="text-sm text-gray-400">While individually unnamed, the piece functions as part of Durango's larger public art initiative, which includes the nearby Solar System model and the "Ore to Earth" installation.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-emerald mb-2">Wildlife Observation</h3>
+                    <p class="text-sm text-gray-400">The open space surrounding the sculpture is a known habitat for local fauna, providing opportunities to view birds and deer along the riverbanks.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-emerald mb-2">Durango Aesthetic</h3>
+                    <p class="text-sm text-gray-400">The metal construction reflects the region's industrial and artistic character, blending modern creative expression with the rugged outdoor landscape.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visitor Information -->
+        <section class="mb-12" data-aos="fade-up" data-aos-delay="400">
+            <h2 class="text-2xl font-bold text-white mb-6">Visitor Information</h2>
+            <div class="space-y-6 text-gray-300">
+                <p>
+                    <strong class="text-white block mb-1">Access & Parking</strong>
+                    The site is located at 1129 Camino Del Rio. Wheelchair-accessible parking is available nearby, and the paved nature of the Animas River Trail ensures accessibility for all mobility levels.
+                </p>
+                <p>
+                    <strong class="text-white block mb-1">Recreational Use</strong>
+                    The area is heavily used for walking, running, and cycling. Visitors are encouraged to respect the trail etiquette, as it is a multi-use path connecting various parts of the city.
+                </p>
+                <p>
+                    <strong class="text-white block mb-1">Nearby Amenities</strong>
+                    Being in Riverfront Park, the sculpture is close to downtown Durango's amenities, including restrooms, picnic areas, and river access points for rafting or fishing.
+                </p>
+            </div>
+        </section>
+
+        <!-- Local Context -->
+        <section class="mb-16 pt-8 border-t border-white/10" data-aos="fade-up" data-aos-delay="500">
+            <h3 class="text-xl font-bold text-white mb-4">Local Context & Connections</h3>
+            <p class="text-gray-400 mb-6">
+                The sculpture is integrated into Durango's extensive network of outdoor recreation and creative spaces.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="https://testedprofit.com/pages/landmarks/" class="flex-1 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                    <span class="text-accent-teal text-xs font-bold uppercase tracking-wider mb-1 block">Connecting Trail</span>
+                    <span class="font-bold text-white group-hover:text-accent-teal transition-colors">Animas River Trail System</span>
+                </a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="flex-1 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                    <span class="text-accent-teal text-xs font-bold uppercase tracking-wider mb-1 block">Related Collection</span>
+                    <span class="font-bold text-white group-hover:text-accent-teal transition-colors">Durango Public Art Collection</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Neutral Summary -->
+        <footer class="bg-slate-950/50 rounded-xl p-6 border border-white/5" data-aos="fade-in">
+            <p class="text-sm text-gray-500 leading-relaxed">
+                The unnamed sculpture at 1129 Camino Del Rio is a public art installation located in Riverfront Park, Durango, Colorado. Situated along the Animas River Trail, the metal artwork serves as a local landmark and enhances the recreational experience of the city's primary greenway. The site is open to the public year-round with free admission.
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50 // Trigger animations slightly earlier
+        });
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
