@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huey Pierce Long Statue & Tombstone | Baton Rouge, Louisiana</title>
+    <meta name="description" content="Visit the monumental tomb and bronze statue of Huey P. Long in the Louisiana State Capitol gardens. A historic memorial to 'The Kingfish' unveiled in 1940.">
+    
+    <!-- External Scripts & Styles -->
+    <!-- Note: For maximum production speed, replace this CDN script with a compiled CSS file -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts: Preconnected for speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Removed FontAwesome to save ~70KB+ of load size. Using SVGs instead. -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B; /* Fallback */
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Improved Performance: Use opacity for animations instead of layout changes */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity; /* Hints browser to optimize rendering */
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none; /* Prevent clicks when hidden */
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <!-- Added animate-pulse-slow for subtle "living" effect -->
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <!-- Added width/height for SEO (prevents layout shift) and fetchpriority for Load Speed -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button (Replaced Icon Font with SVG) -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <!-- Close Button (Replaced Icon Font with SVG) -->
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-20 container mx-auto px-6 max-w-6xl">
+        
+        <!-- Header Section -->
+        <section class="mb-16" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+                Huey Pierce Long <span class="text-accent-teal">Statue & Tombstone</span>
+            </h1>
+            <p class="text-xl text-gray-400 font-medium flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-accent-emerald">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+                Baton Rouge, Louisiana
+            </p>
+        </section>
+
+        <!-- Intro Overview -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
+            <div class="lg:col-span-2 space-y-6 text-gray-300 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                <p>
+                    The Huey Pierce Long Statue and Tombstone stands as the central monumental feature of the Louisiana State Capitol gardens. Unveiled on March 21, 1940, roughly five years after his assassination, the monument serves as both a public tribute to the populist leader known as "The Kingfish" and his final resting place.
+                </p>
+                <p>
+                    Unlike traditional burials, Long is interred directly beneath the monument in the sunken formal gardens he helped envision. The site faces the skyscraper-style State Capitol building that he commissioned, creating a permanent visual link between the man and his most visible architectural legacy.
+                </p>
+                <p>
+                    The site draws historians, political enthusiasts, and the general public, offering a tangible connection to one of the most tumultuous and transformative eras in Louisiana history. The sheer scale of the monument, combined with its intricate symbolic reliefs, reflects the outsized impact Long had on the state's infrastructure and education systems.
+                </p>
+            </div>
+
+            <!-- Key Facts Card -->
+            <div class="lg:col-span-1" data-aos="fade-left" data-aos-delay="200">
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                    <h3 class="text-white font-bold text-xl mb-6 border-b border-white/10 pb-4">Key Facts</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent-emerald mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                    <path fill-rule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 103 9c0 3.492 1.698 5.988 3.355 7.625a19.015 19.015 0 002.273 1.765c.311.193.571.337.757.433.092.047.185.092.28.14l.019.008.006.003h.002zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong class="text-white block text-sm">Location</strong>
+                                <span class="text-sm text-gray-400">400 State Capitol Dr, Baton Rouge, LA</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent-emerald mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                    <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong class="text-white block text-sm">Category</strong>
+                                <span class="text-sm text-gray-400">Memorial / Historic Gravesite</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent-emerald mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                    <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong class="text-white block text-sm">Significance</strong>
+                                <span class="text-sm text-gray-400">Burial Site of Huey P. Long</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent-emerald mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong class="text-white block text-sm">Artist</strong>
+                                <span class="text-sm text-gray-400">Charles Keck</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notable Features -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-accent-teal pl-4">Notable Features & Architecture</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Feature 1 -->
+                <div class="group bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-teal/30 transition-all duration-300" data-aos="fade-up">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">The Bronze Statue</h3>
+                    <p class="text-gray-400 text-sm">
+                        Sculpted by Charles Keck, the 12-foot bronze figure stands atop an 18-foot carved marble pillar, creating a total height of approximately 30–35 feet. The statue is positioned to look directly at the Capitol building, symbolizing Long's continued watch over the state's governance.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="group bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-teal/30 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">Narrative Reliefs</h3>
+                    <p class="text-gray-400 text-sm">
+                        The white marble base features intricate relief carvings depicting Long's major populist initiatives: the distribution of free school books to children, the construction of the modern State Capitol, and the building of the Huey P. Long Bridge.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="group bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-teal/30 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">The Riderless Horse</h3>
+                    <p class="text-gray-400 text-sm">
+                        A poignant relief on the front of the pedestal displays a riderless rearing horse carrying a "Share the Wealth" banner. This imagery traditionally symbolizes a leader who has fallen in battle, reflecting the violent nature of his death.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="group bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-teal/30 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">The Tomb & Inscription</h3>
+                    <p class="text-gray-400 text-sm">
+                        Huey P. Long is buried beneath the granite foundation of the monument. The rear of the base is inscribed with his own words from a 1935 Senate speech: "I know the hearts of the people because I have not colored my own."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visitor Information -->
+        <section class="mb-20 bg-gradient-to-r from-slate-900 to-slate-900/50 rounded-2xl p-8 border border-white/5" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-white mb-6">Visitor Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+                <div>
+                    <h4 class="text-accent-teal font-bold uppercase tracking-wider mb-2">Access & Admission</h4>
+                    <p class="text-gray-300">The monument is located in a public park area that is accessible 24 hours a day. Admission to the gardens and the monument site is entirely free.</p>
+                </div>
+                <div>
+                    <h4 class="text-accent-teal font-bold uppercase tracking-wider mb-2">Observation Deck View</h4>
+                    <p class="text-gray-300">For a unique aerial perspective of the statue and the formal garden layout, visitors can access the State Capitol's 27th-floor observation deck.</p>
+                </div>
+                <div>
+                    <h4 class="text-accent-teal font-bold uppercase tracking-wider mb-2">Location Context</h4>
+                    <p class="text-gray-300">400 State Capitol Dr.<br>Located directly in front of the Louisiana State Capitol building in the sunken gardens.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Local Context & Internal Connections -->
+        <section class="mb-12 border-t border-white/10 pt-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-white mb-6">Local Context & Nearby Landmarks</h2>
+            <p class="text-gray-400 mb-6">
+                The statue is an integral part of the Capitol complex. Visitors typically explore the surrounding historic sites to gain a full understanding of Long's legacy.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a href="#" class="block p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors border-l-2 border-accent-emerald">
+                    <h3 class="text-white font-bold">Louisiana State Capitol</h3>
+                    <p class="text-xs text-gray-400 mt-1">The skyscraper commissioned by Long, which also houses the site of his assassination marked by a plaque.</p>
+                </a>
+                <a href="#" class="block p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors border-l-2 border-accent-emerald">
+                    <h3 class="text-white font-bold">Old State Capitol</h3>
+                    <p class="text-xs text-gray-400 mt-1">Located nearby, this gothic revival castle houses a museum containing the original plaster model of the statue.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Neutral Summary -->
+        <section class="text-center max-w-2xl mx-auto pt-8 pb-12">
+            <p class="text-gray-500 text-sm">
+                The Huey Pierce Long Statue and Tombstone serves as a permanent historical marker in Baton Rouge. It physically anchors the legacy of one of Louisiana's most controversial and influential figures within the grounds of the government seat he built.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50 // Trigger animations slightly earlier
+        });
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
