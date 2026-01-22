@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keith Whitley Memorial Statue | Sandy Hook, KY Directory</title>
+    <meta name="description" content="A guide to the Keith Whitley Memorial Statue in Sandy Hook, KY. Explore the life-size bronze tribute to the country music legend at the Elliott County Courthouse.">
+    
+    <!-- External Scripts & Styles -->
+    <!-- Note: For maximum production speed, replace this CDN script with a compiled CSS file -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts: Preconnected for speed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Removed FontAwesome to save ~70KB+ of load size. Using SVGs instead. -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B; /* Fallback */
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Improved Performance: Use opacity for animations instead of layout changes */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity; /* Hints browser to optimize rendering */
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none; /* Prevent clicks when hidden */
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <!-- Added animate-pulse-slow for subtle "living" effect -->
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <!-- Added width/height for SEO (prevents layout shift) and fetchpriority for Load Speed -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button (Replaced Icon Font with SVG) -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <!-- Close Button (Replaced Icon Font with SVG) -->
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6 max-w-4xl">
+        
+        <!-- Header Section -->
+        <div class="mb-12 border-b border-white/10 pb-8" data-aos="fade-up">
+            <span class="text-accent-teal font-bold tracking-widest text-xs uppercase mb-3 block">Cultural Monument</span>
+            <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">Keith Whitley Memorial Statue</h1>
+            <p class="text-lg text-gray-400 max-w-2xl">A life-size bronze monument in Sandy Hook honoring the legacy of the Country Music Hall of Fame inductee.</p>
+        </div>
+
+        <!-- Introduction -->
+        <section class="mb-12" data-aos="fade-up" data-aos-delay="100">
+            <div class="prose prose-invert prose-lg max-w-none">
+                <p>
+                    The Keith Whitley Memorial Statue is a prominent public landmark located in Sandy Hook, Kentucky, situated directly in front of the Elliott County Courthouse. Unveiled on May 10, 2019, the 30th anniversary of his passing, the monument serves as a permanent tribute to the country music legend who was born and raised in the area.
+                </p>
+                <p>
+                    Created by sculptor Gary Staab, the life-size bronze statue captures the likeness of Whitley, who is celebrated as one of the genre's greatest vocalists. Known for hits such as "Don't Close Your Eyes" and his authentic blend of bluegrass and honky-tonk, Whitley's influence persists decades after his untimely death at age 33.
+                </p>
+                <p>
+                    The site functions as a pilgrimage destination for country music fans from around the world. It provides a focal point for tourism in Elliott County, connecting visitors to the roots of a musician who was posthumously inducted into the Country Music Hall of Fame in 2022.
+                </p>
+            </div>
+        </section>
+
+        <!-- Key Facts Grid -->
+        <section class="mb-12 bg-white/5 rounded-2xl p-8 border border-white/10" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-3 text-accent-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Key Facts
+            </h2>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-gray-300">
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Location:</span> 1401 KY-7, Sandy Hook, KY 41171</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Artist:</span> Gary Staab</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Dedication:</span> May 10, 2019</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Subject:</span> Keith Whitley (1955–1989)</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Material:</span> Bronze</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Access:</span> Public (24 Hours)</li>
+            </ul>
+        </section>
+
+        <!-- Notable Features -->
+        <section class="mb-12" data-aos="fade-up" data-aos-delay="300">
+            <h2 class="text-2xl font-bold text-white mb-6">Notable Features & Attributes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-emerald mb-2">Bronze Likeness</h3>
+                    <p class="text-sm text-gray-400">The life-size bronze figure depicts Whitley standing with a guitar, a design chosen to reflect his musical authenticity and deep connection to traditional country sounds.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-emerald mb-2">Civic Setting</h3>
+                    <p class="text-sm text-gray-400">Positioned prominently in front of the Elliott County Courthouse, the statue underscores the town's immense pride in their "hometown hero."</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-emerald mb-2">Historical Marker</h3>
+                    <p class="text-sm text-gray-400">The statue stands adjacent to the official Keith Whitley Historical Marker, creating a comprehensive educational site regarding his life and career.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-emerald mb-2">Legacy Context</h3>
+                    <p class="text-sm text-gray-400">The memorial gained additional significance following Whitley's 2022 induction into the Country Music Hall of Fame, cementing his status as a genre icon.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visitor Information -->
+        <section class="mb-12" data-aos="fade-up" data-aos-delay="400">
+            <h2 class="text-2xl font-bold text-white mb-6">Visitor Information</h2>
+            <div class="space-y-6 text-gray-300">
+                <p>
+                    <strong class="text-white block mb-1">Accessibility & Hours</strong>
+                    The memorial is located outdoors at 1401 KY-7 and is accessible to the public 24 hours a day, year-round. There is no admission fee to visit the site.
+                </p>
+                <p>
+                    <strong class="text-white block mb-1">Parking</strong>
+                    Visitor parking is typically available around the courthouse square, though availability may vary during weekday business hours or court sessions.
+                </p>
+                <p>
+                    <strong class="text-white block mb-1">Fan Significance</strong>
+                    Visitors often leave flowers or small tokens at the base of the statue. It is a respectful space for fans to honor the singer's memory and contribution to American music.
+                </p>
+            </div>
+        </section>
+
+        <!-- Local Context -->
+        <section class="mb-16 pt-8 border-t border-white/10" data-aos="fade-up" data-aos-delay="500">
+            <h3 class="text-xl font-bold text-white mb-4">Local Context & Connections</h3>
+            <p class="text-gray-400 mb-6">
+                The statue is a central feature of the region's cultural heritage tourism, known as the "Holler" that produced a country music star.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="https://testedprofit.com/pages/landmarks/" class="flex-1 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                    <span class="text-accent-teal text-xs font-bold uppercase tracking-wider mb-1 block">Related Category</span>
+                    <span class="font-bold text-white group-hover:text-accent-teal transition-colors">Kentucky Musical Heritage</span>
+                </a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="flex-1 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                    <span class="text-accent-teal text-xs font-bold uppercase tracking-wider mb-1 block">Nearby Attraction</span>
+                    <span class="font-bold text-white group-hover:text-accent-teal transition-colors">Elliott County Historical Sites</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Neutral Summary -->
+        <footer class="bg-slate-950/50 rounded-xl p-6 border border-white/5" data-aos="fade-in">
+            <p class="text-sm text-gray-500 leading-relaxed">
+                The Keith Whitley Memorial Statue is a permanent bronze installation located at the Elliott County Courthouse in Sandy Hook, Kentucky. Dedicated in 2019, the monument honors the life and career of the Country Music Hall of Fame inductee Keith Whitley. It serves as a publicly accessible historical landmark for fans and tourists.
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50 // Trigger animations slightly earlier
+        });
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
