@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Heaviest Corner on Earth | TestedProfit Landmark</title>
+    <meta name="description" content="The Heaviest Corner on Earth: A historic intersection in Birmingham, Alabama, featuring four iconic early 20th-century skyscrapers.">
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        secondary: '#111827',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA',
+                            purple: '#8B5CF6',
+                            steel: '#94A3B8', // Added for the skyscrapers
+                            gold: '#F59E0B'   // Added for the Elyton/Neoclassical elements
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(148, 163, 184, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Gradient Text Utility */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #94A3B8, #F59E0B);
+        }
+        
+        .text-gradient-gold {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #F59E0B, #FCD34D);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="sticky top-0 z-50 bg-primary/95 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+            
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-10">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                
+                <a href="https://testedprofit.com/pages/PNET/" class="px-5 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-12 lg:pt-20 container mx-auto px-6 pb-24">
+        
+        <!-- Header / Intro -->
+        <section class="max-w-4xl mx-auto mb-16" data-aos="fade-up">
+            <div class="flex items-center space-x-2 text-accent-steel mb-4">
+                <span class="h-px w-8 bg-accent-steel"></span>
+                <span class="text-xs font-bold uppercase tracking-widest">Digital Landmark Profile</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                The Heaviest Corner <br class="hidden md:block" /> on <span class="text-gradient">Earth</span>
+            </h1>
+            <p class="text-xl text-gray-400 leading-relaxed max-w-2xl">
+                A historic intersection at 20th Street and 1st Avenue North, Birmingham. Named for the nearly simultaneous construction of four of the South's tallest skyscrapers between 1902 and 1912.
+            </p>
+        </section>
+
+        <!-- Main Info Grid -->
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+            
+            <!-- Card 1: History & Status -->
+            <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6">
+                    <!-- Building Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Historic Status</h3>
+                <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                    Listed on the <strong class="text-white">National Register of Historic Places</strong> in 1985.
+                </p>
+                <p class="text-gray-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+                    The intersection earned its nickname due to the immense weight of the steel and stone used to construct four massive skyscrapers on a single corner in just one decade.
+                </p>
+            </div>
+
+            <!-- Card 2: Visiting & Access -->
+            <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6">
+                    <!-- Map/Location Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Visiting Tips</h3>
+                <ul class="text-sm text-gray-400 space-y-3">
+                    <li class="flex items-start">
+                        <span class="w-1.5 h-1.5 bg-accent-gold rounded-full mr-2 mt-2"></span>
+                        <span><strong>24/7 Access:</strong> Public street corner, no admission fee.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-1.5 h-1.5 bg-accent-gold rounded-full mr-2 mt-2"></span>
+                        <span><strong>Marker:</strong> Bronze plaque located outside the Empire Building (Elyton Hotel).</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-1.5 h-1.5 bg-accent-gold rounded-full mr-2 mt-2"></span>
+                        <span class="text-accent-gold"><strong>Pro Tip:</strong> Visit the <em>MoonShine</em> rooftop bar at the Elyton Hotel for the best architectural views.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Feature Section: The Skyscrapers -->
+        <section class="glass-card rounded-3xl overflow-hidden relative border border-accent-steel/20" data-aos="zoom-in">
+            <!-- Ambient Glow -->
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent-steel/10 rounded-full blur-3xl"></div>
+            
+            <div class="p-8 md:p-12 relative z-10">
+                <h2 class="text-3xl font-bold text-white mb-8">The Four <span class="text-gradient">Historic Skyscrapers</span></h2>
+                
+                <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
+                    
+                    <!-- Building 1 -->
+                    <div class="group">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-lg font-bold text-white group-hover:text-accent-steel transition-colors">Woodward Building</h4>
+                            <span class="text-xs font-mono text-gray-500 border border-white/10 px-2 py-1 rounded">1902</span>
+                        </div>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Birmingham’s first steel-frame skyscraper, designed in the classic Chicago style.
+                        </p>
+                    </div>
+
+                    <!-- Building 2 -->
+                    <div class="group">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-lg font-bold text-white group-hover:text-accent-steel transition-colors">Brown-Marx Tower</h4>
+                            <span class="text-xs font-mono text-gray-500 border border-white/10 px-2 py-1 rounded">1906</span>
+                        </div>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Once the largest office building in the South (former U.S. Steel HQ). Redeveloping into a dual-branded <span class="text-white">AC & Element Hotel</span> (2026).
+                        </p>
+                    </div>
+
+                    <!-- Building 3 -->
+                    <div class="group">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-lg font-bold text-white group-hover:text-accent-gold transition-colors">Empire Building</h4>
+                            <span class="text-xs font-mono text-gray-500 border border-white/10 px-2 py-1 rounded">1909</span>
+                        </div>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            A stunning Neoclassical structure, once Alabama's tallest. Now houses the luxury <span class="text-accent-gold">Elyton Hotel</span>.
+                        </p>
+                    </div>
+
+                    <!-- Building 4 -->
+                    <div class="group">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-lg font-bold text-white group-hover:text-accent-steel transition-colors">John A. Hand Building</h4>
+                            <span class="text-xs font-mono text-gray-500 border border-white/10 px-2 py-1 rounded">1912</span>
+                        </div>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Originally the American Trust and Savings Bank. stood as the state's tallest building upon its completion.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Note -->
+        <div class="mt-16 text-center border-t border-white/5 pt-8">
+             <p class="text-gray-500 text-sm max-w-2xl mx-auto">
+                A testament to Birmingham's rapid industrial growth in the early 20th century, preserving the "Magic City" legacy in steel and stone.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 600, 
+            once: true,
+            offset: 50
+        });
+    });
+    </script>
+</body>
+</html>
