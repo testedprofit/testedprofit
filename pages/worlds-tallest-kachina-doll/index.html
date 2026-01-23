@@ -1,319 +1,273 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- 
-      SEO META TAGS (V3)
-      - Title and description remain optimized for search performance.
-    -->
-    <title>World's Tallest Kachina Doll: A Guide to Arizona's Hopi Landmark</title>
-    <meta name="description" content="Discover the complete guide to the World's Tallest Kachina Doll in Cave Creek, AZ. Learn about its Hopi cultural significance, the artist, and how to visit this towering 39-foot roadside attraction.">
-    <meta name="keywords" content="World's Tallest Kachina Doll, Hopi culture Arizona, Cave Creek Arizona, Tonto Hills, Phillip Sanderson artist, Corn Maiden Dancer, Arizona roadside attraction, Hopi spiritual beings, Arizona landmarks">
-
-    <!-- Google Fonts: DM Serif Display for headings, Inter for body -->
+    <title>World's Tallest Kachina Doll | Cave Creek, AZ Directory</title>
+    <meta name="description" content="A guide to the World's Tallest Kachina Doll in Cave Creek, AZ. Explore the 39-foot concrete sculpture by Phillip Sanderson honoring Hopi heritage.">
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- 
-      INTERNAL CSS - V3 (Complete Redesign for Quality & Compatibility)
-      - Addresses Shopify overflow issue by making container fluid and padding inner elements.
-      - Refined, elegant, and modern "digital article" aesthetic.
-      - Sophisticated typography and generous whitespace for readability.
-      - New, more subtle color palette inspired by the desert tones.
-      - Failsafe 'overflow-x: hidden' on the body to prevent horizontal scrollbars.
-    -->
-    <style>
-        :root {
-            /* New, more refined color palette */
-            --primary-text: #212529;
-            --heading-color: #343a40;
-            --background-color: #f8f9fa;
-            --accent-color: #9C4221; /* Muted Terracotta */
-            --subtle-gray: #e9ecef;
-            --white: #ffffff;
-
-            /* Spacing & Sizing */
-            --container-width: 1100px;
-            --border-radius: 8px;
-        }
-
-        /* Base & Typography */
-        html {
-            scroll-behavior: smooth;
-            font-size: 100%; /* 16px base */
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.75;
-            color: var(--primary-text);
-            background-color: var(--background-color);
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden; /* **SHOPIFY FIX**: Prevents horizontal scrollbars from container conflicts */
-        }
-
-        /* Heading & Text Styling */
-        h1, h2, h3 {
-            font-family: 'DM Serif Display', serif;
-            font-weight: 400;
-            line-height: 1.3;
-            color: var(--heading-color);
-        }
-
-        h1 { font-size: 4.25rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
-        h2 { font-size: 2.75rem; margin-top: 4rem; margin-bottom: 1.5rem; }
-        h3 { font-size: 1.75rem; color: var(--accent-color); margin-top: 3rem; margin-bottom: 1rem; }
-        
-        p { font-size: 1.125rem; margin-bottom: 1.5rem; }
-        
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.2s ease-in-out;
-        }
-        a:hover { opacity: 0.75; }
-
-        strong { font-weight: 700; }
-
-        /* Hero Header */
-        header.hero {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            min-height: 60vh;
-            color: var(--white);
-            padding: 2rem;
-        }
-
-        .hero-background {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image: url('https://cdn.shopify.com/s/files/1/0615/6913/8747/files/kachina_doll.png?v=1750716970');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            max-width: 800px;
-        }
-
-        header.hero p {
-            font-size: 1.35rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* **SHOPIFY FIX**: Main container is fluid. Padding is applied to the inner wrapper. */
-        .page-container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-        }
-
-        .content-wrapper {
-            padding: 2rem; 
-            margin-top: -5rem; /* Pulls content up over the hero image */
-            position: relative;
-            z-index: 10;
-        }
-        
-        /* Main Layout (2-column) */
-        .content-layout {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 4rem;
-        }
-        
-        @media (min-width: 992px) {
-            .content-layout {
-                grid-template-columns: 2.5fr 1fr;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA',
+                            terracotta: '#E07A5F'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
             }
         }
-        
-        .main-article {
-            background-color: var(--white);
-            padding: 3rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.07);
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B; /* Fallback */
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
         }
 
-        .sidebar {
-            position: sticky;
-            top: 2rem;
-            align-self: flex-start;
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(224, 122, 95, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(45, 212, 191, 0.1) 0%, transparent 60%);
+            will-change: opacity;
         }
 
-        /* Sidebar Card Styling */
-        .info-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.07);
-        }
-        
-        .info-card h2, .info-card h3 {
-            margin-top: 0;
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
         }
 
-        .info-card h3 {
-             border-bottom: 2px solid var(--subtle-gray);
-             padding-bottom: 0.75rem;
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
         }
-
-        .info-card ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        
-        .info-card li {
-            font-size: 1rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--subtle-gray);
-        }
-        .info-card li:last-child {
-            border-bottom: none;
-        }
-        
-        /* Figure and Image */
-        figure {
-            margin: 2rem 0;
-            padding: 0;
-        }
-        
-        figure img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        figcaption {
-            text-align: center;
-            font-style: italic;
-            font-size: 0.9em;
-            color: #6c757d;
-            margin-top: 1rem;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 4rem 2rem;
-            margin-top: 4rem;
-            background-color: var(--heading-color);
-            color: var(--background-color);
-        }
-        footer p {
-            font-size: 1rem;
-            margin: 0;
-        }
-        footer a {
-            color: var(--white);
-            font-weight: 600;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            html { font-size: 90%; }
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.25rem; }
-            .content-wrapper { padding: 1.5rem; }
-            .main-article { padding: 2rem; }
-            header.hero { min-height: 40vh; }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
         }
     </style>
 </head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
 
-<body>
-    <!-- Hero Header with Background Image and Overlay -->
-    <header class="hero" role="banner">
-        <div class="hero-background"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>The World's Tallest Kachina Doll</h1>
-            <p>A Towering Tribute to Hopi Culture in the Arizona Desert</p>
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
         </div>
     </header>
 
-    <!-- Page Container for Content -->
-    <div class="page-container">
-        <div class="content-wrapper">
-            <div class="content-layout">
-
-                <!-- Main Article Content -->
-                <main id="main-content" role="main">
-                    <article class="main-article">
-                        <section>
-                            <p>Standing as a silent, vibrant sentinel in the Arizona desert, the <strong>World's Tallest Kachina Doll</strong> is a breathtaking roadside landmark and a profound symbol of cultural heritage. Located at the entrance to the Tonto Hills community in Cave Creek, this magnificent 39-foot sculpture offers a dramatic welcome to residents and a point of fascination for travelers. More than just a striking piece of art, it serves as a powerful connection to the rich spiritual traditions of the <strong>Hopi people</strong>.</p>
-                        </section>
-                        
-                        <section>
-                            <h2>The Spiritual Significance</h2>
-                            <p>In Hopi culture, kachinas (or <em>katsinas</em>) are not dolls in the playful sense but are revered spiritual beings. They act as intermediaries between the human world and the spirit world, embodying the spirits of ancestors, natural elements, and sacred concepts. These beings are believed to visit Hopi villages from the winter solstice until the summer solstice, bringing blessings such as rain, bountiful harvests, and well-being to the community.</p>
-                            
-                            <h3>The Corn Maiden Dancer</h3>
-                            <p>This particular sculpture is a representation of a <strong>Corn Maiden Dancer Kachina</strong>, a figure of immense importance. The Corn Maiden holds a sacred place in Hopi tradition, revered for her role in purifying the women who grind corn—a staple food source and a central element of Hopi life. Her presence ensures that the corn used for both daily sustenance and ceremonial purposes is prepared with a pure heart and spirit.</p>
-                        </section>
-
-                        <section>
-                            <h2>An Artistic & Engineering Marvel</h2>
-                            <p>The creation of this monumental kachina was a formidable undertaking by artist <strong>Phillip Sanderson</strong>. The project, which took six months to complete, is a testament to both artistic vision and structural engineering. Built from solid concrete and steel, the kachina doll weighs an astounding 14.5 tons. Its vibrant colors and intricate details are a striking sight against the vastness of the Sonoran desert.</p>
-                            
-                            <figure>
-                                <img src="https://cdn.shopify.com/s/files/1/0615/6913/8747/files/kachina_doll.png?v=1750716970" 
-                                     alt="The World's Tallest Kachina Doll, a colorful 39-foot sculpture against a clear blue sky." >
-                                <figcaption>The vibrant Kachina doll stands guard in Cave Creek, Arizona.</figcaption>
-                            </figure>
-                        </section>
-                    </article>
-                </main>
-    
-                <!-- Sidebar for Visitor Information -->
-                <aside class="sidebar" role="complementary">
-                    <div class="info-card">
-                        <h3>Visitor Information</h3>
-                        
-                        <ul>
-                            <li><strong>Height:</strong> 39 feet</li>
-                            <li><strong>Weight:</strong> 14.5 tons</li>
-                            <li><strong>Artist:</strong> Phillip Sanderson</li>
-                            <li><strong>Location:</strong> Tonto Hills, Cave Creek, AZ</li>
-                            <li><strong>Access:</strong> Publicly visible, no fees</li>
-                        </ul>
-                        
-                        <h3>Etiquette</h3>
-                        <p>This is a public landmark at the entrance to a private community. Please be respectful: park safely, do not block traffic, and leave no trace.</p>
-                    </div>
-                </aside>
-
-            </div>
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6 max-w-4xl">
+        
+        <!-- Header Section -->
+        <div class="mb-12 border-b border-white/10 pb-8" data-aos="fade-up">
+            <span class="text-accent-teal font-bold tracking-widest text-xs uppercase mb-3 block">Cultural Landmark</span>
+            <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">World's Tallest Kachina Doll</h1>
+            <p class="text-lg text-gray-400 max-w-2xl">A towering 39-foot tribute to Hopi culture standing as a sentinel in the Sonoran Desert.</p>
         </div>
-    </div>
 
-    <!-- Page Footer -->
-    <footer role="contentinfo">
-        <p>&copy; 2025 <a href="http://www.testedprofit.com">www.testedprofit.com</a> | A Guide to Arizona's Unique Landmarks</p>
-        <p>For inquiries, please contact <a href="mailto:testedprofit@gmail.com">testedprofit@gmail.com</a>.</p>
-    </footer>
+        <!-- Introduction -->
+        <section class="mb-12" data-aos="fade-up" data-aos-delay="100">
+            <div class="prose prose-invert prose-lg max-w-none">
+                <p>
+                    The World's Tallest Kachina Doll is a breathtaking roadside landmark located at the entrance to the Tonto Hills community in Cave Creek, Arizona. Standing at a staggering 39 feet tall, this vibrant sculpture offers a dramatic welcome to the region and serves as a powerful symbol of the Southwest's indigenous heritage.
+                </p>
+                <p>
+                    Created by artist Phillip Sanderson over the course of six months, the monument is an engineering marvel constructed from solid concrete and steel to withstand the harsh desert environment. It weighs an impressive 14.5 tons and features intricate, colorful details that stand out starkly against the blue Arizona sky.
+                </p>
+                <p>
+                    More than a piece of art, the statue represents a deep connection to the Hopi people. It specifically depicts the Corn Maiden Dancer, a figure revered for her role in purifying the food that sustains the community. The landmark acts as a permanent educational tool, introducing visitors to the spiritual traditions of the region.
+                </p>
+            </div>
+        </section>
 
+        <!-- Key Facts Grid -->
+        <section class="mb-12 bg-white/5 rounded-2xl p-8 border border-white/10" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-3 text-accent-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Key Facts
+            </h2>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-gray-300">
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Location:</span> Tonto Hills, Cave Creek, AZ</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Artist:</span> Phillip Sanderson</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Height:</span> 39 Feet</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Weight:</span> 14.5 Tons</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Subject:</span> Corn Maiden Dancer</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Materials:</span> Concrete and Steel</li>
+            </ul>
+        </section>
+
+        <!-- Notable Features -->
+        <section class="mb-12" data-aos="fade-up" data-aos-delay="300">
+            <h2 class="text-2xl font-bold text-white mb-6">Notable Features & Attributes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-terracotta mb-2">Spiritual Representation</h3>
+                    <p class="text-sm text-gray-400">In Hopi tradition, kachinas (or <em>katsinas</em>) are spiritual beings, not dolls. This sculpture embodies the Corn Maiden, who ensures the purity of corn—a staple food and central element of Hopi life.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-terracotta mb-2">Engineering Feat</h3>
+                    <p class="text-sm text-gray-400">The sheer scale of the sculpture required advanced structural planning. The internal steel framework ensures the 14.5-ton concrete figure remains stable against desert winds and temperature fluctuations.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-terracotta mb-2">Vibrant Aesthetics</h3>
+                    <p class="text-sm text-gray-400">The statue utilizes a distinct palette of turquoise, red, and yellow, colors that hold symbolic meaning in Southwest indigenous art, creating a vivid contrast with the surrounding earth tones.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-terracotta mb-2">Community Gatekeeper</h3>
+                    <p class="text-sm text-gray-400">Situated at the entrance to Tonto Hills, the landmark serves as a unique wayfinding point and identity marker for the local residential community.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visitor Information -->
+        <section class="mb-12" data-aos="fade-up" data-aos-delay="400">
+            <h2 class="text-2xl font-bold text-white mb-6">Visitor Information</h2>
+            <div class="space-y-6 text-gray-300">
+                <p>
+                    <strong class="text-white block mb-1">Access & Viewing</strong>
+                    The Kachina Doll is located outdoors and is publicly visible 24 hours a day. There is no admission fee to view the landmark from the public roadside.
+                </p>
+                <p>
+                    <strong class="text-white block mb-1">Etiquette</strong>
+                    While the sculpture is a public landmark, it marks the entrance to a private residential community. Visitors are asked to respect residents' privacy, park safely without blocking traffic, and refrain from climbing on the structure.
+                </p>
+                <p>
+                    <strong class="text-white block mb-1">Best Time to Visit</strong>
+                    The vibrant colors of the sculpture are best appreciated during daylight hours, particularly in the morning or late afternoon when the desert light is softest.
+                </p>
+            </div>
+        </section>
+
+        <!-- Local Context -->
+        <section class="mb-16 pt-8 border-t border-white/10" data-aos="fade-up" data-aos-delay="500">
+            <h3 class="text-xl font-bold text-white mb-4">Local Context & Connections</h3>
+            <p class="text-gray-400 mb-6">
+                The sculpture anchors Cave Creek's identity as a hub for Southwestern art and desert culture.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="https://testedprofit.com/pages/landmarks/" class="flex-1 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                    <span class="text-accent-teal text-xs font-bold uppercase tracking-wider mb-1 block">Related Region</span>
+                    <span class="font-bold text-white group-hover:text-accent-teal transition-colors">Sonoran Desert Landmarks</span>
+                </a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="flex-1 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                    <span class="text-accent-teal text-xs font-bold uppercase tracking-wider mb-1 block">Cultural Connection</span>
+                    <span class="font-bold text-white group-hover:text-accent-teal transition-colors">Hopi Cultural Heritage</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Neutral Summary -->
+        <footer class="bg-slate-950/50 rounded-xl p-6 border border-white/5" data-aos="fade-in">
+            <p class="text-sm text-gray-500 leading-relaxed">
+                The World's Tallest Kachina Doll is a 39-foot tall public sculpture located in Cave Creek, Arizona. Created by artist Phillip Sanderson, the concrete and steel monument honors the Hopi Corn Maiden Dancer and serves as a significant cultural landmark at the entrance to the Tonto Hills community.
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
 </body>
 </html>
