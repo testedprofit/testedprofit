@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorado 150 | Profitnet Landmark Directory</title>
+    <meta name="description" content="Celebrating Colorado's Sesquicentennial (150th) and America's Semiquincentennial (250th). A curated directory of the Centennial State's public art and history.">
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        co: {
+                            blue: '#002868',
+                            red: '#BF0A30',
+                            gold: '#FFD700',
+                            silver: '#C0C0C0'
+                        },
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --primary-dark: #0A091B;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-dark);
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, .font-display {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Colorado Gradient */
+        .co-gradient-text {
+            background: linear-gradient(90deg, #FFD700, #BF0A30, #002868);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Card Styles */
+        .card-blur {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-blur:hover {
+            border-color: #FFD700; /* Colorado Gold */
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        .link-item {
+            transition: all 0.2s ease;
+            border-left: 2px solid transparent;
+        }
+        .link-item:hover {
+            border-left-color: #BF0A30; /* Colorado Red */
+            padding-left: 0.75rem;
+            color: #FFD700;
+            background: rgba(255,255,255,0.03);
+        }
+
+        /* Search Input */
+        .search-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .search-input:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #FFD700;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <!-- Colorado Flag Colors ambient glow -->
+        <div class="absolute inset-0 bg-gradient-to-br from-co-blue/10 via-transparent to-co-red/10 animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-co-gold transition-colors">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-widest text-co-gold hover:text-white transition-colors">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl p-2 hover:bg-white/10 rounded-full transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-co-gold transition-colors">Home</a>
+            <a href="#" class="text-xl font-black text-co-gold uppercase tracking-widest">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
+        
+        <!-- Hero Section -->
+        <section class="text-center max-w-5xl mx-auto mb-20" data-aos="fade-up">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-co-red/20 border border-co-red/40 text-co-silver text-xs font-bold tracking-wide uppercase mb-8">
+                <span class="w-2 h-2 rounded-full bg-co-red animate-pulse"></span>
+                1876 - 2026: The Sesquicentennial
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8 leading-[1.1]">
+                Celebrating the <br class="hidden md:block" />
+                <span class="co-gradient-text">Centennial State.</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+                A digital archive of Colorado's landmarks, honoring 150 years of statehood and 250 years of American history.
+            </p>
+        </section>
+
+        <!-- Search Bar -->
+        <section class="max-w-2xl mx-auto mb-16 relative z-20" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative group">
+                <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none text-gray-500 group-focus-within:text-co-gold transition-colors">
+                    <i class="fa-solid fa-mountain"></i>
+                </div>
+                <input type="text" id="co-search" 
+                       class="search-input w-full rounded-2xl py-4 pl-12 pr-4 text-lg font-medium placeholder-gray-500 shadow-2xl"
+                       placeholder="Find a Colorado landmark...">
+                <div class="absolute inset-y-0 right-0 pr-5 flex items-center pointer-events-none text-gray-600 text-sm font-mono hidden md:flex">
+                    CMD+K
+                </div>
+            </div>
+            <p class="text-center text-xs text-gray-500 mt-3 font-mono">
+                Searching 27 verified locations across the Rockies.
+            </p>
+        </section>
+
+        <!-- Landmarks Grid -->
+        <section id="landmarks-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="200">
+            
+            <!-- Link Items (Extracted from Master List) -->
+            <!-- Each item is wrapped in a card-blur for visual weight -->
+            
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/Big-Baldy-Statue/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Big Baldy Statue</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">A towering tribute to the mining history of the region.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/octomaid/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Octo-Maid (Iscariot)</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Unique public sculpture blending myth and machinery.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/Former-Mine-Sites-of-Mt. Harris/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Former Mine Sites of Mt. Harris</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Historical remnants of Colorado's coal mining era.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Tennyson Sculpture Garden & Park/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Tennyson Sculpture Garden</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">An artistic oasis in Pagosa Springs.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/The Pueblo Christopher Columbus Monument/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Pueblo Columbus Monument</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">A historical marker in Pueblo's cultural landscape.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/Isak-Heartstone/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Isak Heartstone</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">The famous wooden troll of Breckenridge.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Capt. William H. 'Pyro' DuBois, Jr. Memorial/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Capt. William H. DuBois Memorial</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Honoring a fallen hero in New Castle.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/Hank the Cowboy statue/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Hank the Cowboy</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Iconic western art representing ranching heritage.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/Horse-Statue-Intersection/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">The Palmer Intersection</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Conserving history at a major crossroads.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Telluride Penny Bear ( Ursa Ravus)/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Telluride Penny Bear</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">"Ursa Ravus" - A gleaming bear made of pennies.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Rhino iguana sculpture/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Rhino Iguana Sculpture</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Public art installation in Lafayette.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/truffles/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Truffles (Bronze Pig)</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">The beloved Bronze Pig of Tejon St.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Pueblo Heritage Walk/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Pueblo Heritage Walk</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">A journey through Pueblo's rich cultural past.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Riverfront Park Statue/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Riverfront Park Statue</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Scenic sculpture in Durango, CO.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/Hayden-Town-Park/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Hayden Town Park</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Community hub in the Yampa Valley.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/Bear-Statue/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Guardian of Grizzly Gulch</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">The iconic bear statue watching over the gulch.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/coolin'dog/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Coolin' the Dogs</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">A refreshing local guide landmark.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Desert Metal Art/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Desert Metal Art</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Unique metal sculptures in Grand Junction.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Christ of the Mines Shrine/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Christ of the Mines</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Silverton's historic hillside shrine.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Snapshot statue/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">"Snapshot" Statue</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Lakewood's first piece of public art.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Boy Scout Statue of Liberty/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Boy Scout Statue of Liberty</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">A historical replica in La Junta, CO.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/Santa-Maria-Statue-of-Christ/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Santa Maria Statue</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Christ of the Rockies in Grant, CO.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/James Dalton Trumbo Statue/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">James Dalton Trumbo</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Statue honoring the screenwriter in Grand Junction.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/spirit/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">The Spirit of the Rockies</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">A defining symbol of the mountain spirit.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/Routt-County-Firing-Range/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Routt County Firing Range</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Public facility in the Yampa Valley.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/Starr Kempf's Kinetic Sculptures/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Starr Kempf's Sculptures</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">Mesmerizing wind-powered art in Colorado Springs.</p>
+                </a>
+            </div>
+
+            <div class="card-blur rounded-xl p-5 border border-white/5 search-item">
+                <a href="https://testedprofit.com/CO/Landmarks/Cedar-Mountain/" class="block group">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-white group-hover:text-co-gold transition-colors">Cedar Mountain</h3>
+                        <i class="fa-solid fa-location-dot text-gray-600 text-sm"></i>
+                    </div>
+                    <p class="text-sm text-gray-400">BLM managed area and trail system in Craig.</p>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="hidden text-center py-12">
+            <div class="text-6xl mb-4">🏔️</div>
+            <h3 class="text-xl font-bold text-white">No landmarks found.</h3>
+            <p class="text-gray-400">Try searching for a city or specific statue name.</p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-black/20 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center space-x-3 mb-6">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-6 w-6" alt="Profitnet">
+                <span class="font-bold text-white">Profitnet</span>
+            </div>
+            <p class="text-gray-500 text-sm mb-8">
+                Building the digital legacy for the 2026 Semiquincentennial.
+            </p>
+            <p class="text-gray-600 text-xs">© 2026 TestedProfit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && closeBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                void mobileMenu.offsetWidth; 
+                mobileMenu.classList.add('active');
+            });
+
+            closeBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                }, 300);
+            });
+        }
+
+        // --- Colorado Search Logic (Client Side) ---
+        const searchInput = document.getElementById('co-search');
+        const searchItems = document.querySelectorAll('.search-item');
+        const noResults = document.getElementById('no-results');
+        const container = document.getElementById('landmarks-container');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            let visibleCount = 0;
+
+            searchItems.forEach(item => {
+                const title = item.querySelector('h3').textContent.toLowerCase();
+                const desc = item.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(term) || desc.includes(term)) {
+                    item.classList.remove('hidden');
+                    // Add animation class for re-appearance if needed, or just standard display
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.classList.add('hidden');
+                    item.style.display = 'none';
+                }
+            });
+
+            // Toggle No Results Message
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+                container.classList.add('hidden');
+            } else {
+                noResults.classList.add('hidden');
+                container.classList.remove('hidden');
+            }
+        });
+    });
+    </script>
+</body>
+</html>
