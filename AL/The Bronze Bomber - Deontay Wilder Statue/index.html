@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bronze Bomber | TestedProfit Landmark</title>
+    <meta name="description" content="The Bronze Bomber: A life-size monument in Tuscaloosa honoring heavyweight champion Deontay Wilder.">
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        secondary: '#111827',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA',
+                            purple: '#8B5CF6',
+                            bronze: '#CD7F32', // The Bronze Bomber
+                            gold: '#F59E0B',   // Champion Gold
+                            red: '#DC2626'     // Boxing/Power
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(205, 127, 50, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(220, 38, 38, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Gradient Text Utility */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #CD7F32, #F59E0B);
+        }
+        
+        .text-gradient-red {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #DC2626, #EF4444);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="sticky top-0 z-50 bg-primary/95 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+            
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-10">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                
+                <a href="https://testedprofit.com/pages/PNET/" class="px-5 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-12 lg:pt-20 container mx-auto px-6 pb-24">
+        
+        <!-- Header / Intro -->
+        <section class="max-w-4xl mx-auto mb-16" data-aos="fade-up">
+            <div class="flex items-center space-x-2 text-accent-bronze mb-4">
+                <span class="h-px w-8 bg-accent-bronze"></span>
+                <span class="text-xs font-bold uppercase tracking-widest">Digital Landmark Profile</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                The Bronze <span class="text-gradient">Bomber</span>
+            </h1>
+            <p class="text-xl text-gray-400 leading-relaxed max-w-2xl">
+                A life-size bronze monument in Tuscaloosa honoring <strong class="text-white">Deontay Wilder</strong>, the native son and former WBC heavyweight champion.
+            </p>
+        </section>
+
+        <!-- Main Info Grid -->
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+            
+            <!-- Card 1: Artist & Craft -->
+            <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6">
+                    <!-- Icon: Craft/Statue -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.702.127 1.5.876 2.456 2.644 2.404 4.301-.051 1.649-.92 3.29-2.28 4.298-1.359 1.01-3.235 1.407-4.802.946-.665-.195-1.284-.663-1.636-1.278L16.528 9.54M8.25 19.5a2.25 2.25 0 00-2.25 2.25M9 6.75A2.25 2.25 0 0111.25 9v2.25m0-4.5a2.25 2.25 0 012.25-2.25M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Capturing the Champ</h3>
+                <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                    Sculpted by Tuscaloosa artist <strong class="text-accent-gold">Caleb O’Connor</strong>.
+                </p>
+                <ul class="text-sm text-gray-400 space-y-2 border-t border-white/5 pt-4">
+                    <li class="flex items-center">
+                        <span class="w-1.5 h-1.5 bg-accent-bronze rounded-full mr-2"></span>
+                        7 feet tall, 830 pounds
+                    </li>
+                    <li class="flex items-center">
+                        <span class="w-1.5 h-1.5 bg-accent-bronze rounded-full mr-2"></span>
+                        Literal tribute to "The Bronze Bomber" nickname
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card 2: Location & Access -->
+            <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6">
+                    <!-- Icon: Location/Map -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Visit the Legend</h3>
+                <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                    Located at the <span class="text-white">Tuscaloosa Tourism & Sports</span> building (River Market).
+                </p>
+                <div class="text-sm text-gray-400 space-y-2 border-t border-white/5 pt-4">
+                    <p>1900 Jack Warner Parkway</p>
+                    <p class="text-accent-teal font-medium">Open 24/7 along the Riverwalk</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature Section: Significance -->
+        <section class="glass-card rounded-3xl overflow-hidden relative border border-accent-bronze/20" data-aos="zoom-in">
+            <!-- Ambient Glow -->
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent-gold/10 rounded-full blur-3xl"></div>
+            
+            <div class="p-8 md:p-12 relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                    <div class="md:w-2/3">
+                        <h2 class="text-3xl font-bold text-white mb-4"><span class="text-gradient-red">Beacon of Hope</span></h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Unveiled on May 25, 2022, this statue stands as a symbol of black excellence for future generations. Wilder, the first American heavyweight champion in nearly a decade, personally noted the importance of having his likeness immortalized in a city with a complex racial history.
+                        </p>
+                        <p class="text-gray-400 text-sm italic border-l-2 border-accent-gold pl-4">
+                            "A hometown tribute to a champion, captured in a boxing stance with a chiseled torso and sinewy arms."
+                        </p>
+                    </div>
+                    
+                    <div class="md:w-1/3 w-full bg-black/40 rounded-xl p-6 border border-white/5">
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase font-bold tracking-wider mb-1">Title</p>
+                                <p class="text-sm font-bold text-white">Former WBC Heavyweight Champ</p>
+                            </div>
+                            <div class="w-full h-px bg-white/10"></div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase font-bold tracking-wider mb-1">Status</p>
+                                <p class="text-sm font-bold text-white">Olympic Bronze Medalist</p>
+                                <p class="text-xs text-gray-500">Beijing 2008</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Note -->
+        <div class="mt-16 text-center border-t border-white/5 pt-8">
+             <p class="text-gray-500 text-sm max-w-2xl mx-auto">
+                Celebrating the "Bronze Bomber"—Tuscaloosa's own heavyweight champion.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 600, 
+            once: true,
+            offset: 50
+        });
+    });
+    </script>
+</body>
+</html>
