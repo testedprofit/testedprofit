@@ -3,200 +3,345 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walkway of the Presidents | San Juan</title>
-    <meta name="description" content="Walkway of the Presidents, Paseo de los Presidentes, San Juan Puerto Rico">
-
+    <title>Walkway of the Presidents | San Juan, Puerto Rico</title>
+    <meta name="description" content="Explore the Walkway of the Presidents (Paseo de los Presidentes) in San Juan. A living monument honoring U.S. presidents who visited Puerto Rico, located at the Capitol.">
+    
     <!-- External Scripts & Styles -->
+    <!-- Note: For maximum production speed, replace this CDN script with a compiled CSS file -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts: Preconnected for speed -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+    <!-- Removed FontAwesome to save ~70KB+ of load size. Using SVGs instead. -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <style>
-        :root {
-            --primary-dark: #0A091B;
-            --accent-teal: #2DD4BF;
-            --accent-emerald: #10B981;
-            --accent-blue: #60A5FA;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
         }
+    </script>
 
+    <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--primary-dark);
+            background-color: #0A091B; /* Fallback */
             color: #E5E7EB;
             line-height: 1.6;
             min-height: 100vh;
         }
 
-        .gradient-text {
-            background: linear-gradient(90deg, #34D399, #60A5FA);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
+        /* Improved Performance: Use opacity for animations instead of layout changes */
         .hero-glow {
-            background:
-                radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
-                radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity; /* Hints browser to optimize rendering */
         }
 
         .bg-grid-pattern {
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 2.5rem 2.5rem;
         }
 
-        .card-blur {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s ease;
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none; /* Prevent clicks when hidden */
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
         }
 
-        .card-blur:hover {
-            border-color: var(--accent-teal);
-            transform: translateY(-6px);
-            background: rgba(255, 255, 255, 0.04);
-        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
     </style>
 </head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
 
-<body class="antialiased overflow-x-hidden relative">
-
-<!-- Global Background -->
-<div class="fixed inset-0 z-0 pointer-events-none">
-    <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-    <div class="absolute inset-0 hero-glow"></div>
-</div>
-
-<!-- Navigation (unchanged) -->
-<header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <span class="text-xl font-bold text-white">Profitnet</span>
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <!-- Added animate-pulse-slow for subtle "living" effect -->
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
     </div>
-</header>
 
-<!-- Main Content -->
-<main class="relative z-10 pt-32 container mx-auto px-6">
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <!-- Added width/height for SEO (prevents layout shift) and fetchpriority for Load Speed -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
 
-    <!-- HERO HEADER -->
-    <section class="text-center max-w-4xl mx-auto mb-24" data-aos="fade-up">
-        <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-6">
-            Walkway of the <span class="gradient-text">Presidents</span>
-        </h1>
-        <p class="text-lg text-slate-300">
-            Paseo de los Presidentes · San Juan, Puerto Rico
-        </p>
-        <p class="mt-6 text-slate-400">
-            A living monument honoring U.S. presidents who visited Puerto Rico during their time in office,
-            located along the south side of the Capitol building.
-        </p>
-    </section>
+            <!-- Mobile Menu Button (Replaced Icon Font with SVG) -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
 
-    <!-- INTRO -->
-    <section class="max-w-5xl mx-auto mb-20" data-aos="fade-up">
-        <div class="card-blur rounded-xl p-8">
-            <p class="text-slate-300">
-                Established in 2010, the Walkway of the Presidents is a linear park that commemorates the
-                historical ties and complex relationship between the United States and Puerto Rico.
-                The path honors presidents whose visits left a lasting imprint on the island’s political
-                and cultural history.
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <!-- Close Button (Replaced Icon Font with SVG) -->
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-20 container mx-auto px-6 max-w-6xl">
+        
+        <!-- Header Section -->
+        <section class="mb-16" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+                Walkway of the <span class="text-accent-teal">Presidents</span>
+            </h1>
+            <p class="text-xl text-gray-400 font-medium flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-accent-emerald">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+                San Juan, Puerto Rico
             </p>
+            <p class="text-sm text-accent-blue font-bold tracking-widest uppercase mt-2">Paseo de los Presidentes</p>
+        </section>
+
+        <!-- Intro Overview -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
+            <div class="lg:col-span-2 space-y-6 text-gray-300 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                <p>
+                    Established in 2010, the Walkway of the Presidents (Paseo de los Presidentes) is a linear park located along the south side of the Capitol building in San Juan. This living monument commemorates the historical ties and complex political relationship between the United States and Puerto Rico.
+                </p>
+                <p>
+                    The walkway features life-size bronze statues honoring the U.S. presidents who visited the island during their time in office. Each statue serves as a marker of a specific moment in history, reflecting the policies and interactions that have shaped the island's governance and culture over the last century.
+                </p>
+                <p>
+                    Situated on Avenida de la Constitución, the site serves as both an educational resource and a significant tourist attraction, offering visitors a tangible connection to the shared history of the mainland and the territory.
+                </p>
+            </div>
+
+            <!-- Key Facts Card -->
+            <div class="lg:col-span-1" data-aos="fade-left" data-aos-delay="200">
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                    <h3 class="text-white font-bold text-xl mb-6 border-b border-white/10 pb-4">Key Facts</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent-emerald mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                    <path fill-rule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 103 9c0 3.492 1.698 5.988 3.355 7.625a19.015 19.015 0 002.273 1.765c.311.193.571.337.757.433.092.047.185.092.28.14l.019.008.006.003h.002zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong class="text-white block text-sm">Location</strong>
+                                <span class="text-sm text-gray-400">South side of the Capitol Building</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent-emerald mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                    <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong class="text-white block text-sm">Established</strong>
+                                <span class="text-sm text-gray-400">2010</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-accent-emerald mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                    <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <div>
+                                <strong class="text-white block text-sm">Features</strong>
+                                <span class="text-sm text-gray-400">9 Bronze Presidential Statues</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <!-- PRESIDENT STATUES -->
-    <section class="mb-24">
-        <h2 class="text-3xl font-extrabold mb-10 text-center gradient-text">
-            Featured Presidential Statues
-        </h2>
+        <!-- Featured Statues -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-accent-teal pl-4">Featured Presidential Statues</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Theodore Roosevelt -->
+                <div class="group bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-teal/30 transition-all duration-300" data-aos="fade-up">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">Theodore Roosevelt</h3>
+                    <p class="text-gray-400 text-sm">
+                        Honoring the first sitting president to visit Puerto Rico in 1906. The statue depicts him in a confident stance with one hand resting on his right side.
+                    </p>
+                </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Franklin D. Roosevelt -->
+                <div class="group bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-teal/30 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">Franklin D. Roosevelt</h3>
+                    <p class="text-gray-400 text-sm">
+                        A rare depiction, this is one of only three statues worldwide showing FDR in his wheelchair. He is accompanied by his famous Scottish Terrier, Fala.
+                    </p>
+                </div>
 
-            <div class="card-blur rounded-xl p-6" data-aos="fade-up">
-                <h3 class="font-bold text-xl mb-2">Theodore Roosevelt</h3>
-                <p class="text-slate-400">
-                    First sitting president to visit Puerto Rico in 1906, depicted with one hand resting on his right side.
-                </p>
+                <!-- John F. Kennedy -->
+                <div class="group bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-teal/30 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">John F. Kennedy</h3>
+                    <p class="text-gray-400 text-sm">
+                        Commemorating his 1961 visit, JFK is shown in a relaxed yet statesmanlike pose, with an open coat and a hand resting at his waist.
+                    </p>
+                </div>
+
+                <!-- Barack Obama -->
+                <div class="group bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-teal/30 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">Barack Obama</h3>
+                    <p class="text-gray-400 text-sm">
+                        The most recent addition to the walkway, installed following his official visit to Puerto Rico in 2011, marking a modern chapter in the island's political history.
+                    </p>
+                </div>
+
+                <!-- Other Presidents -->
+                <div class="group bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-teal/30 transition-all duration-300 md:col-span-2 lg:col-span-2" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-accent-teal transition-colors">Additional Presidents</h3>
+                    <p class="text-gray-400 text-sm">
+                        The walkway also features Herbert Hoover (holding a hat), Harry S. Truman (hand in pocket), Dwight D. Eisenhower (saluting), Lyndon B. Johnson (standing tall), and Gerald Ford (carrying a pipe).
+                    </p>
+                </div>
             </div>
+        </section>
 
-            <div class="card-blur rounded-xl p-6" data-aos="fade-up">
-                <h3 class="font-bold text-xl mb-2">Franklin D. Roosevelt</h3>
-                <p class="text-slate-400">
-                    One of only three statues worldwide showing him in a wheelchair, accompanied by his dog, Fala.
-                </p>
+        <!-- Visitor Information -->
+        <section class="mb-20 bg-gradient-to-r from-slate-900 to-slate-900/50 rounded-2xl p-8 border border-white/5" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-white mb-6">Visitor Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+                <div>
+                    <h4 class="text-accent-teal font-bold uppercase tracking-wider mb-2">Accessibility</h4>
+                    <p class="text-gray-300">The walkway is fully wheelchair accessible and located along a paved route on Avenida de la Constitución, making it ideal for walking tours.</p>
+                </div>
+                <div>
+                    <h4 class="text-accent-teal font-bold uppercase tracking-wider mb-2">Educational Markers</h4>
+                    <p class="text-gray-300">Each statue includes a bilingual plaque providing historical context and details about that specific president's visit to Puerto Rico.</p>
+                </div>
+                <div>
+                    <h4 class="text-accent-teal font-bold uppercase tracking-wider mb-2">Nearby Landmarks</h4>
+                    <p class="text-gray-300">Located in a rich historical zone, surrounded by the Monumento de la Recordación and the Holocaust Memorial, near Old San Juan.</p>
+                </div>
             </div>
+        </section>
 
-            <div class="card-blur rounded-xl p-6" data-aos="fade-up">
-                <h3 class="font-bold text-xl mb-2">John F. Kennedy</h3>
-                <p class="text-slate-400">
-                    Commemorating his 1961 visit, shown with an open coat and a hand at his waist.
-                </p>
+        <!-- Local Context & Internal Connections -->
+        <section class="mb-12 border-t border-white/10 pt-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-white mb-6">Local Context & Nearby Landmarks</h2>
+            <p class="text-gray-400 mb-6">
+                The Walkway is part of the Capitol complex. Visitors often explore the surrounding monuments to understand the full scope of Puerto Rico's governance history.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a href="#" class="block p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors border-l-2 border-accent-emerald">
+                    <h3 class="text-white font-bold">Puerto Rico Capitol Building</h3>
+                    <p class="text-xs text-gray-400 mt-1">The "Capitolio de Puerto Rico," a stunning neoclassical building that serves as the backdrop for the walkway.</p>
+                </a>
+                <a href="#" class="block p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors border-l-2 border-accent-emerald">
+                    <h3 class="text-white font-bold">Old San Juan</h3>
+                    <p class="text-xs text-gray-400 mt-1">The historic colonial district located just a short distance west of the Capitol grounds.</p>
+                </a>
             </div>
+        </section>
 
-            <div class="card-blur rounded-xl p-6" data-aos="fade-up">
-                <h3 class="font-bold text-xl mb-2">Barack Obama</h3>
-                <p class="text-slate-400">
-                    The most recent addition, added after his official visit to Puerto Rico in 2011.
-                </p>
-            </div>
+        <!-- Neutral Summary -->
+        <section class="text-center max-w-2xl mx-auto pt-8 pb-12">
+            <p class="text-gray-500 text-sm">
+                The Walkway of the Presidents stands as a verifiable historical record in San Juan. It physically documents the highest-level interactions between the U.S. federal government and the island territory over the last century.
+            </p>
+        </section>
 
-            <div class="card-blur rounded-xl p-6 md:col-span-2 lg:col-span-1" data-aos="fade-up">
-                <h3 class="font-bold text-xl mb-2">Other Featured Presidents</h3>
-                <p class="text-slate-400">
-                    Herbert Hoover (holding a hat), Harry S. Truman (hand in pocket),
-                    Dwight D. Eisenhower (saluting), Lyndon B. Johnson (standing tall),
-                    and Gerald Ford (carrying a pipe).
-                </p>
-            </div>
+    </main>
 
-        </div>
-    </section>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50 // Trigger animations slightly earlier
+        });
 
-    <!-- VISITOR INFO -->
-    <section class="mb-32">
-        <h2 class="text-3xl font-extrabold mb-10 text-center gradient-text">
-            Visitor Information
-        </h2>
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
 
-        <div class="grid md:grid-cols-3 gap-8">
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        }
 
-            <div class="card-blur rounded-xl p-6" data-aos="fade-up">
-                <h3 class="font-bold mb-2">Accessibility</h3>
-                <p class="text-slate-400">
-                    Fully wheelchair accessible and located along Avenida de la Constitución,
-                    ideal for walking tours near Old San Juan.
-                </p>
-            </div>
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
 
-            <div class="card-blur rounded-xl p-6" data-aos="fade-up">
-                <h3 class="font-bold mb-2">Educational Experience</h3>
-                <p class="text-slate-400">
-                    Each statue includes a bilingual plaque with historical context
-                    and details about each presidential visit.
-                </p>
-            </div>
-
-            <div class="card-blur rounded-xl p-6" data-aos="fade-up">
-                <h3 class="font-bold mb-2">Nearby Landmarks</h3>
-                <p class="text-slate-400">
-                    Surrounded by the Monumento de la Recordación and the Holocaust Memorial.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-</main>
-
-<!-- Scripts -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init({ duration: 800, once: true });
-</script>
-
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
 </body>
 </html>
