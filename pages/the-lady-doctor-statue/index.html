@@ -1,346 +1,319 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Justina L. Ford | Denver, CO Directory</title>
+    <meta name="description" content="A biography of Dr. Justina L. Ford, Colorado's first licensed African American female physician. Explore her legacy in Five Points and beyond.">
     
-    <!-- SEO Optimization -->
-    <title>Dr. Justina L. Ford: Biography of a Pioneering Denver Physician</title>
-    <meta name="description" content="Discover the life and legacy of Dr. Justina L. Ford, Colorado's first licensed African American female doctor. Explore the biography of this pioneering physician who served Denver's Five Points community for 50 years.">
-    <meta name="keywords" content="Dr. Justina L. Ford, Justina Ford, Denver physician, Five Points Denver, Colorado history, Black history, pioneering women, medical pioneer, The Lady Doctor">
-
-    <!-- Tailwind CSS CDN -->
+    <!-- External Scripts & Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Leaflet CSS for Interactive Map -->
+    <!-- Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Leaflet CSS for Map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA',
+                            gold: '#F59E0B'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        /* Custom styles to enhance the design */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Lighter grey for a cleaner look */
-            scroll-behavior: smooth;
+            background-color: #0A091B; /* Fallback */
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
         }
-        .font-playfair {
-            font-family: 'Playfair Display', serif;
+
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity;
         }
-        .hero-section {
-            background: linear-gradient(rgba(20, 30, 48, 0.85), rgba(36, 59, 85, 0.85));
-            background-size: cover;
-            background-attachment: fixed;
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
         }
-        .section-title {
-            position: relative;
-            padding-bottom: 1rem;
-            margin-bottom: 3rem;
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
         }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background-color: #2563eb; /* Blue-600 */
-            border-radius: 2px;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -41px; /* Adjusted for thicker border */
-            top: 5px;
-            width: 22px;
-            height: 22px;
-            background-color: #2563eb;
-            border-radius: 50%;
-            border: 5px solid #f8fafc;
-            z-index: 10;
-        }
-        .testimonial-card {
-            background-color: #ffffff;
-            border-left: 5px solid #3b82f6;
-        }
-        .stat-card {
-            background-color: #ffffff;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .stat-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-        .nav-link {
-             position: relative;
-             transition: color 0.3s;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #2563eb;
-            transition: width 0.3s ease-out;
-        }
-        .nav-link:hover::after {
-            width: 100%;
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
 
-    <!-- Header -->
-    <header class="bg-white/90 backdrop-blur-lg shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-            <div class="text-xl sm:text-2xl font-bold text-blue-700 font-playfair">Dr. Justina Ford</div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#story" class="nav-link text-slate-600 hover:text-blue-700">Her Story</a>
-                <a href="#practice" class="nav-link text-slate-600 hover:text-blue-700">Her Practice</a>
-                <a href="#legacy" class="nav-link text-slate-600 hover:text-blue-700">Her Legacy</a>
-                <a href="#timeline" class="nav-link text-slate-600 hover:text-blue-700">Timeline</a>
-                <a href="#map-section" class="nav-link text-slate-600 hover:text-blue-700">Landmarks</a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden flex items-center px-3 py-2 border rounded text-slate-600 border-slate-400 hover:text-blue-700 hover:border-blue-700">
-                <svg class="fill-current h-4 w-4" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
             </button>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
-            <a href="#story" class="block py-3 px-6 text-base hover:bg-slate-100">Her Story</a>
-            <a href="#practice" class="block py-3 px-6 text-base hover:bg-slate-100">Her Practice</a>
-            <a href="#legacy" class="block py-3 px-6 text-base hover:bg-slate-100">Her Legacy</a>
-            <a href="#timeline" class="block py-3 px-6 text-base hover:bg-slate-100">Timeline</a>
-            <a href="#map-section" class="block py-3 px-6 text-base hover:bg-slate-100">Landmarks</a>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <article>
-        <!-- Hero Section -->
-        <section class="hero-section text-white text-center py-24 md:py-32 px-4">
-            <h1 class="font-playfair text-4xl sm:text-6xl md:text-7xl font-black leading-tight mb-4">Dr. Justina L. Ford</h1>
-            <p class="text-lg sm:text-xl md:text-2xl font-light max-w-4xl mx-auto">The Biography of a Pioneering American Physician</p>
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6 max-w-4xl">
+        
+        <!-- Header Section -->
+        <div class="mb-12 border-b border-white/10 pb-8" data-aos="fade-up">
+            <span class="text-accent-teal font-bold tracking-widest text-xs uppercase mb-3 block">Historical Biography</span>
+            <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">Dr. Justina L. Ford</h1>
+            <p class="text-lg text-gray-400 max-w-2xl">The pioneering story of Colorado's first licensed African American female physician, known as "The Lady Doctor" of Five Points.</p>
+        </div>
+
+        <!-- Hero / Story Section -->
+        <section class="mb-16" data-aos="fade-up" data-aos-delay="100">
+            <div class="grid md:grid-cols-5 gap-8 items-center">
+                <div class="md:col-span-2">
+                    <div class="rounded-xl overflow-hidden border border-white/10 shadow-2xl relative group">
+                        <div class="absolute inset-0 bg-accent-blue/10 group-hover:bg-transparent transition-colors duration-300"></div>
+                        <img src="https://cdn.shopify.com/s/files/1/0615/6913/8747/files/DRFORD.jpg?v=1750710091" 
+                             alt="Portrait of Dr. Justina Ford" 
+                             class="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                </div>
+                <div class="md:col-span-3 prose prose-invert prose-lg max-w-none text-gray-300">
+                    <h2 class="text-2xl font-bold text-white mb-4">The Forging of a Healer</h2>
+                    <p>
+                        Born in 1871 in Knoxville, Illinois, to freed slaves, Justina L. Ford's path was shaped by a legacy of healing inherited from her mother, a nurse-midwife. Despite the era's systemic barriers, she graduated from Hering Medical College in Chicago in 1899.
+                    </p>
+                    <p>
+                        Upon arriving in Denver in 1902, she was issued a medical license but was explicitly told by the examiner: <span class="text-accent-teal italic">"You've got two strikes against you... First of all, you're a lady, and second, you're colored."</span>
+                    </p>
+                    <p>
+                        Denied membership in medical societies and barred from hospitals, Dr. Ford established a legendary practice in her Five Points home, serving a diverse community of African Americans, poor whites, and immigrants who were often turned away elsewhere.
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <main class="container mx-auto px-4 sm:px-6 py-16 md:py-24 space-y-24 md:space-y-32">
-        
-            <!-- Her Story Section -->
-            <section id="story" class="fade-in">
-                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-slate-900 text-center section-title">The Forging of a Healer</h2>
-                <div class="grid md:grid-cols-5 gap-8 lg:gap-12 items-center">
-                    <div class="md:col-span-2">
-                        <img src="https://cdn.shopify.com/s/files/1/0615/6913/8747/files/DRFORD.jpg?v=1750710091" alt="A portrait of Dr. Justina L. Ford, Colorado's first licensed African American female doctor." class="rounded-lg shadow-2xl mx-auto w-full max-w-sm md:max-w-none">
-                    </div>
-                    <div class="md:col-span-3 text-base sm:text-lg text-slate-700 leading-relaxed space-y-4">
-                        <p>The story of Dr. Justina L. Ford is a testament to unwavering ambition in the face of formidable societal barriers. Born in 1871 in Knoxville, Illinois, to freed slaves, her path was shaped by a legacy of healing inherited from her mother, a nurse-midwife. This early exposure to holistic, community-based care became a cornerstone of her medical identity.</p>
-                        <p>Despite the era's systemic racism and sexism, she graduated from Hering Medical College in Chicago in 1899. After arriving in Denver in 1902, she was issued a medical license only to be told by the examiner, <strong class="font-semibold text-slate-800">"You've got two strikes against you... First of all, you're a lady, and second, you're colored."</strong></p>
-                        <p>Denied membership in all medical societies and barred from practicing in any hospital, Dr. Ford refused to be defeated. She established her practice within her own home in the Five Points neighborhood, creating a sanctuary of care from the very exclusion designed to marginalize her.</p>
-                    </div>
+        <!-- Stats Grid -->
+        <section class="mb-16" data-aos="fade-up" data-aos-delay="200">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 text-center hover:border-accent-blue/30 transition-colors">
+                    <div class="text-4xl font-black text-accent-blue mb-1">50</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Years of Practice</div>
                 </div>
-            </section>
-
-            <!-- Stats Section -->
-            <section class="bg-slate-100 rounded-xl p-8 md:p-12 fade-in">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                    <div class="stat-card p-6 rounded-lg">
-                        <div class="text-5xl lg:text-6xl font-bold text-blue-600 font-playfair mb-2">50</div>
-                        <div class="text-lg font-semibold text-slate-700">Years of Practice</div>
-                    </div>
-                    <div class="stat-card p-6 rounded-lg">
-                        <div class="text-5xl lg:text-6xl font-bold text-blue-600 font-playfair mb-2">7,000+</div>
-                        <div class="text-lg font-semibold text-slate-700">Babies Delivered</div>
-                    </div>
-                    <div class="stat-card p-6 rounded-lg">
-                        <div class="text-5xl lg:text-6xl font-bold text-blue-600 font-playfair mb-2">8-10</div>
-                        <div class="text-lg font-semibold text-slate-700">Languages Spoken</div>
-                    </div>
-                    <div class="stat-card p-6 rounded-lg">
-                        <div class="text-5xl lg:text-6xl font-bold text-blue-600 font-playfair mb-2">1st</div>
-                        <div class="text-lg font-semibold text-slate-700">Licensed Black Female Doctor in Colorado</div>
-                    </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 text-center hover:border-accent-blue/30 transition-colors">
+                    <div class="text-4xl font-black text-accent-blue mb-1">7,000+</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Babies Delivered</div>
                 </div>
-            </section>
-
-            <!-- Her Practice Section -->
-            <section id="practice" class="fade-in">
-                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-slate-900 text-center section-title">A Practice of Compassion</h2>
-                 <div class="max-w-4xl mx-auto text-base sm:text-lg text-center text-slate-700 leading-relaxed mb-12">
-                    Operating from her home in Five Points, the "Harlem of the West," Dr. Ford's practice was the heart of a diverse community. She served African Americans, poor whites, and non-English-speaking immigrants who were often turned away elsewhere. Her approach was built on cultural competency, accessibility, and profound human connection.
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 text-center hover:border-accent-blue/30 transition-colors">
+                    <div class="text-4xl font-black text-accent-blue mb-1">8+</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Languages Spoken</div>
                 </div>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="testimonial-card shadow-lg p-6 md:p-8 rounded-lg">
-                        <i class="fa-solid fa-quote-left text-blue-300 text-4xl mb-4"></i>
-                        <p class="text-slate-700 italic leading-relaxed mb-4 text-base sm:text-lg">One grandmother, whose family had immigrated from the Philippines and Mexico, recalled her family turning to Dr. Ford because non-white patients were deeply skeptical of the care they would receive from white doctors in hospitals. She praised Dr. Ford as "a very capable doctor and a great lady."</p>
-                    </div>
-                    <div class="testimonial-card shadow-lg p-6 md:p-8 rounded-lg">
-                        <i class="fa-solid fa-quote-left text-blue-300 text-4xl mb-4"></i>
-                        <p class="text-slate-700 italic leading-relaxed mb-4 text-base sm:text-lg">The Martinez family... considered her their primary physician. Their father, a handyman and plumber, paid for their care by doing odd jobs at Dr. Ford's home. When their mother... fell ill, she refused to go to a hospital, trusting only Dr. Ford.</p>
-                    </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 text-center hover:border-accent-blue/30 transition-colors">
+                    <div class="text-4xl font-black text-accent-blue mb-1">1st</div>
+                    <div class="text-xs uppercase tracking-wider text-gray-400">Licensed Black Female MD in CO</div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Her Legacy Section -->
-            <section id="legacy" class="fade-in">
-                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-slate-900 text-center section-title">A Legacy in Bronze & History</h2>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-                    <div class="bg-white rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
-                        <div class="p-8 flex-grow flex flex-col items-center text-center">
-                            <div class="flex justify-center mb-4"><i class="fa-solid fa-house-chimney-medical text-6xl text-blue-500"></i></div>
-                            <h3 class="text-2xl font-bold text-blue-700 mb-2">Her Home, A Museum</h3>
-                            <p class="text-slate-600 text-base sm:text-lg">Her home and office was saved from demolition and moved. It now houses the Black American West Museum & Heritage Center.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
-                        <div class="p-8 flex-grow flex flex-col items-center text-center">
-                            <div class="flex justify-center mb-4"><i class="fa-solid fa-monument text-6xl text-blue-500"></i></div>
-                            <h3 class="text-2xl font-bold text-blue-700 mb-2">Cast in Bronze</h3>
-                            <p class="text-slate-600 text-base sm:text-lg">Two statues honor her: one in Denver (1998) and another in Aurora (2024) as part of the global "Statues for Equality" project.</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 flex flex-col sm:col-span-2 lg:col-span-1">
-                         <div class="p-8 flex-grow flex flex-col items-center text-center">
-                            <div class="flex justify-center mb-4"><i class="fa-solid fa-award text-6xl text-blue-500"></i></div>
-                            <h3 class="text-2xl font-bold text-blue-700 mb-2">Enduring Honors</h3>
-                            <p class="text-slate-600 text-base sm:text-lg">Inducted into the Colorado Women's Hall of Fame, honored by the CO Medical Society, and has a day, library, and school named after her.</p>
-                        </div>
-                    </div>
+        <!-- Practice & Testimonials -->
+        <section class="mb-16" data-aos="fade-up" data-aos-delay="300">
+            <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-accent-teal pl-4">A Practice of Compassion</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white/5 p-6 rounded-xl border border-white/5">
+                    <p class="italic text-gray-300 mb-4">"One grandmother recalled her family turning to Dr. Ford because non-white patients were deeply skeptical of the care they would receive from white doctors in hospitals. She praised Dr. Ford as 'a very capable doctor and a great lady.'"</p>
                 </div>
-            </section>
-            
-            <!-- Timeline Section -->
-            <section id="timeline" class="fade-in">
-                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-slate-900 text-center section-title">Her Journey</h2>
-                <div class="relative max-w-3xl mx-auto mt-12 pl-12 border-l-4 border-blue-200">
-                    <div class="space-y-12">
-                        <div class="relative timeline-item">
-                            <h3 class="text-2xl font-bold text-blue-700">1871 - A Healer is Born</h3>
-                            <p class="text-base sm:text-lg text-slate-600">Justina Laurena Warren is born in Knoxville, Illinois, to freed slaves Melissa and Pryor Warren.</p>
-                        </div>
-                        <div class="relative timeline-item">
-                            <h3 class="text-2xl font-bold text-blue-700">1899 - A Doctor Emerges</h3>
-                            <p class="text-base sm:text-lg text-slate-600">Graduates from Hering Medical College in Chicago, a homeopathic school that offered a rare path for an African American woman.</p>
-                        </div>
-                        <div class="relative timeline-item">
-                            <h3 class="text-2xl font-bold text-blue-700">1902 - The "Two Strikes" Challenge</h3>
-                            <p class="text-base sm:text-lg text-slate-600">Moves to Denver, receives her medical license, and is told she has "two strikes" against her for being a woman and being colored.</p>
-                        </div>
-                         <div class="relative timeline-item">
-                            <h3 class="text-2xl font-bold text-blue-700">1902-1950 - A Practice Built on Exclusion</h3>
-                            <p class="text-base sm:text-lg text-slate-600">Denied hospital privileges, she builds a legendary 50-year practice from her home, serving the diverse Five Points community.</p>
-                        </div>
-                        <div class="relative timeline-item">
-                            <h3 class="text-2xl font-bold text-blue-700">1950 - Victory at Last</h3>
-                            <p class="text-base sm:text-lg text-slate-600">After a 48-year fight, she is finally granted membership in the Denver and Colorado Medical Societies.</p>
-                        </div>
-                        <div class="relative timeline-item">
-                            <h3 class="text-2xl font-bold text-blue-700">1952 - A Legacy Cemented</h3>
-                            <p class="text-base sm:text-lg text-slate-600">Dr. Ford passes away at age 81, leaving an indelible legacy of service, perseverance, and community care.</p>
-                        </div>
-                    </div>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/5">
+                    <p class="italic text-gray-300 mb-4">"The Martinez family considered her their primary physician. Their father paid for care by doing odd jobs at Dr. Ford's home. When their mother fell ill, she refused to go to a hospital, trusting only Dr. Ford."</p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Interactive Map Section -->
-            <section id="map-section" class="fade-in">
-                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-slate-900 text-center section-title">Her Denver Landmarks</h2>
-                <div id="map" class="mt-12 rounded-lg shadow-xl overflow-hidden z-0" style="height: 500px;"></div>
-            </section>
+        <!-- Timeline -->
+        <section class="mb-16" data-aos="fade-up" data-aos-delay="400">
+            <h2 class="text-2xl font-bold text-white mb-8 border-l-4 border-accent-teal pl-4">Her Journey</h2>
+            <div class="space-y-8 pl-4 border-l border-white/10 ml-2">
+                <div class="relative pl-8">
+                    <div class="absolute -left-[5px] top-2 w-3 h-3 bg-accent-blue rounded-full"></div>
+                    <h3 class="text-lg font-bold text-white">1871 - Born</h3>
+                    <p class="text-gray-400 text-sm">Justina Laurena Warren is born in Knoxville, Illinois.</p>
+                </div>
+                <div class="relative pl-8">
+                    <div class="absolute -left-[5px] top-2 w-3 h-3 bg-accent-blue rounded-full"></div>
+                    <h3 class="text-lg font-bold text-white">1899 - Graduation</h3>
+                    <p class="text-gray-400 text-sm">Graduates from Hering Medical College in Chicago.</p>
+                </div>
+                <div class="relative pl-8">
+                    <div class="absolute -left-[5px] top-2 w-3 h-3 bg-accent-blue rounded-full"></div>
+                    <h3 class="text-lg font-bold text-white">1902 - The "Two Strikes"</h3>
+                    <p class="text-gray-400 text-sm">Moves to Denver, receives license but denied hospital privileges.</p>
+                </div>
+                <div class="relative pl-8">
+                    <div class="absolute -left-[5px] top-2 w-3 h-3 bg-accent-blue rounded-full"></div>
+                    <h3 class="text-lg font-bold text-white">1950 - Recognition</h3>
+                    <p class="text-gray-400 text-sm">Finally granted membership in the Denver and Colorado Medical Societies.</p>
+                </div>
+                <div class="relative pl-8">
+                    <div class="absolute -left-[5px] top-2 w-3 h-3 bg-accent-blue rounded-full"></div>
+                    <h3 class="text-lg font-bold text-white">1952 - Legacy</h3>
+                    <p class="text-gray-400 text-sm">Dr. Ford passes away, leaving a legacy of service.</p>
+                </div>
+            </div>
+        </section>
 
-        </main>
-    </article>
+        <!-- Interactive Map Section -->
+        <section class="mb-16" data-aos="fade-up" data-aos-delay="500">
+            <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-accent-teal pl-4">Her Denver Landmarks</h2>
+            <div id="map" class="h-96 rounded-xl border border-white/10 z-0 relative w-full"></div>
+        </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-white mt-20 py-12">
-        <div class="container mx-auto px-6 text-center">
-             <div class="text-2xl font-bold text-white font-playfair mb-4">Dr. Justina L. Ford</div>
-            <p class="text-slate-400 max-w-3xl mx-auto text-base sm:text-lg">"When all the fears, hate, and even some death is over, we will really be brothers as God intended us to be in this land. This I believe. For this I have worked all my life."</p>
-            <p class="text-sm text-slate-500 mt-8">&copy; <span id="current-year"></span> <a href="http://www.testedprofit.com" target="_blank" rel="noopener noreferrer" class="hover:underline">TestedProfits.com</a>. A tribute website created to honor a historical pioneer.</p>
-        </div>
-    </footer>
+        <!-- Local Context Links -->
+        <section class="mb-16 pt-8 border-t border-white/10" data-aos="fade-up" data-aos-delay="600">
+            <h3 class="text-xl font-bold text-white mb-4">Local Context & Connections</h3>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="https://testedprofit.com/pages/landmarks/" class="flex-1 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                    <span class="text-accent-teal text-xs font-bold uppercase tracking-wider mb-1 block">Current Museum</span>
+                    <span class="font-bold text-white group-hover:text-accent-teal transition-colors">Black American West Museum</span>
+                </a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="flex-1 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                    <span class="text-accent-teal text-xs font-bold uppercase tracking-wider mb-1 block">Historic Neighborhood</span>
+                    <span class="font-bold text-white group-hover:text-accent-teal transition-colors">Five Points District</span>
+                </a>
+            </div>
+        </section>
 
-    <!-- Leaflet JS for Interactive Map -->
+        <!-- Neutral Summary -->
+        <footer class="bg-slate-950/50 rounded-xl p-6 border border-white/5" data-aos="fade-in">
+            <p class="text-sm text-gray-500 leading-relaxed">
+                Dr. Justina L. Ford (1871–1952) was a pioneering physician who overcame significant racial and gender barriers to serve the Denver community for 50 years. Her former home and office in Five Points is now the Black American West Museum & Heritage Center, preserving her legacy as a humanitarian and medical trailblazer.
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    
     <script>
-        // --- General page scripts ---
-        
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-
-        // Close mobile menu when a link is clicked
-        const mobileLinks = document.querySelectorAll('#mobile-menu a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileMenu) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50
         });
 
-        // Set current year in footer
-        const yearSpan = document.getElementById('current-year');
-        if (yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
-        }
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-        // --- Leaflet Map Initialization ---
-        function initializeMap() {
-            const mapElement = document.getElementById('map');
-            if (mapElement) {
-                const map = L.map('map').setView([39.757, -104.975], 13);
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                }).addTo(map);
-
-                const medicalIcon = L.icon({
-                    iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-                    iconSize: [25, 41],
-                    iconAnchor: [12, 41],
-                    popupAnchor: [1, -34],
-                    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-                    shadowSize: [41, 41]
-                });
-
-                L.marker([39.7545, -104.9789], {icon: medicalIcon}).addTo(map)
-                    .bindPopup("<b>Dr. Ford's Home & Office</b><br>2335 Arapahoe Street (Original Location)");
-                
-                L.marker([39.7616, -104.9568], {icon: medicalIcon}).addTo(map)
-                    .bindPopup("<b>Black American West Museum</b><br>3091 California Street (Current location of her home)");
-
-                L.marker([39.7601, -104.9658], {icon: medicalIcon}).addTo(map)
-                    .bindPopup("<b>'Lady Doctor' Statue</b><br>E 30th Ave & N Downing St, Denver");
-
-                L.marker([39.71, -104.7], {icon: medicalIcon}).addTo(map)
-                    .bindPopup("<b>'Statues for Equality'</b><br>The Aurora Highlands, Aurora");
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
             }
         }
-        
-        document.addEventListener('DOMContentLoaded', initializeMap);
 
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+
+        // Map Initialization
+        const map = L.map('map').setView([39.757, -104.975], 13);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 20
+        }).addTo(map);
+
+        const points = [
+            { lat: 39.7545, lng: -104.9789, title: "Original Home Location (2335 Arapahoe St)" },
+            { lat: 39.7616, lng: -104.9568, title: "Black American West Museum (Current Location)" },
+            { lat: 39.7601, lng: -104.9658, title: "'Lady Doctor' Statue (E 30th & Downing)" }
+        ];
+
+        points.forEach(pt => {
+            L.marker([pt.lat, pt.lng]).addTo(map)
+                .bindPopup(`<b style="color:#333;">${pt.title}</b>`);
+        });
+    });
     </script>
-
 </body>
 </html>
