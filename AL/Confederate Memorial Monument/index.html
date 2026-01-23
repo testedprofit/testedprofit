@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confederate Memorial Monument | TestedProfit Landmark</title>
+    <meta name="description" content="Confederate Memorial Monument: An 88-foot obelisk on the Alabama State Capitol grounds, honoring Confederate forces and sparking historical debate.">
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        secondary: '#111827',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA',
+                            purple: '#8B5CF6',
+                            granite: '#6B7280', // Monument Stone
+                            bronze: '#B45309',  // Statues
+                            conflict: '#9F1239' // Controversy/History
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(107, 114, 128, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(180, 83, 9, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Gradient Text Utility */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #9CA3AF, #D1D5DB);
+        }
+        
+        .text-gradient-conflict {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #9F1239, #E11D48);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="sticky top-0 z-50 bg-primary/95 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+            
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="flex flex-wrap justify-center items-center gap-4 md:gap-8 lg:gap-10">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                
+                <a href="https://testedprofit.com/pages/PNET/" class="px-5 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-12 lg:pt-20 container mx-auto px-6 pb-24">
+        
+        <!-- Header / Intro -->
+        <section class="max-w-4xl mx-auto mb-16" data-aos="fade-up">
+            <div class="flex items-center space-x-2 text-accent-granite mb-4">
+                <span class="h-px w-8 bg-accent-granite"></span>
+                <span class="text-xs font-bold uppercase tracking-widest">Digital Landmark Profile</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                Confederate Memorial <span class="text-gradient">Monument</span>
+            </h1>
+            <p class="text-xl text-gray-400 leading-relaxed max-w-2xl">
+                An 88-foot obelisk standing on the north lawn of the Alabama State Capitol, dedicated to the 122,000 Alabamians who served in the Civil War.
+            </p>
+        </section>
+
+        <!-- Main Info Grid -->
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+            
+            <!-- Card 1: Design & History -->
+            <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6">
+                    <!-- Icon: Monument/Stone -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Stone & Bronze</h3>
+                <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                    Designed by Alexander Doyle and dedicated in 1898. Features four granite statues representing military branches and a bronze figure of <strong class="text-accent-bronze">"Patriotism"</strong> at the top.
+                </p>
+                <p class="text-gray-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+                    Cornerstone laid by Jefferson Davis in 1886.
+                </p>
+            </div>
+
+            <!-- Card 2: Location & Controversy -->
+            <div class="glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center mb-6">
+                    <!-- Icon: Flag/History -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">A Contested Space</h3>
+                <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                    Located at <span class="text-white">600 Dexter Ave</span>, a site often linked to the "Lost Cause" ideology.
+                </p>
+                <div class="text-sm text-gray-400 space-y-2 border-t border-white/5 pt-4">
+                    <p class="flex items-center">
+                        <span class="w-1.5 h-1.5 bg-accent-conflict rounded-full mr-2"></span>
+                        Flags removed in 2015 by Gov. Bentley
+                    </p>
+                    <p class="flex items-center">
+                        <span class="w-1.5 h-1.5 bg-accent-conflict rounded-full mr-2"></span>
+                        Erected during the Jim Crow era
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature Section: Historical Context -->
+        <section class="glass-card rounded-3xl overflow-hidden relative border border-accent-conflict/20" data-aos="zoom-in">
+            <!-- Ambient Glow -->
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent-granite/10 rounded-full blur-3xl"></div>
+            
+            <div class="p-8 md:p-12 relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-white mb-4">In the Shadow of <span class="text-gradient-conflict">History</span></h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            The monument sits in a complex historical landscape, situated on the Capitol grounds near the Dexter Avenue King Memorial Baptist Church and the Civil Rights Memorial. It stands as a physical representation of the Deep South's conflicting narratives—honoring Confederate heritage while existing within a city pivotal to the Civil Rights Movement.
+                        </p>
+                        <p class="text-gray-400 text-sm italic border-l-2 border-accent-bronze pl-4">
+                            "A focal point of ongoing debates regarding historical memory and public symbols."
+                        </p>
+                    </div>
+                    
+                    <div class="md:w-1/2 w-full bg-black/40 rounded-xl p-6 border border-white/5">
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="text-accent-granite font-bold font-mono text-lg">1898</div>
+                                <div>
+                                    <p class="text-sm text-white font-semibold">Dedication</p>
+                                    <p class="text-xs text-gray-500">Honoring 122,000 Alabamians.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="text-accent-bronze font-bold font-mono text-lg">Design</div>
+                                <div>
+                                    <p class="text-sm text-white font-semibold">Alexander Doyle</p>
+                                    <p class="text-xs text-gray-500">88-foot obelisk with 4 statues.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="text-accent-conflict font-bold font-mono text-lg">2015</div>
+                                <div>
+                                    <p class="text-sm text-white font-semibold">Change</p>
+                                    <p class="text-xs text-gray-500">Confederate battle flags removed from the site.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Note -->
+        <div class="mt-16 text-center border-t border-white/5 pt-8">
+             <p class="text-gray-500 text-sm max-w-2xl mx-auto">
+                Standing silent among landmarks of freedom, marking a chapter of history that continues to shape the present.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 600, 
+            once: true,
+            offset: 50
+        });
+    });
+    </script>
+</body>
+</html>
