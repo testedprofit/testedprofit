@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protect Our Planet – Interactive Conservation Portal</title>
+  <style>
+    :root {
+      /* Refreshed modern palette for a cleaner, more contemporary look */
+      --primary: #2b7a77;    /* deep teal */
+      --secondary: #55a79a;  /* soft jade */
+      --accent: #e9c46a;     /* warm sand */
+      --danger: #e76f51;     /* coral red */
+      --light: #f3faf9;      /* near‑white background */
+      --dark: #184a45;       /* rich forest green */
+      --card-bg: rgba(255,255,255,0.75); /* glass card background */
+      --card-blur: blur(15px);            /* stronger blur for glass effect */
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    /* Hero section */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 70vh;
+      /* Slightly lighter overlay for enhanced contrast */
+      background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('forest-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 0 0 10px;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      margin: 0 0 40px;
+    }
+    .hero button {
+      padding: 14px 28px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-image: linear-gradient(135deg, var(--accent), #f7d780);
+      color: var(--dark);
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .hero button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    }
+    .scoreboard {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      background-color: rgba(0,0,0,0.25);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 1rem;
+      color: #fff;
+      transform-origin: center;
+      white-space: nowrap;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    /* Animate the scoreboard when points are added */
+    .scoreboard.pop {
+      animation: pop 0.5s forwards;
+    }
+    @keyframes pop {
+      0% { transform: scale(1); }
+      30% { transform: scale(1.2); }
+      60% { transform: scale(0.9); }
+      100% { transform: scale(1); }
+    }
+    main {
+      padding: 30px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    /* Cards */
+    #game-selection {
+      display: none;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      text-align: center;
+      cursor: pointer;
+      transition: transform .25s, box-shadow .25s;
+      backdrop-filter: var(--card-blur);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    }
+    .card h3 {
+      margin-top: 18px;
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: var(--dark);
+      margin-bottom: 0;
+      opacity: 0.85;
+    }
+    .card div {
+      font-size: 2.4rem;
+    }
+    /* Story content */
+    .story-content {
+      white-space: pre-line;
+      margin: 20px 0;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    #story-art img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    /* Hidden sections */
+    .section {
+      display: none;
+      margin-top: 40px;
+    }
+    .section h2 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 10px;
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+    /* Habitat builder styles */
+    #habitat-area {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .inventory, .drop-zone {
+      flex: 1;
+      min-width: 250px;
+      background-color: #f5fbf7;
+      border: 2px dashed var(--secondary);
+      border-radius: 8px;
+      padding: 20px;
+      min-height: 200px;
+    }
+    .inventory h3, .drop-zone h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    .item {
+      background-color: var(--secondary);
+      color: #fff;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      cursor: grab;
+    }
+    .drop-zone .dropped {
+      display: inline-block;
+      margin: 5px;
+      padding: 8px;
+      background-color: var(--primary);
+      color: #fff;
+      border-radius: 4px;
+    }
+    .progress {
+      width: 100%;
+      height: 12px;
+      background-color: #e0eee8;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 15px 0;
+    }
+    .progress-bar {
+      height: 100%;
+      background-color: var(--accent);
+      width: 0;
+    }
+    /* Empathy explorer styles */
+    #empathy-animal-buttons button {
+      padding: 10px 14px;
+      margin: 5px;
+      border: 1px solid var(--secondary);
+      background-color: #fff;
+      color: var(--dark);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #empathy-animal-buttons button.active {
+      background-color: var(--secondary);
+      color: #fff;
+    }
+    #empathy-tabs {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    #empathy-tabs button {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      background-color: var(--light);
+      color: var(--dark);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #empathy-tabs button.active {
+      background-color: var(--primary);
+      color: #fff;
+    }
+    #empathy-content {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f9fbfa;
+      border-radius: 4px;
+      min-height: 120px;
+    }
+    /* Quiz styles */
+    #quiz-question {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+    .quiz-answers button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      margin-bottom: 8px;
+      padding: 10px;
+      background-color: #f0f7f6;
+      border: 1px solid #cddad8;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .quiz-answers button.selected {
+      background-color: var(--secondary);
+      color: #fff;
+      border-color: var(--secondary);
+    }
+    #quiz-next {
+      margin-top: 20px;
+      padding: 10px 16px;
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: none;
+    }
+    #quiz-progress {
+      height: 8px;
+      background-color: #e0eee8;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    #quiz-progress-bar {
+      height: 100%;
+      background-color: var(--accent);
+      width: 0;
+    }
+    /* Water journey styles */
+    #water-content {
+      margin-top: 15px;
+      padding: 15px;
+      background-color: #f7fcfa;
+      border-radius: 4px;
+      min-height: 120px;
+    }
+    #water-choices button {
+      margin: 5px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 4px;
+      background-color: var(--secondary);
+      color: #fff;
+      cursor: pointer;
+    }
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #666;
+      padding-bottom: 40px;
+    }
+
+    /* Chat styles for AI Eco‑Coach */
+    .chat-container {
+      max-width: 650px;
+      margin: 20px auto;
+      background-color: rgba(255,255,255,0.8);
+      backdrop-filter: blur(12px);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+    }
+    .messages {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 320px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .message {
+      padding: 10px 14px;
+      border-radius: 14px;
+      max-width: 80%;
+      word-wrap: break-word;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    .message.ai {
+      background-color: #e6f4f1;
+      color: var(--dark);
+      align-self: flex-start;
+    }
+    .message.user {
+      background-color: var(--secondary);
+      color: #fff;
+      align-self: flex-end;
+    }
+    .chat-input {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+    .chat-input button {
+      padding: 10px 16px;
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color .2s;
+    }
+    .chat-input button:hover {
+      background-color: #1e5f56;
+    }
+
+    /* Name modal overlay */
+    #name-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #name-modal .modal-content {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 350px;
+      width: 90%;
+    }
+    #name-modal input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #name-modal button {
+      margin-top: 15px;
+      padding: 10px 16px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Badge creator styles */
+    #badge-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+    #generate-badge {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: var(--secondary);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #badge-output {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="scoreboard"><span id="score-label">Eco‑Points</span>: <span id="eco-score">0</span></div>
+    <h1>Protect Our Planet</h1>
+    <p>Play, learn and act for conservation. Earn eco‑points and explore how you can help.</p>
+    <button id="begin-btn">Start Exploring</button>
+  </header>
+  <main>
+    <!-- Game selection cards -->
+    <section id="game-selection">
+      <h2>Select an Experience</h2>
+      <div class="cards">
+        <div class="card" data-section="habitat">
+          <div style="font-size:2rem">🌱</div>
+          <h3>Habit Habitat</h3>
+          <p>Build a healthy home for wildlife by dragging plants, water and shelter into a habitat.</p>
+        </div>
+        <div class="card" data-section="empathy">
+          <div style="font-size:2rem">🧠</div>
+          <h3>Empathy Explorer</h3>
+          <p>Discover animals’ senses, families and challenges to learn why they matter.</p>
+        </div>
+        <div class="card" data-section="quiz">
+          <div style="font-size:2rem">❓</div>
+          <h3>Conservation Quiz</h3>
+          <p>Test your knowledge and earn points for correct answers.</p>
+        </div>
+        <div class="card" data-section="water">
+          <div style="font-size:2rem">💧</div>
+          <h3>Water Journey</h3>
+          <p>Follow a drop of water and make choices to conserve this precious resource.</p>
+        </div>
+        <div class="card" data-section="badge">
+          <div style="font-size:2rem">🏅</div>
+          <h3>Eco Badge Creator</h3>
+          <p>Create a personalised badge with your name, score and a pledge to protect the planet.</p>
+        </div>
+        <div class="card" data-section="coach">
+          <div style="font-size:2rem">🤖</div>
+          <h3>AI Eco‑Coach</h3>
+          <p>Chat with our AI coach for personalised tips and reflections on your journey.</p>
+        </div>
+      </div>
+    </section>
+    <!-- Habitat builder -->
+    <section id="habitat" class="section">
+      <button class="back-btn" data-back>← Back</button>
+      <h2>Habit Habitat</h2>
+      <p>Drag the items from your inventory into the habitat zone to create a balanced environment. Each item you add increases the habitat’s health. When you complete your habitat, you’ll earn eco‑points!</p>
+      <div id="habitat-area">
+        <div class="inventory">
+          <h3>Inventory</h3>
+          <div class="item" draggable="true" data-type="plant">🌿 Native Plant</div>
+          <div class="item" draggable="true" data-type="water">💧 Water Source</div>
+          <div class="item" draggable="true" data-type="shelter">🏡 Shelter</div>
+        </div>
+        <div class="drop-zone">
+          <h3>Habitat</h3>
+          <div id="habitat-progress" class="progress">
+            <div id="habitat-bar" class="progress-bar"></div>
+          </div>
+          <div id="dropped-items"></div>
+          <div id="habitat-message"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Empathy explorer -->
+    <section id="empathy" class="section">
+      <button class="back-btn" data-back>← Back</button>
+      <h2>Empathy Explorer</h2>
+      <p>Select an animal to explore its sensory world, family life, threats and ways to help. Click through the tabs to learn more.</p>
+      <div id="empathy-animal-buttons"></div>
+      <div id="empathy-tabs"></div>
+      <div id="empathy-content"></div>
+    </section>
+    <!-- Quiz -->
+    <section id="quiz" class="section">
+      <button class="back-btn" data-back>← Back</button>
+      <h2>Conservation Quiz</h2>
+      <div id="quiz-progress"><div id="quiz-progress-bar"></div></div>
+      <div id="quiz-question"></div>
+      <div id="quiz-answers" class="quiz-answers"></div>
+      <button id="quiz-next">Next</button>
+      <div id="quiz-result" style="margin-top:15px;"></div>
+    </section>
+    <!-- Water journey -->
+    <section id="water" class="section">
+      <button class="back-btn" data-back>← Back</button>
+      <h2>Water Journey</h2>
+      <p>You are a drop of water! Make choices to decide your path. Your decisions affect the planet and your eco‑points.</p>
+      <div id="water-content"></div>
+      <div id="water-choices"></div>
+    </section>
+
+    <!-- Badge creator -->
+    <section id="badge" class="section">
+      <button class="back-btn" data-back>← Back</button>
+      <h2>Eco Hero Badge</h2>
+      <p>Celebrate your impact! Create a personalised badge with your name, eco‑points and a pledge for our planet.</p>
+      <div id="badge-form">
+        <label for="badge-pledge">Your pledge:</label><br>
+        <textarea id="badge-pledge" rows="3" placeholder="e.g., I will reduce my plastic use and plant a tree"></textarea><br>
+        <button id="generate-badge">Generate Badge</button>
+      </div>
+      <div id="badge-output"></div>
+    </section>
+
+    <!-- AI Eco Coach -->
+    <section id="coach" class="section">
+      <button class="back-btn" data-back>← Back</button>
+      <h2>AI Eco‑Coach</h2>
+      <p>Chat with our friendly AI to reflect on your actions and receive personalised conservation tips. Type a question or simply say "tip" for a fun fact!</p>
+      <div id="coach-chat" class="chat-container">
+        <div id="coach-messages" class="messages"></div>
+        <div class="chat-input">
+          <input type="text" id="coach-input" placeholder="Type your question or say hi..." />
+          <button id="coach-send">Send</button>
+        </div>
+      </div>
+    </section>
+    <footer>
+      Inspired by research on gamified conservation experiences and empathy tools【361518922001649†L195-L215】【389055944364333†L79-L83】.
+    </footer>
+  </main>
+  <!-- Name prompt modal (hidden by default) -->
+  <div id="name-modal" style="display:none;">
+    <div class="modal-content">
+      <h3>Welcome!</h3>
+      <p>Please enter your name to personalise your eco journey.</p>
+      <input type="text" id="player-input" placeholder="Your name">
+      <button id="name-submit">Continue</button>
+    </div>
+  </div>
+  <script>
+    // Persistent eco‑score and player name
+    let ecoScore = parseInt(localStorage.getItem('ecoScore') || '0');
+    let playerName = localStorage.getItem('playerName') || '';
+    const scoreEl = document.getElementById('eco-score');
+    const scoreLabel = document.getElementById('score-label');
+    const scoreboard = document.querySelector('.scoreboard');
+
+    // Track progress for AI Eco‑Coach
+    let habitatCompleted = localStorage.getItem('habitatCompleted') === 'true';
+    let animalsVisited = JSON.parse(localStorage.getItem('animalsVisited') || '[]');
+    let quizScoreStored = parseInt(localStorage.getItem('quizScore') || '0');
+    let waterStats = JSON.parse(localStorage.getItem('waterStats') || '{}');
+    let lastPledge = localStorage.getItem('lastPledge') || '';
+    // Update scoreboard display
+    function updateScoreboard() {
+      scoreEl.textContent = ecoScore;
+      if (playerName) {
+        scoreLabel.textContent = playerName + "'s Points";
+      } else {
+        scoreLabel.textContent = 'Eco‑Points';
+      }
+    }
+    updateScoreboard();
+    // Save ecoScore to localStorage
+    function saveScore() {
+      localStorage.setItem('ecoScore', ecoScore);
+    }
+    // Add points with animation and persistence
+    function addPoints(points) {
+      ecoScore += points;
+      saveScore();
+      updateScoreboard();
+      // Animate scoreboard
+      scoreboard.classList.add('pop');
+      setTimeout(() => scoreboard.classList.remove('pop'), 600);
+    }
+    // Navigation
+    const beginBtn = document.getElementById('begin-btn');
+    const gameSelection = document.getElementById('game-selection');
+    const sections = document.querySelectorAll('.section');
+    // Ask for player name if not set and then reveal game cards
+    beginBtn.addEventListener('click', () => {
+      maybePromptName();
+    });
+
+    function maybePromptName() {
+      // If name is already set, just show game selection
+      if (playerName && playerName.trim() !== '') {
+        gameSelection.style.display = 'block';
+        window.scrollTo({top: gameSelection.offsetTop - 20, behavior:'smooth'});
+        return;
+      }
+      // Show modal for name input
+      const modal = document.getElementById('name-modal');
+      modal.style.display = 'flex';
+    }
+
+    // Name modal submission
+    const nameSubmitBtn = document.getElementById('name-submit');
+    const nameInput = document.getElementById('player-input');
+    if (nameSubmitBtn) {
+      nameSubmitBtn.addEventListener('click', () => {
+        const value = nameInput.value.trim();
+        playerName = value || 'Explorer';
+        localStorage.setItem('playerName', playerName);
+        updateScoreboard();
+        // Hide modal
+        const modal = document.getElementById('name-modal');
+        modal.style.display = 'none';
+        // Proceed to game selection
+        gameSelection.style.display = 'block';
+        window.scrollTo({top: gameSelection.offsetTop - 20, behavior:'smooth'});
+      });
+    }
+    // Card navigation
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+          const target = card.getAttribute('data-section');
+          showSection(target);
+      });
+    });
+    // Back buttons
+    function attachBack() {
+      document.querySelectorAll('[data-back]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          sections.forEach(sec => sec.style.display = 'none');
+          gameSelection.style.display = 'block';
+          window.scrollTo({top: gameSelection.offsetTop - 20, behavior:'smooth'});
+        });
+      });
+    }
+    attachBack();
+    function showSection(id) {
+      gameSelection.style.display = 'none';
+      sections.forEach(sec => sec.style.display = 'none');
+      const sec = document.getElementById(id);
+      if (sec) {
+        sec.style.display = 'block';
+        window.scrollTo({top: sec.offsetTop - 20, behavior:'smooth'});
+      }
+    }
+    /** HABITAT BUILDER **/
+    (function(){
+      const dropZone = document.querySelector('.drop-zone');
+      const droppedItems = document.getElementById('dropped-items');
+      const bar = document.getElementById('habitat-bar');
+      const message = document.getElementById('habitat-message');
+      let placed = 0;
+      function handleDragStart(e) {
+        e.dataTransfer.setData('text/plain', e.target.getAttribute('data-type'));
+      }
+      function handleDragOver(e) { e.preventDefault(); }
+      function handleDrop(e) {
+        e.preventDefault();
+        const type = e.dataTransfer.getData('text/plain');
+        const item = document.querySelector(`.item[data-type="${type}"]`);
+        placeItem(item);
+      }
+      // Helper to place item programmatically or on drop
+      function placeItem(item) {
+        if (item && !item.classList.contains('used')) {
+          item.classList.add('used');
+          item.style.opacity = 0.4;
+          const clone = document.createElement('div');
+          clone.className = 'dropped';
+          clone.textContent = item.textContent;
+          droppedItems.appendChild(clone);
+          placed++;
+          bar.style.width = (placed/3 * 100) + '%';
+          if (placed === 3) {
+            message.textContent = 'Great job! Your habitat is thriving.';
+            addPoints(10);
+            // mark habitat as completed in storage
+            localStorage.setItem('habitatCompleted','true');
+            habitatCompleted = true;
+          }
+        }
+      }
+      document.querySelectorAll('.item').forEach(it => {
+        it.addEventListener('dragstart', handleDragStart);
+        // Allow clicking as an alternative to dragging
+        it.addEventListener('click', () => {
+          placeItem(it);
+        });
+      });
+      dropZone.addEventListener('dragover', handleDragOver);
+      dropZone.addEventListener('drop', handleDrop);
+    })();
+    /** EMPATHY EXPLORER **/
+    (function(){
+      const animals = {
+        turtle: {
+          name: 'Sea Turtle', emoji:'🐢', sections: { sensory:'Sea turtles sense the world mostly through sound, touch and low‑light vision. Their magnetic sensitivity guides them across oceans.', family:'Sea turtles are solitary; females return to their birth beaches to nest. Hatchlings scramble to the ocean together.', threats:'Plastic pollution, warming oceans and fishing nets threaten turtles. Rising sand temperatures also impact hatchling sex ratios.', help:'Reduce plastic use, participate in beach cleanups, support nesting beach protections and advocate for climate action.' }
+        },
+        elephant: {
+          name:'Elephant', emoji:'🐘', sections:{ sensory:'Elephants communicate with low‑frequency rumbles and sensitive trunks. They can detect distant storms via seismic vibrations.', family:'They live in matriarchal herds with strong bonds. Calves are cared for by mothers, aunties and siblings.', threats:'Habitat loss, human‑wildlife conflict and poaching for ivory threaten elephants in Africa and Asia.', help:'Support organisations fighting poaching, choose sustainable products and promote coexistence with wildlife.' }
+        },
+        wolf: {
+          name:'Gray Wolf', emoji:'🐺', sections:{ sensory:'Wolves have keen hearing and smell; they communicate through howls and body language to coordinate hunts.', family:'A pack includes parents and offspring. Wolves teach pups to hunt and maintain territories together.', threats:'Conflicts with livestock owners, habitat fragmentation and misconceptions lead to persecution of wolves.', help:'Learn about wolves’ ecological roles, support wildlife corridors and advocate for coexistence policies.' }
+        }
+      };
+      const btnContainer = document.getElementById('empathy-animal-buttons');
+      const tabsContainer = document.getElementById('empathy-tabs');
+      const contentEl = document.getElementById('empathy-content');
+      let currentAnimal = null;
+      for (const key in animals) {
+        const btn = document.createElement('button');
+        btn.textContent = animals[key].emoji + ' ' + animals[key].name;
+        btn.dataset.animal = key;
+        btn.addEventListener('click', () => {
+          currentAnimal = key;
+          document.querySelectorAll('#empathy-animal-buttons button').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderTabs();
+          // record visited animal
+          const name = animals[key].name;
+          if (!animalsVisited.includes(name)) {
+            animalsVisited.push(name);
+            localStorage.setItem('animalsVisited', JSON.stringify(animalsVisited));
+          }
+          addPoints(2);
+        });
+        btnContainer.appendChild(btn);
+      }
+      function renderTabs() {
+        tabsContainer.innerHTML = '';
+        contentEl.textContent = '';
+        if (!currentAnimal) return;
+        const secs = animals[currentAnimal].sections;
+        let first = true;
+        for (const part in secs) {
+          const tbtn = document.createElement('button');
+          tbtn.textContent = part.charAt(0).toUpperCase() + part.slice(1);
+          tbtn.addEventListener('click', () => {
+            document.querySelectorAll('#empathy-tabs button').forEach(tb => tb.classList.remove('active'));
+            tbtn.classList.add('active');
+            contentEl.textContent = secs[part];
+          });
+          if (first) {
+            tbtn.classList.add('active');
+            contentEl.textContent = secs[part];
+            first = false;
+          }
+          tabsContainer.appendChild(tbtn);
+        }
+      }
+    })();
+    /** QUIZ **/
+    (function(){
+      const questions = [
+        { q:'What is one simple action you can take to reduce plastic pollution?', options:['Use reusable water bottles and bags','Throw plastic into rivers','Buy more single‑use plastics','Leave trash in parks'], a:0, info:'Using reusable items cuts down on waste and keeps habitats clean.' },
+        { q:'Which platform encourages people to record wildlife sightings for science?', options:['iNaturalist','Music streaming app','Video game','Weather news'], a:0, info:'Citizen science platforms like iNaturalist help researchers track species.' },
+        { q:'Why is biodiversity important?', options:['It supports healthy ecosystems and people','It makes nature busy','It reduces species','It benefits only one species'], a:0, info:'Biodiversity keeps ecosystems stable and provides services like clean water.' },
+        { q:'What does “sustainable” mean?', options:['Using resources responsibly so they are available in the future','Using as much as possible now','Ignoring the environment','Consuming only processed foods'], a:0, info:'Sustainability balances human needs with planet protection.' },
+        { q:'How do native plants help wildlife?', options:['They provide food and habitat for local species','They make lawns harder to mow','They repel pollinators','They consume lots of water unnecessarily'], a:0, info:'Native plants support local insects, birds and animals.' }
+      ];
+      // randomize
+      questions.sort(() => Math.random() - 0.5);
+      let current = 0;
+      let localScore = 0;
+      const qEl = document.getElementById('quiz-question');
+      const ansEl = document.getElementById('quiz-answers');
+      const nextBtn = document.getElementById('quiz-next');
+      const resEl = document.getElementById('quiz-result');
+      const progBar = document.getElementById('quiz-progress-bar');
+      function renderQuestion() {
+        const data = questions[current];
+        qEl.textContent = `Question ${current+1}: ${data.q}`;
+        ansEl.innerHTML = '';
+        resEl.textContent = '';
+        nextBtn.style.display = 'none';
+        data.options.forEach((opt, idx) => {
+          const b = document.createElement('button');
+          b.textContent = opt;
+          b.addEventListener('click', () => {
+            document.querySelectorAll('.quiz-answers button').forEach(bu => {
+              bu.disabled = true;
+              bu.classList.remove('selected');
+            });
+            b.classList.add('selected');
+            if (idx === data.a) {
+              localScore++;
+              resEl.textContent = 'Correct! ' + data.info;
+              addPoints(3);
+            } else {
+              resEl.textContent = 'Oops… ' + data.info;
+            }
+            nextBtn.style.display = 'inline-block';
+          });
+          ansEl.appendChild(b);
+        });
+        progBar.style.width = (current / questions.length * 100) + '%';
+      }
+      nextBtn.addEventListener('click', () => {
+        current++;
+        if (current < questions.length) {
+          renderQuestion();
+        } else {
+          qEl.innerHTML = `<strong>You scored ${localScore} out of ${questions.length}!</strong>`;
+          ansEl.innerHTML = '';
+          progBar.style.width = '100%';
+          nextBtn.style.display = 'none';
+          resEl.innerHTML = 'Thanks for playing! Share what you learned with friends.';
+          // store quiz score for AI coach
+          quizScoreStored = localScore;
+          localStorage.setItem('quizScore', localScore.toString());
+          addPoints(localScore * 2);
+        }
+      });
+      renderQuestion();
+    })();
+    /** WATER JOURNEY **/
+    (function(){
+      const steps = [
+        { text:'You are a raindrop falling onto a mountain. Do you seep into soil or flow into a stream?', choices:[{label:'Seep into soil', next:1, pts:1},{label:'Flow into stream', next:2, pts:1}] },
+        { text:'You soak into soil and nourish a forest plant. Eventually you transpire back to the clouds. Earn eco‑points for watering plants!', choices:[{label:'Return to clouds', next:0, pts:2}] },
+        { text:'You join a stream heading toward a farm. Farmers can use you wisely or wastefully. Do you irrigate crops or wash away fertiliser?', choices:[{label:'Irrigate crops', next:3, pts:2},{label:'Wash away fertiliser', next:4, pts:0}] },
+        { text:'You irrigate crops that feed people. Well done! The cycle continues as you evaporate.', choices:[{label:'Return to clouds', next:0, pts:2}] },
+        { text:'You wash fertiliser into a river causing pollution. Choose a better path next time.', choices:[{label:'Try again', next:0, pts:0}] }
+      ];
+      let step = 0;
+      const content = document.getElementById('water-content');
+      const choices = document.getElementById('water-choices');
+      function renderStep() {
+        const s = steps[step];
+        content.textContent = s.text;
+        choices.innerHTML = '';
+        s.choices.forEach(ch => {
+          const btn = document.createElement('button');
+          btn.textContent = ch.label;
+          btn.addEventListener('click', () => {
+            addPoints(ch.pts);
+            // record water choice for AI coach
+            const slug = ch.label.toLowerCase().replace(/\s+/g, '_');
+            waterStats[slug] = (waterStats[slug] || 0) + 1;
+            localStorage.setItem('waterStats', JSON.stringify(waterStats));
+            step = ch.next;
+            renderStep();
+          });
+          choices.appendChild(btn);
+        });
+      }
+      renderStep();
+    })();
+
+    /** ECO BADGE CREATOR **/
+    (function(){
+      const pledgeInput = document.getElementById('badge-pledge');
+      const generateBtn = document.getElementById('generate-badge');
+      const output = document.getElementById('badge-output');
+      if (!generateBtn) return;
+      generateBtn.addEventListener('click', () => {
+        // Ensure name is set
+        if (!playerName || playerName.trim() === '') {
+          maybePromptName();
+          return;
+        }
+        const pledge = pledgeInput.value.trim() || 'I pledge to protect nature.';
+        // Award a small point for creating the badge before drawing so the updated
+        // score appears on the badge itself
+        addPoints(1);
+        // store pledge for AI coach
+        lastPledge = pledge;
+        localStorage.setItem('lastPledge', pledge);
+        // Canvas dimensions
+        const width = 600;
+        const height = 800;
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        // background gradient
+        const grad = ctx.createLinearGradient(0,0,0,height);
+        grad.addColorStop(0,'#e8f6f3');
+        grad.addColorStop(1,'#c8e0dc');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0,0,width,height);
+        // header
+        ctx.fillStyle = '#2b7a77';
+        ctx.fillRect(0,0,width,100);
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 32px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('Eco Hero Badge', width/2, 60);
+        // Draw earth emoji (approx using text)
+        ctx.font = '50px Arial';
+        ctx.fillText('🌍', width/2, 140);
+        // Player name and score
+        ctx.fillStyle = '#234c4a';
+        ctx.font = '24px Arial';
+        ctx.fillText('Name: ' + playerName, width/2, 200);
+        ctx.fillText('Eco‑Points: ' + ecoScore, width/2, 240);
+        // Pledge text box
+        ctx.fillStyle = '#4a9e87';
+        ctx.fillRect(50, 280, width-100, 200);
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 20px Arial';
+        ctx.fillText('My Pledge', width/2, 310);
+        ctx.font = '18px Arial';
+        ctx.fillStyle = '#fff';
+        wrapText(ctx, pledge, 70, 340, width-140, 24);
+        // Date
+        const today = new Date();
+        const dateStr = today.toLocaleDateString(undefined, {year:'numeric',month:'long',day:'numeric'});
+        ctx.fillStyle = '#234c4a';
+        ctx.font = '16px Arial';
+        ctx.fillText('Date: ' + dateStr, width/2, height-50);
+        // Generate image
+        const dataUrl = canvas.toDataURL('image/png');
+        const img = document.createElement('img');
+        img.src = dataUrl;
+        img.alt = 'Eco Hero Badge';
+        img.style.maxWidth = '100%';
+        // Clear and append output
+        output.innerHTML = '';
+        output.appendChild(img);
+        const link = document.createElement('a');
+        link.href = dataUrl;
+        link.download = 'eco-hero-badge.png';
+        link.textContent = 'Download Badge';
+        link.style.display = 'inline-block';
+        link.style.marginTop = '10px';
+        link.style.backgroundColor = '#2b7a77';
+        link.style.color = '#fff';
+        link.style.padding = '8px 16px';
+        link.style.borderRadius = '4px';
+        link.style.textDecoration = 'none';
+        output.appendChild(link);
+      });
+      // Wrap text helper
+      function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+        const words = text.split(' ');
+        let line = '';
+        for (let n = 0; n < words.length; n++) {
+          const testLine = line + words[n] + ' ';
+          const metrics = ctx.measureText(testLine);
+          if (metrics.width > maxWidth && n > 0) {
+            ctx.fillText(line.trim(), x + maxWidth/2, y);
+            line = words[n] + ' ';
+            y += lineHeight;
+          } else {
+            line = testLine;
+          }
+        }
+        ctx.fillText(line.trim(), x + maxWidth/2, y);
+      }
+    })();
+
+    /** AI ECO‑COACH **/
+    (function(){
+      const coachSection = document.getElementById('coach');
+      const coachMessages = document.getElementById('coach-messages');
+      const coachInput = document.getElementById('coach-input');
+      const coachSend = document.getElementById('coach-send');
+      if (!coachSection) return;
+      // Helper: add a message bubble
+      function addMessage(author, text) {
+        const div = document.createElement('div');
+        div.className = 'message ' + (author === 'user' ? 'user' : 'ai');
+        div.textContent = text;
+        coachMessages.appendChild(div);
+        // keep scroll at bottom
+        coachMessages.scrollTop = coachMessages.scrollHeight;
+      }
+      // Generate summary from stored variables
+      function generateSummary() {
+        let msg = `Hi ${playerName || 'friend'}! I'm your Eco‑Coach. `;
+        if (habitatCompleted) {
+          msg += 'You built a thriving habitat. ';
+        }
+        if (animalsVisited.length > 0) {
+          msg += 'You learned about ' + animalsVisited.join(', ') + '. ';
+        }
+        if (quizScoreStored > 0) {
+          msg += `You scored ${quizScoreStored} on the quiz. `;
+        }
+        const keys = Object.keys(waterStats || {});
+        if (keys.length > 0) {
+          msg += 'In the water journey, you chose '; 
+          keys.forEach((k, i) => {
+            msg += `${k.replace(/_/g,' ')} (${waterStats[k]}×)` + (i < keys.length - 1 ? ', ' : '. ');
+          });
+        }
+        if (lastPledge && lastPledge.trim() !== '') {
+          msg += `Your pledge: "${lastPledge}". `;
+        }
+        msg += 'Ask me about habitats, animals, water, your pledge or type "tip" for a conservation fact!';
+        return msg;
+      }
+      // Handle user input and respond
+      function handleUserMessage(msg) {
+        const text = msg.toLowerCase();
+        let response;
+        if (text.includes('habitat') || text.includes('plant')) {
+          response = 'To create habitats, use native plants, provide water sources, avoid pesticides and leave some natural debris for shelter.';
+        } else if (text.includes('animal') || text.includes('turtle') || text.includes('elephant') || text.includes('wolf')) {
+          response = 'Protect animals by reducing plastic use, supporting sanctuaries, avoiding products that harm wildlife and telling friends what you learned.';
+        } else if (text.includes('water')) {
+          response = 'Conserve water by taking shorter showers, fixing leaks, choosing native plants and collecting rainwater for gardening.';
+        } else if (text.includes('quiz') || text.includes('score')) {
+          response = 'Great job on the quiz! Keep challenging yourself and sharing your knowledge.';
+        } else if (text.includes('pledge')) {
+          response = 'Your pledge matters! Small commitments add up. Consider sharing your pledge to inspire others.';
+        } else if (text.includes('tip') || text.includes('fact')) {
+          const facts = [
+            'Planting a single tree can absorb up to 22 kilograms of CO₂ per year.',
+            'Only about 2% of Earth’s water is fresh and drinkable.',
+            'Bees pollinate about 75% of crops used for human food.',
+            'Coral reefs support over 25% of marine life, yet cover less than 1% of the ocean floor.',
+            'Switching to LED bulbs can cut your lighting energy use by up to 75%.'
+          ];
+          response = facts[Math.floor(Math.random() * facts.length)];
+        } else if (text.trim() === '') {
+          response = 'Please type a message.';
+        } else {
+          response = 'I’m here to help! Ask about habitats, animals, water or type "tip".';
+        }
+        // respond after slight delay for realism
+        setTimeout(() => {
+          addMessage('ai', response);
+          // reward conversation
+          addPoints(1);
+        }, 500);
+      }
+      // Start conversation when entering coach section
+      function startCoach() {
+        // refresh local variables in case of updates
+        habitatCompleted = localStorage.getItem('habitatCompleted') === 'true';
+        animalsVisited = JSON.parse(localStorage.getItem('animalsVisited') || '[]');
+        quizScoreStored = parseInt(localStorage.getItem('quizScore') || '0');
+        waterStats = JSON.parse(localStorage.getItem('waterStats') || '{}');
+        lastPledge = localStorage.getItem('lastPledge') || '';
+        coachMessages.innerHTML = '';
+        addMessage('ai', generateSummary());
+      }
+      // Detect when coach section becomes visible by watching style changes
+      const observer = new MutationObserver(() => {
+        if (coachSection.style.display !== 'none') {
+          startCoach();
+        }
+      });
+      observer.observe(coachSection, { attributes: true, attributeFilter: ['style'] });
+      // Send message events
+      coachSend.addEventListener('click', () => {
+        const message = coachInput.value.trim();
+        if (!message) return;
+        addMessage('user', message);
+        coachInput.value = '';
+        handleUserMessage(message);
+      });
+      coachInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          coachSend.click();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
