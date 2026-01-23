@@ -14,6 +14,31 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA',
+                            purple: '#A78BFA'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         :root {
             --primary-dark: #0A091B;
@@ -72,12 +97,27 @@
         .link-item {
             transition: all 0.2s ease;
             border-left: 2px solid transparent;
+            word-break: break-word; /* Prevent long titles from breaking layout */
         }
         .link-item:hover {
             border-left-color: var(--accent-teal);
-            padding-left: 0.5rem;
+            padding-left: 0.75rem;
             color: var(--accent-teal);
             background: rgba(255,255,255,0.03);
+        }
+
+        /* Search Input */
+        .search-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .search-input:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-teal);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.1);
         }
 
         /* Scrollbar */
@@ -104,7 +144,7 @@
     </div>
 
     <!-- Sticky Navigation -->
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo Section -->
             <a href="/" class="flex items-center space-x-3 group">
@@ -117,21 +157,22 @@
             <nav class="hidden lg:flex space-x-10 items-center">
                 <a href="/" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
                 
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400">Landmarks</a>
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400 hover:text-emerald-300 transition-colors">Landmarks</a>
+                
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all uppercase tracking-[0.2em]">
                     $PNET Asset Dashboard
                 </a>
             </nav>
 
-            <button id="mobile-menu-btn" class="lg:hidden text-white"><i class="fa-solid fa-bars-staggered"></i></button>
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors"><i class="fa-solid fa-bars-staggered"></i></button>
         </div>
 
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
-            <a href="/" class="text-xl font-black text-white uppercase tracking-widest">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl p-2 hover:bg-white/10 rounded-full transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-emerald-400 transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
         </div>
     </header>
 
@@ -139,10 +180,10 @@
     <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
         
         <!-- Hero Section -->
-        <section class="text-center max-w-5xl mx-auto mb-24" data-aos="fade-up">
+        <section class="text-center max-w-5xl mx-auto mb-20" data-aos="fade-up">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-bold tracking-wide uppercase mb-8">
                 <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-                AI Integration Initiative
+                Digital Preservation Initiative
             </div>
             
             <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8 leading-[1.1]">
@@ -151,165 +192,267 @@
             </h1>
             
             <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
-                We construct the digital footprints for public sculptures and landmarks, ensuring our culture is recognized by the AI systems of tomorrow.
+                A structured directory of landmarks, art, and public spaces, optimized for discovery in the AI era.
             </p>
+        </section>
 
-            <!-- Mission Card -->
-            <div class="card-blur rounded-3xl p-8 md:p-10 text-left border border-white/10">
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="md:col-span-2">
-                        <h3 class="text-lg font-display font-bold text-white mb-3">Why This Exists</h3>
-                        <p class="text-gray-400 leading-relaxed">
-                            AI models train on web data. If a landmark lacks a URL, it is invisible to the future. We provide structured, clean data to ensure search engines and smart assistants recognize our community's assets.
-                        </p>
+        <!-- Directory Search & Header -->
+        <section class="mb-12" data-aos="fade-up">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
+                <div>
+                    <h2 class="font-display text-3xl font-bold text-white">The Archive</h2>
+                    <p class="text-gray-400 mt-2">Explore directories by region.</p>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="relative w-full md:w-96 group">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500 group-focus-within:text-teal-400 transition-colors">
+                        <i class="fa-solid fa-search"></i>
                     </div>
-                    <div class="md:border-l border-white/10 md:pl-8 flex flex-col justify-center space-y-3">
-                        <div class="flex items-center gap-3 text-teal-400 font-bold">
-                            <i class="fa-solid fa-check-circle"></i> Verified Accuracy
-                        </div>
-                        <div class="flex items-center gap-3 text-teal-400 font-bold">
-                            <i class="fa-solid fa-users"></i> Public Good
-                        </div>
-                        <div class="flex items-center gap-3 text-teal-400 font-bold">
-                            <i class="fa-solid fa-shield-halved"></i> Preservation
-                        </div>
-                    </div>
+                    <input type="text" id="directory-search" 
+                           class="search-input w-full rounded-xl py-3 pl-11 pr-4 text-sm font-medium placeholder-gray-500"
+                           placeholder="Search landmarks, states, or tools...">
                 </div>
             </div>
+            <div class="h-px bg-white/10 w-full"></div>
         </section>
 
         <!-- Directory Grid -->
-        <section class="mb-24">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4" data-aos="fade-right">
-                <div>
-                    <h2 class="font-display text-3xl font-bold text-white">Public Interest Directory</h2>
-                    <p class="text-gray-400 mt-2">Curated digital endpoints for physical assets.</p>
+        <!-- Each "Card" represents a State Directory containing its links -->
+        <div id="directory-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- COLORADO (CO) -->
+            <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="colorado">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold border border-blue-500/20">CO</div>
+                    <h3 class="font-display text-xl font-bold text-white">Colorado</h3>
                 </div>
-                <div class="h-px bg-white/10 flex-grow md:mx-8"></div>
-                <span class="text-xs font-mono text-gray-500">UPDATED: JAN 2026</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Category 1: Landmarks -->
-                <div class="card-blur rounded-3xl p-8 flex flex-col h-full group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center border border-teal-500/20">
-                            <i class="fa-solid fa-landmark text-xl"></i>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-white">Landmarks</h3>
-                    </div>
-                    <div class="flex-grow space-y-2">
-                        <a href="https://www.testedprofit.com/pages/bronco-buster-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Bronco Buster Statue</a>
-                        <a href="https://www.testedprofit.com/pages/albert-einstein-statue-vail-co" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Albert Einstein - Vail, CO</a>
-                        <a href="https://www.testedprofit.com/pages/man-and-woman" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Man and Woman Sculpture</a>
-                        <a href="https://www.testedprofit.com/pages/worlds-tallest-kachina-doll" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">World's Tallest Kachina Doll</a>
-                        <a href="https://www.testedprofit.com/pages/the-lady-doctor-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">The Lady Doctor Statue</a>
-                        <a href="https://www.testedprofit.com/pages/eagle-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Eagle Statue</a>
-                        <a href="https://www.testedprofit.com/pages/cowboy-in-pajamas" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Cowboy in Pajamas</a>
-                        <a href="https://www.testedprofit.com/pages/the-newsboy-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">The Newsboy Statue</a>
-                        <a href="https://www.testedprofit.com/pages/martin-luther-king-memorial" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Martin Luther King Memorial</a>
-                        <a href="https://www.testedprofit.com/pages/james-dalton-trumbo-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">James Dalton Trumbo Statue</a>
-                        <a href="https://www.testedprofit.com/pages/madre-e-hijo-sculpture" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Madre e Hijo Sculpture</a>
-                        <a href="https://www.testedprofit.com/pages/bear-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Bear Statue</a>
-                        <a href="https://www.testedprofit.com/pages/goldens-vibrant-triceratops" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Golden's Vibrant Triceratops</a>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-white/10">
-                        <a href="https://www.testedprofit.com/pages/landmarks" class="flex items-center text-sm font-bold text-teal-400 group-hover:translate-x-1 transition-transform">
-                            View Full Archive <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Category 2: Nature -->
-                <div class="card-blur rounded-3xl p-8 flex flex-col h-full group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-500/20">
-                            <i class="fa-solid fa-leaf text-xl"></i>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-white">Nature & Wildlife</h3>
-                    </div>
-                    <div class="flex-grow space-y-2">
-                        <a href="https://www.testedprofit.com/pages/sensory-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Sensory Park</a>
-                        <a href="https://www.testedprofit.com/pages/lowell-ponds-state-wildlife-area" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Lowell Ponds Wildlife Area</a>
-                        <a href="https://www.testedprofit.com/pages/rocky-flats-national-wildlife-refuge-south-entrance" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Rocky Flats South Entrance</a>
-                        <a href="https://www.testedprofit.com/pages/torii-square-park-westminster" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Torii Square Park</a>
-                        <a href="https://www.testedprofit.com/pages/central-square-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Central Square Park</a>
-                        <a href="https://www.testedprofit.com/pages/rotary-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Rotary Park</a>
-                        <a href="https://www.testedprofit.com/pages/sunset-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Sunset Park</a>
-                        <a href="https://www.testedprofit.com/pages/woodbury-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Woodbury Park</a>
-                    </div>
-                    
-                    <div class="mt-6 pt-6 border-t border-white/10">
-                         <a href="https://www.testedprofit.com/pages/🌿-species-impact-calculator-see-how-your-actions-protect-wildlife" class="block bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-4 hover:bg-emerald-500/20 transition-all group-hover:scale-[1.02]">
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-bold text-emerald-300">Species Impact Calculator</span>
-                                <span class="text-emerald-400">🌿</span>
-                            </div>
-                            <p class="text-xs text-emerald-500/80 mt-1">Measure your conservation effect.</p>
-                        </a>
-                        <a href="https://www.testedprofit.com/pages/parks" class="flex items-center text-sm font-bold text-emerald-400 mt-4 group-hover:translate-x-1 transition-transform">
-                            View Park Directory <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Category 3: AI Tools -->
-                <div class="card-blur rounded-3xl p-8 flex flex-col h-full group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/20">
-                            <i class="fa-solid fa-robot text-xl"></i>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-white">AI & Growth</h3>
-                    </div>
-                    <div class="flex-grow space-y-2">
-                        <a href="https://www.testedprofit.com/pages/generative-engine-optimization-geo-master-ai-search-visibility" class="link-item block py-2 px-3 -mx-3 rounded-lg bg-blue-500/10 border border-blue-500/20 text-sm font-bold text-blue-300 mb-2">GEO Strategy Guide 🔥</a>
-                        <a href="https://www.testedprofit.com/pages/free-ai-paraphrasing-tool" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Free AI Paraphrasing Tool</a>
-                        <a href="https://www.testedprofit.com/pages/the-ai-powered-kdp-revolution" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">AI KDP Revolution</a>
-                        <a href="https://www.testedprofit.com/pages/how-small-businesses-use-ai-to-work-smarter" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Small Business AI Guide</a>
-                        <a href="https://www.testedprofit.com/pages/bubblecash" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">BubbleCash Insights</a>
-                        <a href="https://www.testedprofit.com/pages/honeygain" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Honeygain Dashboard</a>
-                        <a href="https://www.testedprofit.com/pages/earnapp" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">EarnApp Integration</a>
-                        <a href="https://www.testedprofit.com/pages/top-gig-apps-to-make-money-fast-in-2025" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Top Gig Apps 2025</a>
-                        <a href="https://www.testedprofit.com/pages/how-to-start-a-vending-machine-business-a-beginners-passive-income-journey" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Vending Machine Business</a>
-                        <a href="https://www.testedprofit.com/pages/smart-financial-dashboard" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Financial Dashboard</a>
-                        <a href="https://www.testedprofit.com/pages/of-calculator" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Earnings Calculator</a>
-                        <a href="https://www.testedprofit.com/pages/tokenomics" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Project Tokenomics</a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Stewardship Section -->
-        <section class="card-blur rounded-[2.5rem] p-8 md:p-16 border border-white/10 relative overflow-hidden" data-aos="zoom-in">
-            <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">Stewardship & Privacy</h2>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        TestedProfit operates as a volunteer initiative. We are dedicated to respecting property rights while ensuring public history is preserved for the digital age.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="mailto:testedprofit@gmail.com" class="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 rounded-xl font-bold hover:bg-teal-50 transition-colors">
-                            Contact for Removal
-                        </a>
-                        <div class="flex items-center text-gray-400 text-sm px-4">
-                            <span class="w-2 h-2 bg-emerald-500 rounded-full mr-3 animate-pulse"></span>
-                            Verified requests processed within 24h
-                        </div>
-                    </div>
-                </div>
-                <div class="hidden md:block border-l border-white/10 pl-12">
-                    <p class="text-gray-300 italic text-xl">
-                        "We are building the memory bank for the artificial minds of the future. Let's ensure it's accurate."
-                    </p>
-                    <div class="mt-4 text-teal-400 font-mono text-sm uppercase tracking-widest">
-                        — The TestedProfit Mission
-                    </div>
+                <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                    <a href="https://testedprofit.com/CO/Landmarks/Big-Baldy-Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Big Baldy Statue</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/octomaid/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Octo-Maid (Iscariot)</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/Former-Mine-Sites-of-Mt. Harris/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Former Mine Sites of Mt. Harris</a>
+                    <a href="https://testedprofit.com/CO/Tennyson Sculpture Garden & Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Tennyson Sculpture Garden</a>
+                    <a href="https://testedprofit.com/CO/The Pueblo Christopher Columbus Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Pueblo Columbus Monument</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/Isak-Heartstone/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Isak Heartstone</a>
+                    <a href="https://testedprofit.com/CO/Capt. William H. 'Pyro' DuBois, Jr. Memorial/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Capt. William H. DuBois Memorial</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/Hank the Cowboy statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Hank the Cowboy</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/Horse-Statue-Intersection/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Palmer Intersection Project</a>
+                    <a href="https://testedprofit.com/CO/Telluride Penny Bear ( Ursa Ravus)/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Telluride Penny Bear</a>
+                    <a href="https://testedprofit.com/CO/Rhino iguana sculpture/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Rhino Iguana Sculpture</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/truffles/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Truffles (Bronze Pig)</a>
+                    <a href="https://testedprofit.com/CO/Pueblo Heritage Walk/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Pueblo Heritage Walk</a>
+                    <a href="https://testedprofit.com/CO/Riverfront Park Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Riverfront Park Statue</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/Hayden-Town-Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Hayden Town Park</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/Bear-Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Guardian of Grizzly Gulch</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/coolin'dog/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Coolin' the Dogs</a>
+                    <a href="https://testedprofit.com/CO/Desert Metal Art/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Desert Metal Art</a>
+                    <a href="https://testedprofit.com/CO/Christ of the Mines Shrine/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Christ of the Mines Shrine</a>
+                    <a href="https://testedprofit.com/CO/Snapshot statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">"Snapshot" Statue</a>
+                    <a href="https://testedprofit.com/CO/Boy Scout Statue of Liberty/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Boy Scout Statue of Liberty</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/Santa-Maria-Statue-of-Christ/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Santa Maria Statue of Christ</a>
+                    <a href="https://testedprofit.com/CO/James Dalton Trumbo Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">James Dalton Trumbo Statue</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/spirit/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Spirit of the Rockies</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/Routt-County-Firing-Range/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Routt County Firing Range</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/Starr Kempf's Kinetic Sculptures/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Starr Kempf Kinetic Sculptures</a>
+                    <a href="https://testedprofit.com/CO/Landmarks/Cedar-Mountain/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Cedar Mountain</a>
                 </div>
             </div>
-        </section>
 
+            <!-- LOUISIANA (LA) -->
+            <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="louisiana">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold border border-purple-500/20">LA</div>
+                    <h3 class="font-display text-xl font-bold text-white">Louisiana</h3>
+                </div>
+                <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                    <a href="https://testedprofit.com/LA/Statue of Benito Juarez/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Statue of Benito Juárez</a>
+                    <a href="https://testedprofit.com/LA/Statue of G. K. Chesterton/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Statue of G. K. Chesterton</a>
+                    <a href="https://testedprofit.com/LA/Geese In Flight Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Geese In Flight Statue</a>
+                    <a href="https://testedprofit.com/LA/James Lee Burke Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">James Lee Burke Statue</a>
+                    <a href="https://testedprofit.com/LA/The Source Sculpture/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Source (La Source)</a>
+                    <a href="https://testedprofit.com/LA/Anne Frank Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Anne Frank Statue</a>
+                    <a href="https://testedprofit.com/LA/Hebe Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Hebe Statue</a>
+                    <a href="https://testedprofit.com/LA/Joan of Arc, Maid of Orleans/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Joan of Arc Statue</a>
+                    <a href="https://testedprofit.com/LA/Marquis de Lafayette Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Marquis de Lafayette Statue</a>
+                    <a href="https://testedprofit.com/LA/Statue of Louis Armstrong/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Statue of Louis Armstrong</a>
+                    <a href="https://testedprofit.com/LA/Worlds Largest Ronald Reagan Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">World's Largest Ronald Reagan</a>
+                    <a href="https://testedprofit.com/LA/Statue of Jesus/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Sacred Heart of Jesus</a>
+                    <a href="https://testedprofit.com/LA/Lady of New Orleans (Statue)/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Lady of New Orleans ("Michelle")</a>
+                    <a href="https://testedprofit.com/LA/Congo Square/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Congo Square</a>
+                    <a href="https://testedprofit.com/LA/Ignatius J. Reilly Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Ignatius J. Reilly Statue</a>
+                    <a href="https://testedprofit.com/LA/Mother River statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Mother River Statue</a>
+                    <a href="https://testedprofit.com/LA/Jean Baptiste le Moyne de Bienville/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bienville Monument</a>
+                    <a href="https://testedprofit.com/LA/Veterans Memorial District/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Veterans Memorial District</a>
+                    <a href="https://testedprofit.com/LA/Cavelier De La Salle Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Cavelier De La Salle Monument</a>
+                    <a href="https://testedprofit.com/LA/Huey Pierce Long Statue and Tombstone/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Huey Long Statue & Tombstone</a>
+                    <a href="https://testedprofit.com/LA/Hurricane Katrina Sculpture - House In A Tree/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">House In A Tree (Scrap House)</a>
+                </div>
+            </div>
+
+            <!-- HAWAII (HI) -->
+            <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="hawaii">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold border border-emerald-500/20">HI</div>
+                    <h3 class="font-display text-xl font-bold text-white">Hawaii</h3>
+                </div>
+                <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                    <a href="https://testedprofit.com/HI/Dr. Jose P. Rizal Monument - Maui/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Dr. Jose Rizal Monument</a>
+                    <a href="https://testedprofit.com/HI/Wai Koa Loop Trail/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Wai Koa Loop Trail</a>
+                    <a href="https://testedprofit.com/HI/Spalding Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Spalding Monument</a>
+                    <a href="https://testedprofit.com/HI/Captain James Cook Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Captain James Cook Monument</a>
+                    <a href="https://testedprofit.com/HI/Chester W. Nimitz Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Chester W. Nimitz Statue</a>
+                    <a href="https://testedprofit.com/HI/Saint Marianne Cope Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Saint Marianne Cope Statue</a>
+                    <a href="https://testedprofit.com/HI/Prince Kuhio Birthplace/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Prince Kuhio Birthplace</a>
+                    <a href="https://testedprofit.com/Captain James Cook Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Captain James Cook Statue (Waimea)</a>
+                    <a href="https://testedprofit.com/HI/Statue of Hamana Kalili and the Shaka/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Statue of Hamana Kalili</a>
+                    <a href="https://testedprofit.com/HI/The Princess Kaʻiulani statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Princess Kaʻiulani Statue</a>
+                    <a href="https://testedprofit.com/HI/Don Ho Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Don Ho Statue</a>
+                    <a href="https://testedprofit.com/HI/Storyteller Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Storyteller Statue</a>
+                    <a href="https://testedprofit.com/HI/Israel Kamakawiwo'ole Memorial Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Israel Kamakawiwoʻole Memorial</a>
+                    <a href="https://testedprofit.com/HI/The Naha Stone/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Naha Stone</a>
+                    <a href="https://testedprofit.com/HI/Boat Rotor Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Boat Rotor Statue</a>
+                    <a href="https://testedprofit.com/HI/Queen Kapiʻolani Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Queen Kapiʻolani Statue</a>
+                    <a href="https://testedprofit.com/HI/Charles Lindbergh's Grave/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Lindbergh Landmark</a>
+                    <a href="https://testedprofit.com/HI/Stone Dam/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Stone Dam</a>
+                    <a href="https://testedprofit.com/HI/Ulumau Pohaku Pele sculpture/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Ulumau Pohaku Pele</a>
+                    <a href="https://testedprofit.com/HI/Fagan's Cross/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Fagan's Cross</a>
+                    <a href="https://testedprofit.com/HI/King David Kalākaua Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">King David Kalākaua Statue</a>
+                </div>
+            </div>
+
+            <!-- KENTUCKY (KY) -->
+            <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="kentucky">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold border border-orange-500/20">KY</div>
+                    <h3 class="font-display text-xl font-bold text-white">Kentucky</h3>
+                </div>
+                <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                    <a href="https://testedprofit.com/KY/Railroad Memorial Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Railroad Memorial Statue</a>
+                    <a href="https://testedprofit.com/KY/Coxs Creek Rooster Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Cox's Creek Rooster Statue</a>
+                    <a href="https://testedprofit.com/KY/Secretariat Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Secretariat Statue</a>
+                    <a href="https://testedprofit.com/KY/George Rogers Clark Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">George Rogers Clark Statue</a>
+                    <a href="https://testedprofit.com/KY/The Cutting Edge of Simpson County/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Cutting Edge of Simpson County</a>
+                    <a href="https://testedprofit.com/KY/Little Elina Forest Giant/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Little Elina Forest Giant</a>
+                    <a href="https://testedprofit.com/KY/Jefferson Monument (Louisville, Kentucky)/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Jefferson Monument</a>
+                    <a href="https://testedprofit.com/KY/Statue Of Abraham Lincoln/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Statue of Abraham Lincoln</a>
+                    <a href="https://testedprofit.com/KY/Wooldridge Monuments/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Wooldridge Monuments</a>
+                    <a href="https://testedprofit.com/KY/Harry Potter Chess King Statue Carving/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Harry Potter Wizard's Chess Knight</a>
+                    <a href="https://testedprofit.com/KY/Daniel Boone Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Daniel Boone Monument</a>
+                    <a href="https://testedprofit.com/KY/Benjamin Franklin statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Benjamin Franklin Statue</a>
+                    <a href="https://testedprofit.com/KY/The Statue of David/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Statue of David</a>
+                    <a href="https://testedprofit.com/KY/Squire Boone Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Squire Boone Statue</a>
+                    <a href="https://testedprofit.com/KY/Booker Noe Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Booker Noe Statue</a>
+                    <a href="https://testedprofit.com/KY/Bigfoot Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bigfoot Statue</a>
+                    <a href="https://testedprofit.com/KY/Statue of Charlie Farnsley/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Statue of Charlie Farnsley</a>
+                    <a href="https://testedprofit.com/KY/In Gods Hands statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">In God's Hands Statue</a>
+                    <a href="https://testedprofit.com/KY/Keith Whitley Memorial Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Keith Whitley Memorial Statue</a>
+                    <a href="https://testedprofit.com/KY/Super Big Boy Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Super Big Boy Statue</a>
+                </div>
+            </div>
+
+            <!-- OREGON (OR) -->
+            <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="oregon">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center font-bold border border-teal-500/20">OR</div>
+                    <h3 class="font-display text-xl font-bold text-white">Oregon</h3>
+                </div>
+                <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                    <a href="https://testedprofit.com/OR/Bonanza Bigfoot statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bonanza Bigfoot Statue</a>
+                    <a href="https://testedprofit.com/OR/Barclay Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Barclay Park</a>
+                    <a href="https://testedprofit.com/OR/Abraham Lincoln Memorial Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Abraham Lincoln Memorial Statue</a>
+                    <a href="https://testedprofit.com/OR/Wildland Firefighter Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Wildland Firefighter Monument</a>
+                    <a href="https://testedprofit.com/OR/Black Bird Statue (Medford)/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Black Bird Statue</a>
+                    <a href="https://testedprofit.com/OR/Alice E Biddle statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Quest: Alice E. Biddle Statue</a>
+                    <a href="https://testedprofit.com/OR/Portlandia/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Portlandia Statue</a>
+                    <a href="https://testedprofit.com/OR/Two Bits/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Two Bits Sculpture</a>
+                    <a href="https://testedprofit.com/OR/The Dancing Mary/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Dancing Mary</a>
+                    <a href="https://testedprofit.com/OR/Statue of Liberty/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Statue of Liberty Replica</a>
+                    <a href="https://testedprofit.com/OR/Joan of Arc, Portland, Oregon/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Joan of Arc Statue</a>
+                    <a href="https://testedprofit.com/OR/Statue of Rosa Parks/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Statue of Rosa Parks</a>
+                    <a href="https://testedprofit.com/OR/Amanda Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Amanda Statue</a>
+                    <a href="https://testedprofit.com/OR/Dawson Creek Nature Statue Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Dawson Creek Nature Statue</a>
+                </div>
+            </div>
+
+            <!-- WYOMING (WY) -->
+            <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="wyoming">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-yellow-500/10 text-yellow-400 flex items-center justify-center font-bold border border-yellow-500/20">WY</div>
+                    <h3 class="font-display text-xl font-bold text-white">Wyoming</h3>
+                </div>
+                <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                    <a href="https://testedprofit.com/WY/Buffalo Bill – “The Scout” Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Scout - Buffalo Bill Statue</a>
+                    <a href="https://testedprofit.com/WY/rock paper scissors sculpture/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Rock-Paper-Scissors</a>
+                    <a href="https://testedprofit.com/WY/Robert Burns Memorial Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Robert Burns Memorial Statue</a>
+                    <a href="https://testedprofit.com/WY/Just Ledoux It/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Chris LeDoux Memorial Statue</a>
+                    <a href="https://testedprofit.com/WY/Big Boy Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Wapiti Big Boy</a>
+                    <a href="https://testedprofit.com/WY/Soil To Riches Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Soil to Riches Statue</a>
+                    <a href="https://testedprofit.com/WY/BSA Replica of Statue of Liberty/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">BSA Statue of Liberty</a>
+                    <a href="https://testedprofit.com/WY/Dead Indian Summit Overlook/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Dead Indian Summit Overlook</a>
+                    <a href="https://testedprofit.com/WY/Benjamin Franklin Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Benjamin Franklin Statue</a>
+                    <a href="https://testedprofit.com/WY/Jackalope Square/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Jackalope Square</a>
+                </div>
+            </div>
+
+            <!-- INDIANA (IN) -->
+            <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="indiana">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center font-bold border border-red-500/20">IN</div>
+                    <h3 class="font-display text-xl font-bold text-white">Indiana</h3>
+                </div>
+                <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                    <a href="https://testedprofit.com/IN/William Hayden English Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">William Hayden English Statue</a>
+                    <a href="https://testedprofit.com/IN/Vincennes River Walk/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Vincennes River Walk</a>
+                    <a href="https://testedprofit.com/IN/Constitution Elm Stump/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Constitution Elm Stump</a>
+                    <a href="https://testedprofit.com/IN/Bigfoot Fishing/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bigfoot Fishing Statue</a>
+                    <a href="https://testedprofit.com/IN/Larry Bird's Childhood Home/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Larry Bird's Childhood Home</a>
+                    <a href="https://testedprofit.com/IN/Rosie the Riveter Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Rosie the Riveter Statue</a>
+                </div>
+            </div>
+
+            <!-- WEST VIRGINIA (WV) -->
+            <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="west virginia">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold border border-indigo-500/20">WV</div>
+                    <h3 class="font-display text-xl font-bold text-white">West Virginia</h3>
+                </div>
+                <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                    <a href="https://testedprofit.com/WV/Landmark/Memorial-to-the-Start-Westward/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Memorial to the Start Westward</a>
+                    <a href="https://testedprofit.com/WV/Landmark/Jackson-Memorial-Fountain/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Jackson Memorial Fountain</a>
+                    <a href="https://testedprofit.com/WV/Landmark/Mufflerman/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Muffler Man "Big Red"</a>
+                </div>
+            </div>
+
+            <!-- GENERAL & TOOLS -->
+            <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="general">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-gray-500/10 text-gray-400 flex items-center justify-center font-bold border border-gray-500/20">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-white">General & Tools</h3>
+                </div>
+                <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                    <a href="https://testedprofit.com/pages/things-to-do-in-vail-colorado/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Things to Do in Vail</a>
+                    <a href="https://testedprofit.com/superbowlLX/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Super Bowl LX Official Hub</a>
+                    <a href="https://testedprofit.com/pages/algoflow/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">AlgoFlow</a>
+                    <a href="https://testedprofit.com/pages/Security Lab/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Algorand Security Lab</a>
+                    <a href="https://testedprofit.com/pages/Woodbury Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Woodbury Park Hub</a>
+                    <a href="https://testedprofit.com/CheckIP/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">NetBeacon | My IP 2026</a>
+                    <a href="https://testedprofit.com/pages/PR-President-Walkway/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Walkway of the Presidents (PR)</a>
+                    <a href="https://testedprofit.com/pages/Oakhurst Park II/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Oakhurst Park II</a>
+                    <a href="https://testedprofit.com/rotary-park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Oakhurst Park II Data</a>
+                    <a href="https://testedprofit.com/TikTok Shop Fee Calculator & Profit Estimator/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">TikTok Shop Profit Estimator</a>
+                    <a href="https://testedprofit.com/pages/bulldog-towing-recovery/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bulldog Towing & Recovery</a>
+                    <a href="https://testedprofit.com/scam-scan/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Reality Check | Phishing Scan</a>
+                    <a href="https://testedprofit.com/pages/honeygain-content-delivery/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Honeygain Content Delivery</a>
+                    <a href="https://testedprofit.com/superbowlsalesteam/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Broncos Super Bowl LX Parade</a>
+                    <a href="https://testedprofit.com/US Kitchen & Unit Standard/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">US Kitchen & Unit Standard</a>
+                    <a href="https://testedprofit.com/Impermanent Loss Visualizer/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Impermanent Loss Visualizer</a>
+                    <a href="https://testedprofit.com/pages/honey-rock-dogs-boarding-kennels/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Honey Rock Dogs Boarding</a>
+                </div>
+            </div>
+
+        </div>
     </main>
 
     <!-- Footer -->
@@ -330,7 +473,7 @@
                 <div>
                     <h4 class="font-bold text-white mb-4">Platform</h4>
                     <ul class="space-y-3 text-sm text-gray-500">
-                        <li><a href="https://www.testedprofit.com/pages/roadmap" class="hover:text-teal-400 transition-colors">Strategic Roadmap</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">Strategic Roadmap</a></li>
                         <li><a href="#" class="hover:text-teal-400 transition-colors">Integration API</a></li>
                         <li><a href="#" class="hover:text-teal-400 transition-colors">Coverage Map</a></li>
                     </ul>
@@ -339,9 +482,9 @@
                 <div>
                     <h4 class="font-bold text-white mb-4">Governance</h4>
                     <ul class="space-y-3 text-sm text-gray-500">
-                        <li><a href="https://www.testedprofit.com/pages/governance-gateway" class="hover:text-teal-400 transition-colors">Governance Gateway</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">Governance Gateway</a></li>
                         <li><a href="#" class="hover:text-teal-400 transition-colors">Ethics Committee</a></li>
-                        <li><a href="https://www.testedprofit.com/pages/data-sharing-opt-out" class="hover:text-teal-400 transition-colors">Data Opt-Out</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">Data Opt-Out</a></li>
                     </ul>
                 </div>
 
@@ -376,20 +519,51 @@
         const closeBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('flex');
-            requestAnimationFrame(() => {
+        if (menuBtn && closeBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                void mobileMenu.offsetWidth; 
                 mobileMenu.classList.add('active');
             });
-        });
 
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            setTimeout(() => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('flex');
-            }, 300);
+            closeBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                }, 300);
+            });
+        }
+
+        // Smart Directory Search Logic
+        const searchInput = document.getElementById('directory-search');
+        const stateCards = document.querySelectorAll('.state-card');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+
+            stateCards.forEach(card => {
+                const links = card.querySelectorAll('.link-item');
+                let hasVisibleLinks = false;
+
+                links.forEach(link => {
+                    const text = link.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        link.style.display = 'block';
+                        hasVisibleLinks = true;
+                    } else {
+                        link.style.display = 'none';
+                    }
+                });
+
+                // Hide the entire state card if no links match
+                if (hasVisibleLinks) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         });
     });
     </script>
