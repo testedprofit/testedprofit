@@ -1,149 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honeygain - Earn Passive Income & Get $3 Bonus | TestedProfit</title>
-
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Earn passive income online with Honeygain! Get a $3 sign-up bonus when you join through our affiliate link. Learn how to earn by sharing unused internet bandwidth. Ideal for unlimited data plans. Discover tips to maximize your earnings and answers to common questions about Honeygain.">
-    <meta name="keywords" content="Honeygain, passive income, earn money online, affiliate marketing, sign up bonus, unlimited data, internet sharing, make money online, how Honeygain works, is Honeygain safe, Honeygain tips, Honeygain FAQ">
-    <!-- IMPORTANT: Replace this canonical URL with the actual URL of THIS page on your domain (e.g., testedprofit.com/honeygain) -->
-    <link rel="canonical" href="https://www.testedprofit.com/honeygain">
-
-    <!-- Open Graph / Social Media Tags (for Facebook, LinkedIn, etc.) -->
+    <meta name="description" content="Earn passive income online with Honeygain! Get a $3 sign-up bonus when you join through our affiliate link. Learn how to earn by sharing unused internet bandwidth.">
+    <meta name="keywords" content="Honeygain, passive income, earn money online, affiliate marketing, sign up bonus, unlimited data, internet sharing, make money online, how Honeygain works">
+    
+    <!-- SEO & Social Sharing -->
+    <link rel="canonical" href="https://testedprofit.com/pages/honeygain">
+    <meta property="og:type" content="article">
     <meta property="og:title" content="Honeygain - Earn Passive Income & Get $3 Bonus | TestedProfit">
-    <meta property="og:description" content="Earn passive income online with Honeygain! Get a $3 sign-up bonus when you join through our affiliate link. Learn how to earn by sharing unused internet bandwidth. Ideal for unlimited data plans.">
-    <meta property="og:type" content="website">
-    <!-- IMPORTANT: Replace this URL with the actual URL of THIS page on your domain -->
-    <meta property="og:url" content="https://www.testedprofit.com/honeygain">
-    <meta property="og:image" content="https://placehold.co/1200x630/0A3D62/FFFFFF?text=Honeygain+Affiliate"> <!-- Placeholder image for social sharing -->
-    <meta property="og:image:alt" content="Honeygain logo with text 'Earn Passive Income'">
-
-    <!-- Twitter Card Tags -->
+    <meta property="og:description" content="Earn passive income online with Honeygain! Get a $3 sign-up bonus when you join through our affiliate link.">
+    <meta property="og:url" content="https://testedprofit.com/pages/honeygain">
+    <meta property="og:site_name" content="TestedProfit">
+    <meta property="og:image" content="https://placehold.co/1200x630/0A3D62/FFFFFF?text=Honeygain+Bonus">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@TestedProfit"> <!-- Replace with your actual Twitter handle -->
-    <meta name="twitter:title" content="Honeygain - Earn Passive Income & Get $3 Bonus | TestedProfit">
-    <meta name="twitter:description" content="Earn passive income online with Honeygain! Get a $3 sign-up bonus when you join through our affiliate link. Learn how to earn by sharing unused internet bandwidth. Ideal for unlimited data plans.">
-    <meta name="twitter:image" content="https://placehold.co/1200x630/0A3D62/FFFFFF?text=Honeygain+Affiliate"> <!-- Placeholder image for social sharing -->
-
-    <!-- Tailwind CSS CDN -->
+    
+    <!-- External Scripts & Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom font import */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7fafc; /* Light gray background */
-        }
-        /* Custom styles for honey elements */
-        .honey-pot-icon {
-            display: inline-block;
-            width: 1.6em; /* Slightly larger */
-            height: 1.6em;
-            vertical-align: middle;
-            margin-right: 0.3em;
-        }
-        .bee-icon {
-            display: inline-block;
-            width: 1.4em; /* Slightly larger */
-            height: 1.4em;
-            vertical-align: middle;
-            margin-right: 0.2em;
-            /* Honeybee animation */
-            animation: buzz 1.5s infinite alternate ease-in-out;
-        }
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-        /* Keyframes for the honeybee animation */
-        @keyframes buzz {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-5px) rotate(3deg);
-            }
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-        }
-
-        /* Keyframes for a subtle button pulse (optional, but enhances clickability) */
-        @keyframes pulse-once {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.02);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .button-pulse-effect:active {
-            animation: pulse-once 0.3s ease-out;
-        }
-    </style>
-
-    <!-- Schema.org Structured Data (JSON-LD) for SEO -->
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "WebPage",
           "name": "Honeygain - Earn Passive Income & Get $3 Bonus | TestedProfit",
-          "description": "Earn passive income online with Honeygain! Get a $3 sign-up bonus when you join through our affiliate link. Learn how to earn by sharing unused internet bandwidth. Ideal for unlimited data plans. Discover tips to maximize your earnings and answers to common questions about Honeygain.",
-          "url": "https://www.testedprofit.com/honeygain",
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://www.testedprofit.com/honeygain"
-          },
+          "description": "Earn passive income online with Honeygain! Get a $3 sign-up bonus when you join through our affiliate link.",
+          "url": "https://testedprofit.com/pages/honeygain",
           "publisher": {
             "@type": "Organization",
             "name": "TestedProfit",
-            "url": "https://www.testedprofit.com",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://placehold.co/600x60/0A3D62/FFFFFF?text=TestedProfit+Logo"
+                "url": "https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
             }
-          },
-          "datePublished": "2025-06-07",
-          "dateModified": "2025-06-19"
+          }
         },
         {
           "@type": "Article",
           "headline": "Honeygain - Earn Passive Income & Get $3 Bonus",
-          "description": "A comprehensive guide to earning passive income with Honeygain, including how it works, benefits, safety, earning tips, and frequently asked questions.",
-          "image": {
-            "@type": "ImageObject",
-            "url": "https://placehold.co/1200x630/0A3D62/FFFFFF?text=Honeygain+Affiliate",
-            "width": 1200,
-            "height": 630,
-            "alt": "Honeygain logo with text 'Earn Passive Income'"
-          },
           "author": {
-            "@type": "Person",
+            "@type": "Organization",
             "name": "TestedProfit"
           },
-          "publisher": {
-            "@type": "Organization",
-            "name": "TestedProfit",
-            "url": "https://www.testedprofit.com",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://placehold.co/600x60/0A3D62/FFFFFF?text=TestedProfit+Logo"
-            }
-          },
-          "datePublished": "2025-06-07",
-          "dateModified": "2025-06-19",
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://www.testedprofit.com/honeygain"
-          }
+          "datePublished": "2026-01-22"
         },
         {
-          "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
             {
@@ -151,7 +64,7 @@
               "name": "What is Honeygain and how does it work?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Honeygain is an application that pays you for sharing your unused internet bandwidth. It runs in the background on your devices, gathering publicly available web data for legitimate businesses and researchers, such as for market research, ad verification, and content delivery."
+                "text": "Honeygain is an application that pays you for sharing your unused internet bandwidth. It runs in the background on your devices, gathering publicly available web data for legitimate businesses."
               }
             },
             {
@@ -159,31 +72,7 @@
               "name": "Is Honeygain safe to use?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, Honeygain is considered safe. It only uses your internet connection for legitimate data collection purposes and does not access your personal data or browsing history. It's crucial to download the app only from the official Honeygain website or trusted app stores."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How much can I earn with Honeygain?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Earnings vary based on your location, number of active devices, and network demand. From personal experience, you might earn $0.25 - $0.50 per day passively. Using an affiliate link (like ours!) provides a $3 sign-up bonus, helping you reach the $20 minimum payout faster."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What are the payment options for Honeygain?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Honeygain typically offers payouts via PayPal or JumpTask (cryptocurrency). Users can select their preferred method once they reach the minimum payout threshold of $20."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Do I need an unlimited data plan to use Honeygain?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, it is highly recommended to have an unlimited data plan (for both mobile and home internet) if you plan to use Honeygain. Since the app uses your internet bandwidth, a limited data plan could lead to unexpected overage charges. Ensure you have plenty of data to spare!"
+                "text": "Yes, Honeygain is considered safe. It only uses your internet connection for legitimate data collection purposes and does not access your personal data or browsing history."
               }
             }
           ]
@@ -191,225 +80,296 @@
       ]
     }
     </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA',
+                            gold: '#FBBF24',
+                            red: '#EF4444'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A091B; /* Fallback */
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity;
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
 </head>
-<body class="antialiased text-gray-800">
-    <div class="py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <div class="w-full bg-white shadow-xl rounded-xl p-8 sm:p-10 lg:p-12 border border-gray-200">
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
 
-            <!-- Header Section -->
-            <div class="text-center mb-10">
-                <h1 class="text-6xl sm:text-7xl font-extrabold text-indigo-700 mb-4 leading-tight">
-                    <span class="honey-pot-icon">🍯</span> Earn Passive Income with Honeygain! <span class="bee-icon">🐝</span>
-                </h1>
-                <p class="text-2xl sm:text-3xl text-gray-600">
-                    Your unused internet bandwidth can now make you money.
-                </p>
-            </div>
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
 
-            <!-- New: Prominent Top Bonus Bar -->
-            <div class="text-center bg-green-100 border-2 border-green-500 rounded-lg p-4 mb-10 shadow-md">
-                <p class="text-3xl sm:text-4xl font-extrabold text-green-700">
-                    <span class="honey-pot-icon">🎁</span> Get a FREE <span class="text-red-600">$3 Sign-Up Bonus!</span> <span class="bee-icon">💰</span>
-                </p>
-                <a href="https://r.honeygain.me/ROBBDCAABD" target="_blank" rel="noopener noreferrer"
-                   class="inline-block mt-4 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-opacity-75 button-pulse-effect cursor-pointer text-xl">
-                    Click Here to Claim Your $3!
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6 max-w-4xl">
+        
+        <!-- Header Section -->
+        <div class="mb-12 border-b border-white/10 pb-8 text-center" data-aos="fade-up">
+            <span class="text-accent-gold font-bold tracking-widest text-xs uppercase mb-3 block">Passive Income Opportunities</span>
+            <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">Earn Passive Income with <span class="text-accent-blue">Honeygain</span></h1>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto">Your unused internet bandwidth can now make you money. Set it and forget it.</p>
+        </div>
+
+        <!-- Bonus CTA -->
+        <section class="mb-16 bg-gradient-to-r from-emerald-500/20 to-emerald-900/20 p-8 rounded-2xl border border-emerald-500/30 text-center relative overflow-hidden" data-aos="zoom-in">
+            <div class="relative z-10">
+                <h3 class="text-2xl font-black text-white mb-2">Get a FREE <span class="text-accent-emerald">$3 Sign-Up Bonus!</span></h3>
+                <p class="text-gray-300 mb-6">Jumpstart your earnings immediately when you use our exclusive link.</p>
+                <a href="https://r.honeygain.me/ROBBDCAABD" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 rounded-full bg-accent-emerald text-primary font-black uppercase tracking-wider hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/20 transform hover:scale-105">
+                    Claim Your $3 Bonus Now
                 </a>
             </div>
+            <!-- Background Glow -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        </section>
 
-            <!-- About Honeygain Section -->
-            <div class="mb-10">
-                <h2 class="text-4xl sm:text-5xl font-bold text-indigo-600 mb-4 border-b-2 border-indigo-300 pb-2">
-                    What is Honeygain?
-                </h2>
-                <p class="text-xl sm:text-2xl leading-relaxed text-gray-700">
-                    Honeygain is an innovative application that empowers you to earn passive income by simply sharing your unused internet bandwidth. It functions quietly in the background on your devices (computers, smartphones, tablets), intelligently routing your surplus internet connection to gather publicly available web data for legitimate businesses and researchers worldwide. This data is utilized for ethical purposes, such as market research, ad verification, brand protection, and content delivery, ensuring your privacy and security are maintained.
-                </p>
-                <p class="text-xl sm:text-2xl leading-relaxed text-gray-700 mt-4">
-                    It's a straightforward, set-it-and-forget-it method to monetize your existing internet plan, requiring absolutely no active effort from your side. Plus, when you <a href="https://r.honeygain.me/ROBBDCAABD" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-semibold underline">sign up through our link</a>, you get a <span class="font-bold text-green-700">$3 bonus</span> right away! <span class="bee-icon">🐝</span>
-                </p>
+        <!-- What is Honeygain -->
+        <section class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-accent-blue pl-4">What is Honeygain?</h2>
+            <div class="prose prose-invert prose-lg max-w-none text-gray-300">
+                <p>Honeygain is an innovative application that empowers you to earn passive income by simply sharing your unused internet bandwidth. It functions quietly in the background on your devices (computers, smartphones, tablets), intelligently routing your surplus internet connection to gather publicly available web data for legitimate businesses.</p>
+                <p>This data is utilized for ethical purposes, such as market research, ad verification, brand protection, and content delivery, ensuring your privacy and security are maintained.</p>
             </div>
+        </section>
 
-            <!-- How Honeygain Works Section -->
-            <div class="mb-10">
-                <h2 class="text-4xl sm:text-5xl font-bold text-indigo-600 mb-4 border-b-2 border-indigo-300 pb-2">
-                    How Does Honeygain Work?
-                </h2>
-                <p class="text-xl sm:text-2xl leading-relaxed text-gray-700">
-                    Once you install the Honeygain app on your device and connect it to your internet, it begins to use a small portion of your internet bandwidth. Think of it like a global proxy network. Businesses and researchers pay Honeygain to access this network for various tasks, such as:
-                </p>
-                <ul class="list-disc list-inside text-xl sm:text-2xl leading-relaxed text-gray-700 mt-4 space-y-2">
-                    <li><strong>Market Research:</strong> Companies gather data on consumer trends and preferences.</li>
-                    <li><strong>SEO Monitoring:</strong> Businesses track search engine rankings and website performance.</li>
-                    <li><strong>Ad Verification:</strong> Advertisers ensure their ads are displayed correctly and legitimately.</li>
-                    <li><strong>Content Delivery:</strong> Facilitating faster delivery of web content globally.</li>
-                </ul>
-                <p class="text-xl sm:text-2xl leading-relaxed text-gray-700 mt-4">
-                    Your earnings are calculated based on the amount of data you share. The more devices you connect and the longer they run, the more potential you have to earn! Don't forget to grab your <a href="https://r.honeygain.me/ROBBDCAABD" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-semibold underline">$3 free bonus</a> when you join!
-                </p>
-            </div>
-
-            <!-- Benefits of Using Honeygain Section -->
-            <div class="mb-10 bg-green-50 p-6 rounded-lg border border-green-200">
-                <h2 class="text-4xl sm:text-5xl font-bold text-green-700 mb-4 border-b-2 border-green-300 pb-2">
-                    Benefits of Using Honeygain <span class="honey-pot-icon">⭐</span>
-                </h2>
-                <ul class="list-disc list-inside text-xl sm:text-2xl leading-relaxed text-green-800 space-y-3">
-                    <li><strong class="font-semibold">Effortless Passive Income:</strong> Set it up once and earn without any active tasks.</li>
-                    <li><strong class="font-semibold">Minimal Impact:</strong> Designed to use minimal CPU and battery, running quietly in the background.</li>
-                    <li><strong class="font-semibold">Global Network:</strong> Be part of a large, decentralized network contributing to valuable data.</li>
-                    <li><strong class="font-semibold">Multiple Devices:</strong> Increase your earnings by running Honeygain on multiple devices on different networks.</li>
-                    <li><strong class="font-semibold">Secure & Private:</strong> Honeygain emphasizes user privacy, ensuring only publicly available data is accessed.</li>
-                    <li><strong class="font-semibold">Instant $3 Bonus:</strong> Start with a <span class="font-bold text-red-700">$3 head start</span> when you <a href="https://r.honeygain.me/ROBBDCAABD" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-semibold underline">sign up today!</a></li>
-                </ul>
-            </div>
-
-            <!-- Is Honeygain Safe? Section -->
-            <div class="mb-10 bg-blue-50 p-6 rounded-lg border border-blue-200">
-                <h2 class="text-4xl sm:text-5xl font-bold text-blue-700 mb-4 border-b-2 border-blue-300 pb-2">
-                    Is Honeygain Safe to Use? <span class="bee-icon">✅</span>
-                </h2>
-                <p class="text-xl sm:text-2xl leading-relaxed text-blue-800">
-                    One of the most common questions about apps like Honeygain is regarding safety. Honeygain assures users that it is a secure platform. Here's why:
-                </p>
-                <ul class="list-disc list-inside text-xl sm:text-2xl leading-relaxed text-blue-800 mt-4 space-y-2">
-                    <li><strong>No Personal Data Collection:</strong> Honeygain does not collect any personal data, sensitive information, or browsing history from your device. It only uses your internet bandwidth to gather public web data.</li>
-                    <li><strong>Encrypted Connections:</strong> All connections made through the Honeygain network are encrypted, adding an extra layer of security.</li>
-                    <li><strong>Legitimate Use Cases:</strong> The data collected is used by reputable companies for legitimate business intelligence and research purposes.</li>
-                    <li><strong>Official Sources:</strong> Always download the Honeygain application directly from their official website or trusted app stores to avoid unofficial versions.</li>
-                </ul>
-            </div>
-
-            <!-- My Earnings & Bonus Section -->
-            <div class="mb-10 bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-                <h2 class="text-4xl sm:text-5xl font-bold text-indigo-600 mb-4 border-b-2 border-indigo-300 pb-2">
-                    My Experience & Your Bonus! <span class="honey-pot-icon">🍯</span>
-                </h2>
-                <p class="text-xl sm:text-2xl leading-relaxed text-gray-700">
-                    From my personal experience, the Honeygain app itself can passively earn you about
-                    <span class="font-semibold text-green-700">$0.25 - $0.50 per day</span> by simply letting it run in the background. It's a consistent, albeit modest, daily income that adds up over time.
-                </p>
-                <p class="text-xl sm:text-2xl leading-relaxed text-gray-700 mt-4">
-                    However, the real boost comes from the
-                    <span class="font-bold text-indigo-700">sign-up bonus!</span>
-                    When you use my affiliate link to join,
-                    <span class="font-bold text-3xl text-green-700">you will get a $3 bonus immediately</span>
-                    added to your account. And, to be completely transparent, I also receive a small commission for your successful sign-up. It's a win-win for both of us! <span class="bee-icon">💰</span>
-                </p>
-                <p class="text-xl sm:text-2xl leading-relaxed text-gray-700 mt-4">
-                    This bonus significantly helps you reach the minimum payout threshold ($20) much faster, getting you to your first cash out sooner! Don't miss out, <a href="https://r.honeygain.me/ROBBDCAABD" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-semibold underline">claim your $3 here</a>.
-                </p>
-            </div>
-
-            <!-- Tips to Maximize Your Earnings Section -->
-            <div class="mb-10 bg-purple-50 p-6 rounded-lg border border-purple-200">
-                <h2 class="text-4xl sm:text-5xl font-bold text-purple-700 mb-4 border-b-2 border-purple-300 pb-2">
-                    Tips to Maximize Your Honeygain Earnings <span class="bee-icon">📈</span>
-                </h2>
-                <ul class="list-disc list-inside text-xl sm:text-2xl leading-relaxed text-purple-800 space-y-3">
-                    <li><strong>Run on Multiple Devices:</strong> The more devices (computers, smartphones) you have connected to different networks, the more you can earn.</li>
-                    <li><strong>Stable Internet Connection:</strong> A reliable and fast internet connection will allow you to share more bandwidth.</li>
-                    <li><strong>Content Delivery Feature:</strong> Enable the Content Delivery feature if available in your region. This pays you for delivering content, often at a higher rate.</li>
-                    <li><strong>Referral Program:</strong> Share your own affiliate link with friends and family! You earn a percentage of their earnings, boosting your income passively. Remember, they also get a <span class="font-bold text-green-700">$3 bonus</span> when they <a href="https://r.honeygain.me/ROBBDCAABD" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 font-semibold underline">sign up through your link</a>!</li>
-                    <li><strong>Daily Contests/Luck Draw:</strong> Participate in Honeygain's daily "Luck Draw" or other contests for bonus credits.</li>
-                    <li><strong>JumpTask Mode:</strong> Consider enabling JumpTask mode for faster payouts and potential bonuses, paid in JumpTokens (JMPT).</li>
-                </ul>
-            </div>
-
-            <!-- Important Recommendation Section -->
-            <div class="mb-10 bg-yellow-50 p-6 rounded-lg border border-yellow-200">
-                <h2 class="text-4xl sm:text-5xl font-bold text-yellow-700 mb-4 border-b-2 border-yellow-300 pb-2">
-                    Important Recommendation <span class="bee-icon">⚠️</span>
-                </h2>
-                <p class="text-xl sm:text-2xl leading-relaxed text-yellow-800 font-medium">
-                    I strongly recommend using Honeygain only if you have an
-                    <span class="font-bold underline">unlimited data plan</span> (either mobile or home internet).
-                    Since the app utilizes your internet bandwidth, using it on a limited data plan could lead to unexpected overage charges. Ensure you have plenty of data to spare before getting started!
-                </p>
-            </div>
-
-            <!-- New: Mid-Page Call to Action -->
-            <div class="text-center mt-10 mb-10">
-                <h2 class="text-5xl sm:text-6xl font-extrabold text-green-700 mb-6">
-                    Don't Miss Your FREE $3! <span class="honey-pot-icon">🚀</span>
-                </h2>
-                <p class="text-2xl sm:text-3xl text-gray-700 mb-8">
-                    Ready to start earning passive income? Click below to claim your <span class="font-bold text-green-700">$3 sign-up bonus</span> and get started today!
-                </p>
-                <a href="https://r.honeygain.me/ROBBDCAABD" target="_blank" rel="noopener noreferrer"
-                   class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-full shadow-xl transform transition duration-300 ease-in-out hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-opacity-75 button-pulse-effect cursor-pointer text-xl">
-                    Claim Your $3 Bonus Now!
-                </a>
-            </div>
-
-            <!-- Frequently Asked Questions Section -->
-            <div class="mb-10">
-                <h2 class="text-4xl sm:text-5xl font-bold text-indigo-600 mb-4 border-b-2 border-indigo-300 pb-2">
-                    Frequently Asked Questions (FAQ)
-                </h2>
-                <div class="space-y-6">
-                    <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                        <h3 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-2">
-                            <span class="text-indigo-500 mr-2">Q:</span> What is Honeygain and how does it work?
-                        </h3>
-                        <p class="text-xl sm:text-2xl leading-relaxed text-gray-700">
-                            <strong>A:</strong> Honeygain is an application that pays you for sharing your unused internet bandwidth. It runs in the background on your devices, gathering publicly available web data for legitimate businesses and researchers, such as for market research, ad verification, and content delivery.
-                        </p>
-                    </div>
-                    <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                        <h3 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-2">
-                            <span class="text-indigo-500 mr-2">Q:</span> Is Honeygain safe to use?
-                        </h3>
-                        <p class="text-xl sm:text-2xl leading-relaxed text-gray-700">
-                            <strong>A:</strong> Yes, Honeygain is considered safe. It only uses your internet connection for legitimate data collection purposes and does not access your personal data or browsing history. It's crucial to download the app only from the official Honeygain website or trusted app stores.
-                        </p>
-                    </div>
-                    <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                        <h3 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-2">
-                            <span class="text-indigo-500 mr-2">Q:</span> How much can I earn with Honeygain?
-                        </h3>
-                        <p class="text-xl sm:text-2xl leading-relaxed text-gray-700">
-                            <strong>A:</strong> Earnings vary based on your location, number of active devices, and network demand. From personal experience, you might earn $0.25 - $0.50 per day passively. Using an affiliate link (like ours!) provides a $3 sign-up bonus, helping you reach the $20 minimum payout faster.
-                        </p>
-                    </div>
-                    <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                        <h3 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-2">
-                            <span class="text-indigo-500 mr-2">Q:</span> What are the payment options for Honeygain?
-                        </h3>
-                        <p class="text-xl sm:text-2xl leading-relaxed text-gray-700">
-                            <strong>A:</strong> Honeygain typically offers payouts via PayPal or JumpTask (cryptocurrency). Users can select their preferred method once they reach the minimum payout threshold of $20.
-                        </p>
-                    </div>
-                    <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
-                        <h3 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-2">
-                            <span class="text-indigo-500 mr-2">Q:</span> Do I need an unlimited data plan to use Honeygain?
-                        </h3>
-                        <p class="text-xl sm:text-2xl leading-relaxed text-gray-700">
-                            <strong>A:</strong> Yes, it is highly recommended to have an unlimited data plan (for both mobile and home internet) if you plan to use Honeygain. Since the app uses your internet bandwidth, a limited data plan could lead to unexpected overage charges. Ensure you have plenty of data to spare!
-                        </p>
-                    </div>
-                    <!-- Add more FAQs here as needed -->
+        <!-- Benefits Grid -->
+        <section class="mb-16" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-accent-teal pl-4">Why Use Honeygain?</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-teal/30 transition-all">
+                    <h4 class="text-accent-teal font-bold mb-2">Effortless Income</h4>
+                    <p class="text-sm text-gray-400">Set it up once and earn without any active tasks. It's truly passive.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-teal/30 transition-all">
+                    <h4 class="text-accent-teal font-bold mb-2">Minimal Impact</h4>
+                    <p class="text-sm text-gray-400">Designed to use minimal CPU and battery, running quietly in the background.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-teal/30 transition-all">
+                    <h4 class="text-accent-teal font-bold mb-2">Secure & Private</h4>
+                    <p class="text-sm text-gray-400">Honeygain emphasizes user privacy, ensuring only publicly available data is accessed.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-teal/30 transition-all">
+                    <h4 class="text-accent-teal font-bold mb-2">Global Network</h4>
+                    <p class="text-sm text-gray-400">Be part of a large, decentralized network contributing to valuable web data.</p>
                 </div>
             </div>
+        </section>
 
-            <!-- Call to Action Section (Original) -->
-            <div class="text-center mt-10">
-                <h2 class="text-5xl sm:text-6xl font-extrabold text-indigo-700 mb-6">
-                    Ready to Start Earning? <span class="honey-pot-icon">✨</span>
-                </h2>
-                <p class="text-2xl sm:text-3xl text-gray-700 mb-8">
-                    Click the button below to get your <span class="font-bold text-green-700">$3 sign-up bonus</span> and begin your passive income journey today!
-                </p>
-                <!-- Your Honeygain affiliate link has been added here -->
-                <a href="https://r.honeygain.me/ROBBDCAABD" target="_blank" rel="noopener noreferrer"
-                   class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-10 rounded-full shadow-xl transform transition duration-300 ease-in-out hover:scale-110 focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-opacity-75 button-pulse-effect cursor-pointer text-xl">
-                    Claim Your $3 Bonus Now! <span class="bee-icon">🚀</span>
-                </a>
-                <p class="text-lg text-gray-500 mt-4">
-                    (Link opens in a new tab)
-                </p>
+        <!-- Safety Section -->
+        <section class="mb-12 bg-white/5 p-8 rounded-xl border border-white/10" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-white mb-4">Is Honeygain Safe? <span class="text-accent-emerald">Yes.</span></h2>
+            <ul class="space-y-4 text-gray-300">
+                <li class="flex items-start">
+                    <span class="text-accent-emerald mr-3">✔</span>
+                    <span><strong>No Personal Data:</strong> Honeygain does not access your personal files, contacts, or browsing history.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-accent-emerald mr-3">✔</span>
+                    <span><strong>Encrypted:</strong> All connections made through the network are fully encrypted.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-accent-emerald mr-3">✔</span>
+                    <span><strong>Legitimate Clients:</strong> Bandwidth is used by reputable companies for SEO monitoring and ad verification.</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Earning Tips -->
+        <section class="mb-16" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-accent-gold pl-4">Maximize Your Earnings</h2>
+            <div class="space-y-4">
+                <div class="flex items-start bg-slate-900 p-4 rounded-lg border border-white/5">
+                    <span class="text-accent-gold font-bold text-lg mr-4">01</span>
+                    <div>
+                        <h4 class="text-white font-bold">Multiple Devices</h4>
+                        <p class="text-gray-400 text-sm">Run the app on multiple devices connected to different networks (e.g., Mobile Data + Home WiFi) to multiply earnings.</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-slate-900 p-4 rounded-lg border border-white/5">
+                    <span class="text-accent-gold font-bold text-lg mr-4">02</span>
+                    <div>
+                        <h4 class="text-white font-bold">Content Delivery</h4>
+                        <p class="text-gray-400 text-sm">Enable the "Content Delivery" feature on desktop devices for higher earning rates.</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-slate-900 p-4 rounded-lg border border-white/5">
+                    <span class="text-accent-gold font-bold text-lg mr-4">03</span>
+                    <div>
+                        <h4 class="text-white font-bold">Referral Program</h4>
+                        <p class="text-gray-400 text-sm">Share your link! You earn a permanent bonus from your referrals' earnings.</p>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- Warning -->
+        <div class="mb-12 bg-accent-red/10 border-l-4 border-accent-red p-6 rounded-r-xl" data-aos="fade-up">
+            <h3 class="text-lg font-bold text-accent-red mb-2">Important Recommendation</h3>
+            <p class="text-gray-300 text-sm">
+                We strongly recommend using Honeygain only if you have an <strong>unlimited data plan</strong>. Since the app utilizes your internet bandwidth, using it on a limited plan could lead to overage charges.
+            </p>
         </div>
-    </div>
+
+        <!-- FAQ -->
+        <section id="faq" class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-white mb-6">FAQ</h2>
+            <div class="space-y-4">
+                <details class="bg-white/5 rounded-lg open:bg-white/10 transition-colors">
+                    <summary class="p-4 font-bold text-white cursor-pointer list-none flex justify-between items-center">
+                        How much can I earn?
+                        <span class="text-accent-teal">+</span>
+                    </summary>
+                    <div class="p-4 pt-0 text-gray-400 text-sm">
+                        Earnings vary by location and demand. On average, users can earn $0.25 - $0.50 per day passively. Using our link gets you a $3 head start.
+                    </div>
+                </details>
+                <details class="bg-white/5 rounded-lg open:bg-white/10 transition-colors">
+                    <summary class="p-4 font-bold text-white cursor-pointer list-none flex justify-between items-center">
+                        What are the payment methods?
+                        <span class="text-accent-teal">+</span>
+                    </summary>
+                    <div class="p-4 pt-0 text-gray-400 text-sm">
+                        You can cash out via PayPal or JumpTask (Crypto). The minimum threshold for PayPal is $20.
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <footer class="bg-slate-950/50 rounded-xl p-8 border border-white/5 text-center mt-12">
+            <h3 class="text-2xl font-bold text-white mb-2">Start Your Passive Income Journey</h3>
+            <p class="text-gray-400 mb-6">It's free, secure, and pays you for resources you aren't using.</p>
+            <a href="https://r.honeygain.me/ROBBDCAABD" target="_blank" class="inline-block px-8 py-3 rounded-full bg-accent-teal text-primary font-bold hover:bg-teal-400 transition-colors shadow-lg shadow-teal-500/20">
+                Sign Up & Get $3
+            </a>
+            <p class="text-xs text-gray-600 mt-8">&copy; 2026 TestedProfit. All rights reserved.</p>
+        </footer>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
 </body>
 </html>
