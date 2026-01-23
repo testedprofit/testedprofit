@@ -1,182 +1,273 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Man and Woman Sculpture - Denver</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Man and Woman | Denver, CO Directory</title>
+    <meta name="description" content="A guide to the 'Man and Woman' sculptures in Denver, CO. Explore the iconic bronze figures by Fernando Botero at the Denver Performing Arts Complex.">
+    
+    <!-- External Scripts & Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
+    <!-- Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA',
+                            bronze: '#CD7F32'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #0A091B; /* Fallback */
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
         }
-        h1, h2, h3, .serif-font {
-            font-family: 'Playfair Display', serif;
+
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(205, 127, 50, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            will-change: opacity;
         }
-        
-        /* Smooth fade in animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
         }
-        .animate-fade-in {
-            animation: fadeInUp 0.8s ease-out forwards;
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
         }
-        
-        /* Custom scrollbar for content area if needed */
-        .custom-scroll::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scroll::-webkit-scrollbar-track {
-            background: #f1f1f1; 
-        }
-        .custom-scroll::-webkit-scrollbar-thumb {
-            background: #cbd5e1; 
-            border-radius: 3px;
-        }
-        .custom-scroll::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8; 
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
         }
     </style>
 </head>
-<body class="bg-slate-50 min-h-screen flex items-center justify-center p-4 lg:p-8">
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
 
-    <!-- Main Card -->
-    <div class="bg-white w-full max-w-6xl rounded-[2rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[650px] animate-fade-in">
-
-        <!-- Left Column: Visual & Hero (Dark Theme) -->
-        <div class="lg:w-5/12 relative bg-slate-900 text-white p-8 lg:p-12 flex flex-col justify-between overflow-hidden">
-            
-            <!-- Atmospheric Background -->
-            <div class="absolute inset-0 z-0">
-                <!-- Bronze glow -->
-                <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-orange-200/20 rounded-full blur-3xl mix-blend-overlay"></div>
-                <!-- Deep blue glow -->
-                <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-blue-500/20 rounded-full blur-3xl mix-blend-overlay"></div>
-                <!-- Noise texture overlay -->
-                <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22 opacity=%221%22/%3E%3C/svg%3E');"></div>
-            </div>
-
-            <!-- Content Z-Index wrapper -->
-            <div class="relative z-10 flex flex-col h-full">
-                <div>
-                    <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full mb-8 border border-white/10">
-                        <i class="fa-solid fa-location-dot text-orange-200 text-sm"></i>
-                        <span class="text-xs tracking-wider uppercase font-medium text-orange-100">Denver Arts Complex</span>
-                    </div>
-                    
-                    <h1 class="text-5xl lg:text-6xl font-bold leading-none mb-4 text-transparent bg-clip-text bg-gradient-to-br from-white to-slate-400">
-                        Man &<br>Woman
-                    </h1>
-                    <p class="text-xl text-slate-300 font-light italic serif-font">
-                        by Fernando Botero
-                    </p>
-                </div>
-
-                <div class="mt-auto pt-12">
-                    <div class="flex items-end gap-4 mb-6">
-                        <span class="text-6xl font-bold text-white leading-none">5.0</span>
-                        <div class="flex flex-col mb-1">
-                            <div class="flex text-yellow-400 text-sm mb-1">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <span class="text-sm text-slate-400">Based on 3 reviews</span>
-                        </div>
-                    </div>
-                    
-                    <blockquote class="border-l-2 border-orange-300/50 pl-4 py-1">
-                        <p class="text-lg text-slate-200 serif-font italic leading-relaxed">
-                            "A masterpiece of volume and expression that watches over the theater."
-                        </p>
-                    </blockquote>
-                </div>
-            </div>
-        </div>
-
-        <!-- Right Column: Information & UI (Light Theme) -->
-        <div class="lg:w-7/12 p-8 lg:p-12 bg-white flex flex-col overflow-y-auto custom-scroll">
-            
-            <!-- Quick Stats Grid -->
-            <div class="grid grid-cols-3 gap-4 mb-10">
-                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 text-center hover:shadow-md transition-shadow">
-                    <div class="text-slate-400 mb-2"><i class="fa-solid fa-calendar-check text-xl"></i></div>
-                    <div class="font-bold text-slate-800">1998</div>
-                    <div class="text-xs text-slate-500 uppercase tracking-wide mt-1">Installed</div>
-                </div>
-                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 text-center hover:shadow-md transition-shadow">
-                    <div class="text-slate-400 mb-2"><i class="fa-solid fa-layer-group text-xl"></i></div>
-                    <div class="font-bold text-slate-800">Bronze</div>
-                    <div class="text-xs text-slate-500 uppercase tracking-wide mt-1">Material</div>
-                </div>
-                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 text-center hover:shadow-md transition-shadow">
-                    <div class="text-slate-400 mb-2"><i class="fa-solid fa-ruler-vertical text-xl"></i></div>
-                    <div class="font-bold text-slate-800">13 ft</div>
-                    <div class="text-xs text-slate-500 uppercase tracking-wide mt-1">Height</div>
-                </div>
-            </div>
-
-            <!-- Description -->
-            <div class="mb-10">
-                <h2 class="text-3xl font-bold text-slate-800 mb-4">The Sculpture</h2>
-                <p class="text-slate-600 leading-relaxed mb-4">
-                    Standing tall in the galleria, these iconic bronze figures exemplify Botero's signature style, often referred to as <span class="font-semibold text-slate-800">"Boterismo"</span>. The exaggerated volume conveys a sense of monumentality and humor, inviting passersby to pause and reflect on form and scale.
-                </p>
-                <p class="text-slate-600 leading-relaxed">
-                    Owned by the City and County of Denver, they have become a beloved meeting point for theatergoers visiting the Temple Hoyne Buell Theatre.
-                </p>
-            </div>
-
-            <!-- Location Card -->
-            <div class="flex items-start gap-4 p-5 rounded-xl bg-blue-50/50 border border-blue-100 mb-10">
-                <div class="bg-white p-3 rounded-full shadow-sm text-blue-600 shrink-0">
-                    <i class="fa-solid fa-map-location-dot text-xl"></i>
-                </div>
-                <div>
-                    <h3 class="font-bold text-slate-800 text-lg mb-1">How to find it</h3>
-                    <p class="text-slate-600 mb-2">Denver Performing Arts Complex</p>
-                    <p class="font-mono text-sm text-slate-500 bg-white inline-block px-2 py-1 rounded border border-slate-200">
-                        998 14th St, Denver, CO 80202
-                    </p>
-                </div>
-            </div>
-
-            <!-- Action Bar -->
-            <div class="mt-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <button class="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-6 py-4 rounded-xl font-medium transition-all transform hover:-translate-y-0.5 shadow-lg shadow-slate-200">
-                    <i class="fa-solid fa-diamond-turn-right"></i>
-                    Get Directions
-                </button>
-                <div class="flex gap-2">
-                    <button class="flex-1 flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 px-4 py-4 rounded-xl font-medium transition-colors">
-                        <i class="fa-regular fa-bookmark"></i>
-                        Save
-                    </button>
-                    <button class="flex-1 flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 px-4 py-4 rounded-xl font-medium transition-colors">
-                        <i class="fa-solid fa-share-nodes"></i>
-                        Share
-                    </button>
-                </div>
-            </div>
-
-        </div>
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
     </div>
 
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                     alt="Profitnet Logo"
+                     width="32" 
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6 max-w-4xl">
+        
+        <!-- Header Section -->
+        <div class="mb-12 border-b border-white/10 pb-8" data-aos="fade-up">
+            <span class="text-accent-teal font-bold tracking-widest text-xs uppercase mb-3 block">Public Art</span>
+            <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">Man and Woman</h1>
+            <p class="text-lg text-gray-400 max-w-2xl">Iconic bronze sculptures by Fernando Botero standing guard at the Denver Performing Arts Complex.</p>
+        </div>
+
+        <!-- Introduction -->
+        <section class="mb-12" data-aos="fade-up" data-aos-delay="100">
+            <div class="prose prose-invert prose-lg max-w-none">
+                <p>
+                    "Man and Woman" is a celebrated pair of bronze sculptures located within the high-glass galleria of the Denver Performing Arts Complex (DPAC). Created by the internationally renowned Colombian artist Fernando Botero, these figures stand as prominent cultural sentinels in the heart of Denver's theater district.
+                </p>
+                <p>
+                    Installed in 1998, the sculptures exemplify Botero's signature style, often referred to as "Boterismo." This aesthetic is characterized by exaggerated volume and rotund proportions, lending the figures a sense of monumentality, stability, and subtle humor. The man and woman stand separately but are unified in style and presence, creating a silent dialogue across the galleria floor.
+                </p>
+                <p>
+                    The artwork serves as a central meeting point for theatergoers attending performances at the Temple Hoyne Buell Theatre or Ellie Caulkins Opera House. As part of the City and County of Denver's public art collection, "Man and Woman" represents the city's commitment to integrating world-class art into its civic spaces.
+                </p>
+            </div>
+        </section>
+
+        <!-- Key Facts Grid -->
+        <section class="mb-12 bg-white/5 rounded-2xl p-8 border border-white/10" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-3 text-accent-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Key Facts
+            </h2>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-gray-300">
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Location:</span> 998 14th St, Denver, CO 80202</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Artist:</span> Fernando Botero</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Installed:</span> 1998</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Height:</span> Approx. 13 feet</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Material:</span> Cast Bronze</li>
+                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Setting:</span> Denver Performing Arts Complex Galleria</li>
+            </ul>
+        </section>
+
+        <!-- Notable Features -->
+        <section class="mb-12" data-aos="fade-up" data-aos-delay="300">
+            <h2 class="text-2xl font-bold text-white mb-6">Notable Features & Attributes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-emerald mb-2">Signature "Boterismo"</h3>
+                    <p class="text-sm text-gray-400">The figures display Botero's trademark volumetric style. By exaggerating the size and roundness of the subjects, the artist explores the sensuality of form and volume in three-dimensional space.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-emerald mb-2">Imposing Scale</h3>
+                    <p class="text-sm text-gray-400">Standing roughly 13 feet tall, the sculptures command the large, open space of the galleria. Their height allows them to hold their own against the towering glass roof and surrounding architectural structures.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-emerald mb-2">Interactive Placement</h3>
+                    <p class="text-sm text-gray-400">Placed at ground level without high pedestals, the artwork invites interaction. Theater patrons frequently gather around the base, using the statues as a recognizable rendezvous point.</p>
+                </div>
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
+                    <h3 class="font-bold text-accent-emerald mb-2">Enduring Material</h3>
+                    <p class="text-sm text-gray-400">Cast in bronze, the figures possess a timeless durability. The dark patina of the metal contrasts sharply with the light, airy atmosphere of the glass-enclosed galleria.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visitor Information -->
+        <section class="mb-12" data-aos="fade-up" data-aos-delay="400">
+            <h2 class="text-2xl font-bold text-white mb-6">Visitor Information</h2>
+            <div class="space-y-6 text-gray-300">
+                <p>
+                    <strong class="text-white block mb-1">Access & Location</strong>
+                    The sculptures are located within the open-air galleria of the Denver Performing Arts Complex at 14th and Curtis Streets. The area is publicly accessible 24 hours a day, though it is liveliest during showtimes.
+                </p>
+                <p>
+                    <strong class="text-white block mb-1">Parking</strong>
+                    The DPAC garage provides direct access to the galleria. Visitors can park and take the elevator up to the main level, emerging directly near the sculptures.
+                </p>
+                <p>
+                    <strong class="text-white block mb-1">Photography</strong>
+                    "Man and Woman" are among the most photographed landmarks in the complex. The natural light filtering through the galleria roof makes daytime photography particularly effective.
+                </p>
+            </div>
+        </section>
+
+        <!-- Local Context -->
+        <section class="mb-16 pt-8 border-t border-white/10" data-aos="fade-up" data-aos-delay="500">
+            <h3 class="text-xl font-bold text-white mb-4">Local Context & Connections</h3>
+            <p class="text-gray-400 mb-6">
+                The artwork anchors the cultural hub of downtown Denver, connecting various performance venues.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="https://testedprofit.com/pages/landmarks/" class="flex-1 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                    <span class="text-accent-teal text-xs font-bold uppercase tracking-wider mb-1 block">Venue Context</span>
+                    <span class="font-bold text-white group-hover:text-accent-teal transition-colors">Denver Performing Arts Complex</span>
+                </a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="flex-1 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                    <span class="text-accent-teal text-xs font-bold uppercase tracking-wider mb-1 block">Nearby Art</span>
+                    <span class="font-bold text-white group-hover:text-accent-teal transition-colors">"The Dancers" (Sculpture Park)</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Neutral Summary -->
+        <footer class="bg-slate-950/50 rounded-xl p-6 border border-white/5" data-aos="fade-in">
+            <p class="text-sm text-gray-500 leading-relaxed">
+                "Man and Woman" consists of two monumental bronze sculptures by Fernando Botero, located in the Denver Performing Arts Complex. Installed in 1998, these 13-foot figures exemplify the artist's signature volumetric style and serve as a central public landmark within Denver's theater district.
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 800, 
+            once: true,
+            offset: 50
+        });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
 </body>
 </html>
