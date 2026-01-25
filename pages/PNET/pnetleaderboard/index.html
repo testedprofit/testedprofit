@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfitSearch | Top PNET Holders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0A091B;
+            --secondary-dark: #1A1838;
+            --card-bg: rgba(26, 24, 56, 0.4);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-light: #E5E7EB;
+            --text-muted: #9CA3AF;
+            --accent-cyan: #38BDF8;
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            --font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            color: var(--text-light);
+            background-color: var(--primary-dark);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Aurora effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(96, 165, 250, 0.15), transparent 40%),
+                radial-gradient(circle at 80% 90%, rgba(45, 212, 191, 0.15), transparent 40%);
+            z-index: -1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin: 20px 0;
+            text-align: center;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 8px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .table-wrapper { overflow-x: auto; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tbody tr:hover { background: rgba(255, 255, 255, 0.02); }
+
+        .rank-col { width: 60px; font-weight: 700; color: var(--text-muted); text-align: center; }
+        .balance-col { text-align: right; font-weight: 600; }
+        
+        /* Top 10 Highlight */
+        .top-10 .rank-col { color: var(--accent-cyan); font-size: 1.1rem; }
+        .top-10 .balance-col { color: #fff; }
+
+        .address-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: monospace;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .address-link:hover { opacity: 1; color: var(--accent-cyan); }
+
+        .status {
+            font-size: 0.65rem;
+            text-align: center;
+            padding: 15px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .loading-pulse {
+            display: block;
+            margin: 60px auto;
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(255,255,255,0.05);
+            border-radius: 50%;
+            border-top-color: var(--accent-cyan);
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .hidden { display: none !important; }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Top PNET Holders</h2>
+        
+        <div class="card">
+            <div id="loading" class="loading-pulse"></div>
+            
+            <div id="content" class="hidden">
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="rank-col">Rank</th>
+                                <th>Wallet Address</th>
+                                <th class="balance-col">Balance (PNET)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-body"></tbody>
+                    </table>
+                </div>
+                <div class="status" id="last-update">Initializing...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- EXACT API CONFIG & LOGIC FROM SOURCE ---
+        const CONFIG = {
+            ASA_ID: 3169177585,
+            INDEXER_BASE: 'https://mainnet-idx.algonode.cloud',
+            REFRESH_MS: 60000,
+            TOP_N: 500 // Fetch larger pool to ensure accuracy
+        };
+
+        const state = {
+            decimals: 6,
+            total: 1000000000,
+            holders: []
+        };
+
+        const $ = sel => document.querySelector(sel);
+        const fmtInt = n => Number(n || 0).toLocaleString(undefined, { maximumFractionDigits: 0 });
+        const shortAddr = a => a && a.length > 10 ? `${a.slice(0, 8)}...${a.slice(-8)}` : a || '—';
+
+        // --- Helper Functions from source ---
+        function withTimeout(promise, ms = 10000) {
+            const ctl = new AbortController();
+            const t = setTimeout(() => ctl.abort(), ms);
+            return Promise.race([
+                promise(ctl.signal).finally(() => clearTimeout(t)),
+                new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms + 50))
+            ]);
+        }
+
+        async function getJSON(url, { timeout = 10000 } = {}) {
+            return withTimeout(async (signal) => {
+                const r = await fetch(url, {
+                    signal,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+                return r.json();
+            }, timeout);
+        }
+
+        async function indexerAssetMeta(assetId) {
+            const url = `${CONFIG.INDEXER_BASE}/v2/assets/${assetId}`;
+            const j = await getJSON(url).catch(() => null);
+            if (!j || !j.asset) return null;
+            return {
+                decimals: j.asset.params.decimals,
+                total: j.asset.params.total
+            };
+        }
+
+        // --- Critical Fix: Using Loop Logic for Correct Sorting ---
+        async function indexerTopBalances(assetId, topN = CONFIG.TOP_N) {
+            const out = [];
+            let next = '';
+            // We loop to fetch a large number of balances because the Indexer does not sort by balance.
+            // We must fetch by address, then sort in memory to find the actual whales.
+            while (out.length < topN) {
+                const url = `${CONFIG.INDEXER_BASE}/v2/assets/${assetId}/balances?limit=10000${next?`&next=${encodeURIComponent(next)}`:''}`;
+                const j = await getJSON(url).catch(() => null);
+                if (!j || !j.balances) break;
+                out.push(...j.balances);
+                if (!j['next-token']) break;
+                next = j['next-token'];
+            }
+            return out.filter(b => !b['is-frozen']).sort((a, b) => b.amount - a.amount).slice(0, topN);
+        }
+
+        function renderLeaderboard() {
+            const body = $('#leaderboard-body');
+            body.innerHTML = '';
+            
+            // Display top 100 from the fetched sorted list
+            const displayList = state.holders.slice(0, 100);
+
+            displayList.forEach((h, i) => {
+                const bal = h.amount / (10 ** state.decimals);
+                const isTop10 = i < 10;
+                const row = document.createElement('tr');
+                if (isTop10) row.classList.add('top-10');
+
+                row.innerHTML = `
+                    <td class="rank-col">${i + 1}</td>
+                    <td><a href="https://allo.info/account/${h.address}" target="_blank" class="address-link">${shortAddr(h.address)}</a></td>
+                    <td class="balance-col">${fmtInt(bal)}</td>
+                `;
+                body.appendChild(row);
+            });
+
+            $('#loading').classList.add('hidden');
+            $('#content').classList.remove('hidden');
+            $('#last-update').innerText = `Live Indexer Sync | Updated ${new Date().toLocaleTimeString()}`;
+        }
+
+        async function main() {
+            try {
+                const [meta, balances] = await Promise.all([
+                    indexerAssetMeta(CONFIG.ASA_ID),
+                    indexerTopBalances(CONFIG.ASA_ID)
+                ]);
+
+                if (meta) {
+                    state.decimals = meta.decimals;
+                    state.total = meta.total;
+                }
+                if (balances) {
+                    state.holders = balances;
+                }
+
+                renderLeaderboard();
+            } catch (error) {
+                console.error("Fetch failed:", error);
+                $('#last-update').innerText = "Indexer Connectivity Issue. Retrying...";
+            } finally {
+                setTimeout(main, CONFIG.REFRESH_MS);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', main);
+    </script>
+</body>
+
+</html>
