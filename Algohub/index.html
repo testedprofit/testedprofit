@@ -214,15 +214,24 @@
                             from: account, to: account, closeRemainderTo: account, amount: 0, assetIndex: id, suggestedParams: params, note: new TextEncoder().encode("AlgoHub: Sweep")
                         }));
                     });
+                    
+                    if (txns.length === 0) return;
+
                     algosdk.assignGroupID(txns);
-                    // Fixed: Map to correct object structure for Pera
-                    const signed = await peraWallet.signTransaction([{ txn: txns, signers: [account] }]); 
+                    // Map transactions to Pera Connect format: { txn, signers }
+                    const group = txns.map(t => ({ txn: t, signers: [account] }));
+                    
+                    // Pass as an array of groups (even if just one group)
+                    const signed = await peraWallet.signTransaction([group]); 
                     const { txId } = await client.sendRawTransaction(signed).do();
                     await algosdk.waitForConfirmation(client, txId, 4);
                     setStatus({ type: 'success', msg: `Cleaned ${selectedAssets.size} assets. +${(selectedAssets.size * 0.1).toFixed(1)} ALGO!` });
                     setAssets(p => p.filter(a => !selectedAssets.has(a.id)));
                     setSelectedAssets(new Set());
-                } catch (e) { setStatus({ type: 'error', msg: 'Transaction failed.' }); }
+                } catch (e) { 
+                    console.error(e);
+                    setStatus({ type: 'error', msg: e.message || 'Transaction failed.' }); 
+                }
                 setLoading(false);
             };
 
@@ -296,13 +305,23 @@
                     const txn = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
                         from: account, to: feeAddr, amount: PREMIUM_COST, suggestedParams: params, note: new TextEncoder().encode("AlgoHub: Unlock")
                     });
-                    // Fixed: Typo removed (txn: txn)
-                    const signed = await peraWallet.signTransaction([{ txn: txn, signers: [account] }]);
+                    
+                    // Fixed: Strictly follow Pera's SignerTransaction[][] format (Array of Groups)
+                    // Even a single transaction is one group containing one transaction.
+                    const group = [{ txn: txn, signers: [account] }];
+                    
+                    const signed = await peraWallet.signTransaction([group]);
+                    
                     const { txId } = await client.sendRawTransaction(signed).do();
                     await algosdk.waitForConfirmation(client, txId, 4);
                     setUnlocked(true);
                     setStatus({ type: 'success', msg: 'Unlocked!' });
-                } catch (e) { setStatus({ type: 'error', msg: 'Unlock failed.' }); }
+                } catch (e) { 
+                    console.error("Unlock error:", e);
+                    // Provide real error feedback
+                    const errMsg = e?.data?.message || e?.message || 'Unlock failed. Check popup blocker.';
+                    setStatus({ type: 'error', msg: errMsg }); 
+                }
                 setProcessing(false);
             };
 
@@ -320,17 +339,24 @@
                         }));
                     });
                     if (txns.length > 16) throw new Error('Max 16 txns');
+                    
                     algosdk.assignGroupID(txns);
-                    // Fixed: Map array of txns to array of objects for Pera
-                    const groupParams = txns.map(t => ({ txn: t, signers: [account] }));
-                    const signed = await peraWallet.signTransaction([groupParams]);
+                    
+                    // Map to SignerTransaction objects
+                    const group = txns.map(t => ({ txn: t, signers: [account] }));
+                    
+                    // Send as Array of Groups
+                    const signed = await peraWallet.signTransaction([group]);
                     
                     setStatus({ type: 'info', msg: 'Broadcasting...' });
                     const { txId } = await client.sendRawTransaction(signed).do();
                     await algosdk.waitForConfirmation(client, txId, 4);
                     setStatus({ type: 'success', msg: `Sent ${txns.length} payments!` });
                     setText('');
-                } catch (e) { setStatus({ type: 'error', msg: e.message || 'Failed' }); }
+                } catch (e) { 
+                    console.error(e);
+                    setStatus({ type: 'error', msg: e.message || 'Failed' }); 
+                }
                 setProcessing(false);
             };
 
