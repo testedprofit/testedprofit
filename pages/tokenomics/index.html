@@ -1,271 +1,579 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PNET Trusted Tools</title>
+    <title>Profitnet | Tokenomics, Vaults & Tools</title>
+    <meta name="description" content="PNET Tokenomics, Trusted Algorand Tools, and Vault Dashboard">
+    <meta name="theme-color" content="#020617">
+    
+    <!-- External Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0A0A0A;
-            color: #E2E8F0;
-        }
-        .nav-link {
-            position: relative;
-            transition: color 0.3s;
-        }
-        .nav-link:hover {
-            color: #FFFFFF;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            background-color: #38BDF8;
-            transition: all 0.3s ease-in-out;
-            transform: translateX(-50%);
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        .active-filter {
-            background-color: #38BDF8 !important;
-            color: #0A0A0A !important;
-        }
-        .ecosystem-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .ecosystem-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.1), 0 4px 6px -2px rgba(56, 189, 248, 0.05);
-        }
-    </style>
-</head>
-<body class="antialiased">
-
-    <!-- Header -->
-    <header class="container mx-auto px-6 py-6">
-        <nav class="flex justify-start items-center">
-            <div>
-                <a href="https://www.testedprofit.com" target="_blank" rel="noopener noreferrer" class="text-2xl font-bold text-white nav-link">Home</a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container mx-auto px-6 py-12 md:py-20">
-        <div class="text-center max-w-3xl mx-auto">
-            <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">PNET Trusted Tools</h1>
-            <p class="mt-4 text-lg text-gray-400">A curated list of essential and reliable platforms.</p>
-        </div>
-
-        <!-- Filters -->
-        <div id="filters" class="flex flex-wrap justify-center gap-2 md:gap-4 my-10">
-            <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors" data-filter="wallets">Wallets</button>
-            <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors" data-filter="dexs">DEXs</button>
-            <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors" data-filter="defi-loans">DeFi Loans</button>
-            <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors" data-filter="explorers">Explorers</button>
-            <button class="filter-btn active-filter px-4 py-2 text-sm font-semibold rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors" data-filter="routers">Routers</button>
-            <button class="filter-btn px-4 py-2 text-sm font-semibold rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors" data-filter="portfolio-analytics">Portfolio Analytics</button>
-        </div>
-
-        <!-- Ecosystem Grid -->
-        <div id="ecosystem-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Pera Wallet -->
-            <div class="ecosystem-card bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col items-start" data-category="wallets">
-                <div class="flex items-center space-x-4 mb-4">
-                    <img src="https://perawallet.app/wp-content/uploads/2023/08/logo-pera-dark.svg" alt="Pera Wallet Logo" class="h-10 w-10" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A0A0A/FFF?text=P';">
-                    <h3 class="text-xl font-bold text-white">Pera Wallet</h3>
-                </div>
-                <span class="text-xs font-semibold bg-sky-500/20 text-sky-400 px-2 py-1 rounded-full mb-4">Wallets</span>
-                <p class="text-gray-400 mb-4 flex-grow">Official Algorand wallet by Pera with iOS, Android, and web support.</p>
-                <a href="https://perawallet.app/" target="_blank" rel="noopener noreferrer" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">Visit →</a>
-            </div>
-
-            <!-- Defly Wallet -->
-            <div class="ecosystem-card bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col items-start" data-category="wallets">
-                <div class="flex items-center space-x-4 mb-4">
-                     <img src="https://defly.app/wp-content/uploads/2023/11/defly-logo-blue-black.png" alt="Defly Wallet Logo" class="h-10" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A0A0A/FFF?text=D';">
-                    <h3 class="text-xl font-bold text-white">Defly Wallet</h3>
-                </div>
-                <span class="text-xs font-semibold bg-sky-500/20 text-sky-400 px-2 py-1 rounded-full mb-4">Wallets</span>
-                <p class="text-gray-400 mb-4 flex-grow">Pro‑grade Algorand DEX trading wallet with routing, limits, and charts.</p>
-                <a href="https://defly.app/" target="_blank" rel="noopener noreferrer" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">Visit →</a>
-            </div>
-            
-            <!-- Tinyman -->
-            <div class="ecosystem-card bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col items-start" data-category="dexs">
-                <div class="flex items-center space-x-4 mb-4">
-                    <img src="https://tinyman.org/assets/img/logo-horizontal.svg" alt="Tinyman Logo" class="h-10" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A0A0A/FFF?text=T';">
-                    <h3 class="text-xl font-bold text-white">Tinyman</h3>
-                </div>
-                <span class="text-xs font-semibold bg-green-500/20 text-green-400 px-2 py-1 rounded-full mb-4">DEXs</span>
-                <p class="text-gray-400 mb-4 flex-grow">Next‑gen AMM with constant product pools, advanced routing, and audited contracts.</p>
-                <a href="https://tinyman.org/" target="_blank" rel="noopener noreferrer" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">Visit →</a>
-            </div>
-
-            <!-- Pact -->
-            <div class="ecosystem-card bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col items-start" data-category="dexs">
-                <div class="flex items-center space-x-4 mb-4">
-                    <img src="https://www.pact.fi/Pact_wordmark_white.svg" alt="Pact Logo" class="h-10" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A0A0A/FFF?text=P';">
-                    <h3 class="text-xl font-bold text-white">Pact</h3>
-                </div>
-                <span class="text-xs font-semibold bg-green-500/20 text-green-400 px-2 py-1 rounded-full mb-4">DEXs</span>
-                <p class="text-gray-400 mb-4 flex-grow">Mobile‑first DEX with deep liquidity, rapid finality, and Aeneas Liquidity Program participation.</p>
-                <a href="https://www.pact.fi/" target="_blank" rel="noopener noreferrer" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">Visit →</a>
-            </div>
-
-            <!-- Folks Finance -->
-            <div class="ecosystem-card bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col items-start" data-category="defi-loans">
-                <div class="flex items-center space-x-4 mb-4">
-                     <img src="https://folks.finance/folks-finance-logo-white.svg" alt="Folks Finance Logo" class="h-10" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A0A0A/FFF?text=F';">
-                    <h3 class="text-xl font-bold text-white">Folks Finance</h3>
-                </div>
-                <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full mb-4">DeFi Loans</span>
-                <p class="text-gray-400 mb-4 flex-grow">Cross‑chain lending, liquid staking, and automated strategies with DAO governance.</p>
-                <a href="https://folks.finance/" target="_blank" rel="noopener noreferrer" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">Visit →</a>
-            </div>
-
-            <!-- CompX -->
-            <div class="ecosystem-card bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col items-start" data-category="defi-loans">
-                <div class="flex items-center space-x-4 mb-4">
-                    <img src="https://compx.fi/images/logo.png" alt="CompX Logo" class="h-10 w-10" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A0A0A/FFF?text=C';">
-                    <h3 class="text-xl font-bold text-white">CompX</h3>
-                </div>
-                <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full mb-4">DeFi Loans</span>
-                <p class="text-gray-400 mb-4 flex-grow">DeFi platform with auto‑compounding farms, CDP vaults for xUSD minting, and weekly rewards.</p>
-                <a href="https://compx.fi/" target="_blank" rel="noopener noreferrer" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">Visit →</a>
-            </div>
-
-            <!-- Pera Explorer -->
-            <div class="ecosystem-card bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col items-start" data-category="explorers">
-                <div class="flex items-center space-x-4 mb-4">
-                     <img src="https://explorer.perawallet.app/assets/images/logos/pera-explorer-logo-dark.svg" alt="Pera Explorer Logo" class="h-10" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A0A0A/FFF?text=PE';">
-                    <h3 class="text-xl font-bold text-white">Pera Explorer</h3>
-                </div>
-                <span class="text-xs font-semibold bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded-full mb-4">Explorers</span>
-                <p class="text-gray-400 mb-4 flex-grow">Official Pera explorer for live transaction tracking, ASA verification, and market analytics.</p>
-                <a href="https://explorer.perawallet.app/" target="_blank" rel="noopener noreferrer" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">Visit →</a>
-            </div>
-
-            <!-- Allo.info -->
-            <div class="ecosystem-card bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col items-start" data-category="explorers">
-                <div class="flex items-center space-x-4 mb-4">
-                    <img src="https://allo.info/logo.svg" alt="Allo.info Logo" class="h-10 w-10" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A0A0A/FFF?text=A';">
-                    <h3 class="text-xl font-bold text-white">Allo.info</h3>
-                </div>
-                <span class="text-xs font-semibold bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded-full mb-4">Explorers</span>
-                <p class="text-gray-400 mb-4 flex-grow">Advanced blockchain analytics, alerts, and account tracking with deep insights into Algorand.</p>
-                <a href="https://allo.info/" target="_blank" rel="noopener noreferrer" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">Visit →</a>
-            </div>
-
-             <!-- Vestige -->
-            <div class="ecosystem-card bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col items-start" data-category="routers">
-                <div class="flex items-center space-x-4 mb-4">
-                    <img src="https://vestige.fi/assets/logo-88182522.png" alt="Vestige Logo" class="h-10 w-10" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A0A0A/FFF?text=V';">
-                    <h3 class="text-xl font-bold text-white">Vestige</h3>
-                </div>
-                <span class="text-xs font-semibold bg-red-500/20 text-red-400 px-2 py-1 rounded-full mb-4">Routers</span>
-                <p class="text-gray-400 mb-4 flex-grow">DEX aggregator and analytics—smart routing across Algorand DEXs for best execution.</p>
-                <a href="https://vestige.fi/" target="_blank" rel="noopener noreferrer" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">Visit →</a>
-            </div>
-
-            <!-- ASAstats -->
-            <div class="ecosystem-card bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col items-start" data-category="portfolio-analytics">
-                <div class="flex items-center space-x-4 mb-4">
-                    <img src="https://www.asastats.com/assets/images/logo.png" alt="ASAstats Logo" class="h-10 w-10" onerror="this.onerror=null; this.src='https://placehold.co/40x40/0A0A0A/FFF?text=AS';">
-                    <h3 class="text-xl font-bold text-white">ASAstats</h3>
-                </div>
-                <span class="text-xs font-semibold bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full mb-4">Portfolio Analytics</span>
-                <p class="text-gray-400 mb-4 flex-grow">Comprehensive dashboard for Algorand assets, portfolio performance, and NFTs with real‑time updates.</p>
-                <a href="https://www.asastats.com/" target="_blank" rel="noopener noreferrer" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">Visit →</a>
-            </div>
-        </div>
-
-        <!-- PNET Partners Section -->
-        <div class="mt-24 pt-12 border-t border-gray-800">
-            <div class="text-center max-w-3xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-indigo-500 leading-tight">PNET Partners</h2>
-                <p class="mt-4 text-lg text-gray-400">Collaborators and friends of the PNET ecosystem.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 max-w-6xl mx-auto">
-                <!-- Jimmy.farm -->
-                <div class="ecosystem-card bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col items-start">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <img src="https://placehold.co/40x40/0A0A0A/FFF?text=JF" alt="Jimmy.farm Logo" class="h-10 w-10 rounded-full">
-                        <h3 class="text-xl font-bold text-white">Jimmy.farm</h3>
-                    </div>
-                    <span class="text-xs font-semibold bg-indigo-500/20 text-indigo-400 px-2 py-1 rounded-full mb-4">Partner</span>
-                    <p class="text-gray-400 mb-4 flex-grow">An innovative platform in the decentralized space.</p>
-                    <a href="http://Jimmy.farm" target="_blank" rel="noopener noreferrer" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">Visit →</a>
-                </div>
-
-                <!-- Jimcoin.app -->
-                <div class="ecosystem-card bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col items-start">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <img src="https://placehold.co/40x40/0A0A0A/FFF?text=JC" alt="Jimcoin.app Logo" class="h-10 w-10 rounded-full">
-                        <h3 class="text-xl font-bold text-white">Jimcoin.app</h3>
-                    </div>
-                    <span class="text-xs font-semibold bg-indigo-500/20 text-indigo-400 px-2 py-1 rounded-full mb-4">Partner</span>
-                    <p class="text-gray-400 mb-4 flex-grow">A cutting-edge application for the modern web.</p>
-                    <a href="http://Jimcoin.app" target="_blank" rel="noopener noreferrer" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">Visit →</a>
-                </div>
-
-                <!-- Donkey DAO -->
-                 <div class="ecosystem-card bg-gray-900 border border-gray-800 rounded-xl p-6 flex flex-col items-start">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <img src="https://placehold.co/40x40/0A0A0A/FFF?text=DD" alt="Donkey DAO Logo" class="h-10 w-10 rounded-full">
-                        <h3 class="text-xl font-bold text-white">Donkey DAO</h3>
-                    </div>
-                    <span class="text-xs font-semibold bg-indigo-500/20 text-indigo-400 px-2 py-1 rounded-full mb-4">Partner</span>
-                    <p class="text-gray-400 mb-4 flex-grow">Join the Donkey DAO community featuring Donkeys and Chic Cheetahs NFT collections on Algorand.</p>
-                    <a href="https://www.donkeydao.xyz/" target="_blank" rel="noopener noreferrer" class="text-sky-400 font-semibold hover:text-sky-300 transition-colors">Visit →</a>
-                </div>
-            </div>
-        </div>
-    </main>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Configuration -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            
-            const applyFilter = (filterValue) => {
-                // This targets only the cards within the main ecosystem grid for filtering
-                const toolCards = document.querySelectorAll('#ecosystem-grid .ecosystem-card');
-                toolCards.forEach(card => {
-                    if (card.dataset.category === filterValue) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 850: '#151e32', 950: '#020617' },
+                        brand: { teal: '#2DD4BF', blue: '#60A5FA', purple: '#A855F7' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        shimmer: {
+                            'from': { backgroundPosition: '0 0' },
+                            'to': { backgroundPosition: '-200% 0' }
+                        }
                     }
-                });
-            };
-
-            // Set initial filter based on the active button in the HTML
-            const initialActiveButton = document.querySelector('.filter-btn.active-filter');
-            if (initialActiveButton) {
-                applyFilter(initialActiveButton.dataset.filter);
+                }
             }
-
-            // Add click listeners to buttons
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Manage active button style
-                    filterButtons.forEach(btn => btn.classList.remove('active-filter'));
-                    button.classList.add('active-filter');
-
-                    // Filter cards based on clicked button
-                    applyFilter(button.dataset.filter);
-                });
-            });
-        });
+        }
     </script>
 
+    <style>
+        /* --- CORE STYLES --- */
+        body {
+            background-color: #020617;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(45, 212, 191, 0.05), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(96, 165, 250, 0.05), transparent 25%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            color: #E2E8F0;
+            min-height: 100vh;
+        }
+
+        /* --- UI MODULES --- */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .vault-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .vault-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--card-border-color, #64748b);
+            box-shadow: 0 0 20px var(--card-glow-color, rgba(100, 116, 139, 0.2));
+            background: rgba(30, 41, 59, 0.7);
+        }
+
+        /* Tool Cards (New from File 2) */
+        .tool-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(45, 212, 191, 0.4);
+            box-shadow: 0 4px 20px -5px rgba(45, 212, 191, 0.15);
+        }
+
+        /* Themes */
+        .theme-blue { --card-border-color: #60A5FA; --card-glow-color: rgba(96, 165, 250, 0.25); }
+        .theme-purple { --card-border-color: #A855F7; --card-glow-color: rgba(168, 85, 247, 0.25); }
+        .theme-teal { --card-border-color: #2DD4BF; --card-glow-color: rgba(45, 212, 191, 0.25); }
+        .theme-pink { --card-border-color: #EC4899; --card-glow-color: rgba(236, 72, 153, 0.25); }
+        .theme-yellow { --card-border-color: #FACC15; --card-glow-color: rgba(250, 204, 21, 0.25); }
+        .theme-green { --card-border-color: #4ADE80; --card-glow-color: rgba(74, 222, 128, 0.25); }
+        .theme-orange { --card-border-color: #FB923C; --card-glow-color: rgba(251, 146, 60, 0.25); }
+
+        /* Chart Animation */
+        .chart-ring {
+            transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        /* Collapsible */
+        .collapsible-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s ease-out, opacity 0.4s ease;
+            opacity: 0;
+        }
+        .collapsible-content.open {
+            grid-template-rows: 1fr;
+            opacity: 1;
+        }
+        .collapsible-inner { overflow: hidden; }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Toast */
+        #copy-notification {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+    </style>
+</head>
+<body class="antialiased selection:bg-teal-500/30">
+
+    <!-- Sticky Navigation (Integrated from File 2) -->
+    <header class="fixed w-full top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center max-w-7xl">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet Logo" width="32" height="32">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-8 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-teal-400 transition-colors">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-teal-400 hover:text-teal-300 transition-colors">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-5 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 transition-all uppercase tracking-wider">
+                    $PNET Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-teal-400 uppercase tracking-widest">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12">
+        
+        <!-- Header: Hero & ASA ID (Merged) -->
+        <header class="text-center mb-12 animate-fade-in">
+            <div class="inline-flex items-center gap-3 bg-slate-800/50 rounded-full px-4 py-1.5 border border-slate-700/50 mb-6 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                <span class="text-xs font-mono text-teal-300 tracking-wider">LIVE ON ALGORAND</span>
+            </div>
+            <h1 class="text-4xl md:text-7xl font-black text-white mb-6 tracking-tight leading-tight">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-brand-blue">Tokenomics</span> & Tools
+            </h1>
+            <p class="text-slate-400 max-w-2xl mx-auto text-lg mb-8">
+                Transparent allocation, time-locked security, and trusted ecosystem tools for $PNET.
+            </p>
+
+            <!-- ASA ID Copy Block -->
+            <div class="flex justify-center mb-8">
+                <div class="relative group cursor-pointer" onclick="copyToClipboard('3169177585')">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-brand-teal to-brand-blue rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                    <div class="relative bg-slate-900 border border-white/10 rounded-lg py-3 px-6 flex items-center gap-4 hover:bg-slate-800 transition-colors">
+                        <span class="text-gray-400 font-mono text-sm">ASA ID:</span>
+                        <span class="text-xl font-bold font-mono text-white tracking-widest">3169177585</span>
+                        <svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Layout: Stats & Vaults -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            
+            <!-- LEFT COLUMN: Sidebar (Stats & Countdown) -->
+            <aside class="lg:col-span-4 space-y-6">
+                <div class="sticky top-28 space-y-6">
+                    
+                    <!-- Token Info Card -->
+                    <div class="glass-card rounded-2xl p-6">
+                        <div class="flex items-center justify-between mb-8">
+                            <h2 class="text-xl font-bold text-white">Supply Overview</h2>
+                            <div class="relative w-16 h-16">
+                                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                                    <path class="text-slate-800" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4" />
+                                    <path id="mini-chart" class="text-brand-teal chart-ring" stroke-dasharray="46.6, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4" stroke-dashoffset="0" />
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center text-[10px] font-bold">46%</div>
+                            </div>
+                        </div>
+
+                        <!-- Stats List (Integrated from File 2) -->
+                        <div class="space-y-4 mb-6">
+                            <div class="p-3 rounded-xl bg-slate-900/50 border border-slate-800">
+                                <p class="text-gray-500 text-xs font-bold uppercase tracking-wider mb-1">Total Supply</p>
+                                <p class="text-xl font-bold text-white">100,000,000</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-900/50 border border-slate-800">
+                                <p class="text-gray-500 text-xs font-bold uppercase tracking-wider mb-1">Circulating</p>
+                                <p class="text-xl font-bold text-white">100,000,000</p>
+                                <p class="text-brand-blue text-[10px]">Fully Diluted</p>
+                            </div>
+                            <div class="flex justify-between items-center p-3 rounded-xl bg-slate-900/50 border border-slate-800">
+                                <span class="text-gray-500 text-xs font-bold uppercase tracking-wider">Decimals</span>
+                                <span class="text-lg font-bold text-white">6</span>
+                            </div>
+                        </div>
+
+                        <!-- Links -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <a href="https://vestige.fi/asset/3169177585" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-sm font-medium rounded-lg text-white transition-all border border-slate-700">
+                                <img src="https://vestige.fi/static/favicon.png" class="w-4 h-4" alt="Vestige" onerror="this.style.display='none'">
+                                Chart
+                            </a>
+                            <a href="https://allo.info/asset/3169177585/token" target="_blank" class="flex items-center justify-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-sm font-medium rounded-lg text-white transition-all border border-slate-700">
+                                <svg class="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                Explorer
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Countdown Timer -->
+                    <div class="bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10">
+                            <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-sm font-bold text-brand-teal uppercase tracking-widest mb-4">Major Unlock</h3>
+                        <p class="text-xs text-slate-400 mb-4">25% Supply Lock (Sept 2026)</p>
+                        
+                        <div class="grid grid-cols-4 gap-2 text-center" id="countdown">
+                            <div class="bg-slate-950/50 rounded-lg p-2 backdrop-blur-sm">
+                                <span class="block text-xl font-mono font-bold text-white" id="d">00</span>
+                                <span class="text-[10px] text-slate-500 uppercase">Days</span>
+                            </div>
+                            <div class="bg-slate-950/50 rounded-lg p-2 backdrop-blur-sm">
+                                <span class="block text-xl font-mono font-bold text-white" id="h">00</span>
+                                <span class="text-[10px] text-slate-500 uppercase">Hrs</span>
+                            </div>
+                            <div class="bg-slate-950/50 rounded-lg p-2 backdrop-blur-sm">
+                                <span class="block text-xl font-mono font-bold text-white" id="m">00</span>
+                                <span class="text-[10px] text-slate-500 uppercase">Min</span>
+                            </div>
+                            <div class="bg-slate-950/50 rounded-lg p-2 backdrop-blur-sm">
+                                <span class="block text-xl font-mono font-bold text-brand-teal" id="s">00</span>
+                                <span class="text-[10px] text-slate-500 uppercase">Sec</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- RIGHT COLUMN: Content -->
+            <main class="lg:col-span-8 space-y-16">
+                
+                <!-- SECTION 1: VAULTS -->
+                <section>
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold text-white">Core Vaults</h2>
+                        <span class="text-[10px] font-mono text-slate-500 bg-slate-900 px-2 py-1 rounded border border-slate-800">SECURED ON-CHAIN</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
+                        <!-- Vault 1: 25M -->
+                        <button onclick="openModal('25M LOCK', 'The largest lock-up vault. 25 million PNET tokens locked to demonstrate founder commitment.', 'https://legacy.vestige.fi/vault/3213110046')" class="glass-card vault-card theme-blue rounded-xl p-5 text-left group">
+                            <div class="flex justify-between items-start mb-3">
+                                <div class="bg-blue-500/10 p-2 rounded-lg"><svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
+                                <span class="text-[10px] font-bold text-blue-300 bg-blue-900/30 px-2 py-0.5 rounded-full border border-blue-500/20">LOCKED</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-blue-200 transition-colors">25M PNET</h3>
+                            <p class="text-xs text-slate-400 mt-1">Founder Allocation</p>
+                        </button>
+
+                        <!-- Vault 2: 15M -->
+                        <button onclick="openModal('15M LOCK', 'Strategic reserve. 15 million PNET tokens locked for long-term supply stability.', 'https://legacy.vestige.fi/vault/3218236689')" class="glass-card vault-card theme-purple rounded-xl p-5 text-left group">
+                            <div class="flex justify-between items-start mb-3">
+                                <div class="bg-purple-500/10 p-2 rounded-lg"><svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg></div>
+                                <span class="text-[10px] font-bold text-purple-300 bg-purple-900/30 px-2 py-0.5 rounded-full border border-purple-500/20">LOCKED</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-purple-200 transition-colors">15M PNET</h3>
+                            <p class="text-xs text-slate-400 mt-1">Strategic Reserve</p>
+                        </button>
+
+                        <!-- Vault 3: ALGO-PNET -->
+                        <button onclick="openModal('ALGO-PNET LP', 'Cross-chain liquidity initiative vault.', 'https://legacy.vestige.fi/vault/3219570337')" class="glass-card vault-card theme-yellow rounded-xl p-5 text-left group">
+                            <div class="flex justify-between items-start mb-3">
+                                <div class="bg-yellow-500/10 p-2 rounded-lg"><svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                                <span class="text-[10px] font-bold text-yellow-300 bg-yellow-900/30 px-2 py-0.5 rounded-full border border-yellow-500/20">LIQUIDITY</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-yellow-200 transition-colors">ALGO/PNET</h3>
+                            <p class="text-xs text-slate-400 mt-1">Liquidity Pool</p>
+                        </button>
+
+                         <!-- Vault 4: DDAO -->
+                         <button onclick="openModal('DDAO-PNET LP', 'Liquidity pool vault for the DDAO/PNET pair.', 'https://legacy.vestige.fi/vault/3238174366')" class="glass-card vault-card theme-green rounded-xl p-5 text-left group">
+                            <div class="flex justify-between items-start mb-3">
+                                <div class="bg-green-500/10 p-2 rounded-lg"><svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                                <span class="text-[10px] font-bold text-green-300 bg-green-900/30 px-2 py-0.5 rounded-full border border-green-500/20">DAO LP</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-green-200 transition-colors">DDAO/PNET</h3>
+                            <p class="text-xs text-slate-400 mt-1">Ecosystem Pair</p>
+                        </button>
+                        
+                         <!-- Vault 5: MAX 1 -->
+                         <button onclick="openModal('MAX-PNET Vault 1', 'Long term partner allocation. Locked for 5 years.', 'https://legacy.vestige.fi/vault/3248131577')" class="glass-card vault-card theme-teal rounded-xl p-5 text-left group">
+                            <div class="flex justify-between items-start mb-3">
+                                <div class="bg-teal-500/10 p-2 rounded-lg"><svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-teal-200 transition-colors">MAX 1</h3>
+                            <p class="text-xs text-slate-400 mt-1">Partner Allocation</p>
+                        </button>
+
+                        <!-- Vault 6: MAX 2 -->
+                        <button onclick="openModal('MAX-PNET Vault 2', 'Long term partner allocation. Locked for 5 years.', 'https://legacy.vestige.fi/vault/3248060183')" class="glass-card vault-card theme-teal rounded-xl p-5 text-left group">
+                            <div class="flex justify-between items-start mb-3">
+                                <div class="bg-teal-500/10 p-2 rounded-lg"><svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                            </div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-teal-200 transition-colors">MAX 2</h3>
+                            <p class="text-xs text-slate-400 mt-1">Partner Allocation</p>
+                        </button>
+                    </div>
+
+                    <!-- Toggle Section -->
+                    <button id="toggle-partners" class="w-full flex items-center justify-between p-4 bg-slate-800/40 hover:bg-slate-800 border border-dashed border-slate-700 hover:border-teal-500/50 rounded-xl transition-all group mb-4">
+                        <span class="flex items-center text-sm font-semibold text-slate-300 group-hover:text-white">
+                            <svg class="w-5 h-5 mr-2 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                            View Strategic Partnership Vaults
+                        </span>
+                        <svg id="toggle-icon" class="w-5 h-5 text-slate-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+
+                    <!-- Collapsible Partners -->
+                    <div id="partner-container" class="collapsible-content">
+                        <div class="collapsible-inner grid grid-cols-2 md:grid-cols-3 gap-4 pb-4">
+                            <button onclick="openModal('BKIND-PNET', '10 Year Lock.', 'https://legacy.vestige.fi/vault/3242466222')" class="glass-card vault-card theme-pink rounded-xl p-4 text-center hover:bg-slate-800">
+                                <span class="text-xs font-bold text-pink-400 block mb-1">BKIND</span>
+                                <span class="text-[10px] text-slate-500">10 Year Lock</span>
+                            </button>
+                            <button onclick="openModal('BONEZ-PNET', 'Liquidity Pool.', 'https://legacy.vestige.fi/vault/3229590975')" class="glass-card vault-card theme-orange rounded-xl p-4 text-center hover:bg-slate-800">
+                                <span class="text-xs font-bold text-orange-400 block mb-1">BONEZ</span>
+                                <span class="text-[10px] text-slate-500">Liquidity</span>
+                            </button>
+                            <button onclick="openModal('69420-PNET', 'Meme Pair Liquidity.', 'https://legacy.vestige.fi/vault/3241289614')" class="glass-card vault-card theme-green rounded-xl p-4 text-center hover:bg-slate-800">
+                                <span class="text-xs font-bold text-green-400 block mb-1">69420</span>
+                                <span class="text-[10px] text-slate-500">Liquidity</span>
+                            </button>
+                            <button onclick="openModal('DeckardCain', '1M PNET Vault.', 'https://legacy.vestige.fi/vault/3224248640')" class="glass-card vault-card theme-blue rounded-xl p-4 text-center hover:bg-slate-800">
+                                <span class="text-xs font-bold text-blue-400 block mb-1">DeckardCain</span>
+                                <span class="text-[10px] text-slate-500">Partner</span>
+                            </button>
+                            <button onclick="openModal('AETF', 'Asset Enhancement Trust Fund Vault.', 'https://legacy.vestige.fi/vault/3223774803')" class="glass-card vault-card theme-teal rounded-xl p-4 text-center hover:bg-slate-800">
+                                <span class="text-xs font-bold text-teal-400 block mb-1">AETF</span>
+                                <span class="text-[10px] text-slate-500">Partner</span>
+                            </button>
+                             <button onclick="openModal('Tife', 'Tife Project Collaboration.', 'https://legacy.vestige.fi/vault/3223655839')" class="glass-card vault-card theme-purple rounded-xl p-4 text-center hover:bg-slate-800">
+                                <span class="text-xs font-bold text-purple-400 block mb-1">Tife</span>
+                                <span class="text-[10px] text-slate-500">Partner</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION 2: TRUSTED TOOLS (Integrated from File 2) -->
+                <section>
+                    <div class="flex items-end justify-between mb-6">
+                        <div>
+                            <h2 class="text-2xl font-bold text-white">Trusted Tools</h2>
+                            <p class="text-slate-400 text-sm mt-1">Essential platforms for the Algorand ecosystem.</p>
+                        </div>
+                        <span class="hidden md:inline-block text-[10px] font-mono text-slate-500 uppercase tracking-widest">Curated by PNET</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Pera -->
+                        <a href="https://perawallet.app/" target="_blank" class="glass-card tool-card group block p-4 rounded-xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-yellow-400/10 flex items-center justify-center text-yellow-400 font-bold">P</div>
+                                <span class="font-bold text-sm text-white group-hover:text-brand-teal transition-colors">Pera</span>
+                            </div>
+                            <p class="text-[10px] text-slate-400 line-clamp-2">Premier Algorand wallet.</p>
+                        </a>
+                        <!-- Defly -->
+                        <a href="https://defly.app/" target="_blank" class="glass-card tool-card group block p-4 rounded-xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-white font-bold">D</div>
+                                <span class="font-bold text-sm text-white group-hover:text-brand-teal transition-colors">Defly</span>
+                            </div>
+                            <p class="text-[10px] text-slate-400 line-clamp-2">Pro-grade trading wallet.</p>
+                        </a>
+                        <!-- Tinyman -->
+                        <a href="https://tinyman.org/" target="_blank" class="glass-card tool-card group block p-4 rounded-xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-yellow-400/20 flex items-center justify-center text-yellow-400 font-bold">T</div>
+                                <span class="font-bold text-sm text-white group-hover:text-brand-teal transition-colors">Tinyman</span>
+                            </div>
+                            <p class="text-[10px] text-slate-400 line-clamp-2">Decentralized trading.</p>
+                        </a>
+                        <!-- Vestige -->
+                        <a href="https://vestige.fi/" target="_blank" class="glass-card tool-card group block p-4 rounded-xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center text-red-400 font-bold">V</div>
+                                <span class="font-bold text-sm text-white group-hover:text-brand-teal transition-colors">Vestige</span>
+                            </div>
+                            <p class="text-[10px] text-slate-400 line-clamp-2">Charts & Analytics.</p>
+                        </a>
+                        <!-- Folks -->
+                        <a href="https://folks.finance/" target="_blank" class="glass-card tool-card group block p-4 rounded-xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold">F</div>
+                                <span class="font-bold text-sm text-white group-hover:text-brand-teal transition-colors">Folks</span>
+                            </div>
+                            <p class="text-[10px] text-slate-400 line-clamp-2">Lending & Borrowing.</p>
+                        </a>
+                        <!-- Pact -->
+                        <a href="https://www.pact.fi/" target="_blank" class="glass-card tool-card group block p-4 rounded-xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 font-bold">P</div>
+                                <span class="font-bold text-sm text-white group-hover:text-brand-teal transition-colors">Pact</span>
+                            </div>
+                            <p class="text-[10px] text-slate-400 line-clamp-2">Deep liquidity DEX.</p>
+                        </a>
+                        <!-- Allo -->
+                        <a href="https://allo.info/" target="_blank" class="glass-card tool-card group block p-4 rounded-xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-bold">A</div>
+                                <span class="font-bold text-sm text-white group-hover:text-brand-teal transition-colors">Allo</span>
+                            </div>
+                            <p class="text-[10px] text-slate-400 line-clamp-2">Blockchain Explorer.</p>
+                        </a>
+                         <!-- ASAstats -->
+                         <a href="https://www.asastats.com/" target="_blank" class="glass-card tool-card group block p-4 rounded-xl">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 font-bold">S</div>
+                                <span class="font-bold text-sm text-white group-hover:text-brand-teal transition-colors">ASAstats</span>
+                            </div>
+                            <p class="text-[10px] text-slate-400 line-clamp-2">Portfolio tracking.</p>
+                        </a>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Footer Ad (Integrated from File 2) -->
+        <div class="mt-20">
+            <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 rounded-2xl p-8 border border-white/5 relative overflow-hidden group shadow-2xl">
+                 <div class="absolute top-0 right-0 w-96 h-96 bg-brand-teal/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none transition-opacity duration-700 group-hover:bg-brand-teal/15"></div>
+                 <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                    <div class="space-y-3 max-w-2xl">
+                        <div class="inline-block px-3 py-1 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-teal text-[10px] font-bold uppercase tracking-widest mb-2">
+                            Passive Income Opportunity
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                            Monetize Your Unused Bandwidth with <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-green-400">EarnApp</span>
+                        </h3>
+                        <p class="text-gray-400 text-sm md:text-base font-light leading-relaxed">
+                            Turn your idle internet connection into a steady revenue stream. Secure, automated, and effortless passive income for your digital portfolio.
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <a href="https://testedprofit.com/pages/earnapp/" class="group/btn relative inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-slate-900 transition-all duration-300 bg-brand-teal rounded-full overflow-hidden hover:shadow-[0_0_20px_rgba(45,212,191,0.4)]">
+                            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:animate-shimmer"></span>
+                            <span class="relative flex items-center">
+                                Learn More <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </span>
+                        </a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+
+        <footer class="mt-12 pt-8 border-t border-slate-800 text-center">
+             <p class="text-slate-600 text-sm">&copy; 2025 Profitnet Dashboard. Powered by Algorand.</p>
+        </footer>
+
+    </div>
+
+    <!-- MODAL & NOTIFICATIONS -->
+    <div id="modal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity opacity-0" id="modal-backdrop"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div id="modal-panel" class="w-full max-w-md bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl transform scale-95 opacity-0 transition-all duration-300">
+                <div class="p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-brand-teal/10 rounded-lg text-brand-teal"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
+                            <h3 id="modal-title" class="text-xl font-bold text-white">Vault</h3>
+                        </div>
+                        <button onclick="closeModal()" class="text-slate-400 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                    </div>
+                    <p id="modal-desc" class="text-slate-300 text-sm leading-relaxed mb-6">Description goes here.</p>
+                    <div class="flex gap-3">
+                        <button onclick="closeModal()" class="flex-1 px-4 py-2.5 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 font-medium text-sm transition-colors">Close</button>
+                        <a id="modal-link" href="#" target="_blank" class="flex-1 px-4 py-2.5 bg-brand-teal text-white rounded-lg hover:bg-teal-500 font-medium text-sm transition-colors text-center shadow-lg shadow-teal-900/20">Verify on Chain</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="copy-notification" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-brand-teal text-slate-900 px-6 py-3 rounded-full font-bold shadow-lg opacity-0 pointer-events-none z-50 transition-all duration-300">
+        Copied to Clipboard!
+    </div>
+
+    <script>
+        // --- COUNTDOWN ---
+        const initTimer = () => {
+            const unlockDate = new Date('2026-09-01T00:00:00Z').getTime();
+            const els = { d: document.getElementById('d'), h: document.getElementById('h'), m: document.getElementById('m'), s: document.getElementById('s') };
+            setInterval(() => {
+                const diff = unlockDate - new Date().getTime();
+                if (diff < 0) { Object.values(els).forEach(el => el.innerText = '00'); return; }
+                els.d.innerText = Math.floor(diff / 86400000);
+                els.h.innerText = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+                els.m.innerText = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+                els.s.innerText = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+            }, 1000);
+        };
+        initTimer();
+
+        // --- MODAL ---
+        const modal = document.getElementById('modal'), backdrop = document.getElementById('modal-backdrop'), panel = document.getElementById('modal-panel');
+        const mTitle = document.getElementById('modal-title'), mDesc = document.getElementById('modal-desc'), mLink = document.getElementById('modal-link');
+        window.openModal = (t, d, l) => { mTitle.textContent=t; mDesc.textContent=d; mLink.href=l; modal.classList.remove('hidden'); requestAnimationFrame(()=>{backdrop.classList.remove('opacity-0'); panel.classList.remove('scale-95','opacity-0');}); };
+        window.closeModal = () => { backdrop.classList.add('opacity-0'); panel.classList.add('scale-95','opacity-0'); setTimeout(()=>modal.classList.add('hidden'), 300); };
+        modal.addEventListener('click', e => { if(e.target === backdrop) closeModal(); });
+
+        // --- TOGGLE ---
+        document.getElementById('toggle-partners').addEventListener('click', function() {
+            document.getElementById('partner-container').classList.toggle('open');
+            document.getElementById('toggle-icon').style.transform = document.getElementById('partner-container').classList.contains('open') ? 'rotate(0deg)' : 'rotate(180deg)';
+        });
+
+        // --- MOBILE MENU ---
+        const menuBtn = document.getElementById('mobile-menu-btn'), closeBtn = document.getElementById('close-menu-btn'), mobileMenu = document.getElementById('mobile-menu');
+        const toggleMenu = (show) => { mobileMenu.classList.toggle('active', show); document.body.style.overflow = show ? 'hidden' : ''; };
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+        // --- CLIPBOARD ---
+        window.copyToClipboard = (text) => {
+            navigator.clipboard.writeText(text);
+            const notif = document.getElementById('copy-notification');
+            notif.style.opacity = '1'; notif.style.transform = 'translate(-50%, -10px)';
+            setTimeout(() => { notif.style.opacity = '0'; notif.style.transform = 'translate(-50%, 0)'; }, 2000);
+        };
+    </script>
 </body>
 </html>
