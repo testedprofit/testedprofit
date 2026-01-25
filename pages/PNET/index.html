@@ -29,7 +29,7 @@
         }
 
         html {
-            scroll-padding-top: 80px; /* Prevents sticky header from covering titles */
+            scroll-padding-top: 80px;
         }
 
         body {
@@ -44,18 +44,12 @@
         }
 
         h2 {
-            font-family: 'Playfair Display', serif; /* Premium feel for section headers */
+            font-family: 'Playfair Display', serif;
         }
 
         /* --- UTILITIES --- */
         .gradient-text {
             background: linear-gradient(90deg, #34D399, #60A5FA);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .tokenomics-gradient-text {
-            background: linear-gradient(90deg, #2dd4bf, #67e8f9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -95,28 +89,6 @@
             max-height: 300px;
         }
 
-        /* --- TOKENOMICS SPECIFIC --- */
-        .vault-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .vault-card:hover {
-            transform: translateY(-4px) scale(1.02);
-        }
-        /* Glow effects for specific vault borders */
-        .vault-card.border-blue-400:hover { box-shadow: 0 0 15px rgba(96, 165, 250, 0.3); }
-        .vault-card.border-purple-500:hover { box-shadow: 0 0 15px rgba(168, 85, 247, 0.3); }
-        .vault-card.border-pink-500:hover { box-shadow: 0 0 15px rgba(236, 72, 153, 0.3); }
-        .vault-card.border-cyan-500:hover { box-shadow: 0 0 15px rgba(6, 182, 212, 0.3); }
-
-        /* Donut Chart Animation */
-        .donut-chart-svg { transform: rotate(-90deg); }
-        .donut-track { stroke: #374151; }
-        .donut-progress {
-            stroke: #34D399;
-            stroke-linecap: round;
-            transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
         /* Grid Backgrounds */
         .bg-grid-pattern {
             background-size: 40px 40px;
@@ -125,27 +97,6 @@
             mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
             -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
         }
-
-        /* Leaderboard Scrollbar */
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 3px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 3px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.25); }
-
-        /* Partnership Vaults Transition */
-        #partnership-vaults {
-            transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, margin-top 0.4s ease;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-        }
-        #partnership-vaults.open {
-            max-height: 800px;
-            opacity: 1;
-            margin-top: 1rem;
-        }
-        #partnership-toggle-btn .chevron { transition: transform 0.3s ease; }
-        #partnership-toggle-btn[aria-expanded="true"] .chevron { transform: rotate(180deg); }
 
         /* Mobile Menu */
         #mobile-menu {
@@ -176,10 +127,8 @@
             <!-- Desktop Nav -->
             <nav class="hidden md:flex space-x-8">
                 <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-sm font-bold text-teal-400 hover:text-white transition-colors">Landmarks</a>
-                <a href="#tokenomics" class="text-sm font-medium text-gray-300 hover:text-white transition-colors hover:underline decoration-teal-400 decoration-2 underline-offset-4">Tokenomics</a>
-                <a href="#dashboard" class="text-sm font-medium text-gray-300 hover:text-white transition-colors hover:underline decoration-blue-400 decoration-2 underline-offset-4">Leaderboard</a>
-                <a href="#faq" class="text-sm font-medium text-gray-300 hover:text-white transition-colors hover:underline decoration-purple-400 decoration-2 underline-offset-4">FAQ</a>
-                <a href="#community" class="text-sm font-medium text-gray-300 hover:text-white transition-colors hover:underline decoration-pink-400 decoration-2 underline-offset-4">Community</a>
+                <a href="https://testedprofit.com/pages/tokenomics/" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white transition-colors hover:underline decoration-teal-400 decoration-2 underline-offset-4">Tokenomics</a>
+                <a href="https://testedprofit.com/pages/PNET/pnetleaderboard/" target="_blank" class="text-sm font-medium text-gray-300 hover:text-white transition-colors hover:underline decoration-blue-400 decoration-2 underline-offset-4">Leaderboard</a>
             </nav>
 
             <!-- Mobile Menu Button -->
@@ -192,10 +141,8 @@
         <div id="mobile-menu" class="md:hidden bg-slate-900 border-b border-slate-800">
             <div class="px-6 pt-2 pb-4 space-y-1 flex flex-col">
                 <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="block py-2 text-teal-400 hover:text-white font-bold border-b border-slate-800">Browse Landmarks</a>
-                <a href="#tokenomics" class="block py-2 text-gray-300 hover:text-white font-medium border-b border-slate-800">Tokenomics</a>
-                <a href="#dashboard" class="block py-2 text-gray-300 hover:text-white font-medium border-b border-slate-800">Leaderboard</a>
-                <a href="#faq" class="block py-2 text-gray-300 hover:text-white font-medium border-b border-slate-800">FAQ</a>
-                <a href="#community" class="block py-2 text-gray-300 hover:text-white font-medium">Community</a>
+                <a href="https://testedprofit.com/pages/tokenomics/" target="_blank" class="block py-2 text-gray-300 hover:text-white font-medium border-b border-slate-800">Tokenomics</a>
+                <a href="https://testedprofit.com/pages/PNET/pnetleaderboard/" target="_blank" class="block py-2 text-gray-300 hover:text-white font-medium">Leaderboard</a>
             </div>
         </div>
     </header>
@@ -253,159 +200,6 @@
                             <a href="https://earnapp.com/i/iqBdX9xU" target="_blank" rel="noopener noreferrer" class="cta-button w-full text-white font-bold py-3 px-4 rounded-xl shadow-lg">
                                 Join EarnApp
                             </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tokenomics Section -->
-        <section id="tokenomics" class="relative py-24 bg-slate-900/50">
-             <div id="profitnet-tokenomics-container" class="container mx-auto px-6 max-w-6xl">
-                <div class="w-full bg-slate-800/40 backdrop-blur-xl rounded-3xl p-8 lg:p-12 shadow-2xl border border-slate-700/50 relative overflow-hidden">
-                    <!-- Glows -->
-                    <div class="absolute -top-24 -left-24 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                    <div class="absolute -bottom-24 -right-24 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                    
-                    <div class="flex flex-col lg:flex-row gap-12 items-center relative z-10">
-                        
-                        <!-- Left Column: Details -->
-                        <div class="flex flex-col w-full lg:w-1/2 flex-shrink-0">
-                            <h2 class="text-sm font-bold uppercase tracking-widest text-teal-400 mb-2">PROFITNET TOKENOMICS</h2>
-                            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 tokenomics-gradient-text font-display">Allocation Details</h2>
-                            <p class="text-gray-400 max-w-prose mb-8">Our tokenomics are designed for long-term stability. Key allocations are locked and vested over extended periods to ensure alignment between community and team.</p>
-                            <ul class="space-y-6 text-gray-300">
-                                <li class="flex items-start">
-                                    <div class="bg-slate-800 p-2 rounded-lg mr-4 border border-slate-700">
-                                        <svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                                    </div>
-                                    <div><strong class="text-white block text-lg">Supply Lock</strong> 25% of PNET is locked until September 2026.</div>
-                                </li>
-                                
-                                <!-- Countdown Box -->
-                                <li class="pl-14">
-                                    <div class="w-full bg-slate-900/80 border border-slate-700 rounded-xl p-4 text-center shadow-inner">
-                                        <p class="text-xs text-teal-300 font-semibold tracking-wider uppercase mb-3">Unlocks In</p>
-                                        <div id="countdown-timer" class="flex justify-center items-center gap-3 md:gap-6 font-mono">
-                                            <div class="text-center"><div class="text-xl md:text-3xl font-bold text-white" id="days">0</div><div class="text-[10px] text-gray-500 uppercase">Days</div></div>
-                                            <div class="text-gray-600 text-2xl font-light">:</div>
-                                            <div class="text-center"><div class="text-xl md:text-3xl font-bold text-white" id="hours">00</div><div class="text-[10px] text-gray-500 uppercase">Hrs</div></div>
-                                            <div class="text-gray-600 text-2xl font-light">:</div>
-                                            <div class="text-center"><div class="text-xl md:text-3xl font-bold text-white" id="minutes">00</div><div class="text-[10px] text-gray-500 uppercase">Min</div></div>
-                                            <div class="text-gray-600 text-2xl font-light">:</div>
-                                            <div class="text-center"><div class="text-xl md:text-3xl font-bold text-white" id="seconds">00</div><div class="text-[10px] text-gray-500 uppercase">Sec</div></div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="flex items-start">
-                                     <div class="bg-slate-800 p-2 rounded-lg mr-4 border border-slate-700">
-                                        <svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                                    </div>
-                                    <div><strong class="text-white block text-lg">Dev Wallet Vesting</strong> 15% of supply is distributed gradually over 10 years.</div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Right Column: Visuals & Vaults -->
-                        <div class="flex flex-col items-center w-full lg:w-1/2">
-                            <!-- Donut Chart -->
-                            <div class="relative w-64 h-64 mb-8">
-                                 <svg class="donut-chart-svg w-full h-full" viewBox="0 0 200 200">
-                                    <circle class="donut-track" cx="100" cy="100" r="90" fill="transparent" stroke-width="12"></circle>
-                                    <circle id="donut-progress-circle" class="donut-progress" cx="100" cy="100" r="90" fill="transparent" stroke-width="12" stroke-dasharray="565.48" stroke-dashoffset="565.48"></circle>
-                                </svg>
-                                 <div class="absolute inset-0 flex flex-col items-center justify-center z-10 text-center">
-                                    <div class="text-sm font-medium text-gray-400 uppercase tracking-widest">Locked</div>
-                                    <div id="locked-percentage" class="text-5xl font-bold text-white tracking-tighter">46.6%</div>
-                                </div>
-                            </div>
-
-                            <!-- Main Vault Grid -->
-                            <div class="vault-grid-fluid w-full">
-                                <div class="vault-card p-3 bg-slate-800 border-2 border-blue-400 rounded-xl text-center cursor-pointer" role="button" tabindex="0" data-title="25M LOCK PNET Vault" data-details="The largest lock-up vault, containing 25 million PNET tokens to demonstrate founder and team commitment." data-link="https://legacy.vestige.fi/vault/3213110046">
-                                    <svg class="w-8 h-8 mx-auto text-blue-400 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                                    <p class="text-xs font-bold text-white">25M LOCK</p>
-                                </div>
-                                <div class="vault-card p-3 bg-slate-800 border-2 border-purple-500 rounded-xl text-center cursor-pointer" role="button" tabindex="0" data-title="15M LOCK PNET Vault" data-details="A significant 15 million PNET tokens are locked in this vault as part of the long-term supply strategy." data-link="https://legacy.vestige.fi/vault/3218236689">
-                                    <svg class="w-8 h-8 mx-auto text-purple-500 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                                    <p class="text-xs font-bold text-white">15M LOCK</p>
-                                </div>
-                                <div class="vault-card p-3 bg-slate-800 border-2 border-yellow-400 rounded-xl text-center cursor-pointer" role="button" tabindex="0" data-title="ALGO-PNET Vault" data-details="Cross-chain liquidity initiative vault." data-link="https://legacy.vestige.fi/vault/3219570337">
-                                    <svg class="w-8 h-8 mx-auto text-yellow-400 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
-                                    <p class="text-xs font-bold text-white">ALGO-PNET</p>
-                                </div>
-                                <div class="vault-card p-3 bg-slate-800 border-2 border-pink-500 rounded-xl text-center cursor-pointer" role="button" tabindex="0" data-title="BKIND-PNET Vault" data-details="Locked for 10 years, PNET long term partner." data-link="https://legacy.vestige.fi/vault/3242466222">
-                                    <svg class="w-8 h-8 mx-auto text-pink-500 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                                    <p class="text-xs font-bold text-white">BKIND-PNET</p>
-                                </div>
-                                <div class="vault-card p-3 bg-slate-800 border-2 border-cyan-500 rounded-xl text-center cursor-pointer" role="button" tabindex="0" data-title="MAX-PNET Vault 1" data-details="Locked for 5 years, PNET long term partner." data-link="https://legacy.vestige.fi/vault/3248131577">
-                                    <svg class="w-8 h-8 mx-auto text-cyan-500 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                                    <p class="text-xs font-bold text-white">MAX-PNET 1</p>
-                                </div>
-                                <div class="vault-card p-3 bg-slate-800 border-2 border-cyan-500 rounded-xl text-center cursor-pointer" role="button" tabindex="0" data-title="MAX-PNET Vault 2" data-details="Locked for 5 years, PNET long term partner." data-link="https://legacy.vestige.fi/vault/3248060183">
-                                    <svg class="w-8 h-8 mx-auto text-cyan-500 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                                    <p class="text-xs font-bold text-white">MAX-PNET 2</p>
-                                </div>
-                                <div class="vault-card p-3 bg-slate-800 border-2 border-green-400 rounded-xl text-center cursor-pointer" role="button" tabindex="0" data-title="DDAO - $PNET Vault" data-details="Liquidity pool vault for the DDAO and PNET pair." data-link="https://legacy.vestige.fi/vault/3238174366">
-                                    <svg class="w-8 h-8 mx-auto text-green-400 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
-                                    <p class="text-xs font-bold text-white">DDAO-PNET</p>
-                                </div>
-                            </div>
-                            
-                             <!-- Partnership Vaults Toggle Button -->
-                            <button id="partnership-toggle-btn" class="mt-6 w-full flex items-center justify-between p-4 bg-slate-800/80 border border-indigo-500/50 hover:border-indigo-400 rounded-xl cursor-pointer transition-all hover:bg-slate-800" aria-expanded="false" aria-controls="partnership-vaults">
-                                <div class="flex items-center">
-                                    <div class="bg-indigo-500/20 p-2 rounded-lg mr-3">
-                                        <svg class="w-5 h-5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                    </div>
-                                    <span class="text-sm font-bold text-white">View More Partnerships</span>
-                                </div>
-                                <svg class="chevron w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            
-                            <!-- Hidden Partnership Vaults Container -->
-                            <div id="partnership-vaults" class="w-full">
-                                <div class="vault-grid-fluid pt-4">
-                                    <div class="vault-card p-3 bg-slate-800 border-2 border-slate-600 hover:border-orange-400 rounded-xl text-center cursor-pointer" role="button" tabindex="0" data-title="BONEZ-PNET Vault" data-details="Liquidity pool vault for the BONEZ and PNET pair." data-link="https://legacy.vestige.fi/vault/3229590975">
-                                        <p class="text-xs font-bold text-white">BONEZ-PNET</p>
-                                    </div>
-                                    <div class="vault-card p-3 bg-slate-800 border-2 border-slate-600 hover:border-red-500 rounded-xl text-center cursor-pointer" role="button" tabindex="0" data-title="69420-PNET Vault" data-details="Liquidity pool vault for the 69420 and PNET pair." data-link="https://legacy.vestige.fi/vault/3241289614">
-                                        <p class="text-xs font-bold text-white">69420-PNET</p>
-                                    </div>
-                                    <div class="vault-card p-3 bg-slate-800 border-2 border-slate-600 hover:border-cyan-400 rounded-xl text-center cursor-pointer" role="button" tabindex="0" data-title="DeckardCain 1M PNET Vault" data-details="A special vault for the DeckardCain partnership." data-link="https://legacy.vestige.fi/vault/3224248640">
-                                        <p class="text-xs font-bold text-white">DeckardCain</p>
-                                    </div>
-                                    <div class="vault-card p-3 bg-slate-800 border-2 border-slate-600 hover:border-pink-500 rounded-xl text-center cursor-pointer" role="button" tabindex="0" data-title="AETF 1M PNET Vault" data-details="Vault securing 1M PNET for the Asset Enhancement Trust Fund." data-link="https://legacy.vestige.fi/vault/3223774803">
-                                        <p class="text-xs font-bold text-white">AETF</p>
-                                    </div>
-                                    <div class="vault-card p-3 bg-slate-800 border-2 border-slate-600 hover:border-green-400 rounded-xl text-center cursor-pointer" role="button" tabindex="0" data-title="GoldenBillion 1M PNET Vault" data-details="Partnership vault with GoldenBillion." data-link="https://legacy.vestige.fi/vault/3223785015">
-                                        <p class="text-xs font-bold text-white">GoldenBillion</p>
-                                    </div>
-                                    <div class="vault-card p-3 bg-slate-800 border-2 border-slate-600 hover:border-red-500 rounded-xl text-center cursor-pointer" role="button" tabindex="0" data-title="Tife 1M PNET Vault" data-details="Vault dedicated to the Tife project collaboration." data-link="https://legacy.vestige.fi/vault/3223655839">
-                                        <p class="text-xs font-bold text-white">Tife</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Dashboard Section -->
-        <section id="dashboard" class="py-24 bg-slate-900/50">
-            <div class="container mx-auto px-6 max-w-5xl">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white font-display">The Oceanic Hierarchy</h2>
-                    <p class="text-gray-400 mt-2 max-w-xl mx-auto">Ascend from the foundational Plankton to become a legendary Leviathan.</p>
-                </div>
-                <div class="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-1 shadow-2xl backdrop-blur-sm">
-                    <div class="bg-slate-900/80 rounded-xl p-4 md:p-6">
-                        <!-- Scrollable Leaderboard -->
-                        <div id="leaderboard-list" class="space-y-3 max-h-[400px] overflow-y-auto custom-scrollbar pr-2">
-                            <!-- Leaderboard items injected here -->
-                            <div class="text-center py-10 text-gray-500 animate-pulse">Loading oceanic data...</div>
                         </div>
                     </div>
                 </div>
@@ -493,29 +287,6 @@
         </div>
     </footer>
 
-    <!-- Vault Modal -->
-    <div id="vault-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-[9999] hidden opacity-0 transition-opacity duration-300" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div id="modal-backdrop" class="fixed inset-0"></div>
-        <div id="modal-panel" class="bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md p-6 border border-slate-700 z-10 transform scale-95 opacity-0 transition-all duration-300">
-            <div class="flex items-start justify-between mb-4">
-                <h3 id="modal-title" class="text-xl font-bold text-white">Vault Details</h3>
-                <button id="close-modal-btn" class="text-gray-400 hover:text-white transition-colors" aria-label="Close modal">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-            <div class="mb-6">
-                <p id="modal-details" class="text-gray-300 text-sm leading-relaxed">Details loading...</p>
-            </div>
-            <div class="flex justify-end gap-3">
-                <button id="close-modal-btn-2" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg text-sm font-medium transition-colors">Close</button>
-                <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-sm font-medium transition-colors shadow-lg shadow-teal-900/20">
-                    View Proof
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                </a>
-            </div>
-        </div>
-    </div>
-
     <!-- Scripts -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -533,63 +304,7 @@
             });
         }
 
-        // --- 2. Dynamic Countdown Timer ---
-        const countdownTimerEl = document.getElementById('countdown-timer');
-        if (countdownTimerEl) {
-            const unlockDate = new Date('2026-09-01T00:00:00Z').getTime();
-            const updateCountdown = () => {
-                const now = new Date().getTime();
-                const distance = unlockDate - now;
-                if (distance < 0) {
-                    countdownTimerEl.innerHTML = '<div class="text-lg font-bold text-green-400">Supply Unlocked!</div>';
-                    clearInterval(countdownInterval);
-                    return;
-                }
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById('days').innerText = days;
-                document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
-            };
-            const countdownInterval = setInterval(updateCountdown, 1000);
-            updateCountdown();
-        }
-
-        // --- 3. Donut Chart Animation ---
-        const progressCircle = document.getElementById('donut-progress-circle');
-        const percentageEl = document.getElementById('locked-percentage');
-        if (progressCircle && percentageEl) {
-            const radius = progressCircle.r.baseVal.value;
-            const circumference = 2 * Math.PI * radius;
-            const percentage = parseFloat(percentageEl.textContent);
-            
-            // Set dasharray to circumference
-            progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
-            progressCircle.style.strokeDashoffset = circumference;
-
-            // Trigger animation
-            setTimeout(() => {
-                const offset = circumference - (percentage / 100) * circumference;
-                progressCircle.style.strokeDashoffset = offset;
-            }, 500); // Slight delay for visual effect
-        }
-
-        // --- 4. Partnership Vaults Toggle ---
-        const partnershipToggleBtn = document.getElementById('partnership-toggle-btn');
-        const partnershipVaultsContainer = document.getElementById('partnership-vaults');
-        if (partnershipToggleBtn && partnershipVaultsContainer) {
-            partnershipToggleBtn.addEventListener('click', () => {
-                const isExpanded = partnershipToggleBtn.getAttribute('aria-expanded') === 'true';
-                partnershipToggleBtn.setAttribute('aria-expanded', !isExpanded);
-                partnershipVaultsContainer.classList.toggle('open');
-            });
-        }
-
-        // --- 5. FAQ Accordion ---
+        // --- 2. FAQ Accordion ---
         const faqContainer = document.getElementById('faq-accordion');
         if (faqContainer) {
             const questions = faqContainer.querySelectorAll('.faq-question');
@@ -597,9 +312,7 @@
                 q.addEventListener('click', () => {
                     const answer = q.nextElementSibling;
                     const icon = q.querySelector('svg');
-                    const isOpen = answer.classList.contains('open');
-
-                    // Close others
+                    
                     questions.forEach(other => {
                         if (other !== q) {
                             other.nextElementSibling.classList.remove('open');
@@ -607,115 +320,11 @@
                         }
                     });
 
-                    // Toggle current
                     answer.classList.toggle('open');
                     icon.classList.toggle('rotate-180');
                 });
             });
         }
-
-        // --- 6. Modal Logic ---
-        const modal = document.getElementById('vault-modal');
-        const modalPanel = document.getElementById('modal-panel');
-        const vaultCards = document.querySelectorAll('.vault-card');
-        const closeModalBtns = document.querySelectorAll('#close-modal-btn, #close-modal-btn-2, #modal-backdrop');
-        const modalTitle = document.getElementById('modal-title');
-        const modalDetails = document.getElementById('modal-details');
-        const modalLink = document.getElementById('modal-link');
-
-        const openModal = (card) => {
-            const title = card.getAttribute('data-title');
-            const details = card.getAttribute('data-details');
-            const link = card.getAttribute('data-link');
-            
-            if(!title) return;
-
-            modalTitle.textContent = title;
-            modalDetails.textContent = details;
-            modalLink.href = link;
-
-            modal.classList.remove('hidden');
-            // Small timeout to allow display:block to apply before opacity transition
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modalPanel.classList.remove('scale-95', 'opacity-0');
-            }, 10);
-        };
-
-        const closeModal = () => {
-            modalPanel.classList.add('scale-95', 'opacity-0');
-            modal.classList.add('opacity-0');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
-        };
-
-        vaultCards.forEach(card => card.addEventListener('click', () => openModal(card)));
-        closeModalBtns.forEach(btn => btn.addEventListener('click', closeModal));
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
-        });
-
-        // --- 7. Leaderboard Logic (Algorand Indexer) ---
-        const list = document.getElementById('leaderboard-list');
-        const CONFIG = { ASA_ID: 3169177585, INDEXER_BASE: 'https://mainnet-idx.algonode.cloud', TOP_N: 100 };
-        const oceanicRanks = [
-            { name: 'Vault of the Deep', emoji: '🔱' }, { name: 'Vault of the Abyss', emoji: '🏛️' }, { name: 'Orca', emoji: '⚫️⚪️' }, { name: 'Sperm Whale Bull', emoji: '🐳' }, { name: 'Sperm Whale (female & young)', emoji: '🐋' }, { name: 'Colossal Squid', emoji: '💪🦑' }, { name: 'Giant Squid', emoji: '🦑' }, { name: 'Oarfish', emoji: '🎗️' }, { name: 'Gulper Eel', emoji: '😲' }, { name: 'Anglerfish', emoji: '💡' },
-            { name: 'Blue Whale', emoji: '🐋' }, { name: 'Fin Whale', emoji: '🐋' }, { name: 'Bowhead Whale', emoji: '🐋' }, { name: 'Gray Whale', emoji: '🌫️' }, { name: 'Humpback Whale', emoji: '🐋' }, { name: 'Beluga Whale', emoji: '⚪️' }, { name: 'Narwhal', emoji: '🦄' }, { name: 'Beaked Whale', emoji: '🐋' }, { name: 'False Killer Whale', emoji: '🤫' }, { name: 'Pilot Whale', emoji: '✈️' },
-            { name: 'Dusky Dolphin', emoji: '🤸' }, { name: 'Spinner Dolphin', emoji: '🔄' }, { name: 'Bottlenose Dolphin', emoji: '🐬' }, { name: 'Elephant Seal (bull)', emoji: '🦭' }, { name: 'Elephant Seal (female)', emoji: '🦭' }, { name: 'Leopard Seal', emoji: '🐆' }, { name: 'Harbor Seal', emoji: '🦭' }, { name: 'Fur Seal', emoji: '🦭' }, { name: 'Sea Lion', emoji: '🦭' }, { name: 'Sea Otter', emoji: '🦦' },
-            { name: 'Cooperative Shark Groups', emoji: '🦈🤝' }, { name: 'Schooling Sharks', emoji: '🦈🦈' }, { name: 'Apex Great White', emoji: '👑🦈' }, { name: 'Great White Shark (adult)', emoji: '🦈' }, { name: 'Great White Shark (juvenile)', emoji: '🦈' }, { name: 'Greenland Shark', emoji: '🇬🇱' }, { name: 'Whale Shark', emoji: '🌌' }, { name: 'Basking Shark', emoji: '😮' }, { name: 'Oceanic Whitetip Shark', emoji: '⚪' }, { name: 'Bull Shark', emoji: '🐂' },
-            { name: 'Tiger Shark', emoji: '🐅' }, { name: 'Mako Shark', emoji: '💨' }, { name: 'Hammerhead Shark', emoji: '🔨' }, { name: 'Lemon Shark', emoji: '🍋' }, { name: 'Reef Shark', emoji: '🏝️' }, { name: 'Thresher Shark', emoji: '🌾' }, { name: 'Blue Shark', emoji: '💙' }, { name: 'Sandbar Shark', emoji: '🏖️' }, { name: 'Blacktip Reef Shark', emoji: '⚫' }, { name: 'Dogfish Shark', emoji: '🐶' },
-            { name: 'Bonito', emoji: '🐟' }, { name: 'Mackerel', emoji: '🐟' }, { name: 'Grouper', emoji: '🐠' }, { name: 'Sea Bass', emoji: '🐠' }, { name: 'Red Snapper', emoji: '🐠' }, { name: 'Haddock', emoji: '🎣' }, { name: 'Cod', emoji: '🎣' }, { name: 'Halibut', emoji: '🐠' }, { name: 'Sole', emoji: '🐠' }, { name: 'Flounder', emoji: '🐠' },
-            { name: 'Sea Cucumber', emoji: '🥒' }, { name: 'Crown-of-Thorns Starfish', emoji: '👑⭐' }, { name: 'Starfish', emoji: '⭐' }, { name: 'Sea Urchin', emoji: '🌵' }, { name: 'Horseshoe Crab', emoji: '🛡️' }, { name: 'Crabs', emoji: '🦀' }, { name: 'Lobster', emoji: '🦞' }, { name: 'Octopus', emoji: '🐙' }, { name: 'Cuttlefish', emoji: '🦑' }, { name: 'Squid (juveniles)', emoji: '🦑' },
-            { name: 'Triggerfish', emoji: '🔫' }, { name: 'Parrotfish', emoji: '🦜' }, { name: 'Surgeonfish (tang)', emoji: '🐠' }, { name: 'Angelfish', emoji: '👼' }, { name: 'Butterflyfish', emoji: '🦋' }, { name: 'Filefish', emoji: '🐠' }, { name: 'Blennies', emoji: '🐠' }, { name: 'Wrasse', emoji: '🐠' }, { name: 'Damselfish', emoji: '🐠' }, { name: 'Gobies', emoji: '🐠' },
-            { name: 'Lanternfish', emoji: '💡' }, { name: 'Mysid Shrimp', emoji: '🦐' }, { name: 'Prawn', emoji: '🍤' }, { name: 'Shrimp', emoji: '🦐' }, { name: 'Sprats', emoji: '🐟' }, { name: 'Flying Fish', emoji: '✈️' }, { name: 'Silversides', emoji: '🥈' }, { name: 'Herring', emoji: '🐟' }, { name: 'Sardines', emoji: '🥫' }, { name: 'Anchovies', emoji: '🐟' },
-            { name: 'Larval Fish', emoji: '🍼' }, { name: 'Jellyfish larvae', emoji: '🍼' }, { name: 'Arrow Worms', emoji: '🏹' }, { name: 'Krill', emoji: '🦐' }, { name: 'Copepods', emoji: '🦐' }, { name: 'Zooplankton', emoji: '🔬' }, { name: 'Dinoflagellates', emoji: '✨' }, { name: 'Diatoms', emoji: '🔬' }, { name: 'Cyanobacteria', emoji: '🦠' }, { name: 'Phytoplankton', emoji: '🌱' }
-        ];
-
-        async function fetchLeaderboard() {
-            if(!list) return;
-            try {
-                const res = await fetch(`${CONFIG.INDEXER_BASE}/v2/assets/${CONFIG.ASA_ID}/balances?limit=${CONFIG.TOP_N}`);
-                const data = await res.json();
-                const holders = data.balances.filter(b => !b['is-frozen'] && b.amount > 0).sort((a, b) => b.amount - a.amount);
-                
-                let html = '';
-                holders.forEach((h, i) => {
-                    const rankData = oceanicRanks[i] || { name: 'Phytoplankton', emoji: '🌱' };
-                    const bal = Math.floor(h.amount / 1000000).toLocaleString();
-                    const addr = h.address.slice(0,4) + '...' + h.address.slice(-4);
-                    
-                    // Highlight top 3
-                    let rankClass = 'text-gray-400 font-mono';
-                    let rowBg = 'bg-slate-800/50 hover:bg-slate-700/50';
-                    let icon = '';
-                    
-                    if (i === 0) { rankClass = 'text-amber-400 font-bold text-lg'; rowBg = 'bg-amber-900/20 border border-amber-500/30'; icon='👑'; }
-                    else if (i === 1) { rankClass = 'text-slate-300 font-bold'; rowBg = 'bg-slate-700/40 border border-slate-500/30'; icon='🥈'; }
-                    else if (i === 2) { rankClass = 'text-orange-400 font-bold'; rowBg = 'bg-orange-900/20 border border-orange-500/30'; icon='🥉'; }
-
-                    html += `
-                    <div class="flex items-center justify-between p-3 rounded-lg ${rowBg} transition-colors">
-                        <div class="flex items-center space-x-3">
-                            <span class="${rankClass} w-8 text-center">${icon || '#' + (i + 1)}</span>
-                            <div>
-                                <a href="https://explorer.perawallet.app/accounts/${h.address}" target="_blank" class="text-sm font-mono text-blue-400 hover:text-blue-300 transition-colors">${addr}</a>
-                                <div class="text-xs text-gray-500 flex items-center gap-1">
-                                    <span>${rankData.emoji}</span> ${rankData.name}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-white font-medium text-sm">${bal} <span class="text-xs text-gray-500">PNET</span></div>
-                    </div>
-                    `;
-                });
-                list.innerHTML = html;
-            } catch (e) {
-                console.error(e);
-                list.innerHTML = '<div class="text-red-400 text-center py-4">Failed to load data.</div>';
-            }
-        }
-        fetchLeaderboard();
     });
     </script>
 </body>
