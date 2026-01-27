@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GLITCH SWARM</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #050505;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            touch-action: none;
+            cursor: crosshair;
+        }
+        canvas {
+            display: block;
+        }
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            pointer-events: none;
+            z-index: 10;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            text-shadow: 0 0 10px #fff;
+            letter-spacing: 2px;
+        }
+        #score {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #0ff;
+            text-shadow: 0 0 20px #0ff;
+        }
+        #energy-bar-container {
+            width: 200px;
+            height: 6px;
+            background: #333;
+            margin-top: 10px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        #energy-bar {
+            width: 100%;
+            height: 100%;
+            background: #f0f;
+            box-shadow: 0 0 10px #f0f;
+            transform-origin: left;
+            transition: transform 0.1s linear;
+        }
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 20;
+            backdrop-filter: blur(5px);
+        }
+        button {
+            background: transparent;
+            color: #0ff;
+            border: 2px solid #0ff;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.2s;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+        button:hover {
+            background: #0ff;
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+        }
+        .controls {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<div id="ui">
+    <div id="score">0</div>
+    <div id="energy-bar-container"><div id="energy-bar"></div></div>
+</div>
+
+<div id="overlay">
+    <h1 style="font-size: 3rem; margin-bottom: 10px;">GLITCH SWARM</h1>
+    <p style="color: #aaa;">They are tracking you. Move to survive.</p>
+    <button onclick="startGame()">Initialize</button>
+    <div class="controls">MOUSE/TOUCH to Move &bull; CLICK/TAP to Dash & Destroy</div>
+</div>
+
+<canvas id="gameCanvas"></canvas>
+
+<script>
+/**
+ * GLITCH SWARM
+ * A fast-paced arcade game utilizing Boids flocking logic.
+ */
+
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+const scoreEl = document.getElementById('score');
+const energyEl = document.getElementById('energy-bar');
+const overlay = document.getElementById('overlay');
+
+let width, height;
+let gameRunning = false;
+let frameId;
+let score = 0;
+let timeScale = 1.0; // For slow-mo effects
+let shake = 0;
+
+// Inputs
+const mouse = { x: 0, y: 0, down: false };
+
+// Game State
+const player = {
+    x: 0, y: 0,
+    vx: 0, vy: 0,
+    radius: 12,
+    angle: 0,
+    energy: 100,
+    maxEnergy: 100,
+    dashing: false,
+    dashTimer: 0,
+    dead: false
+};
+
+const enemies = [];
+let particles = [];
+let difficulty = 1;
+
+// Constants
+const DASH_COST = 25;
+const DASH_SPEED = 25;
+const DASH_DURATION = 10; // Frames
+const ENEMY_SPEED = 3;
+const FRICTION = 0.92;
+
+// Init
+function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    if(!gameRunning) {
+        player.x = width/2;
+        player.y = height/2;
+    }
+}
+window.addEventListener('resize', resize);
+resize();
+
+// Input Handlers
+window.addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+});
+window.addEventListener('touchmove', e => {
+    e.preventDefault();
+    mouse.x = e.touches[0].clientX;
+    mouse.y = e.touches[0].clientY;
+}, {passive: false});
+
+window.addEventListener('mousedown', () => { if(gameRunning) tryDash(); });
+window.addEventListener('touchstart', () => { if(gameRunning) tryDash(); });
+
+// Core Logic
+function startGame() {
+    overlay.style.display = 'none';
+    gameRunning = true;
+    score = 0;
+    scoreEl.innerText = '0';
+    player.dead = false;
+    player.energy = 100;
+    player.x = width/2;
+    player.y = height/2;
+    player.vx = 0; 
+    player.vy = 0;
+    enemies.length = 0;
+    particles.length = 0;
+    difficulty = 1;
+    timeScale = 1.0;
+    
+    // Initial wave
+    spawnWave(10);
+    
+    cancelAnimationFrame(frameId);
+    loop();
+}
+
+function gameOver() {
+    gameRunning = false;
+    // Screen shake max
+    shake = 20;
+    // Explosion where player died
+    createExplosion(player.x, player.y, 50, '#fff');
+    
+    setTimeout(() => {
+        overlay.style.display = 'flex';
+        overlay.querySelector('h1').innerText = "SYSTEM FAILURE";
+        overlay.querySelector('button').innerText = "Reboot System";
+    }, 1000);
+}
+
+function tryDash() {
+    if (player.energy >= DASH_COST && !player.dashing) {
+        player.dashing = true;
+        player.dashTimer = DASH_DURATION;
+        player.energy -= DASH_COST;
+        
+        // Dash towards mouse
+        const angle = Math.atan2(mouse.y - player.y, mouse.x - player.x);
+        player.vx = Math.cos(angle) * DASH_SPEED;
+        player.vy = Math.sin(angle) * DASH_SPEED;
+        
+        // Effects
+        shake = 5;
+        createExplosion(player.x, player.y, 10, '#0ff');
+    }
+}
+
+function spawnWave(count) {
+    for(let i=0; i<count; i++) {
+        // Spawn edges
+        let x, y;
+        if(Math.random() < 0.5) {
+            x = Math.random() < 0.5 ? -50 : width + 50;
+            y = Math.random() * height;
+        } else {
+            x = Math.random() * width;
+            y = Math.random() < 0.5 ? -50 : height + 50;
+        }
+        
+        enemies.push({
+            x: x, y: y,
+            vx: 0, vy: 0,
+            radius: 8 + Math.random() * 4,
+            color: Math.random() > 0.8 ? '#f0f' : '#f00', // Pink are faster, Red standard
+            type: Math.random() > 0.8 ? 1 : 0 // 1 = Sprinter
+        });
+    }
+}
+
+// Boids Logic
+function updateEnemies() {
+    // Determine target based on player movement
+    // If player is dashing, enemies scatter slightly (fear)
+    let targetX = player.x;
+    let targetY = player.y;
+
+    for (let i = 0; i < enemies.length; i++) {
+        let e = enemies[i];
+        
+        // Flocking Forces
+        let separationX = 0, separationY = 0;
+        let alignmentX = 0, alignmentY = 0;
+        let cohesionX = 0, cohesionY = 0;
+        let neighborCount = 0;
+        
+        for (let j = 0; j < enemies.length; j++) {
+            if (i === j) continue;
+            let other = enemies[j];
+            let dist = Math.hypot(e.x - other.x, e.y - other.y);
+            
+            // Separation (don't crowd)
+            if (dist < 40) {
+                separationX += (e.x - other.x) / dist;
+                separationY += (e.y - other.y) / dist;
+                neighborCount++;
+            }
+        }
+        
+        if (neighborCount > 0) {
+            separationX /= neighborCount;
+            separationY /= neighborCount;
+        }
+
+        // Seek Player
+        let angleToPlayer = Math.atan2(targetY - e.y, targetX - e.x);
+        let seekX = Math.cos(angleToPlayer);
+        let seekY = Math.sin(angleToPlayer);
+
+        // Apply Forces
+        // If player is dashing, Separation becomes stronger (they break formation)
+        let sepStrength = player.dashing ? 2.5 : 0.8;
+        
+        e.vx += (separationX * sepStrength) + (seekX * 0.15);
+        e.vy += (separationY * sepStrength) + (seekY * 0.15);
+        
+        // Limit Speed
+        let speed = Math.hypot(e.vx, e.vy);
+        let maxSpeed = (e.type === 1 ? ENEMY_SPEED * 1.5 : ENEMY_SPEED) * (1 + (difficulty*0.05));
+        
+        if (speed > maxSpeed) {
+            e.vx = (e.vx / speed) * maxSpeed;
+            e.vy = (e.vy / speed) * maxSpeed;
+        }
+        
+        e.x += e.vx * timeScale;
+        e.y += e.vy * timeScale;
+        
+        // Collision with Player
+        let distToPlayer = Math.hypot(e.x - player.x, e.y - player.y);
+        let collisionDist = e.radius + player.radius;
+        
+        if (distToPlayer < collisionDist) {
+            if (player.dashing) {
+                // Kill Enemy
+                enemies.splice(i, 1);
+                i--;
+                
+                // Rewards
+                score += 10;
+                scoreEl.innerText = score;
+                player.energy = Math.min(player.maxEnergy, player.energy + 15);
+                shake = 8;
+                timeScale = 0.2; // Slow mo impact
+                createExplosion(e.x, e.y, 15, e.color);
+                
+                // Difficulty Scaling
+                if(score % 100 === 0) {
+                    spawnWave(5 + Math.floor(difficulty));
+                    difficulty++;
+                }
+            } else {
+                // Kill Player
+                if (!player.dead) {
+                    player.dead = true;
+                    gameOver();
+                }
+            }
+        }
+    }
+}
+
+function createExplosion(x, y, count, color) {
+    for(let i=0; i<count; i++) {
+        particles.push({
+            x: x, y: y,
+            vx: (Math.random() - 0.5) * 15,
+            vy: (Math.random() - 0.5) * 15,
+            life: 1.0,
+            color: color,
+            size: Math.random() * 4
+        });
+    }
+}
+
+function updateParticles() {
+    for(let i=0; i<particles.length; i++) {
+        let p = particles[i];
+        p.x += p.vx * timeScale;
+        p.y += p.vy * timeScale;
+        p.life -= 0.05;
+        p.vx *= 0.9;
+        p.vy *= 0.9;
+        
+        if(p.life <= 0) {
+            particles.splice(i, 1);
+            i--;
+        }
+    }
+}
+
+// Main Loop
+function loop() {
+    if(!gameRunning) {
+        if(particles.length > 0) {
+            // Only draw explosion if dying
+            ctx.fillStyle = '#050505';
+            ctx.fillRect(0,0,width,height);
+            updateParticles();
+            particles.forEach(p => {
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = p.life;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+                ctx.fill();
+            });
+            requestAnimationFrame(loop);
+        }
+        return;
+    }
+
+    frameId = requestAnimationFrame(loop);
+
+    // Time recovery
+    if (timeScale < 1.0) timeScale += 0.05;
+    if (timeScale > 1.0) timeScale = 1.0;
+
+    // Shake decay
+    let shakeX = 0, shakeY = 0;
+    if (shake > 0) {
+        shakeX = (Math.random() - 0.5) * shake;
+        shakeY = (Math.random() - 0.5) * shake;
+        shake *= 0.9;
+        if(shake < 0.5) shake = 0;
+    }
+
+    // Clear
+    ctx.fillStyle = 'rgba(5, 5, 5, 0.4)'; // Trails effect
+    ctx.fillRect(0, 0, width, height);
+    
+    ctx.save();
+    ctx.translate(shakeX, shakeY);
+
+    // --- PLAYER LOGIC ---
+    // Move towards mouse naturally
+    if (!player.dashing) {
+        // Smooth follow
+        player.vx += (mouse.x - player.x) * 0.005;
+        player.vy += (mouse.y - player.y) * 0.005;
+        player.vx *= FRICTION;
+        player.vy *= FRICTION;
+    } else {
+        // Dash drag
+        player.vx *= 0.95;
+        player.vy *= 0.95;
+        player.dashTimer--;
+        if (player.dashTimer <= 0) player.dashing = false;
+        
+        // Draw Dash Trail
+        ctx.strokeStyle = '#0ff';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(player.x, player.y);
+        ctx.lineTo(player.x - player.vx*2, player.y - player.vy*2);
+        ctx.stroke();
+    }
+
+    player.x += player.vx * timeScale;
+    player.y += player.vy * timeScale;
+
+    // Bounds Check
+    if(player.x < 0) { player.x = 0; player.vx *= -1; }
+    if(player.x > width) { player.x = width; player.vx *= -1; }
+    if(player.y < 0) { player.y = 0; player.vy *= -1; }
+    if(player.y > height) { player.y = height; player.vy *= -1; }
+
+    // Energy Recharge
+    if(player.energy < player.maxEnergy) player.energy += 0.2;
+    energyEl.style.transform = `scaleX(${player.energy / 100})`;
+    if(player.energy >= DASH_COST) energyEl.style.backgroundColor = '#0ff';
+    else energyEl.style.backgroundColor = '#555';
+
+    // Draw Player
+    ctx.shadowBlur = 15;
+    ctx.shadowColor = player.dashing ? '#0ff' : '#fff';
+    ctx.fillStyle = player.dashing ? '#0ff' : '#fff';
+    ctx.translate(player.x, player.y);
+    ctx.rotate(Math.atan2(player.vy, player.vx));
+    ctx.fillRect(-player.radius, -player.radius, player.radius*2, player.radius*2);
+    ctx.rotate(-Math.atan2(player.vy, player.vx)); // Reset rotate
+    ctx.translate(-player.x, -player.y);
+    ctx.shadowBlur = 0;
+
+    // --- ENEMY LOGIC ---
+    if(enemies.length < 5 + difficulty * 2) {
+        if(Math.random() < 0.05) spawnWave(1);
+    }
+    updateEnemies();
+
+    // Draw Enemies
+    enemies.forEach(e => {
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = e.color;
+        ctx.fillStyle = e.color;
+        
+        ctx.beginPath();
+        if (e.type === 1) {
+            // Triangle for Sprinters
+            ctx.moveTo(e.x + e.radius, e.y);
+            ctx.lineTo(e.x - e.radius, e.y - e.radius/2);
+            ctx.lineTo(e.x - e.radius, e.y + e.radius/2);
+        } else {
+            // Circle for standard
+            ctx.arc(e.x, e.y, e.radius, 0, Math.PI*2);
+        }
+        ctx.fill();
+    });
+    ctx.shadowBlur = 0;
+
+    // --- PARTICLES ---
+    updateParticles();
+    particles.forEach(p => {
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.life;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+        ctx.fill();
+    });
+    ctx.globalAlpha = 1.0;
+
+    ctx.restore();
+}
+
+</script>
+</body>
+</html>
