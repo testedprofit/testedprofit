@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Solar Cycle - A Game of Balance</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #111;
+            font-family: 'Courier New', Courier, monospace;
+            color: #eee;
+            touch-action: none; /* Prevent scrolling on mobile */
+        }
+        canvas {
+            display: block;
+        }
+        #ui-layer {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            pointer-events: none;
+        }
+        h1 {
+            font-size: 1.2rem;
+            margin: 0;
+            font-weight: normal;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+        p {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin-top: 5px;
+        }
+        #score-display {
+            font-weight: bold;
+            color: #4ade80;
+        }
+        .tutorial {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            text-align: center;
+            opacity: 0.5;
+            font-size: 0.8rem;
+            pointer-events: none;
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+
+<div id="ui-layer">
+    <h1>SOLAR CYCLE</h1>
+    <p>Forest Balance: <span id="score-display">0%</span></p>
+    <p>Day: <span id="day-display">1</span></p>
+</div>
+
+<div class="tutorial" id="tutorial-text">Drag left/right or use Arrow Keys to rotate the world.</div>
+
+<canvas id="gameCanvas"></canvas>
+
+<script>
+/**
+ * SOLAR CYCLE
+ * A game about stewardship and balance.
+ * * Core Logic:
+ * - The world is a circle divided into segments.
+ * - Each segment has a temperature and moisture level.
+ * - The Sun is at the top (Angle -PI/2).
+ * - Rotation exposes segments to the sun (Heat goes up).
+ * - Shade makes Heat go down.
+ */
+
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+const uiScore = document.getElementById('score-display');
+const uiDay = document.getElementById('day-display');
+const uiTutorial = document.getElementById('tutorial-text');
+
+let width, height, centerX, centerY;
+let radius = 100;
+const SUN_ANGLE = -Math.PI / 2;
+
+// Game State
+let rotation = 0;
+let rotationVelocity = 0;
+let isDragging = false;
+let lastMouseX = 0;
+let gameTime = 0;
+let score = 0;
+let day = 1;
+
+// Configuration
+const SEGMENT_COUNT = 24;
+const GRAVITY = 0.95; // Friction for rotation
+const PLANET_RADIUS_RATIO = 0.25; // Planet size relative to screen
+const HEAT_RATE = 0.3;
+const COOL_RATE = 0.15;
+
+class Plant {
+    constructor(segmentIndex) {
+        this.segmentIndex = segmentIndex;
+        this.type = Math.random() > 0.5 ? 'sun_lover' : 'shade_lover';
+        if (Math.random() > 0.8) this.type = 'neutral';
+        
+        this.growth = 0; // 0 to 100
+        this.health = 100; // Dies if 0
+        this.maxHeight = 20 + Math.random() * 40;
+        this.color = { h: 100, s: 70, l: 50 }; // Base green
+        this.bloomed = false;
+        
+        // Traits
+        if (this.type === 'sun_lover') {
+            this.idealTemp = 70; // Likes hot
+            this.tolerance = 25;
+            this.leafColor = '#fbbf24'; // Yellowish
+        } else if (this.type === 'shade_lover') {
+            this.idealTemp = 30; // Likes cool
+            this.tolerance = 20;
+            this.leafColor = '#60a5fa'; // Blueish
+        } else {
+            this.idealTemp = 50; // Balanced
+            this.tolerance = 30;
+            this.leafColor = '#4ade80'; // Green
+        }
+    }
+
+    update(temp) {
+        // Calculate stress based on difference from ideal temp
+        const diff = Math.abs(temp - this.idealTemp);
+        
+        if (diff < this.tolerance) {
+            // Happy zone
+            this.growth += 0.2;
+            this.health = Math.min(100, this.health + 0.5);
+            
+            // Visual feedback: Healthy Green
+            this.color.h = 120; 
+            this.color.s = 80;
+        } else {
+            // Stress zone
+            this.health -= 0.3; // Dying slowly
+            
+            // Visual feedback based on problem
+            if (temp > this.idealTemp) {
+                // Too Hot -> Red
+                this.color.h = 10; 
+            } else {
+                // Too Cold -> Cyan/Blue
+                this.color.h = 200;
+            }
+        }
+
+        if (this.growth >= 100 && !this.bloomed) {
+            this.bloomed = true;
+            spawnSeeds(this.segmentIndex);
+            pulse(this.segmentIndex);
+        }
+
+        return this.health > 0;
+    }
+
+    draw(ctx, x, y, angle, planetRadius) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(angle);
+        
+        // Draw Stem
+        const currentHeight = (this.growth / 100) * this.maxHeight;
+        const stemWidth = Math.max(1, (this.growth / 100) * 3);
+        
+        // Wither effect if low health
+        const alpha = Math.max(0.2, this.health / 100);
+        
+        ctx.fillStyle = `hsla(${this.color.h}, ${this.color.s}%, 50%, ${alpha})`;
+        
+        // Simple procedural plant shape
+        ctx.beginPath();
+        ctx.moveTo(-stemWidth/2, 0);
+        ctx.lineTo(stemWidth/2, 0);
+        ctx.lineTo(0, -currentHeight);
+        ctx.fill();
+
+        // Bloom flower/leaves at top
+        if (currentHeight > 5) {
+            ctx.fillStyle = this.leafColor;
+            ctx.globalAlpha = alpha;
+            ctx.beginPath();
+            ctx.arc(0, -currentHeight, stemWidth * 2, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        // Warning Indicator (Dot above plant)
+        if (this.health < 50) {
+            ctx.fillStyle = this.color.h < 50 ? 'red' : 'cyan';
+            ctx.beginPath();
+            ctx.arc(0, -currentHeight - 10, 2, 0, Math.PI*2);
+            ctx.fill();
+        }
+
+        ctx.restore();
+    }
+}
+
+class Segment {
+    constructor(index, total) {
+        this.index = index;
+        this.angleStep = (Math.PI * 2) / total;
+        this.baseAngle = index * this.angleStep;
+        this.temp = 50; // 0 (Freezing) to 100 (Burning)
+        this.plant = null;
+    }
+
+    update(globalRotation) {
+        // Current angle in world space, normalized to 0-2PI
+        let currentAngle = (this.baseAngle + globalRotation) % (Math.PI * 2);
+        if (currentAngle < 0) currentAngle += Math.PI * 2;
+
+        // Calculate distance to Sun (Top of screen, -PI/2 or 3PI/2)
+        // We use Math.sin to get a -1 to 1 value representing vertical alignment
+        // -1 is top (Sun), 1 is bottom (Dark)
+        const sunExposure = Math.sin(currentAngle + Math.PI); // Map top to 1.0
+
+        if (sunExposure > 0) {
+            // Facing Sun
+            this.temp += HEAT_RATE * sunExposure;
+        } else {
+            // Facing Away
+            this.temp -= COOL_RATE;
+        }
+
+        // Clamp Temp
+        this.temp = Math.max(0, Math.min(100, this.temp));
+
+        // Update Plant
+        if (this.plant) {
+            const alive = this.plant.update(this.temp);
+            if (!alive) {
+                // Plant died
+                this.plant = null;
+                createParticles(this.index, '#555'); // Dust
+            }
+        } else if (Math.random() < 0.002 && gameTime > 100) {
+            // Spontaneous growth from dormant seeds in soil
+            this.plant = new Plant(this.index);
+        }
+    }
+}
+
+// Global Arrays
+const segments = [];
+let particles = [];
+let pulses = [];
+
+// Init
+function init() {
+    resize();
+    window.addEventListener('resize', resize);
+    
+    // Create segments
+    for (let i = 0; i < SEGMENT_COUNT; i++) {
+        segments.push(new Segment(i, SEGMENT_COUNT));
+    }
+
+    // Initial Seed
+    segments[0].plant = new Plant(0);
+    segments[SEGMENT_COUNT/2].plant = new Plant(SEGMENT_COUNT/2);
+
+    requestAnimationFrame(loop);
+}
+
+function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    centerX = width / 2;
+    centerY = height / 2;
+    radius = Math.min(width, height) * PLANET_RADIUS_RATIO;
+}
+
+// Inputs
+window.addEventListener('mousedown', e => { isDragging = true; lastMouseX = e.clientX; uiTutorial.style.opacity = 0; });
+window.addEventListener('touchstart', e => { isDragging = true; lastMouseX = e.touches[0].clientX; uiTutorial.style.opacity = 0; });
+window.addEventListener('mouseup', () => isDragging = false);
+window.addEventListener('touchend', () => isDragging = false);
+window.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+    const delta = e.clientX - lastMouseX;
+    rotationVelocity += delta * 0.005;
+    lastMouseX = e.clientX;
+});
+window.addEventListener('touchmove', e => {
+    if (!isDragging) return;
+    const delta = e.touches[0].clientX - lastMouseX;
+    rotationVelocity += delta * 0.005;
+    lastMouseX = e.touches[0].clientX;
+});
+window.addEventListener('keydown', e => {
+    uiTutorial.style.opacity = 0;
+    if (e.key === 'ArrowLeft') rotationVelocity -= 0.05;
+    if (e.key === 'ArrowRight') rotationVelocity += 0.05;
+});
+
+// Logic
+function spawnSeeds(originIndex) {
+    // Spread to neighbors
+    const neighbors = [-1, 1];
+    neighbors.forEach(offset => {
+        let target = (originIndex + offset);
+        if (target < 0) target = SEGMENT_COUNT - 1;
+        if (target >= SEGMENT_COUNT) target = 0;
+        
+        if (!segments[target].plant) {
+            segments[target].plant = new Plant(target);
+            createParticles(target, '#FFF');
+        }
+    });
+}
+
+function createParticles(segIndex, color) {
+    const angle = segments[segIndex].baseAngle + rotation;
+    const px = centerX + Math.cos(angle) * radius;
+    const py = centerY + Math.sin(angle) * radius;
+    
+    for(let i=0; i<5; i++) {
+        particles.push({
+            x: px, y: py,
+            vx: (Math.random() - 0.5) * 2,
+            vy: (Math.random() - 0.5) * 2,
+            life: 1.0,
+            color: color
+        });
+    }
+}
+
+function pulse(segIndex) {
+    pulses.push({
+        index: segIndex,
+        r: radius,
+        alpha: 1.0
+    });
+}
+
+// Main Loop
+function loop() {
+    // 1. Update Physics
+    rotation += rotationVelocity;
+    rotationVelocity *= GRAVITY; // Friction
+
+    gameTime++;
+    if (gameTime % 600 === 0) { // Every ~10 seconds is a "Day"
+        day++;
+        uiDay.innerText = day;
+    }
+
+    // 2. Clear Screen
+    ctx.fillStyle = '#111';
+    ctx.fillRect(0, 0, width, height);
+
+    // 3. Draw Sun
+    const sunGradient = ctx.createRadialGradient(centerX, 0, 10, centerX, 0, 300);
+    sunGradient.addColorStop(0, 'rgba(255, 255, 200, 0.4)');
+    sunGradient.addColorStop(1, 'rgba(255, 255, 200, 0)');
+    ctx.fillStyle = sunGradient;
+    ctx.fillRect(0, 0, width, height / 2);
+
+    ctx.fillStyle = '#ffecb3';
+    ctx.shadowBlur = 50;
+    ctx.shadowColor = '#ffecb3';
+    ctx.beginPath();
+    ctx.arc(centerX, -50, 80, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // 4. Update & Draw Segments (Planet Crust)
+    let totalHealth = 0;
+    let plantCount = 0;
+
+    segments.forEach(seg => {
+        seg.update(rotation);
+        
+        const angle = seg.baseAngle + rotation;
+        const x = centerX + Math.cos(angle) * radius;
+        const y = centerY + Math.sin(angle) * radius;
+        const nextAngle = seg.baseAngle + seg.angleStep + rotation;
+        
+        // Draw Crust Segment
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, angle, nextAngle);
+        ctx.arc(centerX, centerY, radius - 20, nextAngle, angle, true);
+        ctx.closePath();
+        
+        // Color based on Temp
+        // 0 (Blue) -> 50 (Grey/Brown) -> 100 (Red)
+        const temp = seg.temp;
+        let r, g, b;
+        if (temp < 50) {
+            // Cold: Blue (50) to Grey (200) transition? No, keeping it simple.
+            // 0: #3b82f6 (Blue), 50: #57534e (Warm Grey)
+            const t = temp / 50;
+            r = 59 + (87 - 59) * t;
+            g = 130 + (83 - 130) * t;
+            b = 246 + (78 - 246) * t;
+        } else {
+            // Hot: Grey (50) to Red (100)
+            const t = (temp - 50) / 50;
+            r = 87 + (239 - 87) * t;
+            g = 83 + (68 - 83) * t;
+            b = 78 + (68 - 78) * t;
+        }
+        
+        ctx.fillStyle = `rgb(${Math.floor(r)}, ${Math.floor(g)}, ${Math.floor(b)})`;
+        ctx.fill();
+        ctx.strokeStyle = '#222';
+        ctx.stroke();
+
+        // Draw Plant
+        if (seg.plant) {
+            // Use center of segment for plant angle
+            const plantAngle = angle + (seg.angleStep / 2);
+            // Re-calculate X/Y for precise positioning
+            const px = centerX + Math.cos(plantAngle) * radius;
+            const py = centerY + Math.sin(plantAngle) * radius;
+            
+            // Note: rotate context by plantAngle + PI/2 to stand upright on surface
+            seg.plant.draw(ctx, px, py, plantAngle + Math.PI/2, radius);
+
+            totalHealth += seg.plant.health;
+            plantCount++;
+        }
+    });
+
+    // Draw Planet Core
+    ctx.fillStyle = '#0f0f0f';
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius - 21, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 5. Draw Particles
+    particles = particles.filter(p => p.life > 0);
+    particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.life -= 0.02;
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.life;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2, 0, Math.PI*2);
+        ctx.fill();
+    });
+    ctx.globalAlpha = 1.0;
+
+    // 6. Draw Pulses (Bloom effect)
+    pulses = pulses.filter(p => p.alpha > 0);
+    pulses.forEach(p => {
+        p.r += 2;
+        p.alpha -= 0.02;
+        ctx.strokeStyle = 'rgba(255, 255, 255, ' + p.alpha + ')';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, p.r, 0, Math.PI*2);
+        ctx.stroke();
+    });
+
+    // 7. Update UI
+    let avgHealth = plantCount > 0 ? Math.floor(totalHealth / plantCount) : 0;
+    // Boost score by count to encourage expansion
+    let finalScore = Math.floor(avgHealth * (plantCount / 5));
+    uiScore.innerText = `${finalScore}`;
+    if (avgHealth > 80) uiScore.style.color = '#4ade80'; // Green
+    else if (avgHealth > 40) uiScore.style.color = '#facc15'; // Yellow
+    else uiScore.style.color = '#ef4444'; // Red
+
+    requestAnimationFrame(loop);
+}
+
+// Start
+init();
+
+</script>
+</body>
+</html>
