@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dead Zone: Goth Ops</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #1a1a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            cursor: crosshair;
+            user-select: none;
+        }
+        canvas { display: block; }
+        #ui-layer {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            pointer-events: none;
+            text-shadow: 1px 1px 0 #000;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #d8b4fe; /* Light Purple */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .stat-box {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+        #weapon-name { color: #fbbf24; font-weight: bold; }
+        #companion-status { color: #d8b4fe; display: none; margin-top: 5px;}
+        
+        #boss-warning {
+            position: absolute;
+            top: 30%;
+            width: 100%;
+            text-align: center;
+            font-size: 4rem;
+            font-weight: 900;
+            color: #ff0044;
+            text-shadow: 0 0 20px #ff0044;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+            z-index: 20;
+        }
+        
+        #game-over {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 30;
+        }
+        button {
+            background: #d8b4fe;
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 0 15px #d8b4fe;
+        }
+        button:hover { background: #fff; }
+        
+        /* Health Bar Styles */
+        .bar-container {
+            width: 200px;
+            height: 10px;
+            background: #333;
+            margin-top: 5px;
+            border: 1px solid #555;
+        }
+        .bar-fill {
+            height: 100%;
+            background: #0f0;
+            width: 100%;
+            transition: width 0.1s;
+        }
+    </style>
+</head>
+<body>
+
+<div id="ui-layer">
+    <h1>DEAD ZONE</h1>
+    <div class="stat-box">HP: <div class="bar-container"><div id="hp-bar" class="bar-fill"></div></div></div>
+    <div class="stat-box">WEAPON: <span id="weapon-name">Pistol</span> <span id="ammo-display">∞</span></div>
+    <div class="stat-box">KILLS: <span id="score-display">0</span></div>
+    <div id="companion-status">
+        RAVEN: <div class="bar-container" style="width: 150px; border-color: #d8b4fe;"><div id="raven-hp-bar" class="bar-fill" style="background: #a855f7;"></div></div>
+    </div>
+</div>
+
+<div id="boss-warning">MUTATION DETECTED</div>
+
+<div id="game-over">
+    <h1 style="font-size: 4rem; color: #ff0044;">YOU DIED</h1>
+    <p style="color: #aaa;">Zombies Eliminated: <span id="final-score">0</span></p>
+    <button onclick="initGame()">RESPAWN</button>
+</div>
+
+<canvas id="gameCanvas"></canvas>
+
+<script>
+/**
+ * DEAD ZONE: GOTH OPS
+ * Updated: Better Visuals, Structures, Extra Life Mechanic
+ */
+
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+// UI Elements
+const uiHp = document.getElementById('hp-bar');
+const uiWeapon = document.getElementById('weapon-name');
+const uiAmmo = document.getElementById('ammo-display');
+const uiScore = document.getElementById('score-display');
+const uiRavenBox = document.getElementById('companion-status');
+const uiRavenHp = document.getElementById('raven-hp-bar');
+const uiBossWarn = document.getElementById('boss-warning');
+const uiGameOver = document.getElementById('game-over');
+const uiFinalScore = document.getElementById('final-score');
+
+// Game State
+let width, height;
+let gameRunning = false;
+let frameId;
+let score = 0;
+let gameTime = 0;
+let difficulty = 1;
+let camX = 0, camY = 0;
+
+// World Limits
+const WORLD_SIZE = 4000;
+
+// Inputs
+const keys = { w: false, a: false, s: false, d: false };
+const mouse = { x: 0, y: 0, down: false, worldX: 0, worldY: 0 };
+
+// Entities
+let player;
+let companion = null;
+let enemies = [];
+let bullets = [];
+let particles = [];
+let items = [];
+let texts = [];
+let structures = []; // Walls
+
+// Weapon Definitions
+const WEAPONS = {
+    pistol: { name: 'Pistol', rate: 20, damage: 25, speed: 15, color: '#fbbf24', spread: 0.05, ammo: -1, count: 1 },
+    smg: { name: 'Vector SMG', rate: 5, damage: 12, speed: 18, color: '#fff', spread: 0.2, ammo: 120, count: 1 },
+    shotgun: { name: 'Shotgun', rate: 40, damage: 15, speed: 12, color: '#f00', spread: 0.4, ammo: 40, count: 6 },
+    railgun: { name: 'Railgun', rate: 60, damage: 200, speed: 30, color: '#0ff', spread: 0, ammo: 10, count: 1, pierce: true }
+};
+
+// --- INITIALIZATION ---
+
+function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+// Input Listeners
+window.addEventListener('keydown', e => { if(keys.hasOwnProperty(e.key.toLowerCase())) keys[e.key.toLowerCase()] = true; });
+window.addEventListener('keyup', e => { if(keys.hasOwnProperty(e.key.toLowerCase())) keys[e.key.toLowerCase()] = false; });
+window.addEventListener('mousemove', e => { 
+    mouse.x = e.clientX; 
+    mouse.y = e.clientY; 
+});
+window.addEventListener('mousedown', () => mouse.down = true);
+window.addEventListener('mouseup', () => mouse.down = false);
+
+// Classes
+
+class Structure {
+    constructor(x, y, w, h) {
+        this.x = x; this.y = y;
+        this.w = w; this.h = h;
+    }
+    draw(ctx) {
+        ctx.fillStyle = '#333';
+        ctx.fillRect(this.x, this.y, this.w, this.h);
+        ctx.strokeStyle = '#555';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(this.x, this.y, this.w, this.h);
+        
+        // Detail lines
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x + this.w, this.y + this.h);
+        ctx.stroke();
+    }
+}
+
+class Entity {
+    constructor(x, y, radius, color, hp) {
+        this.x = x; this.y = y;
+        this.radius = radius;
+        this.color = color;
+        this.hp = hp;
+        this.maxHp = hp;
+        this.vx = 0; this.vy = 0;
+        this.dead = false;
+        this.angle = 0; // Look direction
+    }
+    
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        // Structure Collision
+        structures.forEach(s => {
+            // AABB vs Circle logic (Simplified)
+            // Determine nearest point on rect to circle center
+            const nearestX = Math.max(s.x, Math.min(this.x, s.x + s.w));
+            const nearestY = Math.max(s.y, Math.min(this.y, s.y + s.h));
+            
+            const dx = this.x - nearestX;
+            const dy = this.y - nearestY;
+            const distSq = dx*dx + dy*dy;
+            
+            if (distSq < this.radius * this.radius) {
+                // Collision
+                const dist = Math.sqrt(distSq);
+                const overlap = this.radius - dist;
+                
+                // Push out
+                if (dist > 0) {
+                    this.x += (dx / dist) * overlap;
+                    this.y += (dy / dist) * overlap;
+                }
+            }
+        });
+    }
+
+    takeDamage(amount) {
+        this.hp -= amount;
+        if(this.hp <= 0) {
+            this.hp = 0;
+            this.dead = true;
+        }
+        spawnBlood(this.x, this.y, this.color);
+    }
+}
+
+class Player extends Entity {
+    constructor(x, y, skin = 'default') {
+        super(x || WORLD_SIZE/2, y || WORLD_SIZE/2, 14, '#3b82f6', 100);
+        this.speed = 5;
+        this.weapon = 'pistol';
+        this.ammo = -1;
+        this.shootTimer = 0;
+        this.skin = skin; // 'default' or 'raven'
+        
+        if (skin === 'raven') {
+            this.color = '#a855f7';
+            this.maxHp = 200;
+            this.hp = 200;
+            this.weapon = 'smg';
+            this.ammo = 999; 
+        }
+    }
+
+    update() {
+        // Movement
+        this.vx = 0; this.vy = 0;
+        if (keys.w) this.vy = -this.speed;
+        if (keys.s) this.vy = this.speed;
+        if (keys.a) this.vx = -this.speed;
+        if (keys.d) this.vx = this.speed;
+
+        if (this.vx && this.vy) {
+            this.vx *= 0.707;
+            this.vy *= 0.707;
+        }
+
+        super.update();
+        this.angle = Math.atan2(mouse.worldY - this.y, mouse.worldX - this.x);
+
+        // Bounds
+        this.x = Math.max(0, Math.min(WORLD_SIZE, this.x));
+        this.y = Math.max(0, Math.min(WORLD_SIZE, this.y));
+
+        // Shooting
+        if (this.shootTimer > 0) this.shootTimer--;
+        if (mouse.down && this.shootTimer <= 0) {
+            fireWeapon(this, mouse.worldX, mouse.worldY, WEAPONS[this.weapon]);
+        }
+        
+        // Update UI
+        uiHp.style.width = (this.hp / this.maxHp * 100) + '%';
+        uiWeapon.innerText = WEAPONS[this.weapon].name;
+        uiAmmo.innerText = this.ammo === -1 ? '∞' : this.ammo;
+    }
+
+    draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+
+        // Body
+        ctx.fillStyle = this.skin === 'raven' ? '#222' : '#1e3a8a'; // Black dress or Blue Vest
+        ctx.fillRect(-10, -10, 20, 20);
+        
+        // Arms
+        ctx.fillStyle = this.skin === 'raven' ? '#f3e8ff' : '#1e3a8a'; // Pale skin or sleeves
+        ctx.beginPath();
+        ctx.arc(8, -8, 5, 0, Math.PI*2); // Right hand
+        ctx.arc(8, 8, 5, 0, Math.PI*2);  // Left hand
+        ctx.fill();
+
+        // Gun
+        ctx.fillStyle = '#333';
+        ctx.fillRect(8, -3, 20, 6);
+
+        // Head
+        ctx.beginPath();
+        ctx.arc(0, 0, 9, 0, Math.PI*2);
+        ctx.fillStyle = this.skin === 'raven' ? '#f3e8ff' : '#fca5a5'; // Skin color
+        ctx.fill();
+
+        // Hair / Helmet
+        ctx.fillStyle = this.skin === 'raven' ? '#000' : '#475569';
+        if (this.skin === 'raven') {
+            // Goth Hair
+            ctx.beginPath();
+            ctx.arc(0, 0, 10, Math.PI, Math.PI*2); // Bangs
+            ctx.lineTo(10, 10);
+            ctx.lineTo(-10, 10);
+            ctx.fill();
+        } else {
+            // Helmet
+            ctx.beginPath();
+            ctx.arc(0, 0, 9, Math.PI, Math.PI*2);
+            ctx.fill();
+        }
+
+        ctx.restore();
+    }
+}
+
+class Companion extends Entity {
+    constructor(x, y) {
+        super(x, y, 14, '#a855f7', 200); 
+        this.state = 'WAITING'; 
+        this.speed = 5.5;
+        this.weapon = { rate: 15, damage: 15, speed: 15, color: '#d8b4fe', spread: 0.1, count: 1 };
+        this.shootTimer = 0;
+        this.target = null;
+    }
+
+    update() {
+        if (this.dead) return;
+
+        if (this.state === 'WAITING') {
+            const dist = Math.hypot(player.x - this.x, player.y - this.y);
+            if (dist < 60) {
+                this.state = 'FOLLOWING';
+                showFloatingText("Raven: Let's hunt.", this.x, this.y - 30, '#d8b4fe');
+                uiRavenBox.style.display = 'block';
+            }
+            return;
+        }
+
+        const distToPlayer = Math.hypot(player.x - this.x, player.y - this.y);
+        let closest = null;
+        let closestDist = 400; 
+        
+        for (let e of enemies) {
+            const d = Math.hypot(e.x - this.x, e.y - this.y);
+            if (d < closestDist) {
+                closestDist = d;
+                closest = e;
+            }
+        }
+        this.target = closest;
+
+        if (distToPlayer > 800) {
+            this.x = player.x;
+            this.y = player.y;
+        } else if (distToPlayer > 120 && !closest) {
+            this.angle = Math.atan2(player.y - this.y, player.x - this.x);
+            this.vx = Math.cos(this.angle) * this.speed;
+            this.vy = Math.sin(this.angle) * this.speed;
+        } else if (closest) {
+            this.angle = Math.atan2(closest.y - this.y, closest.x - this.x);
+            if (closestDist < 120) {
+                this.vx = -Math.cos(this.angle) * this.speed;
+                this.vy = -Math.sin(this.angle) * this.speed;
+            } else {
+                this.vx = 0; this.vy = 0;
+            }
+            
+            if (this.shootTimer > 0) this.shootTimer--;
+            if (this.shootTimer <= 0) {
+                fireWeapon(this, closest.x, closest.y, this.weapon, true);
+                this.shootTimer = this.weapon.rate;
+            }
+        } else {
+            this.vx = 0; this.vy = 0;
+        }
+
+        super.update();
+        if (this.hp < this.maxHp && gameTime % 60 === 0) this.hp++;
+        uiRavenHp.style.width = (this.hp / this.maxHp * 100) + '%';
+    }
+
+    draw(ctx) {
+        if (this.state === 'WAITING') {
+            ctx.fillStyle = '#d8b4fe';
+            ctx.font = 'bold 20px Arial';
+            ctx.fillText('?', this.x - 5, this.y - 25);
+        }
+
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        // Look angle handled in update, but for waiting we just face down
+        if (this.state === 'WAITING') ctx.rotate(0);
+        else ctx.rotate(this.angle);
+
+        // Body (Goth Dress)
+        ctx.fillStyle = '#222'; 
+        ctx.fillRect(-9, -9, 18, 18);
+        
+        // Pale Skin Arms
+        ctx.fillStyle = '#f3e8ff';
+        ctx.beginPath();
+        ctx.arc(8, -5, 4, 0, Math.PI*2);
+        ctx.arc(8, 5, 4, 0, Math.PI*2);
+        ctx.fill();
+
+        // Guns (Dual Pistols)
+        ctx.fillStyle = '#444';
+        ctx.fillRect(8, -6, 10, 4);
+        ctx.fillRect(8, 4, 10, 4);
+
+        // Head
+        ctx.beginPath();
+        ctx.arc(0, 0, 8, 0, Math.PI*2);
+        ctx.fillStyle = '#f3e8ff';
+        ctx.fill();
+        
+        // Black Hair
+        ctx.fillStyle = '#000';
+        ctx.beginPath();
+        ctx.arc(0, 0, 9, Math.PI * 0.8, Math.PI * 3.2);
+        ctx.fill();
+
+        ctx.restore();
+    }
+}
+
+class Zombie extends Entity {
+    constructor(x, y, type = 'normal') {
+        let size = 14;
+        let color = '#4ade80';
+        let hp = 30 + (score * 0.1);
+        let speed = 2 + Math.random();
+        
+        if (type === 'boss') {
+            size = 40;
+            color = '#991b1b'; // Dark Red
+            hp = 1000 + (score * 0.5);
+            speed = 3.5;
+        }
+
+        super(x, y, size, color, hp);
+        this.type = type;
+        this.speedBase = speed;
+        this.wobble = Math.random() * 100;
+    }
+
+    update() {
+        if (this.dead) return;
+
+        let target = player;
+        if (companion && companion.state !== 'WAITING' && !companion.dead) {
+            const d1 = Math.hypot(player.x - this.x, player.y - this.y);
+            const d2 = Math.hypot(companion.x - this.x, companion.y - this.y);
+            if (d2 < d1) target = companion;
+        }
+
+        this.angle = Math.atan2(target.y - this.y, target.x - this.x);
+        this.vx = Math.cos(this.angle) * this.speedBase;
+        this.vy = Math.sin(this.angle) * this.speedBase;
+
+        // Separation
+        for (let other of enemies) {
+            if (other === this || other.dead) continue;
+            const dist = Math.hypot(other.x - this.x, other.y - this.y);
+            if (dist < this.radius + other.radius) {
+                const pushAngle = Math.atan2(this.y - other.y, this.x - other.x);
+                this.vx += Math.cos(pushAngle) * 0.5;
+                this.vy += Math.sin(pushAngle) * 0.5;
+            }
+        }
+
+        super.update();
+
+        const distToTarget = Math.hypot(target.x - this.x, target.y - this.y);
+        if (distToTarget < this.radius + target.radius + 5) {
+            target.takeDamage(this.type === 'boss' ? 5 : 1);
+        }
+    }
+
+    draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+
+        // Body
+        ctx.fillStyle = this.type === 'boss' ? '#7f1d1d' : '#14532d'; // Dark Green clothes
+        ctx.fillRect(-this.radius + 2, -this.radius + 2, this.radius*2 - 4, this.radius*2 - 4);
+
+        // Arms reaching out
+        ctx.fillStyle = '#4ade80'; // Green Skin
+        if (this.type === 'boss') ctx.fillStyle = '#ef4444'; // Red skin
+        
+        const reach = Math.sin((gameTime + this.wobble) * 0.2) * 5;
+        ctx.fillRect(5, -this.radius + 2, this.radius + reach, 6); // Left Arm
+        ctx.fillRect(5, this.radius - 8, this.radius - reach, 6);  // Right Arm
+
+        // Head
+        ctx.beginPath();
+        ctx.arc(0, 0, this.radius - 2, 0, Math.PI*2);
+        ctx.fill();
+
+        // Blood stains
+        if (this.type !== 'boss') {
+            ctx.fillStyle = '#991b1b';
+            ctx.beginPath();
+            ctx.arc(3, 3, 3, 0, Math.PI*2);
+            ctx.fill();
+        }
+
+        // Boss Extras
+        if (this.type === 'boss') {
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 2;
+            ctx.beginPath(); // Spikes
+            ctx.moveTo(-10, -20); ctx.lineTo(0, -10);
+            ctx.moveTo(-10, 20); ctx.lineTo(0, 10);
+            ctx.stroke();
+            
+            // HP Bar
+            ctx.rotate(-this.angle);
+            ctx.fillStyle = '#333';
+            ctx.fillRect(-30, -60, 60, 8);
+            ctx.fillStyle = '#f00';
+            ctx.fillRect(-30, -60, 60 * (this.hp / this.maxHp), 8);
+        }
+
+        ctx.restore();
+    }
+}
+
+class Item {
+    constructor(x, y, type) {
+        this.x = x; this.y = y;
+        this.type = type; // 'weapon', 'health'
+        this.radius = 12;
+        this.life = 1000;
+        
+        if (type === 'health') {
+            this.color = '#0f0';
+            this.label = '+HP';
+        } else {
+            // Random weapon
+            const keys = Object.keys(WEAPONS);
+            this.weaponKey = keys[Math.floor(Math.random() * keys.length)];
+            if (this.weaponKey === 'pistol') this.weaponKey = 'smg'; 
+            this.color = WEAPONS[this.weaponKey].color;
+            this.label = WEAPONS[this.weaponKey].name;
+        }
+    }
+    
+    update() {
+        this.life--;
+        const d = Math.hypot(player.x - this.x, player.y - this.y);
+        if (d < player.radius + this.radius) {
+            this.life = 0; 
+            if (this.type === 'health') {
+                player.hp = Math.min(player.maxHp, player.hp + 50);
+                showFloatingText("+50 HP", player.x, player.y - 20, '#0f0');
+            } else {
+                player.weapon = this.weaponKey;
+                player.ammo = WEAPONS[this.weaponKey].ammo;
+                player.shootTimer = 10;
+                showFloatingText(this.label + " Acquired!", player.x, player.y - 20, '#fff');
+            }
+        }
+    }
+
+    draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        const floatY = Math.sin(gameTime * 0.1) * 5;
+        
+        // Glow
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = this.color;
+        
+        // Crate graphic
+        ctx.fillStyle = '#222';
+        ctx.fillRect(-12, -12 + floatY, 24, 24);
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = 3;
+        ctx.strokeRect(-12, -12 + floatY, 24, 24);
+        
+        // Inner Cross
+        ctx.beginPath();
+        ctx.moveTo(-12, -12 + floatY); ctx.lineTo(12, 12 + floatY);
+        ctx.moveTo(12, -12 + floatY); ctx.lineTo(-12, 12 + floatY);
+        ctx.stroke();
+        
+        ctx.shadowBlur = 0;
+        
+        ctx.fillStyle = '#fff';
+        ctx.font = '10px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(this.label, 0, -20 + floatY);
+        
+        ctx.restore();
+    }
+}
+
+// --- SYSTEMS ---
+
+function initGame() {
+    gameRunning = true;
+    score = 0;
+    gameTime = 0;
+    difficulty = 1;
+    enemies = [];
+    bullets = [];
+    particles = [];
+    items = [];
+    texts = [];
+    structures = [];
+    
+    player = new Player();
+    
+    // Generate Structures
+    for(let i=0; i<30; i++) {
+        const sx = Math.random() * (WORLD_SIZE - 200) + 100;
+        const sy = Math.random() * (WORLD_SIZE - 200) + 100;
+        const w = 50 + Math.random() * 150;
+        const h = 50 + Math.random() * 150;
+        // Don't spawn on top of center spawn
+        if (Math.hypot(sx - WORLD_SIZE/2, sy - WORLD_SIZE/2) > 300) {
+            structures.push(new Structure(sx, sy, w, h));
+            // Maybe add item inside
+            if (Math.random() < 0.5) spawnLoot(sx + w/2, sy + h/2);
+        }
+    }
+    
+    // Spawn Companion
+    const angle = Math.random() * Math.PI * 2;
+    companion = new Companion(player.x + Math.cos(angle)*500, player.y + Math.sin(angle)*500);
+    
+    uiGameOver.style.display = 'none';
+    uiRavenBox.style.display = 'none';
+    uiBossWarn.style.opacity = 0;
+    
+    // Spawn initial items
+    for(let i=0; i<10; i++) spawnLoot();
+    
+    requestAnimationFrame(loop);
+}
+
+function spawnLoot(x, y) {
+    if (!x) {
+        x = Math.random() * WORLD_SIZE;
+        y = Math.random() * WORLD_SIZE;
+    }
+    const type = Math.random() > 0.3 ? 'weapon' : 'health';
+    items.push(new Item(x, y, type));
+}
+
+function fireWeapon(shooter, targetX, targetY, weaponData, isCompanion = false) {
+    if (!isCompanion && shooter.ammo === 0) {
+        shooter.weapon = 'pistol';
+        shooter.ammo = -1;
+        return;
+    }
+
+    shooter.shootTimer = weaponData.rate;
+    if (!isCompanion && shooter.ammo > 0) shooter.ammo--;
+
+    const angleBase = Math.atan2(targetY - shooter.y, targetX - shooter.x);
+    
+    for (let i = 0; i < weaponData.count; i++) {
+        const spread = (Math.random() - 0.5) * weaponData.spread;
+        const finalAngle = angleBase + spread;
+        
+        bullets.push({
+            x: shooter.x, 
+            y: shooter.y,
+            vx: Math.cos(finalAngle) * weaponData.speed,
+            vy: Math.sin(finalAngle) * weaponData.speed,
+            damage: weaponData.damage,
+            color: weaponData.color,
+            life: 60,
+            pierce: weaponData.pierce || false,
+            fromCompanion: isCompanion
+        });
+    }
+    
+    if (!isCompanion) {
+        camX += (Math.random()-0.5)*5;
+        camY += (Math.random()-0.5)*5;
+    }
+}
+
+function spawnBlood(x, y, color) {
+    for(let i=0; i<5; i++) {
+        particles.push({
+            x: x, y: y,
+            vx: (Math.random()-0.5)*4,
+            vy: (Math.random()-0.5)*4,
+            life: 1.0,
+            color: color,
+            size: Math.random() * 3
+        });
+    }
+}
+
+function showFloatingText(text, x, y, color) {
+    texts.push({text, x, y, color, life: 60, dy: -0.5});
+}
+
+function spawnZombie(isBoss = false) {
+    let spawnX, spawnY;
+    const angle = Math.random() * Math.PI * 2;
+    const dist = isBoss ? 600 : 500 + Math.random() * 300;
+    
+    spawnX = player.x + Math.cos(angle) * dist;
+    spawnY = player.y + Math.sin(angle) * dist;
+    spawnX = Math.max(20, Math.min(WORLD_SIZE-20, spawnX));
+    spawnY = Math.max(20, Math.min(WORLD_SIZE-20, spawnY));
+    
+    enemies.push(new Zombie(spawnX, spawnY, isBoss ? 'boss' : 'normal'));
+}
+
+// --- MAIN LOOP ---
+
+function loop() {
+    if (!gameRunning) return;
+    frameId = requestAnimationFrame(loop);
+    gameTime++;
+
+    mouse.worldX = mouse.x + camX;
+    mouse.worldY = mouse.y + camY;
+
+    // Spawning
+    if (gameTime % (60 * 60) === 0) { 
+        uiBossWarn.style.opacity = 1;
+        setTimeout(() => uiBossWarn.style.opacity = 0, 3000);
+        spawnZombie(true);
+    } else if (gameTime % Math.max(20, 60 - Math.floor(score/20)) === 0) {
+        if (enemies.length < 100) spawnZombie(false);
+    }
+
+    // Entities
+    player.update();
+    if (companion) companion.update();
+
+    // Bullets
+    for (let i = bullets.length - 1; i >= 0; i--) {
+        let b = bullets[i];
+        b.x += b.vx;
+        b.y += b.vy;
+        b.life--;
+
+        // Structure Collision for bullets
+        let hitWall = false;
+        if (!b.pierce) { // Railgun shoots through walls
+            for(let s of structures) {
+                if(b.x > s.x && b.x < s.x + s.w && b.y > s.y && b.y < s.y + s.h) {
+                    hitWall = true;
+                    break;
+                }
+            }
+        }
+        
+        if(hitWall) {
+            bullets.splice(i, 1);
+            continue;
+        }
+
+        let hit = false;
+        for (let e of enemies) {
+            if (e.dead) continue;
+            const dist = Math.hypot(e.x - b.x, e.y - b.y);
+            if (dist < e.radius + 5) {
+                e.takeDamage(b.damage);
+                hit = true;
+                if (!b.pierce) break;
+            }
+        }
+        
+        if ((hit && !b.pierce) || b.life <= 0) {
+            bullets.splice(i, 1);
+        }
+    }
+
+    // Enemies
+    for (let i = enemies.length - 1; i >= 0; i--) {
+        let e = enemies[i];
+        e.update();
+        if (e.dead) {
+            enemies.splice(i, 1);
+            score++;
+            uiScore.innerText = score;
+            if (Math.random() < 0.05 || e.type === 'boss') spawnLoot(e.x, e.y);
+        }
+    }
+
+    items.forEach(i => i.update());
+    for (let i = items.length - 1; i >= 0; i--) {
+         if (items[i].life <= 0) items.splice(i, 1);
+    }
+
+    particles.forEach(p => { p.x += p.vx; p.y += p.vy; p.life -= 0.05; });
+    for (let i = particles.length - 1; i >= 0; i--) {
+        if(particles[i].life <= 0) particles.splice(i, 1);
+    }
+
+    // --- PLAYER DEATH / SWITCH MECHANIC ---
+    if (player.hp <= 0) {
+        // Check for companion extra life
+        if (companion && !companion.dead && companion.state !== 'WAITING') {
+            spawnBlood(player.x, player.y, player.color);
+            
+            // Player becomes Raven
+            player = new Player(companion.x, companion.y, 'raven');
+            player.hp = companion.hp;
+            
+            // Remove companion object
+            companion = null;
+            uiRavenBox.style.display = 'none';
+            
+            showFloatingText("RAVEN TAKING POINT!", player.x, player.y, '#d8b4fe');
+        } else {
+            // Actual Game Over
+            gameRunning = false;
+            uiGameOver.style.display = 'flex';
+            uiFinalScore.innerText = score;
+        }
+    }
+
+    // Camera
+    const targetCamX = player.x - width / 2;
+    const targetCamY = player.y - height / 2;
+    camX += (targetCamX - camX) * 0.1;
+    camY += (targetCamY - camY) * 0.1;
+    camX = Math.max(0, Math.min(WORLD_SIZE - width, camX));
+    camY = Math.max(0, Math.min(WORLD_SIZE - height, camY));
+
+    // --- DRAW ---
+    
+    // Background
+    ctx.fillStyle = '#1a1a1a';
+    ctx.fillRect(0, 0, width, height);
+    
+    ctx.save();
+    ctx.translate(-camX, -camY);
+
+    // Grid
+    ctx.strokeStyle = '#222';
+    ctx.lineWidth = 2;
+    const gridSize = 100;
+    const startX = Math.floor(camX / gridSize) * gridSize;
+    const startY = Math.floor(camY / gridSize) * gridSize;
+    ctx.beginPath();
+    for (let x = startX; x < camX + width + gridSize; x += gridSize) {
+        ctx.moveTo(x, camY); ctx.lineTo(x, camY + height);
+    }
+    for (let y = startY; y < camY + height + gridSize; y += gridSize) {
+        ctx.moveTo(camX, y); ctx.lineTo(camX + width, y);
+    }
+    ctx.stroke();
+
+    // Structures (Ruins)
+    structures.forEach(s => s.draw(ctx));
+
+    items.forEach(i => i.draw(ctx));
+
+    particles.forEach(p => {
+        ctx.globalAlpha = p.life;
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+        ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+
+    if (companion && !companion.dead) companion.draw(ctx);
+    player.draw(ctx);
+    enemies.forEach(e => e.draw(ctx));
+
+    bullets.forEach(b => {
+        ctx.fillStyle = b.color;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, 3, 0, Math.PI*2);
+        ctx.fill();
+    });
+
+    for (let i = texts.length - 1; i >= 0; i--) {
+        let t = texts[i];
+        t.y += t.dy;
+        t.life--;
+        ctx.fillStyle = t.color;
+        ctx.font = 'bold 14px Arial';
+        ctx.textAlign = 'center';
+        ctx.globalAlpha = Math.max(0, t.life / 30);
+        ctx.fillText(t.text, t.x, t.y);
+        ctx.globalAlpha = 1;
+        if(t.life <= 0) texts.splice(i, 1);
+    }
+
+    ctx.restore();
+}
+
+// Start
+initGame();
+
+</script>
+</body>
+</html>
