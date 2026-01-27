@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SCRAP STATION</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #121212;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            touch-action: none;
+            cursor: crosshair;
+        }
+        canvas { display: block; }
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            pointer-events: none;
+            z-index: 10;
+        }
+        h1 {
+            font-size: 1.2rem;
+            margin: 0;
+            letter-spacing: 2px;
+            color: #ccc;
+            text-transform: uppercase;
+        }
+        #score-display {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        .sub-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        #tutorial {
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            color: #aaa;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+        #game-over {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+        button {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+            transition: transform 0.1s;
+        }
+        button:active { transform: scale(0.95); }
+        
+        /* New Health Bar Styles */
+        #health-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            pointer-events: none;
+            text-align: right;
+        }
+        .hp-pip {
+            display: inline-block;
+            width: 15px;
+            height: 20px;
+            background-color: #0f0;
+            margin-left: 4px;
+            transform: skewX(-20deg);
+            box-shadow: 0 0 8px #0f0;
+            transition: all 0.2s;
+        }
+        .hp-pip.lost {
+            background-color: #333;
+            box-shadow: none;
+        }
+        .boss-warning {
+            position: absolute;
+            top: 40%;
+            width: 100%;
+            text-align: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #f00;
+            text-shadow: 0 0 20px #f00;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 15;
+        }
+    </style>
+</head>
+<body>
+
+<div id="ui">
+    <h1>Scrap Mass</h1>
+    <div id="score-display">0 KG</div>
+    <div class="sub-text">Armor Integrity: <span id="parts-count">0</span> Units</div>
+</div>
+
+<div id="health-container">
+    <div style="font-size: 0.8rem; color: #888; margin-bottom: 5px;">CORE INTEGRITY</div>
+    <div id="hp-bar"></div>
+</div>
+
+<div id="tutorial">
+    MOUSE/TOUCH to Aim &bull; HOLD CLICK to Attract Scrap
+</div>
+
+<div class="boss-warning" id="boss-alert">WARNING: CLASS-5 DETECTED</div>
+
+<div id="game-over">
+    <h1 style="font-size: 3rem; color: #ff4444;">CORE DESTROYED</h1>
+    <p style="color: #aaa; margin-top: 10px;">Final Mass: <span id="final-score">0</span> KG</p>
+    <button onclick="resetGame()">Rebuild</button>
+</div>
+
+<canvas id="gameCanvas"></canvas>
+
+<script>
+/**
+ * SCRAP STATION - UPDATED
+ * Features: Progression, Bosses, Powerups, Core HP
+ */
+
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+const uiScore = document.getElementById('score-display');
+const uiParts = document.getElementById('parts-count');
+const uiTutorial = document.getElementById('tutorial');
+const uiGameOver = document.getElementById('game-over');
+const uiFinalScore = document.getElementById('final-score');
+const uiHpBar = document.getElementById('hp-bar');
+const uiBossAlert = document.getElementById('boss-alert');
+
+let width, height, centerX, centerY;
+let frameId;
+let isRunning = false;
+let score = 0;
+let gameTime = 0;
+let difficultyLevel = 1;
+let nextBossThreshold = 1500;
+
+// Input
+const mouse = { x: 0, y: 0, down: false };
+
+// Game Constants
+const CORE_SIZE = 15;
+const BULLET_SPEED = 12;
+const ENEMY_SPEED = 1.5;
+const MAGNET_RANGE = 300;
+const MAGNET_FORCE = 0.9;
+const FIRE_RATE_DEFAULT = 8;
+const PROGRESSION_STEP = 500; // Mass needed for HP upgrade
+
+// Entities
+const player = {
+    x: 0, y: 0,
+    angle: 0,
+    parts: [],
+    cooldown: 0,
+    hp: 5,
+    maxHp: 5,
+    // Powerups
+    fireRate: FIRE_RATE_DEFAULT,
+    tripleShotTimer: 0,
+    rapidFireTimer: 0,
+    bigShotTimer: 0
+};
+
+let bullets = [];
+let enemyBullets = [];
+let enemies = [];
+let scraps = [];
+let particles = [];
+let powerups = [];
+
+function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    centerX = width / 2;
+    centerY = height / 2;
+    if(!isRunning) {
+        player.x = centerX;
+        player.y = centerY;
+    }
+}
+window.addEventListener('resize', resize);
+resize();
+
+// Input Listeners
+window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+window.addEventListener('mousedown', () => mouse.down = true);
+window.addEventListener('mouseup', () => mouse.down = false);
+window.addEventListener('touchmove', e => {
+    e.preventDefault();
+    mouse.x = e.touches[0].clientX;
+    mouse.y = e.touches[0].clientY;
+}, {passive: false});
+window.addEventListener('touchstart', e => {
+    mouse.down = true;
+    mouse.x = e.touches[0].clientX;
+    mouse.y = e.touches[0].clientY;
+    uiTutorial.style.opacity = 0;
+});
+window.addEventListener('touchend', () => mouse.down = false);
+window.addEventListener('keydown', e => { if(e.code === 'Space') mouse.down = true; });
+window.addEventListener('keyup', e => { if(e.code === 'Space') mouse.down = false; });
+
+// --- CLASSES ---
+
+class Bullet {
+    constructor(x, y, angle, isPlayer, sizeMod = 1) {
+        this.x = x;
+        this.y = y;
+        const speed = isPlayer ? BULLET_SPEED : BULLET_SPEED * 0.4;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed;
+        this.life = 80;
+        this.isPlayer = isPlayer;
+        this.size = 4 * sizeMod;
+        this.damage = sizeMod; // 1 or 2
+    }
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.life--;
+    }
+    draw(ctx) {
+        ctx.fillStyle = this.isPlayer ? (this.size > 4 ? '#ff5500' : '#ffeb3b') : '#ff0000';
+        ctx.shadowBlur = this.size > 4 ? 10 : 0;
+        ctx.shadowColor = ctx.fillStyle;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+    }
+}
+
+class PowerUp {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.life = 900;
+        // Types: TRIPLE, RAPID, HEAL, BIG
+        const r = Math.random();
+        if (r < 0.3) this.type = 'HEAL';
+        else if (r < 0.6) this.type = 'TRIPLE';
+        else if (r < 0.8) this.type = 'RAPID';
+        else this.type = 'BIG';
+    }
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.life--;
+        // Magnet
+        if (mouse.down) {
+            const dx = player.x - this.x;
+            const dy = player.y - this.y;
+            const dist = Math.hypot(dx, dy);
+            if (dist < MAGNET_RANGE) {
+                const angle = Math.atan2(dy, dx);
+                this.vx += Math.cos(angle) * 1.5;
+                this.vy += Math.sin(angle) * 1.5;
+            }
+        }
+        this.vx *= 0.95;
+        this.vy *= 0.95;
+    }
+    draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.fillStyle = '#fff';
+        ctx.strokeStyle = '#fff';
+        
+        // Icon drawing
+        let color = '#fff';
+        let char = '?';
+        if (this.type === 'HEAL') { color = '#0f0'; char = '+'; }
+        if (this.type === 'TRIPLE') { color = '#ff0'; char = 'iii'; }
+        if (this.type === 'RAPID') { color = '#0ff'; char = '>>'; }
+        if (this.type === 'BIG') { color = '#f0f'; char = 'O'; }
+
+        ctx.strokeStyle = color;
+        ctx.fillStyle = color;
+        
+        ctx.beginPath();
+        ctx.arc(0, 0, 10, 0, Math.PI*2);
+        ctx.stroke();
+        
+        ctx.font = 'bold 12px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(char, 0, 1);
+        
+        ctx.restore();
+    }
+}
+
+class Enemy {
+    constructor(isBoss = false) {
+        // Spawn edge
+        const angle = Math.random() * Math.PI * 2;
+        const dist = Math.max(width, height) * 0.7;
+        this.x = centerX + Math.cos(angle) * dist;
+        this.y = centerY + Math.sin(angle) * dist;
+        this.isBoss = isBoss;
+        
+        if (isBoss) {
+            this.size = 40;
+            this.hp = 60 + (difficultyLevel * 10);
+            this.maxHp = this.hp;
+            this.color = '#ff0000';
+            this.speed = 0.5;
+            this.scoreVal = 500;
+        } else {
+            this.size = 10 + Math.random() * 8;
+            this.hp = 1 + Math.floor(score / 1000); 
+            this.color = `hsl(${Math.random()*60}, 70%, 60%)`;
+            this.speed = ENEMY_SPEED + (Math.random() * 0.5) + (score/5000);
+            this.scoreVal = Math.floor(this.size);
+        }
+        
+        this.dead = false;
+        this.shootTimer = 0;
+    }
+    update() {
+        const angle = Math.atan2(player.y - this.y, player.x - this.x);
+        this.x += Math.cos(angle) * this.speed;
+        this.y += Math.sin(angle) * this.speed;
+        this.rotation = (gameTime * 0.1) % (Math.PI*2);
+
+        // Boss Shooting
+        if (this.isBoss) {
+            this.shootTimer++;
+            if (this.shootTimer > 60) {
+                this.shootTimer = 0;
+                enemyBullets.push(new Bullet(this.x, this.y, angle, false));
+                // Spread shot
+                enemyBullets.push(new Bullet(this.x, this.y, angle + 0.2, false));
+                enemyBullets.push(new Bullet(this.x, this.y, angle - 0.2, false));
+            }
+        }
+    }
+    draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.fillStyle = this.color;
+        
+        if (this.isBoss) {
+            // Boss Shape (Hexagon)
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = '#f00';
+            ctx.beginPath();
+            for (let i = 0; i < 6; i++) {
+                ctx.lineTo(this.size * Math.cos(i * Math.PI / 3), this.size * Math.sin(i * Math.PI / 3));
+            }
+            ctx.closePath();
+            ctx.fill();
+            
+            // Boss HP Bar
+            ctx.rotate(-this.rotation); // Reset rot for bar
+            ctx.fillStyle = '#333';
+            ctx.fillRect(-30, -50, 60, 6);
+            ctx.fillStyle = '#f00';
+            ctx.fillRect(-30, -50, 60 * (this.hp / this.maxHp), 6);
+            ctx.shadowBlur = 0;
+        } else {
+            // Standard Triangle
+            ctx.beginPath();
+            ctx.moveTo(this.size, 0);
+            ctx.lineTo(-this.size/2, this.size/2);
+            ctx.lineTo(-this.size/2, -this.size/2);
+            ctx.fill();
+        }
+        ctx.restore();
+    }
+}
+
+class Scrap {
+    constructor(x, y, size, color) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.color = color; // Grey-ish version of enemy
+        this.vx = (Math.random() - 0.5);
+        this.vy = (Math.random() - 0.5);
+        this.rotation = Math.random() * Math.PI * 2;
+        this.life = 600; // Despawn eventually
+    }
+    update() {
+        // Friction
+        this.vx *= 0.98;
+        this.vy *= 0.98;
+        this.x += this.vx;
+        this.y += this.vy;
+        this.life--;
+
+        // Magnet Logic
+        if (mouse.down) {
+            const dx = player.x - this.x;
+            const dy = player.y - this.y;
+            const dist = Math.hypot(dx, dy);
+            
+            if (dist < MAGNET_RANGE) {
+                const angle = Math.atan2(dy, dx);
+                const force = MAGNET_FORCE * (1 - dist/MAGNET_RANGE);
+                this.vx += Math.cos(angle) * force;
+                this.vy += Math.sin(angle) * force;
+                
+                // Draw Magnet Line
+                ctx.strokeStyle = `rgba(100, 200, 255, ${0.3 * (1 - dist/MAGNET_RANGE)})`;
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(player.x, player.y);
+                ctx.stroke();
+            }
+        }
+    }
+    draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.fillStyle = '#777'; // Debris color
+        ctx.strokeStyle = this.color;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.rect(-this.size/2, -this.size/2, this.size, this.size);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+    }
+}
+
+class Particle {
+    constructor(x, y, color) {
+        this.x = x; this.y = y;
+        this.vx = (Math.random()-0.5)*5;
+        this.vy = (Math.random()-0.5)*5;
+        this.life = 1.0;
+        this.color = color;
+    }
+    update() {
+        this.x += this.vx; this.y += this.vy;
+        this.life -= 0.05;
+    }
+    draw(ctx) {
+        ctx.globalAlpha = Math.max(0, this.life);
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, 3, 3);
+        ctx.globalAlpha = 1;
+    }
+}
+
+// --- CORE FUNCTIONS ---
+
+function updateHpUi() {
+    uiHpBar.innerHTML = '';
+    for(let i=0; i<player.maxHp; i++) {
+        const pip = document.createElement('div');
+        pip.className = 'hp-pip';
+        if (i >= player.hp) pip.className += ' lost';
+        uiHpBar.appendChild(pip);
+    }
+}
+
+function healPlayer(amount) {
+    player.hp = Math.min(player.maxHp, player.hp + amount);
+    updateHpUi();
+    spawnExplosion(player.x, player.y, '#0f0');
+}
+
+function damagePlayer(amount) {
+    player.hp -= amount;
+    updateHpUi();
+    spawnExplosion(player.x, player.y, '#f00');
+    // Screen shake
+    ctx.translate((Math.random()-0.5)*10, (Math.random()-0.5)*10);
+    setTimeout(() => ctx.setTransform(1,0,0,1,0,0), 50); // Reset roughly
+
+    if (player.hp <= 0) {
+        isRunning = false;
+        uiFinalScore.innerText = score;
+        uiGameOver.style.display = 'flex';
+        uiHpBar.innerHTML = '';
+    }
+}
+
+function applyPowerup(type) {
+    if (type === 'HEAL') healPlayer(2);
+    if (type === 'TRIPLE') player.tripleShotTimer = 900; // 15 sec
+    if (type === 'RAPID') player.rapidFireTimer = 900;
+    if (type === 'BIG') player.bigShotTimer = 900;
+    spawnExplosion(player.x, player.y, '#fff');
+}
+
+function resetGame() {
+    score = 0;
+    gameTime = 0;
+    difficultyLevel = 1;
+    nextBossThreshold = 1500;
+    
+    player.x = width/2;
+    player.y = height/2;
+    player.parts = [];
+    player.hp = 5;
+    player.maxHp = 5;
+    player.tripleShotTimer = 0;
+    player.rapidFireTimer = 0;
+    player.bigShotTimer = 0;
+    
+    bullets = [];
+    enemyBullets = [];
+    enemies = [];
+    scraps = [];
+    particles = [];
+    powerups = [];
+    
+    isRunning = true;
+    uiGameOver.style.display = 'none';
+    uiTutorial.style.opacity = 1;
+    uiBossAlert.style.opacity = 0;
+    uiScore.innerText = "0 KG";
+    updateHpUi();
+    loop();
+}
+
+function spawnExplosion(x, y, color) {
+    for(let i=0; i<8; i++) particles.push(new Particle(x, y, color));
+}
+
+function attachScrap(scrap) {
+    // Progression check
+    const oldTier = Math.floor(score / PROGRESSION_STEP);
+    score += Math.floor(scrap.size);
+    const newTier = Math.floor(score / PROGRESSION_STEP);
+    
+    // Level Up!
+    if (newTier > oldTier) {
+        player.maxHp++;
+        healPlayer(1);
+        spawnExplosion(player.x, player.y, '#0ff');
+    }
+
+    // Convert scrap world position to player-relative position
+    const dx = scrap.x - player.x;
+    const dy = scrap.y - player.y;
+    const dist = Math.hypot(dx, dy);
+    const angle = Math.atan2(dy, dx);
+    const relativeAngle = angle - player.angle;
+    
+    player.parts.push({
+        dist: dist,
+        angle: relativeAngle,
+        size: scrap.size,
+        color: scrap.color
+    });
+    
+    uiScore.innerText = score + " KG";
+    uiParts.innerText = player.parts.length;
+    spawnExplosion(scrap.x, scrap.y, '#fff');
+}
+
+function loop() {
+    if(!isRunning) return;
+    frameId = requestAnimationFrame(loop);
+    gameTime++;
+
+    ctx.fillStyle = '#121212';
+    ctx.fillRect(0, 0, width, height);
+
+    // --- PLAYER LOGIC ---
+    // 1. Rotate to mouse
+    const targetAngle = Math.atan2(mouse.y - player.y, mouse.x - player.x);
+    let diff = targetAngle - player.angle;
+    while(diff < -Math.PI) diff += Math.PI*2;
+    while(diff > Math.PI) diff -= Math.PI*2;
+    player.angle += diff * 0.1;
+
+    // 2. Timers
+    if (player.tripleShotTimer > 0) player.tripleShotTimer--;
+    if (player.rapidFireTimer > 0) player.rapidFireTimer--;
+    if (player.bigShotTimer > 0) player.bigShotTimer--;
+
+    // 3. Shooting
+    player.cooldown--;
+    const currentFireRate = player.rapidFireTimer > 0 ? 4 : FIRE_RATE_DEFAULT;
+    
+    if (player.cooldown <= 0) {
+        const sizeMod = player.bigShotTimer > 0 ? 3 : 1;
+        bullets.push(new Bullet(player.x, player.y, player.angle, true, sizeMod));
+        
+        if (player.tripleShotTimer > 0) {
+            bullets.push(new Bullet(player.x, player.y, player.angle + 0.3, true, sizeMod));
+            bullets.push(new Bullet(player.x, player.y, player.angle - 0.3, true, sizeMod));
+        }
+        player.cooldown = currentFireRate;
+    }
+
+    // 4. Draw Player
+    ctx.save();
+    ctx.translate(player.x, player.y);
+    ctx.rotate(player.angle);
+
+    // Attached Parts
+    for (let i = 0; i < player.parts.length; i++) {
+        const p = player.parts[i];
+        const px = Math.cos(p.angle) * p.dist;
+        const py = Math.sin(p.angle) * p.dist;
+        ctx.fillStyle = '#555';
+        ctx.strokeStyle = p.color;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.rect(px - p.size/2, py - p.size/2, p.size, p.size);
+        ctx.fill();
+        ctx.stroke();
+    }
+
+    // Core
+    ctx.fillStyle = '#0ff';
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = '#0ff';
+    ctx.beginPath();
+    ctx.arc(0, 0, CORE_SIZE, 0, Math.PI*2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    
+    // Turret
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, -3, 20, 6);
+    
+    // Magnet Aura
+    if(mouse.down) {
+        ctx.strokeStyle = 'rgba(0, 255, 255, 0.2)';
+        ctx.beginPath();
+        ctx.arc(0, 0, MAGNET_RANGE, 0, Math.PI*2);
+        ctx.stroke();
+    }
+    ctx.restore();
+
+    // --- SPAWNING ---
+    // Boss Spawn Check
+    if (score >= nextBossThreshold) {
+        // Warning
+        uiBossAlert.style.opacity = 1;
+        if (gameTime % 20 === 0) uiBossAlert.style.color = uiBossAlert.style.color === 'rgb(255, 0, 0)' ? '#fff' : '#f00';
+        
+        if (score >= nextBossThreshold + 50) { // Slight delay after warning
+            enemies.push(new Enemy(true)); // BOSS
+            nextBossThreshold += 2000;
+            difficultyLevel++;
+            uiBossAlert.style.opacity = 0;
+        }
+    } else if (gameTime % Math.max(20, 60 - difficultyLevel*2) === 0) {
+        enemies.push(new Enemy(false));
+    }
+
+    // --- UPDATES ---
+
+    // Powerups
+    for (let i = powerups.length - 1; i >= 0; i--) {
+        const p = powerups[i];
+        p.update();
+        p.draw(ctx);
+        // Collision with Core
+        const dist = Math.hypot(p.x - player.x, p.y - player.y);
+        if (dist < CORE_SIZE + 20) {
+            applyPowerup(p.type);
+            powerups.splice(i, 1);
+        } else if (p.life <= 0) {
+            powerups.splice(i, 1);
+        }
+    }
+
+    // Player Bullets
+    for(let i=bullets.length-1; i>=0; i--) {
+        bullets[i].update();
+        bullets[i].draw(ctx);
+        if(bullets[i].life <= 0) bullets.splice(i, 1);
+    }
+
+    // Enemy Bullets
+    for(let i=enemyBullets.length-1; i>=0; i--) {
+        const b = enemyBullets[i];
+        b.update();
+        b.draw(ctx);
+        if(b.life <= 0) { enemyBullets.splice(i, 1); continue; }
+        
+        // Hit Player?
+        // Check Armor
+        let blocked = false;
+        for (let pIdx = player.parts.length-1; pIdx >= 0; pIdx--) {
+            const p = player.parts[pIdx];
+            const px = player.x + Math.cos(player.angle + p.angle) * p.dist;
+            const py = player.y + Math.sin(player.angle + p.angle) * p.dist;
+            if (Math.hypot(b.x - px, b.y - py) < p.size/2 + b.size) {
+                player.parts.splice(pIdx, 1); // Armor breaks
+                uiParts.innerText = player.parts.length;
+                blocked = true;
+                spawnExplosion(px, py, '#aaa');
+                break;
+            }
+        }
+        // Check Core
+        if (!blocked && Math.hypot(b.x - player.x, b.y - player.y) < CORE_SIZE + b.size) {
+            damagePlayer(1);
+            blocked = true;
+        }
+        if (blocked) enemyBullets.splice(i, 1);
+    }
+
+    // Enemies
+    for (let i = enemies.length-1; i>=0; i--) {
+        const e = enemies[i];
+        e.update();
+        e.draw(ctx);
+
+        // Player Bullets hitting Enemy
+        for (let b = bullets.length-1; b>=0; b--) {
+            const dist = Math.hypot(e.x - bullets[b].x, e.y - bullets[b].y);
+            const hitDist = e.isBoss ? e.size : e.size + 4;
+            
+            if (dist < hitDist) {
+                e.hp -= bullets[b].damage;
+                spawnExplosion(e.x, e.y, '#ff0');
+                if (!bullets[b].piercing) bullets.splice(b, 1); // Remove bullet unless piercing (TODO)
+                else bullets.splice(b, 1); // Simple removal for now
+
+                if (e.hp <= 0) {
+                    e.dead = true;
+                    // Drops
+                    if (e.isBoss) {
+                        // Boss Drop: Lots of scrap + Powerup
+                        for(let k=0; k<5; k++) scraps.push(new Scrap(e.x, e.y, 15, e.color));
+                        powerups.push(new PowerUp(e.x, e.y));
+                        powerups.push(new PowerUp(e.x+10, e.y));
+                    } else {
+                        // Normal Drop
+                        scraps.push(new Scrap(e.x, e.y, e.size, e.color));
+                        if (Math.random() < 0.05) powerups.push(new PowerUp(e.x, e.y));
+                    }
+                }
+                break;
+            }
+        }
+
+        // Enemy hitting Player
+        if (!e.dead) {
+            // 1. Check Attachments
+            let armorHit = false;
+            for (let pIdx = player.parts.length-1; pIdx >= 0; pIdx--) {
+                const p = player.parts[pIdx];
+                const px = player.x + Math.cos(player.angle + p.angle) * p.dist;
+                const py = player.y + Math.sin(player.angle + p.angle) * p.dist;
+                
+                if (Math.hypot(e.x - px, e.y - py) < e.size + p.size/2) {
+                    player.parts.splice(pIdx, 1);
+                    e.dead = true;
+                    if (e.isBoss) e.hp -= 10; // Ramming boss hurts it but kills armor
+                    if (e.hp > 0) e.dead = false; // Boss survives ramming
+                    
+                    spawnExplosion(px, py, '#fff');
+                    spawnExplosion(e.x, e.y, e.color);
+                    uiParts.innerText = player.parts.length;
+                    armorHit = true;
+                    break;
+                }
+            }
+
+            // 2. Check Core
+            if (!armorHit) {
+                const hitDist = e.isBoss ? e.size + CORE_SIZE : e.size + CORE_SIZE;
+                if (Math.hypot(e.x - player.x, e.y - player.y) < hitDist) {
+                    damagePlayer(1);
+                    e.dead = true;
+                    if (e.isBoss) { e.dead = false; } // Boss just crushes you
+                }
+            }
+        }
+
+        if (e.dead) enemies.splice(i, 1);
+    }
+
+    // Scraps
+    for(let i=scraps.length-1; i>=0; i--) {
+        const s = scraps[i];
+        s.update();
+        s.draw(ctx);
+
+        const dist = Math.hypot(s.x - player.x, s.y - player.y);
+        if (dist < CORE_SIZE + s.size) {
+            attachScrap(s);
+            scraps.splice(i, 1);
+        } else if (s.life <= 0) {
+            scraps.splice(i, 1);
+        }
+    }
+
+    // Particles
+    for(let i=particles.length-1; i>=0; i--) {
+        particles[i].update();
+        particles[i].draw(ctx);
+        if(particles[i].life <= 0) particles.splice(i, 1);
+    }
+}
+
+// Start
+resetGame();
+
+</script>
+</body>
+</html>
