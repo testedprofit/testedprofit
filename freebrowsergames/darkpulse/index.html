@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DARK PULSE</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+            font-family: 'Consolas', monospace;
+            cursor: none; /* Hide default cursor */
+            touch-action: none;
+        }
+        canvas { display: block; }
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            pointer-events: none;
+            z-index: 10;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            letter-spacing: 5px;
+            color: #fff;
+            text-shadow: 0 0 10px #fff;
+        }
+        p { margin: 5px 0; font-size: 0.8rem; color: #666; }
+        #level-display { color: #0f0; }
+        
+        #message-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0,0,0,0.9);
+            color: #fff;
+            z-index: 20;
+            transition: opacity 0.5s;
+        }
+        #message-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        button {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 15px 30px;
+            font-family: inherit;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover { background: #fff; color: #000; }
+    </style>
+</head>
+<body>
+
+<div id="ui">
+    <h1>DARK PULSE</h1>
+    <p>LEVEL: <span id="level-display">1</span></p>
+    <p style="margin-top:20px;">Sound creates sight.</p>
+    <p>Sound brings death.</p>
+</div>
+
+<div id="message-overlay">
+    <h1 id="msg-title">INITIALIZING...</h1>
+    <p id="msg-desc">Click to Pulse. Find the Blue Exit.</p>
+    <button onclick="startGame()">ENTER THE VOID</button>
+</div>
+
+<canvas id="gameCanvas"></canvas>
+
+<script>
+/**
+ * DARK PULSE
+ * A LIDAR-based horror survival game.
+ */
+
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+const uiLevel = document.getElementById('level-display');
+const overlay = document.getElementById('message-overlay');
+const msgTitle = document.getElementById('msg-title');
+const msgDesc = document.getElementById('msg-desc');
+const btn = overlay.querySelector('button');
+
+let width, height;
+let gameState = 'MENU'; // MENU, PLAYING, GAMEOVER, WIN
+let level = 1;
+let frameId;
+
+// Entities
+const player = { x: 0, y: 0, radius: 6, speed: 2, dead: false };
+const exit = { x: 0, y: 0, radius: 15 };
+let walls = []; // Array of Line Segments {x1, y1, x2, y2}
+let enemies = [];
+let pulses = []; // Array of active sound pulses
+let revealedWalls = []; // Array of wall segments currently visible {x1,y1,x2,y2, alpha}
+
+// Input
+const keys = { w: false, a: false, s: false, d: false, ArrowUp: false, ArrowLeft: false, ArrowDown: false, ArrowRight: false };
+const mouse = { x: 0, y: 0 };
+
+// Setup
+function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+window.addEventListener('keydown', e => keys[e.key] = true);
+window.addEventListener('keyup', e => keys[e.key] = false);
+window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+window.addEventListener('mousedown', () => {
+    if(gameState === 'PLAYING') createPulse(player.x, player.y);
+});
+window.addEventListener('touchstart', e => {
+    e.preventDefault();
+    if(gameState === 'PLAYING') createPulse(player.x, player.y);
+    // Simple touch move logic for mobile
+    const touch = e.touches[0];
+    mouse.x = touch.clientX; 
+    mouse.y = touch.clientY;
+}, {passive: false});
+
+// --- MAZE GENERATION (Recursive Backtracker) ---
+const CELL_SIZE = 60;
+
+function generateLevel() {
+    walls = [];
+    enemies = [];
+    revealedWalls = [];
+    pulses = [];
+    
+    const cols = Math.floor(width / CELL_SIZE);
+    const rows = Math.floor(height / CELL_SIZE);
+    const grid = [];
+    
+    // Init Grid
+    for(let y=0; y<rows; y++) {
+        let row = [];
+        for(let x=0; x<cols; x++) row.push({ visited: false, walls: { top: true, right: true, bottom: true, left: true } });
+        grid.push(row);
+    }
+    
+    // Generate
+    const stack = [];
+    const startX = 0; 
+    const startY = 0;
+    grid[startY][startX].visited = true;
+    stack.push({x: startX, y: startY});
+    
+    while(stack.length > 0) {
+        const current = stack[stack.length - 1];
+        const neighbors = [];
+        
+        // Check neighbors
+        const dirs = [
+            { dx: 0, dy: -1, wall: 'top', opp: 'bottom' },
+            { dx: 1, dy: 0, wall: 'right', opp: 'left' },
+            { dx: 0, dy: 1, wall: 'bottom', opp: 'top' },
+            { dx: -1, dy: 0, wall: 'left', opp: 'right' }
+        ];
+        
+        dirs.forEach(d => {
+            const nx = current.x + d.dx;
+            const ny = current.y + d.dy;
+            if(nx >= 0 && nx < cols && ny >= 0 && ny < rows && !grid[ny][nx].visited) {
+                neighbors.push({x: nx, y: ny, dir: d});
+            }
+        });
+        
+        if(neighbors.length > 0) {
+            const next = neighbors[Math.floor(Math.random() * neighbors.length)];
+            // Remove walls
+            grid[current.y][current.x].walls[next.dir.wall] = false;
+            grid[next.y][next.x].walls[next.dir.opp] = false;
+            
+            grid[next.y][next.x].visited = true;
+            stack.push({x: next.x, y: next.y});
+        } else {
+            stack.pop();
+        }
+    }
+    
+    // Convert to Lines
+    for(let y=0; y<rows; y++) {
+        for(let x=0; x<cols; x++) {
+            const cx = x * CELL_SIZE + CELL_SIZE/2; // Offset to center in screen a bit
+            const cy = y * CELL_SIZE + CELL_SIZE/2;
+            const cell = grid[y][x];
+            
+            if(cell.walls.top) walls.push({x1: x*CELL_SIZE, y1: y*CELL_SIZE, x2: (x+1)*CELL_SIZE, y2: y*CELL_SIZE});
+            if(cell.walls.right) walls.push({x1: (x+1)*CELL_SIZE, y1: y*CELL_SIZE, x2: (x+1)*CELL_SIZE, y2: (y+1)*CELL_SIZE});
+            if(cell.walls.bottom) walls.push({x1: x*CELL_SIZE, y1: (y+1)*CELL_SIZE, x2: (x+1)*CELL_SIZE, y2: (y+1)*CELL_SIZE});
+            if(cell.walls.left) walls.push({x1: x*CELL_SIZE, y1: y*CELL_SIZE, x2: x*CELL_SIZE, y2: (y+1)*CELL_SIZE});
+        }
+    }
+    
+    // Set Player Start
+    player.x = CELL_SIZE / 2;
+    player.y = CELL_SIZE / 2;
+    player.dead = false;
+    
+    // Set Exit (Furthest point basically)
+    exit.x = (cols - 1) * CELL_SIZE + CELL_SIZE/2;
+    exit.y = (rows - 1) * CELL_SIZE + CELL_SIZE/2;
+    
+    // Spawn Enemies
+    const enemyCount = level + 2;
+    for(let i=0; i<enemyCount; i++) {
+        let ex, ey, dist;
+        do {
+            ex = Math.random() * width;
+            ey = Math.random() * height;
+            dist = Math.hypot(ex - player.x, ey - player.y);
+        } while(dist < 200); // Don't spawn too close
+        
+        enemies.push({
+            x: ex, y: ey,
+            speed: 1.5 + (level * 0.1),
+            state: 'IDLE', // IDLE, INVESTIGATING, CHASING
+            targetX: ex, targetY: ey,
+            visibleTimer: 0
+        });
+    }
+}
+
+// --- GAME LOGIC ---
+
+function startGame() {
+    if (gameState === 'GAMEOVER') level = 1;
+    gameState = 'PLAYING';
+    overlay.classList.add('hidden');
+    uiLevel.innerText = level;
+    generateLevel();
+    loop();
+}
+
+function gameOver(win) {
+    gameState = win ? 'WIN' : 'GAMEOVER';
+    overlay.classList.remove('hidden');
+    
+    if (win) {
+        msgTitle.innerText = "SECTOR CLEARED";
+        msgTitle.style.color = "#0f0";
+        msgDesc.innerText = "The silence holds... for now.";
+        btn.innerText = "NEXT LEVEL";
+        level++;
+    } else {
+        msgTitle.innerText = "YOU DIED";
+        msgTitle.style.color = "#f00";
+        msgDesc.innerText = "They heard you.";
+        btn.innerText = "TRY AGAIN";
+    }
+}
+
+function createPulse(x, y) {
+    pulses.push({
+        x: x, y: y,
+        radius: 1,
+        maxRadius: 400,
+        speed: 8,
+        life: 1.0
+    });
+    
+    // Alert Enemies
+    enemies.forEach(e => {
+        const dist = Math.hypot(e.x - x, e.y - y);
+        if (dist < 400) {
+            e.state = 'INVESTIGATING';
+            e.targetX = x; // Go to where sound originated
+            e.targetY = y;
+        }
+    });
+}
+
+function resolveCollision(entity, size) {
+    // Simple circle-line collision response
+    // Iterating walls is expensive, but we optimize by only checking nearby walls? 
+    // For this simple game, we check all. It's fine for < 1000 lines.
+    
+    walls.forEach(w => {
+        // Line segment
+        const x1 = w.x1, y1 = w.y1, x2 = w.x2, y2 = w.y2;
+        
+        // Closest point on line to circle center
+        const A = x1 - entity.x;
+        const B = y1 - entity.y;
+        const C = x2 - x1;
+        const D = y2 - y1;
+        
+        const dot = A * C + B * D;
+        const len_sq = C * C + D * D;
+        let param = -dot / len_sq;
+        
+        let xx, yy;
+        
+        if (param < 0) { xx = x1; yy = y1; }
+        else if (param > 1) { xx = x2; yy = y2; }
+        else { xx = x1 + param * C; yy = y1 + param * D; }
+        
+        const dx = entity.x - xx;
+        const dy = entity.y - yy;
+        const dst = Math.sqrt(dx * dx + dy * dy);
+        
+        if (dst < size) {
+            // Push out
+            const overlap = size - dst;
+            if (dst === 0) return; // Prevent divide by zero
+            const nx = dx / dst;
+            const ny = dy / dst;
+            entity.x += nx * overlap;
+            entity.y += ny * overlap;
+        }
+    });
+}
+
+function loop() {
+    if (gameState !== 'PLAYING') return;
+    frameId = requestAnimationFrame(loop);
+
+    // 1. Move Player
+    // Mouse follow logic (for easy control)
+    const angle = Math.atan2(mouse.y - player.y, mouse.x - player.x);
+    const distToMouse = Math.hypot(mouse.x - player.x, mouse.y - player.y);
+    
+    if (distToMouse > 5) {
+        player.x += Math.cos(angle) * player.speed;
+        player.y += Math.sin(angle) * player.speed;
+    }
+    
+    resolveCollision(player, player.radius);
+
+    // Check Exit
+    if (Math.hypot(player.x - exit.x, player.y - exit.y) < player.radius + exit.radius) {
+        gameOver(true);
+        return;
+    }
+
+    // 2. Update Pulses & Reveal Walls
+    for (let i = pulses.length - 1; i >= 0; i--) {
+        let p = pulses[i];
+        p.radius += p.speed;
+        p.life -= 0.01;
+        
+        // Check intersections with walls to reveal them
+        walls.forEach(w => {
+            // Distance from line to circle center check
+            // Only reveal if the expanding ring touches the wall
+            // Simple approach: Check distance of endpoints to center, if within range, light up
+            // Better approach: Intersection.
+            // Fast approach: If center of wall is within radius range.
+            
+            const midX = (w.x1 + w.x2) / 2;
+            const midY = (w.y1 + w.y2) / 2;
+            const dist = Math.hypot(midX - p.x, midY - p.y);
+            
+            // "Scan" effect: Only visible when radius is close to distance
+            if (Math.abs(dist - p.radius) < 20) {
+                // Check if already in revealed list to update alpha
+                // Actually, just push to a draw list for this frame? 
+                // No, we want them to fade slowly.
+                
+                // Add to revealed list (or reset timer if exists)
+                // We use a simple hash or ID to identify walls could be better, but object ref works
+                let match = revealedWalls.find(rw => rw.wall === w);
+                if (match) {
+                    match.alpha = 1.0;
+                    match.distMod = (1 - (dist / 600)); // Brighter if closer to source
+                } else {
+                    revealedWalls.push({ wall: w, alpha: 1.0, distMod: (1 - (dist/600)) });
+                }
+            }
+        });
+        
+        // Check Enemies
+        enemies.forEach(e => {
+            const dist = Math.hypot(e.x - p.x, e.y - p.y);
+            if (Math.abs(dist - p.radius) < 15) {
+                e.visibleTimer = 60; // Visible for 1 second
+            }
+        });
+
+        if (p.life <= 0 || p.radius > p.maxRadius) {
+            pulses.splice(i, 1);
+        }
+    }
+
+    // 3. Update Enemies
+    enemies.forEach(e => {
+        // AI Logic
+        // If visible, draw red
+        // If state is INVESTIGATING, move to target
+        // If close to player, state = CHASING (Cheat: they smell fear if very close)
+        
+        const distToPlayer = Math.hypot(e.x - player.x, e.y - player.y);
+        
+        if (distToPlayer < 80) e.state = 'CHASING';
+        
+        if (e.state === 'CHASING') {
+            e.targetX = player.x;
+            e.targetY = player.y;
+        }
+        
+        if (e.state !== 'IDLE') {
+            const angle = Math.atan2(e.targetY - e.y, e.targetX - e.x);
+            e.x += Math.cos(angle) * e.speed;
+            e.y += Math.sin(angle) * e.speed;
+            
+            // If reached target, go idle
+            if (Math.hypot(e.x - e.targetX, e.y - e.targetY) < 5) {
+                e.state = 'IDLE';
+            }
+        }
+        
+        resolveCollision(e, 8); // Enemies collide with walls
+        
+        if (distToPlayer < player.radius + 8) {
+            // Kill player
+            gameOver(false);
+        }
+        
+        if (e.visibleTimer > 0) e.visibleTimer--;
+    });
+
+    // --- DRAWING ---
+    
+    // Clear
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, width, height);
+    
+    // Draw Revealed Walls
+    ctx.lineWidth = 2;
+    for (let i = revealedWalls.length - 1; i >= 0; i--) {
+        let rw = revealedWalls[i];
+        ctx.strokeStyle = `rgba(255, 255, 255, ${rw.alpha})`;
+        ctx.beginPath();
+        ctx.moveTo(rw.wall.x1, rw.wall.y1);
+        ctx.lineTo(rw.wall.x2, rw.wall.y2);
+        ctx.stroke();
+        
+        rw.alpha -= 0.01; // Fade out
+        if (rw.alpha <= 0) revealedWalls.splice(i, 1);
+    }
+    
+    // Draw Pulses (The Rings)
+    ctx.lineWidth = 1;
+    pulses.forEach(p => {
+        ctx.strokeStyle = `rgba(0, 255, 255, ${p.life * 0.5})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.stroke();
+    });
+
+    // Draw Exit (Always faintly visible if revealed, or pulsating)
+    // Let's make exit invisible until pinged
+    const distExit = Math.hypot(exit.x - player.x, exit.y - player.y);
+    // Draw exit if any pulse hit it recently or close
+    let exitAlpha = 0;
+    pulses.forEach(p => {
+        const d = Math.hypot(exit.x - p.x, exit.y - p.y);
+        if (Math.abs(d - p.radius) < 50) exitAlpha = 1;
+    });
+    if (distExit < 100) exitAlpha = 1; // See it if close
+    
+    if (exitAlpha > 0) {
+        ctx.fillStyle = `rgba(0, 255, 0, ${0.5 + Math.sin(Date.now()/200)*0.5})`;
+        ctx.beginPath();
+        ctx.arc(exit.x, exit.y, exit.radius, 0, Math.PI*2);
+        ctx.fill();
+        ctx.fillStyle = '#000';
+        ctx.font = '10px Arial';
+        ctx.fillText('EXIT', exit.x - 10, exit.y + 3);
+    }
+    
+    // Draw Enemies (Only if visibleTimer > 0)
+    enemies.forEach(e => {
+        if (e.visibleTimer > 0) {
+            ctx.fillStyle = `rgba(255, 0, 0, ${e.visibleTimer / 20})`;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#f00';
+            ctx.beginPath();
+            ctx.arc(e.x, e.y, 8, 0, Math.PI*2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+            
+            // Draw "!" if chasing
+            if (e.state === 'CHASING') {
+                ctx.fillStyle = '#fff';
+                ctx.fillText('!', e.x - 2, e.y - 10);
+            }
+        }
+    });
+
+    // Draw Player
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(player.x, player.y, player.radius, 0, Math.PI*2);
+    ctx.fill();
+    
+    // Draw Flashlight/Direction indicator
+    /*
+    ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+    ctx.beginPath();
+    ctx.moveTo(player.x, player.y);
+    ctx.lineTo(mouse.x, mouse.y);
+    ctx.stroke();
+    */
+}
+
+</script>
+</body>
+</html>
