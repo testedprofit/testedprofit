@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Neon Leap: Chrono Climb</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #050505;
+            font-family: 'Courier New', Courier, monospace;
+            touch-action: none;
+            user-select: none;
+        }
+        canvas {
+            display: block;
+        }
+        #ui-layer {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            pointer-events: none;
+            z-index: 10;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #0ff;
+        }
+        p {
+            margin: 5px 0;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        #height-display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+        #game-over {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 20;
+        }
+        button {
+            background: transparent;
+            color: #0ff;
+            border: 2px solid #0ff;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+            transition: all 0.2s;
+        }
+        button:hover {
+            background: #0ff;
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+        }
+        .tutorial {
+            position: absolute;
+            bottom: 10%;
+            width: 100%;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="ui-layer">
+    <div id="height-display">0m</div>
+    <p>Jumps: <span id="jumps-display">2</span></p>
+</div>
+
+<div id="game-over">
+    <h1 style="color: #ff0055; text-shadow: 0 0 20px #ff0055;">SIGNAL LOST</h1>
+    <p style="margin-top: 10px;">Height Reached: <span id="final-score">0</span>m</p>
+    <button onclick="resetGame()">REBOOT</button>
+</div>
+
+<div class="tutorial" id="tutorial-msg">
+    DRAG & RELEASE to Jump<br>Time slows while aiming
+</div>
+
+<canvas id="gameCanvas"></canvas>
+
+<script>
+/**
+ * NEON LEAP: CHRONO CLIMB
+ * A physics platformer with time-dilation mechanics.
+ */
+
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+const uiHeight = document.getElementById('height-display');
+const uiJumps = document.getElementById('jumps-display');
+const uiGameOver = document.getElementById('game-over');
+const uiFinalScore = document.getElementById('final-score');
+const uiTutorial = document.getElementById('tutorial-msg');
+
+let width, height;
+let gameRunning = false;
+let score = 0;
+let highScore = 0;
+let cameraY = 0;
+let gameSpeed = 1.0;
+
+// Physics Constants
+const GRAVITY = 0.6;
+const DRAG_POWER = 0.15;
+const MAX_POWER = 25;
+const FRICTION = 0.98;
+const MAX_JUMPS = 2;
+
+// Input
+const mouse = { x: 0, y: 0, startX: 0, startY: 0, isDown: false };
+
+// Player
+const player = {
+    x: 0, y: 0,
+    vx: 0, vy: 0,
+    width: 20, height: 20,
+    jumps: MAX_JUMPS,
+    isGrounded: false,
+    color: '#0ff'
+};
+
+// World
+const platforms = [];
+const particles = [];
+let lavaY = 0;
+let lavaSpeed = 1.0;
+
+function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    if (!gameRunning) {
+        player.x = width / 2 - 10;
+        player.y = height - 150;
+        cameraY = 0;
+    }
+}
+window.addEventListener('resize', resize);
+resize();
+
+// Input Handlers
+window.addEventListener('mousedown', e => startDrag(e.clientX, e.clientY));
+window.addEventListener('touchstart', e => startDrag(e.touches[0].clientX, e.touches[0].clientY));
+
+window.addEventListener('mousemove', e => updateDrag(e.clientX, e.clientY));
+window.addEventListener('touchmove', e => { e.preventDefault(); updateDrag(e.touches[0].clientX, e.touches[0].clientY); }, {passive: false});
+
+window.addEventListener('mouseup', endDrag);
+window.addEventListener('touchend', endDrag);
+
+function startDrag(x, y) {
+    if (!gameRunning || player.jumps <= 0) return;
+    mouse.isDown = true;
+    mouse.startX = x;
+    mouse.startY = y;
+    mouse.x = x;
+    mouse.y = y;
+    uiTutorial.style.opacity = 0;
+}
+
+function updateDrag(x, y) {
+    if (mouse.isDown) {
+        mouse.x = x;
+        mouse.y = y;
+    }
+}
+
+function endDrag() {
+    if (!mouse.isDown) return;
+    mouse.isDown = false;
+    
+    // Launch Physics
+    const dx = mouse.startX - mouse.x;
+    const dy = mouse.startY - mouse.y;
+    
+    // Minimum drag distance to count as a jump
+    if (Math.hypot(dx, dy) > 10) {
+        let power = Math.hypot(dx, dy) * DRAG_POWER;
+        power = Math.min(power, MAX_POWER);
+        
+        const angle = Math.atan2(dy, dx);
+        
+        player.vx = Math.cos(angle) * power;
+        player.vy = Math.sin(angle) * power;
+        player.jumps--;
+        player.isGrounded = false;
+        
+        spawnParticles(player.x + 10, player.y + 10, '#0ff', 10);
+        screenShake = 5;
+    }
+}
+
+class Platform {
+    constructor(x, y, w, h, type = 'normal') {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.type = type; // normal, moving, crumble, kill
+        
+        if (type === 'moving') {
+            this.vx = (Math.random() > 0.5 ? 2 : -2);
+            this.range = 100;
+            this.startX = x;
+        }
+    }
+
+    update() {
+        if (this.type === 'moving') {
+            this.x += this.vx * gameSpeed;
+            if (this.x > this.startX + this.range || this.x < this.startX - this.range) {
+                this.vx *= -1;
+            }
+        }
+    }
+
+    draw(ctx, camY) {
+        const drawY = this.y - camY;
+        
+        // Skip if off screen
+        if (drawY > height || drawY + this.h < 0) return;
+
+        ctx.shadowBlur = 10;
+        
+        if (this.type === 'normal') {
+            ctx.fillStyle = '#fff';
+            ctx.shadowColor = '#fff';
+        } else if (this.type === 'moving') {
+            ctx.fillStyle = '#f0f';
+            ctx.shadowColor = '#f0f';
+        } else if (this.type === 'kill') {
+            ctx.fillStyle = '#f00';
+            ctx.shadowColor = '#f00';
+        }
+
+        ctx.fillRect(this.x, drawY, this.w, this.h);
+        ctx.shadowBlur = 0;
+        
+        // Detail for kill blocks
+        if (this.type === 'kill') {
+            ctx.fillStyle = '#500';
+            ctx.beginPath();
+            ctx.moveTo(this.x, drawY + this.h);
+            ctx.lineTo(this.x + this.w/2, drawY);
+            ctx.lineTo(this.x + this.w, drawY + this.h);
+            ctx.fill();
+        }
+    }
+}
+
+// Level Generation
+let highestPlatformY = 0;
+
+function generatePlatforms() {
+    // Generate up to 1000px above current highest
+    while (highestPlatformY > cameraY - height * 2) {
+        const y = highestPlatformY - (80 + Math.random() * 100);
+        const w = 60 + Math.random() * 100;
+        const x = Math.random() * (width - w);
+        
+        let type = 'normal';
+        const r = Math.random();
+        
+        // Difficulty scaling
+        const difficulty = Math.abs(y) / 5000; // Increases as you go up
+        
+        if (r < 0.2 + difficulty) type = 'moving';
+        if (r > 0.9 - difficulty) type = 'kill';
+
+        platforms.push(new Platform(x, y, w, 20, type));
+        highestPlatformY = y;
+    }
+    
+    // Cleanup old platforms
+    for (let i = platforms.length - 1; i >= 0; i--) {
+        if (platforms[i].y > cameraY + height + 100) {
+            platforms.splice(i, 1);
+        }
+    }
+}
+
+function resetGame() {
+    gameRunning = true;
+    player.x = width/2 - 10;
+    player.y = height - 150;
+    player.vx = 0;
+    player.vy = 0;
+    player.jumps = MAX_JUMPS;
+    
+    cameraY = 0;
+    score = 0;
+    lavaY = height;
+    lavaSpeed = 1.0;
+    
+    platforms.length = 0;
+    particles.length = 0;
+    
+    // Starter Platform
+    platforms.push(new Platform(width/2 - 100, height - 50, 200, 20));
+    highestPlatformY = height - 50;
+    
+    uiGameOver.style.display = 'none';
+    uiTutorial.style.opacity = 1;
+    
+    loop();
+}
+
+let screenShake = 0;
+
+function loop() {
+    if (!gameRunning) return;
+    requestAnimationFrame(loop);
+
+    // TIME CONTROL
+    // If dragging, time moves at 10% speed
+    const targetSpeed = mouse.isDown ? 0.05 : 1.0;
+    // Smooth transition
+    gameSpeed += (targetSpeed - gameSpeed) * 0.2;
+
+    // --- LOGIC ---
+    
+    // Player Physics
+    player.vy += GRAVITY * gameSpeed;
+    player.vx *= FRICTION; // Air resistance
+    
+    player.x += player.vx * gameSpeed;
+    player.y += player.vy * gameSpeed;
+    
+    // Wall bounce
+    if (player.x < 0) { player.x = 0; player.vx *= -0.8; }
+    if (player.x + player.width > width) { player.x = width - player.width; player.vx *= -0.8; }
+
+    // Camera Follow (Only moves up)
+    const targetCamY = player.y - height * 0.6;
+    if (targetCamY < cameraY) {
+        cameraY = targetCamY;
+    }
+    
+    // Lava Logic
+    lavaY -= lavaSpeed * gameSpeed * 0.5;
+    // Speed up lava as we go higher
+    lavaSpeed = 1.0 + (Math.abs(score) / 2000);
+    
+    // Force lava to be at least below screen at start
+    if (lavaY > cameraY + height) lavaY = cameraY + height;
+    
+    // Death Check
+    if (player.y > lavaY) gameOver();
+
+    // Platforms
+    generatePlatforms();
+    
+    let onGround = false;
+    
+    platforms.forEach(p => {
+        p.update();
+        
+        // Collision Detection
+        // Only collide if falling downwards and above the platform
+        if (player.vy > 0 &&
+            player.x + player.width > p.x &&
+            player.x < p.x + p.w &&
+            player.y + player.height >= p.y &&
+            player.y + player.height <= p.y + 20 + player.vy) {
+                
+                if (p.type === 'kill') {
+                    spawnParticles(player.x, player.y, '#f00', 20);
+                    gameOver();
+                } else {
+                    player.y = p.y - player.height;
+                    player.vy = 0;
+                    player.isGrounded = true;
+                    player.jumps = MAX_JUMPS;
+                    onGround = true;
+                    
+                    // Move with platform
+                    if (p.type === 'moving') player.x += p.vx * gameSpeed;
+                }
+        }
+    });
+    
+    if (!onGround && player.vy > 1) player.isGrounded = false;
+
+    // Update Score
+    const currentHeight = Math.floor(-player.y / 10);
+    if (currentHeight > score) score = currentHeight;
+    
+    // UI Updates
+    uiHeight.innerText = score + "m";
+    uiJumps.innerText = player.jumps;
+    uiJumps.style.color = player.jumps > 0 ? '#0ff' : '#555';
+
+    // --- DRAWING ---
+    
+    // Background
+    ctx.fillStyle = '#050505';
+    ctx.fillRect(0, 0, width, height);
+    
+    // Grid Effect
+    ctx.strokeStyle = '#111';
+    ctx.lineWidth = 1;
+    const gridOffset = -cameraY % 50;
+    ctx.beginPath();
+    for(let i=0; i<width; i+=50) { ctx.moveTo(i, 0); ctx.lineTo(i, height); }
+    for(let i=gridOffset; i<height; i+=50) { ctx.moveTo(0, i); ctx.lineTo(width, i); }
+    ctx.stroke();
+
+    // Shake
+    ctx.save();
+    if (screenShake > 0) {
+        ctx.translate((Math.random()-0.5)*screenShake, (Math.random()-0.5)*screenShake);
+        screenShake *= 0.9;
+    }
+
+    // Draw Lava
+    const drawLavaY = lavaY - cameraY;
+    const gradient = ctx.createLinearGradient(0, drawLavaY, 0, drawLavaY + 200);
+    gradient.addColorStop(0, '#ff0055');
+    gradient.addColorStop(1, '#550000');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, drawLavaY, width, height * 2);
+    
+    // Lava Top Line
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(0, drawLavaY);
+    for(let i=0; i<width; i+=20) {
+        ctx.lineTo(i, drawLavaY + Math.sin(Date.now()/200 + i)*5);
+    }
+    ctx.stroke();
+
+    // Draw Platforms
+    platforms.forEach(p => p.draw(ctx, cameraY));
+
+    // Draw Player
+    const drawX = player.x;
+    const drawY = player.y - cameraY;
+    
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = player.jumps > 0 ? '#0ff' : '#555';
+    ctx.fillStyle = player.jumps > 0 ? '#0ff' : '#555';
+    
+    // Squash and stretch
+    let scaleX = 1, scaleY = 1;
+    if (Math.abs(player.vy) > 5) { scaleX = 0.8; scaleY = 1.2; }
+    if (Math.abs(player.vx) > 5) { scaleX = 1.2; scaleY = 0.8; }
+    
+    ctx.translate(drawX + player.width/2, drawY + player.height/2);
+    ctx.scale(scaleX, scaleY);
+    ctx.fillRect(-player.width/2, -player.height/2, player.width, player.height);
+    
+    // Eye/Core
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(-3, -3, 6, 6);
+    
+    ctx.setTransform(1,0,0,1,0,0);
+    if (screenShake > 0) ctx.translate((Math.random()-0.5)*screenShake, (Math.random()-0.5)*screenShake); // Re-apply shake
+
+    // Draw Trajectory Line (When aiming)
+    if (mouse.isDown && player.jumps > 0) {
+        ctx.beginPath();
+        ctx.moveTo(drawX + player.width/2, drawY + player.height/2);
+        
+        const dx = mouse.startX - mouse.x;
+        const dy = mouse.startY - mouse.y;
+        
+        // Predict curve
+        let simX = 0, simY = 0;
+        let simVx = Math.cos(Math.atan2(dy, dx)) * Math.min(Math.hypot(dx, dy) * DRAG_POWER, MAX_POWER);
+        let simVy = Math.sin(Math.atan2(dy, dx)) * Math.min(Math.hypot(dx, dy) * DRAG_POWER, MAX_POWER);
+        
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = `rgba(0, 255, 255, 0.5)`;
+        
+        for(let i=0; i<10; i++) {
+            simX += simVx;
+            simY += simVy;
+            simVy += GRAVITY;
+            ctx.lineTo(drawX + 10 + simX, drawY + 10 + simY);
+        }
+        ctx.stroke();
+        
+        // Draw Slingshot anchor
+        ctx.beginPath();
+        ctx.arc(mouse.startX, mouse.startY - cameraY, 5, 0, Math.PI*2); // Note: Mouse is screen space
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+        ctx.fill();
+        
+        ctx.beginPath();
+        ctx.moveTo(mouse.startX, mouse.startY); // Screen space
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+        ctx.stroke();
+    }
+
+    // Particles
+    updateParticles();
+    
+    ctx.restore();
+}
+
+function spawnParticles(x, y, color, count) {
+    for(let i=0; i<count; i++) {
+        particles.push({
+            x: x, y: y,
+            vx: (Math.random() - 0.5) * 10,
+            vy: (Math.random() - 0.5) * 10,
+            life: 1.0,
+            color: color
+        });
+    }
+}
+
+function updateParticles() {
+    for(let i=particles.length-1; i>=0; i--) {
+        const p = particles[i];
+        p.x += p.vx * gameSpeed;
+        p.y += p.vy * gameSpeed;
+        p.life -= 0.05 * gameSpeed;
+        
+        ctx.globalAlpha = Math.max(0, p.life);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(p.x, p.y - cameraY, 3, 3);
+        ctx.globalAlpha = 1;
+        
+        if (p.life <= 0) particles.splice(i, 1);
+    }
+}
+
+function gameOver() {
+    gameRunning = false;
+    uiGameOver.style.display = 'flex';
+    uiFinalScore.innerText = score;
+}
+
+// Start
+resetGame();
+
+</script>
+</body>
+</html>
