@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfitNet Games - Free Browser Arcade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        h1, h2, h3, .brand-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 255, 136, 0.2);
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 15px rgba(52, 211, 153, 0.5);
+        }
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen bg-slate-900 bg-grid-pattern selection:bg-emerald-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-gamepad text-emerald-400 text-2xl"></i>
+                    <span class="text-xl font-bold tracking-wider text-white brand-font">ProfitNet<span class="text-emerald-400">Games</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#" class="bg-slate-800 text-white px-3 py-2 rounded-md text-sm font-medium border border-slate-600 hover:border-emerald-400 transition-colors">Directory</a>
+                        <a href="https://testedprofit.com/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Main Site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500 mb-6 drop-shadow-lg">
+                Play Without Limits
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400">
+                A curated directory of immersive free browser games. From tactical defense to cosmic exploration.
+            </p>
+            <div class="mt-8 flex justify-center gap-4">
+                <a href="#directory" class="px-8 py-3 rounded-full bg-emerald-500 text-slate-900 font-bold hover:bg-emerald-400 transition-all btn-glow">
+                    Start Playing
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Directory Section -->
+    <main id="directory" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex items-center gap-3 mb-10 border-b border-slate-700 pb-4">
+            <i class="fa-solid fa-layer-group text-emerald-400"></i>
+            <h2 class="text-2xl font-bold text-white">Game Library</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Featured: Conservation Game (Special Styling) -->
+            <div class="card-hover bg-slate-800 rounded-xl overflow-hidden border border-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.15)] relative group">
+                <div class="absolute top-0 right-0 bg-emerald-500 text-slate-900 text-xs font-bold px-3 py-1 rounded-bl-lg z-10">
+                    FEATURED
+                </div>
+                <div class="h-48 bg-gradient-to-br from-green-800 to-emerald-900 flex items-center justify-center relative overflow-hidden">
+                    <i class="fa-solid fa-leaf text-6xl text-emerald-400/80 group-hover:scale-110 transition-transform duration-500"></i>
+                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/leaves.png')] opacity-20"></div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-semibold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">Educational</span>
+                        <span class="text-xs font-semibold text-slate-400 bg-slate-700 px-2 py-0.5 rounded">Kids</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Conservation Game</h3>
+                    <p class="text-slate-400 text-sm mb-4">Learn about nature and protect the ecosystem in this engaging adventure for kids.</p>
+                    <a href="https://testedprofit.com/freebrowsergames/conservation%20game%20for%20kids" class="block w-full text-center py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-semibold transition-colors">
+                        <i class="fa-solid fa-play mr-2"></i> Play Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dark Pulse -->
+            <div class="card-hover bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group">
+                <div class="h-40 bg-gradient-to-br from-slate-900 to-purple-900 flex items-center justify-center relative">
+                    <i class="fa-solid fa-wave-square text-5xl text-purple-500/80 group-hover:animate-pulse"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-semibold text-purple-400 bg-purple-400/10 px-2 py-0.5 rounded">Action</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Dark Pulse</h3>
+                    <p class="text-slate-400 text-sm mb-4">Navigate through the shadows in a world where sound is your only guide.</p>
+                    <a href="https://testedprofit.com/freebrowsergames/darkpulse" class="block w-full text-center py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors border border-slate-600">
+                        <i class="fa-solid fa-play mr-2"></i> Play Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dead Zone -->
+            <div class="card-hover bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group">
+                <div class="h-40 bg-gradient-to-br from-red-900 to-slate-900 flex items-center justify-center">
+                    <i class="fa-solid fa-biohazard text-5xl text-red-500/80 group-hover:rotate-12 transition-transform"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-semibold text-red-400 bg-red-400/10 px-2 py-0.5 rounded">Survival</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Dead Zone</h3>
+                    <p class="text-slate-400 text-sm mb-4">Survive the outbreak. Resources are scarce and danger is everywhere.</p>
+                    <a href="https://testedprofit.com/freebrowsergames/deadzone" class="block w-full text-center py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors border border-slate-600">
+                        <i class="fa-solid fa-play mr-2"></i> Play Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- Glitch Swarm -->
+            <div class="card-hover bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group">
+                <div class="h-40 bg-gradient-to-br from-cyan-900 to-blue-900 flex items-center justify-center">
+                    <i class="fa-solid fa-bug text-5xl text-cyan-400/80 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-semibold text-cyan-400 bg-cyan-400/10 px-2 py-0.5 rounded">Arcade</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Glitch Swarm</h3>
+                    <p class="text-slate-400 text-sm mb-4">Fast-paced arcade action. Debug the system before the swarm takes over.</p>
+                    <a href="https://testedprofit.com/freebrowsergames/glitchswarm" class="block w-full text-center py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors border border-slate-600">
+                        <i class="fa-solid fa-play mr-2"></i> Play Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- Neon Leap -->
+            <div class="card-hover bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group">
+                <div class="h-40 bg-gradient-to-br from-fuchsia-900 to-pink-900 flex items-center justify-center">
+                    <i class="fa-solid fa-angles-up text-5xl text-fuchsia-400/80 group-hover:-translate-y-2 transition-transform"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-semibold text-fuchsia-400 bg-fuchsia-400/10 px-2 py-0.5 rounded">Platformer</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Neon Leap</h3>
+                    <p class="text-slate-400 text-sm mb-4">Precision platforming in a vibrant, neon-soaked vertical world.</p>
+                    <a href="https://testedprofit.com/freebrowsergames/neonleap" class="block w-full text-center py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors border border-slate-600">
+                        <i class="fa-solid fa-play mr-2"></i> Play Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- PolyMerge TD -->
+            <div class="card-hover bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group">
+                <div class="h-40 bg-gradient-to-br from-indigo-900 to-violet-900 flex items-center justify-center">
+                    <i class="fa-solid fa-chess-rook text-5xl text-indigo-400/80 group-hover:scale-90 transition-transform"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-semibold text-indigo-400 bg-indigo-400/10 px-2 py-0.5 rounded">Strategy</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">PolyMerge TD</h3>
+                    <p class="text-slate-400 text-sm mb-4">Merge polygons and build defenses in this geometric tower defense.</p>
+                    <a href="https://testedprofit.com/freebrowsergames/polymergeTD" class="block w-full text-center py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors border border-slate-600">
+                        <i class="fa-solid fa-play mr-2"></i> Play Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scrap Station -->
+            <div class="card-hover bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group">
+                <div class="h-40 bg-gradient-to-br from-orange-900 to-amber-900 flex items-center justify-center">
+                    <i class="fa-solid fa-gears text-5xl text-orange-400/80 group-hover:rotate-180 transition-transform duration-1000"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-semibold text-orange-400 bg-orange-400/10 px-2 py-0.5 rounded">Management</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Scrap Station</h3>
+                    <p class="text-slate-400 text-sm mb-4">Manage resources and rebuild machinery in a deep industrial wasteland.</p>
+                    <a href="https://testedprofit.com/freebrowsergames/scrapstation" class="block w-full text-center py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors border border-slate-600">
+                        <i class="fa-solid fa-play mr-2"></i> Play Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- Singularity -->
+            <div class="card-hover bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group">
+                <div class="h-40 bg-gradient-to-br from-gray-900 to-black flex items-center justify-center">
+                    <i class="fa-solid fa-atom text-5xl text-white/80 group-hover:spin-slow"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-semibold text-gray-400 bg-gray-700/50 px-2 py-0.5 rounded">Sci-Fi</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Singularity</h3>
+                    <p class="text-slate-400 text-sm mb-4">Bend physics and explore the unknown in the depths of a black hole.</p>
+                    <a href="https://testedprofit.com/freebrowsergames/singularity" class="block w-full text-center py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors border border-slate-600">
+                        <i class="fa-solid fa-play mr-2"></i> Play Now
+                    </a>
+                </div>
+            </div>
+
+             <!-- Solar Cycle -->
+             <div class="card-hover bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group">
+                <div class="h-40 bg-gradient-to-br from-yellow-900 to-orange-800 flex items-center justify-center">
+                    <i class="fa-solid fa-sun text-5xl text-yellow-400/80 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-xs font-semibold text-yellow-400 bg-yellow-400/10 px-2 py-0.5 rounded">Racing</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Solar Cycle</h3>
+                    <p class="text-slate-400 text-sm mb-4">High-speed racing powered by solar flares. Don't fly too close to the sun.</p>
+                    <a href="https://testedprofit.com/freebrowsergames/solarcycle" class="block w-full text-center py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors border border-slate-600">
+                        <i class="fa-solid fa-play mr-2"></i> Play Now
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-gamepad text-slate-600 text-lg"></i>
+                <span class="text-slate-500 font-bold text-sm">ProfitNet Games &copy; 2024</span>
+            </div>
+            <div class="flex gap-6 text-sm text-slate-500">
+                <a href="#" class="hover:text-emerald-400 transition-colors">Privacy</a>
+                <a href="#" class="hover:text-emerald-400 transition-colors">Terms</a>
+                <a href="https://testedprofit.com/" class="hover:text-emerald-400 transition-colors">TestedProfit.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple smooth scroll behavior (optional, as CSS scroll-behavior works in modern browsers)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
