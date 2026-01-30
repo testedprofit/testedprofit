@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statue of Woodbridge N. Ferris | Big Rapids Landmark | Profitnet</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Official digital asset page for the Statue of Woodbridge N. Ferris at Ferris State University. Exploring the legacy of Michigan's 28th Governor and educational pioneer.">
+    <meta name="keywords" content="Woodbridge N. Ferris Statue, Big Rapids Landmark, Ferris State University History, PNET Educational Assets, Michigan Historical Landmarks">
+    <meta name="author" content="Profitnet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LandmarkOrHistoricalService",
+      "name": "Statue of Woodbridge N. Ferris",
+      "description": "A bronze statue commemorating the founder of Ferris State University and Michigan Governor.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1010 Campus Dr",
+        "addressLocality": "Big Rapids",
+        "addressRegion": "MI",
+        "postalCode": "49307",
+        "addressCountry": "US"
+      }
+    }
+    </script>
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #070714;
+            --accent-emerald: #10B981;
+            --accent-teal: #2DD4BF;
+            --ferris-gold: #D4AF37;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-dark);
+            color: #E2E8F0;
+            line-height: 1.5;
+        }
+
+        .font-serif { font-family: 'Fraunces', serif; }
+
+        /* Unique "Institutional" UI Elements */
+        .column-border {
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-panel {
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(20px);
+        }
+
+        .statue-glow {
+            filter: drop-shadow(0 0 30px rgba(16, 185, 129, 0.15));
+        }
+
+        /* Subtle Vertical Text Indicator */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .bg-pattern {
+            background-image: radial-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Custom Hover for Educational Links */
+        .edu-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .edu-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-emerald);
+            transition: width 0.3s ease;
+        }
+        .edu-link:hover::after { width: 100%; }
+
+        #mobile-menu {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative bg-pattern">
+
+    <!-- Sticky Navigation (Profitnet Integrated) -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:scale-110" alt="Profitnet">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-xs font-black tracking-widest text-slate-400 hover:text-white transition-colors">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-black tracking-widest text-emerald-400">LANDMARKS</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-emerald-500/30 text-[10px] font-black text-emerald-400 hover:bg-emerald-500/10 transition-all uppercase tracking-[0.2em]">
+                    $PNET ASSET CONSOLE
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 flex flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-32">
+        
+        <!-- Hero: The Founder's Pillar -->
+        <section class="container mx-auto px-6 py-20 flex flex-col md:flex-row gap-16 items-center">
+            <div class="md:w-3/5" data-aos="fade-right">
+                <div class="mb-6 flex items-center space-x-4">
+                    <span class="h-[1px] w-12 bg-emerald-500"></span>
+                    <span class="text-[10px] font-black uppercase tracking-[0.5em] text-emerald-400">Institutional Landmark #49307</span>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-serif font-black leading-tight mb-8">
+                    WOODBRIDGE <br>
+                    <span class="italic text-emerald-500">N. FERRIS.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-400 font-medium max-w-xl leading-relaxed mb-10">
+                    Governor. Educator. Founder. This bronze monument at the heart of Big Rapids commemorates the man who believed education should be accessible to everyone.
+                </p>
+                <div class="flex gap-6">
+                    <a href="#biography" class="px-10 py-5 bg-emerald-500 text-slate-950 font-black text-xs uppercase tracking-widest hover:bg-white transition-all">Legacy Overview</a>
+                    <a href="#location" class="px-10 py-5 border border-white/10 text-white font-black text-xs uppercase tracking-widest hover:bg-white/5 transition-all">Location Data</a>
+                </div>
+            </div>
+
+            <!-- Symbolic Asset Visualization -->
+            <div class="md:w-2/5 relative" data-aos="fade-left">
+                <div class="absolute -top-10 -left-10 text-[180px] font-black text-white/5 select-none font-serif">W</div>
+                <div class="glass-panel p-2 rounded-2xl relative z-10">
+                    <div class="bg-slate-900 aspect-[4/5] flex items-center justify-center rounded-xl overflow-hidden group">
+                        <!-- SVG Representing the Statue Structure -->
+                        <svg viewBox="0 0 100 120" class="w-2/3 h-2/3 statue-glow opacity-60 group-hover:opacity-100 transition-opacity">
+                            <path d="M50 110 L30 110 L30 100 L70 100 L70 110 Z" fill="#334155" /> <!-- Base -->
+                            <rect x="40" y="30" width="20" height="70" fill="#10B981" /> <!-- Torso -->
+                            <circle cx="50" cy="20" r="10" fill="#10B981" /> <!-- Head -->
+                            <rect x="35" y="40" width="30" height="4" fill="#064E3B" /> <!-- Shoulders -->
+                        </svg>
+                    </div>
+                </div>
+                <div class="absolute bottom-4 -right-8 vertical-text text-[10px] font-bold tracking-[0.8em] text-emerald-500/50 uppercase">
+                    ESTABLISHED 1884
+                </div>
+            </div>
+        </section>
+
+        <!-- The 5.0 Precision Grid -->
+        <section id="biography" class="container mx-auto px-6 py-24 border-t border-white/5">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="md:col-span-1" data-aos="fade-up">
+                    <h3 class="text-xs font-black uppercase tracking-[0.4em] text-slate-500 mb-6">The Ratings</h3>
+                    <div class="flex items-center space-x-2 text-3xl font-serif font-black mb-2">
+                        <span>5.0</span>
+                        <div class="text-emerald-500 text-sm flex">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 font-bold">Unanimous community respect for the historical value of this monument.</p>
+                </div>
+
+                <div class="md:col-span-3 grid md:grid-cols-2 gap-12">
+                    <div class="space-y-6" data-aos="fade-up" data-aos-delay="100">
+                        <h4 class="text-2xl font-serif font-bold italic">Educational Visionary</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Woodbridge Nathan Ferris served as the 28th Governor of Michigan, but his primary passion was the Ferris Industrial School. The statue captures his likeness as a man of action, facing the campus he built from the ground up.
+                        </p>
+                    </div>
+                    <div class="space-y-6" data-aos="fade-up" data-aos-delay="200">
+                        <h4 class="text-2xl font-serif font-bold italic">Historical Pillar</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Positioned at 1010 Campus Drive, the monument is more than a statue; it's a symbolic anchor for the $PNET Educational Asset Cluster, representing the preservation of mid-Michigan's intellectual history.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Geographic Integration -->
+        <section id="location" class="bg-slate-950 py-32 border-y border-white/5 relative overflow-hidden">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-24 items-center">
+                <div class="order-2 md:order-1" data-aos="zoom-in">
+                    <div class="glass-panel p-8 rounded-[3rem] border-emerald-500/20">
+                        <div class="flex flex-col space-y-8">
+                            <div class="flex items-start space-x-6">
+                                <div class="w-12 h-12 bg-emerald-500/10 flex items-center justify-center text-emerald-500 rounded-full shrink-0">
+                                    <i class="fa-solid fa-compass"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-white">Coordinate Hub</h5>
+                                    <p class="text-sm text-slate-500">1010 Campus Dr, Big Rapids, MI 49307</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-6">
+                                <div class="w-12 h-12 bg-emerald-500/10 flex items-center justify-center text-emerald-500 rounded-full shrink-0">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-white">Public Access</h5>
+                                    <p class="text-sm text-slate-500">Site is open for public viewing 24 hours daily.</p>
+                                </div>
+                            </div>
+                            <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Woodbridge+N.+Ferris+Statue')" 
+                                    class="w-full py-5 bg-white text-slate-950 font-black uppercase text-xs tracking-widest hover:bg-emerald-400 transition-all">
+                                Open Navigation Suite
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2" data-aos="fade-left">
+                    <h2 class="text-5xl font-serif font-black mb-8 leading-tight">PRECISION <br><span class="text-emerald-500">PLACEMENT.</span></h2>
+                    <p class="text-slate-400 leading-relaxed italic">
+                        "The statue is positioned such that Mr. Ferris perpetually watches over the students entering the university's academic heart."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Ad/Footer Section (Profitnet Themed) -->
+    <footer class="bg-slate-950 pt-24 pb-12 border-t border-white/5 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-20">
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8" alt="Profitnet">
+                        <span class="text-xl font-bold tracking-tighter text-white">PROFITNET</span>
+                    </div>
+                    <p class="text-slate-500 max-w-sm text-sm">
+                        Integrating physical landmarks with the digital ecosystem. Our mission is the verification and preservation of historical value through the $PNET protocol.
+                    </p>
+                </div>
+                <div>
+                    <h6 class="text-[10px] font-black uppercase tracking-[0.3em] text-white mb-6">Asset Links</h6>
+                    <ul class="text-xs space-y-4 text-slate-500 font-bold">
+                        <li><a href="https://testedprofit.com/pages/PNET/" class="edu-link hover:text-emerald-400">$PNET Dashboard</a></li>
+                        <li><a href="https://testedprofit.com/pages/landmarks/" class="edu-link hover:text-emerald-400">Landmark Directory</a></li>
+                        <li><a href="#" class="edu-link hover:text-emerald-400">Conservation Docs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="text-[10px] font-black uppercase tracking-[0.3em] text-white mb-6">System</h6>
+                    <ul class="text-xs space-y-4 text-slate-500 font-bold">
+                        <li><a href="#" class="edu-link hover:text-emerald-400">Node Status</a></li>
+                        <li><a href="#" class="edu-link hover:text-emerald-400">Governance</a></li>
+                        <li><a href="#" class="edu-link hover:text-emerald-400">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-[10px] font-black uppercase tracking-widest text-slate-600">© 2026 Profitnet Conservation Ecosystem</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-slate-600 hover:text-emerald-400"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="text-slate-600 hover:text-emerald-400"><i class="fa-brands fa-discord"></i></a>
+                    <a href="#" class="text-slate-600 hover:text-emerald-400"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({ duration: 1000, once: true, offset: 50 });
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            mobileMenu.classList.remove('hidden');
+        });
+
+        const close = () => {
+            mobileMenu.classList.remove('active');
+            setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+        };
+        closeBtn.addEventListener('click', close);
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    });
+    </script>
+</body>
+</html>
