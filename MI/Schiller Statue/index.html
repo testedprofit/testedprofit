@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schiller Statue | Belle Isle, Detroit | Profitnet Cultural Assets</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore the Friedrich Schiller Statue on Belle Isle, Detroit. A historical monument to the German poet of liberty and a key cultural asset in the Profitnet database.">
+    <meta name="keywords" content="Schiller Statue Detroit, Friedrich Schiller Belle Isle, German-American Landmarks, Detroit Historical Statues, PNET Cultural Assets, Belle Isle Park">
+    <meta name="author" content="Profitnet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LandmarkOrHistoricalService",
+      "name": "Schiller Statue",
+      "description": "Bronze statue of German poet Friedrich Schiller, located on Belle Isle Park.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Central Ave",
+        "addressLocality": "Detroit",
+        "addressRegion": "MI",
+        "postalCode": "48207",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "42.3365",
+        "longitude": "-82.9846"
+      }
+    }
+    </script>
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #0f0e0e; /* Deep Charcoal */
+            --bronze-aged: #4ade80; /* Oxidized Green/Teal for patina */
+            --bronze-polish: #d4a373; /* Copper/Gold */
+            --parchment: #e5e5e5;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--parchment);
+            line-height: 1.7;
+        }
+
+        .font-classic { font-family: 'Cinzel', serif; }
+
+        /* Etched Background Pattern */
+        .etched-bg {
+            background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 10px),
+                              repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 10px);
+            background-size: 20px 20px;
+        }
+
+        /* "Book Plate" Borders */
+        .book-plate {
+            position: relative;
+            border: 1px solid rgba(212, 163, 115, 0.2);
+        }
+        .book-plate::before, .book-plate::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 1px solid var(--bronze-polish);
+            transition: all 0.5s ease;
+        }
+        .book-plate::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+        .book-plate::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+        
+        .book-plate:hover::before, .book-plate:hover::after {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Typography Styling */
+        .drop-cap {
+            float: left;
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            line-height: 3.5rem;
+            padding-right: 1rem;
+            color: var(--bronze-polish);
+        }
+
+        .gradient-bronze {
+            background: linear-gradient(to right, #d4a373, #fae1dd, #d4a373);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb { background: #333; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--bronze-polish); }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(-100%);
+        }
+        #mobile-menu.active { transform: translateY(0); }
+    </style>
+</head>
+<body class="antialiased etched-bg relative">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-[#0f0e0e]/90 backdrop-blur-sm border-b border-white/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 opacity-80 group-hover:opacity-100 transition-opacity" alt="Profitnet">
+                <span class="text-lg font-classic font-bold tracking-widest text-white group-hover:text-[#d4a373] transition-colors">PROFITNET</span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-12 items-center">
+                <a href="/" class="text-[10px] font-bold text-slate-400 hover:text-white transition-colors uppercase tracking-[0.2em]">Home</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-[10px] font-bold text-[#d4a373] uppercase tracking-[0.2em] relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[1px] after:bg-[#d4a373]">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 border border-[#d4a373]/30 text-[10px] font-bold text-[#d4a373] hover:bg-[#d4a373]/10 transition-all uppercase tracking-[0.2em]">
+                    $PNET Archive
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-[#d4a373]"><i class="fa-solid fa-bars"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-[#0f0e0e] z-40 flex flex-col items-center justify-center space-y-8 lg:hidden border-b border-[#d4a373]/20">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-times"></i></button>
+            <a href="/" class="text-xl font-classic text-white">HOME</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-classic text-[#d4a373]">LANDMARKS</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-classic text-white">$PNET ARCHIVE</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-40 pb-20">
+        
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 mb-32 text-center" data-aos="fade-up">
+            <div class="inline-flex items-center space-x-4 mb-8 opacity-60">
+                <span class="h-[1px] w-20 bg-[#d4a373]"></span>
+                <span class="text-[10px] uppercase tracking-[0.4em] text-[#d4a373]">Belle Isle Collection</span>
+                <span class="h-[1px] w-20 bg-[#d4a373]"></span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-classic font-bold mb-8 leading-tight">
+                THE POET OF <br>
+                <span class="gradient-bronze">LIBERTY.</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-slate-400 font-light text-lg mb-12 italic">
+                "Art is the daughter of Freedom." <br>
+                <span class="text-sm not-italic mt-2 block text-[#d4a373]">— Friedrich Schiller</span>
+            </p>
+
+            <div class="flex justify-center gap-6">
+                <a href="#history" class="group relative px-8 py-3 border border-[#d4a373] text-[#d4a373] overflow-hidden">
+                    <span class="relative z-10 text-xs font-bold uppercase tracking-[0.2em] group-hover:text-black transition-colors">Read History</span>
+                    <div class="absolute inset-0 bg-[#d4a373] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- The Triptych Grid -->
+        <section id="history" class="container mx-auto px-6 mb-32">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Panel 1 -->
+                <article class="book-plate p-10 bg-white/5 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-[#4ade80] text-2xl mb-6"><i class="fa-solid fa-feather-pointed"></i></div>
+                    <h2 class="text-xl font-classic text-white mb-4">The Subject</h2>
+                    <p class="text-sm text-slate-400 text-justify">
+                        <span class="drop-cap">F</span>riedrich Schiller (1759-1805) was a German poet, philosopher, and historian. His works celebrated reason, humanity, and the struggle for freedom, resonating deeply with the ideals of the Enlightenment.
+                    </p>
+                </article>
+
+                <!-- Panel 2 -->
+                <article class="book-plate p-10 bg-white/5 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-[#d4a373] text-2xl mb-6"><i class="fa-solid fa-landmark"></i></div>
+                    <h2 class="text-xl font-classic text-white mb-4">The Monument</h2>
+                    <p class="text-sm text-slate-400 text-justify">
+                        Erected in 1908 by Detroit's German-American community, this bronze figure stands as a testament to cultural heritage. Over a century later, it remains a stoic guardian of Central Avenue.
+                    </p>
+                </article>
+
+                <!-- Panel 3 -->
+                <article class="book-plate p-10 bg-white/5 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-white text-2xl mb-6"><i class="fa-solid fa-tree"></i></div>
+                    <h2 class="text-xl font-classic text-white mb-4">The Setting</h2>
+                    <p class="text-sm text-slate-400 text-justify">
+                        Located on Belle Isle, an island park designed by Frederick Law Olmsted. The statue is surrounded by nature, bridging the gap between intellectual pursuit and the natural world.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Location & Stats -->
+        <section class="container mx-auto px-6">
+            <div class="relative border-t border-b border-white/10 py-20">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0f0e0e] px-4">
+                    <i class="fa-solid fa-diamond text-[#d4a373] text-xs"></i>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <h3 class="text-3xl font-classic mb-8">Asset Coordinates</h3>
+                        <ul class="space-y-6">
+                            <li class="flex items-start">
+                                <span class="text-[#d4a373] w-8 mt-1"><i class="fa-solid fa-map-pin"></i></span>
+                                <div>
+                                    <strong class="block text-white text-sm uppercase tracking-widest">Address</strong>
+                                    <span class="text-slate-400">Central Ave, Detroit, MI 48207</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#d4a373] w-8 mt-1"><i class="fa-regular fa-clock"></i></span>
+                                <div>
+                                    <strong class="block text-white text-sm uppercase tracking-widest">Access</strong>
+                                    <span class="text-slate-400">Open 24 Hours / Belle Isle Park Pass Required for Vehicle Entry</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-[#d4a373] w-8 mt-1"><i class="fa-solid fa-star"></i></span>
+                                <div>
+                                    <strong class="block text-white text-sm uppercase tracking-widest">Rating</strong>
+                                    <span class="text-slate-400">5.0 (4 Reviews) - A quiet, contemplative site.</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Schiller+Statue+Detroit')" 
+                                class="mt-10 px-8 py-4 bg-[#d4a373] text-[#0f0e0e] font-bold text-xs uppercase tracking-[0.2em] hover:bg-white transition-colors">
+                            Navigate to Isle
+                        </button>
+                    </div>
+
+                    <div class="relative h-full min-h-[300px] border border-white/5 bg-[#1a1a1a] p-8 flex items-center justify-center" data-aos="fade-left">
+                        <!-- Abstract Statue Representation SVG -->
+                        <svg viewBox="0 0 200 300" class="w-full h-64 drop-shadow-2xl opacity-80">
+                            <!-- Pedestal -->
+                            <rect x="70" y="250" width="60" height="50" fill="#2d2d2d" />
+                            <rect x="60" y="290" width="80" height="10" fill="#2d2d2d" />
+                            <!-- Statue Silhouette (Abstract) -->
+                            <path d="M100 250 L100 100" stroke="#4ade80" stroke-width="2" />
+                            <circle cx="100" cy="80" r="20" fill="none" stroke="#d4a373" stroke-width="2" />
+                            <path d="M100 100 Q60 150 100 200 Q140 150 100 100" fill="none" stroke="#4ade80" stroke-width="1" />
+                            <text x="100" y="275" text-anchor="middle" font-family="Cinzel" font-size="8" fill="#555" letter-spacing="2">SCHILLER</text>
+                        </svg>
+                        
+                        <div class="absolute bottom-4 right-4 text-[10px] text-[#4ade80] uppercase tracking-widest font-bold">
+                            Profitnet Verified
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0a0a] border-t border-[#d4a373]/20 pt-16 pb-8">
+        <div class="container mx-auto px-6 text-center md:text-left">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                    <h4 class="font-classic text-xl text-white mb-4">PROFITNET</h4>
+                    <p class="text-sm text-slate-500 max-w-md mx-auto md:mx-0">
+                        Preserving the intellectual and physical history of our shared spaces. The Schiller Statue is cataloged as a protected cultural landmark.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-bold text-[#d4a373] uppercase tracking-[0.2em] mb-6">Directory</h5>
+                    <ul class="space-y-3 text-xs text-slate-400">
+                        <li><a href="https://testedprofit.com/pages/PNET/" class="hover:text-white transition-colors">$PNET Dashboard</a></li>
+                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-white transition-colors">Landmark Map</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-bold text-[#d4a373] uppercase tracking-[0.2em] mb-6">Connect</h5>
+                    <div class="flex justify-center md:justify-start space-x-6">
+                        <a href="#" class="text-slate-500 hover:text-[#d4a373]"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="text-slate-500 hover:text-[#d4a373]"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-[10px] text-slate-600 uppercase tracking-widest">© 2026 Profitnet Cultural Preservation.</p>
+                <p class="text-[10px] text-slate-600 uppercase tracking-widest mt-2 md:mt-0">ID: DET-SCH-1908</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({ duration: 1200, once: true, offset: 50 });
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        const toggleMenu = (open) => {
+            if(open) mobileMenu.classList.add('active');
+            else mobileMenu.classList.remove('active');
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+    });
+    </script>
+</body>
+</html>
