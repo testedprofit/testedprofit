@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statue of Liberty Torch | Rogers City, MI | Profitnet Assets</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Visit the Statue of Liberty Torch Sculpture in Rogers City, MI. A patriotic landmark located in Lakeside Park on the shores of Lake Huron.">
+    <meta name="keywords" content="Statue of Liberty Torch Rogers City, Lakeside Park Landmarks, Lake Huron Monuments, Michigan Patriotic Statues, PNET Cultural Assets">
+    <meta name="author" content="Profitnet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LandmarkOrHistoricalService",
+      "name": "Statue of Liberty Torch Sculpture",
+      "description": "Sculptural tribute to the Statue of Liberty's torch, located in Lakeside Park.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "120 N Lake St",
+        "addressLocality": "Rogers City",
+        "addressRegion": "MI",
+        "postalCode": "49779",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "45.4226",
+        "longitude": "-83.8155"
+      }
+    }
+    </script>
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --lake-huron: #0c4a6e; /* Deep Navy */
+            --torch-gold: #f59e0b; /* Amber/Gold */
+            --limestone: #f1f5f9; /* Off-white */
+            --patina: #10b981; /* Liberty Green */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--lake-huron);
+            color: var(--limestone);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .font-classic { font-family: 'Libre Baskerville', serif; }
+
+        /* Horizon Background */
+        .horizon-bg {
+            background: linear-gradient(180deg, #0f172a 0%, #0c4a6e 60%, #0284c7 100%);
+            position: relative;
+        }
+
+        /* The Beacon Beam Animation */
+        .beacon-beam {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 600px;
+            background: linear-gradient(to top, rgba(245, 158, 11, 0.4), transparent);
+            transform-origin: bottom center;
+            transform: translateX(-50%) rotate(-15deg);
+            filter: blur(20px);
+            animation: sweep 8s ease-in-out infinite alternate;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes sweep {
+            0% { transform: translateX(-50%) rotate(-15deg) scaleY(1); opacity: 0.5; }
+            50% { transform: translateX(-50%) rotate(0deg) scaleY(1.1); opacity: 0.8; }
+            100% { transform: translateX(-50%) rotate(15deg) scaleY(1); opacity: 0.5; }
+        }
+
+        /* Glass Panel */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--torch-gold);
+        }
+
+        /* Gold Gradient Text */
+        .text-gold-gradient {
+            background: linear-gradient(to right, #fcd34d, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--lake-huron); }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    </style>
+</head>
+<body class="antialiased horizon-bg relative min-h-screen">
+
+    <!-- Header (Profitnet Integrated) -->
+    <header class="fixed w-full top-0 z-50 bg-[#0f172a]/90 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 opacity-90 group-hover:opacity-100 transition-opacity" alt="Profitnet">
+                <span class="text-xl font-classic font-bold tracking-widest text-white uppercase group-hover:text-[#f59e0b] transition-colors">Profitnet</span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-xs font-bold text-slate-400 hover:text-white transition-colors uppercase tracking-[0.2em]">Home</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-[0.2em] text-[#f59e0b] border-b border-[#f59e0b]/50 pb-1">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 border border-slate-600 text-[10px] font-bold text-slate-300 hover:border-[#f59e0b] hover:text-[#f59e0b] transition-all uppercase tracking-[0.2em]">
+                    $PNET Console
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-[#f59e0b] text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-[#0f172a] z-40 flex flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-2xl font-classic text-white uppercase">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-2xl font-classic text-[#f59e0b] uppercase">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-2xl font-classic text-white uppercase">$PNET Console</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-32 pb-20">
+        
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 mb-24 relative">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fa-solid fa-water text-cyan-400"></i>
+                        <span class="text-cyan-400 text-xs font-bold uppercase tracking-[0.3em]">Lakeside Park • Lake Huron</span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-classic font-bold leading-tight mb-8 text-white">
+                        THE FLAME <br>
+                        OF THE <span class="text-gold-gradient">NORTH.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-slate-300 max-w-lg mb-10 leading-relaxed font-light border-l-2 border-[#f59e0b] pl-6">
+                        A unique sculptural tribute in Rogers City, holding the light of liberty against the backdrop of the "Nautical City."
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#stats" class="px-8 py-4 bg-[#f59e0b] hover:bg-amber-600 text-slate-900 font-bold uppercase tracking-widest text-xs transition-colors shadow-lg shadow-amber-900/20">
+                            Asset Details
+                        </a>
+                        <a href="#location" class="px-8 py-4 border border-slate-500 text-slate-300 hover:text-white hover:border-white font-bold uppercase tracking-widest text-xs transition-colors">
+                            Map Location
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual: The Beacon -->
+                <div class="relative h-[500px] flex items-center justify-center" data-aos="fade-left">
+                    <div class="beacon-beam"></div>
+                    
+                    <!-- SVG Graphic -->
+                    <svg viewBox="0 0 300 500" class="h-full drop-shadow-2xl relative z-10">
+                        <defs>
+                            <radialGradient id="flameGrad" cx="50%" cy="80%" r="80%">
+                                <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                                <stop offset="60%" style="stop-color:#f59e0b;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+                            </radialGradient>
+                            <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#334155;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#475569;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Base/Handle -->
+                        <path d="M120 500 L110 300 L100 250 L200 250 L190 300 L180 500 Z" fill="url(#metalGrad)" />
+                        
+                        <!-- Torch Platform -->
+                        <rect x="80" y="230" width="140" height="20" fill="#10b981" opacity="0.8" />
+                        <path d="M90 230 L100 200 L200 200 L210 230 Z" fill="#10b981" opacity="0.6" />
+                        
+                        <!-- The Flame -->
+                        <path d="M150 50 
+                                 C120 100, 100 150, 120 200 
+                                 L180 200 
+                                 C200 150, 180 100, 150 50 Z" fill="url(#flameGrad)" class="animate-pulse" />
+                        <path d="M150 70 
+                                 C135 110, 125 150, 135 190 
+                                 L165 190 
+                                 C175 150, 165 110, 150 70 Z" fill="#fcd34d" opacity="0.7" />
+                    </svg>
+
+                    <!-- Rating Badge -->
+                    <div class="absolute bottom-10 right-10 bg-white/10 backdrop-blur-md p-4 border border-white/20">
+                        <div class="text-3xl font-classic font-bold text-white">4.7</div>
+                        <div class="text-[10px] text-[#f59e0b] uppercase tracking-widest">Community Rating</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats & Context -->
+        <section id="stats" class="container mx-auto px-6 mb-24">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <article class="glass-panel p-8" data-aos="fade-up" data-aos-delay="0">
+                    <i class="fa-solid fa-anchor text-3xl text-cyan-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase tracking-wide">Lakeside Setting</h3>
+                    <p class="text-sm text-slate-300">
+                        Situated in Lakeside Park, offering panoramic views of the Rogers City Marina and the vast expanse of Lake Huron.
+                    </p>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="glass-panel p-8" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-fire text-3xl text-[#f59e0b] mb-4"></i>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase tracking-wide">Symbolism</h3>
+                    <p class="text-sm text-slate-300">
+                        A replica focusing on the torch—the symbol of enlightenment and the path to liberty—reflecting the patriotic spirit of the community.
+                    </p>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="glass-panel p-8" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-gem text-3xl text-slate-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase tracking-wide">Limestone Legacy</h3>
+                    <p class="text-sm text-slate-300">
+                        Rogers City is the "Nautical City" and home to the world's largest limestone quarry, a history often tied to its monuments.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Location Module -->
+        <section id="location" class="container mx-auto px-6">
+            <div class="bg-[#0f172a] border border-slate-700 relative overflow-hidden">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-12 flex flex-col justify-center">
+                        <h2 class="text-3xl font-classic text-white mb-8">ROGERS CITY</h2>
+                        
+                        <div class="space-y-6 mb-10">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 flex items-center justify-center text-[#f59e0b] border border-[#f59e0b] rounded-full shrink-0">
+                                    <i class="fa-solid fa-map-pin"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-sm">120 N Lake St</p>
+                                    <p class="text-slate-500 text-xs uppercase tracking-wider">Rogers City, MI 49779</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 flex items-center justify-center text-slate-400 border border-slate-600 rounded-full shrink-0">
+                                    <i class="fa-solid fa-tree"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-sm">Lakeside Park</p>
+                                    <p class="text-slate-500 text-xs uppercase tracking-wider">Public Access / Marina Adjacent</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Statue+of+Liberty+Torch+Rogers+City')" 
+                                class="w-full py-4 bg-slate-800 hover:bg-[#f59e0b] hover:text-slate-900 text-white font-bold uppercase tracking-widest text-xs transition-colors flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-route"></i> Navigate
+                        </button>
+                    </div>
+
+                    <div class="relative h-64 md:h-auto bg-slate-900 flex items-center justify-center group overflow-hidden">
+                        <!-- Abstract Map Pattern -->
+                        <div class="absolute inset-0 opacity-10" 
+                             style="background-image: repeating-linear-gradient(45deg, #f59e0b 0, #f59e0b 1px, transparent 0, transparent 50%); background-size: 20px 20px;">
+                        </div>
+                        
+                        <div class="text-center relative z-10 group-hover:translate-y-[-5px] transition-transform duration-300">
+                            <i class="fa-solid fa-location-crosshairs text-5xl text-slate-700 mb-4 group-hover:text-[#f59e0b] transition-colors"></i>
+                            <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">Coordinate Lock</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0b1120] border-t border-slate-800 pt-16 pb-8 relative z-10 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-landmark text-[#f59e0b]"></i>
+                        <h4 class="font-classic font-bold text-xl text-white tracking-widest uppercase">Profitnet Assets</h4>
+                    </div>
+                    <p class="text-sm text-slate-500 max-w-sm">
+                        Preserving the landmarks of liberty and industry. The Torch Sculpture is a verified cultural asset in the Profitnet Database.
+                    </p>
+                </div>
+                
+                <div>
+                    <h5 class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-6">Directory</h5>
+                    <ul class="space-y-3 text-xs font-bold text-slate-500">
+                        <li><a href="https://testedprofit.com/pages/PNET/" class="hover:text-[#f59e0b] transition-colors">$PNET Dashboard</a></li>
+                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-[#f59e0b] transition-colors">Landmark Map</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-6">Social</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-600 hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="text-slate-600 hover:text-white transition-colors"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-900 pt-8 flex justify-between items-center text-[10px] text-slate-600 uppercase tracking-widest font-bold">
+                <p>© 2026 Profitnet. All rights reserved.</p>
+                <p>Asset ID: MI-ROG-49779</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({ duration: 1000, once: true, offset: 50 });
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        const toggleMenu = (open) => {
+            if (open) {
+                mobileMenu.classList.add('active');
+            } else {
+                mobileMenu.classList.remove('active');
+            }
+        };
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
