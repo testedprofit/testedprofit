@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirtland's Warbler Monument | Mio, MI | Profitnet Conservation</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Visit the Kirtland's Warbler Monument in Mio, Michigan. A tribute to the recovery of the rarest warbler in North America and the Jack Pine ecosystem.">
+    <meta name="keywords" content="Kirtland's Warbler Monument, Mio Michigan, Jack Pine Warbler, Conservation Success Story, Birdwatching Landmarks, PNET Cultural Assets">
+    <meta name="author" content="Profitnet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LandmarkOrHistoricalService",
+      "name": "Kirtland's Warbler Monument",
+      "description": "Monument dedicated to the Kirtland's Warbler, located in the heart of the Jack Pine ecosystem.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "300-398 Morenci Ave",
+        "addressLocality": "Mio",
+        "addressRegion": "MI",
+        "postalCode": "48647",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "44.6514",
+        "longitude": "-84.1297"
+      }
+    }
+    </script>
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --pine-deep: #052e16; /* Dark Forest */
+            --pine-light: #166534;
+            --warbler-yellow: #facc15; /* Bird breast color */
+            --ash-grey: #94a3b8; /* Burnt pine/Ash */
+            --sky-pale: #e0f2fe;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--pine-deep);
+            color: #f0fdf4;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .font-serif { font-family: 'Lora', serif; }
+
+        /* "Pine Needle" Background Pattern */
+        .pine-bg {
+            background-image: 
+                linear-gradient(30deg, rgba(22, 101, 52, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(22, 101, 52, 0.05) 87.5%, rgba(22, 101, 52, 0.05)),
+                linear-gradient(150deg, rgba(22, 101, 52, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(22, 101, 52, 0.05) 87.5%, rgba(22, 101, 52, 0.05)),
+                linear-gradient(30deg, rgba(22, 101, 52, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(22, 101, 52, 0.05) 87.5%, rgba(22, 101, 52, 0.05)),
+                linear-gradient(150deg, rgba(22, 101, 52, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(22, 101, 52, 0.05) 87.5%, rgba(22, 101, 52, 0.05)),
+                linear-gradient(60deg, rgba(22, 101, 52, 0.05) 25%, transparent 25.5%, transparent 75%, rgba(22, 101, 52, 0.05) 75%, rgba(22, 101, 52, 0.05)),
+                linear-gradient(60deg, rgba(22, 101, 52, 0.05) 25%, transparent 25.5%, transparent 75%, rgba(22, 101, 52, 0.05) 75%, rgba(22, 101, 52, 0.05));
+            background-size: 40px 70px;
+            background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+        }
+
+        /* Habitat Card */
+        .habitat-card {
+            background: rgba(22, 101, 52, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 3px solid var(--warbler-yellow);
+            transition: all 0.3s ease;
+        }
+
+        .habitat-card:hover {
+            background: rgba(22, 101, 52, 0.2);
+            transform: translateX(8px);
+        }
+
+        /* Sound Wave Animation (Visualizing Birdsong) */
+        .sound-wave {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            height: 30px;
+        }
+        .bar {
+            width: 3px;
+            background-color: var(--warbler-yellow);
+            animation: sound 1s infinite ease-in-out;
+            border-radius: 2px;
+        }
+        @keyframes sound {
+            0%, 100% { height: 20%; opacity: 0.5; }
+            50% { height: 100%; opacity: 1; }
+        }
+
+        /* Gradient Text */
+        .text-plumage {
+            background: linear-gradient(to right, #fef08a, #facc15);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--pine-deep); }
+        ::-webkit-scrollbar-thumb { background: var(--pine-light); border-radius: 4px; }
+    </style>
+</head>
+<body class="antialiased pine-bg relative">
+
+    <!-- Header (Profitnet Integrated) -->
+    <header class="fixed w-full top-0 z-50 bg-[#052e16]/95 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 opacity-80 group-hover:opacity-100 transition-opacity" alt="Profitnet">
+                <span class="text-xl font-bold tracking-tighter text-white group-hover:text-[#facc15] transition-colors">PROFITNET<span class="text-xs ml-1 font-normal opacity-50">CONSERVE</span></span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-xs font-bold text-green-200/50 hover:text-white transition-colors uppercase tracking-[0.2em]">Home</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-[0.2em] text-[#facc15] border-b border-[#facc15]/50 pb-1">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 border border-green-800 bg-green-900/20 text-[10px] font-bold text-green-100 hover:border-[#facc15] hover:text-[#facc15] transition-all uppercase tracking-[0.2em]">
+                    $PNET Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-green-200 hover:text-[#facc15] text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-[#052e16] z-40 flex flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-2xl font-bold text-white uppercase">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-2xl font-bold text-[#facc15] uppercase">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-2xl font-bold text-white uppercase">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-32 pb-20">
+        
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 mb-24 relative">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="sound-wave">
+                            <div class="bar" style="animation-delay: 0.1s"></div>
+                            <div class="bar" style="animation-delay: 0.2s"></div>
+                            <div class="bar" style="animation-delay: 0.3s"></div>
+                            <div class="bar" style="animation-delay: 0.4s"></div>
+                            <div class="bar" style="animation-delay: 0.5s"></div>
+                        </div>
+                        <span class="text-[#facc15] text-xs font-bold uppercase tracking-[0.3em]">Mio, Michigan • Habitat Secure</span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 text-white">
+                        PHOENIX OF <br>
+                        THE <span class="text-plumage">PINES.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-green-100/70 max-w-lg mb-10 leading-relaxed font-light border-l border-green-800 pl-6">
+                        A monument to the Kirtland's Warbler—the "Jack Pine Warbler"—and the conservationists who brought it back from the brink of extinction through fire and forestry.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#ecology" class="px-8 py-4 bg-[#facc15] hover:bg-yellow-400 text-green-950 font-bold uppercase tracking-widest text-xs transition-colors rounded-sm">
+                            Species Data
+                        </a>
+                        <a href="#location" class="px-8 py-4 border border-green-700 text-green-200 hover:text-white hover:border-white font-bold uppercase tracking-widest text-xs transition-colors rounded-sm">
+                            Map Site
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Abstract Visual: The Songbird -->
+                <div class="relative h-[450px] flex items-center justify-center" data-aos="fade-left">
+                    <!-- Circular "Binocular View" Mask -->
+                    <div class="absolute inset-0 bg-green-900/10 rounded-full blur-3xl"></div>
+                    
+                    <svg viewBox="0 0 300 300" class="w-full max-w-md drop-shadow-2xl relative z-10">
+                        <!-- Abstract Pine Branch -->
+                        <path d="M0 250 C100 240, 200 260, 300 250" stroke="#3f6212" stroke-width="4" fill="none" />
+                        <path d="M50 245 L30 220 M80 248 L60 210 M120 245 L100 215" stroke="#3f6212" stroke-width="2" />
+                        
+                        <!-- The Warbler Abstract -->
+                        <!-- Body -->
+                        <path d="M130 250 Q120 180 180 150 Q240 120 250 180 Q260 240 200 255 Z" fill="#9ca3af" />
+                        <!-- Yellow Breast -->
+                        <path d="M140 240 Q135 190 180 160 Q220 160 210 245 Z" fill="#facc15" opacity="0.9" />
+                        <!-- Tail -->
+                        <path d="M130 250 L80 270 L135 255" fill="#4b5563" />
+                        <!-- Eye Strip -->
+                        <path d="M210 160 Q230 150 240 170" fill="none" stroke="#1f2937" stroke-width="3" />
+                        <circle cx="225" cy="165" r="3" fill="#000" />
+                        
+                        <!-- Musical Notes (Conservation Success) -->
+                        <text x="250" y="120" font-family="serif" font-size="24" fill="#facc15" opacity="0.8">♪</text>
+                        <text x="270" y="100" font-family="serif" font-size="18" fill="#facc15" opacity="0.6">♫</text>
+                    </svg>
+
+                    <!-- Status Badge -->
+                    <div class="absolute top-10 right-10 bg-green-950/80 backdrop-blur-md p-4 border border-green-800 rounded-lg">
+                        <div class="text-xs text-green-400 uppercase tracking-widest font-bold mb-1">Status</div>
+                        <div class="text-xl font-serif text-white">Recovered</div>
+                        <div class="text-[10px] text-green-500/70 mt-1">Delisted 2019</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecology & Context -->
+        <section id="ecology" class="container mx-auto px-6 mb-24">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <article class="habitat-card p-8 rounded-tr-3xl" data-aos="fade-up" data-aos-delay="0">
+                    <i class="fa-solid fa-tree text-3xl text-green-500 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white mb-2 font-serif">Jack Pine Specialist</h3>
+                    <p class="text-sm text-green-100/60">
+                        The Warbler nests <em>only</em> on the ground under young Jack Pine trees. This monument celebrates the unique habitat management required to save them.
+                    </p>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="habitat-card p-8 rounded-tr-3xl" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-fire text-3xl text-[#facc15] mb-4"></i>
+                    <h3 class="text-lg font-bold text-white mb-2 font-serif">Born of Fire</h3>
+                    <p class="text-sm text-green-100/60">
+                        Historically reliant on wildfires to regenerate pines, conservationists now mimic these conditions to provide nesting grounds.
+                    </p>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="habitat-card p-8 rounded-tr-3xl" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-binoculars text-3xl text-slate-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white mb-2 font-serif">Mio's Legacy</h3>
+                    <p class="text-sm text-green-100/60">
+                        Located in the Huron-Manistee National Forest, Mio is the symbolic capital of the effort that brought the population from 167 males to over 2,300.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Location Module -->
+        <section id="location" class="container mx-auto px-6">
+            <div class="bg-[#022c22] border border-green-900 relative overflow-hidden rounded-2xl">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-12 flex flex-col justify-center">
+                        <h2 class="text-3xl font-serif text-white mb-8 italic">Sanctuary Coordinates</h2>
+                        
+                        <div class="space-y-6 mb-10">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 flex items-center justify-center text-[#facc15] bg-green-900/50 rounded-full shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-sm">300-398 Morenci Ave</p>
+                                    <p class="text-green-400/60 text-xs uppercase tracking-wider">Mio, MI 48647</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 flex items-center justify-center text-green-300 bg-green-900/50 rounded-full shrink-0">
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-sm">5.0 Rating</p>
+                                    <p class="text-green-400/60 text-xs uppercase tracking-wider">Historical Landmark</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Kirtlands+Warbler+Monument+Mio+MI')" 
+                                class="w-full py-4 bg-green-800 hover:bg-[#facc15] hover:text-green-950 text-white font-bold uppercase tracking-widest text-xs transition-colors flex items-center justify-center gap-3 rounded-sm">
+                            <i class="fa-solid fa-map"></i> View on Map
+                        </button>
+                    </div>
+
+                    <div class="relative h-64 md:h-auto bg-green-950 flex items-center justify-center group overflow-hidden">
+                        <!-- Topo Lines Pattern -->
+                        <svg class="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
+                            <pattern id="topo" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                                <path d="M0 50 Q25 25 50 50 T100 50" fill="none" stroke="#facc15" stroke-width="1"/>
+                                <path d="M0 25 Q25 0 50 25 T100 25" fill="none" stroke="#facc15" stroke-width="1"/>
+                                <path d="M0 75 Q25 50 50 75 T100 75" fill="none" stroke="#facc15" stroke-width="1"/>
+                            </pattern>
+                            <rect width="100%" height="100%" fill="url(#topo)"/>
+                        </svg>
+                        
+                        <div class="text-center relative z-10 group-hover:scale-105 transition-transform duration-500">
+                            <i class="fa-solid fa-dove text-5xl text-green-700 mb-4 group-hover:text-[#facc15] transition-colors"></i>
+                            <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-green-600">Oscoda County</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#020617] border-t border-green-900 pt-16 pb-8 relative z-10 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-leaf text-[#facc15]"></i>
+                        <h4 class="font-bold text-xl text-white tracking-widest uppercase">Profitnet Conservation</h4>
+                    </div>
+                    <p class="text-sm text-green-400/50 max-w-sm">
+                        Celebrating the resilience of nature. The Kirtland's Warbler Monument is a verified ecological asset in the Profitnet Database.
+                    </p>
+                </div>
+                
+                <div>
+                    <h5 class="text-[10px] font-bold text-green-600 uppercase tracking-[0.2em] mb-6">Directory</h5>
+                    <ul class="space-y-3 text-xs font-bold text-green-400/50">
+                        <li><a href="https://testedprofit.com/pages/PNET/" class="hover:text-[#facc15] transition-colors">$PNET Dashboard</a></li>
+                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-[#facc15] transition-colors">Landmark Map</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-[10px] font-bold text-green-600 uppercase tracking-[0.2em] mb-6">Social</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-green-800 hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="text-green-800 hover:text-white transition-colors"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-green-900/50 pt-8 flex justify-between items-center text-[10px] text-green-800 uppercase tracking-widest font-bold">
+                <p>© 2026 Profitnet. Conservation First.</p>
+                <p>Asset ID: MI-MIO-48647</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({ duration: 1000, once: true, offset: 50 });
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        const toggleMenu = (open) => {
+            if (open) {
+                mobileMenu.classList.add('active');
+            } else {
+                mobileMenu.classList.remove('active');
+            }
+        };
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
