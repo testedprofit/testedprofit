@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Butterfly House | Port Austin, MI | Profitnet Conservation</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore the Butterfly House in Port Austin, MI. A sanctuary for pollinators and a botanical gem on the tip of the Thumb. Verified Profitnet Asset.">
+    <meta name="keywords" content="Butterfly House Port Austin, Michigan Pollinator Gardens, Port Austin Parks, Monarch Waystation, PNET Ecological Assets">
+    <meta name="author" content="Profitnet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Park",
+      "name": "Butterfly House",
+      "description": "A garden sanctuary dedicated to butterflies and pollinators.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "8531 Adams St",
+        "addressLocality": "Port Austin",
+        "addressRegion": "MI",
+        "postalCode": "48467",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "44.0456",
+        "longitude": "-82.9961"
+      }
+    }
+    </script>
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --monarch-orange: #f97316;
+            --wing-black: #1f2937;
+            --milkweed-green: #65a30d;
+            --sky-blue: #e0f2fe;
+            --nectar-gold: #facc15;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fdfbf7;
+            color: var(--wing-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .font-garden { font-family: 'Cormorant Garamond', serif; }
+
+        /* "Wing Scale" Background Pattern */
+        .wing-bg {
+            background-color: #fdfbf7;
+            background-image: 
+                radial-gradient(circle at 100% 50%, transparent 20%, rgba(249, 115, 22, 0.03) 21%, rgba(249, 115, 22, 0.03) 34%, transparent 35%, transparent),
+                radial-gradient(circle at 0% 50%, transparent 20%, rgba(101, 163, 13, 0.03) 21%, rgba(101, 163, 13, 0.03) 34%, transparent 35%, transparent);
+            background-size: 60px 60px;
+        }
+
+        /* Glass Wing Cards */
+        .wing-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 2rem 0.5rem 2rem 0.5rem; /* Asymmetric leaf/wing shape */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .wing-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.15);
+            border-color: var(--monarch-orange);
+        }
+
+        /* Flutter Animation */
+        .flutter-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .wing-card:hover .flutter-icon {
+            animation: flutter 0.2s infinite alternate;
+        }
+
+        @keyframes flutter {
+            from { transform: scaleX(1); }
+            to { transform: scaleX(0.8); }
+        }
+
+        /* Gradient Text */
+        .text-gradient-pollinator {
+            background: linear-gradient(135deg, #ea580c, #ca8a04);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fdfbf7; }
+        ::-webkit-scrollbar-thumb { background: var(--monarch-orange); border-radius: 10px; }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-10px);
+        }
+        #mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased wing-bg relative">
+
+    <!-- Header (Profitnet Integrated) -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-orange-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet">
+                <span class="text-xl font-bold tracking-tight text-slate-900 group-hover:text-orange-600 transition-colors">Profitnet</span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-xs font-bold text-slate-500 hover:text-orange-600 transition-colors uppercase tracking-[0.2em]">Home</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-[0.2em] text-orange-600 border-b-2 border-orange-400 pb-1">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 bg-orange-50 border border-orange-200 text-[10px] font-bold text-orange-700 hover:bg-orange-600 hover:text-white transition-all uppercase tracking-[0.2em] rounded-full">
+                    $PNET Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-orange-600 text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-slate-900 text-3xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-3xl font-garden font-bold text-slate-900 uppercase">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-3xl font-garden font-bold text-orange-600 uppercase">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-3xl font-garden font-bold text-slate-900 uppercase">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-32 pb-20">
+        
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 mb-24 relative">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 mb-6 bg-orange-100 px-4 py-1 rounded-full text-orange-800 text-xs font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-seedling"></i> Pollinator Haven
+                    </div>
+                    
+                    <h1 class="text-6xl md:text-8xl font-garden font-bold leading-[0.9] mb-8 text-slate-900">
+                        WINGS OF <br>
+                        <span class="text-gradient-pollinator">PORT AUSTIN.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-slate-500 max-w-lg mb-10 leading-relaxed font-light border-l-2 border-orange-200 pl-6">
+                        A botanical sanctuary on the tip of the Thumb. This garden is more than a park—it is a critical waystation for migrating monarchs and native pollinators.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#garden" class="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-widest text-xs transition-all shadow-lg shadow-orange-200 rounded-full">
+                            Explore Garden
+                        </a>
+                        <a href="#location" class="px-8 py-4 border border-slate-300 text-slate-600 hover:text-orange-600 hover:border-orange-600 font-bold uppercase tracking-widest text-xs transition-all rounded-full">
+                            Visit Site
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual: Stained Glass Butterfly -->
+                <div class="relative h-[450px] flex items-center justify-center" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-orange-100 to-green-100 rounded-full blur-3xl opacity-60"></div>
+                    
+                    <svg viewBox="0 0 400 300" class="w-full max-w-md drop-shadow-xl relative z-10">
+                        <defs>
+                            <linearGradient id="wingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.9" />
+                                <stop offset="100%" style="stop-color:#facc15;stop-opacity:0.9" />
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Left Wing Top -->
+                        <path d="M200 150 C150 50, 50 50, 20 120 C10 180, 100 200, 200 180" fill="url(#wingGradient)" stroke="#1f2937" stroke-width="2"/>
+                        <!-- Right Wing Top -->
+                        <path d="M200 150 C250 50, 350 50, 380 120 C390 180, 300 200, 200 180" fill="url(#wingGradient)" stroke="#1f2937" stroke-width="2"/>
+                        
+                        <!-- Left Wing Bottom -->
+                        <path d="M200 180 C150 200, 50 200, 60 250 C80 280, 180 260, 200 240" fill="#f97316" opacity="0.8" stroke="#1f2937" stroke-width="2"/>
+                        <!-- Right Wing Bottom -->
+                        <path d="M200 180 C250 200, 350 200, 340 250 C320 280, 220 260, 200 240" fill="#f97316" opacity="0.8" stroke="#1f2937" stroke-width="2"/>
+                        
+                        <!-- Body -->
+                        <ellipse cx="200" cy="180" rx="8" ry="60" fill="#1f2937" />
+                        <!-- Antennae -->
+                        <path d="M200 120 Q180 80 170 90" fill="none" stroke="#1f2937" stroke-width="2"/>
+                        <path d="M200 120 Q220 80 230 90" fill="none" stroke="#1f2937" stroke-width="2"/>
+                        
+                        <!-- Vein Patterns (Stained Glass Effect) -->
+                        <path d="M200 150 L100 120" stroke="#1f2937" stroke-width="1" opacity="0.5"/>
+                        <path d="M200 150 L300 120" stroke="#1f2937" stroke-width="1" opacity="0.5"/>
+                    </svg>
+
+                    <div class="absolute bottom-6 right-6 bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-sm border border-orange-100">
+                        <div class="flex items-center gap-2 text-yellow-500 text-xl">
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-slate-900 font-garden font-bold text-2xl">4.6</span>
+                        </div>
+                        <div class="text-[10px] text-slate-500 uppercase tracking-wide">Conservation Rated</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Garden Features Grid -->
+        <section id="garden" class="container mx-auto px-6 mb-24">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <article class="wing-card p-8" data-aos="fade-up" data-aos-delay="0">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-orange-100 rounded-full text-orange-600 flutter-icon">
+                            <i class="fa-brands fa-envira text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Species</span>
+                    </div>
+                    <h3 class="text-xl font-garden font-bold text-slate-800 mb-2">Monarch Waystation</h3>
+                    <p class="text-sm text-slate-500">
+                        Specifically cultivated with milkweed and nectar plants to support the Monarch migration cycle. A vital link in the ecological chain.
+                    </p>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="wing-card p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-green-100 rounded-full text-green-600 flutter-icon">
+                            <i class="fa-solid fa-leaf text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Setting</span>
+                    </div>
+                    <h3 class="text-xl font-garden font-bold text-slate-800 mb-2">Botanical Garden</h3>
+                    <p class="text-sm text-slate-500">
+                        A lush, maintained space offering tranquility. Perfect for photography, meditation, and observing native Michigan flora.
+                    </p>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="wing-card p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="p-3 bg-blue-100 rounded-full text-blue-600 flutter-icon">
+                            <i class="fa-solid fa-water text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Context</span>
+                    </div>
+                    <h3 class="text-xl font-garden font-bold text-slate-800 mb-2">Port Austin</h3>
+                    <p class="text-sm text-slate-500">
+                        Located near the breakwall and marina, bridging the gap between the cultivated beauty of the garden and the raw power of Lake Huron.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Location Module -->
+        <section id="location" class="container mx-auto px-6">
+            <div class="bg-white border border-slate-200 rounded-[3rem] overflow-hidden shadow-2xl shadow-orange-100/50">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-12 flex flex-col justify-center bg-gradient-to-br from-white to-orange-50/30">
+                        <h2 class="text-4xl font-garden font-bold text-slate-800 mb-8 italic">Find the Sanctuary</h2>
+                        
+                        <div class="space-y-6 mb-10">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 flex items-center justify-center bg-white border border-orange-200 rounded-full text-orange-600 shadow-sm shrink-0">
+                                    <i class="fa-solid fa-map-pin"></i>
+                                </div>
+                                <div>
+                                    <p class="text-slate-900 font-bold text-sm">8531 Adams St</p>
+                                    <p class="text-slate-500 text-xs uppercase tracking-wider">Port Austin, MI 48467</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 flex items-center justify-center bg-white border border-green-200 rounded-full text-green-600 shadow-sm shrink-0">
+                                    <i class="fa-solid fa-seedling"></i>
+                                </div>
+                                <div>
+                                    <p class="text-slate-900 font-bold text-sm">Seasonal Blooms</p>
+                                    <p class="text-slate-500 text-xs uppercase tracking-wider">Best viewing: Late Spring - Early Fall</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Butterfly+House+Port+Austin+MI')" 
+                                class="w-full py-4 bg-slate-900 hover:bg-orange-600 text-white font-bold uppercase tracking-widest text-xs transition-colors flex items-center justify-center gap-3 rounded-full">
+                            <i class="fa-solid fa-location-arrow"></i> Navigate to Garden
+                        </button>
+                    </div>
+
+                    <div class="relative h-64 md:h-auto bg-green-900 flex items-center justify-center group overflow-hidden">
+                        <!-- Floral Overlay Pattern -->
+                        <div class="absolute inset-0 opacity-20" 
+                             style="background-image: radial-gradient(circle, #ffffff 2px, transparent 2.5px); background-size: 20px 20px;">
+                        </div>
+                        
+                        <div class="text-center relative z-10 group-hover:scale-110 transition-transform duration-500">
+                            <i class="fa-brands fa-pagelines text-6xl text-green-400 mb-4"></i>
+                            <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-green-200">Protected Habitat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white pt-16 pb-8 relative z-10 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-leaf text-orange-500"></i>
+                        <h4 class="font-garden font-bold text-2xl tracking-widest uppercase">Profitnet Conservation</h4>
+                    </div>
+                    <p class="text-sm text-slate-400 max-w-sm">
+                        Documenting the sanctuaries that sustain our ecosystem. The Butterfly House is a verified ecological asset in the Profitnet Database.
+                    </p>
+                </div>
+                
+                <div>
+                    <h5 class="text-[10px] font-bold text-orange-500 uppercase tracking-[0.2em] mb-6">Directory</h5>
+                    <ul class="space-y-3 text-xs font-bold text-slate-400">
+                        <li><a href="https://testedprofit.com/pages/PNET/" class="hover:text-white transition-colors">$PNET Dashboard</a></li>
+                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-white transition-colors">Landmark Map</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-[10px] font-bold text-orange-500 uppercase tracking-[0.2em] mb-6">Connect</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex justify-between items-center text-[10px] text-slate-500 uppercase tracking-widest font-bold">
+                <p>© 2026 Profitnet. Protecting Pollinators.</p>
+                <p>Asset ID: MI-PA-48467</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init Animation
+        AOS.init({ duration: 1000, once: true, offset: 50 });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        const toggleMenu = (open) => {
+            if (open) {
+                mobileMenu.classList.add('active');
+            } else {
+                mobileMenu.classList.remove('active');
+            }
+        };
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
