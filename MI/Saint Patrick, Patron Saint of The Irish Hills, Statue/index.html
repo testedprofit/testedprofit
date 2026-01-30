@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saint Patrick Statue | Irish Hills, MI | Profitnet Heritage</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Visit the Saint Patrick Statue in the Irish Hills of Michigan. A monumental tribute to the Patron Saint and the region's cultural heritage. Verified Profitnet Asset.">
+    <meta name="keywords" content="Saint Patrick Statue Onsted, Irish Hills Michigan, St. Joseph Shrine Landmarks, Celtic Heritage Michigan, PNET Cultural Assets">
+    <meta name="author" content="Profitnet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LandmarkOrHistoricalService",
+      "name": "Saint Patrick Statue",
+      "alternateName": "Patron Saint of The Irish Hills",
+      "description": "Statue dedicated to Saint Patrick, located in the historic Irish Hills region.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Onsted",
+        "addressLocality": "Onsted",
+        "addressRegion": "MI",
+        "postalCode": "49265",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "42.0620",
+        "longitude": "-84.1925"
+      }
+    }
+    </script>
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --celtic-green: #064e3b; /* Deep Emerald */
+            --clover-bright: #10b981;
+            --stone-grey: #292524;
+            --gold-leaf: #d97706;
+            --parchment: #fdfbf7;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--celtic-green);
+            color: #ecfdf5;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .font-celtic { font-family: 'Cinzel Decorative', cursive; }
+
+        /* Celtic Knot Background Pattern */
+        .celtic-bg {
+            background-color: var(--celtic-green);
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='0.05'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* "Shrine Stone" Cards */
+        .stone-card {
+            background: rgba(6, 78, 59, 0.8);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            position: relative;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .stone-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold-leaf), transparent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stone-card:hover {
+            transform: translateY(-5px);
+            background: rgba(6, 78, 59, 0.95);
+        }
+
+        .stone-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Gradient Text */
+        .text-gold-gradient {
+            background: linear-gradient(to right, #fcd34d, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-10px);
+        }
+        #mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--celtic-green); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-leaf); border-radius: 4px; }
+    </style>
+</head>
+<body class="antialiased celtic-bg relative">
+
+    <!-- Header (Profitnet Integrated) -->
+    <header class="fixed w-full top-0 z-50 bg-[#064e3b]/95 backdrop-blur-md border-b border-emerald-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 opacity-90 group-hover:opacity-100 transition-opacity" alt="Profitnet">
+                <span class="text-xl font-celtic font-bold tracking-widest text-white uppercase group-hover:text-[#d97706] transition-colors">Profitnet</span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-xs font-bold text-emerald-200/70 hover:text-white transition-colors uppercase tracking-[0.2em]">Home</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-[0.2em] text-[#d97706] border-b border-[#d97706]/50 pb-1">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 border border-emerald-700 bg-emerald-900/30 text-[10px] font-bold text-emerald-100 hover:border-[#d97706] hover:text-[#d97706] transition-all uppercase tracking-[0.2em]">
+                    $PNET Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-emerald-200 hover:text-[#d97706] text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-[#064e3b] z-40 flex flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-3xl font-celtic font-bold text-white uppercase">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-3xl font-celtic font-bold text-[#d97706] uppercase">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-3xl font-celtic font-bold text-white uppercase">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-32 pb-20">
+        
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 mb-24 relative">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 mb-6 bg-emerald-900/50 border border-emerald-700 px-4 py-1 text-[#d97706] text-xs font-bold uppercase tracking-widest rounded-sm">
+                        <i class="fa-solid fa-clover"></i> Irish Hills Heritage
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-celtic font-bold leading-tight mb-8 text-white">
+                        GUARDIAN OF <br>
+                        THE <span class="text-gold-gradient">HILLS.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-emerald-100/70 max-w-lg mb-10 leading-relaxed font-light border-l-2 border-[#d97706] pl-6">
+                        A historic landmark in Onsted, paying homage to the Patron Saint of Ireland and the deep cultural roots of Michigan's Irish Hills region.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#history" class="px-8 py-4 bg-[#d97706] hover:bg-amber-600 text-white font-bold uppercase tracking-widest text-xs transition-colors shadow-lg shadow-black/30">
+                            Our History
+                        </a>
+                        <a href="#location" class="px-8 py-4 border border-emerald-500 text-emerald-200 hover:text-white hover:border-white font-bold uppercase tracking-widest text-xs transition-colors">
+                            Find the Shrine
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual: Abstract Saint Graphic -->
+                <div class="relative h-[450px] flex items-center justify-center" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent rounded-full opacity-60"></div>
+                    
+                    <svg viewBox="0 0 300 400" class="w-full max-w-md drop-shadow-2xl relative z-10">
+                        <!-- Halo -->
+                        <circle cx="150" cy="80" r="60" stroke="#d97706" stroke-width="1" fill="none" opacity="0.5" stroke-dasharray="5 5" />
+                        
+                        <!-- Bishop's Mitre (Hat) -->
+                        <path d="M110 90 L150 20 L190 90 L150 100 Z" fill="#065f46" stroke="#10b981" stroke-width="2" />
+                        <path d="M150 20 L150 100" stroke="#10b981" stroke-width="1" />
+                        
+                        <!-- Robes -->
+                        <path d="M100 110 Q80 200 70 350 L230 350 Q220 200 200 110" fill="#047857" stroke="#064e3b" stroke-width="2" />
+                        <path d="M150 110 L150 350" stroke="#064e3b" stroke-width="1" opacity="0.3" />
+                        
+                        <!-- Crozier (Staff) -->
+                        <path d="M220 350 L220 100 Q220 50 190 60" fill="none" stroke="#d97706" stroke-width="4" stroke-linecap="round" />
+                        
+                        <!-- Shamrock Icon held in hand -->
+                        <g transform="translate(100, 180)">
+                            <circle cx="0" cy="-5" r="5" fill="#10b981" />
+                            <circle cx="-5" cy="2" r="5" fill="#10b981" />
+                            <circle cx="5" cy="2" r="5" fill="#10b981" />
+                            <path d="M0 0 L0 15" stroke="#10b981" stroke-width="2" />
+                        </g>
+                    </svg>
+
+                    <!-- Rating Badge -->
+                    <div class="absolute bottom-10 right-10 bg-[#064e3b] p-4 border border-emerald-700 shadow-xl">
+                        <div class="flex items-center gap-2">
+                            <span class="text-white font-celtic text-2xl">Verified</span>
+                            <i class="fa-solid fa-circle-check text-[#d97706]"></i>
+                        </div>
+                        <div class="text-[10px] text-emerald-400 uppercase tracking-widest mt-1">Cultural Asset</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Context & Features -->
+        <section id="history" class="container mx-auto px-6 mb-24">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <article class="stone-card p-8" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-12 h-12 bg-emerald-800 rounded-full flex items-center justify-center mb-6 text-[#d97706]">
+                        <i class="fa-solid fa-cross text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-celtic text-white mb-3">The Saint</h3>
+                    <p class="text-sm text-emerald-200/70">
+                        Patron Saint of Ireland, known for bringing Christianity to the Emerald Isle. The statue represents faith, endurance, and cultural identity.
+                    </p>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="stone-card p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-emerald-800 rounded-full flex items-center justify-center mb-6 text-emerald-400">
+                        <i class="fa-solid fa-mountain-sun text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-celtic text-white mb-3">The Region</h3>
+                    <p class="text-sm text-emerald-200/70">
+                        The "Irish Hills" of Michigan were named for their resemblance to the rolling green landscape of Ireland, attracting Irish immigrants in the 19th century.
+                    </p>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="stone-card p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-emerald-800 rounded-full flex items-center justify-center mb-6 text-white">
+                        <i class="fa-solid fa-landmark text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-celtic text-white mb-3">The Site</h3>
+                    <p class="text-sm text-emerald-200/70">
+                        Located in Onsted, often associated with the historic St. Joseph Shrine, a cornerstone of the local community since 1854.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Location Module -->
+        <section id="location" class="container mx-auto px-6">
+            <div class="bg-[#022c22] border border-emerald-900 relative overflow-hidden rounded-lg shadow-2xl">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-12 flex flex-col justify-center">
+                        <div class="mb-8">
+                            <span class="text-[#d97706] text-xs font-bold uppercase tracking-widest">Destination</span>
+                            <h2 class="text-3xl font-celtic text-white mt-2">ONSTED, MI</h2>
+                        </div>
+                        
+                        <div class="space-y-6 mb-10">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 flex items-center justify-center border border-[#d97706] text-[#d97706] rounded-sm shrink-0">
+                                    <i class="fa-solid fa-map-pin"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-sm">Onsted, MI 49265</p>
+                                    <p class="text-emerald-500 text-xs uppercase tracking-wider">Lenawee County</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 flex items-center justify-center border border-emerald-600 text-emerald-400 rounded-sm shrink-0">
+                                    <i class="fa-solid fa-church"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-sm">Context</p>
+                                    <p class="text-emerald-500 text-xs uppercase tracking-wider">Religious & Cultural Landmark</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Saint+Patrick+Statue+Onsted+MI')" 
+                                class="w-full py-4 bg-emerald-800 hover:bg-[#d97706] text-white font-bold uppercase tracking-widest text-xs transition-colors flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-location-arrow"></i> Initiate Pilgrimage
+                        </button>
+                    </div>
+
+                    <div class="relative h-64 md:h-auto bg-[#064e3b] flex items-center justify-center group overflow-hidden">
+                        <!-- Abstract Hills Pattern -->
+                        <div class="absolute inset-0 opacity-10" 
+                             style="background-image: repeating-linear-gradient(45deg, #065f46 0, #065f46 20px, #047857 20px, #047857 40px);">
+                        </div>
+                        
+                        <div class="text-center relative z-10 group-hover:scale-105 transition-transform duration-500">
+                            <i class="fa-brands fa-pagelines text-6xl text-emerald-500 mb-4 group-hover:text-white transition-colors"></i>
+                            <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-300">Preserved Landscape</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#020617] border-t border-emerald-900 pt-16 pb-8 relative z-10 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-leaf text-[#d97706]"></i>
+                        <h4 class="font-celtic font-bold text-xl text-white tracking-widest uppercase">Profitnet Heritage</h4>
+                    </div>
+                    <p class="text-sm text-emerald-500/60 max-w-sm">
+                        Documenting the cultural pillars of our communities. The Saint Patrick Statue is a verified asset in the Profitnet Database.
+                    </p>
+                </div>
+                
+                <div>
+                    <h5 class="text-[10px] font-bold text-white uppercase tracking-[0.2em] mb-6">Directory</h5>
+                    <ul class="space-y-3 text-xs font-bold text-emerald-500/60">
+                        <li><a href="https://testedprofit.com/pages/PNET/" class="hover:text-white transition-colors">$PNET Dashboard</a></li>
+                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-white transition-colors">Landmark Map</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-[10px] font-bold text-white uppercase tracking-[0.2em] mb-6">Connect</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-emerald-700 hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="text-emerald-700 hover:text-white transition-colors"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-emerald-900/50 pt-8 flex justify-between items-center text-[10px] text-emerald-700 uppercase tracking-widest font-bold">
+                <p>© 2026 Profitnet. Erin Go Bragh.</p>
+                <p>Asset ID: MI-ONS-49265</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init Animation
+        AOS.init({ duration: 1000, once: true, offset: 50 });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        const toggleMenu = (open) => {
+            if (open) {
+                mobileMenu.classList.add('active');
+            } else {
+                mobileMenu.classList.remove('active');
+            }
+        };
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
