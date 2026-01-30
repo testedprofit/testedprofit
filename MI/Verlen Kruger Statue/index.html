@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verlen Kruger Statue | Portland, MI | Profitnet Conservation</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Visit the Verlen Kruger Statue on the Portland Riverwalk. A bronze tribute to the most traveled canoeist in history and a verified Profitnet conservation asset.">
+    <meta name="keywords" content="Verlen Kruger Statue, Portland Michigan Riverwalk, 100000 Miles Canoe, Guinness World Record Paddler, PNET Conservation Assets, Grand River Landmarks">
+    <meta name="author" content="Profitnet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LandmarkOrHistoricalService",
+      "name": "Verlen Kruger Statue",
+      "description": "Bronze sculpture honoring Verlen Kruger, the Guinness World Record holding canoeist.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Portland Riverwalk",
+        "addressLocality": "Portland",
+        "addressRegion": "MI",
+        "postalCode": "48875",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "42.8687",
+        "longitude": "-84.9030"
+      }
+    }
+    </script>
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --river-deep: #0e4f5f;
+            --river-surface: #155e75;
+            --driftwood: #b45309; /* Warm Amber/Wood tone */
+            --foam-white: #e0f2fe;
+            --slate-bg: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--slate-bg);
+            color: #cbd5e1;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .font-expedition { font-family: 'Barlow Condensed', sans-serif; }
+
+        /* "Currents" Background Pattern */
+        .currents-bg {
+            background-color: var(--slate-bg);
+            background-image: 
+                repeating-linear-gradient(
+                    -45deg,
+                    rgba(21, 94, 117, 0.05) 0px,
+                    rgba(21, 94, 117, 0.05) 2px,
+                    transparent 2px,
+                    transparent 10px
+                );
+        }
+
+        /* Stats Counter Card */
+        .odometer-card {
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border-left: 4px solid var(--driftwood);
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s ease;
+        }
+        
+        .odometer-card:hover {
+            transform: translateX(10px);
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 1) 100%);
+        }
+
+        /* Flow Lines Animation */
+        .flow-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(21, 94, 117, 0.5), transparent);
+            height: 1px;
+            width: 100%;
+            animation: flow 3s linear infinite;
+        }
+        
+        @keyframes flow {
+            0% { transform: translateX(-100%); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%); opacity: 0; }
+        }
+
+        /* Gradient Text */
+        .text-river {
+            background: linear-gradient(to right, #22d3ee, #e0f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.active {
+            height: 100vh;
+            opacity: 1;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--slate-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--river-surface); border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased currents-bg relative">
+
+    <!-- Header (Profitnet Integrated) -->
+    <header class="fixed w-full top-0 z-50 bg-[#0f172a]/90 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 opacity-90 group-hover:opacity-100 transition-opacity" alt="Profitnet">
+                <span class="text-xl font-expedition font-bold tracking-widest text-white uppercase">Profitnet <span class="text-cyan-500">Explorer</span></span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-xs font-bold text-slate-400 hover:text-cyan-400 transition-colors uppercase tracking-[0.2em]">Home</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-[0.2em] text-cyan-500 border-b border-cyan-500/50 pb-1">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 bg-cyan-900/10 border border-cyan-500/30 text-[10px] font-black text-cyan-400 hover:bg-cyan-500 hover:text-slate-900 transition-all uppercase tracking-[0.2em]">
+                    $PNET Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-cyan-500 text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-[#0f172a] z-40 flex flex-col items-center justify-center space-y-8 lg:hidden pt-20">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-3xl font-expedition font-bold text-white uppercase">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-3xl font-expedition font-bold text-cyan-500 uppercase">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-3xl font-expedition font-bold text-white uppercase">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-32 pb-20">
+        
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 mb-24 relative">
+            <!-- Background Flow Animation -->
+            <div class="absolute top-1/2 left-0 w-full h-32 -translate-y-1/2 pointer-events-none opacity-20">
+                <div class="flow-line" style="top: 20%; animation-delay: 0s;"></div>
+                <div class="flow-line" style="top: 50%; animation-delay: 1s;"></div>
+                <div class="flow-line" style="top: 80%; animation-delay: 2s;"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="inline-block px-3 py-1 mb-6 border border-amber-600/50 rounded text-[10px] font-bold uppercase tracking-[0.3em] text-amber-500">
+                        Explorer Class Asset
+                    </div>
+                    
+                    <h1 class="text-7xl md:text-9xl font-expedition font-black leading-[0.9] mb-8 text-white">
+                        THE RIVER <br>
+                        <span class="text-river">WALKER.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-slate-400 max-w-lg mb-10 leading-relaxed font-light">
+                        Verlen Kruger paddled 100,000 miles—the equivalent of circling the globe four times. This bronze sculpture stands at the trailhead of his greatest journey.
+                    </p>
+
+                    <div class="flex items-center gap-6">
+                        <a href="#stats" class="h-12 px-8 flex items-center justify-center bg-cyan-600 hover:bg-cyan-500 text-white font-bold uppercase tracking-widest text-xs transition-all clip-path-slant">
+                            View The Logbook
+                        </a>
+                        <div class="flex items-center gap-2 text-amber-500">
+                            <i class="fa-solid fa-star"></i>
+                            <span class="font-expedition font-bold text-xl text-white">4.9</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abstract Visual: The Canoe Route -->
+                <div class="relative h-[400px] flex items-center justify-center" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 to-transparent rounded-full blur-3xl"></div>
+                    
+                    <svg viewBox="0 0 300 300" class="w-full max-w-md drop-shadow-2xl">
+                        <!-- Abstract Globe Lines -->
+                        <circle cx="150" cy="150" r="140" fill="none" stroke="#1e293b" stroke-width="1" />
+                        <circle cx="150" cy="150" r="100" fill="none" stroke="#1e293b" stroke-width="1" />
+                        
+                        <!-- The Canoe Shape -->
+                        <path d="M50 150 Q150 220 250 150 Q150 80 50 150 Z" fill="#155e75" opacity="0.8" />
+                        <path d="M55 150 Q150 210 245 150 Q150 90 55 150 Z" fill="none" stroke="#22d3ee" stroke-width="2" />
+                        
+                        <!-- The Route Line -->
+                        <path d="M40 180 Q100 250 180 200 T280 120" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="10 5" stroke-linecap="round" />
+                        
+                        <!-- Marker -->
+                        <circle cx="40" cy="180" r="4" fill="#d97706" />
+                        <text x="30" y="200" font-family="Barlow Condensed" font-size="12" fill="#d97706" font-weight="bold">PORTLAND</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- The 100k Club Stats -->
+        <section id="stats" class="container mx-auto px-6 mb-24">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Stat 1 -->
+                <article class="odometer-card p-8" data-aos="fade-up" data-aos-delay="0">
+                    <i class="fa-solid fa-water text-3xl text-cyan-500 mb-4"></i>
+                    <h3 class="text-4xl font-expedition font-bold text-white mb-1">100,000+</h3>
+                    <p class="text-xs uppercase tracking-widest text-slate-500 font-bold">Miles Paddled</p>
+                    <p class="mt-4 text-sm text-slate-400">The most recorded miles by any human in a canoe. A feat of endurance unmatched in modern history.</p>
+                </article>
+
+                <!-- Stat 2 -->
+                <article class="odometer-card p-8" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-map text-3xl text-amber-600 mb-4"></i>
+                    <h3 class="text-4xl font-expedition font-bold text-white mb-1">41,000</h3>
+                    <p class="text-xs uppercase tracking-widest text-slate-500 font-bold">Miles in One Trip</p>
+                    <p class="mt-4 text-sm text-slate-400">His "Ultimate Canoe Challenge" (1980-1983) remains the longest canoe journey ever undertaken.</p>
+                </article>
+
+                <!-- Stat 3 -->
+                <article class="odometer-card p-8" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-location-dot text-3xl text-cyan-500 mb-4"></i>
+                    <h3 class="text-4xl font-expedition font-bold text-white mb-1">4.9</h3>
+                    <p class="text-xs uppercase tracking-widest text-slate-500 font-bold">Local Rating</p>
+                    <p class="mt-4 text-sm text-slate-400">Beloved by the Portland community, standing watch over the Grand River he loved.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Location Intel -->
+        <section class="container mx-auto px-6">
+            <div class="border border-white/10 bg-[#111827] relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-5 text-9xl text-white font-expedition font-black leading-none pointer-events-none">
+                    MI<br>48875
+                </div>
+
+                <div class="grid md:grid-cols-2">
+                    <div class="p-12 flex flex-col justify-center">
+                        <h2 class="text-3xl font-expedition font-bold text-white mb-8">EXPEDITION WAYPOINT</h2>
+                        
+                        <ul class="space-y-6 mb-10">
+                            <li class="flex items-start gap-4">
+                                <span class="text-amber-600 mt-1"><i class="fa-solid fa-compass"></i></span>
+                                <div>
+                                    <strong class="block text-white text-xs uppercase tracking-widest mb-1">Coordinates</strong>
+                                    <span class="text-slate-400">Portland Riverwalk, Portland, MI 48875</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="text-cyan-500 mt-1"><i class="fa-solid fa-binoculars"></i></span>
+                                <div>
+                                    <strong class="block text-white text-xs uppercase tracking-widest mb-1">Vantage Point</strong>
+                                    <span class="text-slate-400">Overlooking the confluence of the Grand and Looking Glass Rivers.</span>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Verlen+Kruger+Statue+Portland+MI')" 
+                                class="w-full py-4 border border-white/20 text-white font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-slate-900 transition-colors">
+                            Navigate to Site
+                        </button>
+                    </div>
+
+                    <div class="h-64 md:h-auto bg-[#1e293b] relative group overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-30 group-hover:opacity-40 transition-opacity grayscale hover:grayscale-0 duration-700"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fa-solid fa-camera text-4xl text-white/50 mb-2"></i>
+                                <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50">Site Visual</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0b1120] border-t border-white/5 pt-16 pb-8 relative z-10 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-leaf text-amber-600"></i>
+                        <h4 class="font-expedition font-bold text-xl text-white tracking-widest uppercase">Profitnet Conservation</h4>
+                    </div>
+                    <p class="text-sm text-slate-500 max-w-sm">
+                        Verlen Kruger witnessed more of the natural world from a canoe than any human in history. We preserve his legacy as a verified Profitnet Asset.
+                    </p>
+                </div>
+                
+                <div>
+                    <h5 class="text-[10px] font-bold text-cyan-600 uppercase tracking-[0.2em] mb-6">Database</h5>
+                    <ul class="space-y-3 text-xs font-bold text-slate-400">
+                        <li><a href="https://testedprofit.com/pages/PNET/" class="hover:text-white transition-colors">$PNET Dashboard</a></li>
+                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-white transition-colors">Landmark Map</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-[10px] font-bold text-cyan-600 uppercase tracking-[0.2em] mb-6">Social</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#" class="text-slate-500 hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 flex justify-between items-center text-[10px] text-slate-600 uppercase tracking-widest font-bold">
+                <p>© 2026 Profitnet. All rights reserved.</p>
+                <p>Asset ID: MI-POR-48875</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init Animation Library
+        AOS.init({ duration: 1000, once: true, offset: 50 });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        const toggleMenu = (open) => {
+            if (open) {
+                mobileMenu.classList.add('active');
+            } else {
+                mobileMenu.classList.remove('active');
+            }
+        };
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+    });
+    </script>
+</body>
+</html>
