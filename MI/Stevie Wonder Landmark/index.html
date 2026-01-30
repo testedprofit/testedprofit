@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stevie Wonder Landmark | Saginaw Birthplace | Profitnet Landmarks</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore the Stevie Wonder Landmark in Saginaw, MI. Marking the birthplace of Steveland Hardaway Morris, the iconic 'Wonder Rock' stands as a permanent tribute to musical genius.">
+    <meta name="keywords" content="Stevie Wonder Birthplace, Saginaw Landmark, Wonder Rock Michigan, Steveland Hardaway Morris, PNET Landmarks, Saginaw History">
+    <meta name="author" content="Profitnet">
+    
+    <!-- Schema.org Markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LandmarkOrHistoricalService",
+      "name": "Stevie Wonder Landmark",
+      "alternateName": "The Wonder Rock",
+      "description": "Historical marker and boulder commemorating the birthplace of Stevie Wonder.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1315 N 5th Ave",
+        "addressLocality": "Saginaw",
+        "addressRegion": "MI",
+        "postalCode": "48601",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "43.4355",
+        "longitude": "-83.9297"
+      }
+    }
+    </script>
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #0A091B;
+            --accent-teal: #2DD4BF;
+            --accent-emerald: #10B981;
+            --accent-blue: #60A5FA;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-dark);
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .font-heading { font-family: 'Space Grotesk', sans-serif; }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #34D399, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Background Utilities */
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.1) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.08) 0%, transparent 60%);
+        }
+
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 3rem 3rem;
+        }
+
+        .card-blur {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-blur:hover {
+            border-color: var(--accent-teal);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Unique Music-Groove Border Animation */
+        .groove-border {
+            position: relative;
+            overflow: hidden;
+        }
+        .groove-border::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-teal), transparent);
+            animation: move-groove 3s linear infinite;
+        }
+        @keyframes move-groove {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(100%);
+        }
+        #mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--primary-dark); }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative">
+
+    <!-- Global Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow"></div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet Logo">
+                <span class="text-xl font-black tracking-tight text-white font-heading">PROFITNET</span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-8 items-center">
+                <a href="/" class="text-xs font-bold text-slate-400 hover:text-white transition-colors uppercase tracking-widest">Home</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2"><i class="fa-solid fa-bars-staggered text-xl"></i></button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-10 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-2xl font-black text-white uppercase tracking-tighter">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-2xl font-black text-emerald-400 uppercase tracking-tighter">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-2xl font-black text-white uppercase tracking-tighter">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-40 container mx-auto px-6 pb-24">
+        
+        <!-- Hero Section -->
+        <div class="max-w-5xl mx-auto mb-32" data-aos="fade-up">
+            <div class="inline-flex items-center space-x-3 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span class="text-[10px] font-bold tracking-[0.3em] uppercase text-emerald-400">Cultural Asset Verified</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-9xl font-black font-heading leading-none mb-10 tracking-tighter">
+                THE ROOTS OF <br>
+                <span class="gradient-text">RHYTHM.</span>
+            </h1>
+            
+            <div class="grid md:grid-cols-12 gap-12 items-end">
+                <div class="md:col-span-7">
+                    <p class="text-xl text-slate-400 font-light leading-relaxed mb-8">
+                        Before the 25 Grammys and the induction into the Rock and Roll Hall of Fame, there was a quiet street in Saginaw, Michigan. The Stevie Wonder Landmark marks the literal ground where musical history began.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#details" class="px-8 py-4 bg-white text-slate-950 font-black rounded-sm hover:bg-emerald-400 transition-colors uppercase text-xs tracking-widest">
+                            Explore Landmark
+                        </a>
+                        <div class="px-8 py-4 border border-white/10 text-white font-black rounded-sm uppercase text-xs tracking-widest">
+                            Birthplace: Saginaw, MI
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-5 hidden md:block">
+                    <div class="text-right">
+                        <span class="text-[120px] font-black text-white/5 leading-none select-none">1950</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The "Wonder Rock" Section -->
+        <section id="details" class="grid md:grid-cols-3 gap-8 mb-32">
+            <!-- Card 1: The Stone -->
+            <article class="card-blur p-10 rounded-3xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-emerald-400 mb-6 text-3xl"><i class="fa-solid fa-gem"></i></div>
+                <h2 class="text-2xl font-bold mb-4 font-heading">THE WONDER ROCK</h2>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    A permanent commemorative bronze plaque mounted on a massive natural boulder. Known by locals as the "Wonder Rock," it serves as an immovable anchor for the community's heritage.
+                </p>
+                <div class="text-[10px] font-bold tracking-widest text-slate-500 uppercase">Symbol of Resilience</div>
+            </article>
+
+            <!-- Card 2: The Site -->
+            <article class="card-blur p-10 rounded-3xl relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-blue-400 mb-6 text-3xl"><i class="fa-solid fa-map-location-dot"></i></div>
+                <h2 class="text-2xl font-bold mb-4 font-heading">"THE BIG HOUSE"</h2>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Located at the former site of a local boarding house frequented by Stevie's family. It represents the specific urban fabric that nurtured one of the world's greatest creative minds.
+                </p>
+                <div class="text-[10px] font-bold tracking-widest text-slate-500 uppercase">Geographic Origin</div>
+            </article>
+
+            <!-- Card 3: The legacy -->
+            <article class="card-blur p-10 rounded-3xl relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                <div class="text-purple-400 mb-6 text-3xl"><i class="fa-solid fa-hands-holding-circle"></i></div>
+                <h2 class="text-2xl font-bold mb-4 font-heading">COMMUNITY ROOTS</h2>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    Dedicated in 2005 by historian Lula Briggs-Galloway. Today, it stands as a focal point for Juneteenth celebrations and cultural education in mid-Michigan.
+                </p>
+                <div class="text-[10px] font-bold tracking-widest text-slate-500 uppercase">Heritage Anchor</div>
+            </article>
+        </section>
+
+        <!-- Dynamic Access Section -->
+        <section class="max-w-6xl mx-auto bg-slate-900/40 border border-white/10 rounded-[4rem] p-8 md:p-20 relative overflow-hidden" data-aos="zoom-in">
+            <div class="absolute top-0 right-0 p-10 opacity-10">
+                <i class="fa-solid fa-music text-[200px]"></i>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h3 class="text-4xl md:text-5xl font-black font-heading mb-8">PLAN YOUR <br><span class="text-emerald-400">PILGRIMAGE.</span></h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-6 p-4 border-l-4 border-emerald-500 bg-white/5">
+                            <div class="text-2xl w-8 text-center"><i class="fa-solid fa-location-arrow"></i></div>
+                            <div>
+                                <p class="text-xs uppercase font-bold text-slate-500">Location</p>
+                                <p class="text-lg font-bold">1315 N 5th Ave, Saginaw, MI</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-6 p-4 border-l-4 border-teal-500 bg-white/5">
+                            <div class="text-2xl w-8 text-center"><i class="fa-solid fa-ticket"></i></div>
+                            <div>
+                                <p class="text-xs uppercase font-bold text-slate-500">Access</p>
+                                <p class="text-lg font-bold">Free Public Landmark (24/7)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Stevie+Wonder+Landmark+Saginaw')" 
+                            class="mt-12 w-full md:w-auto px-12 py-5 cta-button rounded-full font-black text-slate-950 uppercase text-xs tracking-[0.2em] flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-route"></i> Navigate to Site
+                    </button>
+                </div>
+                
+                <div class="relative">
+                    <div class="aspect-square bg-slate-950 rounded-full border border-white/10 flex items-center justify-center relative groove-border">
+                        <div class="text-center">
+                            <p class="text-[10px] font-bold tracking-[0.5em] uppercase text-slate-500 mb-2">Heritage Metadata</p>
+                            <p class="text-5xl font-black font-heading tracking-tighter">ROCK <br>SOLID.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="relative z-10 bg-slate-950 border-t border-white/5 pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-20">
+                <div class="col-span-2">
+                    <a href="/" class="flex items-center space-x-3 mb-8">
+                        <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-10 w-10" alt="Profitnet">
+                        <span class="text-2xl font-black tracking-tighter text-white font-heading">PROFITNET</span>
+                    </a>
+                    <p class="text-slate-400 max-w-sm mb-8">
+                        The Profitnet Landmark initiative preserves and digitizes cultural heritage assets for the next generation of conservation advocates.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500/20 transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500/20 transition-colors"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-emerald-500/20 transition-colors"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-[0.2em] text-white mb-6">Network</h4>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li><a href="https://testedprofit.com/pages/PNET/" class="hover:text-emerald-400 transition-colors">$PNET Dashboard</a></li>
+                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-emerald-400 transition-colors">Landmark Directory</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Governance</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-[0.2em] text-white mb-6">Legal</h4>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Privacy Protocol</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Asset Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/5 text-[10px] font-bold uppercase tracking-widest text-slate-600">
+                <p>&copy; 2026 Profitnet Ecosystem. All rights reserved.</p>
+                <p class="mt-4 md:mt-0">Saginaw Heritage ID: #SW-48601</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init AOS
+        AOS.init({ 
+            duration: 1000, 
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => mobileMenu.classList.add('active'), 10);
+        });
+
+        const closeMenu = () => {
+            mobileMenu.classList.remove('active');
+            setTimeout(() => mobileMenu.classList.add('hidden'), 400);
+        };
+
+        closeBtn.addEventListener('click', closeMenu);
+        
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    });
+    </script>
+</body>
+</html>
