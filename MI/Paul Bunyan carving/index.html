@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Bunyan Carving | Gladwin, MI | Profitnet Heritage</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Visit the Paul Bunyan Carving in Gladwin, MI. A rugged tribute to American folklore and the lumberjack history of the region. Verified Profitnet Cultural Asset.">
+    <meta name="keywords" content="Paul Bunyan Gladwin, Michigan Roadside Attractions, Lumberjack History, Folklore Statues, PNET Cultural Assets, Gladwin County Landmarks">
+    <meta name="author" content="Profitnet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LandmarkOrHistoricalService",
+      "name": "Paul Bunyan Carving",
+      "description": "Wooden carving of the legendary lumberjack Paul Bunyan.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "631 S Antler St",
+        "addressLocality": "Gladwin",
+        "addressRegion": "MI",
+        "postalCode": "48624",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "43.9698",
+        "longitude": "-84.4849"
+      }
+    }
+    </script>
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Arvo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --charred-wood: #1a1512;
+            --oxblood-red: #7f1d1d;
+            --raw-timber: #c2a68a;
+            --steel-blue: #94a3b8;
+            --sawdust: #d6bcfa; /* Subtle accent */
+        }
+
+        body {
+            font-family: 'Arvo', serif;
+            background-color: var(--charred-wood);
+            color: #e5e5e5;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .font-folk { font-family: 'Rye', serif; }
+
+        /* Wood Grain Background Pattern */
+        .timber-bg {
+            background-color: var(--charred-wood);
+            background-image: 
+                repeating-linear-gradient(90deg, transparent 0, transparent 1px, rgba(194, 166, 138, 0.03) 1px, rgba(194, 166, 138, 0.03) 2px),
+                radial-gradient(ellipse at 50% 0%, rgba(127, 29, 29, 0.1) 0%, transparent 60%);
+            background-size: 40px 100%, 100% 100%;
+        }
+
+        /* "Plank" Cards */
+        .plank-card {
+            background: linear-gradient(180deg, #2d241f 0%, #231b18 100%);
+            border: 1px solid #3d312a;
+            border-left: 4px solid var(--oxblood-red);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plank-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 2px, transparent 2px, transparent 8px);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .plank-card:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--raw-timber);
+        }
+
+        /* Axe Divider */
+        .axe-divider {
+            width: 100%;
+            height: 2px;
+            background: #3d312a;
+            position: relative;
+            margin: 4rem 0;
+        }
+        .axe-divider::after {
+            content: '\f6b3'; /* FontAwesome Axe */
+            font-family: 'FontAwesome';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            background: var(--charred-wood);
+            padding: 0 1rem;
+            color: var(--oxblood-red);
+            font-size: 1.5rem;
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-10px);
+        }
+        #mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--charred-wood); }
+        ::-webkit-scrollbar-thumb { background: #3d312a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--oxblood-red); }
+    </style>
+</head>
+<body class="antialiased timber-bg relative">
+
+    <!-- Header (Profitnet Integrated) -->
+    <header class="fixed w-full top-0 z-50 bg-[#1a1512]/95 backdrop-blur-md border-b border-[#3d312a]">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 grayscale opacity-70 group-hover:opacity-100 transition-all" alt="Profitnet">
+                <span class="text-xl font-folk font-normal tracking-wider text-white group-hover:text-[#7f1d1d] transition-colors">Profitnet</span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-xs font-bold text-[#888] hover:text-white transition-colors uppercase tracking-[0.2em]">Home</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-[0.2em] text-[#c2a68a] border-b border-[#c2a68a]/30 pb-1">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 border border-[#3d312a] text-[10px] font-bold text-[#94a3b8] hover:border-[#c2a68a] hover:text-[#c2a68a] transition-all uppercase tracking-[0.2em] bg-[#231b18]">
+                    $PNET Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-[#c2a68a] text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-[#1a1512] z-40 flex flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-3xl font-folk text-white uppercase">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-3xl font-folk text-[#c2a68a] uppercase">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-3xl font-folk text-white uppercase">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-32 pb-20">
+        
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 mb-24 relative">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 mb-6 bg-[#2d241f] border border-[#3d312a] px-4 py-2 text-[#c2a68a] text-xs font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-tree"></i> Gladwin County Heritage
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-folk leading-tight mb-8 text-white">
+                        GIANT OF <br>
+                        <span class="text-[#7f1d1d]">GLADWIN.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-[#9ca3af] max-w-lg mb-10 leading-relaxed font-light border-l-2 border-[#7f1d1d] pl-6">
+                        A rough-hewn tribute to the lumber era. Paul Bunyan stands tall at 631 South Antler Street, embodying the folklore that built Michigan.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#folklore" class="px-8 py-4 bg-[#7f1d1d] hover:bg-[#991b1b] text-white font-bold uppercase tracking-widest text-xs transition-colors shadow-lg shadow-black/50">
+                            The Legend
+                        </a>
+                        <a href="#location" class="px-8 py-4 border border-[#524037] text-[#c2a68a] hover:text-white hover:border-white font-bold uppercase tracking-widest text-xs transition-colors">
+                            Find the Site
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual: Abstract Axe & Wood -->
+                <div class="relative h-[450px] flex items-center justify-center" data-aos="fade-left">
+                    <!-- Circular Saw Blade background -->
+                    <div class="absolute inset-0 flex items-center justify-center opacity-10">
+                         <svg viewBox="0 0 100 100" class="w-96 h-96 animate-spin-slow" style="animation-duration: 60s;">
+                            <path d="M50 0 L55 10 L60 0 L65 10 L70 0 L75 10 L80 0 L85 10 L90 0 L95 10 L100 20 L90 25 L100 30 L90 35 L100 40 L90 45 L100 50 L90 55 L100 60 L90 65 L100 70 L90 75 L100 80 L90 85 L100 100 L80 95 L70 100 L60 95 L50 100 L40 95 L30 100 L20 95 L0 100 L10 80 L0 70 L10 60 L0 50 L10 40 L0 30 L10 20 L0 0 L20 10 L30 0 L40 10 Z" fill="white"/>
+                         </svg>
+                    </div>
+                    
+                    <!-- Stylized Carving Graphic -->
+                    <svg viewBox="0 0 300 400" class="w-full max-w-sm drop-shadow-2xl relative z-10">
+                        <!-- Axe Handle -->
+                        <rect x="200" y="50" width="15" height="300" rx="2" fill="#8d6e63" transform="rotate(15 200 200)"/>
+                        
+                        <!-- Axe Head -->
+                        <path d="M180 80 Q140 50 140 120 Q180 150 220 120 L220 80 Z" fill="#94a3b8" transform="rotate(15 200 200)"/>
+                        
+                        <!-- Bunyan Outline (Abstract Block Style) -->
+                        <rect x="80" y="100" width="100" height="200" fill="#7f1d1d" rx="5"/> <!-- Shirt -->
+                        <rect x="80" y="300" width="100" height="100" fill="#1e293b"/> <!-- Pants -->
+                        <circle cx="130" cy="80" r="30" fill="#e5d0b9"/> <!-- Head -->
+                        <path d="M110 80 Q130 110 150 80" stroke="#1a1512" stroke-width="4" fill="none"/> <!-- Beard hint -->
+                        <rect x="110" y="50" width="40" height="20" fill="#1a1512"/> <!-- Hat -->
+                        
+                        <!-- Plaid Pattern Overlay on Shirt -->
+                        <pattern id="plaid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <rect width="20" height="20" fill="#7f1d1d"/>
+                            <path d="M0 10 H20 M10 0 V20" stroke="#000" stroke-width="2" opacity="0.2"/>
+                        </pattern>
+                        <rect x="80" y="100" width="100" height="200" fill="url(#plaid)" rx="5" opacity="0.5"/>
+                    </svg>
+
+                    <!-- Rating Badge -->
+                    <div class="absolute top-10 right-10 bg-[#2d241f] p-4 border border-[#3d312a] shadow-lg transform rotate-3">
+                        <div class="text-[10px] text-[#c2a68a] uppercase tracking-widest font-bold mb-1">Local Icon</div>
+                        <div class="text-xl font-folk text-white">Est. 19xx</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Axe Divider -->
+        <div class="axe-divider"></div>
+
+        <!-- Info Plank Grid -->
+        <section id="folklore" class="container mx-auto px-6 mb-24">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Plank 1 -->
+                <article class="plank-card p-8" data-aos="fade-up" data-aos-delay="0">
+                    <i class="fa-solid fa-tree text-3xl text-[#7f1d1d] mb-4"></i>
+                    <h3 class="text-xl font-folk text-white mb-2">The Folk Hero</h3>
+                    <p class="text-sm text-[#9ca3af]">
+                        Paul Bunyan, the giant lumberjack of American folklore. His legend represents the scale and might of the logging industry that cleared Michigan's forests in the 1800s.
+                    </p>
+                </article>
+
+                <!-- Plank 2 -->
+                <article class="plank-card p-8" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-hammer text-3xl text-[#c2a68a] mb-4"></i>
+                    <h3 class="text-xl font-folk text-white mb-2">The Carving</h3>
+                    <p class="text-sm text-[#9ca3af]">
+                        Unlike polished bronze statues, this monument is carved from wood—fitting for a lumberjack—capturing the raw, homespun aesthetic of roadside Americana.
+                    </p>
+                </article>
+
+                <!-- Plank 3 -->
+                <article class="plank-card p-8" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-location-dot text-3xl text-[#94a3b8] mb-4"></i>
+                    <h3 class="text-xl font-folk text-white mb-2">The Setting</h3>
+                    <p class="text-sm text-[#9ca3af]">
+                        Located on S Antler St in Gladwin, a town deeply rooted in timber history. It stands as a quirky, beloved waymarker for locals and travelers alike.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Location Module -->
+        <section id="location" class="container mx-auto px-6">
+            <div class="bg-[#231b18] border border-[#3d312a] relative overflow-hidden">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-12 flex flex-col justify-center border-r border-[#3d312a]">
+                        <div class="mb-8">
+                            <span class="text-[#c2a68a] text-xs font-bold uppercase tracking-widest">Waypoint</span>
+                            <h2 class="text-3xl font-folk text-white mt-2">GLADWIN, MI</h2>
+                        </div>
+                        
+                        <div class="space-y-6 mb-10">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 flex items-center justify-center bg-[#2d241f] border border-[#7f1d1d] text-[#7f1d1d] shrink-0">
+                                    <i class="fa-solid fa-map-pin"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-sm">631 S Antler St</p>
+                                    <p class="text-[#888] text-xs uppercase tracking-wider">Gladwin, MI 48624</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 flex items-center justify-center bg-[#2d241f] border border-[#555] text-[#999] shrink-0">
+                                    <i class="fa-solid fa-camera"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-sm">Photo Op</p>
+                                    <p class="text-[#888] text-xs uppercase tracking-wider">Roadside Visibility</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Paul+Bunyan+Carving+Gladwin+MI')" 
+                                class="w-full py-4 bg-[#c2a68a] hover:bg-[#7f1d1d] hover:text-white text-[#1a1512] font-bold uppercase tracking-widest text-xs transition-colors flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-compass"></i> Navigate to Giant
+                        </button>
+                    </div>
+
+                    <div class="relative h-64 md:h-auto bg-[#1a1512] flex items-center justify-center group overflow-hidden">
+                        <!-- Compass Background -->
+                        <div class="absolute inset-0 opacity-10 flex items-center justify-center">
+                             <i class="fa-regular fa-compass text-9xl text-white"></i>
+                        </div>
+                        
+                        <div class="text-center relative z-10 group-hover:scale-105 transition-transform duration-500">
+                            <i class="fa-solid fa-tree text-5xl text-[#2d241f] mb-4 group-hover:text-[#c2a68a] transition-colors stroke-white"></i>
+                            <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#555]">Timber Country</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#110e0c] border-t border-[#3d312a] pt-16 pb-8 relative z-10 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-gavel text-[#7f1d1d]"></i>
+                        <h4 class="font-folk font-normal text-xl text-white tracking-widest uppercase">Profitnet Heritage</h4>
+                    </div>
+                    <p class="text-sm text-[#888] max-w-sm">
+                        Preserving the tall tales and timber history of the Midwest. The Paul Bunyan Carving is a verified cultural asset in the Profitnet Database.
+                    </p>
+                </div>
+                
+                <div>
+                    <h5 class="text-[10px] font-bold text-[#c2a68a] uppercase tracking-[0.2em] mb-6">Directory</h5>
+                    <ul class="space-y-3 text-xs font-bold text-[#666]">
+                        <li><a href="https://testedprofit.com/pages/PNET/" class="hover:text-white transition-colors">$PNET Dashboard</a></li>
+                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-white transition-colors">Landmark Map</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-[10px] font-bold text-[#c2a68a] uppercase tracking-[0.2em] mb-6">Connect</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-[#666] hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="text-[#666] hover:text-white transition-colors"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-[#3d312a] pt-8 flex justify-between items-center text-[10px] text-[#555] uppercase tracking-widest font-bold">
+                <p>© 2026 Profitnet. Tall Tales.</p>
+                <p>Asset ID: MI-GLA-48624</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init Animation
+        AOS.init({ duration: 1000, once: true, offset: 50 });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        const toggleMenu = (open) => {
+            if (open) {
+                mobileMenu.classList.add('active');
+            } else {
+                mobileMenu.classList.remove('active');
+            }
+        };
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
