@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brown Trout Sculpture Park | Baldwin, MI | Profitnet</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Visit the Brown Trout Sculpture Park in Baldwin, MI. A monument to the first planting of German Brown Trout in American waters and a symbol of the Pere Marquette conservation legacy.">
+    <meta name="keywords" content="Brown Trout Sculpture, Baldwin Michigan, World's Largest Brown Trout, Pere Marquette River, Rails to Trails, PNET Cultural Assets, Conservation Landmarks">
+    <meta name="author" content="Profitnet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Park",
+      "name": "Brown Trout Sculpture Park",
+      "description": "Public park featuring a monumental sculpture commemorating the historic planting of brown trout in the Pere Marquette River.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rails to Trails Trail",
+        "addressLocality": "Baldwin",
+        "addressRegion": "MI",
+        "postalCode": "49304",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "43.9019",
+        "longitude": "-85.8522"
+      }
+    }
+    </script>
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;700;800&family=Oswald:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --river-depth: #0f172a;
+            --water-surface: #0ea5e9;
+            --trout-gold: #eab308;
+            --moss-green: #10B981;
+            --trail-grey: #64748b;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--river-depth);
+            color: #f1f5f9;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .font-display { font-family: 'Oswald', sans-serif; }
+
+        /* Unique "Topographic" Background */
+        .topo-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2310B981' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+        }
+
+        /* Fluid Glass Cards */
+        .glass-water {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(14, 165, 233, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-water:hover {
+            transform: translateY(-5px);
+            border-color: rgba(14, 165, 233, 0.4);
+        }
+
+        /* Abstract Trout Scale Pattern overlay */
+        .scales-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-image: radial-gradient(circle at center, rgba(234, 179, 8, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--river-depth); }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--water-surface); }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: clip-path 0.5s ease-in-out;
+            clip-path: circle(0% at 100% 0);
+        }
+        #mobile-menu.active {
+            clip-path: circle(150% at 100% 0);
+        }
+        
+        .gradient-text-nature {
+            background: linear-gradient(135deg, #10B981, #0EA5E9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased topo-bg relative">
+
+    <!-- Header (Integrated from BLANKTEMPLATE.HTML) -->
+    <header class="fixed w-full top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo Section -->
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-xs font-bold text-slate-400 hover:text-emerald-400 transition-colors uppercase tracking-widest">Home</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-widest text-emerald-400">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 flex flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-32">
+        
+        <!-- Hero Section: "The Catch" -->
+        <section class="container mx-auto px-6 py-20 relative">
+            <div class="scales-overlay"></div>
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-up">
+                    <div class="inline-block px-4 py-1 rounded-full bg-teal-900/30 border border-teal-500/20 text-teal-400 text-xs font-bold uppercase tracking-widest mb-6">
+                        <i class="fa-solid fa-fish-fins mr-2"></i> Conservation Heritage Site
+                    </div>
+                    <h1 class="text-6xl md:text-8xl font-display font-bold leading-none mb-6 text-white">
+                        THE GREAT <br>
+                        <span class="gradient-text-nature">BROWN TROUT.</span>
+                    </h1>
+                    <p class="text-lg text-slate-400 max-w-xl leading-relaxed mb-8">
+                        Baldwin, Michigan is home to the world's largest brown trout sculpture—a 25-foot monument to the Pere Marquette River's historic role as the first American home for this resilient species.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#sculpture" class="px-8 py-4 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-500 transition-all text-xs uppercase tracking-widest shadow-lg shadow-emerald-900/50">
+                            View The Monument
+                        </a>
+                        <div class="flex items-center gap-2 px-6 py-4 border-l border-white/10">
+                            <i class="fa-solid fa-star text-yellow-500"></i>
+                            <span class="font-display font-bold text-xl">4.6</span>
+                            <span class="text-xs text-slate-500 uppercase tracking-wide">Community Rating</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abstract Visualization of the Sculpture/Park -->
+                <div class="relative" data-aos="fade-left">
+                    <div class="relative z-10 glass-water rounded-3xl p-1 overflow-hidden rotate-1 hover:rotate-0 transition-transform duration-500">
+                        <div class="bg-slate-900/80 aspect-video rounded-2xl flex items-center justify-center relative overflow-hidden">
+                            <!-- SVG Stylized River/Trout Scene -->
+                            <svg viewBox="0 0 400 300" class="w-full h-full opacity-80">
+                                <defs>
+                                    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#0f172a;stop-opacity:0" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Abstract River Bed -->
+                                <path d="M0 250 Q100 200 200 250 T400 250 V300 H0 Z" fill="#1e293b" />
+                                <!-- The Trout Silhouette (Simplified) -->
+                                <path d="M100 150 Q150 100 250 120 Q350 140 380 150 Q350 200 250 180 Q150 160 100 150 Z" fill="#eab308" opacity="0.1" />
+                                <path d="M110 155 Q150 110 240 130 Q330 150 360 155 Q330 190 240 170 Q150 155 110 155 Z" stroke="#eab308" stroke-width="2" fill="none" />
+                                <!-- Topo Lines -->
+                                <path d="M0 50 Q200 100 400 50" stroke="#0ea5e9" stroke-width="1" fill="none" opacity="0.2" />
+                                <path d="M0 80 Q200 130 400 80" stroke="#0ea5e9" stroke-width="1" fill="none" opacity="0.1" />
+                            </svg>
+                            <div class="absolute bottom-6 left-6">
+                                <p class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Asset ID: V4WX+WF</p>
+                                <p class="text-white font-display text-2xl">BALDWIN, MI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative Element -->
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wave Divider -->
+        <div class="w-full overflow-hidden leading-[0]">
+            <svg class="relative block w-full h-[60px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-slate-900/50"></path>
+            </svg>
+        </div>
+
+        <!-- Info Grid -->
+        <section id="sculpture" class="bg-slate-900/50 py-20">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Stat Card 1 -->
+                    <div class="glass-water p-8 rounded-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="0">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl text-emerald-500 group-hover:scale-110 transition-transform"><i class="fa-solid fa-tree"></i></div>
+                        <h3 class="text-emerald-400 font-bold uppercase tracking-widest text-xs mb-3">Location Context</h3>
+                        <h2 class="font-display text-2xl text-white mb-4">Rails to Trails</h2>
+                        <p class="text-slate-400 text-sm">Situated directly on the Pere Marquette Rail-Trail, connecting outdoor enthusiasts with cultural history.</p>
+                    </div>
+
+                    <!-- Stat Card 2 -->
+                    <div class="glass-water p-8 rounded-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl text-yellow-500 group-hover:scale-110 transition-transform"><i class="fa-solid fa-crown"></i></div>
+                        <h3 class="text-yellow-500 font-bold uppercase tracking-widest text-xs mb-3">Global Status</h3>
+                        <h2 class="font-display text-2xl text-white mb-4">World's Largest</h2>
+                        <p class="text-slate-400 text-sm">A colossal representation celebrating the 1884 introduction of the species to the US via Baldwin.</p>
+                    </div>
+
+                    <!-- Stat Card 3 -->
+                    <div class="glass-water p-8 rounded-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl text-blue-500 group-hover:scale-110 transition-transform"><i class="fa-solid fa-water"></i></div>
+                        <h3 class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-3">Ecosystem</h3>
+                        <h2 class="font-display text-2xl text-white mb-4">Pere Marquette</h2>
+                        <p class="text-slate-400 text-sm">Honoring the pristine river system that supports this vibrant trout population.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Access Section -->
+        <section class="container mx-auto px-6 py-24">
+            <div class="bg-gradient-to-r from-teal-900/40 to-slate-900/40 border border-teal-500/20 rounded-3xl p-8 md:p-16 relative overflow-hidden">
+                <!-- Background Decoration -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                
+                <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-display font-bold mb-6 text-white">PLAN YOUR VISIT</h2>
+                        <div class="space-y-6 text-slate-300">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 shrink-0 border border-emerald-500/20">
+                                    <i class="fa-solid fa-map-pin"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Baldwin Trailhead</h4>
+                                    <p class="text-sm text-slate-400">Rails to Trails Trail, Baldwin, MI 49304</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-blue-400 shrink-0 border border-blue-500/20">
+                                    <i class="fa-regular fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Year-Round Access</h4>
+                                    <p class="text-sm text-slate-400">Open 24/7. Best viewed during daylight hours for photography.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                            <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Brown+Trout+Sculpture+Baldwin+MI')" class="bg-white text-slate-900 px-8 py-3 rounded-lg font-bold hover:bg-emerald-50 transition-colors shadow-lg flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-location-arrow"></i> Get Directions
+                            </button>
+                            <button class="px-8 py-3 rounded-lg border border-white/20 hover:bg-white/5 transition-colors font-bold text-white">
+                                Nearby Amenities
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="h-64 md:h-full bg-slate-800/50 rounded-2xl border border-white/5 flex items-center justify-center relative overflow-hidden group">
+                        <div class="text-center p-8">
+                            <i class="fa-solid fa-camera text-4xl text-slate-600 mb-4 group-hover:text-emerald-400 transition-colors"></i>
+                            <p class="text-slate-500 text-sm font-bold uppercase tracking-widest">Photo Opportunity</p>
+                            <p class="text-slate-600 text-xs mt-2">Tag #ProfitnetLandmarks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (Profitnet Standard) -->
+    <footer class="bg-slate-950 pt-20 pb-10 border-t border-white/5 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div class="col-span-2">
+                    <a href="/" class="flex items-center space-x-3 mb-6">
+                        <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8" alt="Profitnet">
+                        <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+                    </a>
+                    <p class="text-slate-500 max-w-sm text-sm leading-relaxed">
+                        Documenting the intersection of nature, culture, and history. The Brown Trout Sculpture Park is a verified asset in the Profitnet Conservation Database.
+                    </p>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-6">Ecosystem</h4>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li><a href="https://testedprofit.com/pages/PNET/" class="hover:text-emerald-400 transition-colors">$PNET Dashboard</a></li>
+                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-emerald-400 transition-colors">Landmark Directory</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Conservation Goals</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Social/Legal -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-6">Connect</h4>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:bg-emerald-500 hover:text-white transition-all"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:bg-emerald-500 hover:text-white transition-all"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 font-bold uppercase tracking-widest">
+                <p>&copy; 2026 Profitnet. Conservation through Verification.</p>
+                <p class="mt-4 md:mt-0">Lake County Asset ID: #49304-TR</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize Animations
+        AOS.init({ 
+            duration: 1000, 
+            once: true, 
+            offset: 50,
+            easing: 'ease-out-cubic'
+        });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        const toggleMenu = (show) => {
+            if (show) {
+                mobileMenu.classList.remove('hidden');
+                // Small delay to allow display:block to apply before animating clip-path
+                requestAnimationFrame(() => {
+                    mobileMenu.classList.add('active');
+                });
+            } else {
+                mobileMenu.classList.remove('active');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 500); // Match transition duration
+            }
+        };
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        
+        // Close on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
