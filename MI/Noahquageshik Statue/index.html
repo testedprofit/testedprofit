@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noahquageshik Statue | Grand Rapids, MI | Profitnet Heritage</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Visit the Noahquageshik (Chief Noonday) Statue at GVSU in Grand Rapids. A monument to the Ottawa leader and peacemaker, standing watch over the Grand River.">
+    <meta name="keywords" content="Noahquageshik Statue, Chief Noonday Grand Rapids, GVSU Landmarks, Native American History Michigan, Anishinaabe Monument, PNET Cultural Assets">
+    <meta name="author" content="Profitnet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LandmarkOrHistoricalService",
+      "name": "Noahquageshik Statue",
+      "alternateName": "Chief Noonday Statue",
+      "description": "Bronze statue of Ottawa leader Noahquageshik, located at the John C. Kennedy Hall of Engineering.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "300 Fulton St W",
+        "addressLocality": "Grand Rapids",
+        "addressRegion": "MI",
+        "postalCode": "49504",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "42.9634",
+        "longitude": "-85.6720"
+      }
+    }
+    </script>
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Work+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --earth-dark: #1c1917; /* Warm Black */
+            --river-stone: #292524; /* Stone Grey */
+            --copper: #ca8a04; /* Bronze/Gold */
+            --clay-red: #9f1239; /* Deep Red Accent */
+            --river-blue: #0e7490; /* Muted Cyan */
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--earth-dark);
+            color: #e7e5e4;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .font-monument { font-family: 'Tenor Sans', sans-serif; }
+
+        /* "River Flow" Background Pattern */
+        .river-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM22.485 0l.83.828-1.415 1.415-.828-.828-.828.828-1.415-1.415.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM0 22.485l.828.83-1.415 1.415-.828-.828-.828.828L-2.83 22.485l.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM0 54.627l.828.83-1.415 1.415-.828-.828-.828.828L-2.83 54.627l.828-.828-.828-.828 1.415-1.415.828.828.828-.828 1.415 1.415-.828.828zM54.627 60l.83-.828-1.415-1.415-.828.828-.828-.828-1.415 1.415.828.828-.828.828 1.415 1.415.828-.828.828.828 1.415-1.415-.828-.828zM22.485 60l.83-.828-1.415-1.415-.828.828-.828-.828-1.415 1.415.828.828-.828.828 1.415 1.415.828-.828.828.828 1.415-1.415-.828-.828z' fill='%23ca8a04' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        /* Architectural Cards */
+        .stone-card {
+            background: rgba(41, 37, 36, 0.6);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(202, 138, 4, 0.2);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+        }
+
+        .stone-card:hover {
+            background: rgba(41, 37, 36, 0.8);
+            border-top-color: var(--copper);
+            transform: translateY(-5px);
+        }
+
+        /* Abstract Circle Viz */
+        .sculpture-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid var(--copper);
+            opacity: 0.2;
+            animation: pulse-ring 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { opacity: 0.3; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* Text Gradients */
+        .text-gradient-copper {
+            background: linear-gradient(135deg, #fcd34d, #ca8a04);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.95);
+        }
+        #mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--earth-dark); }
+        ::-webkit-scrollbar-thumb { background: #44403c; border-radius: 4px; }
+    </style>
+</head>
+<body class="antialiased river-bg relative">
+
+    <!-- Header (Profitnet Integrated) -->
+    <header class="fixed w-full top-0 z-50 bg-[#1c1917]/95 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 opacity-80 group-hover:opacity-100 transition-opacity" alt="Profitnet">
+                <span class="text-xl font-monument font-bold tracking-widest text-white uppercase group-hover:text-[#ca8a04] transition-colors">Profitnet</span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-xs font-bold text-stone-400 hover:text-white transition-colors uppercase tracking-[0.2em]">Home</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-[0.2em] text-[#ca8a04] border-b border-[#ca8a04]/50 pb-1">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 border border-stone-700 text-[10px] font-bold text-stone-300 hover:border-[#ca8a04] hover:text-[#ca8a04] transition-all uppercase tracking-[0.2em]">
+                    $PNET Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-stone-300 hover:text-[#ca8a04] transition-colors text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-[#1c1917] z-40 flex flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-2xl font-monument text-white uppercase">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-2xl font-monument text-[#ca8a04] uppercase">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-2xl font-monument text-white uppercase">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-32 pb-20">
+        
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 mb-24 relative">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="w-8 h-[1px] bg-[#ca8a04]"></span>
+                        <span class="text-[#ca8a04] text-xs font-bold uppercase tracking-[0.3em]">Grand Valley State University</span>
+                    </div>
+                    
+                    <h1 class="text-6xl md:text-8xl font-monument uppercase leading-none mb-8 text-white">
+                        THE <br>
+                        <span class="text-gradient-copper">PEACEMAKER.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-stone-400 max-w-lg mb-10 leading-relaxed font-light border-l border-stone-700 pl-6">
+                        Standing seven feet tall in bronze, <strong>Noahquageshik</strong> (Chief Noonday) watches over the Grand River, honoring the Anishinaabe leader who bridged cultures in Grand Rapids.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#biography" class="px-8 py-4 bg-[#ca8a04] hover:bg-yellow-600 text-stone-900 font-bold uppercase tracking-widest text-xs transition-colors">
+                            Read Biography
+                        </a>
+                        <a href="#location" class="px-8 py-4 border border-stone-700 text-stone-400 hover:text-white hover:border-white font-bold uppercase tracking-widest text-xs transition-colors">
+                            Locate Asset
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Abstract Visual: The Statue Silhouette -->
+                <div class="relative h-[500px] flex items-center justify-center" data-aos="fade-left">
+                    <!-- Concentric Rings representing impact -->
+                    <div class="sculpture-ring w-64 h-64"></div>
+                    <div class="sculpture-ring w-96 h-96" style="animation-delay: 1s;"></div>
+                    
+                    <!-- Stylized SVG Representation -->
+                    <svg viewBox="0 0 200 400" class="h-full drop-shadow-2xl relative z-10">
+                        <defs>
+                            <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#78350f;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#ca8a04;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#78350f;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Pedestal -->
+                        <rect x="60" y="350" width="80" height="40" fill="#292524" />
+                        <!-- Abstract Figure (Tall, dignified) -->
+                        <path d="M70 350 L80 100 L120 100 L130 350 Z" fill="url(#bronzeGrad)" opacity="0.9" />
+                        <!-- Head/Details -->
+                        <circle cx="100" cy="80" r="15" fill="url(#bronzeGrad)" />
+                        <path d="M100 80 L100 150" stroke="#451a03" stroke-width="1" />
+                        <!-- Regalia/Blanket Flow -->
+                        <path d="M80 120 Q60 200 50 350" fill="none" stroke="url(#bronzeGrad)" stroke-width="2" />
+                        <path d="M120 120 Q140 200 150 350" fill="none" stroke="url(#bronzeGrad)" stroke-width="2" />
+                    </svg>
+
+                    <div class="absolute bottom-10 right-0 text-right">
+                        <div class="text-4xl font-monument font-bold text-white">5.0</div>
+                        <div class="text-xs text-[#ca8a04] uppercase tracking-widest">Cultural Rating</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Context & Details -->
+        <section id="biography" class="container mx-auto px-6 mb-24">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1: The Leader -->
+                <article class="stone-card p-10" data-aos="fade-up" data-aos-delay="0">
+                    <i class="fa-solid fa-feather text-3xl text-[#ca8a04] mb-6"></i>
+                    <h3 class="text-xl font-monument text-white mb-4">The Leader</h3>
+                    <p class="text-sm text-stone-400 leading-relaxed">
+                        Noahquageshik ("The One Who Hangs in the Sky") led the Grand River Ottawa. He was pivotal in allowing Baptist missionaries to establish schools, seeking education and adaptation for his people.
+                    </p>
+                </article>
+
+                <!-- Card 2: The Artist -->
+                <article class="stone-card p-10" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-hammer text-3xl text-stone-500 mb-6"></i>
+                    <h3 class="text-xl font-monument text-white mb-4">The Artist</h3>
+                    <p class="text-sm text-stone-400 leading-relaxed">
+                        Created by sculptor Jason Quigno, himself a descendant of the Saginaw Chippewa Tribe. The 7-foot bronze masterpiece blends traditional storytelling with contemporary form.
+                    </p>
+                </article>
+
+                <!-- Card 3: The Location -->
+                <article class="stone-card p-10" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-university text-3xl text-[#0e7490] mb-6"></i>
+                    <h3 class="text-xl font-monument text-white mb-4">The Setting</h3>
+                    <p class="text-sm text-stone-400 leading-relaxed">
+                        Located at the John C. Kennedy Hall of Engineering. The placement symbolizes the bridge between indigenous knowledge of the land and modern engineering practices.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Map & Access -->
+        <section id="location" class="container mx-auto px-6">
+            <div class="bg-[#292524] relative overflow-hidden border border-stone-800">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-12 flex flex-col justify-center border-r border-stone-800">
+                        <div class="mb-8">
+                            <span class="text-[#ca8a04] text-xs font-bold uppercase tracking-widest">Destination</span>
+                            <h2 class="text-3xl font-monument text-white mt-2">GVSU PEW CAMPUS</h2>
+                        </div>
+                        
+                        <div class="space-y-6 mb-10">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center text-[#ca8a04] shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-stone-300 font-bold text-sm">300 Fulton St W</p>
+                                    <p class="text-stone-500 text-xs uppercase tracking-wider">Grand Rapids, MI 49504</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center text-stone-400 shrink-0">
+                                    <i class="fa-regular fa-clock"></i>
+                                </div>
+                                <div>
+                                    <p class="text-stone-300 font-bold text-sm">Public Access</p>
+                                    <p class="text-stone-500 text-xs uppercase tracking-wider">Outdoor Plaza / 24 Hours</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Noahquageshik+Statue+Grand+Rapids')" 
+                                class="w-full py-4 bg-[#ca8a04] text-stone-900 font-bold uppercase tracking-widest text-xs hover:bg-white transition-colors flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-diamond-turn-right"></i> Navigate
+                        </button>
+                    </div>
+
+                    <div class="relative h-64 md:h-auto bg-stone-900 overflow-hidden flex items-center justify-center group">
+                        <!-- Decorative Map Pattern -->
+                        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#44403c 1px, transparent 1px); background-size: 20px 20px;"></div>
+                        
+                        <div class="text-center relative z-10 group-hover:scale-105 transition-transform duration-500">
+                            <i class="fa-solid fa-map-location text-5xl text-stone-700 mb-4 group-hover:text-[#ca8a04] transition-colors"></i>
+                            <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500">View on Map</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#151312] border-t border-stone-800 pt-16 pb-8 relative z-10 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-monument text-[#ca8a04]"></i>
+                        <h4 class="font-monument font-bold text-xl text-white tracking-widest uppercase">Profitnet Heritage</h4>
+                    </div>
+                    <p class="text-sm text-stone-500 max-w-sm">
+                        Honoring the ancestral stewards of this land. Noahquageshik is a verified cultural asset in the Profitnet Database.
+                    </p>
+                </div>
+                
+                <div>
+                    <h5 class="text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em] mb-6">Directory</h5>
+                    <ul class="space-y-3 text-xs font-bold text-stone-500">
+                        <li><a href="https://testedprofit.com/pages/PNET/" class="hover:text-[#ca8a04] transition-colors">$PNET Dashboard</a></li>
+                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-[#ca8a04] transition-colors">Landmark Map</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em] mb-6">Connect</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-stone-600 hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="text-stone-600 hover:text-white transition-colors"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-stone-900 pt-8 flex justify-between items-center text-[10px] text-stone-600 uppercase tracking-widest font-bold">
+                <p>© 2026 Profitnet. All rights reserved.</p>
+                <p>Asset ID: MI-GR-49504</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init Animation Library
+        AOS.init({ duration: 1000, once: true, offset: 50 });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        const toggleMenu = (open) => {
+            if (open) {
+                mobileMenu.classList.add('active');
+            } else {
+                mobileMenu.classList.remove('active');
+            }
+        };
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
