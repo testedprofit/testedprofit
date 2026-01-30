@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Johnson Statue | East Lansing, MI | Profitnet Heritage</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Visit the Magic Johnson Statue at the Breslin Center in East Lansing, MI. A bronze tribute to the Spartan legend and global icon. Verified Profitnet Cultural Asset.">
+    <meta name="keywords" content="Magic Johnson Statue, Michigan State University Landmarks, Breslin Center, Earvin Johnson Sculpture, Spartan Basketball History, PNET Assets">
+    <meta name="author" content="Profitnet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LandmarkOrHistoricalService",
+      "name": "Magic Johnson Statue",
+      "alternateName": "Earvin 'Magic' Johnson Sculpture",
+      "description": "Bronze statue of basketball legend Magic Johnson, located outside the Breslin Student Events Center.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "534 Birch Rd",
+        "addressLocality": "East Lansing",
+        "addressRegion": "MI",
+        "postalCode": "48823",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "42.7285",
+        "longitude": "-84.4927"
+      }
+    }
+    </script>
+    
+    <!-- External Scripts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --spartan-green: #18453B;
+            --court-wood: #D69F6B; /* Hardwood tone */
+            --magic-gold: #FDB927; /* subtle nod to Lakers/Gold */
+            --pure-white: #FFFFFF;
+            --jersey-black: #111111;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--spartan-green);
+            color: #E2E8F0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .font-athletic { font-family: 'Teko', sans-serif; }
+
+        /* "Playbook" Background Pattern */
+        .court-bg {
+            background-color: var(--spartan-green);
+            background-image: 
+                radial-gradient(circle at 100% 0%, rgba(255,255,255,0.05) 0%, transparent 20%),
+                radial-gradient(circle at 0% 100%, rgba(255,255,255,0.05) 0%, transparent 20%);
+        }
+
+        /* "Hardwood" Cards */
+        .stat-card {
+            background: rgba(24, 69, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--pure-white);
+            transition: height 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--pure-white);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .stat-card:hover::before {
+            background: var(--magic-gold);
+        }
+
+        /* Court Lines Overlay */
+        .court-lines {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.1;
+        }
+
+        /* Text Effects */
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            color: transparent;
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-10px);
+        }
+        #mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--spartan-green); }
+        ::-webkit-scrollbar-thumb { background: #FFFFFF; border-radius: 4px; }
+    </style>
+</head>
+<body class="antialiased court-bg relative">
+
+    <!-- Header (Profitnet Integrated) -->
+    <header class="fixed w-full top-0 z-50 bg-[#18453B]/95 backdrop-blur-md border-b border-white/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
+                     class="h-8 w-8 transition-transform group-hover:scale-110" alt="Profitnet">
+                <span class="text-xl font-athletic font-bold tracking-widest text-white uppercase group-hover:text-[#FDB927] transition-colors text-2xl">Profitnet</span>
+            </a>
+            
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-xs font-bold text-green-200 hover:text-white transition-colors uppercase tracking-[0.2em]">Home</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-[0.2em] text-white border-b-2 border-white pb-1">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 border border-white/20 bg-white/5 text-[10px] font-bold text-white hover:bg-white hover:text-[#18453B] transition-all uppercase tracking-[0.2em]">
+                    $PNET Dashboard
+                </a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white hover:text-[#FDB927] text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-[#18453B] z-40 flex flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-3xl font-athletic font-bold text-white uppercase">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-3xl font-athletic font-bold text-[#FDB927] uppercase">Landmarks</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-3xl font-athletic font-bold text-white uppercase">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-32 pb-20">
+        
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 mb-24 relative">
+            <div class="court-lines">
+                <!-- Abstract Court Lines -->
+                <svg width="100%" height="100%">
+                    <circle cx="90%" cy="50%" r="300" stroke="white" stroke-width="2" fill="none" opacity="0.1" />
+                    <line x1="0" y1="10%" x2="100%" y2="10%" stroke="white" stroke-width="2" opacity="0.1" />
+                </svg>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 mb-6 bg-white/10 border border-white/20 px-4 py-1 text-white text-xs font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-basketball"></i> East Lansing Legend
+                    </div>
+                    
+                    <h1 class="text-7xl md:text-9xl font-athletic font-bold leading-[0.85] mb-8 text-white">
+                        ALWAYS A <br>
+                        <span class="text-[#FDB927]">SPARTAN.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-slate-300 max-w-lg mb-10 leading-relaxed font-light border-l-4 border-white pl-6">
+                        "The Magic Earvin." A monumental bronze tribute to Earvin Johnson, commemorating the 1979 National Championship and his enduring impact on MSU.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#stats" class="px-10 py-4 bg-white hover:bg-[#FDB927] text-[#18453B] font-bold uppercase tracking-widest text-xs transition-all shadow-xl">
+                            Player Stats
+                        </a>
+                        <a href="#location" class="px-10 py-4 border border-white text-white hover:bg-white hover:text-[#18453B] font-bold uppercase tracking-widest text-xs transition-all">
+                            Visit Breslin
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual: Abstract Statue Graphic -->
+                <div class="relative h-[500px] flex items-center justify-center" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#18453B] via-transparent to-transparent z-10"></div>
+                    
+                    <!-- Stylized SVG Graphic -->
+                    <svg viewBox="0 0 400 500" class="w-full max-w-md drop-shadow-2xl relative z-0">
+                        <!-- Background Jersey Number -->
+                        <text x="50%" y="60%" text-anchor="middle" font-family="Teko" font-weight="700" font-size="300" fill="transparent" stroke="rgba(255,255,255,0.05)" stroke-width="2">33</text>
+                        
+                        <!-- Abstract Statue Form -->
+                        <path d="M150 450 L140 300 L160 200 L120 150" fill="none" stroke="#D69F6B" stroke-width="2" opacity="0.5" /> <!-- Leg/Torso -->
+                        <path d="M160 200 L250 180 L300 120" fill="none" stroke="#D69F6B" stroke-width="2" opacity="0.5" /> <!-- Arm passing -->
+                        <circle cx="310" cy="110" r="25" fill="none" stroke="#FDB927" stroke-width="2" /> <!-- Ball -->
+                        
+                        <!-- Pedestal -->
+                        <rect x="80" y="450" width="240" height="40" fill="#111" />
+                        <rect x="70" y="490" width="260" height="10" fill="#222" />
+                        
+                        <!-- Dynamic Lines -->
+                        <path d="M340 110 L400 80" stroke="white" stroke-width="1" stroke-dasharray="5 5" opacity="0.5" />
+                        <path d="M340 120 L380 140" stroke="white" stroke-width="1" stroke-dasharray="5 5" opacity="0.5" />
+                    </svg>
+
+                    <!-- Rating Badge -->
+                    <div class="absolute top-10 right-0 bg-white p-4 border-l-4 border-[#FDB927] shadow-lg transform -rotate-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-3xl font-athletic font-bold text-[#18453B]">4.7</span>
+                            <div class="flex text-[#FDB927] text-xs">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                        </div>
+                        <div class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">312 Reviews</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Grid (The "Box Score") -->
+        <section id="stats" class="container mx-auto px-6 mb-24">
+            <div class="flex items-center gap-4 mb-8">
+                <h2 class="text-4xl font-athletic font-bold text-white uppercase">Legacy Stats</h2>
+                <div class="h-[1px] flex-grow bg-white/20"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <article class="stat-card p-8" data-aos="fade-up" data-aos-delay="0">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Year</span>
+                        <i class="fa-solid fa-trophy text-2xl text-[#FDB927]"></i>
+                    </div>
+                    <h3 class="text-5xl font-athletic text-white mb-2">1979</h3>
+                    <p class="text-sm text-slate-300">
+                        NCAA National Champion. The game that changed basketball forever.
+                    </p>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="stat-card p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Jersey</span>
+                        <i class="fa-solid fa-shirt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-5xl font-athletic text-white mb-2">#33</h3>
+                    <p class="text-sm text-slate-300">
+                        Retired by MSU. The statue depicts him in full motion, directing the floor.
+                    </p>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="stat-card p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Location</span>
+                        <i class="fa-solid fa-map-pin text-2xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-5xl font-athletic text-white mb-2">BRESLIN</h3>
+                    <p class="text-sm text-slate-300">
+                        Standing guard at the Gilbert Pavilion, welcoming fans to the student events center.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Location Module -->
+        <section id="location" class="container mx-auto px-6">
+            <div class="bg-[#111] border border-white/10 relative overflow-hidden">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-12 flex flex-col justify-center border-r border-white/10">
+                        <div class="mb-8">
+                            <span class="text-[#FDB927] text-xs font-bold uppercase tracking-widest">Center Court</span>
+                            <h2 class="text-4xl font-athletic text-white mt-1">EAST LANSING</h2>
+                        </div>
+                        
+                        <div class="space-y-6 mb-10">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 flex items-center justify-center bg-[#18453B] border border-white/20 text-white shrink-0">
+                                    <i class="fa-solid fa-location-arrow"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-sm">534 Birch Rd</p>
+                                    <p class="text-slate-500 text-xs uppercase tracking-wider">East Lansing, MI 48823</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 flex items-center justify-center bg-[#18453B] border border-white/20 text-white shrink-0">
+                                    <i class="fa-solid fa-camera"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-sm">Photo Op</p>
+                                    <p class="text-slate-500 text-xs uppercase tracking-wider">Located Outdoors / Public Access</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Magic+Johnson+Statue+East+Lansing')" 
+                                class="w-full py-4 bg-white hover:bg-[#FDB927] text-[#18453B] font-bold uppercase tracking-widest text-xs transition-colors flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-basketball"></i> Get Directions
+                        </button>
+                    </div>
+
+                    <div class="relative h-64 md:h-auto bg-[#18453B] flex items-center justify-center group overflow-hidden">
+                        <!-- Court Floor Pattern -->
+                        <div class="absolute inset-0 opacity-20" 
+                             style="background-image: repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(255,255,255,0.1) 20px); background-size: 100% 20px;">
+                        </div>
+                        
+                        <div class="text-center relative z-10 group-hover:scale-105 transition-transform duration-300">
+                            <i class="fa-solid fa-crown text-6xl text-white mb-4 group-hover:text-[#FDB927] transition-colors"></i>
+                            <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50">Spartan Royalty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0A201B] border-t border-white/10 pt-16 pb-8 relative z-10 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-shield text-white"></i>
+                        <h4 class="font-athletic font-bold text-2xl text-white tracking-widest uppercase">Profitnet Heritage</h4>
+                    </div>
+                    <p class="text-sm text-slate-400 max-w-sm">
+                        Documenting the legends that shaped our history. The Magic Johnson Statue is a verified cultural asset in the Profitnet Database.
+                    </p>
+                </div>
+                
+                <div>
+                    <h5 class="text-[10px] font-bold text-white uppercase tracking-[0.2em] mb-6">Directory</h5>
+                    <ul class="space-y-3 text-xs font-bold text-slate-400">
+                        <li><a href="https://testedprofit.com/pages/PNET/" class="hover:text-white transition-colors">$PNET Dashboard</a></li>
+                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-white transition-colors">Landmark Map</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-[10px] font-bold text-white uppercase tracking-[0.2em] mb-6">Connect</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 flex justify-between items-center text-[10px] text-slate-500 uppercase tracking-widest font-bold">
+                <p>© 2026 Profitnet. Go Green.</p>
+                <p>Asset ID: MI-EL-48823</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Init Animation
+        AOS.init({ duration: 800, once: true, offset: 50 });
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        const toggleMenu = (open) => {
+            if (open) {
+                mobileMenu.classList.add('active');
+            } else {
+                mobileMenu.classList.remove('active');
+            }
+        };
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
+</body>
+</html>
