@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LUDUS MAGNUS: Grand Strategy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Roboto+Condensed:wght@400;700&display=swap');
+
+        :root {
+            --bg-dark: #121212;
+            --panel-bg: #1e1e1e;
+            --border-color: #3d3d3d;
+            --accent-gold: #c5a059;
+            --accent-red: #8a2be2;
+            --blood-red: #8a0303;
+            --text-main: #d4d4d4;
+            --text-dim: #888;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --danger: #f44336;
+        }
+
+        * { box-sizing: border-box; user-select: none; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            margin: 0; padding: 0;
+            background-color: #000;
+            font-family: 'Roboto Condensed', sans-serif;
+            color: var(--text-main);
+            height: 100vh; width: 100vw;
+            overflow: hidden;
+            display: flex; justify-content: center; align-items: center;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMTEwMDEwIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMxYTFhMWEiLz4KPC9zdmc+');
+        }
+
+        /* --- LAYOUT --- */
+        #game-container {
+            width: 100%; height: 100%;
+            display: grid;
+            grid-template-rows: 60px 1fr;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+        }
+
+        /* TOP BAR */
+        header {
+            background: #252526;
+            border-bottom: 2px solid var(--accent-gold);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        .brand { font-family: 'Cinzel', serif; font-weight: 900; font-size: 1.2rem; color: var(--accent-gold); letter-spacing: 2px; }
+        
+        .resource-cluster { display: flex; gap: 20px; font-size: 0.9rem; align-items: center; }
+        .res { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.1; }
+        .res span { color: var(--text-dim); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; }
+        .res strong { color: #fff; font-size: 1rem; }
+        .res.danger strong { color: var(--danger); }
+
+        #btn-end-day {
+            background: var(--accent-gold); color: #000; font-weight: bold;
+            border: none; padding: 8px 16px; font-family: 'Cinzel'; cursor: pointer;
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.3); transition: 0.2s;
+        }
+        #btn-end-day:hover { background: #fff; transform: scale(1.05); }
+
+        /* MAIN CONTENT GRID */
+        #main-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr 320px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* RESPONSIVE LAYOUT */
+        @media (max-width: 900px) {
+            #main-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr auto;
+            }
+            nav { order: 2; flex-direction: row; border-right: none; border-top: 1px solid var(--border-color); height: 60px; }
+            .nav-btn { flex: 1; border-left: none; border-top: 4px solid transparent; justify-content: center; flex-direction: column; gap: 2px; font-size: 0.7rem; padding: 5px; }
+            .nav-btn.active { border-left-color: transparent; border-top-color: var(--accent-gold); }
+            .nav-icon { font-size: 1.2rem; width: auto; }
+            
+            aside {
+                position: absolute; top: 0; right: 0; width: 90%; height: 100%;
+                z-index: 50; transform: translateX(100%); transition: transform 0.3s;
+                border-left: 1px solid var(--accent-gold); box-shadow: -10px 0 50px rgba(0,0,0,0.8);
+                background: #181818;
+            }
+            aside.active { transform: translateX(0); }
+            
+            .brand { font-size: 1rem; }
+            .resource-cluster { gap: 10px; }
+            header { padding: 0 10px; }
+            #btn-end-day { padding: 5px 10px; font-size: 0.8rem; }
+        }
+
+        /* SIDEBAR NAV */
+        nav {
+            background: #181818;
+            border-right: 1px solid var(--border-color);
+            display: flex; flex-direction: column;
+        }
+
+        .nav-btn {
+            background: transparent; border: none; border-left: 4px solid transparent;
+            color: var(--text-dim); padding: 15px 20px;
+            text-align: left; font-family: 'Cinzel', serif; font-size: 0.9rem;
+            cursor: pointer; transition: 0.2s;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .nav-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .nav-btn.active { background: rgba(197, 160, 89, 0.1); border-left-color: var(--accent-gold); color: var(--accent-gold); }
+        .nav-icon { width: 20px; text-align: center; }
+
+        /* CENTER VIEW */
+        #viewport {
+            background: #1e1e1e;
+            position: relative;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        /* RIGHT INFO PANEL */
+        aside {
+            background: #181818;
+            border-left: 1px solid var(--border-color);
+            padding: 20px;
+            display: flex; flex-direction: column;
+            overflow-y: auto;
+        }
+        .close-aside-btn { display: none; margin-bottom: 20px; }
+        @media (max-width: 900px) { .close-aside-btn { display: block; } }
+
+        /* COMMON UI ELEMENTS */
+        .panel-header {
+            font-family: 'Cinzel'; border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px; margin-bottom: 20px; font-size: 1.2rem; color: #fff;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .data-table th { text-align: left; color: var(--text-dim); padding: 8px; border-bottom: 1px solid var(--border-color); font-weight: normal; }
+        .data-table td { padding: 12px 8px; border-bottom: 1px solid #333; color: #ccc; }
+        .data-table tr { cursor: pointer; transition: 0.1s; }
+        .data-table tr:hover { background: rgba(255,255,255,0.05); }
+        .data-table tr.selected { background: rgba(197, 160, 89, 0.15); border-left: 2px solid var(--accent-gold); }
+
+        /* Checkbox styling */
+        .select-box {
+            width: 18px; height: 18px; border: 1px solid #666; background: #222;
+            display: inline-block; vertical-align: middle; margin-right: 10px; cursor: pointer;
+            position: relative;
+        }
+        .select-box.checked::after {
+            content: '✓'; position: absolute; top: -4px; left: 2px; color: var(--accent-gold); font-weight: bold;
+        }
+
+        /* Status Pills */
+        .pill { padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; font-weight: bold; }
+        .pill.ready { background: rgba(76, 175, 80, 0.2); color: #4caf50; }
+        .pill.tired { background: rgba(255, 152, 0, 0.2); color: #ff9800; }
+        .pill.injured { background: rgba(244, 67, 54, 0.2); color: #f44336; }
+
+        /* Stamina Dots */
+        .stamina-dots { display: flex; gap: 4px; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; background: #444; }
+        .dot.active { background: var(--accent-gold); box-shadow: 0 0 5px var(--accent-gold); }
+
+        .rarity-common { color: #aaa; }
+        .rarity-uncommon { color: #4caf50; }
+        .rarity-rare { color: #2196f3; }
+        .rarity-epic { color: #9c27b0; }
+        .rarity-legendary { color: #ff9800; text-shadow: 0 0 5px rgba(255, 152, 0, 0.4); }
+
+        .btn {
+            background: #333; color: #fff; border: 1px solid #555;
+            padding: 8px 16px; font-family: 'Roboto Condensed'; text-transform: uppercase; letter-spacing: 1px;
+            cursor: pointer; transition: 0.2s; font-size: 0.8rem; text-align: center;
+        }
+        .btn:hover { background: #444; border-color: #777; }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; filter: grayscale(1); }
+        .btn-primary { background: var(--accent-gold); color: #000; border: none; font-weight: bold; }
+        .btn-primary:hover { background: #e6b86a; }
+        .btn-danger { background: rgba(138, 3, 3, 0.2); border-color: var(--blood-red); color: #ff8888; }
+        .btn-danger:hover { background: var(--blood-red); color: white; }
+        .btn-heal { background: rgba(76, 175, 80, 0.2); border-color: #4caf50; color: #81c784; }
+        .btn-heal:hover { background: #4caf50; color: #fff; }
+        .btn-upgrade { background: rgba(33, 150, 243, 0.2); border-color: #2196f3; color: #64b5f6; }
+        .btn-upgrade:hover { background: #2196f3; color: #fff; }
+
+        /* MARKET */
+        .market-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        .market-card {
+            background: #252526; border: 1px solid #444; padding: 15px;
+            text-align: center; transition: 0.2s; position: relative; cursor: pointer;
+        }
+        .market-card:hover { border-color: var(--accent-gold); transform: translateY(-2px); }
+        .market-icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
+        .cost-tag { display: block; margin-top: 10px; color: var(--accent-gold); font-weight: bold; }
+
+        /* FACILITIES */
+        .facility-card {
+            background: #252526; padding: 20px; border: 1px solid #444; margin-bottom: 20px;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .facility-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #444; padding-bottom: 10px; margin-bottom: 5px; }
+        .facility-title { font-family: 'Cinzel'; font-size: 1.1rem; color: #fff; }
+        .facility-desc { font-size: 0.9rem; color: #888; font-style: italic; }
+        .facility-action { display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
+        .bulk-cost { font-size: 0.9rem; color: var(--warning); }
+
+        /* MODALS */
+        .modal-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 200;
+            display: none; justify-content: center; align-items: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background: #1e1e1e; border: 1px solid var(--accent-gold); padding: 30px;
+            width: 90%; max-width: 600px; max-height: 90vh; overflow-y: auto;
+        }
+        .tier-card {
+            background: #252526; border: 1px solid #444; padding: 15px; margin-bottom: 10px;
+            display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+        }
+        .tier-card:hover { border-color: #fff; background: #333; }
+        .tier-info h3 { margin: 0 0 5px 0; color: var(--accent-gold); }
+        .tier-reward { color: var(--success); font-weight: bold; }
+
+        /* COMBAT */
+        #arena-screen {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: #1a0f0f; z-index: 100; display: none; flex-direction: column;
+        }
+        #arena-screen.active { display: flex; }
+        .arena-stage {
+            flex-grow: 1; display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%;
+            background: radial-gradient(circle at center, #3a2a2a 0%, #000 100%);
+            position: relative;
+        }
+        .squad-container { display: flex; gap: 10px; flex-direction: column; justify-content: center; width: 45%; }
+        .enemy-side { align-items: flex-end; }
+        .player-side { align-items: flex-start; }
+        .combat-unit {
+            display: flex; align-items: center; gap: 10px;
+            background: rgba(0,0,0,0.5); padding: 10px; border-radius: 4px; border: 1px solid #444;
+            width: 100%; max-width: 300px; transition: 0.2s; position: relative;
+        }
+        .combat-unit.dead { filter: grayscale(1); opacity: 0.5; border-color: #333; }
+        .combat-unit.hit { animation: shake 0.3s; background: rgba(255, 0, 0, 0.3); }
+        .unit-icon { font-size: 2rem; width: 50px; text-align: center; }
+        .unit-stats { flex-grow: 1; }
+        .hp-bar { width: 100%; height: 6px; background: #333; margin-top: 5px; }
+        .hp-fill { height: 100%; transition: width 0.3s; }
+        .combat-ui {
+            height: 120px; background: #111; border-top: 2px solid var(--accent-gold);
+            padding: 10px; display: flex; gap: 10px; align-items: center; justify-content: center;
+        }
+        .stance-btn {
+            flex: 1; max-width: 150px; height: 80px; border: 1px solid #444;
+            background: #222; color: #aaa; font-family: 'Cinzel'; font-size: 0.8rem;
+            cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .stance-btn:hover { border-color: #fff; color: #fff; }
+        .stance-btn:active { background: #333; }
+
+        @keyframes floatUp { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-30px); opacity: 0; } }
+        @keyframes shake { 0% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } 100% { transform: translateX(0); } }
+        .damage-float {
+            position: absolute; font-size: 1.2rem; font-weight: bold; text-shadow: 0 2px 4px #000;
+            animation: floatUp 0.8s forwards; pointer-events: none; z-index: 10;
+        }
+
+        /* DETAILS */
+        .detail-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; border-bottom: 1px dashed #333; padding-bottom: 4px; }
+        .detail-label { color: var(--text-dim); }
+        .portrait-big { font-size: 4rem; text-align: center; margin: 20px 0; text-shadow: 0 0 20px rgba(255,255,255,0.1); }
+        .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: auto; }
+
+    </style>
+</head>
+<body onclick="soundSys.init()">
+
+<div id="game-container">
+    <!-- HEADER -->
+    <header>
+        <div class="brand">LUDUS MAGNUS</div>
+        <button id="btn-end-day" onclick="game.manualEndDay()">END DAY</button>
+        <div class="resource-cluster">
+            <div class="res"><span>Treasury</span> <strong id="gold-disp">500</strong></div>
+            <div class="res"><span>Prestige</span> <strong id="fame-disp">0</strong></div>
+            <div class="res"><span>Date</span> <strong id="day-disp">I Kal. Jan</strong></div>
+        </div>
+    </header>
+
+    <!-- CONTENT -->
+    <div id="main-grid">
+        <!-- NAVIGATION -->
+        <nav>
+            <button class="nav-btn active" onclick="ui.switchTab('barracks')"><span class="nav-icon">⚔️</span> Barracks</button>
+            <button class="nav-btn" onclick="ui.switchTab('facilities')"><span class="nav-icon">🏛️</span> Facilities</button>
+            <button class="nav-btn" onclick="ui.switchTab('market')"><span class="nav-icon">⚖️</span> Market</button>
+            <button class="nav-btn" onclick="ui.switchTab('finance')"><span class="nav-icon">📜</span> Ledger</button>
+        </nav>
+
+        <!-- VIEWPORT -->
+        <div id="viewport">
+            
+            <!-- BARRACKS TAB -->
+            <div id="tab-barracks" class="tab-content">
+                <div class="panel-header">
+                    <span>Active Roster (<span id="roster-count">0</span>)</span>
+                    <button class="btn btn-primary" onclick="game.openDeployment()">Deploy Squad</button>
+                </div>
+                <div style="margin-bottom: 10px; font-size: 0.8rem; color: #888;">
+                    <strong>Click Row:</strong> View Details. <strong>Click Checkbox:</strong> Select for Squad/Facilities.
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="30">Sel</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>HP</th>
+                            <th>AP</th>
+                        </tr>
+                    </thead>
+                    <tbody id="roster-tbody">
+                        <!-- JS Populated -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- FACILITIES TAB -->
+            <div id="tab-facilities" class="tab-content" style="display:none">
+                <div class="panel-header">Ludus Facilities</div>
+                <div style="margin-bottom:20px; font-size:0.9rem; color:#888;">
+                    Actions apply to all checked gladiators. Requires Gold & Stamina (AP).
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-head">
+                        <div class="facility-title">The Doctore (Training)</div>
+                        <div class="facility-desc">Gain 30 XP</div>
+                    </div>
+                    <div style="font-size:0.9rem; color:#ccc; margin-bottom:10px;">Requires: 1 AP per unit.</div>
+                    <div class="facility-action">
+                        <span class="bulk-cost" id="cost-train">0g</span>
+                        <button class="btn" onclick="game.bulkTrain()">TRAIN SQUAD</button>
+                    </div>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-head">
+                        <div class="facility-title">The Fabrica (Smithy)</div>
+                        <div class="facility-desc">Upgrade Gear Level (+Stats)</div>
+                    </div>
+                    <div style="font-size:0.9rem; color:#ccc; margin-bottom:10px;">Cost increases with Gear Level. No AP required.</div>
+                    <div class="facility-action">
+                        <span class="bulk-cost" id="cost-upgrade">0g</span>
+                        <button class="btn btn-upgrade" onclick="game.bulkUpgrade()">UPGRADE GEAR</button>
+                    </div>
+                </div>
+
+                <div class="facility-card">
+                    <div class="facility-head">
+                        <div class="facility-title">The Medicus (Hospital)</div>
+                        <div class="facility-desc">Heal to Max HP</div>
+                    </div>
+                    <div style="font-size:0.9rem; color:#ccc; margin-bottom:10px;">Requires: 50g per injured unit. No AP required.</div>
+                    <div class="facility-action">
+                        <span class="bulk-cost" id="cost-heal">0g</span>
+                        <button class="btn btn-heal" onclick="game.bulkHeal()">HEAL SQUAD</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MARKET TAB -->
+            <div id="tab-market" class="tab-content" style="display:none">
+                <div class="panel-header">Slave Market</div>
+                
+                <h3 style="color:var(--accent-gold); font-family:'Cinzel'; margin-top:0;">Blind Lots</h3>
+                <div class="market-grid">
+                    <div class="market-card" onclick="game.buyGacha('low')">
+                        <span class="market-icon">📦</span>
+                        <strong>Beggar's Lot</strong>
+                        <div style="font-size:0.8rem; color:#888;">Common fodder.</div>
+                        <span class="cost-tag">150g</span>
+                    </div>
+                    <div class="market-card" onclick="game.buyGacha('mid')">
+                        <span class="market-icon">⚱️</span>
+                        <strong>Soldier's Lot</strong>
+                        <div style="font-size:0.8rem; color:#888;">Potential veterans.</div>
+                        <span class="cost-tag">400g</span>
+                    </div>
+                    <div class="market-card" onclick="game.buyGacha('high')">
+                        <span class="market-icon">👑</span>
+                        <strong>Imperial Lot</strong>
+                        <div style="font-size:0.8rem; color:#888;">Champions lie within.</div>
+                        <span class="cost-tag">900g</span>
+                    </div>
+                </div>
+
+                <h3 style="color:var(--accent-gold); font-family:'Cinzel'; margin-top:30px;">Scouted Talent</h3>
+                <div class="market-grid" id="market-scouted">
+                    <!-- JS Populated -->
+                </div>
+            </div>
+
+            <!-- FINANCE TAB -->
+            <div id="tab-finance" class="tab-content" style="display:none">
+                <div class="panel-header">Ledger</div>
+                <div style="background:#252526; padding:20px; border:1px solid #444;">
+                    <div class="detail-row">
+                        <span class="detail-label">Daily Income (Base)</span>
+                        <span style="color:var(--success)">+50g</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Wages & Upkeep</span>
+                        <span style="color:var(--danger)" id="finance-upkeep">-0g</span>
+                    </div>
+                    <div style="margin-top:10px; border-top:1px solid #555; padding-top:10px; display:flex; justify-content:space-between; font-weight:bold;">
+                        <span>Net Daily Change</span>
+                        <span id="finance-net">0g</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT INFO SIDEBAR -->
+        <aside id="info-sidebar">
+            <button class="btn close-aside-btn" onclick="ui.toggleAside(false)">Close Details</button>
+            <div id="empty-selection" style="text-align:center; color:#555; margin-top:50px;">
+                Select a gladiator row for details.
+            </div>
+            
+            <div id="unit-detail" style="display:none; flex-direction: column; height: 100%;">
+                <div class="portrait-big" id="detail-icon">⚔️</div>
+                <h2 id="detail-name" style="margin:0; text-align:center; font-family:'Cinzel'; color:var(--accent-gold);">Name</h2>
+                <div id="detail-rarity" style="text-align:center; font-size:0.8rem; margin-bottom:20px; text-transform:uppercase; letter-spacing:2px;">Common</div>
+                
+                <div class="detail-row"><span class="detail-label">Class</span> <span id="detail-class">Murmillo</span></div>
+                <div class="detail-row"><span class="detail-label">Strength</span> <span id="detail-str">10</span></div>
+                <div class="detail-row"><span class="detail-label">Agility</span> <span id="detail-agi">10</span></div>
+                <div class="detail-row"><span class="detail-label">Health</span> <span id="detail-hp">100/100</span></div>
+                <div class="detail-row"><span class="detail-label">XP</span> <span id="detail-xp">0/100</span></div>
+                <div class="detail-row"><span class="detail-label">Wins</span> <span id="detail-wins">0</span></div>
+                <div class="detail-row"><span class="detail-label">Wage</span> <span id="detail-wage">5g</span></div>
+                <div class="detail-row"><span class="detail-label">Stamina (AP)</span> <span id="detail-ap">2/2</span></div>
+                <div class="detail-row"><span class="detail-label">Gear Lvl</span> <span id="detail-gear">1</span></div>
+                
+                <div style="margin-top:20px; padding:10px; background:#252526; border:1px solid #333; font-style:italic; font-size:0.85rem; color:#aaa;" id="detail-flavor"></div>
+
+                <div class="action-grid">
+                    <button id="btn-heal" class="btn btn-heal" onclick="game.healUnit()">Heal (50g)</button>
+                    <button id="btn-train" class="btn" onclick="game.trainUnit()">Train (30g)</button>
+                    <button id="btn-upgrade" class="btn btn-upgrade" onclick="game.upgradeUnit()">Upgr Gear</button>
+                    <button class="btn btn-danger" onclick="game.dismissUnit()">Dismiss</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<!-- DEPLOYMENT MODAL -->
+<div id="deploy-modal" class="modal-overlay">
+    <div class="modal-content">
+        <h2 style="margin-top:0; color:#fff; font-family:'Cinzel'">Select Arena Tier</h2>
+        <div id="deploy-list">
+            <div class="tier-card" onclick="game.startMatch('novice')">
+                <div class="tier-info">
+                    <h3>Novice</h3>
+                    <div style="color:#888; font-size:0.9rem;">1 vs 1 Skirmish</div>
+                </div>
+                <div class="tier-reward">+100g</div>
+            </div>
+            <div class="tier-card" onclick="game.startMatch('intermediate')">
+                <div class="tier-info">
+                    <h3>Intermediate</h3>
+                    <div style="color:#888; font-size:0.9rem;">2 vs 2 Team Battle</div>
+                </div>
+                <div class="tier-reward">+250g</div>
+            </div>
+            <div class="tier-card" onclick="game.startMatch('advanced')">
+                <div class="tier-info">
+                    <h3>Advanced</h3>
+                    <div style="color:#888; font-size:0.9rem;">3 vs 3 Grand Melee</div>
+                </div>
+                <div class="tier-reward">+500g</div>
+            </div>
+            <div class="tier-card" style="border-color:var(--danger)" onclick="game.startMatch('expert')">
+                <div class="tier-info">
+                    <h3 style="color:var(--danger)">Expert</h3>
+                    <div style="color:#888; font-size:0.9rem;">Boss Wave (Survival)</div>
+                </div>
+                <div class="tier-reward" style="color:var(--accent-gold)">+1000g</div>
+            </div>
+        </div>
+        <button class="btn" style="width:100%; margin-top:20px;" onclick="document.getElementById('deploy-modal').classList.remove('active')">Cancel</button>
+    </div>
+</div>
+
+<!-- COMBAT SCREEN -->
+<div id="arena-screen">
+    <div style="text-align:center; padding:10px; color:#fff; background:#111;">
+        <span id="combat-status" style="font-family:'Cinzel'; color:var(--accent-gold)">COMBAT STARTED</span>
+    </div>
+
+    <div class="arena-stage">
+        <div class="squad-container player-side" id="p-squad-container"></div>
+        <div class="squad-container enemy-side" id="e-squad-container"></div>
+    </div>
+
+    <div class="combat-ui">
+        <button class="stance-btn" onclick="combat.executeRound('aggressive')">
+            <span style="font-size:1.5rem; display:block; margin-bottom:5px;">🗡️</span> 
+            AGGRESSIVE
+            <div style="font-size:0.6rem; color:#f88">Dmg x1.5 / Vuln x1.3</div>
+        </button>
+        <button class="stance-btn" onclick="combat.executeRound('balanced')">
+            <span style="font-size:1.5rem; display:block; margin-bottom:5px;">🛡️</span> 
+            BALANCED
+            <div style="font-size:0.6rem; color:#888">Normal</div>
+        </button>
+        <button class="stance-btn" onclick="combat.executeRound('defensive')">
+            <span style="font-size:1.5rem; display:block; margin-bottom:5px;">🧱</span> 
+            DEFENSIVE
+            <div style="font-size:0.6rem; color:#8f8">Dmg x0.6 / Vuln x0.5</div>
+        </button>
+    </div>
+</div>
+
+<script>
+/* --- SOUND SYSTEM --- */
+const soundSys = {
+    ctx: null,
+    init: function() {
+        if (!this.ctx) { this.ctx = new (window.AudioContext || window.webkitAudioContext)(); } 
+        else if (this.ctx.state === 'suspended') { this.ctx.resume(); }
+    },
+    playTone: function(freq, type, dur, vol = 0.1) {
+        if (!this.ctx) return;
+        const osc = this.ctx.createOscillator(); const gain = this.ctx.createGain();
+        osc.type = type; osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+        gain.gain.setValueAtTime(vol, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + dur);
+        osc.connect(gain); gain.connect(this.ctx.destination);
+        osc.start(); osc.stop(this.ctx.currentTime + dur);
+    },
+    playClash: function() { if(!this.ctx) return; this.playTone(800, 'square', 0.1, 0.1); this.playTone(1200, 'sawtooth', 0.1, 0.05); },
+    playGold: function() { if(!this.ctx) return; this.playTone(1500, 'sine', 0.2, 0.1); setTimeout(() => this.playTone(2000, 'sine', 0.4, 0.1), 50); },
+    playCrowd: function() {
+        if(!this.ctx) return;
+        const bufferSize = this.ctx.sampleRate * 1.5;
+        const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for(let i=0; i<bufferSize; i++) data[i] = Math.random() * 2 - 1;
+        const noise = this.ctx.createBufferSource();
+        noise.buffer = buffer;
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = 'lowpass'; filter.frequency.value = 400;
+        const gain = this.ctx.createGain();
+        gain.gain.setValueAtTime(0.2, this.ctx.currentTime);
+        gain.gain.linearRampToValueAtTime(0, this.ctx.currentTime+1.5);
+        noise.connect(filter); filter.connect(gain); gain.connect(this.ctx.destination);
+        noise.start();
+    }
+};
+
+/* --- DATABASE --- */
+const GLAD_DB = [
+    { id: 'c1', name: "Aulus", class: "Thraex", rarity: "common", str: 8, agi: 12, hp: 60, wage: 2, icon: "🧑‍🦲", flavor: "A petty thief from the Subura slums." },
+    { id: 'c2', name: "Brutus", class: "Murmillo", rarity: "common", str: 14, agi: 4, hp: 90, wage: 3, icon: "🧔", flavor: "Strong arm, slow brain. Former woodcutter." },
+    { id: 'c3', name: "Felix", class: "Retiarius", rarity: "common", str: 10, agi: 10, hp: 70, wage: 3, icon: "👱", flavor: "Deserted the legion, caught by slavers." },
+    { id: 'c4', name: "Decimus", class: "Thraex", rarity: "common", str: 9, agi: 9, hp: 65, wage: 2, icon: "🧑‍🌾", flavor: "Smells of the stables he used to clean." },
+    { id: 'c5', name: "Gaius", class: "Murmillo", rarity: "common", str: 11, agi: 3, hp: 80, wage: 2, icon: "🧔‍♂️", flavor: "Drinks to forget the wars he fought." },
+    { id: 'u1', name: "Cassius", class: "Murmillo", rarity: "uncommon", str: 16, agi: 8, hp: 110, wage: 8, icon: "💂", flavor: "Disgraced Centurion. Highly disciplined." },
+    { id: 'u2', name: "Diana", class: "Retiarius", rarity: "uncommon", str: 12, agi: 16, hp: 90, wage: 9, icon: "👩‍🎤", flavor: "A hunter from the northern forests." },
+    { id: 'u3', name: "Valerius", class: "Thraex", rarity: "uncommon", str: 20, agi: 6, hp: 100, wage: 10, icon: "😠", flavor: "Frothing at the mouth with rage." },
+    { id: 'r1', name: "Magnus", class: "Murmillo", rarity: "rare", str: 20, agi: 10, hp: 150, wage: 20, icon: "🤴", flavor: "Commanded a hundred men. Now commands the sand." },
+    { id: 'r2', name: "Serpentius", class: "Retiarius", rarity: "rare", str: 14, agi: 25, hp: 110, wage: 22, icon: "🥷", flavor: "Strikes before you even see him move." },
+    { id: 'e1', name: "Spartacus", class: "Thraex", rarity: "epic", str: 30, agi: 20, hp: 180, wage: 50, icon: "🦸", flavor: "The Breaker of Chains. Legend incarnate." },
+    { id: 'e2', name: "Crixus", class: "Murmillo", rarity: "epic", str: 35, agi: 15, hp: 220, wage: 55, icon: "🏔️", flavor: "The Undefeated Gaul." },
+    { id: 'l1', name: "Hercules", class: "Murmillo", rarity: "legendary", str: 50, agi: 20, hp: 300, wage: 100, icon: "🦁", flavor: "Claims to be a demigod. Fights like one." }
+];
+
+/* --- GAME ENGINE --- */
+const game = {
+    gold: 500,
+    fame: 0,
+    day: 1,
+    roster: [],
+    selectedIds: [], 
+    detailId: null, 
+    marketStock: [],
+
+    init: () => {
+        game.addUnit(game.generateUnit('common'));
+        game.refreshMarket(); 
+        game.updateUI();
+    },
+
+    generateUnit: (tier) => {
+        let pool = [];
+        if(tier === 'low') pool = GLAD_DB.filter(g => g.rarity === 'common');
+        if(tier === 'mid') pool = GLAD_DB.filter(g => g.rarity === 'uncommon' || g.rarity === 'common');
+        if(tier === 'high') pool = GLAD_DB.filter(g => ['rare', 'epic', 'legendary'].includes(g.rarity));
+        if(tier === 'common') pool = GLAD_DB.filter(g => g.rarity === 'common');
+
+        const t = pool[Math.floor(Math.random() * pool.length)];
+        return { 
+            ...t, 
+            instanceId: Math.random().toString(36).substr(2, 9), 
+            hpMax: t.hp, currHp: t.hp, 
+            xp: 0, level: 1, wins: 0,
+            stamina: 2, maxStamina: 2,
+            gearLevel: 1
+        };
+    },
+
+    addUnit: (unit) => {
+        game.roster.push(unit);
+        ui.renderRoster();
+        ui.updateFinance();
+    },
+
+    toggleSelect: (id) => {
+        const idx = game.selectedIds.indexOf(id);
+        if(idx > -1) { game.selectedIds.splice(idx, 1); } 
+        else {
+            if(game.selectedIds.length >= 3) { alert("Max squad size is 3"); return; }
+            game.selectedIds.push(id);
+        }
+        ui.renderRoster();
+        ui.updateFacilityCosts();
+    },
+
+    viewDetail: (id) => {
+        game.detailId = id;
+        ui.renderDetail(game.roster.find(u => u.instanceId === id));
+        ui.toggleAside(true);
+    },
+
+    dismissUnit: () => {
+        if(!game.detailId) return;
+        game.roster = game.roster.filter(u => u.instanceId !== game.detailId);
+        game.selectedIds = game.selectedIds.filter(id => id !== game.detailId);
+        game.detailId = null;
+        
+        // Reset visibility of details
+        document.getElementById('empty-selection').style.display = 'block';
+        document.getElementById('unit-detail').style.display = 'none';
+        
+        ui.renderRoster();
+        ui.toggleAside(false);
+        ui.updateFinance();
+    },
+
+    healUnit: () => {
+        const u = game.roster.find(unit => unit.instanceId === game.detailId);
+        if(!u) return;
+        if(u.currHp >= u.hpMax) { alert("Already healthy."); return; }
+        if(game.gold < 50) { alert("Not enough gold."); return; }
+        
+        game.gold -= 50;
+        u.currHp = u.hpMax;
+        soundSys.playGold();
+        game.updateUI();
+        ui.renderRoster();
+        ui.renderDetail(u);
+    },
+
+    trainUnit: () => {
+        const u = game.roster.find(unit => unit.instanceId === game.detailId);
+        if(!u) return;
+        if(u.stamina < 1) { alert("Exhausted. Cannot train today."); return; }
+        if(game.gold < 30) { alert("Not enough gold for the Doctore."); return; }
+
+        game.gold -= 30;
+        u.stamina--;
+        soundSys.playClash();
+        
+        // Gain XP
+        const xpGain = 30;
+        u.xp += xpGain;
+        if(u.xp >= u.level * 100) {
+            u.level++;
+            u.xp = 0;
+            u.str += 1;
+            u.hpMax += 5;
+            u.currHp = u.hpMax;
+            alert(`${u.name} Leveled Up!`);
+        } else {
+            alert(`${u.name} trained. +${xpGain} XP.`);
+        }
+        game.updateUI();
+        ui.renderRoster();
+        ui.renderDetail(u);
+    },
+
+    upgradeUnit: () => {
+        const u = game.roster.find(unit => unit.instanceId === game.detailId);
+        if(!u) return;
+        const cost = u.gearLevel * 100;
+        if(game.gold < cost) { alert(`Need ${cost}g to upgrade gear.`); return; }
+
+        game.gold -= cost;
+        u.gearLevel++;
+        u.str += 2;
+        u.hpMax += 10;
+        u.currHp += 10;
+        soundSys.playClash();
+        game.updateUI();
+        ui.renderDetail(u);
+    },
+
+    refreshMarket: () => {
+        game.marketStock = [];
+        for(let i=0; i<3; i++) {
+            const rand = Math.random();
+            let tier = rand > 0.7 ? (rand > 0.95 ? 'high' : 'mid') : 'low';
+            const unit = game.generateUnit(tier);
+            unit.cost = Math.floor(unit.wage * 50); 
+            game.marketStock.push(unit);
+        }
+        ui.renderMarket();
+    },
+
+    manualEndDay: () => {
+        const upkeep = game.roster.reduce((sum, u) => sum + u.wage, 0);
+        game.gold -= upkeep;
+        game.gold += 50; 
+        
+        game.roster.forEach(u => {
+            u.stamina = u.maxStamina; // Reset AP
+            if(u.currHp < u.hpMax && u.currHp > 0) {
+                u.currHp = Math.min(u.hpMax, u.currHp + Math.floor(u.hpMax * 0.15));
+            }
+        });
+
+        game.day++;
+        game.refreshMarket();
+        game.updateUI();
+        ui.renderRoster();
+        if(game.detailId) ui.renderDetail(game.roster.find(u => u.instanceId === game.detailId));
+        
+        soundSys.playTone(200, 'triangle', 0.5, 0.1); 
+    },
+
+    buyGacha: (tier) => {
+        let cost = tier==='low'?150 : tier==='mid'?400 : 900;
+        if(game.gold < cost) { alert("Insufficient funds"); return; }
+        game.gold -= cost;
+        const unit = game.generateUnit(tier);
+        game.addUnit(unit);
+        soundSys.playGold();
+        alert(`Acquired: ${unit.name} (${unit.rarity})`);
+        game.updateUI();
+    },
+
+    buyScouted: (index) => {
+        const unit = game.marketStock[index];
+        if(!unit || game.gold < unit.cost) { alert("Cannot purchase"); return; }
+        game.gold -= unit.cost;
+        game.addUnit(unit);
+        game.marketStock.splice(index, 1);
+        soundSys.playGold();
+        ui.renderMarket();
+        game.updateUI();
+    },
+
+    updateUI: () => {
+        document.getElementById('gold-disp').innerText = game.gold;
+        document.getElementById('fame-disp').innerText = game.fame;
+        document.getElementById('day-disp').innerText = `Day ${game.day}`;
+        document.getElementById('roster-count').innerText = game.roster.length;
+        ui.updateFinance();
+        ui.updateFacilityCosts();
+    },
+
+    openDeployment: () => {
+        if(game.selectedIds.length === 0) { alert("Select at least 1 gladiator."); return; }
+        for(let id of game.selectedIds) {
+            const u = game.roster.find(r => r.instanceId === id);
+            if(u.currHp < 10) { alert(`${u.name} is too wounded!`); return; }
+            if(u.stamina < 1) { alert(`${u.name} is exhausted!`); return; }
+        }
+        document.getElementById('deploy-modal').classList.add('active');
+    },
+
+    startMatch: (tier) => {
+        document.getElementById('deploy-modal').classList.remove('active');
+        
+        let enemyCount = tier === 'novice' ? 1 : tier === 'intermediate' ? 2 : 3;
+        if(tier === 'expert') enemyCount = 3; 
+        
+        let enemies = [];
+        for(let i=0; i<enemyCount; i++) {
+            let mult = 1 + (game.fame/200) + (tier==='expert'?1:0);
+            enemies.push({
+                name: "Enemy " + (i+1),
+                icon: "👺",
+                hpMax: Math.floor(60 * mult),
+                currHp: Math.floor(60 * mult),
+                str: Math.floor(10 * mult),
+                agi: Math.floor(8 * mult),
+                instanceId: 'e'+i
+            });
+        }
+
+        const squad = game.selectedIds.map(id => game.roster.find(u => u.instanceId === id));
+        // Consume Stamina
+        squad.forEach(u => u.stamina--);
+        ui.renderRoster(); 
+        
+        combat.start(squad, enemies, tier);
+    },
+
+    /* --- BULK ACTIONS --- */
+    bulkTrain: () => {
+        if(game.selectedIds.length === 0) { alert("No gladiators selected."); return; }
+        
+        let cost = 0;
+        let trainees = [];
+        
+        game.selectedIds.forEach(id => {
+            let u = game.roster.find(r => r.instanceId === id);
+            if(u.stamina > 0) {
+                cost += 30;
+                trainees.push(u);
+            }
+        });
+
+        if(trainees.length === 0) { alert("Selected units have no stamina."); return; }
+        if(game.gold < cost) { alert("Not enough gold."); return; }
+
+        game.gold -= cost;
+        trainees.forEach(u => {
+            u.stamina--;
+            u.xp += 30;
+            // Level Up Check
+            if(u.xp >= u.level * 100) {
+                u.level++;
+                u.xp = 0;
+                u.str += 1;
+                u.hpMax += 5;
+                u.currHp = u.hpMax;
+            }
+        });
+        
+        soundSys.playClash();
+        alert(`Trained ${trainees.length} gladiators for ${cost}g.`);
+        game.updateUI();
+        ui.renderRoster();
+        // Update detail panel if the selected one was trained
+        if(game.detailId) ui.renderDetail(game.roster.find(u => u.instanceId === game.detailId));
+    },
+
+    bulkHeal: () => {
+        if(game.selectedIds.length === 0) { alert("No gladiators selected."); return; }
+        let cost = 0;
+        let patients = [];
+
+        game.selectedIds.forEach(id => {
+            let u = game.roster.find(r => r.instanceId === id);
+            if(u.currHp < u.hpMax) {
+                cost += 50;
+                patients.push(u);
+            }
+        });
+
+        if(patients.length === 0) { alert("Selected units are healthy."); return; }
+        if(game.gold < cost) { alert("Not enough gold."); return; }
+
+        game.gold -= cost;
+        patients.forEach(u => u.currHp = u.hpMax);
+        
+        soundSys.playGold();
+        alert(`Healed ${patients.length} gladiators for ${cost}g.`);
+        game.updateUI();
+        ui.renderRoster();
+        if(game.detailId) ui.renderDetail(game.roster.find(u => u.instanceId === game.detailId));
+    },
+
+    bulkUpgrade: () => {
+        if(game.selectedIds.length === 0) { alert("No gladiators selected."); return; }
+        let cost = 0;
+        
+        game.selectedIds.forEach(id => {
+            let u = game.roster.find(r => r.instanceId === id);
+            cost += u.gearLevel * 100;
+        });
+
+        if(game.gold < cost) { alert(`Need ${cost}g to upgrade squad.`); return; }
+
+        game.gold -= cost;
+        game.selectedIds.forEach(id => {
+            let u = game.roster.find(r => r.instanceId === id);
+            u.gearLevel++;
+            u.str += 2;
+            u.hpMax += 10;
+            u.currHp += 10;
+        });
+
+        soundSys.playClash();
+        alert(`Upgraded squad gear for ${cost}g.`);
+        game.updateUI();
+        ui.renderRoster();
+        if(game.detailId) ui.renderDetail(game.roster.find(u => u.instanceId === game.detailId));
+    }
+};
+
+/* --- UI HELPERS --- */
+const ui = {
+    switchTab: (tabId) => {
+        document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+        document.getElementById('tab-' + tabId).style.display = 'block';
+        document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+        ui.updateFacilityCosts();
+    },
+    toggleAside: (show) => {
+        const el = document.getElementById('info-sidebar');
+        if(show) el.classList.add('active');
+        else el.classList.remove('active');
+    },
+    renderRoster: () => {
+        const tbody = document.getElementById('roster-tbody');
+        tbody.innerHTML = '';
+        game.roster.forEach(u => {
+            const tr = document.createElement('tr');
+            if(game.selectedIds.includes(u.instanceId)) tr.classList.add('selected');
+            
+            // Generate dots
+            let dots = '';
+            for(let i=0; i<u.maxStamina; i++) {
+                dots += `<div class="dot ${i < u.stamina ? 'active' : ''}"></div>`;
+            }
+
+            tr.innerHTML = `
+                <td class="chk-cell">
+                    <div class="select-box ${game.selectedIds.includes(u.instanceId) ? 'checked' : ''}"></div>
+                </td>
+                <td style="color:var(--text-main); font-weight:bold;">${u.name}</td>
+                <td>${u.class}</td>
+                <td style="color:${u.currHp < u.hpMax/2 ? 'var(--danger)' : 'var(--success)'}">${Math.floor((u.currHp/u.hpMax)*100)}%</td>
+                <td><div class="stamina-dots">${dots}</div></td>
+            `;
+            
+            // Explicit click handling separation
+            const chkCell = tr.querySelector('.chk-cell');
+            chkCell.onclick = (e) => {
+                e.stopPropagation();
+                game.toggleSelect(u.instanceId);
+            };
+            
+            tr.onclick = () => game.viewDetail(u.instanceId);
+            
+            tbody.appendChild(tr);
+        });
+        ui.updateFacilityCosts();
+    },
+    updateFacilityCosts: () => {
+        // Calculate costs based on selection
+        let trainCost = 0;
+        let healCost = 0;
+        let upgCost = 0;
+        
+        game.selectedIds.forEach(id => {
+            const u = game.roster.find(r => r.instanceId === id);
+            if (u.stamina > 0) trainCost += 30;
+            if (u.currHp < u.hpMax) healCost += 50;
+            upgCost += u.gearLevel * 100;
+        });
+
+        document.getElementById('cost-train').innerText = trainCost + 'g';
+        document.getElementById('cost-heal').innerText = healCost + 'g';
+        document.getElementById('cost-upgrade').innerText = upgCost + 'g';
+    },
+    renderDetail: (u) => {
+        if(!u) return;
+        
+        // VISIBILITY TOGGLE FIX
+        document.getElementById('empty-selection').style.display = 'none';
+        document.getElementById('unit-detail').style.display = 'flex';
+
+        document.getElementById('detail-icon').innerText = u.icon;
+        document.getElementById('detail-name').innerText = u.name;
+        document.getElementById('detail-rarity').innerText = u.rarity;
+        document.getElementById('detail-rarity').className = `rarity-${u.rarity}`;
+        document.getElementById('detail-class').innerText = u.class;
+        document.getElementById('detail-str').innerText = u.str;
+        document.getElementById('detail-agi').innerText = u.agi;
+        document.getElementById('detail-hp').innerText = `${u.currHp}/${u.hpMax}`;
+        document.getElementById('detail-xp').innerText = `${u.xp}/${u.level*100} (Lvl ${u.level})`;
+        document.getElementById('detail-wins').innerText = u.wins;
+        document.getElementById('detail-wage').innerText = u.wage + 'g';
+        document.getElementById('detail-ap').innerText = `${u.stamina}/${u.maxStamina}`;
+        document.getElementById('detail-gear').innerText = u.gearLevel;
+        document.getElementById('detail-flavor').innerText = u.flavor || '';
+
+        // Update button states based on cost/stamina
+        document.getElementById('btn-train').disabled = u.stamina < 1 || game.gold < 30;
+        document.getElementById('btn-upgrade').innerText = `Gear Lvl ${u.gearLevel+1} (${u.gearLevel*100}g)`;
+        document.getElementById('btn-upgrade').disabled = game.gold < u.gearLevel*100;
+        document.getElementById('btn-heal').disabled = u.currHp >= u.hpMax || game.gold < 50;
+    },
+    renderMarket: () => {
+        const container = document.getElementById('market-scouted');
+        container.innerHTML = '';
+        game.marketStock.forEach((u, idx) => {
+            const el = document.createElement('div');
+            el.className = 'market-card';
+            el.onclick = () => game.buyScouted(idx);
+            el.innerHTML = `
+                <span class="market-icon">${u.icon}</span>
+                <strong style="color:white">${u.name}</strong>
+                <div class="rarity-${u.rarity}" style="font-size:0.7rem; text-transform:uppercase;">${u.rarity}</div>
+                <div style="font-size:0.8rem; color:#888; margin-top:5px;">${u.class}</div>
+                <span class="cost-tag">${u.cost}g</span>
+            `;
+            container.appendChild(el);
+        });
+    },
+    updateFinance: () => {
+        const upkeep = game.roster.reduce((sum, u) => sum + u.wage, 0);
+        document.getElementById('finance-upkeep').innerText = `-${upkeep}g`;
+        const net = 50 - upkeep;
+        const netEl = document.getElementById('finance-net');
+        netEl.innerText = (net >= 0 ? '+' : '') + net + 'g';
+        netEl.style.color = net >= 0 ? 'var(--success)' : 'var(--danger)';
+    }
+};
+
+/* --- SQUAD COMBAT SYSTEM --- */
+const combat = {
+    pSquad: [],
+    eSquad: [],
+    tier: null,
+
+    start: (playerSquad, enemySquad, tier) => {
+        combat.pSquad = playerSquad;
+        combat.eSquad = enemySquad;
+        combat.tier = tier;
+        
+        document.getElementById('arena-screen').classList.add('active');
+        combat.renderBattlefield();
+        combat.log("SQUAD DEPLOYED. WAITING FOR ORDERS.");
+        soundSys.playCrowd();
+    },
+
+    renderBattlefield: () => {
+        const pCont = document.getElementById('p-squad-container');
+        const eCont = document.getElementById('e-squad-container');
+        pCont.innerHTML = ''; eCont.innerHTML = '';
+
+        combat.pSquad.forEach(u => pCont.appendChild(combat.createUnitCard(u, 'p')));
+        combat.eSquad.forEach(u => eCont.appendChild(combat.createUnitCard(u, 'e')));
+    },
+
+    createUnitCard: (u, side) => {
+        const div = document.createElement('div');
+        div.className = `combat-unit ${u.currHp<=0?'dead':''}`;
+        div.id = `combat-${side}-${u.instanceId}`;
+        div.innerHTML = `
+            <div class="unit-icon">${u.icon}</div>
+            <div class="unit-stats">
+                <div style="font-weight:bold; font-size:0.9rem; color:${side==='p'?'var(--accent-gold)':'#ff8888'}">${u.name}</div>
+                <div class="hp-bar"><div class="hp-fill" style="width:${Math.max(0, (u.currHp/u.hpMax)*100)}%; background:${side==='p'?'var(--success)':'var(--danger)'}"></div></div>
+            </div>
+        `;
+        return div;
+    },
+
+    executeRound: (stance) => {
+        const livingEnemies = combat.eSquad.filter(u => u.currHp > 0);
+        const livingPlayers = combat.pSquad.filter(u => u.currHp > 0);
+
+        if(livingPlayers.length === 0 || livingEnemies.length === 0) return;
+
+        // Generate enemy stance once per round
+        const eStance = ['aggressive', 'balanced', 'defensive'][Math.floor(Math.random() * 3)];
+
+        // Player Turn
+        livingPlayers.forEach(p => {
+            if(combat.checkEnd()) return;
+            const target = livingEnemies[Math.floor(Math.random() * livingEnemies.length)];
+            if(target && target.currHp > 0) {
+                combat.resolveAttack(p, target, stance, eStance, 'p');
+            }
+        });
+
+        // Delay Enemy Turn visual
+        setTimeout(() => {
+            const livingP = combat.pSquad.filter(u => u.currHp > 0);
+            const livingE = combat.eSquad.filter(u => u.currHp > 0);
+            
+            livingE.forEach(e => {
+                if(livingP.length === 0) return;
+                const target = livingP[Math.floor(Math.random() * livingP.length)];
+                if(target && target.currHp > 0) {
+                    combat.resolveAttack(e, target, eStance, stance, 'e'); // Note reversed stance args
+                }
+            });
+
+            if(combat.checkEnd()) return;
+        }, 800);
+    },
+
+    getMultipliers: (stance) => {
+        if (stance === 'aggressive') return { atk: 1.5, def: 1.3 }; // Hit hard, take more
+        if (stance === 'defensive') return { atk: 0.6, def: 0.5 }; // Hit weak, take less
+        return { atk: 1.0, def: 1.0 }; // Balanced
+    },
+
+    resolveAttack: (atkr, def, atkStance, defStance, side) => {
+        const aMod = combat.getMultipliers(atkStance);
+        const dMod = combat.getMultipliers(defStance);
+
+        let hit = 70 + (atkr.agi - def.agi)*2;
+        
+        if(Math.random()*100 < hit) {
+            // Damage = Base * AttackerMult * DefenderMitigation
+            let dmg = Math.floor(atkr.str * aMod.atk * dMod.def * (0.8 + Math.random()*0.4));
+            // Minimum chip damage
+            dmg = Math.max(1, dmg);
+            
+            def.currHp -= dmg;
+            soundSys.playClash();
+            
+            const defEl = document.getElementById(`combat-${side==='p'?'e':'p'}-${def.instanceId}`);
+            if(defEl) {
+                defEl.classList.add('hit');
+                setTimeout(()=>defEl.classList.remove('hit'), 300);
+                const float = document.createElement('div');
+                float.className = 'damage-float';
+                float.style.color = side==='p'?'var(--accent-gold)':'var(--danger)';
+                float.style.left = '50%';
+                float.innerText = `-${dmg}`;
+                defEl.appendChild(float);
+                setTimeout(()=>float.remove(), 1000);
+            }
+        }
+        combat.renderBattlefield(); 
+    },
+
+    checkEnd: () => {
+        const pAlive = combat.pSquad.filter(u => u.currHp > 0).length;
+        const eAlive = combat.eSquad.filter(u => u.currHp > 0).length;
+
+        if(eAlive === 0) {
+            setTimeout(() => combat.endBattle(true), 1000);
+            return true;
+        }
+        if(pAlive === 0) {
+            setTimeout(() => combat.endBattle(false), 1000);
+            return true;
+        }
+        return false;
+    },
+
+    endBattle: (win) => {
+        document.getElementById('arena-screen').classList.remove('active');
+        if(win) {
+            let reward = combat.tier==='novice'?100 : combat.tier==='intermediate'?250 : combat.tier==='advanced'?500 : 1000;
+            game.gold += reward;
+            game.fame += 10;
+            soundSys.playGold();
+            
+            combat.pSquad.forEach(u => {
+                if(u.currHp > 0) {
+                    u.xp += 50;
+                    u.wins++;
+                    if(u.xp >= u.level*100) {
+                        u.level++; u.str+=2; u.hpMax+=10; u.currHp=u.hpMax; u.xp=0;
+                    }
+                }
+            });
+            alert(`VICTORY! +${reward}g`);
+        } else {
+            alert("DEFEAT. The fallen are lost.");
+        }
+        
+        game.roster = game.roster.filter(u => u.currHp > 0);
+        game.selectedIds = [];
+        
+        ui.renderRoster();
+        game.updateUI();
+    },
+
+    log: (msg) => {
+        document.getElementById('combat-status').innerText = msg;
+    }
+};
+
+// Start
+game.init();
+
+</script>
+</body>
+</html>
