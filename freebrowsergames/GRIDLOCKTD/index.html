@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GRIDLOCK: Cyber Defense</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap');
+
+        :root {
+            --bg-dark: #0a0a12;
+            --grid-line: #1a1a2e;
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+            --neon-red: #ff2a6d;
+            --neon-green: #05ffa1;
+            --glass-bg: rgba(16, 20, 35, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #e0e6ed;
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Rajdhani', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+        }
+
+        /* --- BACKGROUND FX --- */
+        #bg-canvas {
+            position: absolute;
+            top: 0; left: 0;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        /* --- LAYOUT --- */
+        #game-wrapper {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        #game-stage {
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+            cursor: crosshair;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        canvas#game-canvas {
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            border: 1px solid var(--glass-border);
+        }
+
+        /* --- UI SIDEBAR --- */
+        #sidebar {
+            width: 300px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-left: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 20px;
+            transition: transform 0.3s ease;
+            z-index: 20;
+        }
+
+        /* Responsive Sidebar */
+        @media (max-width: 800px) {
+            #game-wrapper { flex-direction: column; }
+            #sidebar { 
+                width: 100%; 
+                height: 200px; 
+                flex-direction: row; 
+                border-left: none;
+                border-top: 1px solid var(--glass-border);
+                padding: 10px;
+                gap: 10px;
+            }
+            .panel-section { width: 33%; height: 100%; }
+        }
+
+        .panel-header {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--neon-blue);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 5px;
+        }
+
+        /* STATS PANEL */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .stat-box {
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .stat-label { font-size: 0.7rem; color: #889; }
+        .stat-value { font-size: 1.2rem; font-weight: 700; color: white; }
+        .stat-value.accent { color: var(--neon-green); }
+
+        /* BUILD PANEL */
+        .build-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .tower-btn {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: 6px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tower-btn:hover {
+            background: rgba(0, 243, 255, 0.1);
+            border-color: var(--neon-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 243, 255, 0.2);
+        }
+
+        .tower-btn.selected {
+            background: rgba(0, 243, 255, 0.2);
+            border-color: var(--neon-blue);
+            box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+
+        .tower-btn.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+            filter: grayscale(1);
+        }
+
+        .tower-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        .tower-name { font-size: 0.8rem; font-weight: 600; }
+        .tower-cost { font-size: 0.7rem; color: var(--neon-green); font-family: 'Share Tech Mono', monospace; }
+
+        /* NOTIFICATIONS */
+        #notification-area {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .toast {
+            background: rgba(0, 0, 0, 0.8);
+            border-left: 3px solid var(--neon-blue);
+            padding: 10px 20px;
+            border-radius: 2px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            animation: slideDown 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        /* SCREENS */
+        .screen-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(5, 5, 10, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-box {
+            background: rgba(16, 20, 35, 0.95);
+            border: 1px solid var(--neon-blue);
+            padding: 40px;
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(0, 243, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Decorative lines */
+        .modal-box::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+        }
+
+        h1 { margin: 0 0 10px 0; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 5px; color: var(--text-main); }
+        h1 span { color: var(--neon-blue); }
+        p { color: #889; line-height: 1.5; margin-bottom: 30px; }
+
+        .btn-main {
+            background: var(--neon-blue);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+        }
+
+        .btn-main:hover {
+            background: white;
+            box-shadow: 0 0 20px var(--neon-blue);
+            transform: scale(1.05);
+        }
+
+        .hidden { display: none !important; }
+
+    </style>
+</head>
+<body>
+
+<!-- Background Canvas for Ambience -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- Notification Toasts -->
+<div id="notification-area"></div>
+
+<!-- Main Game Wrapper -->
+<div id="game-wrapper">
+    <!-- Game Stage -->
+    <div id="game-stage">
+        <canvas id="game-canvas"></canvas>
+    </div>
+
+    <!-- UI Sidebar -->
+    <aside id="sidebar">
+        <!-- Stats -->
+        <div class="panel-section">
+            <div class="panel-header">System Status</div>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-label">INTEGRITY</div>
+                    <div class="stat-value" style="color: var(--neon-red);" id="val-health">100%</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">WAVE</div>
+                    <div class="stat-value" id="val-wave">1</div>
+                </div>
+                <div class="stat-box" style="grid-column: span 2">
+                    <div class="stat-label">MEMORY (RAM)</div>
+                    <div class="stat-value accent" id="val-money">500</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Build Menu -->
+        <div class="panel-section">
+            <div class="panel-header">Deploy Firewall</div>
+            <div class="build-grid">
+                <!-- Wall -->
+                <div class="tower-btn" id="btn-wall" onclick="window.game.selectTower('wall')">
+                    <div class="tower-icon" style="background: #444; color: #aaa;"></div>
+                    <span class="tower-name">BLOCK</span>
+                    <span class="tower-cost">20 RAM</span>
+                </div>
+                <!-- Basic Turret -->
+                <div class="tower-btn" id="btn-basic" onclick="window.game.selectTower('basic')">
+                    <div class="tower-icon" style="background: rgba(0, 243, 255, 0.2); color: var(--neon-blue);">●</div>
+                    <span class="tower-name">LASER</span>
+                    <span class="tower-cost">100 RAM</span>
+                </div>
+                <!-- Sniper -->
+                <div class="tower-btn" id="btn-sniper" onclick="window.game.selectTower('sniper')">
+                    <div class="tower-icon" style="background: rgba(188, 19, 254, 0.2); color: var(--neon-purple);">▲</div>
+                    <span class="tower-name">PULSE</span>
+                    <span class="tower-cost">250 RAM</span>
+                </div>
+                <!-- Rapid -->
+                <div class="tower-btn" id="btn-rapid" onclick="window.game.selectTower('rapid')">
+                    <div class="tower-icon" style="background: rgba(5, 255, 161, 0.2); color: var(--neon-green);">✦</div>
+                    <span class="tower-name">BURST</span>
+                    <span class="tower-cost">400 RAM</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="panel-section" style="margin-top: auto;">
+             <div class="panel-header">Operations</div>
+             <button class="btn-main" style="width: 100%; padding: 10px; font-size: 0.9rem;" onclick="window.game.nextWave()">INITIATE WAVE</button>
+        </div>
+    </aside>
+</div>
+
+<!-- START SCREEN -->
+<div id="start-screen" class="screen-overlay">
+    <div class="modal-box">
+        <h1>GRID<span>LOCK</span></h1>
+        <p>System Under Attack.<br>Deploy defenses to route and neutralize viral packets.</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">INSTRUCTIONS<br>Click to place towers.<br>Create a maze to slow down enemies.<br>Protect the Core.</p>
+        <button class="btn-main" onclick="window.game.start()">BOOT SYSTEM</button>
+    </div>
+</div>
+
+<!-- GAME OVER SCREEN -->
+<div id="game-over-screen" class="screen-overlay hidden">
+    <div class="modal-box">
+        <h1 style="color: var(--neon-red);">SYSTEM FAILURE</h1>
+        <p>Root Access Compromised.</p>
+        <div style="font-size: 1.5rem; margin-bottom: 20px; font-family: 'Share Tech Mono'">WAVES SURVIVED: <span id="final-wave" style="color: var(--neon-blue)">0</span></div>
+        <button class="btn-main" onclick="location.reload()">REBOOT</button>
+    </div>
+</div>
+
+<script>
+/**
+ * AUDIO ENGINE
+ * Procedural synthesis for clean, techy sounds without assets.
+ */
+const SoundSystem = {
+    ctx: null,
+    init: function() {
+        this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+    },
+    playTone: function(freq, type, dur, vol=0.1) {
+        if (!this.ctx) return;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+        gain.gain.setValueAtTime(vol, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + dur);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + dur);
+    },
+    sfx: {
+        click: () => SoundSystem.playTone(1200, 'sine', 0.1, 0.05),
+        place: () => SoundSystem.playTone(600, 'square', 0.1, 0.05),
+        error: () => SoundSystem.playTone(150, 'sawtooth', 0.3, 0.1),
+        laser: () => {
+            if(!SoundSystem.ctx) return;
+            const osc = SoundSystem.ctx.createOscillator();
+            const gain = SoundSystem.ctx.createGain();
+            osc.frequency.setValueAtTime(800, SoundSystem.ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(100, SoundSystem.ctx.currentTime + 0.1);
+            gain.gain.setValueAtTime(0.05, SoundSystem.ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, SoundSystem.ctx.currentTime + 0.1);
+            osc.connect(gain);
+            gain.connect(SoundSystem.ctx.destination);
+            osc.start();
+            osc.stop(SoundSystem.ctx.currentTime + 0.1);
+        },
+        explosion: () => { // Noise buffer
+            if(!SoundSystem.ctx) return;
+            const bufferSize = SoundSystem.ctx.sampleRate * 0.2;
+            const buffer = SoundSystem.ctx.createBuffer(1, bufferSize, SoundSystem.ctx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+            const noise = SoundSystem.ctx.createBufferSource();
+            noise.buffer = buffer;
+            const gain = SoundSystem.ctx.createGain();
+            gain.gain.setValueAtTime(0.1, SoundSystem.ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, SoundSystem.ctx.currentTime + 0.2);
+            noise.connect(gain);
+            gain.connect(SoundSystem.ctx.destination);
+            noise.start();
+        }
+    }
+};
+
+/**
+ * PATHFINDING (BFS)
+ */
+class Pathfinder {
+    constructor(cols, rows) {
+        this.cols = cols;
+        this.rows = rows;
+    }
+
+    // Returns array of {x, y} or null if no path
+    findPath(grid, start, end) {
+        const queue = [start];
+        const cameFrom = new Map();
+        const startKey = `${start.x},${start.y}`;
+        cameFrom.set(startKey, null);
+        
+        let found = false;
+
+        while (queue.length > 0) {
+            const current = queue.shift();
+            
+            if (current.x === end.x && current.y === end.y) {
+                found = true;
+                break;
+            }
+
+            const neighbors = [
+                {x: current.x, y: current.y - 1},
+                {x: current.x + 1, y: current.y},
+                {x: current.x, y: current.y + 1},
+                {x: current.x - 1, y: current.y}
+            ];
+
+            for (let next of neighbors) {
+                if (next.x >= 0 && next.x < this.cols && next.y >= 0 && next.y < this.rows) {
+                    // 0 = Empty, 1 = Wall/Tower
+                    if (grid[next.x][next.y] === 0) {
+                        const key = `${next.x},${next.y}`;
+                        if (!cameFrom.has(key)) {
+                            queue.push(next);
+                            cameFrom.set(key, current);
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!found) return null;
+
+        // Reconstruct path
+        let curr = end;
+        const path = [];
+        while (curr) {
+            path.push(curr);
+            curr = cameFrom.get(`${curr.x},${curr.y}`);
+        }
+        return path.reverse();
+    }
+}
+
+/**
+ * GAME ENGINE
+ */
+const TOWER_TYPES = {
+    'wall':  { name: 'Block',  cost: 20, range: 0, damage: 0, color: '#444' },
+    'basic': { name: 'Laser',  cost: 100, range: 4, damage: 20, rate: 30, color: '#00f3ff' },
+    'sniper':{ name: 'Pulse',  cost: 250, range: 8, damage: 100, rate: 100, color: '#bc13fe' },
+    'rapid': { name: 'Burst',  cost: 400, range: 3, damage: 8, rate: 5, color: '#05ffa1' }
+};
+
+class Game {
+    constructor() {
+        this.canvas = document.getElementById('game-canvas');
+        this.ctx = this.canvas.getContext('2d');
+        
+        // Grid Config
+        this.cellSize = 40;
+        this.cols = 20;
+        this.rows = 15;
+        this.grid = []; // 0 empty, 1 occupied
+        this.towers = [];
+        this.enemies = [];
+        this.projectiles = [];
+        this.particles = [];
+        
+        // State
+        this.money = 500;
+        this.lives = 20;
+        this.wave = 1;
+        this.activeWave = false;
+        this.selectedType = null;
+        this.startPos = {x: 0, y: Math.floor(this.rows/2)};
+        this.endPos = {x: this.cols-1, y: Math.floor(this.rows/2)};
+        
+        this.pathfinder = new Pathfinder(this.cols, this.rows);
+        this.cachedPath = [];
+
+        this.lastFrame = 0;
+        this.waveConfig = { count: 0, timer: 0, interval: 60 };
+        
+        // Init Input
+        this.mouse = {x: 0, y: 0, gx: 0, gy: 0};
+        this.canvas.addEventListener('mousemove', e => this.onMouseMove(e));
+        this.canvas.addEventListener('click', () => this.onClick());
+        this.canvas.addEventListener('mouseleave', () => { this.mouse.x = -1000; });
+
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+    }
+
+    resize() {
+        // Calculate max cols/rows that fit in game stage
+        const stage = document.getElementById('game-stage');
+        const w = stage.clientWidth - 40;
+        const h = stage.clientHeight - 40;
+        
+        this.cellSize = Math.floor(Math.min(w / this.cols, h / this.rows));
+        this.canvas.width = this.cellSize * this.cols;
+        this.canvas.height = this.cellSize * this.rows;
+    }
+
+    start() {
+        SoundSystem.init();
+        document.getElementById('start-screen').classList.add('hidden');
+        this.resetGrid();
+        this.updatePath();
+        this.loop(0);
+    }
+
+    resetGrid() {
+        this.grid = new Array(this.cols).fill(0).map(() => new Array(this.rows).fill(0));
+        // Ensure start/end clear
+        this.grid[this.startPos.x][this.startPos.y] = 0;
+        this.grid[this.endPos.x][this.endPos.y] = 0;
+    }
+
+    updatePath() {
+        const path = this.pathfinder.findPath(this.grid, this.startPos, this.endPos);
+        if (path) this.cachedPath = path;
+        return path;
+    }
+
+    onMouseMove(e) {
+        const rect = this.canvas.getBoundingClientRect();
+        this.mouse.x = e.clientX - rect.left;
+        this.mouse.y = e.clientY - rect.top;
+        this.mouse.gx = Math.floor(this.mouse.x / this.cellSize);
+        this.mouse.gy = Math.floor(this.mouse.y / this.cellSize);
+    }
+
+    selectTower(type) {
+        SoundSystem.sfx.click();
+        this.selectedType = type;
+        
+        // UI Feedback
+        document.querySelectorAll('.tower-btn').forEach(b => b.classList.remove('selected'));
+        if(type) document.getElementById(`btn-${type}`).classList.add('selected');
+    }
+
+    onClick() {
+        if (!this.selectedType) return;
+        
+        const gx = this.mouse.gx;
+        const gy = this.mouse.gy;
+
+        // Bounds check
+        if(gx < 0 || gx >= this.cols || gy < 0 || gy >= this.rows) return;
+        
+        // Check Occupied
+        if (this.grid[gx][gy] !== 0) {
+            SoundSystem.sfx.error();
+            this.notify("SECTOR OCCUPIED");
+            return;
+        }
+
+        // Check Start/End
+        if ((gx === this.startPos.x && gy === this.startPos.y) || 
+            (gx === this.endPos.x && gy === this.endPos.y)) {
+            SoundSystem.sfx.error();
+            this.notify("CANNOT BLOCK I/O PORT");
+            return;
+        }
+
+        // Cost Check
+        const cost = TOWER_TYPES[this.selectedType].cost;
+        if (this.money < cost) {
+            SoundSystem.sfx.error();
+            this.notify("INSUFFICIENT RAM");
+            return;
+        }
+
+        // BLOCKING CHECK (The core mazing logic)
+        // Temporarily place
+        this.grid[gx][gy] = 1;
+        const newPath = this.updatePath();
+        
+        if (!newPath) {
+            // Revert if blocks path
+            this.grid[gx][gy] = 0;
+            this.updatePath(); // Restore old path
+            SoundSystem.sfx.error();
+            this.notify("PATH INVALID - NO ROUTE");
+            return;
+        }
+
+        // SUCCESSFUL PLACE
+        this.money -= cost;
+        this.towers.push({
+            x: gx, y: gy,
+            type: this.selectedType,
+            cd: 0,
+            angle: 0
+        });
+        SoundSystem.sfx.place();
+        
+        // Update live enemies paths
+        this.enemies.forEach(e => e.recalculatePath());
+        this.updateUI();
+    }
+
+    notify(msg) {
+        const el = document.createElement('div');
+        el.className = 'toast';
+        el.innerText = msg;
+        document.getElementById('notification-area').appendChild(el);
+        setTimeout(() => el.remove(), 2000);
+    }
+
+    nextWave() {
+        if (this.activeWave) return;
+        SoundSystem.sfx.click();
+        this.activeWave = true;
+        this.waveConfig.count = 5 + Math.floor(this.wave * 1.5);
+        this.waveConfig.hp = 50 + (this.wave * 20);
+        this.waveConfig.timer = 0;
+        this.notify(`WAVE ${this.wave} INITIATED`);
+    }
+
+    loop(timestamp) {
+        const dt = 1; // Fixed step simplified for JS smoothness
+        
+        this.update(dt);
+        this.draw();
+        
+        requestAnimationFrame(t => this.loop(t));
+    }
+
+    update(dt) {
+        // Spawning
+        if (this.activeWave && this.waveConfig.count > 0) {
+            this.waveConfig.timer++;
+            if (this.waveConfig.timer > this.waveConfig.interval) {
+                this.spawnEnemy();
+                this.waveConfig.count--;
+                this.waveConfig.timer = 0;
+            }
+        } else if (this.activeWave && this.waveConfig.count === 0 && this.enemies.length === 0) {
+            this.activeWave = false;
+            this.wave++;
+            this.money += 100 + (this.wave * 10); // Wave Clear Bonus
+            this.notify("WAVE COMPLETE - RAM ALLOCATED");
+            this.updateUI();
+        }
+
+        // Enemies
+        for (let i = this.enemies.length - 1; i >= 0; i--) {
+            const e = this.enemies[i];
+            e.update();
+            
+            // Reached End
+            const dx = e.x - (this.endPos.x * this.cellSize + this.cellSize/2);
+            const dy = e.y - (this.endPos.y * this.cellSize + this.cellSize/2);
+            if (Math.sqrt(dx*dx + dy*dy) < 5) {
+                this.lives--;
+                this.enemies.splice(i, 1);
+                this.updateUI();
+                SoundSystem.sfx.error();
+                document.getElementById('game-stage').style.boxShadow = "inset 0 0 50px red";
+                setTimeout(() => document.getElementById('game-stage').style.boxShadow = "none", 100);
+                
+                if (this.lives <= 0) this.gameOver();
+            }
+        }
+
+        // Towers
+        this.towers.forEach(t => {
+            if (t.type === 'wall') return;
+            const stats = TOWER_TYPES[t.type];
+            if (t.cd > 0) t.cd--;
+            
+            if (t.cd <= 0) {
+                // Find Target
+                let target = null;
+                let minDist = Infinity;
+                const rangePx = stats.range * this.cellSize;
+                
+                const tx = t.x * this.cellSize + this.cellSize/2;
+                const ty = t.y * this.cellSize + this.cellSize/2;
+
+                for(let e of this.enemies) {
+                    const dist = Math.hypot(e.x - tx, e.y - ty);
+                    if (dist < rangePx && dist < minDist) {
+                        minDist = dist;
+                        target = e;
+                    }
+                }
+
+                if (target) {
+                    // Shoot
+                    t.angle = Math.atan2(target.y - ty, target.x - tx);
+                    t.cd = stats.rate;
+                    SoundSystem.sfx.laser();
+                    
+                    // Instant Hit Logic (Laser) or Projectile? Let's do instant for clean tech feel
+                    target.hp -= stats.damage;
+                    
+                    // Visual Line
+                    this.projectiles.push({
+                        sx: tx, sy: ty, ex: target.x, ey: target.y,
+                        life: 10, color: stats.color, width: t.type === 'sniper' ? 3 : 1
+                    });
+
+                    if (target.hp <= 0) {
+                        this.killEnemy(target);
+                    }
+                }
+            }
+        });
+
+        // Projectiles Fade
+        this.projectiles = this.projectiles.filter(p => p.life-- > 0);
+        
+        // Particles Fade
+        this.particles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.life--;
+        });
+        this.particles = this.particles.filter(p => p.life > 0);
+    }
+
+    spawnEnemy() {
+        const hp = this.waveConfig.hp;
+        // Start precisely at start node center
+        const ex = this.startPos.x * this.cellSize + this.cellSize/2;
+        const ey = this.startPos.y * this.cellSize + this.cellSize/2;
+        
+        this.enemies.push({
+            x: ex, y: ey,
+            hp: hp, maxHp: hp,
+            pathIndex: 0,
+            speed: 2 + (this.wave * 0.1),
+            // Unique reference to path so we can update it if maze changes
+            currentPath: [...this.cachedPath],
+            
+            update: function() {
+                if (!this.currentPath || this.pathIndex >= this.currentPath.length) return;
+                
+                const targetNode = this.currentPath[this.pathIndex];
+                const tx = targetNode.x * game.cellSize + game.cellSize/2;
+                const ty = targetNode.y * game.cellSize + game.cellSize/2;
+                
+                const dx = tx - this.x;
+                const dy = ty - this.y;
+                const dist = Math.hypot(dx, dy);
+                
+                if (dist < this.speed) {
+                    this.x = tx;
+                    this.y = ty;
+                    this.pathIndex++;
+                } else {
+                    this.x += (dx / dist) * this.speed;
+                    this.y += (dy / dist) * this.speed;
+                }
+            },
+            
+            recalculatePath: function() {
+                // Approximate current grid pos
+                const gx = Math.floor(this.x / game.cellSize);
+                const gy = Math.floor(this.y / game.cellSize);
+                
+                // If stuck inside a new wall (rare glitch prevention), kill
+                if (game.grid[gx][gy] === 1) { this.hp = 0; return; }
+
+                const newPath = game.pathfinder.findPath(game.grid, {x:gx, y:gy}, game.endPos);
+                if (newPath) {
+                    this.currentPath = newPath;
+                    this.pathIndex = 0;
+                }
+            }
+        });
+    }
+
+    killEnemy(e) {
+        const idx = this.enemies.indexOf(e);
+        if (idx > -1) {
+            this.enemies.splice(idx, 1);
+            this.money += 15;
+            this.spawnExplosion(e.x, e.y, '#ff0000');
+            SoundSystem.sfx.explosion();
+            this.updateUI();
+        }
+    }
+
+    spawnExplosion(x, y, color) {
+        for(let i=0; i<8; i++) {
+            this.particles.push({
+                x: x, y: y,
+                vx: (Math.random() - 0.5) * 5,
+                vy: (Math.random() - 0.5) * 5,
+                life: 20,
+                color: color
+            });
+        }
+    }
+
+    updateUI() {
+        document.getElementById('val-money').innerText = this.money;
+        document.getElementById('val-health').innerText = (this.lives * 5) + "%"; // 20 lives * 5 = 100%
+        document.getElementById('val-wave').innerText = this.wave;
+        
+        // Update Buttons States
+        for(let type in TOWER_TYPES) {
+            const btn = document.getElementById(`btn-${type}`);
+            if (this.money < TOWER_TYPES[type].cost) btn.classList.add('disabled');
+            else btn.classList.remove('disabled');
+        }
+    }
+
+    gameOver() {
+        document.getElementById('game-over-screen').classList.remove('hidden');
+        document.getElementById('final-wave').innerText = this.wave;
+        this.activeWave = false;
+    }
+
+    draw() {
+        // Clear
+        this.ctx.fillStyle = '#0a0a12';
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+        // Draw Grid
+        this.ctx.strokeStyle = '#1a1a2e';
+        this.ctx.lineWidth = 1;
+        this.ctx.beginPath();
+        for (let x = 0; x <= this.cols; x++) {
+            this.ctx.moveTo(x * this.cellSize, 0);
+            this.ctx.lineTo(x * this.cellSize, this.canvas.height);
+        }
+        for (let y = 0; y <= this.rows; y++) {
+            this.ctx.moveTo(0, y * this.cellSize);
+            this.ctx.lineTo(this.canvas.width, y * this.cellSize);
+        }
+        this.ctx.stroke();
+
+        // Draw Start/End Zones
+        this.ctx.fillStyle = 'rgba(5, 255, 161, 0.1)';
+        this.ctx.fillRect(this.startPos.x * this.cellSize, this.startPos.y * this.cellSize, this.cellSize, this.cellSize);
+        this.ctx.strokeStyle = '#05ffa1';
+        this.ctx.strokeRect(this.startPos.x * this.cellSize, this.startPos.y * this.cellSize, this.cellSize, this.cellSize);
+
+        this.ctx.fillStyle = 'rgba(255, 42, 109, 0.1)';
+        this.ctx.fillRect(this.endPos.x * this.cellSize, this.endPos.y * this.cellSize, this.cellSize, this.cellSize);
+        this.ctx.strokeStyle = '#ff2a6d';
+        this.ctx.strokeRect(this.endPos.x * this.cellSize, this.endPos.y * this.cellSize, this.cellSize, this.cellSize);
+
+        // Draw Path Hint (Subtle)
+        if (this.cachedPath.length > 0) {
+            this.ctx.beginPath();
+            this.ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+            this.ctx.lineWidth = this.cellSize / 2;
+            this.ctx.lineCap = 'round';
+            this.ctx.lineJoin = 'round';
+            const startX = this.startPos.x * this.cellSize + this.cellSize/2;
+            const startY = this.startPos.y * this.cellSize + this.cellSize/2;
+            this.ctx.moveTo(startX, startY);
+            for(let p of this.cachedPath) {
+                this.ctx.lineTo(p.x * this.cellSize + this.cellSize/2, p.y * this.cellSize + this.cellSize/2);
+            }
+            this.ctx.stroke();
+        }
+
+        // Draw Towers
+        this.towers.forEach(t => {
+            const cx = t.x * this.cellSize + this.cellSize/2;
+            const cy = t.y * this.cellSize + this.cellSize/2;
+            const size = this.cellSize * 0.8;
+            const info = TOWER_TYPES[t.type];
+
+            // Base
+            this.ctx.fillStyle = '#1e1e2f';
+            this.ctx.fillRect(t.x * this.cellSize + 2, t.y * this.cellSize + 2, this.cellSize - 4, this.cellSize - 4);
+            
+            // Neon Rim
+            this.ctx.strokeStyle = info.color;
+            this.ctx.lineWidth = 2;
+            this.ctx.shadowBlur = 10;
+            this.ctx.shadowColor = info.color;
+            this.ctx.strokeRect(t.x * this.cellSize + 4, t.y * this.cellSize + 4, this.cellSize - 8, this.cellSize - 8);
+            this.ctx.shadowBlur = 0;
+
+            // Turret Head
+            if (t.type !== 'wall') {
+                this.ctx.save();
+                this.ctx.translate(cx, cy);
+                this.ctx.rotate(t.angle);
+                this.ctx.fillStyle = info.color;
+                this.ctx.beginPath();
+                this.ctx.moveTo(10, 0);
+                this.ctx.lineTo(-5, 5);
+                this.ctx.lineTo(-5, -5);
+                this.ctx.fill();
+                this.ctx.restore();
+            }
+        });
+
+        // Draw Enemies
+        this.enemies.forEach(e => {
+            this.ctx.fillStyle = '#fff';
+            this.ctx.shadowBlur = 5;
+            this.ctx.shadowColor = '#fff';
+            this.ctx.beginPath();
+            this.ctx.arc(e.x, e.y, 6, 0, Math.PI*2);
+            this.ctx.fill();
+            this.ctx.shadowBlur = 0;
+
+            // HP Bar
+            const hpPct = e.hp / e.maxHp;
+            this.ctx.fillStyle = 'red';
+            this.ctx.fillRect(e.x - 8, e.y - 12, 16, 3);
+            this.ctx.fillStyle = '#0f0';
+            this.ctx.fillRect(e.x - 8, e.y - 12, 16 * hpPct, 3);
+        });
+
+        // Draw Projectiles
+        this.projectiles.forEach(p => {
+            this.ctx.beginPath();
+            this.ctx.strokeStyle = p.color;
+            this.ctx.lineWidth = p.width;
+            this.ctx.globalAlpha = p.life / 10;
+            this.ctx.moveTo(p.sx, p.sy);
+            this.ctx.lineTo(p.ex, p.ey);
+            this.ctx.stroke();
+            this.ctx.globalAlpha = 1.0;
+        });
+
+        // Draw Particles
+        this.particles.forEach(p => {
+            this.ctx.fillStyle = p.color;
+            this.ctx.globalAlpha = p.life / 20;
+            this.ctx.fillRect(p.x, p.y, 3, 3);
+        });
+        this.ctx.globalAlpha = 1.0;
+
+        // Draw Mouse Ghost
+        if (this.selectedType && this.mouse.x > 0) {
+            const gx = this.mouse.gx;
+            const gy = this.mouse.gy;
+            
+            // Highlight Cell
+            if (gx >= 0 && gx < this.cols && gy >= 0 && gy < this.rows) {
+                const cx = gx * this.cellSize;
+                const cy = gy * this.cellSize;
+                
+                // Range indicator
+                const range = TOWER_TYPES[this.selectedType].range;
+                if (range > 0) {
+                    this.ctx.beginPath();
+                    this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+                    this.ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+                    this.ctx.arc(cx + this.cellSize/2, cy + this.cellSize/2, range * this.cellSize, 0, Math.PI*2);
+                    this.ctx.fill();
+                    this.ctx.stroke();
+                }
+
+                // Box
+                this.ctx.strokeStyle = this.grid[gx][gy] === 0 ? TOWER_TYPES[this.selectedType].color : 'red';
+                this.ctx.lineWidth = 2;
+                this.ctx.strokeRect(cx, cy, this.cellSize, this.cellSize);
+            }
+        }
+    }
+}
+
+// Global game instance
+// (No 'let game;' here. We use window.game)
+
+// Bg FX
+const bgCanvas = document.getElementById('bg-canvas');
+const bgCtx = bgCanvas.getContext('2d');
+let bgWidth, bgHeight; // Renamed to avoid collisions
+
+function initBg() {
+    bgWidth = bgCanvas.width = window.innerWidth;
+    bgHeight = bgCanvas.height = window.innerHeight;
+    loopBg();
+}
+
+function loopBg() {
+    // A simple digital rain effect for background ambience
+    bgCtx.fillStyle = 'rgba(10, 10, 18, 0.1)';
+    bgCtx.fillRect(0, 0, bgWidth, bgHeight);
+    
+    bgCtx.fillStyle = '#0f0';
+    bgCtx.font = '10px monospace';
+    if(Math.random() > 0.9) {
+        bgCtx.fillText('0', Math.random() * bgWidth, Math.random() * bgHeight);
+        bgCtx.fillText('1', Math.random() * bgWidth, Math.random() * bgHeight);
+    }
+    requestAnimationFrame(loopBg);
+}
+
+window.onload = () => {
+    // Explicitly attach to window so inline onclicks find it
+    window.game = new Game();
+    initBg();
+    window.addEventListener('resize', () => {
+        bgWidth = bgCanvas.width = window.innerWidth;
+        bgHeight = bgCanvas.height = window.innerHeight;
+        if(window.game) window.game.resize();
+    });
+};
+</script>
+</body>
+</html>
