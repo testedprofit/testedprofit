@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TerraHex: Strategy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+        :root {
+            --bg-color: #2c3e50;
+            --ui-bg: #ecf0f1;
+            --ui-text: #2c3e50;
+            --accent: #e67e22;
+            --wood-color: #27ae60;
+            --stone-color: #7f8c8d;
+            --pop-color: #f1c40f;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            font-family: 'Nunito', sans-serif;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        #game-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+        }
+
+        canvas:active {
+            cursor: grabbing;
+        }
+
+        /* UI OVERLAYS */
+        #ui-top-bar {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 30px;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            pointer-events: none; /* Let clicks pass through gaps */
+        }
+
+        .resource {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: var(--ui-text);
+        }
+
+        .res-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        #ui-bottom-bar {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            pointer-events: none;
+        }
+
+        .tile-card {
+            width: 100px;
+            height: 140px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            transition: transform 0.2s, bottom 0.2s;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+            bottom: 0;
+            border: 3px solid transparent;
+        }
+
+        .tile-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            z-index: 10;
+        }
+
+        .tile-card.selected {
+            border-color: var(--accent);
+            transform: translateY(-15px);
+            box-shadow: 0 0 20px var(--accent);
+        }
+
+        .card-preview {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .card-cost {
+            font-size: 0.8rem;
+            color: #777;
+            font-weight: bold;
+        }
+
+        #tooltip {
+            position: absolute;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            pointer-events: none;
+            display: none;
+            font-size: 0.9rem;
+            z-index: 100;
+        }
+
+        /* Intro Modal */
+        #modal-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(44, 62, 80, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+        }
+
+        .modal {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .modal h1 { color: var(--accent); margin-top: 0; }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover { background: #d35400; }
+
+        .floating-text {
+            position: absolute;
+            font-weight: bold;
+            pointer-events: none;
+            animation: floatUp 1s forwards;
+            text-shadow: 0 2px 2px rgba(0,0,0,0.5);
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-50px); opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="ui-top-bar">
+        <div class="resource">
+            <span class="res-icon" style="background: #f1c40f;"></span>
+            <span id="score">0</span>
+        </div>
+        <div class="resource">
+            <span class="res-icon" style="background: #27ae60;"></span>
+            <span id="wood">10</span>
+        </div>
+        <div class="resource">
+            <span class="res-icon" style="background: #95a5a6;"></span>
+            <span id="stone">5</span>
+        </div>
+        <div class="resource">
+            <span class="res-icon" style="background: #e74c3c;"></span>
+            <span id="pop">5</span>
+        </div>
+    </div>
+
+    <div id="ui-bottom-bar">
+        <!-- Cards injected via JS -->
+    </div>
+
+    <div id="tooltip"></div>
+
+    <div id="modal-overlay">
+        <div class="modal">
+            <h1>TerraHex</h1>
+            <p>A procedural strategy game.</p>
+            <ul style="text-align: left; margin: 20px auto; display: inline-block;">
+                <li><strong>Drag</strong> to move camera. <strong>Scroll</strong> to zoom.</li>
+                <li>Select a tile from your hand.</li>
+                <li>Place tiles next to existing ones.</li>
+                <li>Match biomes (Forest to Forest) for bonuses.</li>
+                <li>Build cities to increase population cap.</li>
+            </ul>
+            <br><br>
+            <button class="btn-primary" onclick="game.start()">Start Terraforming</button>
+        </div>
+    </div>
+</div>
+
+<script>
+/**
+ * AUDIO SYSTEM (Procedural Ambient)
+ */
+class AudioSys {
+    constructor() {
+        this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+        this.enabled = true;
+    }
+    
+    playNote(freq, type = 'sine', duration = 1) {
+        if(this.ctx.state === 'suspended') this.ctx.resume();
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+        gain.gain.setValueAtTime(0.05, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + duration);
+    }
+    
+    place() { this.playNote(440, 'triangle', 0.5); setTimeout(()=>this.playNote(554, 'triangle', 0.5), 100); }
+    error() { this.playNote(150, 'sawtooth', 0.3); }
+    hover() { this.playNote(880, 'sine', 0.1); }
+    pop() { this.playNote(600 + Math.random()*200, 'sine', 0.3); }
+}
+
+/**
+ * HEX MATH (Axial Coordinates)
+ * Q = Column, R = Row
+ */
+const Hex = {
+    add: (a, b) => ({ q: a.q + b.q, r: a.r + b.r }),
+    sub: (a, b) => ({ q: a.q - b.q, r: a.r - b.r }),
+    scale: (a, k) => ({ q: a.q * k, r: a.r * k }),
+    equals: (a, b) => a.q === b.q && a.r === b.r,
+    neighbors: [
+        {q: 1, r: 0}, {q: 1, r: -1}, {q: 0, r: -1},
+        {q: -1, r: 0}, {q: -1, r: 1}, {q: 0, r: 1}
+    ],
+    getNeighbors: (hex) => Hex.neighbors.map(d => Hex.add(hex, d)),
+    distance: (a, b) => (Math.abs(a.q - b.q) + Math.abs(a.q + a.r - b.q - b.r) + Math.abs(a.r - b.r)) / 2,
+    toPixel: (hex, size) => {
+        const x = size * (3/2 * hex.q);
+        const y = size * (Math.sqrt(3)/2 * hex.q + Math.sqrt(3) * hex.r);
+        return {x, y};
+    },
+    fromPixel: (x, y, size) => {
+        const q = (2/3 * x) / size;
+        const r = (-1/3 * x + Math.sqrt(3)/3 * y) / size;
+        return Hex.round({q, r});
+    },
+    round: (hex) => {
+        let q = Math.round(hex.q);
+        let r = Math.round(hex.r);
+        let s = Math.round(-hex.q - hex.r);
+        const q_diff = Math.abs(q - hex.q);
+        const r_diff = Math.abs(r - hex.r);
+        const s_diff = Math.abs(s - (-hex.q - hex.r));
+        if (q_diff > r_diff && q_diff > s_diff) q = -r - s;
+        else if (r_diff > s_diff) r = -q - s;
+        return {q, r}; // S is implied
+    },
+    toString: (h) => `${h.q},${h.r}`
+};
+
+/**
+ * GAME DATA & LOGIC
+ */
+const TILE_TYPES = {
+    GRASS: { id: 'GRASS', color: '#2ecc71', name: 'Plains', cost: {wood:0, stone:0}, yield: 'None', desc: 'Basic land. Good for expanding.' },
+    FOREST: { id: 'FOREST', color: '#27ae60', name: 'Forest', cost: {wood:0, stone:0}, yield: '+10 Wood', desc: 'Harvest wood instantly.' },
+    MOUNTAIN: { id: 'MOUNTAIN', color: '#95a5a6', name: 'Mountain', cost: {wood:0, stone:0}, yield: '+10 Stone', desc: 'Harvest stone instantly.' },
+    WATER: { id: 'WATER', color: '#3498db', name: 'Lake', cost: {wood:0, stone:0}, yield: '+2 Score', desc: 'Nice view. Low value.' },
+    VILLAGE: { id: 'VILLAGE', color: '#e74c3c', name: 'Village', cost: {wood:10, stone:5}, yield: '+5 Pop', desc: 'Increases population cap.' },
+    FARM: { id: 'FARM', color: '#f1c40f', name: 'Farm', cost: {wood:5, stone:0}, yield: '+1 Score/Adj', desc: 'Bonus points for adjacent water.' },
+    CASTLE: { id: 'CASTLE', color: '#8e44ad', name: 'Castle', cost: {wood:50, stone:50}, yield: '+100 Score', desc: 'The ultimate structure.' }
+};
+
+class Game {
+    constructor() {
+        this.canvas = document.getElementById('gameCanvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.audio = new AudioSys();
+        
+        // State
+        this.tiles = new Map(); // Key: "q,r", Value: TileData
+        this.resources = { wood: 20, stone: 10, pop: 5, score: 0 };
+        this.hand = [];
+        this.selectedCardIdx = -1;
+        
+        // Camera
+        this.camera = { x: 0, y: 0, zoom: 1 };
+        this.isDragging = false;
+        this.dragStart = { x: 0, y: 0 };
+        this.hexSize = 40; // Base size
+
+        // Input
+        this.hoverHex = null;
+        
+        // Particles
+        this.particles = [];
+
+        this.init();
+    }
+
+    init() {
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+        this.bindInput();
+        
+        // Initial Tile
+        this.placeTile({q:0, r:0}, TILE_TYPES.GRASS);
+        
+        // Generate Hand
+        this.dealHand();
+        
+        this.loop();
+    }
+
+    resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+        // Center camera initially
+        this.camera.x = this.canvas.width / 2;
+        this.camera.y = this.canvas.height / 2;
+    }
+
+    start() {
+        document.getElementById('modal-overlay').style.display = 'none';
+        this.audio.playNote(440);
+    }
+
+    dealHand() {
+        const deck = [TILE_TYPES.GRASS, TILE_TYPES.FOREST, TILE_TYPES.MOUNTAIN, TILE_TYPES.WATER, TILE_TYPES.VILLAGE, TILE_TYPES.FARM];
+        this.hand = [];
+        for(let i=0; i<4; i++) {
+            const type = deck[Math.floor(Math.random() * deck.length)];
+            this.hand.push(type);
+        }
+        this.renderUI();
+    }
+
+    bindInput() {
+        // Mouse Controls
+        this.canvas.addEventListener('mousedown', (e) => {
+            if(e.button === 0) { // Left Click
+                this.isDragging = true;
+                this.dragStart = { x: e.clientX - this.camera.x, y: e.clientY - this.camera.y };
+            }
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            // Dragging
+            if (this.isDragging) {
+                this.camera.x = e.clientX - this.dragStart.x;
+                this.camera.y = e.clientY - this.dragStart.y;
+            }
+
+            // Hover Logic
+            const rect = this.canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+            
+            // Convert Screen to World
+            const worldX = (mouseX - this.camera.x) / this.camera.zoom;
+            const worldY = (mouseY - this.camera.y) / this.camera.zoom;
+            
+            this.hoverHex = Hex.fromPixel(worldX, worldY, this.hexSize);
+
+            // Tooltip update
+            const tooltip = document.getElementById('tooltip');
+            const tile = this.tiles.get(Hex.toString(this.hoverHex));
+            if (tile) {
+                tooltip.style.display = 'block';
+                tooltip.style.left = (e.clientX + 15) + 'px';
+                tooltip.style.top = (e.clientY + 15) + 'px';
+                tooltip.innerHTML = `<strong>${tile.type.name}</strong><br>Q:${this.hoverHex.q}, R:${this.hoverHex.r}`;
+            } else {
+                tooltip.style.display = 'none';
+            }
+        });
+
+        window.addEventListener('mouseup', (e) => {
+            if (this.isDragging) {
+                // If didn't move much, treat as click
+                const dx = (e.clientX - this.camera.x) - this.dragStart.x;
+                const dy = (e.clientY - this.camera.y) - this.dragStart.y;
+                
+                if (Math.abs(dx) < 5 && Math.abs(dy) < 5) {
+                    this.handleClick();
+                }
+                this.isDragging = false;
+            }
+        });
+
+        this.canvas.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const zoomSensitivity = 0.001;
+            const newZoom = this.camera.zoom - e.deltaY * zoomSensitivity;
+            this.camera.zoom = Math.min(Math.max(0.2, newZoom), 3);
+        }, { passive: false });
+    }
+
+    handleClick() {
+        if (this.selectedCardIdx === -1) return;
+        
+        // 1. Check valid location (must be empty)
+        if (this.tiles.has(Hex.toString(this.hoverHex))) {
+            this.audio.error();
+            return;
+        }
+
+        // 2. Check Adjacency (must touch at least one existing tile)
+        const neighbors = Hex.getNeighbors(this.hoverHex);
+        const hasNeighbor = neighbors.some(n => this.tiles.has(Hex.toString(n)));
+        
+        if (!hasNeighbor && this.tiles.size > 0) {
+            this.audio.error();
+            this.showFloatingText("Must place near existing tiles!", this.canvas.width/2, this.canvas.height/2, '#e74c3c');
+            return;
+        }
+
+        // 3. Check Cost
+        const type = this.hand[this.selectedCardIdx];
+        if (this.resources.wood < type.cost.wood || this.resources.stone < type.cost.stone) {
+            this.audio.error();
+            this.showFloatingText("Not enough resources!", this.canvas.width/2, this.canvas.height/2, '#e74c3c');
+            return;
+        }
+
+        // PLACE IT
+        this.resources.wood -= type.cost.wood;
+        this.resources.stone -= type.cost.stone;
+        this.placeTile(this.hoverHex, type);
+        
+        // Remove from hand and deal new one
+        this.hand[this.selectedCardIdx] = this.getRandomTile();
+        this.selectedCardIdx = -1;
+        this.renderUI();
+    }
+
+    getRandomTile() {
+        const deck = Object.values(TILE_TYPES);
+        // Weighted random could go here
+        return deck[Math.floor(Math.random() * 6)]; // Exclude Castle mostly
+    }
+
+    placeTile(hex, type) {
+        this.tiles.set(Hex.toString(hex), { q: hex.q, r: hex.r, type: type });
+        this.createParticles(hex, type.color);
+        this.audio.place();
+
+        // One-time placement bonuses
+        if(type === TILE_TYPES.FOREST) {
+            this.resources.wood += 10;
+            this.showFloatingText("+10 Wood", this.canvas.width/2, this.canvas.height/2 - 50, '#27ae60');
+        }
+        if(type === TILE_TYPES.MOUNTAIN) {
+            this.resources.stone += 10;
+            this.showFloatingText("+10 Stone", this.canvas.width/2, this.canvas.height/2 - 50, '#7f8c8d');
+        }
+        if(type === TILE_TYPES.VILLAGE) this.resources.pop += 5;
+
+        // Adjacency Bonuses
+        let bonus = 0;
+        Hex.getNeighbors(hex).forEach(n => {
+            const neighbor = this.tiles.get(Hex.toString(n));
+            if(neighbor) {
+                // Same type bonus
+                if(neighbor.type.id === type.id) bonus += 5;
+                // Farm adjacent to water bonus
+                if(type === TILE_TYPES.FARM && neighbor.type === TILE_TYPES.WATER) bonus += 10;
+            }
+        });
+
+        if(bonus > 0) {
+            this.resources.score += bonus;
+            const pt = Hex.toPixel(hex, this.hexSize);
+            // We need screen coords for floating text (simplified here to center for readability, or use world)
+            this.showFloatingText(`+${bonus} Combo!`, this.canvas.width/2, this.canvas.height/2 - 100, '#f1c40f');
+        }
+        
+        this.resources.score += 10; // Base score
+        this.updateResUI();
+    }
+
+    updateResUI() {
+        document.getElementById('wood').innerText = this.resources.wood;
+        document.getElementById('stone').innerText = this.resources.stone;
+        document.getElementById('pop').innerText = this.resources.pop;
+        document.getElementById('score').innerText = this.resources.score;
+    }
+
+    renderUI() {
+        const container = document.getElementById('ui-bottom-bar');
+        container.innerHTML = '';
+        this.hand.forEach((tile, idx) => {
+            const el = document.createElement('div');
+            el.className = `tile-card ${this.selectedCardIdx === idx ? 'selected' : ''}`;
+            el.onclick = (e) => {
+                e.stopPropagation();
+                this.selectedCardIdx = this.selectedCardIdx === idx ? -1 : idx;
+                this.audio.hover();
+                this.renderUI();
+            };
+            
+            // Icon
+            let icon = '';
+            if(tile.id === 'FOREST') icon = '🌲';
+            else if(tile.id === 'MOUNTAIN') icon = '⛰️';
+            else if(tile.id === 'WATER') icon = '💧';
+            else if(tile.id === 'VILLAGE') icon = '🏠';
+            else if(tile.id === 'FARM') icon = '🌾';
+            else if(tile.id === 'CASTLE') icon = '🏰';
+            
+            // Cost String
+            let costStr = '';
+            if(tile.cost.wood) costStr += `<span style="color:#27ae60">${tile.cost.wood}W</span> `;
+            if(tile.cost.stone) costStr += `<span style="color:#7f8c8d">${tile.cost.stone}S</span>`;
+            if(costStr === '') costStr = 'Free';
+
+            el.innerHTML = `
+                <div class="card-title">${tile.name}</div>
+                <div class="card-preview" style="background:${tile.color}33;">${icon}</div>
+                <div style="font-size:0.7rem; text-align:center; color:#555;">${tile.desc}</div>
+                <div class="card-cost">${costStr}</div>
+            `;
+            container.appendChild(el);
+        });
+    }
+
+    showFloatingText(text, x, y, color) {
+        const el = document.createElement('div');
+        el.className = 'floating-text';
+        el.innerText = text;
+        el.style.left = x + 'px';
+        el.style.top = y + 'px';
+        el.style.color = color;
+        el.style.fontSize = '2rem';
+        el.style.textShadow = '0 0 5px white';
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 1000);
+    }
+
+    createParticles(hex, color) {
+        const center = Hex.toPixel(hex, this.hexSize);
+        for(let i=0; i<10; i++) {
+            this.particles.push({
+                x: center.x,
+                y: center.y,
+                vx: (Math.random() - 0.5) * 5,
+                vy: (Math.random() - 0.5) * 5,
+                life: 1.0,
+                color: color
+            });
+        }
+    }
+
+    // --- RENDER LOOP ---
+    loop() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        // BACKGROUND PATTERN (Subtle Hexes)
+        // Omitted for performance, just solid color
+
+        this.ctx.save();
+        // Apply Camera
+        this.ctx.translate(this.camera.x, this.camera.y);
+        this.ctx.scale(this.camera.zoom, this.camera.zoom);
+
+        // Draw Existing Tiles
+        this.tiles.forEach(tile => {
+            const center = Hex.toPixel(tile, this.hexSize);
+            this.drawHex(center.x, center.y, this.hexSize, tile.type.color);
+            
+            // Details (Simple icons based on type)
+            this.ctx.fillStyle = 'rgba(0,0,0,0.2)';
+            this.ctx.font = `${this.hexSize/2}px Arial`;
+            this.ctx.textAlign = 'center';
+            this.ctx.textBaseline = 'middle';
+            let icon = '';
+            if(tile.type.id === 'FOREST') icon = '🌲';
+            if(tile.type.id === 'MOUNTAIN') icon = '⛰️';
+            if(tile.type.id === 'VILLAGE') icon = '🏠';
+            if(tile.type.id === 'FARM') icon = '🌾';
+            if(tile.type.id === 'CASTLE') icon = '🏰';
+            this.ctx.fillText(icon, center.x, center.y);
+        });
+
+        // Draw Hover Ghost
+        if (this.hoverHex && this.selectedCardIdx !== -1) {
+            // Check if valid
+            const exists = this.tiles.has(Hex.toString(this.hoverHex));
+            const neighbors = Hex.getNeighbors(this.hoverHex);
+            const hasNeighbor = neighbors.some(n => this.tiles.has(Hex.toString(n)));
+            
+            if (!exists && (hasNeighbor || this.tiles.size === 0)) {
+                const center = Hex.toPixel(this.hoverHex, this.hexSize);
+                this.ctx.globalAlpha = 0.5;
+                this.drawHex(center.x, center.y, this.hexSize, this.hand[this.selectedCardIdx].color);
+                this.ctx.globalAlpha = 1.0;
+                
+                // Connector lines to neighbors (Visual feedback)
+                neighbors.forEach(n => {
+                    if(this.tiles.has(Hex.toString(n))) {
+                        const nc = Hex.toPixel(n, this.hexSize);
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(center.x, center.y);
+                        this.ctx.lineTo(nc.x, nc.y);
+                        this.ctx.strokeStyle = 'white';
+                        this.ctx.lineWidth = 3;
+                        this.ctx.stroke();
+                    }
+                });
+            }
+        } else if (this.hoverHex) {
+             // Selection highlight
+             const center = Hex.toPixel(this.hoverHex, this.hexSize);
+             this.ctx.strokeStyle = 'white';
+             this.ctx.lineWidth = 2;
+             this.drawHexOutline(center.x, center.y, this.hexSize);
+        }
+
+        // Draw Particles
+        this.particles.forEach((p, i) => {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.life -= 0.05;
+            
+            this.ctx.globalAlpha = Math.max(0, p.life);
+            this.ctx.fillStyle = p.color;
+            this.ctx.beginPath();
+            this.ctx.arc(p.x, p.y, 3, 0, Math.PI*2);
+            this.ctx.fill();
+            this.ctx.globalAlpha = 1.0;
+            
+            if(p.life <= 0) this.particles.splice(i, 1);
+        });
+
+        this.ctx.restore();
+
+        requestAnimationFrame(() => this.loop());
+    }
+
+    drawHex(x, y, size, color) {
+        this.ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+            const angle_deg = 60 * i;
+            const angle_rad = Math.PI / 180 * angle_deg;
+            const px = x + size * Math.cos(angle_rad);
+            const py = y + size * Math.sin(angle_rad);
+            if (i === 0) this.ctx.moveTo(px, py);
+            else this.ctx.lineTo(px, py);
+        }
+        this.ctx.closePath();
+        this.ctx.fillStyle = color;
+        this.ctx.fill();
+        
+        // 3D effect / Border
+        this.ctx.strokeStyle = 'rgba(0,0,0,0.1)';
+        this.ctx.lineWidth = 2;
+        this.ctx.stroke();
+        
+        // Highlight top edge
+        this.ctx.beginPath();
+        this.ctx.moveTo(x + size * Math.cos(Math.PI/180 * 240), y + size * Math.sin(Math.PI/180 * 240));
+        this.ctx.lineTo(x + size * Math.cos(Math.PI/180 * 300), y + size * Math.sin(Math.PI/180 * 300));
+        this.ctx.lineTo(x + size * Math.cos(Math.PI/180 * 0), y + size * Math.sin(Math.PI/180 * 0));
+        this.ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+        this.ctx.stroke();
+    }
+
+    drawHexOutline(x, y, size) {
+        this.ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+            const angle_deg = 60 * i;
+            const angle_rad = Math.PI / 180 * angle_deg;
+            const px = x + size * Math.cos(angle_rad);
+            const py = y + size * Math.sin(angle_rad);
+            if (i === 0) this.ctx.moveTo(px, py);
+            else this.ctx.lineTo(px, py);
+        }
+        this.ctx.closePath();
+        this.ctx.stroke();
+    }
+}
+
+window.onload = () => {
+    window.game = new Game();
+};
+</script>
+</body>
+</html>
