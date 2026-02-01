@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Statecraft: Denver Edition</title>
+    <style>
+        :root {
+            --bg: #121212;
+            --panel: #1e1e1e;
+            --border: #333;
+            --accent: #4caf50;
+            --res: #42a5f5;
+            --com: #ab47bc;
+            --ind: #ffa726;
+            --park: #66bb6a;
+            --civic: #ef5350;
+            --road: #555;
+            --text: #e0e0e0;
+            --soil-wild: #1a1a1a;
+            --soil-dev: #2d362e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* --- HUD TOP --- */
+        #top-bar {
+            background: var(--panel);
+            border-bottom: 1px solid var(--border);
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            z-index: 20;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            flex-shrink: 0;
+        }
+
+        .stat-group { display: flex; gap: 15px; align-items: center; }
+        .stat-item { display: flex; flex-direction: column; min-width: 60px; }
+        .stat-label { font-size: 0.65em; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .stat-val { font-size: 1.1em; font-weight: bold; white-space: nowrap; }
+        .stat-change { font-size: 0.8em; color: var(--accent); }
+
+        .icon-btn {
+            background: #333; border: 1px solid #555; color: #fff;
+            width: 36px; height: 36px; border-radius: 6px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2em;
+        }
+        .icon-btn:hover { background: #444; }
+
+        /* --- MAP VIEW --- */
+        #viewport {
+            flex-grow: 1;
+            background: #080808;
+            overflow: hidden;
+            position: relative;
+            cursor: grab;
+        }
+        #viewport:active { cursor: grabbing; }
+
+        #game-grid {
+            display: grid;
+            grid-template-columns: repeat(40, 40px);
+            grid-template-rows: repeat(40, 40px);
+            width: 1600px;
+            height: 1600px;
+            background: #050505;
+            border: 40px solid #111;
+            touch-action: none; 
+        }
+
+        /* --- TILES --- */
+        .tile {
+            width: 40px;
+            height: 40px;
+            background: var(--soil-wild);
+            position: relative;
+            border-right: 1px solid #111;
+            border-bottom: 1px solid #111;
+            box-sizing: border-box;
+            transition: background 0.2s;
+        }
+
+        .tile.developed { background: var(--soil-dev); }
+        .tile.developed::after {
+            content: ''; position: absolute; top:0; left:0; right:0; bottom:0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 4px 4px;
+            pointer-events: none;
+        }
+        
+        .tile.valid-buy { background: rgba(76, 175, 80, 0.2); outline: 2px dashed #4caf50; cursor: pointer; }
+        .tile.invalid-buy { background: rgba(244, 67, 54, 0.1); outline: 2px dashed #f44336; cursor: not-allowed; }
+        .tile.valid-place { background: rgba(255, 255, 255, 0.2); }
+        .tile.invalid-place { background: rgba(244, 67, 54, 0.3); }
+
+        /* --- BUILDINGS & ZONES --- */
+        
+        /* ROADS - Smart Styling */
+        .b-road { background: #333; border: none; }
+        
+        /* Vertical Road */
+        .road-v::before { 
+            content: ''; position:absolute; top:0; bottom:0; left:50%; width:2px; 
+            background: repeating-linear-gradient(to bottom, #ffd600 0, #ffd600 6px, transparent 6px, transparent 12px);
+            transform: translateX(-50%); opacity: 0.6;
+        }
+        /* Horizontal Road */
+        .road-h::before { 
+            content: ''; position:absolute; left:0; right:0; top:50%; height:2px; 
+            background: repeating-linear-gradient(to right, #ffd600 0, #ffd600 6px, transparent 6px, transparent 12px);
+            transform: translateY(-50%); opacity: 0.6;
+        }
+        /* Intersection */
+        .road-int { background: #444; }
+        .road-int::before { content: ''; position:absolute; top:18px; left:18px; width:4px; height:4px; background:#fff; border-radius:50%; }
+
+        /* Zones */
+        .b-res { background: rgba(33, 150, 243, 0.2); border: 2px solid var(--res); color: var(--res); }
+        .b-com { background: rgba(171, 71, 188, 0.2); border: 2px solid var(--com); color: var(--com); }
+        .b-ind { background: rgba(255, 167, 38, 0.2); border: 2px solid var(--ind); color: var(--ind); }
+        .b-park { background: rgba(102, 187, 106, 0.2); border: 2px solid var(--park); color: var(--park); }
+        .b-civic { background: rgba(239, 83, 80, 0.2); border: 2px solid var(--civic); color: var(--civic); }
+
+        /* Mega Structures */
+        .b-mega {
+            position: absolute; top: 0; left: 0;
+            width: 80px; height: 80px; z-index: 10;
+            display: flex; justify-content: center; align-items: center; flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            font-size: 0.8em; text-align: center; font-weight: bold; pointer-events: none; 
+        }
+
+        .mega-apt { background: #1565c0; border: 2px solid #90caf9; color: white; }
+        .mega-tech { background: #ef6c00; border: 2px solid #ffcc80; color: white; }
+        .mega-zoo { background: #2e7d32; border: 2px solid #a5d6a7; color: white; }
+        .mega-stad { background: #c62828; border: 2px solid #ffcdd2; color: white; }
+        .mega-hosp { background: #fff; border: 2px solid #ef5350; color: #d32f2f; }
+        .mega-round { background: #333; border: 2px dashed #ffd600; border-radius: 50%; color: white; box-shadow: none; }
+        
+        .icon { font-size: 1.4em; pointer-events: none; }
+        .mega-label { font-size: 0.7em; margin-top: 2px; text-transform: uppercase; }
+
+        /* Traffic */
+        .traffic-dot {
+            position: absolute; width: 6px; height: 6px; background: #ffeb3b; border-radius: 50%;
+            animation: drive 2s infinite linear;
+            box-shadow: 0 0 5px orange;
+            z-index: 5;
+        }
+        @keyframes drive {
+            0% { transform: translate(0, 0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translate(30px, 30px); opacity: 0; }
+        }
+
+        /* --- TOOLBAR UI --- */
+        #toolbar-container {
+            background: var(--panel);
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            z-index: 50;
+        }
+
+        #category-bar {
+            display: flex;
+            background: #151515;
+            padding: 0 10px;
+            gap: 10px;
+            overflow-x: auto;
+        }
+        
+        .cat-tab {
+            padding: 8px 12px;
+            font-size: 0.8em;
+            color: #888;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .cat-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+        #tool-scroll {
+            height: 90px;
+            overflow-x: auto;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            gap: 8px;
+        }
+        #tool-scroll::-webkit-scrollbar { height: 4px; }
+        #tool-scroll::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
+
+        .tool-btn {
+            background: #252525;
+            border: 1px solid #444;
+            color: #aaa;
+            border-radius: 6px;
+            min-width: 75px;
+            height: 70px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .tool-btn:active { transform: scale(0.95); }
+        .tool-btn.active { background: #333; border-color: var(--accent); color: var(--accent); }
+        
+        .tool-icon { font-size: 1.5em; margin-bottom: 4px; }
+        .tool-name { font-size: 0.7em; font-weight: bold; }
+        .tool-cost { font-size: 0.6em; color: #777; }
+
+        /* --- OVERLAYS --- */
+        #toast {
+            position: fixed; top: 80px; left: 50%; transform: translateX(-50%);
+            background: rgba(0,0,0,0.8); color: white; padding: 10px 20px;
+            border-radius: 20px; font-size: 0.9em; pointer-events: none;
+            opacity: 0; transition: opacity 0.3s; z-index: 100; border: 1px solid #555;
+        }
+
+        #info-panel {
+            position: fixed; bottom: 160px; left: 50%; transform: translateX(-50%);
+            background: #222; border: 1px solid #444; padding: 15px; border-radius: 8px;
+            color: #fff; width: 250px; display: none; z-index: 90;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        
+        #settings-modal {
+            position: fixed; top:0; left:0; right:0; bottom:0;
+            background: rgba(0,0,0,0.8); z-index: 200;
+            display: none; align-items: center; justify-content: center;
+        }
+        .modal-content {
+            background: #222; padding: 20px; border-radius: 8px; width: 300px;
+            border: 1px solid #444; text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- TOP UI -->
+    <div id="top-bar">
+        <div class="stat-group">
+            <button class="icon-btn" onclick="toggleSettings()">⚙️</button>
+            <div class="stat-item">
+                <span class="stat-label">Funds</span>
+                <div><span class="stat-val" id="money-disp">$2,000</span></div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Pop</span>
+                <span class="stat-val" id="pop-disp">0</span>
+            </div>
+        </div>
+        
+        <div class="stat-group">
+            <button class="icon-btn" id="pause-btn" onclick="togglePause()">⏸️</button>
+            <div class="stat-item" style="text-align:right;">
+                <span class="stat-label">Income</span>
+                <span class="stat-change" id="income-disp">+$0</span>
+            </div>
+            <div class="stat-item" style="text-align:right;">
+                <span class="stat-label">Date</span>
+                <span class="stat-val" id="date-disp">Day 1</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- GAME WORLD -->
+    <div id="viewport">
+        <div id="game-grid">
+            <!-- Grid generated via JS -->
+        </div>
+    </div>
+
+    <!-- UI ELEMENTS -->
+    <div id="toast"></div>
+    
+    <div id="info-panel">
+        <h3 id="info-title" style="margin:0 0 10px 0; color:var(--accent)">Selected Tile</h3>
+        <div id="info-content" style="font-size:0.9em; line-height:1.6;"></div>
+        <button onclick="document.getElementById('info-panel').style.display='none'" style="margin-top:10px; width:100%; padding:5px; background:#444; color:#fff; border:none; cursor:pointer;">Close</button>
+    </div>
+
+    <div id="settings-modal">
+        <div class="modal-content">
+            <h2 style="margin-top:0">Settings</h2>
+            <p>Controls: WASD to move, Click+Drag to pan.<br>Press 'R' to Rotate Tool.</p>
+            <button onclick="location.reload()" style="background:#d32f2f; color:white; padding:10px; border:none; width:100%; margin-bottom:10px; cursor:pointer;">Reset Game</button>
+            <button onclick="toggleSettings()" style="background:#444; color:white; padding:10px; border:none; width:100%; cursor:pointer;">Close</button>
+        </div>
+    </div>
+
+    <!-- TOOLBAR -->
+    <div id="toolbar-container">
+        <!-- Categories -->
+        <div id="category-bar">
+            <div class="cat-tab active" onclick="filterTools('essentials', this)">Essentials</div>
+            <div class="cat-tab" onclick="filterTools('zoning', this)">Zoning</div>
+            <div class="cat-tab" onclick="filterTools('infra', this)">Infra</div>
+            <div class="cat-tab" onclick="filterTools('special', this)">Special</div>
+        </div>
+
+        <!-- Tool Buttons -->
+        <div id="tool-scroll">
+            <!-- Injected via JS based on category -->
+        </div>
+    </div>
+
+    <script>
+        // --- CONFIG & STATE ---
+        const GRID_W = 40;
+        const GRID_H = 40;
+        
+        const STATE = {
+            money: 4000, 
+            population: 0,
+            income: 0,
+            day: 1,
+            landCost: 500,
+            tool: 'select',
+            paused: false,
+            map: [],
+            // Camera
+            keys: {}
+        };
+
+        // --- BUILDING DATABASE ---
+        const BUILDINGS = {
+            // ESSENTIALS
+            road:   { cat: 'essentials', cost: 50,    size: [1,1], type: 'road', icon: '', baseInc: 0, label: "Road" },
+            
+            // ZONING (1x1)
+            res:    { cat: 'zoning', cost: 200,   size: [1,1], type: 'res',  icon: '🏠', baseInc: 15, label: "House" },
+            com:    { cat: 'zoning', cost: 500,   size: [1,1], type: 'com',  icon: '🏪', baseInc: 40, label: "Shop" },
+            office: { cat: 'zoning', cost: 1500,  size: [1,1], type: 'com',  icon: '🏢', baseInc: 120, class: 'b-com', label: "Office" },
+            ind:    { cat: 'zoning', cost: 1000,  size: [1,1], type: 'ind',  icon: '🏭', baseInc: 100, label: "Factory" },
+            
+            // INFRASTRUCTURE
+            park:   { cat: 'infra', cost: 300,    size: [1,1], type: 'park', icon: '🌳', baseInc: -5, label: "Park" },
+            solar:  { cat: 'infra', cost: 1200,   size: [1,1], type: 'ind',  icon: '☀️', baseInc: 50, label: "Solar", class: 'b-ind' }, // Clean energy
+            police: { cat: 'infra', cost: 800,    size: [1,1], type: 'civic',icon: '👮', baseInc: -20, label: "Police", class: 'b-civic' },
+            school: { cat: 'infra', cost: 1500,   size: [1,1], type: 'civic',icon: '🏫', baseInc: -30, label: "School", class: 'b-civic' },
+
+            // SPECIAL (2x2)
+            apt:    { cat: 'special', cost: 3000,  size: [2,2], type: 'res',  icon: '🏙️', baseInc: 150, class: 'mega-apt', label: 'Apts' },
+            tech:   { cat: 'special', cost: 5000,  size: [2,2], type: 'ind',  icon: '🧪', baseInc: 400, class: 'mega-tech', label: 'Tech' },
+            zoo:    { cat: 'special', cost: 8000,  size: [2,2], type: 'park', icon: '🦁', baseInc: 50,  class: 'mega-zoo', label: 'Zoo' },
+            stad:   { cat: 'special', cost: 15000, size: [2,2], type: 'com',  icon: '🏟️', baseInc: 800, class: 'mega-stad', label: 'Arena' },
+            hosp:   { cat: 'special', cost: 10000, size: [2,2], type: 'civic',icon: '🚑', baseInc: -100, class: 'mega-hosp', label: 'Hospital' },
+            round:  { cat: 'infra', cost: 500,     size: [2,2], type: 'road', icon: '🔄', baseInc: 0, class: 'mega-round', label: 'Roundabout' }
+        };
+
+        const SYSTEM_TOOLS = [
+            { id: 'select', cat: 'essentials', icon: '👆', name: 'Select', cost: '' },
+            { id: 'buy',    cat: 'essentials', icon: '🗺️', name: 'Buy Land', cost: 'Dynamic' },
+            { id: 'develop',cat: 'essentials', icon: '🚜', name: 'Develop', cost: '$150' },
+            { id: 'rotate', cat: 'essentials', icon: '⤵️', name: 'Rotate', cost: 'Free' },
+            { id: 'bulldoze',cat: 'essentials',icon: '💣', name: 'Demolish', cost: '$50' }
+        ];
+
+        // --- INIT ---
+        function init() {
+            const gridEl = document.getElementById('game-grid');
+            gridEl.innerHTML = '';
+
+            // Initialize Grid
+            for(let y=0; y<GRID_H; y++) {
+                STATE.map[y] = [];
+                for(let x=0; x<GRID_W; x++) {
+                    STATE.map[y][x] = {
+                        x, y,
+                        owned: false,
+                        developed: false,
+                        building: null, 
+                        master: false, 
+                        occupied: false, 
+                        appeal: 0,
+                        efficiency: 0,
+                        roadAccess: false,
+                        orientation: 'v' // v or h
+                    };
+
+                    const tile = document.createElement('div');
+                    tile.className = 'tile';
+                    tile.id = `t_${x}_${y}`;
+                    tile.onmousedown = (e) => { /* handled by viewport */ };
+                    gridEl.appendChild(tile);
+                }
+            }
+
+            // Start Center
+            let cx = 20, cy = 20;
+            for(let i=0; i<3; i++) {
+                for(let j=0; j<3; j++) {
+                    acquireLand(cx+i, cy+j, true);
+                }
+            }
+            // Center View
+            const vp = document.getElementById('viewport');
+            vp.scrollLeft = (1600 - vp.clientWidth) / 2;
+            vp.scrollTop = (1600 - vp.clientHeight) / 2;
+
+            // Start Logic
+            renderTools('essentials'); // Default Tab
+            setInterval(tick, 2000);
+            updateUI();
+            
+            setupInputs();
+            requestAnimationFrame(gameLoop);
+        }
+
+        // --- UI BUILDING ---
+        function renderTools(category) {
+            const container = document.getElementById('tool-scroll');
+            container.innerHTML = '';
+
+            // 1. Add System Tools first if in Essentials
+            if(category === 'essentials') {
+                SYSTEM_TOOLS.forEach(t => {
+                    const btn = createToolBtn(t.id, t.icon, t.name, t.cost);
+                    container.appendChild(btn);
+                });
+            }
+
+            // 2. Add Buildings filtered by Category
+            Object.keys(BUILDINGS).forEach(key => {
+                const b = BUILDINGS[key];
+                if(b.cat === category) {
+                    const btn = createToolBtn(key, b.icon, b.label, '$'+b.cost);
+                    container.appendChild(btn);
+                }
+            });
+
+            // Highlight current tool if it still exists in view
+            highlightTool(STATE.tool);
+        }
+
+        function createToolBtn(id, icon, name, cost) {
+            const btn = document.createElement('button');
+            btn.className = 'tool-btn';
+            btn.onclick = () => setTool(id);
+            btn.dataset.id = id;
+            btn.innerHTML = `
+                <span class="tool-icon">${icon}</span>
+                <span class="tool-name">${name}</span>
+                <span class="tool-cost" id="${id==='buy'?'land-cost-btn':''}">${cost}</span>
+            `;
+            return btn;
+        }
+
+        function filterTools(cat, tabEl) {
+            // Tab visual
+            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+            tabEl.classList.add('active');
+            renderTools(cat);
+        }
+
+        // --- INPUT & LOGIC ---
+        function setupInputs() {
+            const vp = document.getElementById('viewport');
+            let isDragging = false;
+            let startX, startY, scrollLeft, scrollTop;
+            let didDrag = false;
+
+            vp.addEventListener('mousedown', (e) => {
+                isDragging = true; didDrag = false;
+                startX = e.pageX - vp.offsetLeft;
+                startY = e.pageY - vp.offsetTop;
+                scrollLeft = vp.scrollLeft;
+                scrollTop = vp.scrollTop;
+                vp.style.cursor = 'grabbing';
+            });
+
+            vp.addEventListener('mouseup', (e) => { 
+                isDragging = false; vp.style.cursor = 'grab'; 
+                if(!didDrag) {
+                    const rect = document.getElementById('game-grid').getBoundingClientRect();
+                    const x = Math.floor((e.clientX - rect.left - 40) / 40);
+                    const y = Math.floor((e.clientY - rect.top - 40) / 40);
+                    if(isValidCoord(x, y)) handleClick(x, y);
+                }
+            });
+
+            vp.addEventListener('mousemove', (e) => {
+                if(!isDragging) {
+                    const rect = document.getElementById('game-grid').getBoundingClientRect();
+                    const x = Math.floor((e.clientX - rect.left - 40) / 40);
+                    const y = Math.floor((e.clientY - rect.top - 40) / 40);
+                    if(isValidCoord(x, y)) handleHover(x, y);
+                    return;
+                }
+                e.preventDefault();
+                const x = e.pageX - vp.offsetLeft;
+                const y = e.pageY - vp.offsetTop;
+                if(Math.abs(x-startX) > 5 || Math.abs(y-startY) > 5) didDrag = true;
+                vp.scrollLeft = scrollLeft - (x - startX);
+                vp.scrollTop = scrollTop - (y - startY);
+            });
+
+            window.addEventListener('keydown', (e) => { 
+                STATE.keys[e.key.toLowerCase()] = true; 
+                if(e.key.toLowerCase() === 'r') setTool('rotate');
+            });
+            window.addEventListener('keyup', (e) => STATE.keys[e.key.toLowerCase()] = false);
+        }
+
+        function gameLoop() {
+            const vp = document.getElementById('viewport');
+            const speed = 12;
+            if(STATE.keys['w']) vp.scrollTop -= speed;
+            if(STATE.keys['s']) vp.scrollTop += speed;
+            if(STATE.keys['a']) vp.scrollLeft -= speed;
+            if(STATE.keys['d']) vp.scrollLeft += speed;
+            requestAnimationFrame(gameLoop);
+        }
+
+        // --- INTERACTION ---
+        function handleClick(x, y) {
+            const t = STATE.map[y][x];
+
+            // 1. ROTATE TOOL
+            if(STATE.tool === 'rotate') {
+                if(t.building && t.building.type === 'road') {
+                    // Toggle V / H
+                    t.orientation = t.orientation === 'v' ? 'h' : 'v';
+                    // Re-render neighbors to update connections
+                    updateTileVisual(x, y);
+                    updateTileVisual(x+1, y); updateTileVisual(x-1, y);
+                    updateTileVisual(x, y+1); updateTileVisual(x, y-1);
+                } else {
+                    showToast("Only roads can be rotated.");
+                }
+                return;
+            }
+
+            // 2. BULLDOZE
+            if(STATE.tool === 'bulldoze') {
+                if(t.occupied && spend(50)) {
+                    // Logic to clear multi-tiles
+                    if(t.master && t.building) {
+                        const size = BUILDINGS[t.building.typeKey].size;
+                        for(let i=0; i<size[0]; i++) {
+                            for(let j=0; j<size[1]; j++) {
+                                let st = STATE.map[y+j][x+i];
+                                st.occupied = false; st.building = null; st.master = false;
+                                updateTileVisual(x+i, y+j);
+                            }
+                        }
+                    } else if (t.occupied) {
+                        showToast("Target main tile to demolish");
+                    }
+                }
+                return;
+            }
+
+            // 3. SELECT (INFO)
+            if(STATE.tool === 'select') {
+                const info = document.getElementById('info-panel');
+                const title = document.getElementById('info-title');
+                const content = document.getElementById('info-content');
+                info.style.display = 'block';
+                
+                if(!t.owned) {
+                    title.innerText = "Wilderness";
+                    content.innerHTML = "Unowned land.<br>Use 'Buy Land' tool to purchase.";
+                } else {
+                    title.innerText = t.building ? (t.building.label || "Building") : "Empty Lot";
+                    let html = `Appeal: ${t.appeal} ${t.developed ? "(Developed)" : ""}<br>`;
+                    if(t.building) {
+                        html += `Efficiency: ${t.efficiency}%<br>`;
+                        html += `Road Access: ${t.roadAccess ? "YES" : "NO"}<br>`;
+                    }
+                    content.innerHTML = html;
+                }
+                return;
+            }
+
+            // 4. BUY
+            if(STATE.tool === 'buy') {
+                if(t.owned) return showToast("Already owned!");
+                if(isBuyable(x, y)) {
+                    if(STATE.money >= STATE.landCost) {
+                        STATE.money -= STATE.landCost;
+                        STATE.landCost = Math.floor(STATE.landCost * 1.1);
+                        acquireLand(x, y);
+                        showToast("Land Acquired!");
+                        updateUI();
+                    } else showToast("Not enough funds!");
+                } else showToast("Must be adjacent to owned land.");
+                return;
+            }
+
+            // 5. DEVELOP
+            if(STATE.tool === 'develop') {
+                if(!t.owned) return showToast("Buy first.");
+                if(t.occupied) return showToast("Clear building first.");
+                if(spend(150)) {
+                    t.developed = true;
+                    t.appeal += 5;
+                    updateTileVisual(x, y);
+                }
+                return;
+            }
+
+            // 6. BUILD
+            if(BUILDINGS[STATE.tool]) {
+                const bDef = BUILDINGS[STATE.tool];
+                if(canBuild(x, y, bDef.size[0], bDef.size[1])) {
+                    if(spend(bDef.cost)) {
+                        placeBuilding(x, y, STATE.tool);
+                    }
+                } else showToast("Cannot build here");
+            }
+        }
+
+        // --- GAME SIMULATION ---
+        function tick() {
+            if(STATE.paused) return;
+            STATE.day++;
+            let dailyInc = 0;
+            let pop = 0;
+
+            // Reset
+            for(let y=0; y<GRID_H; y++) {
+                for(let x=0; x<GRID_W; x++) {
+                    STATE.map[y][x].roadAccess = false;
+                }
+            }
+
+            // Logic
+            for(let y=0; y<GRID_H; y++) {
+                for(let x=0; x<GRID_W; x++) {
+                    const t = STATE.map[y][x];
+                    if(!t.owned) continue;
+
+                    // Road Prop
+                    if(checkNeighborType(x, y, 'road')) t.roadAccess = true;
+
+                    // Building
+                    if(t.master && t.building) {
+                        const def = BUILDINGS[t.building.typeKey];
+                        let eff = 100;
+                        
+                        // Requirements
+                        if(def.type !== 'road' && !t.roadAccess) eff = 10;
+                        if(t.developed) eff += 20;
+
+                        // Synergy
+                        if(def.type === 'res') {
+                            eff += countNeighbors(x, y, 'park') * 10;
+                            eff += countNeighbors(x, y, 'civic') * 15;
+                            pop += (def.size[0]*def.size[1] * 10);
+                        }
+                        if(def.type === 'com') {
+                            let customers = countNeighbors(x, y, 'res') + (countNeighbors(x,y,'apt') * 4);
+                            if(customers === 0) eff = 10;
+                            else eff += (customers * 5);
+                        }
+
+                        t.efficiency = eff; 
+                        let base = def.baseInc || 0; 
+                        dailyInc += Math.floor(base * (eff / 100));
+                    }
+                }
+            }
+            
+            STATE.income = dailyInc;
+            STATE.money += dailyInc;
+            STATE.population = pop;
+            updateUI();
+        }
+
+        // --- HELPERS ---
+        function acquireLand(x, y) {
+            STATE.map[y][x].owned = true;
+            updateTileVisual(x, y);
+        }
+
+        function placeBuilding(x, y, typeKey) {
+            const def = BUILDINGS[typeKey];
+            const w = def.size[0];
+            const h = def.size[1];
+
+            STATE.map[y][x].master = true;
+            STATE.map[y][x].building = { typeKey, ...def };
+            
+            // Auto-Orient Road
+            if(def.type === 'road') {
+                // Check neighbors to decide V or H default
+                let n = isValidCoord(x, y-1) && isRoad(x, y-1);
+                let s = isValidCoord(x, y+1) && isRoad(x, y+1);
+                let e = isValidCoord(x+1, y) && isRoad(x+1, y);
+                let w_ = isValidCoord(x-1, y) && isRoad(x-1, y);
+                
+                if(e || w_) STATE.map[y][x].orientation = 'h';
+                else STATE.map[y][x].orientation = 'v';
+            }
+
+            for(let i=0; i<w; i++) {
+                for(let j=0; j<h; j++) {
+                    STATE.map[y+j][x+i].occupied = true;
+                }
+            }
+            renderBuilding(x, y, def);
+            
+            // Update road visuals nearby
+            if(def.type === 'road') {
+               updateTileVisual(x+1,y); updateTileVisual(x-1,y);
+               updateTileVisual(x,y+1); updateTileVisual(x,y-1);
+            }
+        }
+
+        function updateTileVisual(x, y) {
+            if(!isValidCoord(x,y)) return;
+            const el = document.getElementById(`t_${x}_${y}`);
+            const t = STATE.map[y][x];
+            
+            // Re-render base
+            el.className = 'tile';
+            el.innerHTML = '';
+            if(t.owned) {
+                if(t.developed) el.classList.add('developed');
+                else el.style.background = '#222';
+            }
+
+            // Re-render building if it exists (or part of one)
+            // Simplified: We actually need to find the master to re-render it
+            // For roads (single tile), we can just re-render. 
+            // For mega structures, if we update a child, we do nothing visually.
+            if(t.occupied) {
+                // If this is master, render.
+                if(t.master && t.building) {
+                    renderBuilding(x, y, t.building);
+                } 
+                // If it's a child, we assume the master overlay covers it.
+            }
+        }
+
+        function renderBuilding(x, y, def) {
+            const el = document.getElementById(`t_${x}_${y}`);
+            const t = STATE.map[y][x];
+
+            if(def.size[0] === 1) {
+                el.classList.add(def.class || `b-${def.type}`);
+                
+                // Smart Road Logic
+                if(def.type === 'road') {
+                    // Check neighbors
+                    let n = isRoad(x, y-1);
+                    let s = isRoad(x, y+1);
+                    let e = isRoad(x+1, y);
+                    let w = isRoad(x-1, y);
+                    
+                    // Simple logic: if neighbors on both axis, it's intersection
+                    if( (n||s) && (e||w) ) {
+                        el.classList.add('road-int');
+                    } else if (t.orientation === 'h') {
+                        el.classList.add('road-h');
+                    } else {
+                        el.classList.add('road-v');
+                    }
+                } else {
+                    el.innerHTML = `<span class="icon">${def.icon}</span>`;
+                }
+            } else {
+                const mega = document.createElement('div');
+                mega.className = `b-mega ${def.class}`;
+                mega.innerHTML = `<span class="icon">${def.icon}</span><span class="mega-label">${def.label}</span>`;
+                el.appendChild(mega);
+            }
+        }
+
+        function isRoad(x, y) {
+            if(!isValidCoord(x, y)) return false;
+            let t = STATE.map[y][x];
+            return t.occupied && t.building && (t.building.type === 'road');
+        }
+
+        // --- UTILS ---
+        function setTool(id) {
+            STATE.tool = id;
+            highlightTool(id);
+            document.querySelectorAll('.tile').forEach(e => e.classList.remove('valid-place', 'invalid-place'));
+            document.getElementById('info-panel').style.display = 'none';
+        }
+
+        function highlightTool(id) {
+            document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('active'));
+            const btn = document.querySelector(`.tool-btn[onclick="setTool('${id}')"]`); // roughly
+            // Better selection:
+            const all = document.querySelectorAll('.tool-btn');
+            all.forEach(b => { if(b.dataset.id === id) b.classList.add('active'); });
+        }
+        
+        function handleHover(x, y) {
+            document.querySelectorAll('.tile').forEach(e => e.classList.remove('valid-place', 'invalid-place', 'valid-buy', 'invalid-buy'));
+            
+            if(STATE.tool === 'buy') {
+                const el = document.getElementById(`t_${x}_${y}`);
+                if(!STATE.map[y][x].owned && isBuyable(x, y)) el.classList.add('valid-buy');
+                else if(!STATE.map[y][x].owned) el.classList.add('invalid-buy');
+                return;
+            }
+
+            if(BUILDINGS[STATE.tool]) {
+                const size = BUILDINGS[STATE.tool].size;
+                const valid = canBuild(x, y, size[0], size[1]);
+                const cls = valid ? 'valid-place' : 'invalid-place';
+                for(let i=0; i<size[0]; i++) {
+                    for(let j=0; j<size[1]; j++) {
+                        if(isValidCoord(x+i, y+j)) {
+                            document.getElementById(`t_${x+i}_${y+j}`).classList.add(cls);
+                        }
+                    }
+                }
+            }
+        }
+
+        function canBuild(x, y, w, h) {
+            for(let i=0; i<w; i++) {
+                for(let j=0; j<h; j++) {
+                    if(!isValidCoord(x+i, y+j)) return false;
+                    const t = STATE.map[y+j][x+i];
+                    if(!t.owned || t.occupied) return false;
+                }
+            }
+            return true;
+        }
+
+        function isBuyable(x, y) {
+            if(STATE.map[y][x].owned) return false;
+            const dirs = [[0,1],[0,-1],[1,0],[-1,0]];
+            return dirs.some(([dx,dy]) => {
+                let nx=x+dx, ny=y+dy;
+                return isValidCoord(nx, ny) && STATE.map[ny][nx].owned;
+            });
+        }
+        
+        function spend(amt) {
+            if(STATE.money >= amt) { STATE.money -= amt; updateUI(); return true; }
+            showToast("Insufficient Funds"); return false;
+        }
+
+        function checkNeighborType(x, y, type) {
+            const dirs = [[0,1],[0,-1],[1,0],[-1,0]];
+            return dirs.some(([dx,dy]) => {
+                let nx=x+dx, ny=y+dy;
+                if(!isValidCoord(nx,ny)) return false;
+                const t = STATE.map[ny][nx];
+                if(t.building && t.building.type === type) return true;
+                return false;
+            });
+        }
+
+        function countNeighbors(x, y, typeKey) {
+            let count = 0;
+            for(let i=-2; i<=2; i++) {
+                for(let j=-2; j<=2; j++) {
+                    let nx=x+i, ny=y+j;
+                    if(isValidCoord(nx,ny)) {
+                        const t = STATE.map[ny][nx];
+                        if(t.master && t.building && (t.building.typeKey === typeKey || t.building.type === typeKey)) count++;
+                    }
+                }
+            }
+            return count;
+        }
+
+        function isValidCoord(x, y) { return x>=0 && x<GRID_W && y>=0 && y<GRID_H; }
+        
+        function togglePause() { STATE.paused = !STATE.paused; document.getElementById('pause-btn').innerText = STATE.paused ? "▶️" : "⏸️"; }
+        function toggleSettings() { const el = document.getElementById('settings-modal'); el.style.display = el.style.display === 'flex' ? 'none' : 'flex'; }
+        
+        function updateUI() {
+            document.getElementById('money-disp').innerText = `$${STATE.money.toLocaleString()}`;
+            document.getElementById('income-disp').innerText = `+${STATE.income}`;
+            document.getElementById('pop-disp').innerText = STATE.population;
+            document.getElementById('date-disp').innerText = `Day ${STATE.day}`;
+            const lb = document.getElementById('land-cost-btn');
+            if(lb) lb.innerText = `$${STATE.landCost}`;
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.innerText = msg; t.style.opacity = 1;
+            setTimeout(() => t.style.opacity = 0, 2000);
+        }
+
+        init();
+    </script>
+</body>
+</html>
