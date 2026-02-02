@@ -18,8 +18,34 @@
     <!-- Babel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Algorand SDK (must be compatible with @perawallet/connect; 2.9.0 is too old) -->
-    <script src="https://cdn.jsdelivr.net/npm/algosdk@2.13.0/dist/browser/algosdk.min.js"></script>
+    <!-- Algorand SDK loader (ensures global window.algosdk exists before app boots) -->
+    <script>
+      (function () {
+        function done() {
+          window.dispatchEvent(new Event('algosdk-loaded'));
+        }
+        function load(src, onload) {
+          var s = document.createElement('script');
+          s.src = src;
+          s.async = false; // preserve execution order
+          s.onload = onload;
+          s.onerror = function () {
+            console.error('Failed to load', src);
+          };
+          document.head.appendChild(s);
+        }
+
+        // Primary: unpkg (often more reliable for this specific file path)
+        load('https://unpkg.com/algosdk@2.13.0/dist/browser/algosdk.min.js', function () {
+          if (window.algosdk) return done();
+          // Fallback: jsdelivr
+          load('https://cdn.jsdelivr.net/npm/algosdk@2.13.0/dist/browser/algosdk.min.js', function () {
+            if (window.algosdk) return done();
+            console.error('algosdk failed to initialize (window.algosdk missing after load)');
+          });
+        });
+      })();
+    </script>
 
     <script>
         tailwind.config = {
@@ -625,8 +651,19 @@
             );
         };
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+        // Boot only after BOTH: Pera Wallet module + algosdk have loaded.
+        const boot = () => {
+            if (!window.PeraWalletConnect || !window.algosdk) return;
+            // prevent double-mount if events fire twice
+            if (window.__ALG_HUB_BOOTED__) return;
+            window.__ALG_HUB_BOOTED__ = true;
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(<App />);
+        };
+
+        boot();
+        window.addEventListener('pera-loaded', boot);
+        window.addEventListener('algosdk-loaded', boot);
     </script>
 </body>
 </html>
