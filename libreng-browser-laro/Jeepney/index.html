@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lilipad na Jeep: Space Edition</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Titan+One&family=Rubik:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #333;
+            font-family: 'Rubik', sans-serif;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        #game-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* UI Overlay */
+        #ui-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Default: let clicks pass to canvas/buttons */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* HUD */
+        .hud {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            pointer-events: auto;
+        }
+
+        .currency-box {
+            background: #FFD700;
+            border: 4px solid #F57F17;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-family: 'Titan One', cursive;
+            font-size: 1.5rem;
+            color: #E65100;
+            box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .alt-box {
+            background: #2196F3;
+            border: 4px solid #0D47A1;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-family: 'Titan One', cursive;
+            color: white;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        /* Screens */
+        .screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            pointer-events: auto;
+            backdrop-filter: blur(4px);
+            transition: opacity 0.3s;
+            z-index: 20; /* Above everything */
+        }
+        
+        .hidden { opacity: 0; pointer-events: none; display: none !important; }
+
+        h1 {
+            font-family: 'Titan One', cursive;
+            font-size: 3.5rem;
+            color: #FFEB3B;
+            text-shadow: 4px 4px 0 #F57F17, 8px 8px 0 rgba(0,0,0,0.3);
+            text-align: center;
+            margin: 0 0 10px 0;
+            line-height: 1;
+        }
+
+        .subtitle {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .big-btn {
+            background: #FF5722;
+            color: white;
+            font-family: 'Titan One', cursive;
+            font-size: 1.8rem;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 8px 0 #BF360C;
+            transition: transform 0.1s;
+            margin: 10px;
+            text-transform: uppercase;
+        }
+
+        .big-btn:active { transform: translateY(8px); box-shadow: none; }
+        .big-btn.secondary { background: #2196F3; box-shadow: 0 8px 0 #0D47A1; font-size: 1.4rem; }
+
+        /* Shop Grid */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .shop-item {
+            background: #E3F2FD;
+            border: 3px solid #2196F3;
+            border-radius: 15px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .shop-item h3 { margin: 5px 0; font-size: 0.85rem; color: #0D47A1; }
+        .shop-item .price { font-weight: bold; color: #E65100; margin-bottom: 5px; font-size: 0.9rem; }
+        
+        .upgrade-dots { display: flex; gap: 3px; margin-bottom: 5px; }
+        .dot { width: 6px; height: 6px; background: #ccc; border-radius: 50%; }
+        .dot.filled { background: #4CAF50; }
+
+        .buy-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 3px 0 #1B5E20;
+            font-size: 0.8rem;
+        }
+        .buy-btn:disabled { background: #ccc; box-shadow: none; cursor: not-allowed; }
+        .buy-btn:active { transform: translateY(3px); box-shadow: none; }
+
+        /* In-Game Controls */
+        #game-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between; /* Spread controls */
+            align-items: flex-end;
+            pointer-events: none;
+            padding: 0 20px;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        .control-group {
+            display: flex;
+            gap: 15px;
+            pointer-events: auto;
+        }
+
+        .boost-btn {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #FF5252, #D32F2F);
+            border: 4px solid white;
+            border-radius: 50%;
+            color: white;
+            font-family: 'Titan One', cursive;
+            font-size: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            touch-action: manipulation;
+            transition: transform 0.1s;
+            cursor: pointer;
+        }
+        .boost-btn:active { transform: scale(0.95); }
+
+        .tilt-btn {
+            width: 70px;
+            height: 70px;
+            background: #2196F3;
+            border: 3px solid white;
+            border-radius: 50%;
+            color: white;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+            touch-action: manipulation;
+            cursor: pointer;
+        }
+        .tilt-btn:active { background: #1976D2; transform: translateY(2px); }
+
+        .fuel-bar-container {
+            width: 70%;
+            height: 8px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        .fuel-bar {
+            width: 100%;
+            height: 100%;
+            background: #FFEB3B;
+        }
+
+        /* Power Meter */
+        #launch-meter-container {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 200px;
+            background: rgba(0,0,0,0.5);
+            border: 4px solid white;
+            border-radius: 30px;
+            overflow: hidden;
+            display: none;
+            pointer-events: auto;
+            z-index: 15;
+        }
+        
+        #launch-fill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(to top, #4CAF50, #FFEB3B, #F44336);
+        }
+
+        #launch-label {
+            position: absolute;
+            width: 140%;
+            left: -20%;
+            text-align: center;
+            color: white;
+            bottom: -30px;
+            font-weight: bold;
+            text-shadow: 1px 1px 0 #000;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .shop-grid { grid-template-columns: 1fr 1fr; }
+            .boost-btn { width: 90px; height: 90px; }
+            .tilt-btn { width: 60px; height: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="ui-layer">
+        <!-- HUD -->
+        <div class="hud">
+            <div>
+                <div class="currency-box">
+                    <span>🪙</span> <span id="moneyDisplay">0</span>
+                </div>
+                <div class="alt-box">
+                    Taas (Alt): <span id="altDisplay">0</span>m
+                </div>
+            </div>
+        </div>
+
+        <!-- Launch Meter -->
+        <div id="launch-meter-container">
+            <div id="launch-fill"></div>
+            <div id="launch-label">TIRA! (TAP!)</div>
+        </div>
+
+        <!-- In-Game Controls -->
+        <div id="game-controls" class="hidden">
+            <div class="control-group" id="tiltControls" style="display:none;">
+                <button id="tiltUpBtn" class="tilt-btn">↺</button>
+                <button id="tiltDownBtn" class="tilt-btn">↻</button>
+            </div>
+            <div class="control-group">
+                <button id="boostBtn" class="boost-btn">
+                    NITRO
+                    <div class="fuel-bar-container"><div id="fuelBar" class="fuel-bar"></div></div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Screen -->
+        <div id="menuScreen" class="screen">
+            <h1>Lilipad na<br>Jeep</h1>
+            <div class="subtitle" id="menuSubtitle">Hanggang Buwan! (To the Moon!)</div>
+            <button id="playBtn" class="big-btn">Laro (Play)</button>
+            <button id="shopBtn" class="big-btn secondary">Talyer (Shop)</button>
+        </div>
+
+        <!-- Shop Screen -->
+        <div id="shopScreen" class="screen hidden">
+            <h1 style="font-size: 2rem; color: white;">Talyer (Shop)</h1>
+            <div class="shop-grid" id="shopGrid">
+                <!-- Generated by JS -->
+            </div>
+            <button id="closeShopBtn" class="big-btn secondary" style="margin-top: 20px;">Balik (Back)</button>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="resultScreen" class="screen hidden">
+            <h1>Finish!</h1>
+            <div style="background: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 20px;">
+                <h2 style="color: #555; margin:0;">Layo (Dist)</h2>
+                <div id="resultDist" style="font-size: 2rem; color: #2196F3; font-weight: bold;">0 m</div>
+                <h2 style="color: #555; margin:5px 0 0;">Taas (Alt)</h2>
+                <div id="resultAlt" style="font-size: 1.5rem; color: #1976D2; font-weight: bold;">0 m</div>
+                <h2 style="color: #555; margin:10px 0 0;">Kita (Cash)</h2>
+                <div id="resultMoney" style="font-size: 2rem; color: #E65100; font-weight: bold;">+ 0</div>
+            </div>
+            <button id="againBtn" class="big-btn">Laro Ulit (Again)</button>
+            <button id="shopFromEndBtn" class="big-btn secondary">Talyer (Shop)</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- Configuration & State ---
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Combined Localization Data
+    const uiText = {
+        title: "Lilipad na<br>Jeep",
+        subtitle: "Hanggang Buwan! (To the Moon!)",
+        play: "Laro (Play)",
+        shop: "Talyer (Shop)",
+        back: "Balik (Back)",
+        nitro: "NITRO",
+        distance: "Layo (Dist)",
+        altitude: "Taas (Alt)",
+        earnings: "Kita (Cash)",
+        again: "Laro Ulit (Again)",
+        items: {
+            engine: "Makina (Engine)",
+            wheels: "Gulong (Wheels)",
+            wings: "Pakpak (Wings)",
+            tank: "Tangke (Tank)",
+            nitro: "Nitro (Boost)",
+            control: "Timon (Steering)"
+        },
+        launch: "TIRA! (TAP!)"
+    };
+
+    // Constants
+    const PRICES = {
+        engine: [0, 50, 150, 400, 1000, 2500],
+        wheels: [0, 50, 120, 300, 800, 2000],
+        wings:  [0, 100, 300, 700, 1500, 4000],
+        tank:   [0, 80, 200, 500, 1000, 2500],
+        nitro:  [0, 100, 250, 600, 1400, 3500],
+        control:[0, 500] // Single level unlock
+    };
+    const MAX_LEVEL = 5;
+
+    let gameState = {
+        money: 0,
+        phase: 'MENU',
+        upgrades: {
+            engine: 1,
+            wheels: 1,
+            wings: 1,
+            tank: 1,
+            nitro: 1,
+            control: 0
+        },
+        player: {
+            x: 0, y: 0, 
+            vx: 0, vy: 0,
+            rotation: 0,
+            fuel: 100,
+            maxFuel: 100,
+            onGround: true,
+            maxAlt: 0
+        },
+        camera: { x: 0, y: 0 },
+        launchPower: 0,
+        launchDir: 1,
+        particles: []
+    };
+
+    // Load Save
+    const saved = localStorage.getItem('jeepneySpaceSave');
+    if(saved) {
+        try {
+            const parsed = JSON.parse(saved);
+            gameState.money = parsed.money || 0;
+            if(parsed.upgrades) gameState.upgrades = {...gameState.upgrades, ...parsed.upgrades};
+        } catch(e) { console.log('Save corrupt'); }
+    }
+
+    // --- Audio ---
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    
+    function resumeAudio() {
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playTone(type) {
+        if (audioCtx.state === 'suspended') return; // Can't play if not resumed
+        
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        const now = audioCtx.currentTime;
+
+        if (type === 'click') {
+            osc.frequency.setValueAtTime(400, now);
+            gain.gain.setValueAtTime(0.1, now);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+            osc.start(now);
+            osc.stop(now + 0.1);
+        } else if (type === 'coin') {
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(800, now);
+            osc.frequency.setValueAtTime(1200, now + 0.1);
+            gain.gain.setValueAtTime(0.1, now);
+            gain.gain.linearRampToValueAtTime(0.01, now + 0.3);
+            osc.start(now);
+            osc.stop(now + 0.3);
+        } else if (type === 'boost') {
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(100, now);
+            gain.gain.setValueAtTime(0.1, now);
+            gain.gain.linearRampToValueAtTime(0.01, now + 0.1);
+            osc.start(now);
+            osc.stop(now + 0.1);
+        }
+    }
+
+    // --- Logic ---
+
+    function saveGame() {
+        localStorage.setItem('jeepneySpaceSave', JSON.stringify({
+            money: gameState.money,
+            upgrades: gameState.upgrades
+        }));
+    }
+
+    function updateUI() {
+        // Update values
+        document.getElementById('moneyDisplay').innerText = Math.floor(gameState.money);
+        document.getElementById('altDisplay').innerText = Math.max(0, Math.floor(-gameState.player.y / 10));
+        
+        // Static text updates (in case we change them dynamically later, but mostly static now)
+        document.querySelector('#menuScreen h1').innerHTML = uiText.title;
+        document.getElementById('menuSubtitle').innerText = uiText.subtitle;
+        document.getElementById('playBtn').innerText = uiText.play;
+        document.getElementById('shopBtn').innerText = uiText.shop;
+        document.getElementById('shopFromEndBtn').innerText = uiText.shop;
+        document.getElementById('closeShopBtn').innerText = uiText.back;
+        document.getElementById('launch-label').innerText = uiText.launch;
+        document.getElementById('againBtn').innerText = uiText.again;
+
+        document.querySelector('#resultScreen h2:nth-of-type(1)').innerText = uiText.distance;
+        document.querySelector('#resultScreen h2:nth-of-type(2)').innerText = uiText.altitude;
+        document.querySelector('#resultScreen h2:nth-of-type(3)').innerText = uiText.earnings;
+        // Nitro button text usually has children, so careful replacement
+        // document.querySelector('#boostBtn').childNodes[0].nodeValue = uiText.nitro + " ";
+    }
+
+    function renderShop() {
+        const grid = document.getElementById('shopGrid');
+        grid.innerHTML = '';
+
+        const items = ['engine', 'wheels', 'wings', 'tank', 'nitro', 'control'];
+        items.forEach(key => {
+            const level = gameState.upgrades[key];
+            const isSingle = key === 'control';
+            const maxLvl = isSingle ? 1 : MAX_LEVEL;
+            const isMax = level >= maxLvl;
+            
+            const price = isMax ? 'MAX' : PRICES[key][level];
+            const name = uiText.items[key];
+
+            const div = document.createElement('div');
+            div.className = 'shop-item';
+            
+            let dotsHtml = '';
+            for(let i=0; i<maxLvl; i++) {
+                dotsHtml += `<div class="dot ${i < level ? 'filled' : ''}"></div>`;
+            }
+
+            div.innerHTML = `
+                <h3>${name}</h3>
+                <div class="upgrade-dots">${dotsHtml}</div>
+                <div class="price">${isMax ? '' : '🪙 ' + price}</div>
+                <button class="buy-btn" ${isMax || gameState.money < price ? 'disabled' : ''} 
+                    onclick="buyUpgrade('${key}', ${price})">
+                    ${isMax ? 'MAX' : 'BILI (BUY)'}
+                </button>
+            `;
+            grid.appendChild(div);
+        });
+    }
+
+    window.buyUpgrade = function(key, price) {
+        const isSingle = key === 'control';
+        const maxLvl = isSingle ? 1 : MAX_LEVEL;
+        
+        if(gameState.money >= price && gameState.upgrades[key] < maxLvl) {
+            gameState.money -= price;
+            gameState.upgrades[key]++;
+            playTone('coin');
+            saveGame();
+            updateUI();
+            renderShop();
+        }
+    };
+
+    // --- Game Loop ---
+
+    function startLaunch() {
+        resumeAudio();
+
+        gameState.phase = 'LAUNCHING';
+        gameState.launchPower = 0;
+        
+        // Reset Player Physics
+        gameState.player.x = 0;
+        gameState.player.y = -20; 
+        gameState.player.vx = 0;
+        gameState.player.vy = 0;
+        gameState.player.rotation = -0.2;
+        gameState.player.onGround = true;
+        gameState.player.maxAlt = 0;
+        
+        // Calculate Fuel
+        const baseFuel = 100;
+        const tankBonus = (gameState.upgrades.tank - 1) * 50;
+        gameState.player.fuel = baseFuel + tankBonus;
+        gameState.player.maxFuel = gameState.player.fuel;
+
+        document.getElementById('menuScreen').classList.add('hidden');
+        document.getElementById('resultScreen').classList.add('hidden');
+        document.getElementById('shopScreen').classList.add('hidden');
+        document.getElementById('launch-meter-container').style.display = 'block';
+        
+        const ui = document.getElementById('ui-layer');
+        ui.style.pointerEvents = 'auto'; 
+        
+        document.getElementById('tiltControls').style.display = gameState.upgrades.control > 0 ? 'flex' : 'none';
+    }
+
+    function doLaunch() {
+        playTone('boost');
+        gameState.phase = 'FLYING';
+        document.getElementById('launch-meter-container').style.display = 'none';
+        document.getElementById('game-controls').classList.remove('hidden');
+        document.getElementById('ui-layer').style.pointerEvents = 'none'; // Passthrough to controls
+
+        const power = gameState.launchPower; 
+        const wheelBonus = (gameState.upgrades.wheels - 1) * 5;
+        const engineBonus = (gameState.upgrades.engine - 1) * 8;
+        
+        const launchSpeed = 10 + (power * 15) + wheelBonus + (power * engineBonus);
+        
+        // Launch angle -0.5 radians (up and right)
+        gameState.player.vx = launchSpeed * Math.cos(-0.5); 
+        gameState.player.vy = launchSpeed * Math.sin(-0.5);
+        gameState.player.onGround = false;
+    }
+
+    function endGame() {
+        gameState.phase = 'RESULT';
+        document.getElementById('game-controls').classList.add('hidden');
+        document.getElementById('resultScreen').classList.remove('hidden');
+        document.getElementById('ui-layer').style.pointerEvents = 'auto'; // allow clicking buttons
+
+        const dist = Math.floor(gameState.player.x / 10);
+        const maxAlt = Math.floor(-gameState.player.maxAlt / 10);
+        
+        // Economy: Distance + Height
+        const earnings = Math.floor(dist * 0.5) + Math.floor(maxAlt * 0.8) + Math.floor(Math.random()*10); 
+        
+        gameState.money += earnings;
+        saveGame();
+        updateUI();
+
+        document.getElementById('resultDist').innerText = dist + " m";
+        document.getElementById('resultAlt').innerText = maxAlt + " m";
+        document.getElementById('resultMoney').innerText = "+ " + earnings;
+    }
+
+    // --- Inputs ---
+    let inputState = { boost: false, tiltUp: false, tiltDown: false };
+
+    function bindBtn(id, key) {
+        const btn = document.getElementById(id);
+        const start = (e) => { 
+            if(e.cancelable) e.preventDefault(); 
+            inputState[key] = true; 
+        };
+        const end = (e) => { 
+            if(e.cancelable) e.preventDefault(); 
+            inputState[key] = false; 
+        };
+        btn.addEventListener('mousedown', start);
+        btn.addEventListener('touchstart', start, {passive: false});
+        window.addEventListener('mouseup', end);
+        window.addEventListener('touchend', end);
+    }
+
+    bindBtn('boostBtn', 'boost');
+    bindBtn('tiltUpBtn', 'tiltUp');
+    bindBtn('tiltDownBtn', 'tiltDown');
+
+    // Launch Tap - Generic Listener on the whole layer
+    const uiLayer = document.getElementById('ui-layer');
+    const handleTap = (e) => {
+        if(gameState.phase === 'LAUNCHING') {
+            doLaunch();
+        }
+    };
+    uiLayer.addEventListener('mousedown', handleTap);
+    uiLayer.addEventListener('touchstart', (e) => {
+        if(gameState.phase === 'LAUNCHING') {
+            e.preventDefault();
+            doLaunch();
+        }
+    }, {passive: false});
+
+
+    // Keyboard controls
+    window.addEventListener('keydown', (e) => {
+        if(e.code === 'Space') inputState.boost = true;
+        if(e.code === 'ArrowLeft' || e.code === 'KeyA') inputState.tiltUp = true; 
+        if(e.code === 'ArrowRight' || e.code === 'KeyD') inputState.tiltDown = true; 
+    });
+    window.addEventListener('keyup', (e) => {
+        if(e.code === 'Space') inputState.boost = false;
+        if(e.code === 'ArrowLeft' || e.code === 'KeyA') inputState.tiltUp = false;
+        if(e.code === 'ArrowRight' || e.code === 'KeyD') inputState.tiltDown = false;
+    });
+
+    // --- Physics & Render ---
+
+    let lastTime = 0;
+    function loop(timestamp) {
+        let dt = (timestamp - lastTime) / 16; 
+        lastTime = timestamp;
+        if(dt > 5) dt = 1; // Lag spike prevention
+        
+        resize();
+
+        // 1. Logic Update
+        if(gameState.phase === 'LAUNCHING') {
+            gameState.launchPower += 0.03 * gameState.launchDir * dt;
+            if(gameState.launchPower > 1) { gameState.launchPower = 1; gameState.launchDir = -1; }
+            if(gameState.launchPower < 0) { gameState.launchPower = 0; gameState.launchDir = 1; }
+            document.getElementById('launch-fill').style.height = (gameState.launchPower * 100) + '%';
+            
+            // Set default cam
+            gameState.camera.x = -100;
+            gameState.camera.y = -canvas.height + 150; // Ground near bottom
+        }
+        else if(gameState.phase === 'FLYING') {
+            const p = gameState.player;
+            
+            // Gravity
+            let gravity = 0.25 - ((gameState.upgrades.wings - 1) * 0.04);
+            if(p.y < -30000) gravity *= 0.5; // Space gravity
+            
+            p.vy += Math.max(0.05, gravity) * dt;
+
+            // Drag
+            p.vx *= Math.pow(0.995, dt);
+
+            // Rotation Control
+            if(gameState.upgrades.control > 0 && p.fuel > 0) {
+                if(inputState.tiltUp) {
+                    p.rotation -= 0.05 * dt;
+                    p.fuel -= 0.2 * dt;
+                }
+                if(inputState.tiltDown) {
+                    p.rotation += 0.05 * dt;
+                    p.fuel -= 0.2 * dt;
+                }
+            } else {
+                // Auto align
+                const targetRot = Math.atan2(p.vy, p.vx);
+                p.rotation += (targetRot - p.rotation) * 0.05 * dt;
+            }
+
+            // Boost
+            if(inputState.boost && p.fuel > 0) {
+                const boostPower = 0.3 + ((gameState.upgrades.nitro - 1) * 0.1) + ((gameState.upgrades.engine - 1) * 0.05);
+                p.vx += Math.cos(p.rotation) * boostPower * dt;
+                p.vy += Math.sin(p.rotation) * boostPower * dt;
+                p.fuel -= 1 * dt;
+                
+                // Audio throttle
+                if(Math.random() < 0.1) playTone('boost');
+                
+                // Particles
+                gameState.particles.push({
+                    x: p.x - 30, y: p.y, 
+                    vx: -5 - Math.random()*5, vy: (Math.random()-0.5)*5, 
+                    life: 20
+                });
+            }
+
+            // Move
+            p.x += p.vx * dt;
+            p.y += p.vy * dt;
+            if(p.y < p.maxAlt) p.maxAlt = p.y;
+
+            // Camera Logic (Follow Player)
+            gameState.camera.x = p.x - 200;
+            
+            let targetCamY = p.y - canvas.height/2;
+            if (targetCamY + canvas.height > 150) {
+                targetCamY = 150 - canvas.height;
+            }
+            gameState.camera.y += (targetCamY - gameState.camera.y) * 0.1 * dt;
+
+            // Ground Collision
+            if(p.y > 0) {
+                if(Math.abs(p.vy) > 3 || Math.abs(p.vx) > 3) {
+                    p.vy *= -0.4;
+                    p.vx *= 0.6;
+                    p.y = 0;
+                    playTone('click');
+                    p.rotation = 0;
+                } else {
+                    p.vx = 0; p.vy = 0; p.y = 0;
+                    endGame();
+                }
+            }
+
+            // UI
+            const fuelPct = (p.fuel / p.maxFuel) * 100;
+            document.getElementById('fuelBar').style.width = Math.max(0, fuelPct) + '%';
+            document.getElementById('altDisplay').innerText = Math.max(0, Math.floor(-p.y / 10));
+        }
+
+        // 2. Render
+        drawWorld(ctx, gameState.camera);
+        
+        // Particles
+        for(let i=gameState.particles.length-1; i>=0; i--) {
+            let part = gameState.particles[i];
+            part.x += part.vx * dt;
+            part.y += part.vy * dt;
+            part.life -= dt;
+            ctx.fillStyle = `rgba(255, 87, 34, ${part.life/20})`;
+            ctx.fillRect(part.x - gameState.camera.x, part.y - gameState.camera.y, 6, 6);
+            if(part.life <= 0) gameState.particles.splice(i, 1);
+        }
+
+        // Player
+        if(gameState.phase !== 'MENU' && gameState.phase !== 'SHOP') {
+            drawJeep(ctx, gameState.player.x - gameState.camera.x, gameState.player.y - gameState.camera.y, gameState.player.rotation);
+        }
+
+        requestAnimationFrame(loop);
+    }
+
+    // --- Drawing ---
+
+    function drawWorld(ctx, cam) {
+        const w = canvas.width;
+        const h = canvas.height;
+        const cy = cam.y + h/2; // Center of view altitude
+
+        // 1. Sky Gradient based on altitude
+        let r, g, b;
+        if(cy > -2000) {
+            // Blue Sky
+            const f = Math.min(1, Math.max(0, -cy / 2000));
+            r = 135 * (1-f) + 30 * f;
+            g = 206 * (1-f) + 136 * f;
+            b = 235 * (1-f) + 229 * f;
+        } else {
+            // Space Transition
+            const f = Math.min(1, Math.max(0, (-cy - 2000) / 3000));
+            r = 30 * (1-f);
+            g = 136 * (1-f);
+            b = 229 * (1-f);
+        }
+        ctx.fillStyle = `rgb(${r},${g},${b})`;
+        ctx.fillRect(0,0,w,h);
+
+        // 2. Stars
+        if(cy < -1000) {
+            const alpha = Math.min(1, (-cy - 1000) / 2000);
+            ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+            for(let i=0; i<50; i++) {
+                const sx = (i * 137) % w;
+                const sy = (i * 311) % h;
+                const px = (sx - cam.x * 0.05 + w) % w;
+                const py = (sy - cam.y * 0.05 + h) % h;
+                ctx.beginPath(); ctx.arc(px, py, (i%3)+1, 0, Math.PI*2); ctx.fill();
+            }
+        }
+
+        // 3. Moon & Mars
+        const moonY = -30000 - cam.y;
+        const moonX = 400 - cam.x * 0.02; 
+        if(moonY < h + 100 && moonY > -100) {
+            ctx.fillStyle = '#DDD';
+            ctx.beginPath(); ctx.arc(moonX, moonY, 60, 0, Math.PI*2); ctx.fill();
+            ctx.fillStyle = '#CCC';
+            ctx.beginPath(); ctx.arc(moonX-20, moonY+10, 10, 0, Math.PI*2); ctx.fill();
+        }
+
+        const marsY = -100000 - cam.y;
+        const marsX = 600 - cam.x * 0.02;
+        if(marsY < h + 100 && marsY > -100) {
+            ctx.fillStyle = '#D84315';
+            ctx.beginPath(); ctx.arc(marsX, marsY, 50, 0, Math.PI*2); ctx.fill();
+        }
+
+        // 4. Ground/Terrain
+        const groundScreenY = 0 - cam.y;
+        
+        if(groundScreenY < h) {
+            ctx.fillStyle = '#AED581';
+            ctx.beginPath();
+            ctx.moveTo(0, h);
+            for(let i=0; i<=w; i+=50) {
+                const hx = i + cam.x * 0.5; 
+                const hy = groundScreenY - 50 + Math.sin(hx * 0.005) * 50;
+                ctx.lineTo(i, hy);
+            }
+            ctx.lineTo(w, h);
+            ctx.fill();
+
+            const rampX = 0 - cam.x;
+            if(rampX > -300 && rampX < w) {
+                ctx.fillStyle = '#795548';
+                ctx.beginPath();
+                ctx.moveTo(rampX, groundScreenY);
+                ctx.lineTo(rampX + 200, groundScreenY - 100);
+                ctx.lineTo(rampX + 200, groundScreenY);
+                ctx.fill();
+            }
+
+            ctx.fillStyle = '#689F38';
+            ctx.fillRect(0, groundScreenY, w, h - groundScreenY);
+        }
+    }
+
+    function drawJeep(ctx, x, y, rot) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(rot);
+
+        // Body
+        ctx.fillStyle = '#C62828';
+        ctx.fillRect(-30, -15, 60, 20); 
+        ctx.fillStyle = '#FDD835'; 
+        ctx.fillRect(20, -10, 15, 15); 
+        // Roof
+        ctx.fillStyle = '#1565C0'; 
+        ctx.fillRect(-32, -25, 55, 10);
+        // Windows
+        ctx.fillStyle = '#81D4FA';
+        ctx.fillRect(-25, -15, 45, 8);
+
+        // Wings
+        if(gameState.upgrades.wings > 1) {
+            ctx.fillStyle = '#FFF';
+            ctx.beginPath();
+            ctx.moveTo(-10, -10);
+            ctx.lineTo(-30, -30 - (gameState.upgrades.wings * 8));
+            ctx.lineTo(10, -15);
+            ctx.fill();
+        }
+
+        // Wheels
+        ctx.fillStyle = '#333';
+        ctx.beginPath(); ctx.arc(-20, 10, 8, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(20, 10, 8, 0, Math.PI*2); ctx.fill();
+        ctx.fillStyle = '#DDD';
+        ctx.beginPath(); ctx.arc(-20, 10, 3, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(20, 10, 3, 0, Math.PI*2); ctx.fill();
+
+        // Boost Flame
+        if(inputState.boost && gameState.player.fuel > 0) {
+            ctx.fillStyle = '#FF5722';
+            ctx.beginPath();
+            ctx.moveTo(-35, 0);
+            ctx.lineTo(-60 - Math.random()*20, 5);
+            ctx.lineTo(-35, 10);
+            ctx.fill();
+        }
+
+        ctx.restore();
+    }
+
+    function resize() {
+        if(canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+    }
+
+    // Button Listeners
+    document.getElementById('playBtn').addEventListener('click', startLaunch);
+    document.getElementById('againBtn').addEventListener('click', startLaunch);
+    document.getElementById('shopBtn').addEventListener('click', () => {
+        gameState.phase = 'SHOP';
+        renderShop();
+        document.getElementById('menuScreen').classList.add('hidden');
+        document.getElementById('shopScreen').classList.remove('hidden');
+        document.getElementById('ui-layer').style.pointerEvents = 'auto';
+    });
+    document.getElementById('shopFromEndBtn').addEventListener('click', () => {
+        gameState.phase = 'SHOP';
+        renderShop();
+        document.getElementById('resultScreen').classList.add('hidden');
+        document.getElementById('shopScreen').classList.remove('hidden');
+        document.getElementById('ui-layer').style.pointerEvents = 'auto';
+    });
+    document.getElementById('closeShopBtn').addEventListener('click', () => {
+        gameState.phase = 'MENU';
+        document.getElementById('shopScreen').classList.add('hidden');
+        document.getElementById('menuScreen').classList.remove('hidden');
+    });
+    
+    // Init
+    updateUI();
+    requestAnimationFrame(loop);
+
+</script>
+
+</body>
+</html>
