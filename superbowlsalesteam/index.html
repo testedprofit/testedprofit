@@ -18,8 +18,8 @@
     <!-- Babel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Algorand SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/algosdk@2.9.0/dist/browser/algosdk.min.js"></script>
+    <!-- Algorand SDK (must be compatible with @perawallet/connect; 2.9.0 is too old) -->
+    <script src="https://cdn.jsdelivr.net/npm/algosdk@2.13.0/dist/browser/algosdk.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -127,14 +127,19 @@
             return arr;
         };
 
-        const concatUint8Arrays = (arrays) => {
-            if (arrays.length === 1) return arrays[0];
-            let total = 0;
-            arrays.forEach(a => total += a.length);
-            const out = new Uint8Array(total);
-            let offset = 0;
-            arrays.forEach(a => { out.set(a, offset); offset += a.length; });
-            return out;
+        const normalizeSignedTxns = (signed) => {
+            // Pera can return:
+            // - Uint8Array[]
+            // - base64 string[]
+            // - { blob: Uint8Array | base64 }[]
+            // - nulls for txns you didn't sign
+            return signed
+                .filter(Boolean)
+                .map(s => {
+                    const b = s?.blob ?? s;
+                    if (typeof b === 'string') return b64ToUint8Array(b);
+                    return b; // assume Uint8Array
+                });
         };
 
         // --- Icons ---
@@ -237,171 +242,23 @@
 
                     algosdk.assignGroupID(txns);
 
-                    // Encode unsigned transactions before passing to Pera
-                    const group = txns.map(t => ({ txn: algosdk.encodeUnsignedTransaction(t), signers: [account] }));
+                    // IMPORTANT: Pera expects algosdk Transaction objects that implement getEncodingSchema().
+                    // That method does NOT exist in older algosdk versions (e.g., 2.9.0), which causes:
+                    //   t.getEncodingSchema is not a function
+                    // We therefore:
+                    //  1) use a newer algosdk (see script tag), and
+                    //  2) pass Transaction objects (not encoded bytes) here.
+                    const group = txns.map(t => ({ txn: t, signers: [account] }));
 
                     // Pera expects an array of groups (SignerTransaction[][]) even if single group
                     const signed = await peraWallet.signTransaction([group]);
 
-                    // signed can be an array of signed transaction blobs (base64 strings) or objects with 'blob'
-                    // Normalize to Uint8Array blobs and concatenate
-                    const blobs = signed.map(s => {
-                        const b = s?.blob ?? s;
-                        if (typeof b === 'string') return b64ToUint8Array(b);
-                        return b;
-                    });
-                    const combined = concatUint8Arrays(blobs);
-
-                    const { txId } = await client.sendRawTransaction(combined).do();
-                    await algosdk.waitForConfirmation(client, txId, 4);
-                    setStatus({ type: 'success', msg: `Cleaned ${selectedAssets.size} assets. +${(selectedAssets.size * 0.1).toFixed(1)} ALGO!` });
-                    setAssets(p => p.filter(a => !selectedAssets.has(a.id)));
-                    setSelectedAssets(new Set());
-                } catch (e) { 
-                    console.error(e);
-                    setStatus({ type: 'error', msg: e.message || 'Transaction failed.' }); 
-                }
-                setLoading(false);
-            };
-
-            if (!account) return <div className="text-center py-20 text-slate-400">Please connect your wallet to start cleaning.</div>;
-
-            return (
-                <div className="fade-in">
-                    <div className="flex justify-between items-end mb-6">
-                        <div>
-                            <h2 className="text-2xl font-bold tracking-tight mb-1">Wallet Cleaner</h2>
-                            <p className="text-slate-500 text-sm">Select empty assets to opt-out and recover storage fees.</p>
-                        </div>
-                        <div className="text-right">
-                             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Recoverable</span>
-                             <div className="text-2xl font-bold text-emerald-600">{(assets.length * 0.1).toFixed(1)} ALGO</div>
-                        </div>
-                    </div>
-
-                    <Card className="!p-0 overflow-hidden mb-6">
-                        <div className="bg-slate-50 px-6 py-3 border-b border-slate-100 flex justify-between items-center">
-                            <label className="flex items-center gap-3 cursor-pointer">
-                                <input type="checkbox" onChange={toggleSelectAll} checked={selectedAssets.size > 0} disabled={!assets.length} className="rounded text-slate-900 focus:ring-0 w-4 h-4" />
-                                <span className="text-xs font-bold text-slate-500 uppercase">Select Batch (Max 16)</span>
-                            </label>
-                            <span className="text-xs font-bold text-slate-400">{assets.length} Found</span>
-                        </div>
-                        <div className="max-h-[300px] overflow-y-auto">
-                            {!loading && assets.length === 0 ? <div className="p-12 text-center text-slate-400">No dust found. Wallet is clean! ✨</div> :
-                            assets.map(a => (
-                                <label key={a.id} className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 border-b border-slate-100 last:border-0 cursor-pointer transition-colors group">
-                                    <div className="flex items-center gap-4">
-                                        <input type="checkbox" checked={selectedAssets.has(a.id)} onChange={() => {
-                                            const s = new Set(selectedAssets);
-                                            s.has(a.id) ? s.delete(a.id) : (s.size < 16 && s.add(a.id));
-                                            setSelectedAssets(s);
-                                        }} className="rounded text-slate-900 focus:ring-0 w-4 h-4" />
-                                        <span className="font-mono text-sm text-slate-600 group-hover:text-slate-900 transition-colors">{a.id}</span>
-                                    </div>
-                                    <div className="text-xs font-medium text-amber-600 bg-amber-50 px-2 py-1 rounded">Locked 0.1A</div>
-                                </label>
-                            ))}
-                        </div>
-                    </Card>
-
-                    <div className="flex flex-col gap-4">
-                        <StatusBadge {...status} />
-                        <Button onClick={sweep} disabled={!selectedAssets.size || loading} className="w-full">
-                            {loading ? <Icons.Spinner className="w-5 h-5" /> : <Icons.Trash className="w-5 h-5" />}
-                            Sweep {selectedAssets.size} Assets
-                        </Button>
-                    </div>
-                </div>
-            );
-        };
-
-        const MultiSender = ({ account, peraWallet, unlocked, setUnlocked }) => {
-            const [text, setText] = useState('');
-            const [status, setStatus] = useState({});
-            const [processing, setProcessing] = useState(false);
-            const [feeAddr, setFeeAddr] = useState(null);
-
-            useEffect(() => { resolveNFD(PREMIUM_RECIPIENT_NFD).then(d => d && setFeeAddr(d.depositAccount)); }, []);
-
-            const unlock = async () => {
-                if (!account) return;
-                setProcessing(true);
-                setStatus({ type: 'info', msg: 'Signing unlock fee...' });
-                try {
-                    const client = new algosdk.Algodv2('', NODE_API, '');
-                    const params = await client.getTransactionParams().do();
-                    const txn = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
-                        from: account, to: feeAddr, amount: PREMIUM_COST, suggestedParams: params, note: new TextEncoder().encode("AlgoHub: Unlock")
-                    });
-                    
-                    // Encode txn for Pera
-                    const group = [{ txn: algosdk.encodeUnsignedTransaction(txn), signers: [account] }];
-                    const signed = await peraWallet.signTransaction([group]);
-
-                    const blobs = signed.map(s => {
-                        const b = s?.blob ?? s;
-                        if (typeof b === 'string') return b64ToUint8Array(b);
-                        return b;
-                    });
-                    const combined = concatUint8Arrays(blobs);
-
-                    const { txId } = await client.sendRawTransaction(combined).do();
-                    await algosdk.waitForConfirmation(client, txId, 4);
-                    setUnlocked(true);
-                    setStatus({ type: 'success', msg: 'Unlocked!' });
-                } catch (e) { 
-                    console.error("Unlock error:", e);
-                    const errMsg = e?.data?.message || e?.message || 'Unlock failed. Check popup blocker.';
-                    setStatus({ type: 'error', msg: errMsg }); 
-                }
-                setProcessing(false);
-            };
-
-            const send = async () => {
-                setProcessing(true);
-                try {
-                    const client = new algosdk.Algodv2('', NODE_API, '');
-                    const params = await client.getTransactionParams().do();
-                    const txns = [];
-                    text.trim().split('\n').forEach(line => {
-                        const [addr, amt] = line.split(',').map(s => s.trim());
-                        if (!isValidAddress(addr)) throw new Error('Invalid address');
-                        txns.push(algosdk.makePaymentTxnWithSuggestedParamsFromObject({
-                            from: account, to: addr, amount: Math.floor(parseFloat(amt)*1000000), suggestedParams: params, note: new TextEncoder().encode("MultiSender")
-                        }));
-                    });
-                    if (txns.length > 16) throw new Error('Max 16 txns');
-                    
-                    algosdk.assignGroupID(txns);
-                    
-                    // Encode unsigned transactions before sending to Pera
-                    const group = txns.map(t => ({ txn: algosdk.encodeUnsignedTransaction(t), signers: [account] }));
-                    const signed = await peraWallet.signTransaction([group]);
-
-                    const blobs = signed.map(s => {
-                        const b = s?.blob ?? s;
-                        if (typeof b === 'string') return b64ToUint8Array(b);
-                        return b;
-                    });
-                    const combined = concatUint8Arrays(blobs);
+                    const blobs = normalizeSignedTxns(signed);
+                    const { txId } = await client.sendRawTransaction(blobs).do();
+                    await algosdk.waitForConfirmation(clieconst blobs = normalizeSignedTxns(signed);
 
                     setStatus({ type: 'info', msg: 'Broadcasting...' });
-                    const { txId } = await client.sendRawTransaction(combined).do();
-                    await algosdk.waitForConfirmation(client, txId, 4);
-                    setStatus({ type: 'success', msg: `Sent ${txns.length} payments!` });
-                    setText('');
-                } catch (e) { 
-                    console.error(e);
-                    setStatus({ type: 'error', msg: e.message || 'Failed' }); 
-                }
-                setProcessing(false);
-            };
-
-            if (!account) return <div className="text-center py-20 text-slate-400">Please connect your wallet.</div>;
-            if (!unlocked) return (
-                <Card className="text-center py-16 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-400 to-red-500"></div>
+                    const { txId } = await client.sendRawTransaction(blobs).do();range-400 to-red-500"></div>
                     <div className="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-orange-500"><Icons.Lock className="w-8 h-8"/></div>
                     <h2 className="text-2xl font-bold mb-2">Premium Feature</h2>
                     <p className="text-slate-500 mb-8 max-w-md mx-auto">Unlock the MultiSender to batch transactions. Perfect for payroll and distributions.</p>
