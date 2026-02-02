@@ -146,4 +146,496 @@
             Send: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>,
             Lock: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>,
             Search: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>,
-            Calc: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" stro
+            Calc: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect x="4" y="2" width="16" height="20" rx="2" ry="2" transform="rotate(180 12 12)"></rect><line x1="8" y1="18" x2="16" y2="18"></line><line x1="8" y1="14" x2="16" y2="14"></line><line x1="8" y1="10" x2="16" y2="10"></line><line x1="8" y1="6" x2="16" y2="6"></line></svg>,
+            Spinner: ({ className }) => <svg className={`${className} animate-spin`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>,
+            Check: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polyline points="20 6 9 17 4 12"></polyline></svg>
+        };
+
+        // --- Common Components ---
+        const Card = ({ children, className = "" }) => (
+            <div className={`bg-white rounded-3xl border border-slate-100 shadow-soft p-8 ${className}`}>
+                {children}
+            </div>
+        );
+
+        const Button = ({ children, onClick, disabled, variant = "primary", className = "" }) => {
+            const base = "px-6 py-3 rounded-xl font-semibold transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2";
+            const variants = {
+                primary: "bg-slate-900 text-white hover:bg-slate-800 shadow-lg hover:shadow-xl",
+                secondary: "bg-slate-100 text-slate-700 hover:bg-slate-200",
+                danger: "bg-red-50 text-red-600 hover:bg-red-100",
+                premium: "premium-gradient text-white shadow-lg hover:shadow-orange-500/20"
+            };
+            return (
+                <button onClick={onClick} disabled={disabled} className={`${base} ${variants[variant]} ${className}`}>
+                    {children}
+                </button>
+            );
+        };
+
+        const Input = ({ ...props }) => (
+            <input 
+                {...props} 
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-400 transition-all font-medium text-slate-700 placeholder-slate-400"
+            />
+        );
+
+        const StatusBadge = ({ type, msg }) => {
+            if (!msg) return null;
+            const colors = {
+                error: "bg-red-50 text-red-600 border-red-100",
+                success: "bg-emerald-50 text-emerald-600 border-emerald-100",
+                info: "bg-blue-50 text-blue-600 border-blue-100"
+            };
+            return (
+                <div className={`fade-in px-4 py-3 rounded-xl border text-sm font-medium flex items-center gap-2 ${colors[type] || colors.info}`}>
+                    {type === 'success' && <Icons.Check className="w-4 h-4" />}
+                    {msg}
+                </div>
+            );
+        };
+
+        // --- Tools ---
+
+        const AlgoSweep = ({ account, peraWallet }) => {
+            const [assets, setAssets] = useState([]);
+            const [selectedAssets, setSelectedAssets] = useState(new Set());
+            const [loading, setLoading] = useState(false);
+            const [status, setStatus] = useState({ type: '', msg: '' });
+
+            useEffect(() => { if (account) fetchDust(); }, [account]);
+
+            const fetchDust = async () => {
+                setLoading(true);
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const info = await client.accountInformation(account).do();
+                    const dust = (info.assets || []).filter(a => a.amount === 0).map(a => ({ id: a['asset-id'], amount: 0 }));
+                    setAssets(dust);
+                } catch (e) { setStatus({ type: 'error', msg: 'Failed to scan wallet.' }); }
+                setLoading(false);
+            };
+
+            const toggleSelectAll = () => {
+                setSelectedAssets(selectedAssets.size > 0 ? new Set() : new Set(assets.slice(0, 16).map(a => a.id)));
+            };
+
+            const sweep = async () => {
+                setLoading(true);
+                setStatus({ type: 'info', msg: 'Please sign in wallet...' });
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const params = await client.getTransactionParams().do();
+                    const txns = [];
+                    selectedAssets.forEach(id => {
+                        txns.push(algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+                            from: account, to: account, closeRemainderTo: account, amount: 0, assetIndex: id, suggestedParams: params, note: new TextEncoder().encode("AlgoHub: Sweep")
+                        }));
+                    });
+                    
+                    if (txns.length === 0) return setLoading(false);
+
+                    algosdk.assignGroupID(txns);
+
+                    // Encode unsigned transactions before passing to Pera
+                    const group = txns.map(t => ({ txn: algosdk.encodeUnsignedTransaction(t), signers: [account] }));
+
+                    // Pera expects an array of groups (SignerTransaction[][]) even if single group
+                    const signed = await peraWallet.signTransaction([group]);
+
+                    // signed can be an array of signed transaction blobs (base64 strings) or objects with 'blob'
+                    // Normalize to Uint8Array blobs and concatenate
+                    const blobs = signed.map(s => {
+                        const b = s?.blob ?? s;
+                        if (typeof b === 'string') return b64ToUint8Array(b);
+                        return b;
+                    });
+                    const combined = concatUint8Arrays(blobs);
+
+                    const { txId } = await client.sendRawTransaction(combined).do();
+                    await algosdk.waitForConfirmation(client, txId, 4);
+                    setStatus({ type: 'success', msg: `Cleaned ${selectedAssets.size} assets. +${(selectedAssets.size * 0.1).toFixed(1)} ALGO!` });
+                    setAssets(p => p.filter(a => !selectedAssets.has(a.id)));
+                    setSelectedAssets(new Set());
+                } catch (e) { 
+                    console.error(e);
+                    setStatus({ type: 'error', msg: e.message || 'Transaction failed.' }); 
+                }
+                setLoading(false);
+            };
+
+            if (!account) return <div className="text-center py-20 text-slate-400">Please connect your wallet to start cleaning.</div>;
+
+            return (
+                <div className="fade-in">
+                    <div className="flex justify-between items-end mb-6">
+                        <div>
+                            <h2 className="text-2xl font-bold tracking-tight mb-1">Wallet Cleaner</h2>
+                            <p className="text-slate-500 text-sm">Select empty assets to opt-out and recover storage fees.</p>
+                        </div>
+                        <div className="text-right">
+                             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Recoverable</span>
+                             <div className="text-2xl font-bold text-emerald-600">{(assets.length * 0.1).toFixed(1)} ALGO</div>
+                        </div>
+                    </div>
+
+                    <Card className="!p-0 overflow-hidden mb-6">
+                        <div className="bg-slate-50 px-6 py-3 border-b border-slate-100 flex justify-between items-center">
+                            <label className="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" onChange={toggleSelectAll} checked={selectedAssets.size > 0} disabled={!assets.length} className="rounded text-slate-900 focus:ring-0 w-4 h-4" />
+                                <span className="text-xs font-bold text-slate-500 uppercase">Select Batch (Max 16)</span>
+                            </label>
+                            <span className="text-xs font-bold text-slate-400">{assets.length} Found</span>
+                        </div>
+                        <div className="max-h-[300px] overflow-y-auto">
+                            {!loading && assets.length === 0 ? <div className="p-12 text-center text-slate-400">No dust found. Wallet is clean! ✨</div> :
+                            assets.map(a => (
+                                <label key={a.id} className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 border-b border-slate-100 last:border-0 cursor-pointer transition-colors group">
+                                    <div className="flex items-center gap-4">
+                                        <input type="checkbox" checked={selectedAssets.has(a.id)} onChange={() => {
+                                            const s = new Set(selectedAssets);
+                                            s.has(a.id) ? s.delete(a.id) : (s.size < 16 && s.add(a.id));
+                                            setSelectedAssets(s);
+                                        }} className="rounded text-slate-900 focus:ring-0 w-4 h-4" />
+                                        <span className="font-mono text-sm text-slate-600 group-hover:text-slate-900 transition-colors">{a.id}</span>
+                                    </div>
+                                    <div className="text-xs font-medium text-amber-600 bg-amber-50 px-2 py-1 rounded">Locked 0.1A</div>
+                                </label>
+                            ))}
+                        </div>
+                    </Card>
+
+                    <div className="flex flex-col gap-4">
+                        <StatusBadge {...status} />
+                        <Button onClick={sweep} disabled={!selectedAssets.size || loading} className="w-full">
+                            {loading ? <Icons.Spinner className="w-5 h-5" /> : <Icons.Trash className="w-5 h-5" />}
+                            Sweep {selectedAssets.size} Assets
+                        </Button>
+                    </div>
+                </div>
+            );
+        };
+
+        const MultiSender = ({ account, peraWallet, unlocked, setUnlocked }) => {
+            const [text, setText] = useState('');
+            const [status, setStatus] = useState({});
+            const [processing, setProcessing] = useState(false);
+            const [feeAddr, setFeeAddr] = useState(null);
+
+            useEffect(() => { resolveNFD(PREMIUM_RECIPIENT_NFD).then(d => d && setFeeAddr(d.depositAccount)); }, []);
+
+            const unlock = async () => {
+                if (!account) return;
+                setProcessing(true);
+                setStatus({ type: 'info', msg: 'Signing unlock fee...' });
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const params = await client.getTransactionParams().do();
+                    const txn = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
+                        from: account, to: feeAddr, amount: PREMIUM_COST, suggestedParams: params, note: new TextEncoder().encode("AlgoHub: Unlock")
+                    });
+                    
+                    // Encode txn for Pera
+                    const group = [{ txn: algosdk.encodeUnsignedTransaction(txn), signers: [account] }];
+                    const signed = await peraWallet.signTransaction([group]);
+
+                    const blobs = signed.map(s => {
+                        const b = s?.blob ?? s;
+                        if (typeof b === 'string') return b64ToUint8Array(b);
+                        return b;
+                    });
+                    const combined = concatUint8Arrays(blobs);
+
+                    const { txId } = await client.sendRawTransaction(combined).do();
+                    await algosdk.waitForConfirmation(client, txId, 4);
+                    setUnlocked(true);
+                    setStatus({ type: 'success', msg: 'Unlocked!' });
+                } catch (e) { 
+                    console.error("Unlock error:", e);
+                    const errMsg = e?.data?.message || e?.message || 'Unlock failed. Check popup blocker.';
+                    setStatus({ type: 'error', msg: errMsg }); 
+                }
+                setProcessing(false);
+            };
+
+            const send = async () => {
+                setProcessing(true);
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const params = await client.getTransactionParams().do();
+                    const txns = [];
+                    text.trim().split('\n').forEach(line => {
+                        const [addr, amt] = line.split(',').map(s => s.trim());
+                        if (!isValidAddress(addr)) throw new Error('Invalid address');
+                        txns.push(algosdk.makePaymentTxnWithSuggestedParamsFromObject({
+                            from: account, to: addr, amount: Math.floor(parseFloat(amt)*1000000), suggestedParams: params, note: new TextEncoder().encode("MultiSender")
+                        }));
+                    });
+                    if (txns.length > 16) throw new Error('Max 16 txns');
+                    
+                    algosdk.assignGroupID(txns);
+                    
+                    // Encode unsigned transactions before sending to Pera
+                    const group = txns.map(t => ({ txn: algosdk.encodeUnsignedTransaction(t), signers: [account] }));
+                    const signed = await peraWallet.signTransaction([group]);
+
+                    const blobs = signed.map(s => {
+                        const b = s?.blob ?? s;
+                        if (typeof b === 'string') return b64ToUint8Array(b);
+                        return b;
+                    });
+                    const combined = concatUint8Arrays(blobs);
+
+                    setStatus({ type: 'info', msg: 'Broadcasting...' });
+                    const { txId } = await client.sendRawTransaction(combined).do();
+                    await algosdk.waitForConfirmation(client, txId, 4);
+                    setStatus({ type: 'success', msg: `Sent ${txns.length} payments!` });
+                    setText('');
+                } catch (e) { 
+                    console.error(e);
+                    setStatus({ type: 'error', msg: e.message || 'Failed' }); 
+                }
+                setProcessing(false);
+            };
+
+            if (!account) return <div className="text-center py-20 text-slate-400">Please connect your wallet.</div>;
+            if (!unlocked) return (
+                <Card className="text-center py-16 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-400 to-red-500"></div>
+                    <div className="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-orange-500"><Icons.Lock className="w-8 h-8"/></div>
+                    <h2 className="text-2xl font-bold mb-2">Premium Feature</h2>
+                    <p className="text-slate-500 mb-8 max-w-md mx-auto">Unlock the MultiSender to batch transactions. Perfect for payroll and distributions.</p>
+                    <div className="inline-block bg-slate-50 rounded-xl p-4 mb-8 border border-slate-100">
+                        <div className="text-xs uppercase font-bold text-slate-400 mb-1">One-Time Fee</div>
+                        <div className="text-2xl font-bold text-slate-900">1 ALGO</div>
+                    </div>
+                    <div className="max-w-xs mx-auto space-y-4">
+                        <Button onClick={unlock} disabled={processing || !feeAddr} variant="premium" className="w-full">
+                            {processing ? <Icons.Spinner className="w-5 h-5" /> : "Unlock Now"}
+                        </Button>
+                        <StatusBadge {...status} />
+                    </div>
+                </Card>
+            );
+
+            return (
+                <div className="fade-in">
+                     <div className="flex justify-between items-center mb-6">
+                        <h2 className="text-2xl font-bold">MultiSender</h2>
+                        <span className="text-[10px] font-bold bg-orange-100 text-orange-600 px-3 py-1 rounded-full uppercase">Premium Active</span>
+                    </div>
+                    <Card className="mb-6">
+                        <textarea 
+                            value={text} onChange={e => setText(e.target.value)}
+                            placeholder="Address, Amount&#10;MO2...X2I, 5&#10;K3L...J9A, 10.5"
+                            className="w-full h-48 bg-slate-50 rounded-xl p-4 font-mono text-sm border-none focus:ring-2 focus:ring-slate-200 resize-none"
+                        ></textarea>
+                    </Card>
+                    <div className="flex flex-col gap-4">
+                        <StatusBadge {...status} />
+                        <Button onClick={send} disabled={processing || !text} variant="premium" className="w-full">
+                            {processing ? <Icons.Spinner className="w-5 h-5"/> : <div className="flex items-center gap-2"><Icons.Send className="w-4 h-4"/> Send Batch</div>}
+                        </Button>
+                    </div>
+                </div>
+            );
+        };
+
+        const RiskRadar = () => {
+            const [id, setId] = useState('');
+            const [data, setData] = useState(null);
+            const [loading, setLoading] = useState(false);
+
+            const scan = async () => {
+                if (!id) return;
+                setLoading(true);
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const { params: p } = await client.getAssetByID(parseInt(id)).do();
+                    setData({ name: p.name, unit: p['unit-name'], total: p.total, decimal: p.decimals, manager: p.manager, freeze: p.freeze, clawback: p.clawback });
+                } catch (e) { setData(null); }
+                setLoading(false);
+            };
+
+            const Row = ({ label, val, danger }) => (
+                <div className="flex justify-between items-center py-3 border-b border-slate-50 last:border-0">
+                    <span className="text-sm font-medium text-slate-500">{label}</span>
+                    {val ? 
+                        <span className={`font-mono text-xs px-2 py-1 rounded ${danger ? 'bg-red-50 text-red-600' : 'bg-slate-100 text-slate-600'}`}>{val.slice(0, 8)}...{val.slice(-8)}</span> :
+                        <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Safe</span>
+                    }
+                </div>
+            );
+
+            return (
+                <div className="fade-in max-w-xl mx-auto">
+                    <div className="text-center mb-8">
+                        <h2 className="text-2xl font-bold mb-2">Risk Radar</h2>
+                        <p className="text-slate-500">Scan asset IDs for freeze & clawback risks.</p>
+                    </div>
+                    <div className="flex gap-2 mb-8">
+                        <Input type="number" placeholder="Asset ID (e.g. 31566704)" value={id} onChange={e => setId(e.target.value)} />
+                        <Button onClick={scan} disabled={loading} className="!w-auto">{loading ? <Icons.Spinner className="w-5 h-5"/> : "Scan"}</Button>
+                    </div>
+                    {data && (
+                        <Card>
+                            <div className="flex justify-between items-start mb-6 pb-6 border-b border-slate-100">
+                                <div>
+                                    <h3 className="text-xl font-bold">{data.name}</h3>
+                                    <span className="text-sm text-slate-400 font-medium">{data.unit}</span>
+                                </div>
+                                <div className={`px-3 py-1 rounded-full text-xs font-bold ${!data.freeze && !data.clawback ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}`}>
+                                    {!data.freeze && !data.clawback ? "Low Risk" : "Caution"}
+                                </div>
+                            </div>
+                            <div className="space-y-1">
+                                <Row label="Manager" val={data.manager} />
+                                <Row label="Freeze Auth" val={data.freeze} danger />
+                                <Row label="Clawback Auth" val={data.clawback} danger />
+                            </div>
+                        </Card>
+                    )}
+                </div>
+            );
+        };
+
+        const NFDScout = () => {
+            const [name, setName] = useState('');
+            const [data, setData] = useState(null);
+            const [loading, setLoading] = useState(false);
+
+            const lookup = async () => {
+                if(!name) return;
+                setLoading(true);
+                const res = await resolveNFD(name.endsWith('.algo') ? name : name + '.algo');
+                setData(res);
+                setLoading(false);
+            };
+
+            return (
+                <div className="fade-in max-w-xl mx-auto">
+                    <div className="text-center mb-8">
+                        <h2 className="text-2xl font-bold mb-2">NFD Scout</h2>
+                        <p className="text-slate-500">Lookup ownership of .algo domains.</p>
+                    </div>
+                    <div className="flex gap-2 mb-8">
+                        <Input placeholder="name.algo" value={name} onChange={e => setName(e.target.value)} onKeyDown={e => e.key==='Enter' && lookup()} />
+                        <Button onClick={lookup} disabled={loading} className="!w-auto !bg-pink-600 hover:!bg-pink-700">{loading ? <Icons.Spinner className="w-5 h-5"/> : "Search"}</Button>
+                    </div>
+                    {data && (
+                        <Card className="!p-0 overflow-hidden">
+                            <div className="bg-gradient-to-r from-pink-500 to-rose-500 p-6 text-white">
+                                <h3 className="text-2xl font-bold">{data.name}</h3>
+                                <div className="text-white/80 text-sm mt-1">App ID: {data.appID}</div>
+                            </div>
+                            <div className="p-6 space-y-4">
+                                {Object.entries({Owner: data.owner, Deposit: data.depositAccount}).map(([k,v]) => (
+                                    <div key={k}>
+                                        <div className="text-xs font-bold text-slate-400 uppercase mb-1">{k}</div>
+                                        <div className="bg-slate-50 p-3 rounded-lg font-mono text-xs text-slate-600 break-all border border-slate-100">{v}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </Card>
+                    )}
+                </div>
+            );
+        };
+
+        const App = () => {
+            const [tab, setTab] = useState('sweep');
+            const [pera, setPera] = useState(null);
+            const [acct, setAcct] = useState(null);
+            const [unlocked, setUnlocked] = useState(false);
+
+            useEffect(() => {
+                const init = () => {
+                    if (window.PeraWalletConnect && !pera) {
+                        const p = new window.PeraWalletConnect({ chainId: CHAIN_ID });
+                        setPera(p);
+                        p.reconnectSession().then(a => a.length && setAcct(a[0]));
+                    }
+                };
+                window.PeraWalletConnect ? init() : window.addEventListener('pera-loaded', init);
+            }, []);
+
+            const connect = () => pera?.connect().then(a => setAcct(a[0]));
+            const disconnect = () => { pera?.disconnect(); setAcct(null); };
+
+            const NavItem = ({ id, label, icon: Icon, premium }) => (
+                <button 
+                    onClick={() => setTab(id)}
+                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 mb-1 font-medium text-sm
+                    ${tab === id ? 'nav-item-active' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'}`}
+                >
+                    <Icon className={`w-5 h-5 ${tab === id ? 'text-slate-900' : 'text-slate-400'}`} />
+                    <span>{label}</span>
+                    {premium && <span className="ml-auto text-[10px] font-bold bg-orange-100 text-orange-600 px-2 py-0.5 rounded uppercase">Pro</span>}
+                </button>
+            );
+
+            return (
+                <div className="flex w-full h-full">
+                    {/* Sidebar */}
+                    <div className="w-72 bg-[#F8FAFC] border-r border-slate-200 flex flex-col p-4 z-20">
+                        <div className="px-4 py-4 mb-6">
+                            <h1 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                                <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white"><Icons.Check className="w-5 h-5" /></div>
+                                AlgoHub
+                            </h1>
+                        </div>
+
+                        <div className="space-y-8 flex-1 overflow-y-auto px-2">
+                            <div>
+                                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 px-4">Wallet Tools</div>
+                                <NavItem id="sweep" label="Cleaner" icon={Icons.Trash} />
+                                <NavItem id="multi" label="MultiSender" icon={Icons.Send} premium />
+                            </div>
+                            <div>
+                                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 px-4">Public Tools</div>
+                                <NavItem id="nfd" label="NFD Scout" icon={Icons.Search} />
+                                <NavItem id="risk" label="Risk Radar" icon={Icons.Shield} />
+                            </div>
+                        </div>
+
+                        <div className="mt-4 pt-4 border-t border-slate-200">
+                            {acct ? (
+                                <div className="bg-white border border-slate-200 p-4 rounded-2xl shadow-sm">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]"></div>
+                                        <span className="text-xs font-bold text-slate-600">Connected</span>
+                                    </div>
+                                    <div className="font-mono text-xs text-slate-400 truncate mb-3">{acct}</div>
+                                    <Button onClick={disconnect} variant="secondary" className="w-full text-xs py-2">Sign Out</Button>
+                                </div>
+                            ) : (
+                                <Button onClick={connect} className="w-full shadow-glow">Connect Wallet</Button>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Main Area */}
+                    <div className="flex-1 relative bg-white overflow-hidden">
+                        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-slate-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                        
+                        <div className="h-full overflow-y-auto p-12 relative z-10">
+                            <div className="max-w-3xl mx-auto">
+                                {tab === 'sweep' && <AlgoSweep account={acct} peraWallet={pera} />}
+                                {tab === 'multi' && <MultiSender account={acct} peraWallet={pera} unlocked={unlocked} setUnlocked={setUnlocked} />}
+                                {tab === 'risk' && <RiskRadar />}
+                                {tab === 'nfd' && <NFDScout />}
+                            </div>
+                            <div className="mt-12 text-center text-slate-300 text-xs font-medium">
+                                Secured by Algorand • v2.0 Porcelain
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
