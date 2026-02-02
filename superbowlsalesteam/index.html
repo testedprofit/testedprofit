@@ -1,508 +1,600 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AlgoHub (Stable Pera)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorand Utility Hub</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Algorand SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/algosdk@2.9.0/dist/browser/algosdk.min.js"></script>
 
-  <!-- Basic CSP (loosened for CDNs). Tighten if you self-host. -->
-  <meta http-equiv="Content-Security-Policy"
-        content="
-          default-src 'self' https:;
-          script-src 'self' https: 'unsafe-inline';
-          style-src 'self' https: 'unsafe-inline';
-          img-src 'self' https: data:;
-          connect-src 'self' https:;
-          frame-src 'self' https:;
-        " />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            50: '#F8FAFC',
+                            100: '#F1F5F9',
+                            200: '#E2E8F0',
+                            300: '#CBD5E1',
+                            400: '#94A3B8',
+                            500: '#64748B',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1E293B',
+                            900: '#0F172A',
+                        },
+                        primary: {
+                            50: '#F0FDFA',
+                            100: '#CCFBF1',
+                            500: '#14B8A6',
+                            600: '#0D9488',
+                            700: '#0F766E',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 15px rgba(20, 184, 166, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
 
-  <style>
-    html, body { height: 100%; font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
-  </style>
+    <style>
+        body { background-color: #F8FAFC; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .nav-item-active {
+            background: white;
+            color: #0F172A;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border: 1px solid #F1F5F9;
+        }
+        .premium-gradient {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+        }
+        .fade-in { animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #CBD5E1; }
+    </style>
 </head>
+<body class="text-slate-800 h-screen overflow-hidden selection:bg-primary-100 selection:text-primary-700">
 
-<body class="bg-slate-50 text-slate-900 h-full">
-  <div id="app" class="h-full"></div>
+    <div id="root" class="w-full h-full"></div>
 
-  <script type="module">
-    // NOTE: we pin algosdk version AND force @perawallet/connect to use the same algosdk dependency
-    import algosdk from "https://esm.sh/algosdk@2.13.0";
-    import { PeraWalletConnect, closePeraWalletSignTxnToast } from "https://esm.sh/@perawallet/connect@1.4.2?deps=algosdk@2.13.0";
+    <!-- Pera Wallet Connect Module -->
+    <script type="module">
+        import { PeraWalletConnect } from "https://esm.sh/@perawallet/connect@1.4.2?bundle";
+        window.PeraWalletConnect = PeraWalletConnect;
+        window.dispatchEvent(new Event('pera-loaded'));
+    </script>
 
-    const NODE_API = "https://mainnet-api.algonode.cloud";
-    const NFD_API = "https://api.nf.domains/nfd";
-    const PREMIUM_RECIPIENT_NFD = "cheetos.algo";
-    const PREMIUM_COST = 1_000_000; // 1 ALGO microalgos
-    const MAX_BATCH = 16;
+    <script type="text/babel">
+        const { useState, useEffect } = React;
 
-    const state = {
-      tab: "overview",
-      account: null,
-      unlocked: false,
-      feeAddr: null,
-      status: { type: "info", msg: "" },
-      overview: null
-    };
+        // --- Configuration ---
+        const CHAIN_ID = 416001;
+        const NODE_API = "https://mainnet-api.algonode.cloud";
+        const NFD_API = "https://api.nf.domains/nfd";
+        const DONATION_RECIPIENT_NFD = "cheetos.algo";
+        const DONATION_AMOUNT = 1000000; // 1 ALGO
 
-    const pera = new PeraWalletConnect({
-      shouldShowSignTxnToast: true
-    });
+        // --- Utils ---
+        const resolveNFD = async (name) => {
+            try {
+                const res = await fetch(`${NFD_API}/${name}?view=brief`);
+                if (!res.ok) return null;
+                return await res.json();
+            } catch (e) { return null; }
+        };
 
-    const $app = document.getElementById("app");
+        const isValidAddress = (addr) => {
+            try { return algosdk.isValidAddress(addr); } catch (e) { return false; }
+        };
 
-    function setStatus(type, msg) {
-      state.status = { type, msg };
-      render();
-    }
+        // --- Icons ---
+        const Icons = {
+            Trash: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>,
+            Shield: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+            QR: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><path d="M3 14h7v7H3z"></path></svg>,
+            Wallet: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>,
+            Send: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>,
+            Lock: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>,
+            Search: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>,
+            Calc: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect x="4" y="2" width="16" height="20" rx="2" ry="2" transform="rotate(180 12 12)"></rect><line x1="8" y1="18" x2="16" y2="18"></line><line x1="8" y1="14" x2="16" y2="14"></line><line x1="8" y1="10" x2="16" y2="10"></line><line x1="8" y1="6" x2="16" y2="6"></line></svg>,
+            Spinner: ({ className }) => <svg className={`${className} animate-spin`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>,
+            Check: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polyline points="20 6 9 17 4 12"></polyline></svg>,
+            Heart: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        };
 
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
-    }
-
-    function badgeHtml() {
-      const { type, msg } = state.status || {};
-      if (!msg) return "";
-      const cls =
-        type === "error" ? "bg-red-50 text-red-700 border-red-100" :
-        type === "success" ? "bg-emerald-50 text-emerald-700 border-emerald-100" :
-        "bg-blue-50 text-blue-700 border-blue-100";
-      return `<div class="mt-4 px-4 py-3 rounded-xl border text-sm font-medium ${cls}">${escapeHtml(msg)}</div>`;
-    }
-
-    function layoutHtml(content) {
-      const acct = state.account ? `
-        <div class="bg-white border border-slate-200 rounded-2xl p-4">
-          <div class="flex items-center justify-between gap-3">
-            <div>
-              <div class="text-xs font-bold text-slate-500 uppercase">Connected</div>
-              <div class="font-mono text-xs text-slate-500 truncate max-w-[220px]">${escapeHtml(state.account)}</div>
+        // --- Common Components ---
+        const Card = ({ children, className = "" }) => (
+            <div className={`bg-white rounded-3xl border border-slate-100 shadow-soft p-8 ${className}`}>
+                {children}
             </div>
-            <button id="btnDisconnect" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm font-semibold">
-              Disconnect
-            </button>
-          </div>
-        </div>
-      ` : `
-        <button id="btnConnect" class="w-full px-4 py-3 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-semibold shadow">
-          Connect Pera Wallet
-        </button>
-      `;
-
-      const navItem = (id, label, pro=false) => `
-        <button data-tab="${id}" class="w-full text-left px-4 py-3 rounded-xl font-medium text-sm transition
-          ${state.tab === id ? "bg-white border border-slate-200 shadow-sm" : "hover:bg-slate-100 text-slate-600"}">
-          <div class="flex items-center justify-between">
-            <span>${label}</span>
-            ${pro ? `<span class="text-[10px] font-bold bg-orange-100 text-orange-700 px-2 py-0.5 rounded uppercase">Pro</span>` : ""}
-          </div>
-        </button>
-      `;
-
-      return `
-        <div class="h-full flex">
-          <aside class="w-80 border-r border-slate-200 bg-slate-50 p-4 flex flex-col gap-4">
-            <div class="px-2 py-3">
-              <div class="text-xl font-bold tracking-tight">AlgoHub</div>
-              <div class="text-xs text-slate-500 mt-1">Stable Pera integration</div>
-            </div>
-
-            <div class="space-y-2 px-1">
-              ${navItem("overview", "Wallet Overview")}
-              ${navItem("cleaner", "Wallet Cleaner")}
-              ${navItem("multisender", "MultiSender", true)}
-            </div>
-
-            <div class="mt-auto px-1 space-y-3">
-              ${acct}
-              <div class="text-[11px] text-slate-400 px-1">
-                Uses Algonode mainnet endpoint. Verify addresses before sending.
-              </div>
-            </div>
-          </aside>
-
-          <main class="flex-1 overflow-auto">
-            <div class="max-w-3xl mx-auto p-8">
-              ${content}
-              ${badgeHtml()}
-            </div>
-          </main>
-        </div>
-      `;
-    }
-
-    async function resolveNFD(name) {
-      try {
-        const res = await fetch(`${NFD_API}/${name}?view=brief`);
-        if (!res.ok) return null;
-        return await res.json();
-      } catch { return null; }
-    }
-
-    function parseBatch(text) {
-      const lines = text.split("\n").map(l => l.trim()).filter(Boolean);
-      if (lines.length === 0) throw new Error("Paste at least one line: ADDRESS, AMOUNT");
-      if (lines.length > MAX_BATCH) throw new Error(`Max ${MAX_BATCH} transactions per batch`);
-
-      const entries = lines.map((line, idx) => {
-        const parts = line.split(",").map(s => s.trim());
-        if (parts.length !== 2) throw new Error(`Line ${idx+1}: expected "ADDRESS, AMOUNT"`);
-        const [addr, amtStr] = parts;
-        if (!algosdk.isValidAddress(addr)) throw new Error(`Line ${idx+1}: invalid address`);
-        const amt = Number(amtStr);
-        if (!Number.isFinite(amt) || amt <= 0) throw new Error(`Line ${idx+1}: invalid amount`);
-        if (amt > 1_000_000) throw new Error(`Line ${idx+1}: amount too large (safety cap)`); // cap for safety
-        return { addr, micro: Math.floor(amt * 1_000_000) };
-      });
-
-      return entries;
-    }
-
-    async function fetchOverview() {
-      if (!state.account) return;
-      const client = new algosdk.Algodv2("", NODE_API, "");
-      const info = await client.accountInformation(state.account).do();
-
-      const amount = info.amount || 0;
-      const min = info["min-balance"] || 0;
-      const available = Math.max(0, amount - min);
-      const assetCount = (info.assets || []).length;
-      const rekeyTo = info["auth-addr"] || null;
-
-      state.overview = { amount, min, available, assetCount, rekeyTo };
-    }
-
-    async function connect() {
-      try {
-        setStatus("info", "Connecting to Pera...");
-        const accounts = await pera.connect();
-        state.account = accounts?.[0] || null;
-
-        // Handle disconnect events (recommended by examples)
-        pera.connector?.on("disconnect", () => {
-          state.account = null;
-          state.unlocked = false;
-          state.overview = null;
-          setStatus("info", "Disconnected.");
-        });
-
-        await fetchOverview();
-        setStatus("success", "Connected.");
-      } catch (e) {
-        setStatus("error", e?.message || "Failed to connect.");
-      }
-    }
-
-    function disconnect() {
-      pera.disconnect();
-      state.account = null;
-      state.unlocked = false;
-      state.overview = null;
-      setStatus("info", "Disconnected.");
-    }
-
-    async function unlockPremium() {
-      if (!state.account) return setStatus("error", "Connect wallet first.");
-      if (!state.feeAddr) return setStatus("error", "Premium recipient not resolved yet.");
-
-      try {
-        setStatus("info", "Preparing unlock transaction...");
-        const client = new algosdk.Algodv2("", NODE_API, "");
-        const sp = await client.getTransactionParams().do();
-
-        const txn = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
-          from: state.account,
-          to: state.feeAddr,
-          amount: PREMIUM_COST,
-          suggestedParams: sp,
-          note: new TextEncoder().encode("AlgoHub: Unlock")
-        });
-
-        setStatus("info", "Check Pera on your phone to sign.");
-        const signed = await pera.signTransaction([[{ txn, signers: [state.account] }]]);
-        closePeraWalletSignTxnToast();
-
-        const { txId } = await client.sendRawTransaction(signed).do();
-        setStatus("info", `Broadcasted. Waiting confirmation (${txId.slice(0,8)}...)`);
-        await algosdk.waitForConfirmation(client, txId, 4);
-
-        state.unlocked = true;
-        setStatus("success", "Unlocked MultiSender.");
-      } catch (e) {
-        setStatus("error", e?.message || "Unlock failed.");
-      }
-    }
-
-    async function sendBatch(text) {
-      if (!state.account) return setStatus("error", "Connect wallet first.");
-      if (!state.unlocked) return setStatus("error", "Unlock MultiSender first.");
-
-      try {
-        const entries = parseBatch(text);
-
-        const client = new algosdk.Algodv2("", NODE_API, "");
-        const sp = await client.getTransactionParams().do();
-
-        const txns = entries.map(({ addr, micro }) =>
-          algosdk.makePaymentTxnWithSuggestedParamsFromObject({
-            from: state.account,
-            to: addr,
-            amount: micro,
-            suggestedParams: sp,
-            note: new TextEncoder().encode("AlgoHub: MultiSender")
-          })
         );
 
-        algosdk.assignGroupID(txns);
+        const Button = ({ children, onClick, disabled, variant = "primary", className = "" }) => {
+            const base = "px-6 py-3 rounded-xl font-semibold transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2";
+            const variants = {
+                primary: "bg-slate-900 text-white hover:bg-slate-800 shadow-lg hover:shadow-xl",
+                secondary: "bg-slate-100 text-slate-700 hover:bg-slate-200",
+                danger: "bg-red-50 text-red-600 hover:bg-red-100",
+                premium: "premium-gradient text-white shadow-lg hover:shadow-orange-500/20",
+                donate: "bg-pink-50 text-pink-600 hover:bg-pink-100 border border-pink-200"
+            };
+            return (
+                <button onClick={onClick} disabled={disabled} className={`${base} ${variants[variant]} ${className}`}>
+                    {children}
+                </button>
+            );
+        };
 
-        setStatus("info", "Check Pera on your phone to sign.");
-        const group = txns.map(txn => ({ txn, signers: [state.account] }));
-        const signed = await pera.signTransaction([group]);
-        closePeraWalletSignTxnToast();
+        const Input = ({ ...props }) => (
+            <input 
+                {...props} 
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-400 transition-all font-medium text-slate-700 placeholder-slate-400"
+            />
+        );
 
-        const { txId } = await client.sendRawTransaction(signed).do();
-        setStatus("info", `Broadcasted. Waiting confirmation (${txId.slice(0,8)}...)`);
-        await algosdk.waitForConfirmation(client, txId, 4);
+        const StatusBadge = ({ type, msg }) => {
+            if (!msg) return null;
+            const colors = {
+                error: "bg-red-50 text-red-600 border-red-100",
+                success: "bg-emerald-50 text-emerald-600 border-emerald-100",
+                info: "bg-blue-50 text-blue-600 border-blue-100"
+            };
+            return (
+                <div className={`fade-in px-4 py-3 rounded-xl border text-sm font-medium flex items-center gap-2 ${colors[type] || colors.info}`}>
+                    {type === 'success' && <Icons.Check className="w-4 h-4" />}
+                    {msg}
+                </div>
+            );
+        };
 
-        setStatus("success", `Sent ${txns.length} payments.`);
-      } catch (e) {
-        setStatus("error", e?.message || "Batch send failed.");
-      }
-    }
+        // --- Tools ---
 
-    async function init() {
-      // Resolve premium NFD address early
-      const nfd = await resolveNFD(PREMIUM_RECIPIENT_NFD);
-      if (nfd?.depositAccount && algosdk.isValidAddress(nfd.depositAccount)) {
-        state.feeAddr = nfd.depositAccount;
-      }
+        const AlgoSweep = ({ account, peraWallet }) => {
+            const [assets, setAssets] = useState([]);
+            const [selectedAssets, setSelectedAssets] = useState(new Set());
+            const [loading, setLoading] = useState(false);
+            const [status, setStatus] = useState({ type: '', msg: '' });
 
-      // Reconnect session if present
-      try {
-        const accounts = await pera.reconnectSession();
-        if (accounts?.length) {
-          state.account = accounts[0];
-          await fetchOverview();
-          setStatus("success", "Reconnected.");
-        }
-      } catch {
-        // ignore
-      }
+            useEffect(() => { if (account) fetchDust(); }, [account]);
 
-      render();
-    }
+            const fetchDust = async () => {
+                setLoading(true);
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const info = await client.accountInformation(account).do();
+                    const dust = (info.assets || []).filter(a => a.amount === 0).map(a => ({ id: a['asset-id'], amount: 0 }));
+                    setAssets(dust);
+                } catch (e) { setStatus({ type: 'error', msg: 'Failed to scan wallet.' }); }
+                setLoading(false);
+            };
 
-    function overviewHtml() {
-      if (!state.account) {
-        return `
-          <div class="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-            <div class="text-2xl font-bold">Wallet Overview</div>
-            <div class="text-slate-500 mt-2">Connect your wallet to see balances and safety info.</div>
-          </div>
-        `;
-      }
+            const toggleSelectAll = () => {
+                setSelectedAssets(selectedAssets.size > 0 ? new Set() : new Set(assets.slice(0, 16).map(a => a.id)));
+            };
 
-      const o = state.overview;
-      if (!o) {
-        return `
-          <div class="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-            <div class="text-2xl font-bold">Wallet Overview</div>
-            <div class="text-slate-500 mt-2">Loading…</div>
-          </div>
-        `;
-      }
+            const sweep = async () => {
+                setLoading(true);
+                setStatus({ type: 'info', msg: 'Please sign in wallet...' });
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const params = await client.getTransactionParams().do();
+                    const txns = [];
+                    selectedAssets.forEach(id => {
+                        txns.push(algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+                            from: account, to: account, closeRemainderTo: account, amount: 0, assetIndex: id, suggestedParams: params, note: new TextEncoder().encode("AlgoHub: Sweep")
+                        }));
+                    });
+                    
+                    if (txns.length === 0) return;
 
-      const fmtAlgo = (micro) => (micro / 1_000_000).toFixed(6);
+                    algosdk.assignGroupID(txns);
+                    // Map transactions to Pera Connect format: { txn, signers }
+                    const group = txns.map(t => ({ txn: t, signers: [account] }));
+                    
+                    // Pass as an array of groups (even if just one group)
+                    const signed = await peraWallet.signTransaction([group]); 
+                    const { txId } = await client.sendRawTransaction(signed).do();
+                    await algosdk.waitForConfirmation(client, txId, 4);
+                    setStatus({ type: 'success', msg: `Cleaned ${selectedAssets.size} assets. +${(selectedAssets.size * 0.1).toFixed(1)} ALGO!` });
+                    setAssets(p => p.filter(a => !selectedAssets.has(a.id)));
+                    setSelectedAssets(new Set());
+                } catch (e) { 
+                    console.error(e);
+                    setStatus({ type: 'error', msg: e.message || 'Transaction failed.' }); 
+                }
+                setLoading(false);
+            };
 
-      const rekeyWarning = o.rekeyTo ? `
-        <div class="mt-4 p-4 rounded-2xl border border-amber-200 bg-amber-50 text-amber-900">
-          <div class="font-bold text-sm">Rekeyed account detected</div>
-          <div class="font-mono text-xs mt-2 break-all">${escapeHtml(o.rekeyTo)}</div>
-          <div class="text-xs mt-2 text-amber-800">
-            This account is rekeyed. Ensure you trust the authorized address before signing transactions.
-          </div>
-        </div>
-      ` : "";
+            if (!account) return <div className="text-center py-20 text-slate-400">Please connect your wallet to start cleaning.</div>;
 
-      return `
-        <div class="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <div class="text-2xl font-bold">Wallet Overview</div>
-              <div class="text-slate-500 mt-1 text-sm">Mainnet account snapshot.</div>
-            </div>
-            <button id="btnRefreshOverview" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm font-semibold">
-              Refresh
-            </button>
-          </div>
+            return (
+                <div className="fade-in">
+                    <div className="flex justify-between items-end mb-6">
+                        <div>
+                            <h2 className="text-2xl font-bold tracking-tight mb-1">Wallet Cleaner</h2>
+                            <p className="text-slate-500 text-sm">Select empty assets to opt-out and recover storage fees.</p>
+                        </div>
+                        <div className="text-right">
+                             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Recoverable</span>
+                             <div className="text-2xl font-bold text-emerald-600">{(assets.length * 0.1).toFixed(1)} ALGO</div>
+                        </div>
+                    </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
-              <div class="text-xs font-bold text-slate-500 uppercase">Balance</div>
-              <div class="text-xl font-bold mt-1">${fmtAlgo(o.amount)} ALGO</div>
-            </div>
-            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
-              <div class="text-xs font-bold text-slate-500 uppercase">Min Balance</div>
-              <div class="text-xl font-bold mt-1">${fmtAlgo(o.min)} ALGO</div>
-            </div>
-            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
-              <div class="text-xs font-bold text-slate-500 uppercase">Available</div>
-              <div class="text-xl font-bold mt-1">${fmtAlgo(o.available)} ALGO</div>
-            </div>
-          </div>
+                    <Card className="!p-0 overflow-hidden mb-6">
+                        <div className="bg-slate-50 px-6 py-3 border-b border-slate-100 flex justify-between items-center">
+                            <label className="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" onChange={toggleSelectAll} checked={selectedAssets.size > 0} disabled={!assets.length} className="rounded text-slate-900 focus:ring-0 w-4 h-4" />
+                                <span className="text-xs font-bold text-slate-500 uppercase">Select Batch (Max 16)</span>
+                            </label>
+                            <span className="text-xs font-bold text-slate-400">{assets.length} Found</span>
+                        </div>
+                        <div className="max-h-[300px] overflow-y-auto">
+                            {!loading && assets.length === 0 ? <div className="p-12 text-center text-slate-400">No dust found. Wallet is clean! ✨</div> :
+                            assets.map(a => (
+                                <label key={a.id} className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 border-b border-slate-100 last:border-0 cursor-pointer transition-colors group">
+                                    <div className="flex items-center gap-4">
+                                        <input type="checkbox" checked={selectedAssets.has(a.id)} onChange={() => {
+                                            const s = new Set(selectedAssets);
+                                            s.has(a.id) ? s.delete(a.id) : (s.size < 16 && s.add(a.id));
+                                            setSelectedAssets(s);
+                                        }} className="rounded text-slate-900 focus:ring-0 w-4 h-4" />
+                                        <span className="font-mono text-sm text-slate-600 group-hover:text-slate-900 transition-colors">{a.id}</span>
+                                    </div>
+                                    <div className="text-xs font-medium text-amber-600 bg-amber-50 px-2 py-1 rounded">Locked 0.1A</div>
+                                </label>
+                            ))}
+                        </div>
+                    </Card>
 
-          <div class="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200">
-            <div class="text-xs font-bold text-slate-500 uppercase">ASA Count</div>
-            <div class="text-lg font-bold mt-1">${o.assetCount}</div>
-          </div>
+                    <div className="flex flex-col gap-4">
+                        <StatusBadge {...status} />
+                        <Button onClick={sweep} disabled={!selectedAssets.size || loading} className="w-full">
+                            {loading ? <Icons.Spinner className="w-5 h-5" /> : <Icons.Trash className="w-5 h-5" />}
+                            Sweep {selectedAssets.size} Assets
+                        </Button>
+                    </div>
+                </div>
+            );
+        };
 
-          ${rekeyWarning}
-        </div>
-      `;
-    }
+        const MultiSender = ({ account, peraWallet }) => {
+            const [text, setText] = useState('');
+            const [status, setStatus] = useState({});
+            const [processing, setProcessing] = useState(false);
 
-    function cleanerHtml() {
-      return `
-        <div class="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-          <div class="text-2xl font-bold">Wallet Cleaner</div>
-          <div class="text-slate-500 mt-2">
-            (Not implemented in this snippet to keep it focused on Pera reliability.)
-          </div>
-          <div class="text-slate-500 mt-2 text-sm">
-            If you want, I’ll re-add ASA close-out with the same signing pipeline used here.
-          </div>
-        </div>
-      `;
-    }
+            const send = async () => {
+                setProcessing(true);
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const params = await client.getTransactionParams().do();
+                    const txns = [];
+                    text.trim().split('\n').forEach(line => {
+                        const [addr, amt] = line.split(',').map(s => s.trim());
+                        if (!isValidAddress(addr)) throw new Error('Invalid address');
+                        txns.push(algosdk.makePaymentTxnWithSuggestedParamsFromObject({
+                            from: account, to: addr, amount: Math.floor(parseFloat(amt)*1000000), suggestedParams: params, note: new TextEncoder().encode("MultiSender")
+                        }));
+                    });
+                    if (txns.length > 16) throw new Error('Max 16 txns');
+                    
+                    algosdk.assignGroupID(txns);
+                    
+                    // Map to SignerTransaction objects
+                    const group = txns.map(t => ({ txn: t, signers: [account] }));
+                    
+                    // Send as Array of Groups
+                    const signed = await peraWallet.signTransaction([group]);
+                    
+                    setStatus({ type: 'info', msg: 'Broadcasting...' });
+                    const { txId } = await client.sendRawTransaction(signed).do();
+                    await algosdk.waitForConfirmation(client, txId, 4);
+                    setStatus({ type: 'success', msg: `Sent ${txns.length} payments!` });
+                    setText('');
+                } catch (e) { 
+                    console.error(e);
+                    setStatus({ type: 'error', msg: e.message || 'Failed' }); 
+                }
+                setProcessing(false);
+            };
 
-    function multisenderHtml() {
-      if (!state.account) {
-        return `
-          <div class="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-            <div class="text-2xl font-bold">MultiSender</div>
-            <div class="text-slate-500 mt-2">Connect your wallet to continue.</div>
-          </div>
-        `;
-      }
+            if (!account) return <div className="text-center py-20 text-slate-400">Please connect your wallet.</div>;
 
-      if (!state.unlocked) {
-        return `
-          <div class="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-            <div class="text-2xl font-bold">Premium Feature</div>
-            <div class="text-slate-500 mt-2 max-w-xl">
-              Unlock MultiSender with a one-time 1 ALGO fee. We’ll show the recipient address before you sign.
-            </div>
+            return (
+                <div className="fade-in">
+                      <div className="flex justify-between items-center mb-6">
+                        <h2 className="text-2xl font-bold">MultiSender</h2>
+                        <span className="text-[10px] font-bold bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full uppercase">Unlocked</span>
+                    </div>
+                    <Card className="mb-6">
+                        <textarea 
+                            value={text} onChange={e => setText(e.target.value)}
+                            placeholder="Address, Amount&#10;MO2...X2I, 5&#10;K3L...J9A, 10.5"
+                            className="w-full h-48 bg-slate-50 rounded-xl p-4 font-mono text-sm border-none focus:ring-2 focus:ring-slate-200 resize-none"
+                        ></textarea>
+                    </Card>
+                    <div className="flex flex-col gap-4">
+                        <StatusBadge {...status} />
+                        <Button onClick={send} disabled={processing || !text} variant="premium" className="w-full">
+                            {processing ? <Icons.Spinner className="w-5 h-5"/> : <div className="flex items-center gap-2"><Icons.Send className="w-4 h-4"/> Send Batch</div>}
+                        </Button>
+                    </div>
+                </div>
+            );
+        };
 
-            <div class="mt-6 p-4 rounded-2xl bg-slate-50 border border-slate-200 inline-block">
-              <div class="text-xs font-bold text-slate-500 uppercase">One-time fee</div>
-              <div class="text-2xl font-bold">1 ALGO</div>
-            </div>
+        const RiskRadar = () => {
+            const [id, setId] = useState('');
+            const [data, setData] = useState(null);
+            const [loading, setLoading] = useState(false);
 
-            <div class="mt-6 p-4 rounded-2xl border border-slate-200 bg-white">
-              <div class="text-xs font-bold text-slate-500 uppercase">Recipient</div>
-              <div class="font-mono text-xs text-slate-700 mt-2 break-all">${escapeHtml(state.feeAddr || "Resolving…")}</div>
-              <div class="text-xs text-slate-500 mt-2">Domain: ${escapeHtml(PREMIUM_RECIPIENT_NFD)}</div>
-            </div>
+            const scan = async () => {
+                if (!id) return;
+                setLoading(true);
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const { params: p } = await client.getAssetByID(parseInt(id)).do();
+                    setData({ name: p.name, unit: p['unit-name'], total: p.total, decimal: p.decimals, manager: p.manager, freeze: p.freeze, clawback: p.clawback });
+                } catch (e) { setData(null); }
+                setLoading(false);
+            };
 
-            <button id="btnUnlock" class="mt-6 w-full px-5 py-3 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold shadow hover:opacity-95">
-              Unlock Now
-            </button>
-          </div>
-        `;
-      }
+            const Row = ({ label, val, danger }) => (
+                <div className="flex justify-between items-center py-3 border-b border-slate-50 last:border-0">
+                    <span className="text-sm font-medium text-slate-500">{label}</span>
+                    {val ? 
+                        <span className={`font-mono text-xs px-2 py-1 rounded ${danger ? 'bg-red-50 text-red-600' : 'bg-slate-100 text-slate-600'}`}>{val.slice(0, 8)}...{val.slice(-8)}</span> :
+                        <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Safe</span>
+                    }
+                </div>
+            );
 
-      return `
-        <div class="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-          <div class="flex items-center justify-between gap-4">
-            <div>
-              <div class="text-2xl font-bold">MultiSender</div>
-              <div class="text-slate-500 mt-1 text-sm">Format: <span class="font-mono">ADDRESS, AMOUNT</span> (ALGO)</div>
-            </div>
-            <span class="text-[10px] font-bold bg-orange-100 text-orange-700 px-3 py-1 rounded-full uppercase">Premium Active</span>
-          </div>
+            return (
+                <div className="fade-in max-w-xl mx-auto">
+                    <div className="text-center mb-8">
+                        <h2 className="text-2xl font-bold mb-2">Risk Radar</h2>
+                        <p className="text-slate-500">Scan asset IDs for freeze & clawback risks.</p>
+                    </div>
+                    <div className="flex gap-2 mb-8">
+                        <Input type="number" placeholder="Asset ID (e.g. 31566704)" value={id} onChange={e => setId(e.target.value)} />
+                        <Button onClick={scan} disabled={loading} className="!w-auto">{loading ? <Icons.Spinner className="w-5 h-5"/> : "Scan"}</Button>
+                    </div>
+                    {data && (
+                        <Card>
+                            <div className="flex justify-between items-start mb-6 pb-6 border-b border-slate-100">
+                                <div>
+                                    <h3 className="text-xl font-bold">{data.name}</h3>
+                                    <span className="text-sm text-slate-400 font-medium">{data.unit}</span>
+                                </div>
+                                <div className={`px-3 py-1 rounded-full text-xs font-bold ${!data.freeze && !data.clawback ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}`}>
+                                    {!data.freeze && !data.clawback ? "Low Risk" : "Caution"}
+                                </div>
+                            </div>
+                            <div className="space-y-1">
+                                <Row label="Manager" val={data.manager} />
+                                <Row label="Freeze Auth" val={data.freeze} danger />
+                                <Row label="Clawback Auth" val={data.clawback} danger />
+                            </div>
+                        </Card>
+                    )}
+                </div>
+            );
+        };
 
-          <textarea id="batchText"
-            class="mt-6 w-full h-44 p-4 rounded-2xl bg-slate-50 border border-slate-200 font-mono text-sm outline-none focus:ring-2 focus:ring-slate-200"
-            placeholder="ADDRESS, AMOUNT&#10;..."></textarea>
+        const NFDScout = () => {
+            const [name, setName] = useState('');
+            const [data, setData] = useState(null);
+            const [loading, setLoading] = useState(false);
 
-          <button id="btnSendBatch"
-            class="mt-4 w-full px-5 py-3 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold shadow hover:opacity-95">
-            Send Batch
-          </button>
+            const lookup = async () => {
+                if(!name) return;
+                setLoading(true);
+                const res = await resolveNFD(name.endsWith('.algo') ? name : name + '.algo');
+                setData(res);
+                setLoading(false);
+            };
 
-          <div class="mt-4 text-xs text-slate-500">
-            Safety caps: max ${MAX_BATCH} txns, per-line max 1,000,000 ALGO (adjust in code).
-          </div>
-        </div>
-      `;
-    }
+            return (
+                <div className="fade-in max-w-xl mx-auto">
+                    <div className="text-center mb-8">
+                        <h2 className="text-2xl font-bold mb-2">NFD Scout</h2>
+                        <p className="text-slate-500">Lookup ownership of .algo domains.</p>
+                    </div>
+                    <div className="flex gap-2 mb-8">
+                        <Input placeholder="name.algo" value={name} onChange={e => setName(e.target.value)} onKeyDown={e => e.key==='Enter' && lookup()} />
+                        <Button onClick={lookup} disabled={loading} className="!w-auto !bg-pink-600 hover:!bg-pink-700">{loading ? <Icons.Spinner className="w-5 h-5"/> : "Search"}</Button>
+                    </div>
+                    {data && (
+                        <Card className="!p-0 overflow-hidden">
+                            <div className="bg-gradient-to-r from-pink-500 to-rose-500 p-6 text-white">
+                                <h3 className="text-2xl font-bold">{data.name}</h3>
+                                <div className="text-white/80 text-sm mt-1">App ID: {data.appID}</div>
+                            </div>
+                            <div className="p-6 space-y-4">
+                                {Object.entries({Owner: data.owner, Deposit: data.depositAccount}).map(([k,v]) => (
+                                    <div key={k}>
+                                        <div className="text-xs font-bold text-slate-400 uppercase mb-1">{k}</div>
+                                        <div className="bg-slate-50 p-3 rounded-lg font-mono text-xs text-slate-600 break-all border border-slate-100">{v}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </Card>
+                    )}
+                </div>
+            );
+        };
 
-    function contentHtml() {
-      if (state.tab === "overview") return overviewHtml();
-      if (state.tab === "cleaner") return cleanerHtml();
-      if (state.tab === "multisender") return multisenderHtml();
-      return overviewHtml();
-    }
+        const App = () => {
+            const [tab, setTab] = useState('sweep');
+            const [pera, setPera] = useState(null);
+            const [acct, setAcct] = useState(null);
+            const [donationAddr, setDonationAddr] = useState(null);
+            const [donating, setDonating] = useState(false);
+            const [donationStatus, setDonationStatus] = useState('');
 
-    function render() {
-      try {
-        $app.innerHTML = layoutHtml(contentHtml());
+            useEffect(() => {
+                const init = () => {
+                    if (window.PeraWalletConnect && !pera) {
+                        const p = new window.PeraWalletConnect({ chainId: CHAIN_ID });
+                        setPera(p);
+                        p.reconnectSession().then(a => a.length && setAcct(a[0]));
+                    }
+                };
+                window.PeraWalletConnect ? init() : window.addEventListener('pera-loaded', init);
 
-        // nav
-        $app.querySelectorAll("[data-tab]").forEach(btn => {
-          btn.addEventListener("click", () => {
-            state.tab = btn.getAttribute("data-tab");
-            setStatus("info", "");
-            render();
-          });
-        });
+                // Resolve donation address on load
+                resolveNFD(DONATION_RECIPIENT_NFD).then(d => {
+                    if (d && d.depositAccount) setDonationAddr(d.depositAccount);
+                });
+            }, []);
 
-        // connect/disconnect
-        const btnConnect = $app.querySelector("#btnConnect");
-        if (btnConnect) btnConnect.addEventListener("click", connect);
+            const connect = () => pera?.connect().then(a => setAcct(a[0]));
+            const disconnect = () => { pera?.disconnect(); setAcct(null); };
 
-        const btnDisconnect = $app.querySelector("#btnDisconnect");
-        if (btnDisconnect) btnDisconnect.addEventListener("click", disconnect);
+            const handleDonate = async () => {
+                if (!acct || !donationAddr) return;
+                setDonating(true);
+                setDonationStatus('Signing...');
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const params = await client.getTransactionParams().do();
+                    const txn = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
+                        from: acct, to: donationAddr, amount: DONATION_AMOUNT, suggestedParams: params, note: new TextEncoder().encode("AlgoHub: Donation")
+                    });
+                    
+                    const group = [{ txn: txn, signers: [acct] }];
+                    const signed = await pera.signTransaction([group]);
+                    const { txId } = await client.sendRawTransaction(signed).do();
+                    await algosdk.waitForConfirmation(client, txId, 4);
+                    setDonationStatus('Thanks! ❤️');
+                    setTimeout(() => setDonationStatus(''), 3000);
+                } catch (e) {
+                    console.error(e);
+                    setDonationStatus('Failed');
+                    setTimeout(() => setDonationStatus(''), 3000);
+                }
+                setDonating(false);
+            };
 
-        // overview refresh
-        const btnRefresh = $app.querySelector("#btnRefreshOverview");
-        if (btnRefresh) btnRefresh.addEventListener("click", async () => {
-          try {
-            setStatus("info", "Refreshing…");
-            await fetchOverview();
-            setStatus("success", "Updated.");
-          } catch (e) {
-            setStatus("error", e?.message || "Refresh failed.");
-          }
-        });
+            const NavItem = ({ id, label, icon: Icon, premium }) => (
+                <button 
+                    onClick={() => setTab(id)}
+                    className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 mb-1 font-medium text-sm
+                    ${tab === id ? 'nav-item-active' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'}`}
+                >
+                    <Icon className={`w-5 h-5 ${tab === id ? 'text-slate-900' : 'text-slate-400'}`} />
+                    <span>{label}</span>
+                    {premium && <span className="ml-auto text-[10px] font-bold bg-orange-100 text-orange-600 px-2 py-0.5 rounded uppercase">Pro</span>}
+                </button>
+            );
 
-        // premium unlock
-        const btnUnlock = $app.querySelector("#btnUnlock");
-        if (btnUnlock) btnUnlock.addEventListener("click", unlockPremium);
+            return (
+                <div className="flex w-full h-full">
+                    {/* Sidebar */}
+                    <div className="w-72 bg-[#F8FAFC] border-r border-slate-200 flex flex-col p-4 z-20">
+                        <div className="px-4 py-4 mb-6">
+                            <h1 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                                <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white"><Icons.Check className="w-5 h-5" /></div>
+                                AlgoHub
+                            </h1>
+                        </div>
 
-        // send batch
-        const btnSend = $app.querySelector("#btnSendBatch");
-        if (btnSend) btnSend.addEventListener("click", async () => {
-          const text = $app.querySelector("#batchText")?.value || "";
-          await sendBatch(text);
-        });
+                        <div className="space-y-8 flex-1 overflow-y-auto px-2">
+                            <div>
+                                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 px-4">Wallet Tools</div>
+                                <NavItem id="sweep" label="Cleaner" icon={Icons.Trash} />
+                                <NavItem id="multi" label="MultiSender" icon={Icons.Send} />
+                            </div>
+                            <div>
+                                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 px-4">Public Tools</div>
+                                <NavItem id="nfd" label="NFD Scout" icon={Icons.Search} />
+                                <NavItem id="risk" label="Risk Radar" icon={Icons.Shield} />
+                            </div>
+                        </div>
 
-      } catch (e) {
-        // never white-screen
-        $app.innerHTML = `
-          <div class="p-8 max-w-3xl mx-auto">
-            <div class="bg-white border border-red-200 rounded-2xl p-6">
-              <div class="text-xl font-bold text-red-700">App Error</div>
-              <pre class="mt-4 text-xs whitespace-pre-wrap text-slate-700">${escapeHtml(e?.stack || e?.message || String(e))}</pre>
-            </div>
-          </div>
-        `;
-      }
-    }
+                        <div className="mt-4 pt-4 border-t border-slate-200 space-y-4">
+                            {/* Donation Section */}
+                            <div className="px-1">
+                                <Button 
+                                    onClick={handleDonate} 
+                                    disabled={!acct || donating || !donationAddr} 
+                                    variant="donate" 
+                                    className="w-full text-xs py-2 shadow-sm"
+                                >
+                                    {donating ? <Icons.Spinner className="w-4 h-4"/> : <Icons.Heart className="w-4 h-4"/>}
+                                    {donating ? 'Sending...' : 'Donate 1 ALGO'}
+                                </Button>
+                                {donationStatus && <div className="text-center text-xs font-bold text-slate-400 mt-2 fade-in">{donationStatus}</div>}
+                            </div>
 
-    init();
-  </script>
+                            {acct ? (
+                                <div className="bg-white border border-slate-200 p-4 rounded-2xl shadow-sm">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]"></div>
+                                        <span className="text-xs font-bold text-slate-600">Connected</span>
+                                    </div>
+                                    <div className="font-mono text-xs text-slate-400 truncate mb-3">{acct}</div>
+                                    <Button onClick={disconnect} variant="secondary" className="w-full text-xs py-2">Sign Out</Button>
+                                </div>
+                            ) : (
+                                <Button onClick={connect} className="w-full shadow-glow">Connect Wallet</Button>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Main Area */}
+                    <div className="flex-1 relative bg-white overflow-hidden">
+                        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-slate-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                        
+                        <div className="h-full overflow-y-auto p-12 relative z-10">
+                            <div className="max-w-3xl mx-auto">
+                                {tab === 'sweep' && <AlgoSweep account={acct} peraWallet={pera} />}
+                                {tab === 'multi' && <MultiSender account={acct} peraWallet={pera} />}
+                                {tab === 'risk' && <RiskRadar />}
+                                {tab === 'nfd' && <NFDScout />}
+                            </div>
+                            <div className="mt-12 text-center text-slate-300 text-xs font-medium">
+                                Secured by Algorand • v2.1 Porcelain
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
