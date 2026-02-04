@@ -3,601 +3,575 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Bowl LX Official Hub | The Road to Santa Clara</title>
-    <meta name="description" content="The ultimate guide to Super Bowl 60. Playoff brackets, live scores, game day guide for Levi's Stadium, and ticket information.">
+    <title>Profitnet | Utility Hub</title>
+    <meta name="description" content="Essential Algorand tools: Wallet Cleaner, MultiSender, Risk Radar, and ProfitLaunch Crowdfunding.">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
     <!-- Google Fonts -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Inter:wght@300;400;600;700;900&display=swap');
-        
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, .heading-font { font-family: 'Teko', sans-serif; }
-        
-        /* Custom Theme Colors */
-        .bg-nfl-navy { background-color: #0F172A; }
-        .text-nfl-navy { color: #0F172A; }
-        
-        .bg-sb-gold { background-color: #D4AF37; } /* Metallic Gold for SB LX */
-        .text-sb-gold { color: #D4AF37; }
-        .border-sb-gold { border-color: #D4AF37; }
-        
-        .bg-nfl-red { background-color: #C8102E; }
-        
-        /* Animations */
-        .fade-in { animation: fadeIn 0.5s ease-in; }
-        .slide-up { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-        /* Bracket Connectors */
-        .bracket-line { position: absolute; background-color: #cbd5e1; z-index: 0; }
+    <!-- Algorand SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/algosdk@2.9.0/dist/browser/algosdk.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151F32',
+                            900: '#0F172A',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #F8FAFC; }
+        .nav-item-active {
+            background: #0F172A;
+            color: white;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+        }
+        .premium-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+        }
+        .fade-in { animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 min-h-screen pt-20">
+<body class="text-slate-800 h-screen overflow-hidden antialiased">
 
-    <!-- NAVIGATION -->
-    <nav class="fixed top-0 w-full z-50 bg-nfl-navy text-white shadow-xl border-b border-white/10 backdrop-blur-md bg-opacity-95">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo Area -->
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
-                    <div class="bg-gradient-to-b from-slate-200 to-slate-400 p-1.5 rounded shadow-lg">
-                        <i data-lucide="trophy" class="h-8 w-8 text-nfl-navy fill-current"></i>
-                    </div>
-                    <div class="flex flex-col leading-none">
-                        <span class="text-2xl font-bold tracking-tighter text-white heading-font uppercase">Super Bowl</span>
-                        <span class="text-xl font-bold tracking-[0.2em] text-sb-gold heading-font">LX</span>
-                    </div>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-1">
-                        <button onclick="switchTab('home')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all bg-white/10 text-white hover:bg-sb-gold hover:text-nfl-navy" data-target="home">Home</button>
-                        <button onclick="switchTab('bracket')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-300 hover:text-white hover:bg-white/10" data-target="bracket">Playoff Bracket</button>
-                        <button onclick="switchTab('schedule')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-300 hover:text-white hover:bg-white/10" data-target="schedule">Schedule & Odds</button>
-                        <button onclick="switchTab('gameday')" class="nav-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-300 hover:text-white hover:bg-white/10" data-target="gameday">Game Day Guide</button>
-                    </div>
-                </div>
+    <div id="root" class="w-full h-full"></div>
 
-                <!-- Mobile Menu Button -->
-                <div class="-mr-2 flex md:hidden">
-                    <button onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-sb-gold hover:text-white focus:outline-none">
-                        <i data-lucide="menu" id="menu-icon" class="h-8 w-8"></i>
-                        <i data-lucide="x" id="close-icon" class="h-8 w-8 hidden"></i>
-                    </button>
-                </div>
+    <!-- Pera Wallet Connect Module -->
+    <script type="module">
+        import { PeraWalletConnect } from "https://esm.sh/@perawallet/connect@1.4.2?bundle";
+        window.PeraWalletConnect = PeraWalletConnect;
+        window.dispatchEvent(new Event('pera-loaded'));
+    </script>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- Configuration ---
+        const CHAIN_ID = 416001;
+        const NODE_API = "https://mainnet-api.algonode.cloud";
+        const NFD_API = "https://api.nf.domains/nfd";
+        const PREMIUM_RECIPIENT = "cheetos.algo"; 
+        const PREMIUM_COST = 1000000;
+
+        // --- Utils ---
+        const resolveNFD = async (name) => {
+            try {
+                const res = await fetch(`${NFD_API}/${name}?view=brief`);
+                if (!res.ok) return null;
+                return await res.json();
+            } catch (e) { return null; }
+        };
+
+        const isValidAddress = (addr) => {
+            try { return algosdk.isValidAddress(addr); } catch (e) { return false; }
+        };
+
+        // --- Icons ---
+        const Icons = {
+            Trash: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>,
+            Shield: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+            Send: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>,
+            Lock: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>,
+            Search: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>,
+            Rocket: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>,
+            Spinner: ({ className }) => <svg className={`${className} animate-spin`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>,
+            Check: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polyline points="20 6 9 17 4 12"></polyline></svg>,
+            Box: ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        };
+
+        // --- Common Components ---
+        const Card = ({ children, className = "" }) => (
+            <div className={`bg-white rounded-2xl border border-slate-200 shadow-sm p-8 ${className}`}>
+                {children}
             </div>
-        </div>
+        );
 
-        <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden md:hidden bg-nfl-navy border-t border-white/10">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <button onclick="switchTab('home')" class="block w-full text-left px-3 py-4 text-lg font-bold text-white heading-font uppercase hover:text-sb-gold">Home Hub</button>
-                <button onclick="switchTab('bracket')" class="block w-full text-left px-3 py-4 text-lg font-bold text-white heading-font uppercase hover:text-sb-gold">Playoff Bracket</button>
-                <button onclick="switchTab('schedule')" class="block w-full text-left px-3 py-4 text-lg font-bold text-white heading-font uppercase hover:text-sb-gold">Schedule & Odds</button>
-                <button onclick="switchTab('gameday')" class="block w-full text-left px-3 py-4 text-lg font-bold text-white heading-font uppercase hover:text-sb-gold">Game Day Guide</button>
-            </div>
-        </div>
-    </nav>
+        const Button = ({ children, onClick, disabled, variant = "primary", className = "" }) => {
+            const base = "px-5 py-2.5 rounded-lg font-semibold transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm";
+            const variants = {
+                primary: "bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-900/10",
+                secondary: "bg-white text-slate-700 border border-slate-200 hover:bg-slate-50",
+                danger: "bg-red-50 text-red-600 hover:bg-red-100",
+                premium: "premium-gradient text-white shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30",
+                launch: "bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-600/20"
+            };
+            return (
+                <button onClick={onClick} disabled={disabled} className={`${base} ${variants[variant]} ${className}`}>
+                    {children}
+                </button>
+            );
+        };
 
-    <!-- LIVE TICKER -->
-    <div class="bg-black text-white text-xs py-2 overflow-hidden whitespace-nowrap border-b border-white/10 relative z-40">
-        <div class="inline-block animate-[marquee_20s_linear_infinite] px-4">
-            <span class="text-sb-gold font-bold mr-2">BREAKING:</span> SUPER BOWL LX HALFTIME SHOW PERFORMER ANNOUNCED • <span class="text-green-400 font-bold ml-4">LIVE:</span> NFC CHAMPIONSHIP ODDS SHIFTING • <span class="text-sb-gold font-bold ml-4">ALERT:</span> LEVI'S STADIUM PARKING PASSES ON SALE NOW
-        </div>
-    </div>
-    <style>
-        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-    </style>
+        const Input = ({ ...props }) => (
+            <input 
+                {...props} 
+                className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500/10 focus:border-indigo-500 transition-all font-medium text-slate-700 placeholder-slate-400 text-sm"
+            />
+        );
 
-    <!-- MAIN CONTENT -->
-    <main>
-        
-        <!-- === HOME TAB === -->
-        <div id="tab-home" class="tab-content fade-in block">
-            <!-- Hero Section -->
-            <div class="relative bg-nfl-navy text-white overflow-hidden min-h-[60vh] flex items-center justify-center">
-                <!-- Abstract Background -->
-                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-nfl-navy via-transparent to-transparent"></div>
-                <div class="absolute top-0 right-0 w-96 h-96 bg-sb-gold rounded-full opacity-10 blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                
-                <div class="relative max-w-7xl mx-auto px-4 py-12 text-center z-10">
-                    <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-sb-gold font-bold text-sm mb-6 backdrop-blur-sm uppercase tracking-widest">
-                        <span class="w-2 h-2 rounded-full bg-red-500 mr-2 animate-pulse"></span>
-                        Road to Santa Clara
-                    </div>
-                    <h1 class="text-7xl md:text-9xl font-bold tracking-tighter mb-4 leading-none heading-font bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-400">
-                        SUPER BOWL
-                        <br /><span class="text-sb-gold drop-shadow-lg">LX</span>
-                    </h1>
-                    <p class="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto mb-10 font-light">
-                        The 60th Anniversary. The biggest stage in sports. <br class="hidden md:block"/>Follow every snap, score, and story on the road to the ring.
-                    </p>
+        const StatusBadge = ({ type, msg }) => {
+            if (!msg) return null;
+            const colors = {
+                error: "bg-red-50 text-red-600 border-red-100",
+                success: "bg-emerald-50 text-emerald-600 border-emerald-100",
+                info: "bg-blue-50 text-blue-600 border-blue-100"
+            };
+            return (
+                <div className={`fade-in px-4 py-3 rounded-xl border text-sm font-medium flex items-center gap-2 ${colors[type] || colors.info}`}>
+                    {type === 'success' && <Icons.Check className="w-4 h-4" />}
+                    {msg}
+                </div>
+            );
+        };
+
+        // --- Tools ---
+
+        const AlgoSweep = ({ account, peraWallet }) => {
+            const [assets, setAssets] = useState([]);
+            const [selectedAssets, setSelectedAssets] = useState(new Set());
+            const [loading, setLoading] = useState(false);
+            const [status, setStatus] = useState({ type: '', msg: '' });
+
+            useEffect(() => { if (account) fetchDust(); }, [account]);
+
+            const fetchDust = async () => {
+                setLoading(true);
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const info = await client.accountInformation(account).do();
+                    const dust = (info.assets || []).filter(a => a.amount === 0).map(a => ({ id: a['asset-id'], amount: 0 }));
+                    setAssets(dust);
+                } catch (e) { setStatus({ type: 'error', msg: 'Failed to scan wallet.' }); }
+                setLoading(false);
+            };
+
+            const toggleSelectAll = () => {
+                setSelectedAssets(selectedAssets.size > 0 ? new Set() : new Set(assets.slice(0, 16).map(a => a.id)));
+            };
+
+            const sweep = async () => {
+                setLoading(true);
+                setStatus({ type: 'info', msg: 'Please sign in wallet...' });
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const params = await client.getTransactionParams().do();
+                    const txns = [];
+                    selectedAssets.forEach(id => {
+                        txns.push(algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+                            from: account, to: account, closeRemainderTo: account, amount: 0, assetIndex: id, suggestedParams: params, note: new TextEncoder().encode("Profitnet: Sweep")
+                        }));
+                    });
                     
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button onclick="switchTab('bracket')" class="px-8 py-4 bg-sb-gold hover:bg-yellow-500 text-nfl-navy text-xl font-bold rounded-lg transition-transform transform hover:scale-105 shadow-xl flex items-center justify-center heading-font uppercase tracking-wide">
-                            View Playoff Bracket <i data-lucide="git-merge" class="ml-2 w-5 h-5 rotate-90"></i>
-                        </button>
-                        <button onclick="switchTab('schedule')" class="px-8 py-4 bg-transparent border border-white/30 hover:bg-white/10 text-white text-xl font-bold rounded-lg transition-colors flex items-center justify-center heading-font uppercase tracking-wide">
-                            Upcoming Matchups
-                        </button>
-                    </div>
-                </div>
-            </div>
+                    if (txns.length === 0) return;
 
-            <!-- Stats & Info Bar -->
-            <div class="bg-white border-b border-slate-200 relative z-20 -mt-8 mx-4 md:mx-auto max-w-6xl rounded-xl shadow-2xl p-6">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-slate-100">
-                    <div>
-                        <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Game Date</div>
-                        <div class="text-2xl font-black text-nfl-navy font-sans">Feb 8, 2026</div>
-                    </div>
-                    <div>
-                        <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Kickoff</div>
-                        <div class="text-2xl font-black text-nfl-navy font-sans">4:30 PM MST</div>
-                    </div>
-                    <div>
-                        <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Location</div>
-                        <div class="text-2xl font-black text-nfl-navy font-sans">Levi's Stadium</div>
-                    </div>
-                    <div>
-                        <div class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Network</div>
-                        <div class="text-2xl font-black text-nfl-navy font-sans">NBC / Peacock</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Featured Matchups -->
-            <div class="max-w-7xl mx-auto px-4 py-20">
-                <div class="flex items-center justify-between mb-8">
-                    <h2 class="text-4xl font-bold text-nfl-navy heading-font uppercase">Conference Championships</h2>
-                    <button onclick="switchTab('schedule')" class="text-nfl-navy font-bold hover:text-sb-gold flex items-center text-sm">View All <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i></button>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- AFC Card -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow border border-slate-100">
-                        <div class="bg-red-600 p-2 text-center text-white text-xs font-bold uppercase tracking-widest">AFC Championship</div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-6">
-                                <div class="text-center w-1/3">
-                                    <div class="w-16 h-16 bg-nfl-navy rounded-full mx-auto mb-2 flex items-center justify-center text-white font-bold text-xl border-4 border-slate-100">DEN</div>
-                                    <div class="font-black text-xl">Broncos</div>
-                                    <div class="text-xs text-slate-500 font-bold">13-4 • #2 Seed</div>
-                                </div>
-                                <div class="text-center w-1/3">
-                                    <div class="text-3xl font-black text-slate-300 font-sans">VS</div>
-                                    <div class="text-xs text-red-600 font-bold mt-1 uppercase">Sun 1:00 PM</div>
-                                </div>
-                                <div class="text-center w-1/3">
-                                    <div class="w-16 h-16 bg-red-700 rounded-full mx-auto mb-2 flex items-center justify-center text-white font-bold text-xl border-4 border-slate-100">KC</div>
-                                    <div class="font-black text-xl">Chiefs</div>
-                                    <div class="text-xs text-slate-500 font-bold">14-3 • #1 Seed</div>
-                                </div>
-                            </div>
-                            <div class="bg-slate-50 rounded p-3 flex justify-between items-center text-sm">
-                                <span class="text-slate-500 font-bold">Odds</span>
-                                <span class="font-mono font-bold text-nfl-navy">KC -3.5 | O/U 48.5</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- NFC Card -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow border border-slate-100">
-                        <div class="bg-blue-700 p-2 text-center text-white text-xs font-bold uppercase tracking-widest">NFC Championship</div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-6">
-                                <div class="text-center w-1/3">
-                                    <div class="w-16 h-16 bg-blue-800 rounded-full mx-auto mb-2 flex items-center justify-center text-white font-bold text-xl border-4 border-slate-100">DET</div>
-                                    <div class="font-black text-xl">Lions</div>
-                                    <div class="text-xs text-slate-500 font-bold">12-5 • #3 Seed</div>
-                                </div>
-                                <div class="text-center w-1/3">
-                                    <div class="text-3xl font-black text-slate-300 font-sans">VS</div>
-                                    <div class="text-xs text-red-600 font-bold mt-1 uppercase">Sun 4:30 PM</div>
-                                </div>
-                                <div class="text-center w-1/3">
-                                    <div class="w-16 h-16 bg-red-600 rounded-full mx-auto mb-2 flex items-center justify-center text-white font-bold text-xl border-4 border-slate-100">SF</div>
-                                    <div class="font-black text-xl">49ers</div>
-                                    <div class="text-xs text-slate-500 font-bold">13-4 • #1 Seed</div>
-                                </div>
-                            </div>
-                            <div class="bg-slate-50 rounded p-3 flex justify-between items-center text-sm">
-                                <span class="text-slate-500 font-bold">Odds</span>
-                                <span class="font-mono font-bold text-nfl-navy">SF -5.0 | O/U 51.0</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- News Grid -->
-            <div class="bg-slate-100 py-20">
-                <div class="max-w-7xl mx-auto px-4">
-                    <h2 class="text-4xl font-bold text-nfl-navy heading-font uppercase mb-8">Latest Headlines</h2>
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                            <div class="text-xs font-bold text-sb-gold uppercase mb-2">Analysis</div>
-                            <h3 class="text-xl font-bold leading-tight mb-3">Why the AFC Championship might be the real Super Bowl this year</h3>
-                            <p class="text-slate-600 text-sm mb-4">The defensive metrics for both Denver and Kansas City are historically great entering Sunday.</p>
-                            <a href="https://www.nfl.com/news" target="_blank" class="text-nfl-navy font-bold text-sm hover:underline">Read More &rarr;</a>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                            <div class="text-xs font-bold text-red-600 uppercase mb-2">Tickets</div>
-                            <h3 class="text-xl font-bold leading-tight mb-3">Ticket prices for SB LX trending record highs</h3>
-                            <p class="text-slate-600 text-sm mb-4">The cheapest "get-in" price for Levi's Stadium has officially crossed the $7,000 mark.</p>
-                            <a href="https://www.nfl.com/news" target="_blank" class="text-nfl-navy font-bold text-sm hover:underline">Read More &rarr;</a>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                            <div class="text-xs font-bold text-blue-600 uppercase mb-2">Injury Report</div>
-                            <h3 class="text-xl font-bold leading-tight mb-3">Lions TE LaPorta cleared for NFC Championship</h3>
-                            <p class="text-slate-600 text-sm mb-4">Full participation in practice today signals a green light for the star tight end.</p>
-                            <a href="https://www.nfl.com/news" target="_blank" class="text-nfl-navy font-bold text-sm hover:underline">Read More &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- === BRACKET TAB === -->
-        <div id="tab-bracket" class="tab-content hidden slide-up max-w-7xl mx-auto px-4 py-12">
-            <div class="text-center mb-12">
-                <h2 class="text-5xl font-bold text-nfl-navy heading-font uppercase mb-2">The Playoff Picture</h2>
-                <p class="text-slate-600">The road to the Lombardi Trophy.</p>
-            </div>
-            
-            <!-- Bracket Container -->
-            <div class="overflow-x-auto pb-12">
-                <div class="min-w-[1000px] flex justify-between relative px-4">
-                    
-                    <!-- AFC SIDE (Left) -->
-                    <div class="flex-1 pr-8">
-                        <h3 class="text-center font-bold text-red-600 uppercase tracking-widest border-b-2 border-red-600 mb-6 pb-2">AFC Conference</h3>
-                        <div class="grid grid-cols-3 gap-4">
-                            <!-- Wild Card Col -->
-                            <div class="flex flex-col justify-around h-[500px]">
-                                <div class="bg-white p-3 rounded shadow border-l-4 border-slate-300 opacity-60">
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">5. CLE</span><span>14</span></div>
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">4. HOU</span><span>31</span></div>
-                                </div>
-                                <div class="bg-white p-3 rounded shadow border-l-4 border-slate-300 opacity-60">
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">7. MIA</span><span>17</span></div>
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">2. DEN</span><span>31</span></div>
-                                </div>
-                                <div class="bg-white p-3 rounded shadow border-l-4 border-slate-300 opacity-60">
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">6. PIT</span><span>10</span></div>
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">3. BAL</span><span>27</span></div>
-                                </div>
-                            </div>
-                            
-                            <!-- Div Col -->
-                            <div class="flex flex-col justify-around h-[500px]">
-                                <div class="bg-white p-3 rounded shadow border-l-4 border-slate-300 mb-8 opacity-60">
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">4. HOU</span><span>20</span></div>
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">1. KC</span><span>34</span></div>
-                                </div>
-                                <div class="bg-white p-3 rounded shadow border-l-4 border-slate-300 mt-8 opacity-60">
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">3. BAL</span><span>21</span></div>
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">2. DEN</span><span>24</span></div>
-                                </div>
-                            </div>
-
-                            <!-- Conf Champ Col -->
-                            <div class="flex flex-col justify-center h-[500px]">
-                                <div class="bg-nfl-navy p-4 rounded shadow-lg border-l-4 border-sb-gold transform scale-110 z-10 relative">
-                                    <div class="absolute -top-3 -right-3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase animate-pulse">Live Next</div>
-                                    <div class="text-xs text-sb-gold font-bold uppercase mb-2 text-center">AFC Championship</div>
-                                    <div class="flex justify-between text-lg font-black text-white mb-1"><span>1. KC</span><span>--</span></div>
-                                    <div class="flex justify-between text-lg font-black text-white"><span>2. DEN</span><span>--</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SUPER BOWL CENTER -->
-                    <div class="flex flex-col justify-center items-center px-8">
-                        <i data-lucide="trophy" class="w-24 h-24 text-sb-gold drop-shadow-lg mb-4"></i>
-                        <div class="bg-white border-2 border-sb-gold p-6 rounded-xl shadow-2xl text-center w-48">
-                            <div class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">Feb 8</div>
-                            <div class="font-black text-3xl text-nfl-navy heading-font mb-1">SUPER BOWL</div>
-                            <div class="font-black text-4xl text-sb-gold heading-font">LX</div>
-                            <div class="mt-4 text-xs font-bold text-slate-500">Levi's Stadium</div>
-                        </div>
-                    </div>
-
-                    <!-- NFC SIDE (Right) -->
-                    <div class="flex-1 pl-8">
-                        <h3 class="text-center font-bold text-blue-700 uppercase tracking-widest border-b-2 border-blue-700 mb-6 pb-2">NFC Conference</h3>
-                        <div class="grid grid-cols-3 gap-4" dir="rtl">
-                             <!-- Wild Card Col -->
-                             <div class="flex flex-col justify-around h-[500px]">
-                                <div class="bg-white p-3 rounded shadow border-r-4 border-slate-300 opacity-60" dir="ltr">
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">5. PHI</span><span>32</span></div>
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">4. TB</span><span>9</span></div>
-                                </div>
-                                <div class="bg-white p-3 rounded shadow border-r-4 border-slate-300 opacity-60" dir="ltr">
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">7. LAR</span><span>23</span></div>
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">2. DAL</span><span>24</span></div>
-                                </div>
-                                <div class="bg-white p-3 rounded shadow border-r-4 border-slate-300 opacity-60" dir="ltr">
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">6. GB</span><span>21</span></div>
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">3. DET</span><span>24</span></div>
-                                </div>
-                            </div>
-                            
-                            <!-- Div Col -->
-                            <div class="flex flex-col justify-around h-[500px]">
-                                <div class="bg-white p-3 rounded shadow border-r-4 border-slate-300 mb-8 opacity-60" dir="ltr">
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">5. PHI</span><span>17</span></div>
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">1. SF</span><span>27</span></div>
-                                </div>
-                                <div class="bg-white p-3 rounded shadow border-r-4 border-slate-300 mt-8 opacity-60" dir="ltr">
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-black">3. DET</span><span>30</span></div>
-                                    <div class="flex justify-between text-sm font-bold"><span class="text-slate-500">2. DAL</span><span>27</span></div>
-                                </div>
-                            </div>
-
-                            <!-- Conf Champ Col -->
-                            <div class="flex flex-col justify-center h-[500px]">
-                                <div class="bg-nfl-navy p-4 rounded shadow-lg border-r-4 border-sb-gold transform scale-110 z-10 relative" dir="ltr">
-                                    <div class="absolute -top-3 -right-3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded uppercase animate-pulse">Live Next</div>
-                                    <div class="text-xs text-sb-gold font-bold uppercase mb-2 text-center">NFC Championship</div>
-                                    <div class="flex justify-between text-lg font-black text-white mb-1"><span>1. SF</span><span>--</span></div>
-                                    <div class="flex justify-between text-lg font-black text-white"><span>3. DET</span><span>--</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- === SCHEDULE & ODDS TAB === -->
-        <div id="tab-schedule" class="tab-content hidden slide-up max-w-5xl mx-auto px-4 py-12">
-            <h2 class="text-5xl font-bold text-nfl-navy heading-font uppercase mb-8 text-center">Schedule & Odds</h2>
-            
-            <!-- Filter Bar -->
-            <div class="flex justify-center space-x-4 mb-8">
-                <button class="px-4 py-1 bg-nfl-navy text-white rounded-full text-sm font-bold">All</button>
-                <button class="px-4 py-1 bg-white border border-slate-300 text-slate-500 rounded-full text-sm font-bold hover:border-nfl-navy hover:text-nfl-navy">AFC</button>
-                <button class="px-4 py-1 bg-white border border-slate-300 text-slate-500 rounded-full text-sm font-bold hover:border-nfl-navy hover:text-nfl-navy">NFC</button>
-            </div>
-
-            <div class="space-y-6">
-                <!-- Game 1 -->
-                <div class="bg-white rounded-xl shadow border border-slate-200 p-6 flex flex-col md:flex-row items-center justify-between">
-                    <div class="flex items-center space-x-6 w-full md:w-1/2">
-                        <div class="text-center">
-                            <span class="block text-2xl font-black text-nfl-navy">1:00 PM</span>
-                            <span class="block text-xs font-bold text-slate-500 uppercase">Sunday, Jan 25</span>
-                        </div>
-                        <div class="h-10 w-px bg-slate-200"></div>
-                        <div>
-                            <div class="font-bold text-lg text-nfl-navy">AFC Championship</div>
-                            <div class="text-slate-500 text-sm">Empower Field at Mile High / Arrowhead (TBD)</div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 md:mt-0 w-full md:w-1/2 flex items-center justify-between bg-slate-50 p-4 rounded-lg">
-                        <div class="text-center">
-                            <span class="block font-bold text-nfl-navy">Broncos</span>
-                            <span class="block text-xs text-green-600 font-bold">+145 ML</span>
-                        </div>
-                        <div class="text-center px-4">
-                            <span class="block text-xs font-bold text-slate-400 uppercase">Spread</span>
-                            <span class="block font-black text-xl text-nfl-navy">KC -3.5</span>
-                        </div>
-                        <div class="text-center">
-                            <span class="block font-bold text-nfl-navy">Chiefs</span>
-                            <span class="block text-xs text-red-600 font-bold">-170 ML</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Game 2 -->
-                <div class="bg-white rounded-xl shadow border border-slate-200 p-6 flex flex-col md:flex-row items-center justify-between">
-                    <div class="flex items-center space-x-6 w-full md:w-1/2">
-                        <div class="text-center">
-                            <span class="block text-2xl font-black text-nfl-navy">4:30 PM</span>
-                            <span class="block text-xs font-bold text-slate-500 uppercase">Sunday, Jan 25</span>
-                        </div>
-                        <div class="h-10 w-px bg-slate-200"></div>
-                        <div>
-                            <div class="font-bold text-lg text-nfl-navy">NFC Championship</div>
-                            <div class="text-slate-500 text-sm">Levi's Stadium, Santa Clara</div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 md:mt-0 w-full md:w-1/2 flex items-center justify-between bg-slate-50 p-4 rounded-lg">
-                        <div class="text-center">
-                            <span class="block font-bold text-nfl-navy">Lions</span>
-                            <span class="block text-xs text-green-600 font-bold">+180 ML</span>
-                        </div>
-                        <div class="text-center px-4">
-                            <span class="block text-xs font-bold text-slate-400 uppercase">Spread</span>
-                            <span class="block font-black text-xl text-nfl-navy">SF -5.0</span>
-                        </div>
-                        <div class="text-center">
-                            <span class="block font-bold text-nfl-navy">49ers</span>
-                            <span class="block text-xs text-red-600 font-bold">-210 ML</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-8 text-center">
-                <p class="text-xs text-slate-400">Odds provided by Major Sportsbook. Subject to change. Gambling Problem? Call 1-800-GAMBLER.</p>
-            </div>
-        </div>
-
-        <!-- === GAMEDAY TAB === -->
-        <div id="tab-gameday" class="tab-content hidden slide-up max-w-6xl mx-auto px-4 py-12">
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Main Info -->
-                <div class="md:col-span-2 space-y-8">
-                    <section>
-                        <h2 class="text-4xl font-bold text-nfl-navy heading-font uppercase mb-4">Levi's Stadium Guide</h2>
-                        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                            <div class="h-64 bg-slate-300 relative">
-                                <div class="absolute inset-0 flex items-center justify-center text-slate-500 font-bold">[Stadium Map Visualization]</div>
-                                <!-- Mock Stadium CSS -->
-                                <div class="absolute inset-x-10 inset-y-10 border-4 border-slate-400 rounded-full opacity-30"></div>
-                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-3/5 bg-green-100 border-2 border-white rounded"></div>
-                            </div>
-                            <div class="p-6">
-                                <div class="grid grid-cols-2 gap-4 mb-4">
-                                    <div class="flex items-center">
-                                        <i data-lucide="map-pin" class="w-5 h-5 text-sb-gold mr-2"></i>
-                                        <span class="text-sm font-bold text-slate-700">Santa Clara, CA</span>
-                                    </div>
-                                    <div class="flex items-center">
-                                        <i data-lucide="cloud-sun" class="w-5 h-5 text-sb-gold mr-2"></i>
-                                        <span class="text-sm font-bold text-slate-700">62°F / Sunny</span>
-                                    </div>
-                                </div>
-                                <h3 class="font-bold text-lg mb-2">Gate Information</h3>
-                                <p class="text-slate-600 text-sm mb-4">Gates open at 11:30 AM PST. Security checkpoints will be heavy; please use the Clear app for expedited entry at Gate A and Gate C.</p>
-                                <button onclick="alert('Map downloading...')" class="w-full py-3 bg-nfl-navy text-white font-bold rounded hover:bg-slate-800 transition-colors">Download Parking Map</button>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section>
-                         <h2 class="text-4xl font-bold text-nfl-navy heading-font uppercase mb-4">Halftime Show</h2>
-                         <div class="bg-nfl-navy text-white rounded-xl p-8 flex items-center justify-between shadow-xl">
-                             <div>
-                                 <div class="text-sb-gold font-bold uppercase tracking-widest text-sm mb-1">Presented by Apple Music</div>
-                                 <h3 class="text-3xl font-bold mb-2">Mystery Headliner</h3>
-                                 <p class="text-slate-400 text-sm max-w-md">Rumors are swirling about a major pop icon returning to the stage. Official announcement expected Friday.</p>
-                             </div>
-                             <div class="h-16 w-16 bg-white/10 rounded-full flex items-center justify-center">
-                                 <i data-lucide="music" class="w-8 h-8 text-sb-gold"></i>
-                             </div>
-                         </div>
-                    </section>
-                </div>
-
-                <!-- Sidebar -->
-                <div class="space-y-6">
-                    <div class="bg-white p-6 rounded-xl shadow border-t-4 border-sb-gold">
-                        <h3 class="font-bold text-lg mb-4 flex items-center"><i data-lucide="ticket" class="w-5 h-5 mr-2 text-sb-gold"></i> Ticket Exchange</h3>
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center text-sm border-b border-slate-100 pb-2">
-                                <span class="text-slate-600">Nosebleed (400s)</span>
-                                <span class="font-bold text-nfl-navy">$6,450</span>
-                            </div>
-                            <div class="flex justify-between items-center text-sm border-b border-slate-100 pb-2">
-                                <span class="text-slate-600">Lower Bowl (100s)</span>
-                                <span class="font-bold text-nfl-navy">$12,200</span>
-                            </div>
-                            <div class="flex justify-between items-center text-sm pb-2">
-                                <span class="text-slate-600">Club Level</span>
-                                <span class="font-bold text-nfl-navy">$25,000+</span>
-                            </div>
-                        </div>
-                        <button onclick="window.open('https://www.ticketmaster.com/nfl', '_blank')" class="w-full mt-4 py-2 border-2 border-nfl-navy text-nfl-navy font-bold rounded hover:bg-nfl-navy hover:text-white transition-colors">View Verified Resale</button>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-6 rounded-xl shadow text-white">
-                        <h3 class="font-bold text-lg mb-2">Flying to the Bay?</h3>
-                        <p class="text-blue-100 text-sm mb-4">SFO and SJC airports are expecting record traffic. Book shuttles early.</p>
-                        <a href="https://www.flysanjose.com/" target="_blank" class="inline-block text-white font-bold text-sm underline">View Travel Guide</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-nfl-navy text-white py-12 mt-20 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <i data-lucide="trophy" class="w-12 h-12 mx-auto mb-6 text-sb-gold fill-current"></i>
-            <h2 class="text-3xl font-bold uppercase tracking-widest heading-font mb-4">Super Bowl LX</h2>
-            <div class="flex justify-center space-x-8 mb-8 text-slate-400">
-                <a href="https://www.nfl.com/legal/privacy" target="_blank" class="hover:text-white">Privacy Policy</a>
-                <a href="https://www.nfl.com/legal/terms" target="_blank" class="hover:text-white">Terms of Service</a>
-                <a href="https://www.nfl.com/legal/ticket-terms" target="_blank" class="hover:text-white">Ticket Terms</a>
-                <a href="https://www.nfl.com/help/contact-us" target="_blank" class="hover:text-white">Contact</a>
-            </div>
-            <div class="text-sm text-slate-600">
-                &copy; 2026. This is a fan-made hub and is not affiliated with the NFL. All team names and logos are trademarks of their respective owners.
-            </div>
-        </div>
-    </footer>
-
-    <!-- SCRIPTS -->
-    <script>
-        // --- Icon Initialization ---
-        lucide.createIcons();
-
-        // --- Tab Logic ---
-        function switchTab(tabId) {
-            // Hide all tabs
-            const tabs = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => tab.classList.add('hidden'));
-            
-            // Show target tab
-            const target = document.getElementById('tab-' + tabId);
-            if (target) {
-                target.classList.remove('hidden');
-                // Re-trigger animation
-                target.classList.remove('slide-up');
-                void target.offsetWidth; // Force reflow
-                target.classList.add('slide-up');
-            }
-
-            // Update Nav Buttons State
-            const btns = document.querySelectorAll('.nav-btn');
-            btns.forEach(btn => {
-                if(btn.dataset.target === tabId) {
-                    btn.className = "nav-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all bg-sb-gold text-nfl-navy shadow-lg transform scale-105";
-                } else {
-                    btn.className = "nav-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-300 hover:text-white hover:bg-white/10";
+                    algosdk.assignGroupID(txns);
+                    const group = txns.map(t => ({ txn: t, signers: [account] }));
+                    const signed = await peraWallet.signTransaction([group]); 
+                    const { txId } = await client.sendRawTransaction(signed).do();
+                    await algosdk.waitForConfirmation(client, txId, 4);
+                    setStatus({ type: 'success', msg: `Swept ${selectedAssets.size} assets!` });
+                    setAssets(p => p.filter(a => !selectedAssets.has(a.id)));
+                    setSelectedAssets(new Set());
+                } catch (e) { 
+                    setStatus({ type: 'error', msg: 'Transaction failed.' }); 
                 }
-            });
+                setLoading(false);
+            };
 
-            // Close Mobile Menu if open
-            const menu = document.getElementById('mobile-menu');
-            if(!menu.classList.contains('hidden')) {
-                toggleMobileMenu();
-            }
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
+            if (!account) return <div className="text-center py-20 text-slate-400">Connect wallet to scan.</div>;
 
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const menuIcon = document.getElementById('menu-icon');
-            const closeIcon = document.getElementById('close-icon');
+            return (
+                <div className="fade-in">
+                    <div className="flex justify-between items-end mb-6">
+                        <div>
+                            <h2 className="text-2xl font-bold tracking-tight mb-1">Wallet Cleaner</h2>
+                            <p className="text-slate-500 text-sm">Recover storage fees by opting out of empty assets.</p>
+                        </div>
+                        <div className="text-right">
+                             <div className="text-2xl font-bold text-slate-900">{(assets.length * 0.1).toFixed(1)} A</div>
+                             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Recoverable</span>
+                        </div>
+                    </div>
 
-            menu.classList.toggle('hidden');
-            
-            if (menu.classList.contains('hidden')) {
-                menuIcon.classList.remove('hidden');
-                closeIcon.classList.add('hidden');
-            } else {
-                menuIcon.classList.add('hidden');
-                closeIcon.classList.remove('hidden');
-            }
-        }
+                    <Card className="!p-0 overflow-hidden mb-6">
+                        <div className="bg-slate-50 px-6 py-3 border-b border-slate-100 flex justify-between items-center">
+                            <label className="flex items-center gap-3 cursor-pointer">
+                                <input type="checkbox" onChange={toggleSelectAll} checked={selectedAssets.size > 0} disabled={!assets.length} className="rounded text-slate-900 focus:ring-0 w-4 h-4" />
+                                <span className="text-xs font-bold text-slate-500 uppercase">Select Batch (Max 16)</span>
+                            </label>
+                            <span className="text-xs font-bold text-slate-400">{assets.length} Found</span>
+                        </div>
+                        <div className="max-h-[300px] overflow-y-auto">
+                            {!loading && assets.length === 0 ? <div className="p-12 text-center text-slate-400">No dust found. ✨</div> :
+                            assets.map(a => (
+                                <label key={a.id} className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 border-b border-slate-100 last:border-0 cursor-pointer transition-colors">
+                                    <div className="flex items-center gap-4">
+                                        <input type="checkbox" checked={selectedAssets.has(a.id)} onChange={() => {
+                                            const s = new Set(selectedAssets);
+                                            s.has(a.id) ? s.delete(a.id) : (s.size < 16 && s.add(a.id));
+                                            setSelectedAssets(s);
+                                        }} className="rounded text-slate-900 focus:ring-0 w-4 h-4" />
+                                        <span className="font-mono text-sm text-slate-600">{a.id}</span>
+                                    </div>
+                                    <div className="text-xs font-medium text-amber-600 bg-amber-50 px-2 py-1 rounded">0.1A Locked</div>
+                                </label>
+                            ))}
+                        </div>
+                    </Card>
 
-        // Init
-        document.addEventListener('DOMContentLoaded', () => {
-            // Ensure icons render on load
-            lucide.createIcons();
-        });
+                    <div className="flex flex-col gap-4">
+                        <StatusBadge {...status} />
+                        <Button onClick={sweep} disabled={!selectedAssets.size || loading} className="w-full">
+                            {loading ? <Icons.Spinner className="w-5 h-5" /> : <Icons.Trash className="w-5 h-5" />}
+                            Sweep Assets
+                        </Button>
+                    </div>
+                </div>
+            );
+        };
+
+        const MultiSender = ({ account, peraWallet, unlocked, setUnlocked }) => {
+            const [text, setText] = useState('');
+            const [status, setStatus] = useState({});
+            const [processing, setProcessing] = useState(false);
+            const [feeAddr, setFeeAddr] = useState(null);
+
+            useEffect(() => { resolveNFD(PREMIUM_RECIPIENT).then(d => d && setFeeAddr(d.depositAccount)); }, []);
+
+            const unlock = async () => {
+                if (!account) return;
+                setProcessing(true);
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const params = await client.getTransactionParams().do();
+                    const txn = algosdk.makePaymentTxnWithSuggestedParamsFromObject({
+                        from: account, to: feeAddr, amount: PREMIUM_COST, suggestedParams: params, note: new TextEncoder().encode("Profitnet: Unlock")
+                    });
+                    const signed = await peraWallet.signTransaction([[{ txn, signers: [account] }]]);
+                    const { txId } = await client.sendRawTransaction(signed).do();
+                    await algosdk.waitForConfirmation(client, txId, 4);
+                    setUnlocked(true);
+                } catch (e) { setStatus({ type: 'error', msg: 'Unlock failed.' }); }
+                setProcessing(false);
+            };
+
+            const send = async () => {
+                setProcessing(true);
+                try {
+                    const client = new algosdk.Algodv2('', NODE_API, '');
+                    const params = await client.getTransactionParams().do();
+                    const txns = [];
+                    text.trim().split('\n').forEach(line => {
+                        const [addr, amt] = line.split(',').map(s => s.trim());
+                        if (isValidAddress(addr)) {
+                            txns.push(algosdk.makePaymentTxnWithSuggestedParamsFromObject({
+                                from: account, to: addr, amount: Math.floor(parseFloat(amt)*1000000), suggestedParams: params, note: new TextEncoder().encode("Profitnet MultiSender")
+                            }));
+                        }
+                    });
+                    if (txns.length > 16) throw new Error('Max 16 txns');
+                    algosdk.assignGroupID(txns);
+                    const group = txns.map(t => ({ txn: t, signers: [account] }));
+                    const signed = await peraWallet.signTransaction([group]);
+                    const { txId } = await client.sendRawTransaction(signed).do();
+                    await algosdk.waitForConfirmation(client, txId, 4);
+                    setStatus({ type: 'success', msg: `Sent ${txns.length} payments!` });
+                    setText('');
+                } catch (e) { setStatus({ type: 'error', msg: e.message || 'Failed' }); }
+                setProcessing(false);
+            };
+
+            if (!unlocked) return (
+                <Card className="text-center py-16 relative overflow-hidden border-indigo-100">
+                    <div className="absolute top-0 left-0 w-full h-1 premium-gradient"></div>
+                    <div className="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-indigo-500"><Icons.Lock className="w-8 h-8"/></div>
+                    <h2 className="text-2xl font-bold mb-2">Premium Feature</h2>
+                    <p className="text-slate-500 mb-8 max-w-md mx-auto">Unlock MultiSender to batch transactions. Perfect for payroll and distributions.</p>
+                    <Button onClick={unlock} disabled={processing || !feeAddr} variant="premium" className="w-full max-w-xs mx-auto">
+                        {processing ? <Icons.Spinner className="w-5 h-5" /> : "Unlock for 1 ALGO"}
+                    </Button>
+                </Card>
+            );
+
+            return (
+                <div className="fade-in">
+                    <h2 className="text-2xl font-bold mb-6">MultiSender</h2>
+                    <Card className="mb-6">
+                        <textarea 
+                            value={text} onChange={e => setText(e.target.value)}
+                            placeholder="Address, Amount&#10;MO2...X2I, 5&#10;K3L...J9A, 10.5"
+                            className="w-full h-48 bg-slate-50 rounded-xl p-4 font-mono text-sm border-none focus:ring-2 focus:ring-indigo-200 resize-none"
+                        ></textarea>
+                    </Card>
+                    <div className="flex flex-col gap-4">
+                        <StatusBadge {...status} />
+                        <Button onClick={send} disabled={processing || !text} variant="premium" className="w-full">
+                            {processing ? <Icons.Spinner className="w-5 h-5"/> : "Send Batch"}
+                        </Button>
+                    </div>
+                </div>
+            );
+        };
+
+        const ProfitLaunch = ({ account, peraWallet }) => {
+            const [projects, setProjects] = useState([
+                { id: 1, title: "AlgoDeFi Yield Aggregator", description: "Automated yield farming strategies with low slippage.", goal: 50000, raised: 32000, category: "DeFi", backers: 142 },
+                { id: 2, title: "PixelWars: On-Chain MMO", description: "A decentralized strategy game where land is stored as NFTs.", goal: 120000, raised: 4500, category: "Gaming", backers: 28 },
+                { id: 3, title: "Community Validator Node", description: "Crowdsourced infrastructure to secure the network.", goal: 20000, raised: 18500, category: "Infra", backers: 89 },
+            ]);
+            const [view, setView] = useState('list'); // 'list' | 'create'
+            const [formData, setFormData] = useState({ title: '', description: '', goal: '', category: 'Tech' });
+            const [status, setStatus] = useState({});
+            const [loading, setLoading] = useState(false);
+
+            const handleBack = async (project) => {
+                if (!account) { setStatus({ type: 'error', msg: 'Connect wallet to back.' }); return; }
+                const amount = prompt(`Amount (ALGO) to back "${project.title}"`, "100");
+                if (!amount || isNaN(amount) || amount <= 0) return;
+
+                setLoading(true);
+                try {
+                    // Simulation
+                    await new Promise(r => setTimeout(r, 1000));
+                    setProjects(prev => prev.map(p => p.id === project.id ? { ...p, raised: p.raised + parseFloat(amount), backers: p.backers + 1 } : p));
+                    setStatus({ type: 'success', msg: `Backed ${project.title}!` });
+                } catch (e) { setStatus({ type: 'error', msg: 'Failed.' }); }
+                setLoading(false);
+            };
+
+            const handleCreate = async () => {
+                if (!account) { setStatus({ type: 'error', msg: 'Connect wallet required.' }); return; }
+                if (!formData.title || !formData.goal) return;
+
+                setLoading(true);
+                await new Promise(r => setTimeout(r, 1000));
+                setProjects([{ id: Date.now(), ...formData, goal: parseFloat(formData.goal), raised: 0, backers: 0 }, ...projects]);
+                setView('list');
+                setLoading(false);
+            };
+
+            const CategoryTag = ({ cat }) => {
+                const map = {
+                    'DeFi': 'bg-purple-50 text-purple-700 border-purple-100',
+                    'Gaming': 'bg-pink-50 text-pink-700 border-pink-100',
+                    'Infra': 'bg-blue-50 text-blue-700 border-blue-100',
+                    'Tech': 'bg-slate-50 text-slate-700 border-slate-100'
+                };
+                return <span className={`px-2 py-1 rounded-md text-[10px] uppercase font-bold tracking-wide border ${map[cat] || map['Tech']}`}>{cat}</span>;
+            };
+
+            return (
+                <div className="fade-in max-w-5xl mx-auto">
+                    <div className="flex justify-between items-end mb-8">
+                        <div>
+                            <div className="flex items-center gap-2 mb-1">
+                                <h2 className="text-2xl font-bold tracking-tight text-slate-900">ProfitLaunch</h2>
+                                <span className="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Beta</span>
+                            </div>
+                            <p className="text-slate-500 text-sm">Decentralized crowdfunding. Launch your vision on Algorand.</p>
+                        </div>
+                        {view === 'list' ? (
+                            <Button onClick={() => setView('create')} variant="launch">+ Create Project</Button>
+                        ) : (
+                            <Button onClick={() => setView('list')} variant="secondary">Cancel</Button>
+                        )}
+                    </div>
+
+                    <StatusBadge {...status} />
+
+                    {view === 'create' ? (
+                        <Card className="max-w-xl mx-auto mt-6">
+                            <h3 className="text-xl font-bold mb-6">Launch Campaign</h3>
+                            <div className="space-y-4">
+                                <div>
+                                    <label className="text-xs font-bold text-slate-500 uppercase block mb-2">Project Title</label>
+                                    <Input placeholder="e.g. Next Gen DEX" value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} />
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                     <div>
+                                        <label className="text-xs font-bold text-slate-500 uppercase block mb-2">Goal (ALGO)</label>
+                                        <Input type="number" placeholder="10000" value={formData.goal} onChange={e => setFormData({...formData, goal: e.target.value})} />
+                                    </div>
+                                    <div>
+                                        <label className="text-xs font-bold text-slate-500 uppercase block mb-2">Category</label>
+                                        <select className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 outline-none text-sm font-medium" 
+                                            value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})}>
+                                            <option>DeFi</option><option>Gaming</option><option>NFT</option><option>Infra</option><option>Community</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="text-xs font-bold text-slate-500 uppercase block mb-2">Pitch</label>
+                                    <textarea className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 outline-none min-h-[120px] text-sm"
+                                        placeholder="Describe your project..." value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})}></textarea>
+                                </div>
+                                <Button onClick={handleCreate} disabled={loading} variant="launch" className="w-full mt-4">
+                                    {loading ? <Icons.Spinner className="w-5 h-5"/> : "Publish Campaign"}
+                                </Button>
+                            </div>
+                        </Card>
+                    ) : (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                            {projects.map(p => {
+                                const pct = Math.min((p.raised / p.goal) * 100, 100);
+                                return (
+                                    <Card key={p.id} className="!p-6 flex flex-col h-full hover:shadow-lg transition-all duration-300 group">
+                                        <div className="flex justify-between items-start mb-4">
+                                            <CategoryTag cat={p.category} />
+                                            <div className="flex items-center gap-1 text-slate-400 text-xs">
+                                                <Icons.Box className="w-3 h-3" /> 
+                                                <span>{p.backers} Backers</span>
+                                            </div>
+                                        </div>
+                                        <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">{p.title}</h3>
+                                        <p className="text-slate-500 text-sm mb-6 flex-1 line-clamp-3">{p.description}</p>
+                                        
+                                        <div className="space-y-4">
+                                            <div className="space-y-2">
+                                                <div className="flex justify-between text-xs font-bold">
+                                                    <span className="text-slate-900">{p.raised.toLocaleString()} A <span className="text-slate-400 font-normal">raised</span></span>
+                                                    <span className="text-indigo-600">{pct.toFixed(0)}%</span>
+                                                </div>
+                                                <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                                                    <div className="bg-indigo-600 h-full rounded-full transition-all duration-500" style={{ width: `${pct}%` }}></div>
+                                                </div>
+                                            </div>
+                                            <Button onClick={() => handleBack(p)} variant="secondary" className="w-full text-xs !py-2">
+                                                Back Project
+                                            </Button>
+                                        </div>
+                                    </Card>
+                                );
+                            })}
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        const App = () => {
+            const [tab, setTab] = useState('sweep');
+            const [pera, setPera] = useState(null);
+            const [acct, setAcct] = useState(null);
+            const [unlocked, setUnlocked] = useState(false);
+
+            useEffect(() => {
+                const init = () => {
+                    if (window.PeraWalletConnect && !pera) {
+                        const p = new window.PeraWalletConnect({ chainId: CHAIN_ID });
+                        setPera(p);
+                        p.reconnectSession().then(a => a.length && setAcct(a[0]));
+                    }
+                };
+                window.PeraWalletConnect ? init() : window.addEventListener('pera-loaded', init);
+            }, []);
+
+            const connect = () => pera?.connect().then(a => setAcct(a[0]));
+            const disconnect = () => { pera?.disconnect(); setAcct(null); };
+
+            const NavItem = ({ id, label, icon: Icon, premium }) => (
+                <button 
+                    onClick={() => setTab(id)}
+                    className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-200 mb-1 font-medium text-sm
+                    ${tab === id ? 'nav-item-active' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'}`}
+                >
+                    <Icon className={`w-4 h-4 ${tab === id ? 'text-white' : 'text-slate-400'}`} />
+                    <span>{label}</span>
+                    {premium && <span className="ml-auto text-[10px] font-bold bg-indigo-50 text-indigo-600 px-1.5 py-0.5 rounded uppercase">Pro</span>}
+                </button>
+            );
+
+            return (
+                <div className="flex w-full h-full">
+                    <div className="w-64 bg-white border-r border-slate-200 flex flex-col p-4 z-20">
+                        <div className="px-4 py-4 mb-6">
+                            <h1 className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                                <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white"><Icons.Rocket className="w-5 h-5" /></div>
+                                Profitnet
+                            </h1>
+                        </div>
+
+                        <div className="space-y-8 flex-1 overflow-y-auto px-2">
+                            <div>
+                                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 px-4">Management</div>
+                                <NavItem id="sweep" label="Cleaner" icon={Icons.Trash} />
+                                <NavItem id="multi" label="MultiSender" icon={Icons.Send} premium />
+                            </div>
+                            <div>
+                                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2 px-4">Discover</div>
+                                <NavItem id="launch" label="ProfitLaunch" icon={Icons.Rocket} />
+                                <NavItem id="nfd" label="NFD Scout" icon={Icons.Search} />
+                                <NavItem id="risk" label="Risk Radar" icon={Icons.Shield} />
+                            </div>
+                        </div>
+
+                        <div className="mt-4 pt-4 border-t border-slate-100">
+                            {acct ? (
+                                <div className="bg-slate-50 border border-slate-100 p-3 rounded-xl">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                                        <span className="text-xs font-bold text-slate-700">Connected</span>
+                                    </div>
+                                    <div className="font-mono text-[10px] text-slate-400 truncate mb-2">{acct}</div>
+                                    <button onClick={disconnect} className="w-full text-xs font-semibold text-slate-600 hover:text-slate-900">Sign Out</button>
+                                </div>
+                            ) : (
+                                <Button onClick={connect} className="w-full">Connect Wallet</Button>
+                            )}
+                        </div>
+                    </div>
+
+                    <div className="flex-1 relative bg-[#F8FAFC] overflow-hidden">
+                        <div className="h-full overflow-y-auto p-12 relative z-10">
+                            <div className="max-w-4xl mx-auto">
+                                {tab === 'sweep' && <AlgoSweep account={acct} peraWallet={pera} />}
+                                {tab === 'multi' && <MultiSender account={acct} peraWallet={pera} unlocked={unlocked} setUnlocked={setUnlocked} />}
+                                {tab === 'launch' && <ProfitLaunch account={acct} peraWallet={pera} />}
+                                {tab === 'risk' && <div><h2 className="text-2xl font-bold mb-6">Risk Radar</h2><p className="text-slate-500">Coming soon in v3.4</p></div>}
+                                {tab === 'nfd' && <div><h2 className="text-2xl font-bold mb-6">NFD Scout</h2><p className="text-slate-500">Coming soon in v3.4</p></div>}
+                            </div>
+                            <div className="mt-12 text-center text-slate-400 text-xs font-medium">
+                                Profitnet Utility Hub • v3.3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
     </script>
 </body>
 </html>
