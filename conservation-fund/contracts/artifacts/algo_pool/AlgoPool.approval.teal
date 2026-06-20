@@ -1,0 +1,857 @@
+#pragma version 11
+#pragma typetrack false
+
+// algopy.arc4.ARC4Contract.approval_program() -> uint64:
+main:
+    intcblock 0 1 32 8
+    bytecblock 0x636f756e74 0x7068617365 0x61646d696e 0x7072697a65 0x6c70 0x64726177 0x7765656b 0x151f7c75 0x65 0x706c6174666f726d 0x70616964
+    // algo_pool/contract.py:87
+    // class AlgoPool(ARC4Contract):
+    txn OnCompletion
+    !
+    assert
+    txn ApplicationID
+    bz main_create_NoOp@15
+    pushbytess 0x7a0d6b3e 0x2e2901ef 0xe9703db8 0x4c5aa393 0x66a3a4ad 0xd348fbb3 0x3f1a00b6 0x5be06fb5 0x01690ad0 // method "enter(pay)uint64", method "announce_draw(uint64)void", method "settle()address", method "new_week()uint64", method "deploy_lp(uint64,address)void", method "transfer_admin(address)void", method "update_platform(address)void", method "get_state()(uint64,uint64,uint64,uint64,uint64,uint64)", method "get_entry(uint64)address"
+    txna ApplicationArgs 0
+    match enter announce_draw settle new_week deploy_lp transfer_admin update_platform get_state get_entry
+    err
+
+main_create_NoOp@15:
+    // algo_pool/contract.py:87
+    // class AlgoPool(ARC4Contract):
+    pushbytes 0xcc694eaa // method "create(address)void"
+    txna ApplicationArgs 0
+    match create
+    err
+
+
+// contract.AlgoPool.create[routing]() -> void:
+create:
+    // algo_pool/contract.py:105
+    // @arc4.abimethod(allow_actions=["NoOp"], create="require")
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_2 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    // algo_pool/contract.py:114
+    // self.admin.value           = Txn.sender
+    bytec_2 // 0x61646d696e
+    txn Sender
+    app_global_put
+    // algo_pool/contract.py:115
+    // self.platform_wallet.value = platform
+    bytec 9 // 0x706c6174666f726d
+    swap
+    app_global_put
+    // algo_pool/contract.py:116
+    // self.current_week.value    = UInt64(0)
+    bytec 6 // 0x7765656b
+    intc_0 // 0
+    app_global_put
+    // algo_pool/contract.py:117
+    // self.entry_count.value     = UInt64(0)
+    bytec_0 // 0x636f756e74
+    intc_0 // 0
+    app_global_put
+    // algo_pool/contract.py:118
+    // self.prize_pool.value      = UInt64(0)
+    bytec_3 // 0x7072697a65
+    intc_0 // 0
+    app_global_put
+    // algo_pool/contract.py:119
+    // self.lp_balance.value      = UInt64(0)
+    bytec 4 // 0x6c70
+    intc_0 // 0
+    app_global_put
+    // algo_pool/contract.py:120
+    // self.draw_block.value      = UInt64(0)
+    bytec 5 // 0x64726177
+    intc_0 // 0
+    app_global_put
+    // algo_pool/contract.py:121
+    // self.phase.value           = UInt64(PHASE_OPEN)
+    bytec_1 // 0x7068617365
+    intc_0 // 0
+    app_global_put
+    // algo_pool/contract.py:122
+    // self.total_paid.value      = UInt64(0)
+    bytec 10 // 0x70616964
+    intc_0 // 0
+    app_global_put
+    // algo_pool/contract.py:105
+    // @arc4.abimethod(allow_actions=["NoOp"], create="require")
+    intc_1 // 1
+    return
+
+
+// contract.AlgoPool.enter[routing]() -> void:
+enter:
+    // algo_pool/contract.py:126
+    // @arc4.abimethod
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    // algo_pool/contract.py:136
+    // assert self.phase.value == UInt64(PHASE_OPEN), "Draw announced — entries closed"
+    intc_0 // 0
+    bytec_1 // 0x7068617365
+    app_global_get_ex
+    assert // check self.phase exists
+    !
+    assert // Draw announced — entries closed
+    // algo_pool/contract.py:137
+    // assert payment.receiver == Global.current_application_address, "Payment must go to contract"
+    dup
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert // Payment must go to contract
+    // algo_pool/contract.py:138
+    // assert payment.amount == UInt64(ENTRY_AMOUNT), "Entry costs exactly 1 ALGO"
+    dup
+    gtxns Amount
+    dup
+    pushint 1000000
+    ==
+    assert // Entry costs exactly 1 ALGO
+    // algo_pool/contract.py:139
+    // assert payment.close_remainder_to == algopy.Account(), "No close_remainder_to"
+    dig 1
+    gtxns CloseRemainderTo
+    global ZeroAddress
+    ==
+    assert // No close_remainder_to
+    // algo_pool/contract.py:140
+    // assert payment.rekey_to == algopy.Account(), "No rekeying"
+    dig 1
+    gtxns RekeyTo
+    global ZeroAddress
+    ==
+    assert // No rekeying
+    // algo_pool/contract.py:141
+    // assert payment.fee <= UInt64(1_000), "Fee too high"
+    swap
+    gtxns Fee
+    pushint 1000
+    <=
+    assert // Fee too high
+    // algo_pool/contract.py:144
+    // platform_cut = total * UInt64(PLATFORM_BPS) // UInt64(10_000)
+    dup
+    pushint 500
+    *
+    pushint 10000
+    /
+    // algo_pool/contract.py:146
+    // prize_cut    = total - platform_cut - lp_cut
+    swap
+    dig 1
+    -
+    dig 1
+    -
+    // algo_pool/contract.py:148-153
+    // itxn.Payment(
+    //     receiver=self.platform_wallet.value,
+    //     amount=platform_cut,
+    //     fee=UInt64(0),
+    //     note=b"AlgoPool 5% platform fee",
+    // ).submit()
+    itxn_begin
+    // algo_pool/contract.py:149
+    // receiver=self.platform_wallet.value,
+    intc_0 // 0
+    bytec 9 // 0x706c6174666f726d
+    app_global_get_ex
+    assert // check self.platform_wallet exists
+    // algo_pool/contract.py:152
+    // note=b"AlgoPool 5% platform fee",
+    pushbytes 0x416c676f506f6f6c20352520706c6174666f726d20666565
+    itxn_field Note
+    dig 2
+    itxn_field Amount
+    itxn_field Receiver
+    // algo_pool/contract.py:148
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    // algo_pool/contract.py:151
+    // fee=UInt64(0),
+    intc_0 // 0
+    itxn_field Fee
+    // algo_pool/contract.py:148-153
+    // itxn.Payment(
+    //     receiver=self.platform_wallet.value,
+    //     amount=platform_cut,
+    //     fee=UInt64(0),
+    //     note=b"AlgoPool 5% platform fee",
+    // ).submit()
+    itxn_submit
+    // algo_pool/contract.py:155
+    // self.lp_balance.value = self.lp_balance.value + lp_cut
+    intc_0 // 0
+    bytec 4 // 0x6c70
+    app_global_get_ex
+    assert // check self.lp_balance exists
+    uncover 2
+    +
+    bytec 4 // 0x6c70
+    swap
+    app_global_put
+    // algo_pool/contract.py:156
+    // self.prize_pool.value = self.prize_pool.value + prize_cut
+    intc_0 // 0
+    bytec_3 // 0x7072697a65
+    app_global_get_ex
+    assert // check self.prize_pool exists
+    +
+    bytec_3 // 0x7072697a65
+    swap
+    app_global_put
+    // algo_pool/contract.py:158
+    // idx = self.entry_count.value
+    intc_0 // 0
+    bytec_0 // 0x636f756e74
+    app_global_get_ex
+    assert // check self.entry_count exists
+    // algo_pool/contract.py:159
+    // self.entries[idx] = arc4.Address(Txn.sender)
+    txn Sender
+    dig 1
+    itob
+    bytec 8 // 0x65
+    dig 1
+    concat
+    uncover 2
+    box_put
+    // algo_pool/contract.py:160
+    // self.entry_count.value = idx + UInt64(1)
+    swap
+    intc_1 // 1
+    +
+    bytec_0 // 0x636f756e74
+    swap
+    app_global_put
+    // algo_pool/contract.py:163
+    // entrant=arc4.Address(Txn.sender),
+    txn Sender
+    // algo_pool/contract.py:165
+    // week=arc4.UInt64(self.current_week.value),
+    intc_0 // 0
+    bytec 6 // 0x7765656b
+    app_global_get_ex
+    assert // check self.current_week exists
+    itob
+    // algo_pool/contract.py:162-166
+    // arc4.emit(EntryMade(
+    //     entrant=arc4.Address(Txn.sender),
+    //     idx=arc4.UInt64(idx),
+    //     week=arc4.UInt64(self.current_week.value),
+    // ))
+    swap
+    dig 2
+    concat
+    swap
+    concat
+    pushbytes 0x9a39774a // method "EntryMade(address,uint64,uint64)"
+    swap
+    concat
+    log
+    // algo_pool/contract.py:126
+    // @arc4.abimethod
+    bytec 7 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+
+// contract.AlgoPool.announce_draw[routing]() -> void:
+announce_draw:
+    // algo_pool/contract.py:172
+    // @arc4.abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    dup
+    btoi
+    // algo_pool/contract.py:182
+    // assert Txn.sender == self.admin.value, "Admin only"
+    txn Sender
+    intc_0 // 0
+    bytec_2 // 0x61646d696e
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Admin only
+    // algo_pool/contract.py:183
+    // assert self.phase.value == UInt64(PHASE_OPEN), "Draw already announced"
+    intc_0 // 0
+    bytec_1 // 0x7068617365
+    app_global_get_ex
+    assert // check self.phase exists
+    !
+    assert // Draw already announced
+    // algo_pool/contract.py:184
+    // assert self.entry_count.value >= UInt64(1), "No entries yet"
+    intc_0 // 0
+    bytec_0 // 0x636f756e74
+    app_global_get_ex
+    assert // check self.entry_count exists
+    assert // No entries yet
+    // algo_pool/contract.py:185
+    // assert draw_block >= Global.round + UInt64(MIN_DRAW_GAP), "Draw block too soon"
+    global Round
+    pushint 50
+    +
+    dig 1
+    <=
+    assert // Draw block too soon
+    // algo_pool/contract.py:187
+    // self.draw_block.value = draw_block
+    bytec 5 // 0x64726177
+    swap
+    app_global_put
+    // algo_pool/contract.py:188
+    // self.phase.value      = UInt64(PHASE_ANNOUNCED)
+    bytec_1 // 0x7068617365
+    intc_1 // 1
+    app_global_put
+    // algo_pool/contract.py:192
+    // entry_count=arc4.UInt64(self.entry_count.value),
+    intc_0 // 0
+    bytec_0 // 0x636f756e74
+    app_global_get_ex
+    assert // check self.entry_count exists
+    itob
+    // algo_pool/contract.py:190-193
+    // arc4.emit(DrawAnnounced(
+    //     draw_block=arc4.UInt64(draw_block),
+    //     entry_count=arc4.UInt64(self.entry_count.value),
+    // ))
+    concat
+    pushbytes 0xd52b0275 // method "DrawAnnounced(uint64,uint64)"
+    swap
+    concat
+    log
+    // algo_pool/contract.py:172
+    // @arc4.abimethod
+    intc_1 // 1
+    return
+
+
+// contract.AlgoPool.settle[routing]() -> void:
+settle:
+    // algo_pool/contract.py:208
+    // assert self.phase.value == UInt64(PHASE_ANNOUNCED), "No draw pending"
+    intc_0 // 0
+    bytec_1 // 0x7068617365
+    app_global_get_ex
+    assert // check self.phase exists
+    intc_1 // 1
+    ==
+    assert // No draw pending
+    // algo_pool/contract.py:209
+    // assert Global.round > self.draw_block.value, "Draw block not yet confirmed"
+    global Round
+    intc_0 // 0
+    bytec 5 // 0x64726177
+    app_global_get_ex
+    assert // check self.draw_block exists
+    swap
+    dig 1
+    >
+    assert // Draw block not yet confirmed
+    // algo_pool/contract.py:211-212
+    // # Algorand block VRF seed — deterministic, publicly verifiable
+    // seed = op.Block.blk_seed(self.draw_block.value)
+    block BlkSeed
+    // algo_pool/contract.py:214
+    // seed_int   = op.btoi(op.extract(seed, UInt64(0), UInt64(8)))
+    intc_0 // 0
+    extract_uint64
+    // algo_pool/contract.py:215
+    // winner_idx = seed_int % self.entry_count.value
+    intc_0 // 0
+    bytec_0 // 0x636f756e74
+    app_global_get_ex
+    assert // check self.entry_count exists
+    %
+    // algo_pool/contract.py:216
+    // winner     = self.entries[winner_idx]
+    itob
+    bytec 8 // 0x65
+    dig 1
+    concat
+    box_get
+    assert // check self.entries entry exists
+    // algo_pool/contract.py:218
+    // prize = self.prize_pool.value
+    intc_0 // 0
+    bytec_3 // 0x7072697a65
+    app_global_get_ex
+    assert // check self.prize_pool exists
+    // algo_pool/contract.py:219
+    // assert prize > UInt64(0), "Empty prize pool"
+    dup
+    assert // Empty prize pool
+    // algo_pool/contract.py:221-226
+    // itxn.Payment(
+    //     receiver=winner.native,
+    //     amount=prize,
+    //     fee=UInt64(0),
+    //     note=b"AlgoPool weekly prize",
+    // ).submit()
+    itxn_begin
+    // algo_pool/contract.py:225
+    // note=b"AlgoPool weekly prize",
+    pushbytes 0x416c676f506f6f6c207765656b6c79207072697a65
+    itxn_field Note
+    dup
+    itxn_field Amount
+    dig 1
+    itxn_field Receiver
+    // algo_pool/contract.py:221
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    // algo_pool/contract.py:224
+    // fee=UInt64(0),
+    intc_0 // 0
+    itxn_field Fee
+    // algo_pool/contract.py:221-226
+    // itxn.Payment(
+    //     receiver=winner.native,
+    //     amount=prize,
+    //     fee=UInt64(0),
+    //     note=b"AlgoPool weekly prize",
+    // ).submit()
+    itxn_submit
+    // algo_pool/contract.py:228
+    // self.total_paid.value = self.total_paid.value + prize
+    intc_0 // 0
+    bytec 10 // 0x70616964
+    app_global_get_ex
+    assert // check self.total_paid exists
+    dig 1
+    +
+    bytec 10 // 0x70616964
+    swap
+    app_global_put
+    // algo_pool/contract.py:229
+    // self.prize_pool.value = UInt64(0)
+    bytec_3 // 0x7072697a65
+    intc_0 // 0
+    app_global_put
+    // algo_pool/contract.py:230
+    // self.phase.value      = UInt64(PHASE_SETTLED)
+    bytec_1 // 0x7068617365
+    pushint 2
+    app_global_put
+    // algo_pool/contract.py:234
+    // amount=arc4.UInt64(prize),
+    itob
+    // algo_pool/contract.py:236
+    // draw_block=arc4.UInt64(self.draw_block.value),
+    intc_0 // 0
+    bytec 5 // 0x64726177
+    app_global_get_ex
+    assert // check self.draw_block exists
+    itob
+    // algo_pool/contract.py:232-237
+    // arc4.emit(PrizePaid(
+    //     winner=winner,
+    //     amount=arc4.UInt64(prize),
+    //     winner_idx=arc4.UInt64(winner_idx),
+    //     draw_block=arc4.UInt64(self.draw_block.value),
+    // ))
+    dig 2
+    uncover 2
+    concat
+    uncover 3
+    concat
+    swap
+    concat
+    pushbytes 0xe705a9af // method "PrizePaid(address,uint64,uint64,uint64)"
+    swap
+    concat
+    log
+    // algo_pool/contract.py:195
+    // @arc4.abimethod
+    bytec 7 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+
+// contract.AlgoPool.new_week[routing]() -> void:
+new_week:
+    // algo_pool/contract.py:251
+    // assert Txn.sender == self.admin.value, "Admin only"
+    txn Sender
+    intc_0 // 0
+    bytec_2 // 0x61646d696e
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Admin only
+    // algo_pool/contract.py:252
+    // assert self.phase.value == UInt64(PHASE_SETTLED), "Settle draw first"
+    intc_0 // 0
+    bytec_1 // 0x7068617365
+    app_global_get_ex
+    assert // check self.phase exists
+    pushint 2
+    ==
+    assert // Settle draw first
+    // algo_pool/contract.py:254
+    // count = self.entry_count.value
+    intc_0 // 0
+    bytec_0 // 0x636f756e74
+    app_global_get_ex
+    assert // check self.entry_count exists
+    // algo_pool/contract.py:255
+    // i = UInt64(0)
+    intc_0 // 0
+
+new_week_while_top@2:
+    // algo_pool/contract.py:256
+    // while i < count:
+    dup
+    dig 2
+    <
+    bz new_week_after_while@4
+    // algo_pool/contract.py:257
+    // del self.entries[i]
+    dupn 2
+    itob
+    bytec 8 // 0x65
+    swap
+    concat
+    box_del
+    pop
+    // algo_pool/contract.py:258
+    // i = i + UInt64(1)
+    intc_1 // 1
+    +
+    bury 1
+    b new_week_while_top@2
+
+new_week_after_while@4:
+    // algo_pool/contract.py:260
+    // self.entry_count.value  = UInt64(0)
+    bytec_0 // 0x636f756e74
+    intc_0 // 0
+    app_global_put
+    // algo_pool/contract.py:261
+    // self.draw_block.value   = UInt64(0)
+    bytec 5 // 0x64726177
+    intc_0 // 0
+    app_global_put
+    // algo_pool/contract.py:262
+    // self.phase.value        = UInt64(PHASE_OPEN)
+    bytec_1 // 0x7068617365
+    intc_0 // 0
+    app_global_put
+    // algo_pool/contract.py:263
+    // self.current_week.value = self.current_week.value + UInt64(1)
+    intc_0 // 0
+    bytec 6 // 0x7765656b
+    app_global_get_ex
+    assert // check self.current_week exists
+    intc_1 // 1
+    +
+    bytec 6 // 0x7765656b
+    dig 1
+    app_global_put
+    // algo_pool/contract.py:241
+    // @arc4.abimethod
+    itob
+    bytec 7 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+
+// contract.AlgoPool.deploy_lp[routing]() -> void:
+deploy_lp:
+    // algo_pool/contract.py:269
+    // @arc4.abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    dup
+    btoi
+    txna ApplicationArgs 2
+    dup
+    len
+    intc_2 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    // algo_pool/contract.py:275
+    // assert Txn.sender == self.admin.value, "Admin only"
+    txn Sender
+    intc_0 // 0
+    bytec_2 // 0x61646d696e
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Admin only
+    // algo_pool/contract.py:276
+    // assert amount > UInt64(0), "Amount must be > 0"
+    dig 1
+    assert // Amount must be > 0
+    // algo_pool/contract.py:277
+    // assert amount <= self.lp_balance.value, "Insufficient LP balance"
+    intc_0 // 0
+    bytec 4 // 0x6c70
+    app_global_get_ex
+    assert // check self.lp_balance exists
+    dig 2
+    dig 1
+    <=
+    assert // Insufficient LP balance
+    // algo_pool/contract.py:279-284
+    // itxn.Payment(
+    //     receiver=destination,
+    //     amount=amount,
+    //     fee=UInt64(0),
+    //     note=b"AlgoPool LP deployment",
+    // ).submit()
+    itxn_begin
+    // algo_pool/contract.py:283
+    // note=b"AlgoPool LP deployment",
+    pushbytes 0x416c676f506f6f6c204c50206465706c6f796d656e74
+    itxn_field Note
+    dig 2
+    itxn_field Amount
+    dig 1
+    itxn_field Receiver
+    // algo_pool/contract.py:279
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    // algo_pool/contract.py:282
+    // fee=UInt64(0),
+    intc_0 // 0
+    itxn_field Fee
+    // algo_pool/contract.py:279-284
+    // itxn.Payment(
+    //     receiver=destination,
+    //     amount=amount,
+    //     fee=UInt64(0),
+    //     note=b"AlgoPool LP deployment",
+    // ).submit()
+    itxn_submit
+    // algo_pool/contract.py:286
+    // self.lp_balance.value = self.lp_balance.value - amount
+    uncover 2
+    -
+    bytec 4 // 0x6c70
+    swap
+    app_global_put
+    // algo_pool/contract.py:288-291
+    // arc4.emit(LpDeployed(
+    //     destination=arc4.Address(destination),
+    //     amount=arc4.UInt64(amount),
+    // ))
+    swap
+    concat
+    pushbytes 0x91907e8b // method "LpDeployed(address,uint64)"
+    swap
+    concat
+    log
+    // algo_pool/contract.py:269
+    // @arc4.abimethod
+    intc_1 // 1
+    return
+
+
+// contract.AlgoPool.transfer_admin[routing]() -> void:
+transfer_admin:
+    // algo_pool/contract.py:295
+    // @arc4.abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_2 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    // algo_pool/contract.py:298
+    // assert Txn.sender == self.admin.value, "Admin only"
+    txn Sender
+    intc_0 // 0
+    bytec_2 // 0x61646d696e
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Admin only
+    // algo_pool/contract.py:299
+    // self.admin.value = new_admin
+    bytec_2 // 0x61646d696e
+    swap
+    app_global_put
+    // algo_pool/contract.py:295
+    // @arc4.abimethod
+    intc_1 // 1
+    return
+
+
+// contract.AlgoPool.update_platform[routing]() -> void:
+update_platform:
+    // algo_pool/contract.py:301
+    // @arc4.abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_2 // 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    // algo_pool/contract.py:304
+    // assert Txn.sender == self.admin.value, "Admin only"
+    txn Sender
+    intc_0 // 0
+    bytec_2 // 0x61646d696e
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Admin only
+    // algo_pool/contract.py:305
+    // self.platform_wallet.value = new_platform
+    bytec 9 // 0x706c6174666f726d
+    swap
+    app_global_put
+    // algo_pool/contract.py:301
+    // @arc4.abimethod
+    intc_1 // 1
+    return
+
+
+// contract.AlgoPool.get_state[routing]() -> void:
+get_state:
+    // algo_pool/contract.py:316
+    // arc4.UInt64(self.current_week.value),
+    intc_0 // 0
+    bytec 6 // 0x7765656b
+    app_global_get_ex
+    assert // check self.current_week exists
+    itob
+    // algo_pool/contract.py:317
+    // arc4.UInt64(self.entry_count.value),
+    intc_0 // 0
+    bytec_0 // 0x636f756e74
+    app_global_get_ex
+    assert // check self.entry_count exists
+    itob
+    // algo_pool/contract.py:318
+    // arc4.UInt64(self.prize_pool.value),
+    intc_0 // 0
+    bytec_3 // 0x7072697a65
+    app_global_get_ex
+    assert // check self.prize_pool exists
+    itob
+    // algo_pool/contract.py:319
+    // arc4.UInt64(self.lp_balance.value),
+    intc_0 // 0
+    bytec 4 // 0x6c70
+    app_global_get_ex
+    assert // check self.lp_balance exists
+    itob
+    // algo_pool/contract.py:320
+    // arc4.UInt64(self.draw_block.value),
+    intc_0 // 0
+    bytec 5 // 0x64726177
+    app_global_get_ex
+    assert // check self.draw_block exists
+    itob
+    // algo_pool/contract.py:321
+    // arc4.UInt64(self.phase.value),
+    intc_0 // 0
+    bytec_1 // 0x7068617365
+    app_global_get_ex
+    assert // check self.phase exists
+    itob
+    // algo_pool/contract.py:315-322
+    // return arc4.Tuple((
+    //     arc4.UInt64(self.current_week.value),
+    //     arc4.UInt64(self.entry_count.value),
+    //     arc4.UInt64(self.prize_pool.value),
+    //     arc4.UInt64(self.lp_balance.value),
+    //     arc4.UInt64(self.draw_block.value),
+    //     arc4.UInt64(self.phase.value),
+    // ))
+    uncover 5
+    uncover 5
+    concat
+    uncover 4
+    concat
+    uncover 3
+    concat
+    uncover 2
+    concat
+    swap
+    concat
+    // algo_pool/contract.py:309
+    // @arc4.abimethod(readonly=True)
+    bytec 7 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+
+// contract.AlgoPool.get_entry[routing]() -> void:
+get_entry:
+    // algo_pool/contract.py:324
+    // @arc4.abimethod(readonly=True)
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_3 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // algo_pool/contract.py:327
+    // assert idx < self.entry_count.value, "Index out of range"
+    intc_0 // 0
+    bytec_0 // 0x636f756e74
+    app_global_get_ex
+    assert // check self.entry_count exists
+    dig 1
+    >
+    assert // Index out of range
+    // algo_pool/contract.py:328
+    // return self.entries[idx]
+    itob
+    bytec 8 // 0x65
+    swap
+    concat
+    box_get
+    assert // check self.entries entry exists
+    // algo_pool/contract.py:324
+    // @arc4.abimethod(readonly=True)
+    bytec 7 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
