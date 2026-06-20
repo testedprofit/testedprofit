@@ -27,7 +27,7 @@ Future yield:
   AlgoPool routes 5% LP from every prize pot.  A portion of that will
   distribute as yield to PNET vault holders in a future upgrade.
 
-Source code: https://github.com/WildlifeProtectionSolutions/algoflow-contracts
+Source code: https://github.com/testedprofit/testedprofit/tree/main/conservation-fund/contracts
 """
 
 import algopy
