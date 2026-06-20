@@ -28,7 +28,7 @@ Box MBR per entry ≈ 0.019 ALGO — deployer funds contract upfront.
 
 ARC-28 events emitted: EntryMade, DrawAnnounced, PrizePaid, LpDeployed.
 
-Source code: https://github.com/WildlifeProtectionSolutions/algoflow-contracts
+Source code: https://github.com/testedprofit/testedprofit/tree/main/conservation-fund/contracts
 """
 
 import algopy
