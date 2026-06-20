@@ -1,0 +1,44 @@
+# AlgoPool v2 Draw Bot — GitHub Actions
+#
+# Runs every 5 minutes (free on public repos, unlimited minutes).
+# Automates the permissionless draw cycle:
+#   OPEN → announce_draw → compute_winner → pay_winner → cleanup → OPEN
+#
+# Setup:
+#   1. Go to github.com/testedprofit/testedprofit/settings/secrets/actions
+#   2. Add secret: CALLER_MNEMONIC = "word1 word2 ... word25"
+#      (any wallet works — all methods are permissionless)
+#   3. Ensure APP_ID in cron_bot.py is set to the deployed contract
+
+name: AlgoPool v2 Bot
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # every 5 minutes — free on public repos
+  workflow_dispatch:          # allows manual trigger from GitHub Actions UI
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3        # fail fast if something hangs
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install algosdk
+
+      - name: Run draw bot tick
+        env:
+          CALLER_MNEMONIC: ${{ secrets.CALLER_MNEMONIC }}
+        run: |
+          python conservation-fund/contracts/algo_pool_v2/cron_bot.py \
+            --network mainnet \
+            --once
