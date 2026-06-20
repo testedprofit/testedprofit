@@ -1,0 +1,25 @@
+[tool.algokit]
+min_version = "v2"
+
+[tool.poetry]
+name = "algoflow-contracts"
+version = "0.2.0"
+description = "AlgoFlow smart contracts: AlgoPool prize draw + ProfitLock vaults"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+algorand-python = "^3.0.0"
+
+[tool.poetry.group.dev.dependencies]
+algokit-utils = "^3.0.0"
+algorand-python-testing = "^1.0.0"
+pytest = "^8.0"
+pytest-asyncio = "^0.23"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["contracts"]
