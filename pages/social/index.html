@@ -1,257 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlgoSocial | On-Chain Social Posts on Algorand | TestedProfit</title>
-    <meta name="description" content="Post messages permanently on the Algorand blockchain. Censorship-resistant, wallet-native, immutable. Every post is a signed transaction — no server, no moderator.">
-    <link rel="canonical" href="https://testedprofit.com/pages/social/">
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://testedprofit.com/pages/social/">
-    <meta property="og:title" content="AlgoSocial | On-Chain Social Posts on Algorand | TestedProfit">
-    <meta property="og:description" content="Post messages permanently on the Algorand blockchain. Censorship-resistant, wallet-native, immutable. Every post is a signed transaction — no server, no moderator.">
-    <meta property="og:image" content="https://testedprofit.com/og-social.png">
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@TestedProfit">
-    <meta name="twitter:title" content="AlgoSocial | On-Chain Social Posts on Algorand | TestedProfit">
-    <meta name="twitter:description" content="Post messages permanently on the Algorand blockchain. Censorship-resistant, wallet-native, immutable. Every post is a signed transaction — no server, no moderator.">
-    <meta name="twitter:image" content="https://testedprofit.com/og-social.png">
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "AlgoSocial",
-      "url": "https://testedprofit.com/pages/social/",
-      "description": "Post messages permanently on the Algorand blockchain. Censorship-resistant, wallet-native, immutable. Every post is a signed transaction — no server, no moderator.",
-      "applicationCategory": "SocialNetworkingApplication",
-      "operatingSystem": "Web",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Profitnet",
-        "url": "https://testedprofit.com"
-      }
-    }
-    </script>
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <style>
-        :root { --primary-dark: #0A091B; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--primary-dark); color: #E5E7EB; }
-        .card-blur { background: rgba(255,255,255,0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); transition: all 0.3s; }
-        .card-blur:hover { transform: translateY(-4px); }
-        #mobile-menu { transition: transform 0.3s; transform: translateY(-100%); }
-        #mobile-menu.active { transform: translateY(0); }
-        .gradient-pink { background: linear-gradient(135deg, #EC489922 0%, #0A091B 60%); }
-        .text-pink-accent { color: #EC4899; }
-        .glow-pink { box-shadow: 0 0 40px rgba(236,72,153,0.15); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlgoSocial | Permanent On-Chain Social Posts on Algorand | AlgoFlow by Profitnet</title>
+  <meta name="description" content="Post messages permanently on the Algorand blockchain. Tweet-style on-chain feed with hashtag filtering, replies, and quote posts — stored in transaction notes forever, censorship-resistant.">
+  <link rel="canonical" href="https://testedprofit.com/pages/social/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://testedprofit.com/pages/social/">
+  <meta property="og:title" content="AlgoSocial | Permanent On-Chain Social Posts on Algorand | AlgoFlow by Profitnet">
+  <meta property="og:description" content="Post messages permanently on the Algorand blockchain. Tweet-style on-chain feed with hashtag filtering, replies, and quote posts — stored in transaction notes forever.">
+  <meta property="og:image" content="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m">
+  <meta property="og:site_name" content="Profitnet">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@TestedProfit">
+  <meta name="twitter:title" content="AlgoSocial | Permanent On-Chain Social Posts on Algorand | AlgoFlow by Profitnet">
+  <meta name="twitter:description" content="Post messages permanently on the Algorand blockchain. Tweet-style on-chain feed with hashtag filtering, replies, and quote posts — stored forever.">
+  <meta name="twitter:image" content="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://testedprofit.com/pages/social/","url":"https://testedprofit.com/pages/social/","name":"AlgoSocial | On-Chain Social on Algorand | AlgoFlow by Profitnet","description":"Post messages permanently on the Algorand blockchain via transaction notes — with hashtags, replies, and quote posts.","isPartOf":{"@id":"https://testedprofit.com/"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://testedprofit.com/"},{"@type":"ListItem","position":2,"name":"AlgoFlow","item":"https://testedprofit.com/pages/algoflow/"},{"@type":"ListItem","position":3,"name":"AlgoSocial","item":"https://testedprofit.com/pages/social/"}]}},{"@type":"WebApplication","name":"AlgoFlow AlgoSocial","applicationCategory":"SocialNetworkingApplication","operatingSystem":"Web","url":"https://testedprofit.com/pages/algoflow/#social","description":"Post messages permanently on Algorand via transaction notes. On-chain social feed with hashtags, replies, and quote posts.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Profitnet","url":"https://testedprofit.com/"}}]}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <style>
+    *{font-family:'Inter',sans-serif}html{scroll-behavior:smooth}body{background-color:#0A091B}
+    .gradient-text{background:linear-gradient(90deg,#10B981,#3B82F6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gradient-btn{background:linear-gradient(90deg,#EC4899,#be185d)}
+    .accent-glow{box-shadow:0 0 40px rgba(236,72,153,0.25)}
+    .glass{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .card-hover{transition:transform 0.3s ease,box-shadow 0.3s ease}
+    .card-hover:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(236,72,153,0.12)}
+    .stat-card{background:rgba(236,72,153,0.06);border:1px solid rgba(236,72,153,0.15)}
+    .step-num{background:linear-gradient(135deg,#EC4899,#be185d)}
+    .icon-bg{background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.2)}
+    .pill{background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.2);color:#EC4899}
+  </style>
 </head>
-<body class="antialiased">
+<body class="text-white antialiased">
 
-    <!-- NAV -->
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="flex items-center space-x-3 group">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet">
-                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
-            </a>
-            <nav class="hidden lg:flex space-x-8 items-center">
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400 hover:text-emerald-300 transition-colors">Landmarks</a>
-                <a href="/#algoflow" class="text-xs font-bold uppercase tracking-widest text-blue-400 hover:text-blue-300 transition-colors">AlgoFlow</a>
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">$PNET Dashboard</a>
-            </nav>
-            <button id="mobile-menu-btn" class="lg:hidden text-white"><i class="fa-solid fa-bars-staggered"></i></button>
+  <!-- NAV -->
+  <header class="fixed w-full top-0 z-50 bg-[#0A091B]/80 backdrop-blur-xl border-b border-white/5">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="flex items-center space-x-3 group">
+        <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet">
+        <span class="text-xl font-bold tracking-tight">Profitnet</span>
+      </a>
+      <nav class="hidden lg:flex items-center space-x-8">
+        <a href="/" class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-white transition-colors">Home</a>
+        <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-widest text-emerald-400 hover:text-emerald-300 transition-colors">Landmarks</a>
+        <a href="https://testedprofit.com/pages/PNET/" class="px-5 py-2 rounded-full border border-pink-500/30 text-[10px] font-black text-pink-400 hover:bg-pink-500/10 transition-all uppercase tracking-[0.2em]">$PNET Asset Dashboard</a>
+      </nav>
+      <button id="mobile-menu-btn" class="lg:hidden text-white text-xl"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div id="mobile-menu" class="fixed inset-0 bg-[#0A091B] z-50 hidden flex-col items-center justify-center space-y-8">
+      <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+      <a href="/" class="text-2xl font-black text-white uppercase tracking-widest">Home</a>
+      <a href="https://testedprofit.com/pages/landmarks/" class="text-2xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
+      <a href="https://testedprofit.com/pages/PNET/" class="text-2xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-3xl" style="background:rgba(236,72,153,0.07)"></div>
+    </div>
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <div data-aos="zoom-in" data-aos-duration="600">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl gradient-btn accent-glow mb-8">
+          <i class="fa-solid fa-satellite-dish text-3xl text-white"></i>
         </div>
-        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
-            <a href="/" class="text-xl font-black text-white uppercase tracking-widest">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
-            <a href="/#algoflow" class="text-xl font-black text-blue-400 uppercase tracking-widest">AlgoFlow</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <span class="inline-block px-4 py-1.5 rounded-full pill text-xs font-bold uppercase tracking-widest mb-6">AlgoFlow Tool · On-Chain Social</span>
+        <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-6 leading-none">
+          Post Forever<br><span class="gradient-text">On Algorand</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-4 leading-relaxed">
+          Write messages that live on the Algorand blockchain permanently. Tweet-style feed, hashtag filtering, replies, and quote posts — all stored in transaction notes. Censorship-resistant by design.
+        </p>
+        <p class="text-sm text-slate-500 mb-10">Live on Algorand TestNet · Posts cost ~0.001 ALGO</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/pages/algoflow/#social" class="inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-full gradient-btn text-white font-bold text-sm uppercase tracking-widest hover:opacity-90 transition-opacity accent-glow">
+            <i class="fa-solid fa-satellite-dish"></i><span>Launch Tool</span>
+          </a>
+          <a href="/pages/algoflow/" class="inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-full glass text-white font-bold text-sm uppercase tracking-widest hover:bg-white/[0.06] transition-colors">
+            <i class="fa-solid fa-grid-2"></i><span>View All Tools</span>
+          </a>
         </div>
-    </header>
+      </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-slate-600"><i class="fa-solid fa-chevron-down"></i></div>
+  </section>
 
-    <!-- HERO -->
-    <section class="relative min-h-screen flex items-center justify-center gradient-pink pt-20 overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-pink-500/5 blur-3xl"></div>
+  <!-- STATS -->
+  <section class="py-12 border-y border-white/5">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-aos="fade-up">
+        <div class="stat-card rounded-2xl p-6 text-center"><div class="text-3xl font-black text-pink-400 mb-1">Forever</div><div class="text-sm text-slate-400 uppercase tracking-widest font-medium">Posts stored on Algorand permanently</div></div>
+        <div class="stat-card rounded-2xl p-6 text-center"><div class="text-3xl font-black text-pink-400 mb-1">~0.001</div><div class="text-sm text-slate-400 uppercase tracking-widest font-medium">ALGO per post (network fee only)</div></div>
+        <div class="stat-card rounded-2xl p-6 text-center"><div class="text-3xl font-black text-pink-400 mb-1">0</div><div class="text-sm text-slate-400 uppercase tracking-widest font-medium">Moderators — no one can delete your post</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="py-24">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1.5 rounded-full pill text-xs font-bold uppercase tracking-widest mb-4">Features</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">Social media — without the platform</h2>
+        <p class="text-slate-400 mt-4 max-w-xl mx-auto">No account. No moderation. No deplatforming. Your words, on-chain, forever.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-8 card-hover" data-aos="fade-up" data-aos-delay="0">
+          <div class="w-12 h-12 rounded-xl icon-bg flex items-center justify-center mb-6"><i class="fa-solid fa-infinity text-pink-400 text-xl"></i></div>
+          <h3 class="text-xl font-bold mb-3">Immutable Posts</h3>
+          <p class="text-slate-400 leading-relaxed">Every post is stored in an Algorand transaction note. Transaction notes are immutable — they can never be edited, deleted, or censored by anyone, including the poster.</p>
         </div>
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <div data-aos="fade-down" data-aos-duration="600">
-                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-xs font-bold uppercase tracking-widest mb-6">
-                    <i class="fa-solid fa-satellite-dish"></i> AlgoSocial
-                </span>
-            </div>
-            <h1 data-aos="fade-up" data-aos-duration="700" data-aos-delay="100" class="text-5xl lg:text-7xl font-black tracking-tight text-white mb-6 leading-tight">
-                On-chain social.<br><span class="text-pink-accent">Every post is a transaction.</span>
-            </h1>
-            <p data-aos="fade-up" data-aos-duration="700" data-aos-delay="200" class="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
-                Post messages permanently on the Algorand blockchain. Censorship-resistant, wallet-native, immutable. No server can delete them. No platform ban can erase them.
-            </p>
-            <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="300" class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/pages/algoflow/" class="px-8 py-4 rounded-full bg-pink-500 hover:bg-pink-400 text-white font-black text-sm uppercase tracking-widest transition-all glow-pink">
-                    Launch AlgoSocial <i class="fa-solid fa-arrow-right ml-2"></i>
-                </a>
-                <a href="#how-it-works" class="px-8 py-4 rounded-full border border-white/10 hover:border-pink-500/40 text-white font-bold text-sm uppercase tracking-widest transition-all">
-                    How It Works
-                </a>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="400" class="mt-16 flex flex-wrap justify-center gap-8 text-center">
-                <div>
-                    <div class="text-3xl font-black text-pink-accent">Immutable</div>
-                    <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Every Post</div>
-                </div>
-                <div class="w-px bg-white/5 hidden sm:block"></div>
-                <div>
-                    <div class="text-3xl font-black text-pink-accent">900</div>
-                    <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Bytes Per Post</div>
-                </div>
-                <div class="w-px bg-white/5 hidden sm:block"></div>
-                <div>
-                    <div class="text-3xl font-black text-pink-accent">0</div>
-                    <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Moderators</div>
-                </div>
-            </div>
+        <div class="glass rounded-2xl p-8 card-hover" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-12 h-12 rounded-xl icon-bg flex items-center justify-center mb-6"><i class="fa-solid fa-hashtag text-pink-400 text-xl"></i></div>
+          <h3 class="text-xl font-bold mb-3">Hashtag Filtering</h3>
+          <p class="text-slate-400 leading-relaxed">Use #hashtags in your posts to make them discoverable. The feed supports hashtag filtering — find all posts on any topic instantly across the full on-chain history.</p>
         </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="py-24" id="features">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">Social Media, Unchained</h2>
-                <p class="text-gray-400 max-w-xl mx-auto">No servers. No algorithms deciding what you see. No accounts to ban. Just you, your wallet, and the Algorand blockchain.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="card-blur rounded-2xl p-8" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-infinity text-pink-accent text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Truly Immutable</h3>
-                    <p class="text-gray-400 leading-relaxed">Posts are stored in Algorand transaction note fields. No server can delete them. No platform ban can erase them. Once confirmed, your words exist as long as Algorand does.</p>
-                </div>
-                <div class="card-blur rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-fingerprint text-pink-accent text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Wallet-Native Identity</h3>
-                    <p class="text-gray-400 leading-relaxed">Your Algorand address is your username. Verified by cryptographic signature on every post — no passwords, no OAuth, no email confirmation needed.</p>
-                </div>
-                <div class="card-blur rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-arrows-retweet text-pink-accent text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Reply, Quote &amp; Boost</h3>
-                    <p class="text-gray-400 leading-relaxed">Full social mechanics built on-chain. Upvotes are real micro-transactions sent directly to the author. Every interaction is a verifiable blockchain event.</p>
-                </div>
-            </div>
+        <div class="glass rounded-2xl p-8 card-hover" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-12 h-12 rounded-xl icon-bg flex items-center justify-center mb-6"><i class="fa-solid fa-comments text-pink-400 text-xl"></i></div>
+          <h3 class="text-xl font-bold mb-3">Reply & Quote</h3>
+          <p class="text-slate-400 leading-relaxed">Reply to any post or quote a post with your own commentary. Full conversation threading — all stored on-chain. No centralized server to go down or get hacked.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="py-24 border-t border-white/5" id="how-it-works">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">How It Works</h2>
-                <p class="text-gray-400 max-w-xl mx-auto">Three steps from thought to immutable on-chain record — no servers in the middle.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div class="text-center" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-16 h-16 rounded-full bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-black text-pink-accent">1</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Connect Pera Wallet</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Open AlgoSocial and connect your Pera Wallet. Your address becomes your identity — no registration, no username creation.</p>
-                </div>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 rounded-full bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-black text-pink-accent">2</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Write Your Post</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Compose your message (up to 900 bytes) with optional hashtags and reply references. The content is encoded directly into a transaction note field.</p>
-                </div>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 rounded-full bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-black text-pink-accent">3</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Sign &amp; Publish Forever</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Sign the transaction — your post is confirmed in seconds and permanently recorded on the Algorand blockchain. No takedowns possible.</p>
-                </div>
-            </div>
+  <!-- HOW IT WORKS -->
+  <section class="py-24 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-pink-950/10 to-transparent pointer-events-none"></div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1.5 rounded-full pill text-xs font-bold uppercase tracking-widest mb-4">Process</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">How it works</h2>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-6">
+        <div class="flex items-start space-x-6 glass rounded-2xl p-8" data-aos="fade-up" data-aos-delay="0">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full step-num flex items-center justify-center font-black text-lg">1</div>
+          <div><h3 class="text-lg font-bold mb-2">Connect your wallet</h3><p class="text-slate-400 leading-relaxed">Open AlgoSocial and connect via Pera Wallet. Your Algorand address is your identity — no username or email needed.</p></div>
         </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-24 border-t border-white/5">
-        <div class="container mx-auto px-6 text-center">
-            <div data-aos="fade-up">
-                <i class="fa-solid fa-satellite-dish text-pink-accent text-4xl mb-6 block"></i>
-                <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">Say something that lasts.</h2>
-                <p class="text-gray-400 max-w-lg mx-auto mb-10">AlgoSocial is part of the AlgoFlow suite — a collection of Algorand tools built for permanence, ownership, and zero platform control.</p>
-                <a href="/pages/algoflow/" class="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-pink-500 hover:bg-pink-400 text-white font-black text-sm uppercase tracking-widest transition-all glow-pink">
-                    Open AlgoFlow Suite <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
+        <div class="flex items-start space-x-6 glass rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full step-num flex items-center justify-center font-black text-lg">2</div>
+          <div><h3 class="text-lg font-bold mb-2">Write your post</h3><p class="text-slate-400 leading-relaxed">Type your message. Add #hashtags for discoverability. Include URLs. Reply to or quote any existing on-chain post.</p></div>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="border-t border-white/5 py-16">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="flex items-center space-x-3">
-                    <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8" alt="Profitnet">
-                    <span class="text-xl font-bold text-white">Profitnet</span>
-                </div>
-                <div class="flex items-center gap-6">
-                    <a href="https://twitter.com/TestedProfit" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm">
-                        <i class="fa-brands fa-x-twitter"></i> @TestedProfit
-                    </a>
-                    <a href="https://discord.gg/aWG3MJGR" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm">
-                        <i class="fa-brands fa-discord"></i> Discord
-                    </a>
-                    <a href="mailto:testedprofit@gmail.com" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm">
-                        <i class="fa-solid fa-envelope"></i> testedprofit@gmail.com
-                    </a>
-                </div>
-            </div>
-            <div class="mt-8 pt-8 border-t border-white/5 text-center text-xs text-gray-600">
-                &copy; 2026 Profitnet. All rights reserved.
-            </div>
+        <div class="flex items-start space-x-6 glass rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full step-num flex items-center justify-center font-black text-lg">3</div>
+          <div><h3 class="text-lg font-bold mb-2">Sign a 0-ALGO transaction</h3><p class="text-slate-400 leading-relaxed">Your post is submitted as the note field of a 0-ALGO Algorand transaction. You pay only the network fee (~0.001 ALGO). Pera Wallet signs it in seconds.</p></div>
         </div>
-    </footer>
+        <div class="flex items-start space-x-6 glass rounded-2xl p-8" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full step-num flex items-center justify-center font-black text-lg">4</div>
+          <div><h3 class="text-lg font-bold mb-2">Post lives on-chain forever</h3><p class="text-slate-400 leading-relaxed">Your message is now part of the Algorand blockchain — immutable, public, and permanent. It appears in the feed for all AlgoSocial users instantly.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        AOS.init({ once: true, offset: 60 });
+  <!-- PERA WALLET -->
+  <section class="py-20">
+    <div class="container mx-auto px-6">
+      <div class="max-w-3xl mx-auto glass rounded-3xl p-10" style="border:1px solid rgba(236,72,153,0.15)" data-aos="fade-up">
+        <div class="flex items-center space-x-4 mb-6">
+          <div class="w-12 h-12 rounded-xl icon-bg flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-wallet text-pink-400 text-xl"></i></div>
+          <h2 class="text-2xl font-black">Get started with Pera Wallet</h2>
+        </div>
+        <p class="text-slate-400 leading-relaxed mb-8">Connect your Pera Wallet to get started. AlgoFlow tools are live on Algorand TestNet — no real funds needed. Pera Wallet is free on iOS and Android.</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="flex items-start space-x-3"><span class="flex-shrink-0 w-7 h-7 rounded-full step-num flex items-center justify-center text-xs font-black">1</span><p class="text-slate-300 text-sm">Download Pera Wallet on iOS or Android</p></div>
+          <div class="flex items-start space-x-3"><span class="flex-shrink-0 w-7 h-7 rounded-full step-num flex items-center justify-center text-xs font-black">2</span><p class="text-slate-300 text-sm">Switch to TestNet in the app settings</p></div>
+          <div class="flex items-start space-x-3"><span class="flex-shrink-0 w-7 h-7 rounded-full step-num flex items-center justify-center text-xs font-black">3</span><p class="text-slate-300 text-sm">Get free TestNet ALGO from the dispenser</p></div>
+          <div class="flex items-start space-x-3"><span class="flex-shrink-0 w-7 h-7 rounded-full step-num flex items-center justify-center text-xs font-black">4</span><p class="text-slate-300 text-sm">Hit "Launch Tool" above and post your first on-chain message</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        const mobileMenu = document.getElementById('mobile-menu');
-        const openBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
+  <!-- CTA -->
+  <section class="py-20">
+    <div class="container mx-auto px-6">
+      <div class="max-w-2xl mx-auto text-center glass rounded-3xl p-12 accent-glow" style="border:1px solid rgba(236,72,153,0.2)" data-aos="fade-up">
+        <div class="w-16 h-16 rounded-2xl gradient-btn flex items-center justify-center mx-auto mb-8"><i class="fa-solid fa-satellite-dish text-2xl text-white"></i></div>
+        <h2 class="text-3xl md:text-4xl font-black mb-4 tracking-tight">Say something permanent</h2>
+        <p class="text-slate-400 mb-8 leading-relaxed">Post your first on-chain message on Algorand TestNet. Free to try — your words, on the blockchain, forever.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/pages/algoflow/#social" class="inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-full gradient-btn text-white font-bold text-sm uppercase tracking-widest hover:opacity-90 transition-opacity">
+            <i class="fa-solid fa-satellite-dish"></i><span>Launch Tool</span>
+          </a>
+          <a href="/pages/algoflow/" class="inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-full glass text-white font-bold text-sm uppercase tracking-widest hover:bg-white/[0.06] transition-colors">
+            <i class="fa-solid fa-grid-2"></i><span>View All Tools</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        openBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('flex');
-            requestAnimationFrame(() => mobileMenu.classList.add('active'));
-        });
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 py-12">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href="/" class="flex items-center space-x-3 group"><img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-7 w-7 transition-transform group-hover:rotate-12" alt="Profitnet"><span class="text-lg font-bold">Profitnet</span></a>
+      <div class="flex items-center space-x-6 text-slate-500">
+        <a href="https://twitter.com/TestedProfit" target="_blank" rel="noopener" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter text-lg"></i></a>
+        <a href="https://discord.gg/aWG3MJGR" target="_blank" rel="noopener" class="hover:text-white transition-colors"><i class="fa-brands fa-discord text-lg"></i></a>
+        <a href="mailto:testedprofit@gmail.com" class="hover:text-white transition-colors text-sm">testedprofit@gmail.com</a>
+      </div>
+      <p class="text-slate-600 text-sm">&copy; 2026 Profitnet. All rights reserved.</p>
+    </div>
+  </footer>
 
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            setTimeout(() => {
-                mobileMenu.classList.remove('flex');
-                mobileMenu.classList.add('hidden');
-            }, 300);
-        });
-    </script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({once:true,duration:700,easing:'ease-out-cubic'});
+    const btn=document.getElementById('mobile-menu-btn'),close=document.getElementById('close-menu-btn'),menu=document.getElementById('mobile-menu');
+    btn.addEventListener('click',()=>{menu.classList.remove('hidden');menu.classList.add('flex');document.body.style.overflow='hidden';});
+    close.addEventListener('click',()=>{menu.classList.add('hidden');menu.classList.remove('flex');document.body.style.overflow='';});
+    menu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{menu.classList.add('hidden');menu.classList.remove('flex');document.body.style.overflow='';}));
+  </script>
 </body>
 </html>

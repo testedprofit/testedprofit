@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting | TestedProfit</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script>
+        // Redirect /espanol/some/path → /some/path
+        var path = window.location.pathname.replace(/^\/espanol/, '') || '/';
+        window.location.replace(path);
+    </script>
+</head>
+<body>
+    <p>Redirecting... <a id="link" href="/">Click here if not redirected</a></p>
+    <script>
+        document.getElementById('link').href = window.location.pathname.replace(/^\/espanol/, '') || '/';
+    </script>
+</body>
+</html>

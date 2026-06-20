@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | TestedProfit</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://testedprofit.com/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0A091B; color: #E5E7EB; min-height: 100vh; }
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45,212,191,0.12) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96,165,250,0.08) 0%, transparent 60%);
+        }
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+        .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); transition: all 0.3s ease; }
+        .card:hover { border-color: rgba(45,212,191,0.4); background: rgba(255,255,255,0.05); transform: translateY(-4px); }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden relative">
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow"></div>
+    </div>
+
+    <!-- Nav -->
+    <header class="relative z-10 border-b border-white/5 bg-slate-950/80 backdrop-blur-md">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8" alt="Profitnet Logo" width="32" height="32">
+                <span class="text-xl font-bold text-white">Profitnet</span>
+            </a>
+            <a href="/" class="text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">
+                <i class="fa-solid fa-arrow-left mr-2"></i>Back to Home
+            </a>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="relative z-10 flex flex-col items-center justify-center min-h-[80vh] text-center px-6 py-24">
+
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold tracking-wider mb-8 uppercase">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>404 — Page Not Found</span>
+        </div>
+
+        <h1 class="text-6xl md:text-8xl font-black text-white mb-4">404</h1>
+        <p class="text-xl text-slate-400 max-w-lg mb-12">
+            This page doesn't exist or was moved. Use the links below to find what you're looking for.
+        </p>
+
+        <!-- Quick nav cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl w-full mb-12">
+
+            <a href="/" class="card rounded-xl p-6 text-left">
+                <i class="fa-solid fa-house text-emerald-400 text-xl mb-3 block"></i>
+                <h2 class="text-white font-bold mb-1">Homepage</h2>
+                <p class="text-slate-400 text-sm">Passive income tools, landmarks, and AlgoFlow.</p>
+            </a>
+
+            <a href="/pages/algoflow/" class="card rounded-xl p-6 text-left">
+                <i class="fa-solid fa-layer-group text-teal-400 text-xl mb-3 block"></i>
+                <h2 class="text-white font-bold mb-1">AlgoFlow Tools</h2>
+                <p class="text-slate-400 text-sm">Algorand web3 tools — token launch, wallet inspector, and more.</p>
+            </a>
+
+            <a href="/pages/parks/" class="card rounded-xl p-6 text-left">
+                <i class="fa-solid fa-map-location-dot text-blue-400 text-xl mb-3 block"></i>
+                <h2 class="text-white font-bold mb-1">Landmarks & Parks</h2>
+                <p class="text-slate-400 text-sm">Statues, sculptures, and hidden gems across the US.</p>
+            </a>
+
+            <a href="/pages/crowdfund/" class="card rounded-xl p-6 text-left">
+                <i class="fa-solid fa-seedling text-emerald-400 text-xl mb-3 block"></i>
+                <h2 class="text-white font-bold mb-1">Crowdfund</h2>
+                <p class="text-slate-400 text-sm">Launch Algorand crowdfunding campaigns on-chain.</p>
+            </a>
+
+            <a href="/pages/genesis/" class="card rounded-xl p-6 text-left">
+                <i class="fa-solid fa-fire-flame-curved text-green-400 text-xl mb-3 block"></i>
+                <h2 class="text-white font-bold mb-1">PNET Genesis</h2>
+                <p class="text-slate-400 text-sm">Bonding curve token launch with Tinyman graduation.</p>
+            </a>
+
+            <a href="/pages/inspector/" class="card rounded-xl p-6 text-left">
+                <i class="fa-solid fa-magnifying-glass-chart text-purple-400 text-xl mb-3 block"></i>
+                <h2 class="text-white font-bold mb-1">Wallet Inspector</h2>
+                <p class="text-slate-400 text-sm">Inspect any Algorand wallet — assets, activity, history.</p>
+            </a>
+
+        </div>
+
+        <a href="/" class="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-slate-900 text-lg"
+           style="background: linear-gradient(90deg, #10B981, #3B82F6);">
+            <i class="fa-solid fa-house"></i>
+            Take Me Home
+        </a>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-white/5 py-8 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 Profitnet. Contact: <a href="mailto:testedprofit@gmail.com" class="hover:text-teal-400 transition-colors">testedprofit@gmail.com</a></p>
+    </footer>
+
+</body>
+</html>
