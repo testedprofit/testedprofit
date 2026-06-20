@@ -33,7 +33,7 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies
-        run: pip install algosdk
+        run: pip install py-algorand-sdk
 
       - name: Run draw bot tick
         env:
