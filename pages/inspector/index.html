@@ -1,257 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallet Inspector | X-Ray Any Algorand Wallet | TestedProfit</title>
-    <meta name="description" content="Inspect any Algorand wallet without connecting your own. View full balance, all ASA holdings, NFT detection, and direct explorer links. Free and no wallet required.">
-    <link rel="canonical" href="https://testedprofit.com/pages/inspector/">
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://testedprofit.com/pages/inspector/">
-    <meta property="og:title" content="Wallet Inspector | X-Ray Any Algorand Wallet | TestedProfit">
-    <meta property="og:description" content="Inspect any Algorand wallet without connecting your own. View full balance, all ASA holdings, NFT detection, and direct explorer links. Free and no wallet required.">
-    <meta property="og:image" content="https://testedprofit.com/og-inspector.png">
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@TestedProfit">
-    <meta name="twitter:title" content="Wallet Inspector | X-Ray Any Algorand Wallet | TestedProfit">
-    <meta name="twitter:description" content="Inspect any Algorand wallet without connecting your own. View full balance, all ASA holdings, NFT detection, and direct explorer links. Free and no wallet required.">
-    <meta name="twitter:image" content="https://testedprofit.com/og-inspector.png">
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Wallet Inspector",
-      "url": "https://testedprofit.com/pages/inspector/",
-      "description": "Inspect any Algorand wallet without connecting your own. View full balance, all ASA holdings, NFT detection, and direct explorer links. Free and no wallet required.",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Profitnet",
-        "url": "https://testedprofit.com"
-      }
-    }
-    </script>
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <style>
-        :root { --primary-dark: #0A091B; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--primary-dark); color: #E5E7EB; }
-        .card-blur { background: rgba(255,255,255,0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); transition: all 0.3s; }
-        .card-blur:hover { transform: translateY(-4px); }
-        #mobile-menu { transition: transform 0.3s; transform: translateY(-100%); }
-        #mobile-menu.active { transform: translateY(0); }
-        .gradient-purple { background: linear-gradient(135deg, #A78BFA22 0%, #0A091B 60%); }
-        .text-purple-accent { color: #A78BFA; }
-        .glow-purple { box-shadow: 0 0 40px rgba(167,139,250,0.15); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallet Inspector | Algorand Address Auditor & Risk Scorer | AlgoFlow by Profitnet</title>
+  <meta name="description" content="Audit any Algorand wallet address — no connection required. See ALGO balance, all ASA and NFT holdings, and a risk score that flags clawback-enabled tokens. Free and instant.">
+  <link rel="canonical" href="https://testedprofit.com/pages/inspector/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://testedprofit.com/pages/inspector/">
+  <meta property="og:title" content="Wallet Inspector | Algorand Address Auditor & Risk Scorer | AlgoFlow by Profitnet">
+  <meta property="og:description" content="Audit any Algorand wallet address — no connection required. See ALGO balance, all ASA and NFT holdings, and a risk score that flags clawback-enabled tokens.">
+  <meta property="og:image" content="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m">
+  <meta property="og:site_name" content="Profitnet">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@TestedProfit">
+  <meta name="twitter:title" content="Wallet Inspector | Algorand Address Auditor & Risk Scorer | AlgoFlow by Profitnet">
+  <meta name="twitter:description" content="Audit any Algorand wallet address — no connection required. See ALGO balance, all ASA and NFT holdings, and a risk score that flags clawback-enabled tokens.">
+  <meta name="twitter:image" content="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://testedprofit.com/pages/inspector/","url":"https://testedprofit.com/pages/inspector/","name":"Wallet Inspector | Algorand Address Auditor | AlgoFlow by Profitnet","description":"Audit any Algorand wallet — balance, assets, NFTs, and risk score for clawback-enabled tokens. No connection required.","isPartOf":{"@id":"https://testedprofit.com/"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://testedprofit.com/"},{"@type":"ListItem","position":2,"name":"AlgoFlow","item":"https://testedprofit.com/pages/algoflow/"},{"@type":"ListItem","position":3,"name":"Wallet Inspector","item":"https://testedprofit.com/pages/inspector/"}]}},{"@type":"WebApplication","name":"AlgoFlow Wallet Inspector","applicationCategory":"FinanceApplication","operatingSystem":"Web","url":"https://testedprofit.com/pages/algoflow/#inspector","description":"Audit any Algorand address — ALGO balance, all ASAs, NFTs, and risk score for clawback-enabled tokens. No wallet connection required.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Profitnet","url":"https://testedprofit.com/"}}]}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <style>
+    *{font-family:'Inter',sans-serif}html{scroll-behavior:smooth}body{background-color:#0A091B}
+    .gradient-text{background:linear-gradient(90deg,#10B981,#3B82F6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gradient-btn{background:linear-gradient(90deg,#A78BFA,#7C3AED)}
+    .accent-glow{box-shadow:0 0 40px rgba(167,139,250,0.25)}
+    .glass{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .card-hover{transition:transform 0.3s ease,box-shadow 0.3s ease}
+    .card-hover:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(167,139,250,0.12)}
+    .stat-card{background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.15)}
+    .step-num{background:linear-gradient(135deg,#A78BFA,#7C3AED)}
+    .icon-bg{background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.2)}
+    .pill{background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.2);color:#A78BFA}
+    .risk-clean{background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#10B981}
+    .risk-low{background:rgba(234,179,8,0.15);border:1px solid rgba(234,179,8,0.3);color:#eab308}
+    .risk-caution{background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);color:#ef4444}
+  </style>
 </head>
-<body class="antialiased">
+<body class="text-white antialiased">
 
-    <!-- NAV -->
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="flex items-center space-x-3 group">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet">
-                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
-            </a>
-            <nav class="hidden lg:flex space-x-8 items-center">
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400 hover:text-emerald-300 transition-colors">Landmarks</a>
-                <a href="/#algoflow" class="text-xs font-bold uppercase tracking-widest text-blue-400 hover:text-blue-300 transition-colors">AlgoFlow</a>
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">$PNET Dashboard</a>
-            </nav>
-            <button id="mobile-menu-btn" class="lg:hidden text-white"><i class="fa-solid fa-bars-staggered"></i></button>
+  <!-- NAV -->
+  <header class="fixed w-full top-0 z-50 bg-[#0A091B]/80 backdrop-blur-xl border-b border-white/5">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="flex items-center space-x-3 group">
+        <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet">
+        <span class="text-xl font-bold tracking-tight">Profitnet</span>
+      </a>
+      <nav class="hidden lg:flex items-center space-x-8">
+        <a href="/" class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-white transition-colors">Home</a>
+        <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-widest text-emerald-400 hover:text-emerald-300 transition-colors">Landmarks</a>
+        <a href="https://testedprofit.com/pages/PNET/" class="px-5 py-2 rounded-full border border-purple-500/30 text-[10px] font-black text-purple-400 hover:bg-purple-500/10 transition-all uppercase tracking-[0.2em]">$PNET Asset Dashboard</a>
+      </nav>
+      <button id="mobile-menu-btn" class="lg:hidden text-white text-xl"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <div id="mobile-menu" class="fixed inset-0 bg-[#0A091B] z-50 hidden flex-col items-center justify-center space-y-8">
+      <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+      <a href="/" class="text-2xl font-black text-white uppercase tracking-widest">Home</a>
+      <a href="https://testedprofit.com/pages/landmarks/" class="text-2xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
+      <a href="https://testedprofit.com/pages/PNET/" class="text-2xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-3xl" style="background:rgba(167,139,250,0.07)"></div>
+    </div>
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <div data-aos="zoom-in" data-aos-duration="600">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl gradient-btn accent-glow mb-8">
+          <i class="fa-solid fa-magnifying-glass-chart text-3xl text-white"></i>
         </div>
-        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
-            <a href="/" class="text-xl font-black text-white uppercase tracking-widest">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
-            <a href="/#algoflow" class="text-xl font-black text-blue-400 uppercase tracking-widest">AlgoFlow</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <span class="inline-block px-4 py-1.5 rounded-full pill text-xs font-bold uppercase tracking-widest mb-6">AlgoFlow Tool · Wallet Auditor</span>
+        <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-6 leading-none">
+          Audit Any<br><span class="gradient-text">Algorand Wallet</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-4 leading-relaxed">
+          Enter any 58-character Algorand address and instantly see ALGO balance, all fungible token holdings, NFTs, and a risk score that flags clawback-enabled assets that can be seized.
+        </p>
+        <p class="text-sm text-slate-500 mb-10">No wallet connection required · Inspect any public address</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/pages/algoflow/#inspector" class="inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-full gradient-btn text-white font-bold text-sm uppercase tracking-widest hover:opacity-90 transition-opacity accent-glow">
+            <i class="fa-solid fa-magnifying-glass-chart"></i><span>Launch Tool</span>
+          </a>
+          <a href="/pages/algoflow/" class="inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-full glass text-white font-bold text-sm uppercase tracking-widest hover:bg-white/[0.06] transition-colors">
+            <i class="fa-solid fa-grid-2"></i><span>View All Tools</span>
+          </a>
         </div>
-    </header>
+      </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-slate-600"><i class="fa-solid fa-chevron-down"></i></div>
+  </section>
 
-    <!-- HERO -->
-    <section class="relative min-h-screen flex items-center justify-center gradient-purple pt-20 overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-purple-500/5 blur-3xl"></div>
+  <!-- STATS -->
+  <section class="py-12 border-y border-white/5">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-aos="fade-up">
+        <div class="stat-card rounded-2xl p-6 text-center"><div class="text-3xl font-black text-purple-400 mb-1">0</div><div class="text-sm text-slate-400 uppercase tracking-widest font-medium">Wallet connection needed to inspect</div></div>
+        <div class="stat-card rounded-2xl p-6 text-center"><div class="text-3xl font-black text-purple-400 mb-1">3</div><div class="text-sm text-slate-400 uppercase tracking-widest font-medium">Risk ratings: Clean, Low Risk, Caution</div></div>
+        <div class="stat-card rounded-2xl p-6 text-center"><div class="text-3xl font-black text-purple-400 mb-1">Live</div><div class="text-sm text-slate-400 uppercase tracking-widest font-medium">Data pulled from Algorand mainnet</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RISK RATINGS -->
+  <section class="py-16">
+    <div class="container mx-auto px-6">
+      <div class="max-w-2xl mx-auto" data-aos="fade-up">
+        <h2 class="text-3xl font-black text-center mb-8">Risk Rating System</h2>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between glass rounded-xl px-6 py-4">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-black risk-clean uppercase tracking-widest">CLEAN</span>
+            <p class="text-slate-400 text-sm ml-4">No clawback-enabled tokens. All held assets are safe.</p>
+          </div>
+          <div class="flex items-center justify-between glass rounded-xl px-6 py-4">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-black risk-low uppercase tracking-widest">LOW RISK</span>
+            <p class="text-slate-400 text-sm ml-4">A small number of clawback-enabled ASAs detected. Proceed with awareness.</p>
+          </div>
+          <div class="flex items-center justify-between glass rounded-xl px-6 py-4">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-black risk-caution uppercase tracking-widest">CAUTION</span>
+            <p class="text-slate-400 text-sm ml-4">Multiple clawback-enabled tokens held. Significant risk — tokens can be seized by issuers.</p>
+          </div>
         </div>
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <div data-aos="fade-down" data-aos-duration="600">
-                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase tracking-widest mb-6">
-                    <i class="fa-solid fa-magnifying-glass-chart"></i> Wallet Inspector
-                </span>
-            </div>
-            <h1 data-aos="fade-up" data-aos-duration="700" data-aos-delay="100" class="text-5xl lg:text-7xl font-black tracking-tight text-white mb-6 leading-tight">
-                X-ray any Algorand wallet.<br><span class="text-purple-accent">No wallet required.</span>
-            </h1>
-            <p data-aos="fade-up" data-aos-duration="700" data-aos-delay="200" class="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
-                Enter any public Algorand address and instantly see ALGO balance, every ASA held, NFT detection, and direct Pera Explorer links. Fully read-only. Free forever.
-            </p>
-            <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="300" class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/pages/algoflow/" class="px-8 py-4 rounded-full bg-purple-500 hover:bg-purple-400 text-white font-black text-sm uppercase tracking-widest transition-all glow-purple">
-                    Launch Inspector <i class="fa-solid fa-arrow-right ml-2"></i>
-                </a>
-                <a href="#how-it-works" class="px-8 py-4 rounded-full border border-white/10 hover:border-purple-500/40 text-white font-bold text-sm uppercase tracking-widest transition-all">
-                    How It Works
-                </a>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="400" class="mt-16 flex flex-wrap justify-center gap-8 text-center">
-                <div>
-                    <div class="text-3xl font-black text-purple-accent">0</div>
-                    <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Cost to Use</div>
-                </div>
-                <div class="w-px bg-white/5 hidden sm:block"></div>
-                <div>
-                    <div class="text-3xl font-black text-purple-accent">Read-Only</div>
-                    <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">No Signing</div>
-                </div>
-                <div class="w-px bg-white/5 hidden sm:block"></div>
-                <div>
-                    <div class="text-3xl font-black text-purple-accent">NFD</div>
-                    <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Name Resolution</div>
-                </div>
-            </div>
+        <p class="text-slate-500 text-sm text-center mt-6">Clawback-enabled tokens (marked RISKY) can be removed from your wallet by the token creator without your consent.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="py-24">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1.5 rounded-full pill text-xs font-bold uppercase tracking-widest mb-4">Features</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">Know what you're holding</h2>
+        <p class="text-slate-400 mt-4 max-w-xl mx-auto">Before you trade, receive, or hold an asset — inspect the wallet. Knowledge is protection.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-8 card-hover" data-aos="fade-up" data-aos-delay="0">
+          <div class="w-12 h-12 rounded-xl icon-bg flex items-center justify-center mb-6"><i class="fa-solid fa-triangle-exclamation text-purple-400 text-xl"></i></div>
+          <h3 class="text-xl font-bold mb-3">Risk Score</h3>
+          <p class="text-slate-400 leading-relaxed">Instantly see which held tokens have clawback authority enabled — flagged as RISKY. The overall wallet rating (Clean / Low Risk / Caution) is calculated from risky asset count.</p>
         </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="py-24" id="features">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">Full Wallet Visibility</h2>
-                <p class="text-gray-400 max-w-xl mx-auto">See everything any Algorand address holds — without ever connecting your own wallet or signing a transaction.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="card-blur rounded-2xl p-8" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-eye-slash text-purple-accent text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">No Wallet Needed</h3>
-                    <p class="text-gray-400 leading-relaxed">Enter any public Algorand address. No connection, no signing, fully read-only. Your own wallet stays untouched throughout the entire session.</p>
-                </div>
-                <div class="card-blur rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-layer-group text-purple-accent text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Full Asset Breakdown</h3>
-                    <p class="text-gray-400 leading-relaxed">ALGO balance, every ASA held, NFT detection, opted-in assets, and direct Pera Explorer links — all in one clean interface with no pagination needed.</p>
-                </div>
-                <div class="card-blur rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-address-card text-purple-accent text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">NFD Support</h3>
-                    <p class="text-gray-400 leading-relaxed">Resolves NFD (Algorand Name Service) names to addresses automatically. Type a human-readable name and Inspector handles the lookup instantly.</p>
-                </div>
-            </div>
+        <div class="glass rounded-2xl p-8 card-hover" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-12 h-12 rounded-xl icon-bg flex items-center justify-center mb-6"><i class="fa-solid fa-layer-group text-purple-400 text-xl"></i></div>
+          <h3 class="text-xl font-bold mb-3">Full Asset Breakdown</h3>
+          <p class="text-slate-400 leading-relaxed">View all ALGO, fungible tokens, and NFTs held by the address. Fungible tokens and NFTs are separated and clearly labeled for easy review.</p>
         </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="py-24 border-t border-white/5" id="how-it-works">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">How It Works</h2>
-                <p class="text-gray-400 max-w-xl mx-auto">Three steps from address to full wallet breakdown — no wallet connection required.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div class="text-center" data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-16 h-16 rounded-full bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-black text-purple-accent">1</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Paste Any Address or NFD</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Enter any public Algorand wallet address or an NFD name. No wallet connection required at this step or any step.</p>
-                </div>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 rounded-full bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-black text-purple-accent">2</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Inspector Fetches Chain Data</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Inspector queries the Algorand blockchain and returns balance, all ASAs, NFT flags, and opted-in assets in real time.</p>
-                </div>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 rounded-full bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mx-auto mb-6">
-                        <span class="text-2xl font-black text-purple-accent">3</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-3">Browse &amp; Explore</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Browse holdings and click through to Pera Explorer for any asset or transaction. Full transparency, zero friction.</p>
-                </div>
-            </div>
+        <div class="glass rounded-2xl p-8 card-hover" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-12 h-12 rounded-xl icon-bg flex items-center justify-center mb-6"><i class="fa-solid fa-user-slash text-purple-400 text-xl"></i></div>
+          <h3 class="text-xl font-bold mb-3">No Connection Required</h3>
+          <p class="text-slate-400 leading-relaxed">Inspect any public Algorand address — your own wallet, a counterparty, or a project wallet — without connecting anything. Just paste the address and scan.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- CTA -->
-    <section class="py-24 border-t border-white/5">
-        <div class="container mx-auto px-6 text-center">
-            <div data-aos="fade-up">
-                <i class="fa-solid fa-magnifying-glass-chart text-purple-accent text-4xl mb-6 block"></i>
-                <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">Start inspecting any wallet</h2>
-                <p class="text-gray-400 max-w-lg mx-auto mb-10">Wallet Inspector is part of the AlgoFlow suite — a collection of Algorand tools built for speed, transparency, and zero platform fees.</p>
-                <a href="/pages/algoflow/" class="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-purple-500 hover:bg-purple-400 text-white font-black text-sm uppercase tracking-widest transition-all glow-purple">
-                    Open AlgoFlow Suite <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
+  <!-- HOW IT WORKS -->
+  <section class="py-24 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-purple-950/10 to-transparent pointer-events-none"></div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="inline-block px-4 py-1.5 rounded-full pill text-xs font-bold uppercase tracking-widest mb-4">Process</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight">How it works</h2>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-6">
+        <div class="flex items-start space-x-6 glass rounded-2xl p-8" data-aos="fade-up" data-aos-delay="0">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full step-num flex items-center justify-center font-black text-lg">1</div>
+          <div><h3 class="text-lg font-bold mb-2">Enter any Algorand address</h3><p class="text-slate-400 leading-relaxed">Paste any 58-character Algorand address into the Inspector. No wallet connection, no sign-in required.</p></div>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="border-t border-white/5 py-16">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="flex items-center space-x-3">
-                    <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8" alt="Profitnet">
-                    <span class="text-xl font-bold text-white">Profitnet</span>
-                </div>
-                <div class="flex items-center gap-6">
-                    <a href="https://twitter.com/TestedProfit" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm">
-                        <i class="fa-brands fa-x-twitter"></i> @TestedProfit
-                    </a>
-                    <a href="https://discord.gg/aWG3MJGR" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm">
-                        <i class="fa-brands fa-discord"></i> Discord
-                    </a>
-                    <a href="mailto:testedprofit@gmail.com" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm">
-                        <i class="fa-solid fa-envelope"></i> testedprofit@gmail.com
-                    </a>
-                </div>
-            </div>
-            <div class="mt-8 pt-8 border-t border-white/5 text-center text-xs text-gray-600">
-                &copy; 2026 Profitnet. All rights reserved.
-            </div>
+        <div class="flex items-start space-x-6 glass rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full step-num flex items-center justify-center font-black text-lg">2</div>
+          <div><h3 class="text-lg font-bold mb-2">Hit Scan</h3><p class="text-slate-400 leading-relaxed">The Inspector queries Algorand's public API and retrieves the full wallet state — ALGO balance, every held ASA, and NFTs.</p></div>
         </div>
-    </footer>
+        <div class="flex items-start space-x-6 glass rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full step-num flex items-center justify-center font-black text-lg">3</div>
+          <div><h3 class="text-lg font-bold mb-2">Review balance, assets, and risk score</h3><p class="text-slate-400 leading-relaxed">See the full asset breakdown, with clawback-enabled tokens flagged as RISKY. The overall wallet risk rating is displayed prominently at the top.</p></div>
+        </div>
+        <div class="flex items-start space-x-6 glass rounded-2xl p-8" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full step-num flex items-center justify-center font-black text-lg">4</div>
+          <div><h3 class="text-lg font-bold mb-2">Dig deeper on Pera Explorer</h3><p class="text-slate-400 leading-relaxed">Inspector links directly to Pera Explorer for the full transaction history of the address. Every transaction, ever — on-chain and public.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        AOS.init({ once: true, offset: 60 });
+  <!-- PERA WALLET -->
+  <section class="py-20">
+    <div class="container mx-auto px-6">
+      <div class="max-w-3xl mx-auto glass rounded-3xl p-10" style="border:1px solid rgba(167,139,250,0.15)" data-aos="fade-up">
+        <div class="flex items-center space-x-4 mb-6">
+          <div class="w-12 h-12 rounded-xl icon-bg flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-wallet text-purple-400 text-xl"></i></div>
+          <h2 class="text-2xl font-black">Get started with Pera Wallet</h2>
+        </div>
+        <p class="text-slate-400 leading-relaxed mb-8">Connect your Pera Wallet to get started. AlgoFlow tools are live on Algorand TestNet — no real funds needed. Pera Wallet is free on iOS and Android.</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="flex items-start space-x-3"><span class="flex-shrink-0 w-7 h-7 rounded-full step-num flex items-center justify-center text-xs font-black">1</span><p class="text-slate-300 text-sm">Download Pera Wallet on iOS or Android</p></div>
+          <div class="flex items-start space-x-3"><span class="flex-shrink-0 w-7 h-7 rounded-full step-num flex items-center justify-center text-xs font-black">2</span><p class="text-slate-300 text-sm">Switch to TestNet in the app settings</p></div>
+          <div class="flex items-start space-x-3"><span class="flex-shrink-0 w-7 h-7 rounded-full step-num flex items-center justify-center text-xs font-black">3</span><p class="text-slate-300 text-sm">Get free TestNet ALGO from the dispenser</p></div>
+          <div class="flex items-start space-x-3"><span class="flex-shrink-0 w-7 h-7 rounded-full step-num flex items-center justify-center text-xs font-black">4</span><p class="text-slate-300 text-sm">Hit "Launch Tool" above and inspect any address</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        const mobileMenu = document.getElementById('mobile-menu');
-        const openBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
+  <!-- CTA -->
+  <section class="py-20">
+    <div class="container mx-auto px-6">
+      <div class="max-w-2xl mx-auto text-center glass rounded-3xl p-12 accent-glow" style="border:1px solid rgba(167,139,250,0.2)" data-aos="fade-up">
+        <div class="w-16 h-16 rounded-2xl gradient-btn flex items-center justify-center mx-auto mb-8"><i class="fa-solid fa-magnifying-glass-chart text-2xl text-white"></i></div>
+        <h2 class="text-3xl md:text-4xl font-black mb-4 tracking-tight">Inspect before you transact</h2>
+        <p class="text-slate-400 mb-8 leading-relaxed">Audit any Algorand wallet in seconds. No connection required — just paste an address and scan.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/pages/algoflow/#inspector" class="inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-full gradient-btn text-white font-bold text-sm uppercase tracking-widest hover:opacity-90 transition-opacity">
+            <i class="fa-solid fa-magnifying-glass-chart"></i><span>Launch Tool</span>
+          </a>
+          <a href="/pages/algoflow/" class="inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-full glass text-white font-bold text-sm uppercase tracking-widest hover:bg-white/[0.06] transition-colors">
+            <i class="fa-solid fa-grid-2"></i><span>View All Tools</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        openBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('flex');
-            requestAnimationFrame(() => mobileMenu.classList.add('active'));
-        });
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 py-12">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href="/" class="flex items-center space-x-3 group"><img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-7 w-7 transition-transform group-hover:rotate-12" alt="Profitnet"><span class="text-lg font-bold">Profitnet</span></a>
+      <div class="flex items-center space-x-6 text-slate-500">
+        <a href="https://twitter.com/TestedProfit" target="_blank" rel="noopener" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter text-lg"></i></a>
+        <a href="https://discord.gg/aWG3MJGR" target="_blank" rel="noopener" class="hover:text-white transition-colors"><i class="fa-brands fa-discord text-lg"></i></a>
+        <a href="mailto:testedprofit@gmail.com" class="hover:text-white transition-colors text-sm">testedprofit@gmail.com</a>
+      </div>
+      <p class="text-slate-600 text-sm">&copy; 2026 Profitnet. All rights reserved.</p>
+    </div>
+  </footer>
 
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            setTimeout(() => {
-                mobileMenu.classList.remove('flex');
-                mobileMenu.classList.add('hidden');
-            }, 300);
-        });
-    </script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({once:true,duration:700,easing:'ease-out-cubic'});
+    const btn=document.getElementById('mobile-menu-btn'),close=document.getElementById('close-menu-btn'),menu=document.getElementById('mobile-menu');
+    btn.addEventListener('click',()=>{menu.classList.remove('hidden');menu.classList.add('flex');document.body.style.overflow='hidden';});
+    close.addEventListener('click',()=>{menu.classList.add('hidden');menu.classList.remove('flex');document.body.style.overflow='';});
+    menu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{menu.classList.add('hidden');menu.classList.remove('flex');document.body.style.overflow='';}));
+  </script>
 </body>
 </html>
