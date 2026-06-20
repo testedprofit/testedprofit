@@ -74,4 +74,4 @@ These contracts have been reviewed against the Algorand smart contract security 
 - ✅ ARC-28 events emitted for all state changes (indexer subscriptions)
 - ✅ ARC-4 ABI compliant method signatures
 
-Found an issue? Open a GitHub issue or contact rob.serrano@wildlifeprotectionsolutions.org
+Found an issue? Open a GitHub issue or contact testedprofit@gmail.com
