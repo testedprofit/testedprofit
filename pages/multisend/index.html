@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiSend | Batch Send ALGO &amp; ASA Atomically | TestedProfit</title>
+    <meta name="description" content="Send ALGO or any Algorand token to up to 15 wallets in a single atomic group transaction. All succeed or all revert — no partial sends.">
+    <link rel="canonical" href="https://testedprofit.com/pages/multisend/">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://testedprofit.com/pages/multisend/">
+    <meta property="og:title" content="MultiSend | Batch Send ALGO &amp; ASA Atomically | TestedProfit">
+    <meta property="og:description" content="Send ALGO or any Algorand token to up to 15 wallets in a single atomic group transaction. All succeed or all revert — no partial sends.">
+    <meta property="og:image" content="https://testedprofit.com/og-multisend.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@TestedProfit">
+    <meta name="twitter:title" content="MultiSend | Batch Send ALGO &amp; ASA Atomically | TestedProfit">
+    <meta name="twitter:description" content="Send ALGO or any Algorand token to up to 15 wallets in a single atomic group transaction. All succeed or all revert — no partial sends.">
+    <meta name="twitter:image" content="https://testedprofit.com/og-multisend.png">
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "MultiSend",
+      "url": "https://testedprofit.com/pages/multisend/",
+      "description": "Send ALGO or any Algorand token to up to 15 wallets in a single atomic group transaction. All succeed or all revert — no partial sends.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Profitnet",
+        "url": "https://testedprofit.com"
+      }
+    }
+    </script>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <style>
+        :root { --primary-dark: #0A091B; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--primary-dark); color: #E5E7EB; }
+        .card-blur { background: rgba(255,255,255,0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); transition: all 0.3s; }
+        .card-blur:hover { transform: translateY(-4px); }
+        #mobile-menu { transition: transform 0.3s; transform: translateY(-100%); }
+        #mobile-menu.active { transform: translateY(0); }
+        .gradient-teal { background: linear-gradient(135deg, #2DD4BF22 0%, #0A091B 60%); }
+        .text-teal-accent { color: #2DD4BF; }
+        .border-teal-accent { border-color: #2DD4BF; }
+        .glow-teal { box-shadow: 0 0 40px rgba(45,212,191,0.15); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAV -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            <nav class="hidden lg:flex space-x-8 items-center">
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400 hover:text-emerald-300 transition-colors">Landmarks</a>
+                <a href="/#algoflow" class="text-xs font-bold uppercase tracking-widest text-blue-400 hover:text-blue-300 transition-colors">AlgoFlow</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">$PNET Dashboard</a>
+            </nav>
+            <button id="mobile-menu-btn" class="lg:hidden text-white"><i class="fa-solid fa-bars-staggered"></i></button>
+        </div>
+        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
+            <a href="/" class="text-xl font-black text-white uppercase tracking-widest">Home</a>
+            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
+            <a href="/#algoflow" class="text-xl font-black text-blue-400 uppercase tracking-widest">AlgoFlow</a>
+            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative min-h-screen flex items-center justify-center gradient-teal pt-20 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-teal-500/5 blur-3xl"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div data-aos="fade-down" data-aos-duration="600">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-bold uppercase tracking-widest mb-6">
+                    <i class="fa-solid fa-bolt"></i> MultiSend
+                </span>
+            </div>
+            <h1 data-aos="fade-up" data-aos-duration="700" data-aos-delay="100" class="text-5xl lg:text-7xl font-black tracking-tight text-white mb-6 leading-tight">
+                One transaction.<br><span class="text-teal-accent">15 wallets.</span> Atomic.
+            </h1>
+            <p data-aos="fade-up" data-aos-duration="700" data-aos-delay="200" class="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
+                Send ALGO or any Algorand token to up to 15 wallets in a single atomic group transaction. All succeed or all revert — no partial sends, ever.
+            </p>
+            <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="300" class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/pages/algoflow/" class="px-8 py-4 rounded-full bg-teal-500 hover:bg-teal-400 text-slate-950 font-black text-sm uppercase tracking-widest transition-all glow-teal">
+                    Launch MultiSend <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#how-it-works" class="px-8 py-4 rounded-full border border-white/10 hover:border-teal-500/40 text-white font-bold text-sm uppercase tracking-widest transition-all">
+                    How It Works
+                </a>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="400" class="mt-16 flex flex-wrap justify-center gap-8 text-center">
+                <div>
+                    <div class="text-3xl font-black text-teal-accent">15</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Max Recipients</div>
+                </div>
+                <div class="w-px bg-white/5 hidden sm:block"></div>
+                <div>
+                    <div class="text-3xl font-black text-teal-accent">~0.002</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">ALGO Total Fee</div>
+                </div>
+                <div class="w-px bg-white/5 hidden sm:block"></div>
+                <div>
+                    <div class="text-3xl font-black text-teal-accent">1</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Block Confirmation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="py-24" id="features">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">Why MultiSend?</h2>
+                <p class="text-gray-400 max-w-xl mx-auto">Built on Algorand's native atomic transaction groups. No smart contract overhead — just pure protocol-level efficiency.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card-blur rounded-2xl p-8" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-atom text-teal-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Atomic Groups</h3>
+                    <p class="text-gray-400 leading-relaxed">All 15 sends are bundled into one Algorand atomic group. Either everyone gets paid or no one does. Guaranteed by the protocol itself — not a promise.</p>
+                </div>
+                <div class="card-blur rounded-2xl p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-coins text-teal-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">ALGO &amp; Any ASA</h3>
+                    <p class="text-gray-400 leading-relaxed">Send the native coin or any Algorand Standard Asset. Paste a CSV or add rows manually. Switch between assets without leaving the interface.</p>
+                </div>
+                <div class="card-blur rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-feather text-teal-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">~0.002 ALGO Total</h3>
+                    <p class="text-gray-400 leading-relaxed">Network fee only. No per-recipient markup, no platform cut. What you send is exactly what arrives — minus the standard Algorand network fee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="py-24 border-t border-white/5" id="how-it-works">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">How It Works</h2>
+                <p class="text-gray-400 max-w-xl mx-auto">Three steps from wallet connection to confirmed batch transfer on Algorand.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 rounded-full bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-black text-teal-accent">1</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Connect Pera Wallet</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Open MultiSend and connect your Pera Wallet with a single tap. Your address loads instantly.</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-full bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-black text-teal-accent">2</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Add Recipients &amp; Amounts</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Add recipient addresses and amounts manually, or upload a CSV. Mix any combination up to 15 rows.</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-full bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mx-auto mb-6">
+                        <span class="text-2xl font-black text-teal-accent">3</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Sign Once, Done</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Sign one atomic group transaction. All transfers confirm in a single block — no follow-up needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <div data-aos="fade-up">
+                <i class="fa-solid fa-bolt text-teal-accent text-4xl mb-6 block"></i>
+                <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">Ready to batch send?</h2>
+                <p class="text-gray-400 max-w-lg mx-auto mb-10">MultiSend is part of the AlgoFlow suite — a collection of Algorand tools built for speed, reliability, and zero platform fees.</p>
+                <a href="/pages/algoflow/" class="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-teal-500 hover:bg-teal-400 text-slate-950 font-black text-sm uppercase tracking-widest transition-all glow-teal">
+                    Open AlgoFlow Suite <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center space-x-3">
+                    <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8" alt="Profitnet">
+                    <span class="text-xl font-bold text-white">Profitnet</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="https://twitter.com/TestedProfit" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm">
+                        <i class="fa-brands fa-x-twitter"></i> @TestedProfit
+                    </a>
+                    <a href="https://discord.gg/aWG3MJGR" target="_blank" rel="noopener" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm">
+                        <i class="fa-brands fa-discord"></i> Discord
+                    </a>
+                    <a href="mailto:testedprofit@gmail.com" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-envelope"></i> testedprofit@gmail.com
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-white/5 text-center text-xs text-gray-600">
+                &copy; 2026 Profitnet. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // AOS init
+        AOS.init({ once: true, offset: 60 });
+
+        // Mobile menu
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+
+        openBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            requestAnimationFrame(() => mobileMenu.classList.add('active'));
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            setTimeout(() => {
+                mobileMenu.classList.remove('flex');
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        });
+    </script>
+</body>
+</html>
