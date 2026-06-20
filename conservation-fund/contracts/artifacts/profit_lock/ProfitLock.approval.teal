@@ -1,0 +1,949 @@
+#pragma version 11
+#pragma typetrack false
+
+// algopy.arc4.ARC4Contract.approval_program() -> uint64:
+main:
+    intcblock 0 1 8 4 23400
+    bytecblock 0x61646d696e 0x636f756e74 0x76 0x151f7c75 0x706175736564 0x00 0x305b5ba4 0x50726f6669744c6f636b20756e6c6f636b
+    // profit_lock/contract.py:81
+    // class ProfitLock(ARC4Contract):
+    txn OnCompletion
+    !
+    assert
+    txn ApplicationID
+    bz main_create_NoOp@14
+    pushbytess 0xeab34976 0x7f509f19 0x4331ff9b 0xe3cdef3b 0xec0850fd 0xd348fbb3 0x1a566779 0x68fb9083 // method "lock_algo(pay,uint64)uint64", method "lock_asa(axfer,uint64)uint64", method "unlock(uint64)uint64", method "opt_in_asset(uint64)void", method "set_paused(bool)void", method "transfer_admin(address)void", method "get_vault(uint64)(address,uint64,uint64,uint64,uint64,uint64,bool)", method "rounds_remaining(uint64)uint64"
+    txna ApplicationArgs 0
+    match lock_algo lock_asa unlock opt_in_asset set_paused transfer_admin get_vault rounds_remaining
+    err
+
+main_create_NoOp@14:
+    // profit_lock/contract.py:81
+    // class ProfitLock(ARC4Contract):
+    pushbytes 0x4c5c61ba // method "create()void"
+    txna ApplicationArgs 0
+    match create
+    err
+
+
+// contract.ProfitLock.create[routing]() -> void:
+create:
+    // profit_lock/contract.py:98
+    // self.admin.value       = Txn.sender
+    bytec_0 // 0x61646d696e
+    txn Sender
+    app_global_put
+    // profit_lock/contract.py:99
+    // self.vault_count.value = UInt64(0)
+    bytec_1 // 0x636f756e74
+    intc_0 // 0
+    app_global_put
+    // profit_lock/contract.py:100
+    // self.paused.value      = False
+    bytec 4 // 0x706175736564
+    intc_0 // 0
+    app_global_put
+    // profit_lock/contract.py:95
+    // @arc4.abimethod(allow_actions=["NoOp"], create="require")
+    intc_1 // 1
+    return
+
+
+// contract.ProfitLock.lock_algo[routing]() -> void:
+lock_algo:
+    // profit_lock/contract.py:104
+    // @arc4.abimethod
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    gtxns TypeEnum
+    intc_1 // pay
+    ==
+    assert // transaction type is pay
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_2 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    // profit_lock/contract.py:118
+    // assert not self.paused.value, "Contract paused"
+    intc_0 // 0
+    bytec 4 // 0x706175736564
+    app_global_get_ex
+    assert // check self.paused exists
+    !
+    assert // Contract paused
+    // profit_lock/contract.py:119
+    // assert payment.receiver == Global.current_application_address, "Wrong receiver"
+    dig 1
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert // Wrong receiver
+    // profit_lock/contract.py:120
+    // assert payment.amount > UInt64(0), "Must lock > 0"
+    dig 1
+    gtxns Amount
+    dup
+    assert // Must lock > 0
+    // profit_lock/contract.py:121
+    // assert payment.close_remainder_to == algopy.Account(), "No close_remainder_to"
+    dig 2
+    gtxns CloseRemainderTo
+    global ZeroAddress
+    ==
+    assert // No close_remainder_to
+    // profit_lock/contract.py:122
+    // assert payment.rekey_to == algopy.Account(), "No rekeying"
+    dig 2
+    gtxns RekeyTo
+    global ZeroAddress
+    ==
+    assert // No rekeying
+    // profit_lock/contract.py:123
+    // assert payment.fee <= UInt64(1_000), "Fee too high"
+    uncover 2
+    gtxns Fee
+    pushint 1000
+    <=
+    assert // Fee too high
+    // profit_lock/contract.py:125
+    // days = lock_days.native
+    dig 1
+    btoi
+    // profit_lock/contract.py:126
+    // assert self._valid_period(days), "lock_days must be 30, 90, 180, or 365"
+    dup
+    callsub _valid_period
+    assert // lock_days must be 30, 90, 180, or 365
+    // profit_lock/contract.py:128
+    // vault_id     = self.vault_count.value
+    intc_0 // 0
+    bytec_1 // 0x636f756e74
+    app_global_get_ex
+    assert // check self.vault_count exists
+    // profit_lock/contract.py:129
+    // unlock_round = Global.round + days * UInt64(ROUNDS_PER_DAY)
+    global Round
+    uncover 2
+    intc 4 // 23400
+    *
+    +
+    // profit_lock/contract.py:132
+    // owner=arc4.Address(Txn.sender),
+    txn Sender
+    // profit_lock/contract.py:133
+    // asset_id=arc4.UInt64(UInt64(0)),
+    intc_0 // 0
+    itob
+    // profit_lock/contract.py:134
+    // amount=arc4.UInt64(payment.amount),
+    uncover 4
+    itob
+    // profit_lock/contract.py:135
+    // unlock_round=arc4.UInt64(unlock_round),
+    uncover 3
+    itob
+    // profit_lock/contract.py:137
+    // created=arc4.UInt64(Global.round),
+    global Round
+    itob
+    // profit_lock/contract.py:131-139
+    // self.vaults[vault_id] = VaultRecord(
+    //     owner=arc4.Address(Txn.sender),
+    //     asset_id=arc4.UInt64(UInt64(0)),
+    //     amount=arc4.UInt64(payment.amount),
+    //     unlock_round=arc4.UInt64(unlock_round),
+    //     lock_days=arc4.UInt64(days),
+    //     created=arc4.UInt64(Global.round),
+    //     claimed=arc4.Bool(False),
+    // )
+    uncover 4
+    dig 4
+    concat
+    dig 3
+    concat
+    dig 2
+    concat
+    uncover 6
+    concat
+    swap
+    concat
+    // profit_lock/contract.py:138
+    // claimed=arc4.Bool(False),
+    bytec 5 // 0x00
+    // profit_lock/contract.py:131-139
+    // self.vaults[vault_id] = VaultRecord(
+    //     owner=arc4.Address(Txn.sender),
+    //     asset_id=arc4.UInt64(UInt64(0)),
+    //     amount=arc4.UInt64(payment.amount),
+    //     unlock_round=arc4.UInt64(unlock_round),
+    //     lock_days=arc4.UInt64(days),
+    //     created=arc4.UInt64(Global.round),
+    //     claimed=arc4.Bool(False),
+    // )
+    concat
+    // profit_lock/contract.py:131
+    // self.vaults[vault_id] = VaultRecord(
+    dig 4
+    itob
+    bytec_2 // 0x76
+    dig 1
+    concat
+    // profit_lock/contract.py:131-139
+    // self.vaults[vault_id] = VaultRecord(
+    //     owner=arc4.Address(Txn.sender),
+    //     asset_id=arc4.UInt64(UInt64(0)),
+    //     amount=arc4.UInt64(payment.amount),
+    //     unlock_round=arc4.UInt64(unlock_round),
+    //     lock_days=arc4.UInt64(days),
+    //     created=arc4.UInt64(Global.round),
+    //     claimed=arc4.Bool(False),
+    // )
+    uncover 2
+    box_put
+    // profit_lock/contract.py:140
+    // self.vault_count.value = vault_id + UInt64(1)
+    uncover 4
+    intc_1 // 1
+    +
+    bytec_1 // 0x636f756e74
+    swap
+    app_global_put
+    // profit_lock/contract.py:142-148
+    // arc4.emit(VaultCreated(
+    //     vault_id=arc4.UInt64(vault_id),
+    //     owner=arc4.Address(Txn.sender),
+    //     asset_id=arc4.UInt64(UInt64(0)),
+    //     amount=arc4.UInt64(payment.amount),
+    //     unlock_round=arc4.UInt64(unlock_round),
+    // ))
+    dup
+    // profit_lock/contract.py:144
+    // owner=arc4.Address(Txn.sender),
+    txn Sender
+    // profit_lock/contract.py:142-148
+    // arc4.emit(VaultCreated(
+    //     vault_id=arc4.UInt64(vault_id),
+    //     owner=arc4.Address(Txn.sender),
+    //     asset_id=arc4.UInt64(UInt64(0)),
+    //     amount=arc4.UInt64(payment.amount),
+    //     unlock_round=arc4.UInt64(unlock_round),
+    // ))
+    concat
+    uncover 4
+    concat
+    uncover 3
+    concat
+    uncover 2
+    concat
+    bytec 6 // method "VaultCreated(uint64,address,uint64,uint64,uint64)"
+    swap
+    concat
+    log
+    // profit_lock/contract.py:104
+    // @arc4.abimethod
+    bytec_3 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+
+// contract.ProfitLock.lock_asa[routing]() -> void:
+lock_asa:
+    // profit_lock/contract.py:152
+    // @arc4.abimethod
+    txn GroupIndex
+    intc_1 // 1
+    -
+    dup
+    gtxns TypeEnum
+    intc_3 // axfer
+    ==
+    assert // transaction type is axfer
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_2 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    // profit_lock/contract.py:167
+    // assert not self.paused.value, "Contract paused"
+    intc_0 // 0
+    bytec 4 // 0x706175736564
+    app_global_get_ex
+    assert // check self.paused exists
+    !
+    assert // Contract paused
+    // profit_lock/contract.py:168
+    // assert deposit.asset_receiver == Global.current_application_address, "Wrong receiver"
+    dig 1
+    gtxns AssetReceiver
+    global CurrentApplicationAddress
+    ==
+    assert // Wrong receiver
+    // profit_lock/contract.py:169
+    // assert deposit.asset_amount > UInt64(0), "Must lock > 0"
+    dig 1
+    gtxns AssetAmount
+    dup
+    assert // Must lock > 0
+    // profit_lock/contract.py:170
+    // assert deposit.asset_close_to == algopy.Account(), "No asset_close_to"
+    dig 2
+    gtxns AssetCloseTo
+    global ZeroAddress
+    ==
+    assert // No asset_close_to
+    // profit_lock/contract.py:171
+    // assert deposit.rekey_to == algopy.Account(), "No rekeying"
+    dig 2
+    gtxns RekeyTo
+    global ZeroAddress
+    ==
+    assert // No rekeying
+    // profit_lock/contract.py:172
+    // assert deposit.fee <= UInt64(1_000), "Fee too high"
+    dig 2
+    gtxns Fee
+    pushint 1000
+    <=
+    assert // Fee too high
+    // profit_lock/contract.py:173
+    // assert deposit.sender == Txn.sender, "Deposit sender must match caller"
+    dig 2
+    gtxns Sender
+    txn Sender
+    ==
+    assert // Deposit sender must match caller
+    // profit_lock/contract.py:175
+    // days = lock_days.native
+    dig 1
+    btoi
+    // profit_lock/contract.py:176
+    // assert self._valid_period(days), "lock_days must be 30, 90, 180, or 365"
+    dup
+    callsub _valid_period
+    assert // lock_days must be 30, 90, 180, or 365
+    // profit_lock/contract.py:178
+    // vault_id     = self.vault_count.value
+    intc_0 // 0
+    bytec_1 // 0x636f756e74
+    app_global_get_ex
+    assert // check self.vault_count exists
+    // profit_lock/contract.py:179
+    // unlock_round = Global.round + days * UInt64(ROUNDS_PER_DAY)
+    global Round
+    uncover 2
+    intc 4 // 23400
+    *
+    +
+    // profit_lock/contract.py:182
+    // owner=arc4.Address(Txn.sender),
+    txn Sender
+    // profit_lock/contract.py:183
+    // asset_id=arc4.UInt64(deposit.xfer_asset.id),
+    uncover 5
+    gtxns XferAsset
+    itob
+    // profit_lock/contract.py:184
+    // amount=arc4.UInt64(deposit.asset_amount),
+    uncover 4
+    itob
+    // profit_lock/contract.py:185
+    // unlock_round=arc4.UInt64(unlock_round),
+    uncover 3
+    itob
+    // profit_lock/contract.py:187
+    // created=arc4.UInt64(Global.round),
+    global Round
+    itob
+    // profit_lock/contract.py:181-189
+    // self.vaults[vault_id] = VaultRecord(
+    //     owner=arc4.Address(Txn.sender),
+    //     asset_id=arc4.UInt64(deposit.xfer_asset.id),
+    //     amount=arc4.UInt64(deposit.asset_amount),
+    //     unlock_round=arc4.UInt64(unlock_round),
+    //     lock_days=arc4.UInt64(days),
+    //     created=arc4.UInt64(Global.round),
+    //     claimed=arc4.Bool(False),
+    // )
+    uncover 4
+    dig 4
+    concat
+    dig 3
+    concat
+    dig 2
+    concat
+    uncover 6
+    concat
+    swap
+    concat
+    // profit_lock/contract.py:188
+    // claimed=arc4.Bool(False),
+    bytec 5 // 0x00
+    // profit_lock/contract.py:181-189
+    // self.vaults[vault_id] = VaultRecord(
+    //     owner=arc4.Address(Txn.sender),
+    //     asset_id=arc4.UInt64(deposit.xfer_asset.id),
+    //     amount=arc4.UInt64(deposit.asset_amount),
+    //     unlock_round=arc4.UInt64(unlock_round),
+    //     lock_days=arc4.UInt64(days),
+    //     created=arc4.UInt64(Global.round),
+    //     claimed=arc4.Bool(False),
+    // )
+    concat
+    // profit_lock/contract.py:181
+    // self.vaults[vault_id] = VaultRecord(
+    dig 4
+    itob
+    bytec_2 // 0x76
+    dig 1
+    concat
+    // profit_lock/contract.py:181-189
+    // self.vaults[vault_id] = VaultRecord(
+    //     owner=arc4.Address(Txn.sender),
+    //     asset_id=arc4.UInt64(deposit.xfer_asset.id),
+    //     amount=arc4.UInt64(deposit.asset_amount),
+    //     unlock_round=arc4.UInt64(unlock_round),
+    //     lock_days=arc4.UInt64(days),
+    //     created=arc4.UInt64(Global.round),
+    //     claimed=arc4.Bool(False),
+    // )
+    uncover 2
+    box_put
+    // profit_lock/contract.py:190
+    // self.vault_count.value = vault_id + UInt64(1)
+    uncover 4
+    intc_1 // 1
+    +
+    bytec_1 // 0x636f756e74
+    swap
+    app_global_put
+    // profit_lock/contract.py:192-198
+    // arc4.emit(VaultCreated(
+    //     vault_id=arc4.UInt64(vault_id),
+    //     owner=arc4.Address(Txn.sender),
+    //     asset_id=arc4.UInt64(deposit.xfer_asset.id),
+    //     amount=arc4.UInt64(deposit.asset_amount),
+    //     unlock_round=arc4.UInt64(unlock_round),
+    // ))
+    dup
+    // profit_lock/contract.py:194
+    // owner=arc4.Address(Txn.sender),
+    txn Sender
+    // profit_lock/contract.py:192-198
+    // arc4.emit(VaultCreated(
+    //     vault_id=arc4.UInt64(vault_id),
+    //     owner=arc4.Address(Txn.sender),
+    //     asset_id=arc4.UInt64(deposit.xfer_asset.id),
+    //     amount=arc4.UInt64(deposit.asset_amount),
+    //     unlock_round=arc4.UInt64(unlock_round),
+    // ))
+    concat
+    uncover 4
+    concat
+    uncover 3
+    concat
+    uncover 2
+    concat
+    bytec 6 // method "VaultCreated(uint64,address,uint64,uint64,uint64)"
+    swap
+    concat
+    log
+    // profit_lock/contract.py:152
+    // @arc4.abimethod
+    bytec_3 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+
+// contract.ProfitLock.unlock[routing]() -> void:
+unlock:
+    // profit_lock/contract.py:204
+    // @arc4.abimethod
+    txna ApplicationArgs 1
+    dupn 2
+    len
+    intc_2 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // profit_lock/contract.py:215
+    // vault = self.vaults[vault_id].copy()
+    itob
+    bytec_2 // 0x76
+    swap
+    concat
+    dupn 2
+    box_get
+    assert // check self.vaults entry exists
+    // profit_lock/contract.py:217
+    // assert arc4.Address(Txn.sender) == vault.owner, "Not vault owner"
+    txn Sender
+    dig 1
+    extract 0 32
+    ==
+    assert // Not vault owner
+    // profit_lock/contract.py:218
+    // assert not vault.claimed.native, "Already claimed"
+    dup
+    pushint 576
+    getbit
+    bytec 5 // 0x00
+    intc_0 // 0
+    uncover 2
+    setbit
+    intc_0 // 0
+    getbit
+    !
+    assert // Already claimed
+    // profit_lock/contract.py:219
+    // assert Global.round >= vault.unlock_round.native, "Still locked"
+    global Round
+    dig 1
+    pushint 48
+    extract_uint64
+    >=
+    assert // Still locked
+    // profit_lock/contract.py:221
+    // amount   = vault.amount.native
+    dup
+    extract 40 8
+    cover 2
+    dup
+    pushint 40
+    extract_uint64
+    cover 2
+    // profit_lock/contract.py:222
+    // asset_id = vault.asset_id.native
+    pushint 32
+    extract_uint64
+    dup
+    cover 3
+    // profit_lock/contract.py:224-226
+    // # Mark claimed before sending (reentrancy guard)
+    // vault.claimed = arc4.Bool(True)
+    // self.vaults[vault_id] = vault.copy()
+    dig 1
+    pushint 72
+    intc_1 // 1
+    box_extract
+    intc_0 // 0
+    // profit_lock/contract.py:224-225
+    // # Mark claimed before sending (reentrancy guard)
+    // vault.claimed = arc4.Bool(True)
+    intc_1 // 1
+    // profit_lock/contract.py:224-226
+    // # Mark claimed before sending (reentrancy guard)
+    // vault.claimed = arc4.Bool(True)
+    // self.vaults[vault_id] = vault.copy()
+    setbit
+    uncover 2
+    pushint 72
+    uncover 2
+    box_replace // on error: index out of bounds
+    // profit_lock/contract.py:228
+    // if asset_id == UInt64(0):
+    bnz unlock_else_body@4
+    // profit_lock/contract.py:229-234
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=amount,
+    //     fee=UInt64(0),
+    //     note=b"ProfitLock unlock",
+    // ).submit()
+    itxn_begin
+    // profit_lock/contract.py:230
+    // receiver=Txn.sender,
+    txn Sender
+    // profit_lock/contract.py:233
+    // note=b"ProfitLock unlock",
+    bytec 7 // 0x50726f6669744c6f636b20756e6c6f636b
+    itxn_field Note
+    itxn_field Receiver
+    itxn_field Amount
+    // profit_lock/contract.py:229
+    // itxn.Payment(
+    intc_1 // pay
+    itxn_field TypeEnum
+    // profit_lock/contract.py:232
+    // fee=UInt64(0),
+    intc_0 // 0
+    itxn_field Fee
+    // profit_lock/contract.py:229-234
+    // itxn.Payment(
+    //     receiver=Txn.sender,
+    //     amount=amount,
+    //     fee=UInt64(0),
+    //     note=b"ProfitLock unlock",
+    // ).submit()
+    itxn_submit
+
+unlock_after_if_else@6:
+    // profit_lock/contract.py:244-248
+    // arc4.emit(VaultUnlocked(
+    //     vault_id=arc4.UInt64(vault_id),
+    //     owner=arc4.Address(Txn.sender),
+    //     amount=arc4.UInt64(amount),
+    // ))
+    dig 3
+    // profit_lock/contract.py:246
+    // owner=arc4.Address(Txn.sender),
+    txn Sender
+    // profit_lock/contract.py:244-248
+    // arc4.emit(VaultUnlocked(
+    //     vault_id=arc4.UInt64(vault_id),
+    //     owner=arc4.Address(Txn.sender),
+    //     amount=arc4.UInt64(amount),
+    // ))
+    concat
+    dig 2
+    dup
+    cover 2
+    concat
+    pushbytes 0x27eaa056 // method "VaultUnlocked(uint64,address,uint64)"
+    swap
+    concat
+    log
+    // profit_lock/contract.py:250-251
+    // # Delete box to reclaim MBR to contract
+    // del self.vaults[vault_id]
+    dig 3
+    box_del
+    pop
+    // profit_lock/contract.py:204
+    // @arc4.abimethod
+    bytec_3 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+unlock_else_body@4:
+    // profit_lock/contract.py:236-242
+    // itxn.AssetTransfer(
+    //     asset_receiver=Txn.sender,
+    //     xfer_asset=algopy.Asset(asset_id),
+    //     asset_amount=amount,
+    //     fee=UInt64(0),
+    //     note=b"ProfitLock unlock",
+    // ).submit()
+    itxn_begin
+    // profit_lock/contract.py:237
+    // asset_receiver=Txn.sender,
+    txn Sender
+    // profit_lock/contract.py:241
+    // note=b"ProfitLock unlock",
+    bytec 7 // 0x50726f6669744c6f636b20756e6c6f636b
+    itxn_field Note
+    swap
+    itxn_field AssetAmount
+    dig 1
+    itxn_field XferAsset
+    itxn_field AssetReceiver
+    // profit_lock/contract.py:236
+    // itxn.AssetTransfer(
+    intc_3 // axfer
+    itxn_field TypeEnum
+    // profit_lock/contract.py:240
+    // fee=UInt64(0),
+    intc_0 // 0
+    itxn_field Fee
+    // profit_lock/contract.py:236-242
+    // itxn.AssetTransfer(
+    //     asset_receiver=Txn.sender,
+    //     xfer_asset=algopy.Asset(asset_id),
+    //     asset_amount=amount,
+    //     fee=UInt64(0),
+    //     note=b"ProfitLock unlock",
+    // ).submit()
+    itxn_submit
+    b unlock_after_if_else@6
+
+
+// contract.ProfitLock.opt_in_asset[routing]() -> void:
+opt_in_asset:
+    // profit_lock/contract.py:257
+    // @arc4.abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_2 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // profit_lock/contract.py:260
+    // assert Txn.sender == self.admin.value, "Admin only"
+    txn Sender
+    intc_0 // 0
+    bytec_0 // 0x61646d696e
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Admin only
+    // profit_lock/contract.py:261-266
+    // itxn.AssetTransfer(
+    //     asset_receiver=Global.current_application_address,
+    //     xfer_asset=asset,
+    //     asset_amount=UInt64(0),
+    //     fee=UInt64(0),
+    // ).submit()
+    itxn_begin
+    // profit_lock/contract.py:262
+    // asset_receiver=Global.current_application_address,
+    global CurrentApplicationAddress
+    // profit_lock/contract.py:264
+    // asset_amount=UInt64(0),
+    intc_0 // 0
+    itxn_field AssetAmount
+    itxn_field AssetReceiver
+    itxn_field XferAsset
+    // profit_lock/contract.py:261
+    // itxn.AssetTransfer(
+    intc_3 // axfer
+    itxn_field TypeEnum
+    // profit_lock/contract.py:265
+    // fee=UInt64(0),
+    intc_0 // 0
+    itxn_field Fee
+    // profit_lock/contract.py:261-266
+    // itxn.AssetTransfer(
+    //     asset_receiver=Global.current_application_address,
+    //     xfer_asset=asset,
+    //     asset_amount=UInt64(0),
+    //     fee=UInt64(0),
+    // ).submit()
+    itxn_submit
+    // profit_lock/contract.py:257
+    // @arc4.abimethod
+    intc_1 // 1
+    return
+
+
+// contract.ProfitLock.set_paused[routing]() -> void:
+set_paused:
+    // profit_lock/contract.py:268
+    // @arc4.abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_1 // 1
+    ==
+    assert // invalid number of bytes for arc4.bool
+    intc_0 // 0
+    getbit
+    // profit_lock/contract.py:274
+    // assert Txn.sender == self.admin.value, "Admin only"
+    txn Sender
+    intc_0 // 0
+    bytec_0 // 0x61646d696e
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Admin only
+    // profit_lock/contract.py:275
+    // self.paused.value = paused
+    bytec 4 // 0x706175736564
+    swap
+    app_global_put
+    // profit_lock/contract.py:268
+    // @arc4.abimethod
+    intc_1 // 1
+    return
+
+
+// contract.ProfitLock.transfer_admin[routing]() -> void:
+transfer_admin:
+    // profit_lock/contract.py:277
+    // @arc4.abimethod
+    txna ApplicationArgs 1
+    dup
+    len
+    pushint 32
+    ==
+    assert // invalid number of bytes for arc4.static_array<arc4.uint8, 32>
+    // profit_lock/contract.py:280
+    // assert Txn.sender == self.admin.value, "Admin only"
+    txn Sender
+    intc_0 // 0
+    bytec_0 // 0x61646d696e
+    app_global_get_ex
+    assert // check self.admin exists
+    ==
+    assert // Admin only
+    // profit_lock/contract.py:281
+    // self.admin.value = new_admin
+    bytec_0 // 0x61646d696e
+    swap
+    app_global_put
+    // profit_lock/contract.py:277
+    // @arc4.abimethod
+    intc_1 // 1
+    return
+
+
+// contract.ProfitLock.get_vault[routing]() -> void:
+get_vault:
+    // profit_lock/contract.py:285
+    // @arc4.abimethod(readonly=True)
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_2 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // profit_lock/contract.py:288
+    // return self.vaults[vault_id].copy()
+    itob
+    bytec_2 // 0x76
+    swap
+    concat
+    box_get
+    assert // check self.vaults entry exists
+    // profit_lock/contract.py:285
+    // @arc4.abimethod(readonly=True)
+    bytec_3 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+
+// contract.ProfitLock.rounds_remaining[routing]() -> void:
+rounds_remaining:
+    // profit_lock/contract.py:290
+    // @arc4.abimethod(readonly=True)
+    txna ApplicationArgs 1
+    dup
+    len
+    intc_2 // 8
+    ==
+    assert // invalid number of bytes for arc4.uint64
+    btoi
+    // profit_lock/contract.py:293
+    // vault = self.vaults[vault_id].copy()
+    itob
+    bytec_2 // 0x76
+    swap
+    concat
+    box_get
+    assert // check self.vaults entry exists
+    // profit_lock/contract.py:294
+    // unlock = vault.unlock_round.native
+    pushint 48
+    extract_uint64
+    dup
+    // profit_lock/contract.py:295
+    // if Global.round >= unlock:
+    global Round
+    <=
+    bz rounds_remaining_after_if_else@3
+    // profit_lock/contract.py:296
+    // return UInt64(0)
+    intc_0 // 0
+
+rounds_remaining_after_inlined_contract.ProfitLock.rounds_remaining@4:
+    // profit_lock/contract.py:290
+    // @arc4.abimethod(readonly=True)
+    itob
+    bytec_3 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+rounds_remaining_after_if_else@3:
+    // profit_lock/contract.py:297
+    // return unlock - Global.round
+    dup
+    global Round
+    -
+    // profit_lock/contract.py:290
+    // @arc4.abimethod(readonly=True)
+    b rounds_remaining_after_inlined_contract.ProfitLock.rounds_remaining@4
+
+
+// contract.ProfitLock._valid_period(days: uint64) -> uint64:
+_valid_period:
+    // profit_lock/contract.py:301-302
+    // @subroutine
+    // def _valid_period(self, days: UInt64) -> bool:
+    proto 1 1
+    // profit_lock/contract.py:304
+    // days == UInt64(30)
+    frame_dig -1
+    pushint 30
+    ==
+    // profit_lock/contract.py:304-307
+    // days == UInt64(30)
+    // or days == UInt64(90)
+    // or days == UInt64(180)
+    // or days == UInt64(365)
+    bnz _valid_period_bool_true@4
+    // profit_lock/contract.py:305
+    // or days == UInt64(90)
+    frame_dig -1
+    pushint 90
+    ==
+    // profit_lock/contract.py:304-307
+    // days == UInt64(30)
+    // or days == UInt64(90)
+    // or days == UInt64(180)
+    // or days == UInt64(365)
+    bnz _valid_period_bool_true@4
+    // profit_lock/contract.py:306
+    // or days == UInt64(180)
+    frame_dig -1
+    pushint 180
+    ==
+    // profit_lock/contract.py:304-307
+    // days == UInt64(30)
+    // or days == UInt64(90)
+    // or days == UInt64(180)
+    // or days == UInt64(365)
+    bnz _valid_period_bool_true@4
+    // profit_lock/contract.py:307
+    // or days == UInt64(365)
+    frame_dig -1
+    pushint 365
+    ==
+    // profit_lock/contract.py:304-307
+    // days == UInt64(30)
+    // or days == UInt64(90)
+    // or days == UInt64(180)
+    // or days == UInt64(365)
+    bz _valid_period_bool_false@5
+
+_valid_period_bool_true@4:
+    intc_1 // 1
+    // profit_lock/contract.py:303-308
+    // return (
+    //     days == UInt64(30)
+    //     or days == UInt64(90)
+    //     or days == UInt64(180)
+    //     or days == UInt64(365)
+    // )
+    retsub
+
+_valid_period_bool_false@5:
+    intc_0 // 0
+    // profit_lock/contract.py:303-308
+    // return (
+    //     days == UInt64(30)
+    //     or days == UInt64(90)
+    //     or days == UInt64(180)
+    //     or days == UInt64(365)
+    // )
+    retsub
