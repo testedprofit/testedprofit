@@ -22,6 +22,84 @@
     <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
+    <style>
+      .algoflow-market-ribbon {
+        background:
+          linear-gradient(135deg, rgba(5, 150, 105, 0.16), rgba(59, 130, 246, 0.12)),
+          #0a091b;
+        border-bottom: 1px solid rgba(45, 212, 191, 0.2);
+        color: #e5e7eb;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .algoflow-market-ribbon__inner {
+        align-items: center;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 1280px;
+        min-height: 48px;
+        padding: 0.55rem 1.5rem;
+      }
+
+      .algoflow-market-ribbon__brand,
+      .algoflow-market-ribbon__meta {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+      }
+
+      .algoflow-market-ribbon__dot {
+        background: #2dd4bf;
+        border-radius: 999px;
+        box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.12);
+        height: 0.5rem;
+        width: 0.5rem;
+      }
+
+      .algoflow-market-ribbon__label {
+        font-size: 0.95rem;
+        font-weight: 900;
+        letter-spacing: -0.01em;
+      }
+
+      .algoflow-market-ribbon__context {
+        color: #9ca3af;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .algoflow-market-ribbon__chip {
+        border: 1px solid rgba(45, 212, 191, 0.24);
+        border-radius: 999px;
+        color: #2dd4bf;
+        font-size: 0.68rem;
+        font-weight: 850;
+        letter-spacing: 0.04em;
+        padding: 0.22rem 0.6rem;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .algoflow-market-ribbon__chip--muted {
+        border-color: rgba(156, 163, 175, 0.24);
+        color: #9ca3af;
+      }
+
+      @media (max-width: 720px) {
+        .algoflow-market-ribbon__inner {
+          align-items: flex-start;
+          flex-direction: column;
+          min-height: 0;
+          padding: 0.75rem 1rem;
+        }
+      }
+    </style>
+
 
     <script type="application/ld+json">
     {
@@ -40,6 +118,20 @@
     <link rel="stylesheet" crossorigin href="/pages/algoflow/assets/index-Bm9njs2X.css">
   </head>
   <body>
+    <section class="algoflow-market-ribbon" aria-label="ALGO AlgoFlow market context">
+      <div class="algoflow-market-ribbon__inner">
+        <div class="algoflow-market-ribbon__brand">
+          <span class="algoflow-market-ribbon__dot" aria-hidden="true"></span>
+          <strong class="algoflow-market-ribbon__label">ALGO / AlgoFlow</strong>
+          <span class="algoflow-market-ribbon__context">external cached market context</span>
+        </div>
+        <div class="algoflow-market-ribbon__meta">
+          <span class="algoflow-market-ribbon__chip">CoinMarketCap cached context</span>
+          <span class="algoflow-market-ribbon__chip algoflow-market-ribbon__chip--muted">Snapshot unavailable</span>
+          <span class="algoflow-market-ribbon__chip algoflow-market-ribbon__chip--muted">Informational only</span>
+        </div>
+      </div>
+    </section>
     <div id="root"></div>
   </body>
 </html>
