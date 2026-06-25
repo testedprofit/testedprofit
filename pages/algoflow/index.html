@@ -23,79 +23,72 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
     <style>
-      .algoflow-market-ribbon {
+      .algoflow-algo-price {
+        align-items: center;
         background:
           linear-gradient(135deg, rgba(5, 150, 105, 0.16), rgba(59, 130, 246, 0.12)),
           #0a091b;
         border-bottom: 1px solid rgba(45, 212, 191, 0.2);
         color: #e5e7eb;
+        display: flex;
         font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      }
-
-      .algoflow-market-ribbon__inner {
-        align-items: center;
-        display: flex;
-        gap: 1rem;
-        justify-content: space-between;
-        margin: 0 auto;
-        max-width: 1280px;
+        justify-content: center;
         min-height: 48px;
-        padding: 0.55rem 1.5rem;
+        padding: 0.55rem 1rem;
+        text-decoration: none;
+        transition: background 0.18s ease, border-color 0.18s ease;
       }
 
-      .algoflow-market-ribbon__brand,
-      .algoflow-market-ribbon__meta {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.55rem;
+      .algoflow-algo-price:hover {
+        background:
+          linear-gradient(135deg, rgba(5, 150, 105, 0.24), rgba(59, 130, 246, 0.18)),
+          #0a091b;
+        border-color: rgba(45, 212, 191, 0.36);
+        text-decoration: none;
       }
 
-      .algoflow-market-ribbon__dot {
+      .algoflow-algo-price__dot {
         background: #2dd4bf;
         border-radius: 999px;
         box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.12);
+        flex: 0 0 auto;
         height: 0.5rem;
+        margin-right: 0.6rem;
         width: 0.5rem;
       }
 
-      .algoflow-market-ribbon__label {
-        font-size: 0.95rem;
+      .algoflow-algo-price__symbol {
+        color: #e5e7eb;
+        font-size: 0.82rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        margin-right: 0.55rem;
+        text-transform: uppercase;
+      }
+
+      .algoflow-algo-price__value {
+        color: #2dd4bf;
+        font-size: 1rem;
         font-weight: 900;
         letter-spacing: -0.01em;
       }
 
-      .algoflow-market-ribbon__context {
+      .algoflow-algo-price__source {
         color: #9ca3af;
-        font-size: 0.72rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-
-      .algoflow-market-ribbon__chip {
-        border: 1px solid rgba(45, 212, 191, 0.24);
-        border-radius: 999px;
-        color: #2dd4bf;
         font-size: 0.68rem;
-        font-weight: 850;
-        letter-spacing: 0.04em;
-        padding: 0.22rem 0.6rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        margin-left: 0.65rem;
         text-transform: uppercase;
-        white-space: nowrap;
       }
 
-      .algoflow-market-ribbon__chip--muted {
-        border-color: rgba(156, 163, 175, 0.24);
-        color: #9ca3af;
-      }
+      @media (max-width: 520px) {
+        .algoflow-algo-price {
+          justify-content: flex-start;
+        }
 
-      @media (max-width: 720px) {
-        .algoflow-market-ribbon__inner {
-          align-items: flex-start;
-          flex-direction: column;
-          min-height: 0;
-          padding: 0.75rem 1rem;
+        .algoflow-algo-price__source {
+          display: none;
         }
       }
     </style>
@@ -118,20 +111,38 @@
     <link rel="stylesheet" crossorigin href="/pages/algoflow/assets/index-Bm9njs2X.css">
   </head>
   <body>
-    <section class="algoflow-market-ribbon" aria-label="ALGO AlgoFlow market context">
-      <div class="algoflow-market-ribbon__inner">
-        <div class="algoflow-market-ribbon__brand">
-          <span class="algoflow-market-ribbon__dot" aria-hidden="true"></span>
-          <strong class="algoflow-market-ribbon__label">ALGO / AlgoFlow</strong>
-          <span class="algoflow-market-ribbon__context">external cached market context</span>
-        </div>
-        <div class="algoflow-market-ribbon__meta">
-          <span class="algoflow-market-ribbon__chip">CoinMarketCap cached context</span>
-          <span class="algoflow-market-ribbon__chip algoflow-market-ribbon__chip--muted">Snapshot unavailable</span>
-          <span class="algoflow-market-ribbon__chip algoflow-market-ribbon__chip--muted">Informational only</span>
-        </div>
-      </div>
-    </section>
+    <a class="algoflow-algo-price" href="https://coinmarketcap.com/currencies/algorand/" target="_blank" rel="noopener noreferrer" aria-label="View ALGO price on CoinMarketCap">
+      <span class="algoflow-algo-price__dot" aria-hidden="true"></span>
+      <span class="algoflow-algo-price__symbol">ALGO / AlgoFlow</span>
+      <strong class="algoflow-algo-price__value" id="algoflow-algo-price-value">Loading price...</strong>
+      <span class="algoflow-algo-price__source">View on CoinMarketCap</span>
+    </a>
     <div id="root"></div>
+    <script>
+      (function () {
+        var priceEl = document.getElementById("algoflow-algo-price-value");
+        if (!priceEl || !window.fetch) {
+          return;
+        }
+        fetch("https://api.coingecko.com/api/v3/simple/price?ids=algorand&vs_currencies=usd", {
+          headers: { "accept": "application/json" },
+        })
+          .then(function (response) {
+            if (!response.ok) throw new Error("price unavailable");
+            return response.json();
+          })
+          .then(function (data) {
+            var price = data && data.algorand && Number(data.algorand.usd);
+            if (!Number.isFinite(price)) throw new Error("price unavailable");
+            priceEl.textContent = "$" + price.toLocaleString("en-US", {
+              minimumFractionDigits: price < 1 ? 4 : 2,
+              maximumFractionDigits: price < 1 ? 4 : 2,
+            });
+          })
+          .catch(function () {
+            priceEl.textContent = "ALGO price";
+          });
+      })();
+    </script>
   </body>
 </html>
