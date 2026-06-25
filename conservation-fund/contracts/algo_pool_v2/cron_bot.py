@@ -7,7 +7,7 @@ Phase flow (permissionless — bot just calls public methods):
   OPEN (0)     → announce_draw()    (after open_duration blocks + min_entries met)
   ANNOUNCED(1) → compute_winner()   (after draw_block confirmed, within 1001 blocks)
   COMPUTED (2) → pay_winner()       (reads winner_idx from global state, passes box ref)
-  SETTLED  (3) → cleanup(50)        (repeat until all boxes deleted, phase resets to OPEN)
+  SETTLED  (3) → cleanup(batch)     (repeat until all boxes deleted, phase resets to OPEN)
 
 The bot is not privileged — any wallet can call these same methods.
 Bot just makes the cycle automatic so users don't have to.
@@ -42,7 +42,7 @@ PHASE_ANNOUNCED = 1
 PHASE_COMPUTED  = 2
 PHASE_SETTLED   = 3
 
-CLEANUP_BATCH = 50  # boxes to delete per cleanup() call
+CLEANUP_BATCH = 8  # max box refs per app call
 
 logging.basicConfig(
     level=logging.INFO,
@@ -107,6 +107,11 @@ def entry_box_key(idx: int) -> bytes:
     return b"e" + idx.to_bytes(8, "big")
 
 
+def entry_box_refs(start: int, count: int):
+    """Build box refs for entries[start:start+count]."""
+    return [(APP_ID, entry_box_key(i)) for i in range(start, start + count)]
+
+
 # ── Draw cycle steps ──────────────────────────────────────────────────────────
 
 def do_announce_draw(client, pk, sender):
@@ -132,15 +137,21 @@ def do_pay_winner(client, pk, sender, winner_idx: int):
     )
 
 
-def do_cleanup(client, pk, sender) -> bool:
-    """Delete one batch of 50 entry boxes. Returns True if cleanup is complete (phase=OPEN)."""
-    log.info("  cleanup(%d) — deleting entry boxes", CLEANUP_BATCH)
-    batch_arg = CLEANUP_BATCH.to_bytes(8, "big")
+def do_cleanup(client, pk, sender, cursor: int, total: int) -> bool:
+    """Delete one box-ref-safe batch. Returns True if cleanup is complete (phase=OPEN)."""
+    batch = min(CLEANUP_BATCH, max(0, total - cursor))
+    if batch == 0:
+        log.info("  cleanup skipped — no entry boxes remaining")
+        return True
+
+    log.info("  cleanup(%d) — deleting entry boxes %d..%d", batch, cursor, cursor + batch - 1)
+    batch_arg = batch.to_bytes(8, "big")
     result = send_app_call(
         client, pk, sender,
         "cleanup(uint64)bool",
         args=[batch_arg],
         fee=1000,
+        boxes=entry_box_refs(cursor, batch),
     )
     # ABI return value is in result["logs"] — True if all boxes cleared
     # Simpler: re-read phase from global state after the call
@@ -222,7 +233,7 @@ def tick(client, pk, sender):
     # ── SETTLED: paginated cleanup ─────────────────────────────────────────
     elif phase == PHASE_SETTLED:
         log.info("  prize paid → cleanup (cursor=%d, total=%d boxes)", cursor, count)
-        do_cleanup(client, pk, sender)
+        do_cleanup(client, pk, sender, cursor, count)
 
     else:
         log.warning("  unknown phase %d — nothing to do", phase)
