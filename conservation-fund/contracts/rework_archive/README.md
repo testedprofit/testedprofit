@@ -1,6 +1,6 @@
 # Rework Archive
 
-Public frontend entry points for these tools were removed on 2026-06-27:
+Public frontend entry points for these tools were hidden on 2026-06-27, with the existing work preserved here for review and rework:
 
 - AlgoPool
 - Crowdfund
