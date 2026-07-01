@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profitnet | Real Data. Real Profits. Sustainable Earning.</title>
-    <meta name="description" content="TestedProfit reviews passive income apps and money-making methods. We personally test and cash out every app, then publish transparent earnings data and honest reviews.">
+    <title>Profitnet | AlgoFlow — Algorand Web3 Tools & The Passive Index</title>
+    <meta name="description" content="AlgoFlow by Profitnet: mint Algorand tokens, bulk-send ALGO, inspect wallets, and post on-chain — plus The Passive Index, our transparent, personally tested passive income data.">
     <link rel="canonical" href="https://testedprofit.com/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Profitnet | Real Data. Real Profits. Sustainable Earning.">
-    <meta property="og:description" content="Transparent reviews and real earnings from online money-making methods. We personally test every app and publish raw results.">
+    <meta property="og:title" content="Profitnet | AlgoFlow — Algorand Web3 Tools & The Passive Index">
+    <meta property="og:description" content="Algorand Web3 tools plus transparent, personally tested earning data. Real data, real profits, sustainable earning.">
     <meta property="og:url" content="https://testedprofit.com/">
     <meta property="og:site_name" content="TestedProfit">
     <meta property="og:image" content="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@TestedProfit">
-    <meta name="twitter:title" content="Profitnet | Real Data. Real Profits.">
-    <meta name="twitter:description" content="Every app tested and cashed out by our team. Transparent results, no fluff.">
+    <meta name="twitter:title" content="Profitnet | AlgoFlow — Algorand Web3 Tools & The Passive Index">
+    <meta name="twitter:description" content="Algorand Web3 tools plus transparent, personally tested earning data. No fluff.">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -32,445 +32,662 @@
           "url": "https://testedprofit.com/",
           "logo": "https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m",
           "sameAs": ["https://x.com/TestedProfit","https://discord.com/invite/aWG3MJGR"]
+        },
+        {
+          "@type": "WebApplication",
+          "name": "AlgoFlow",
+          "url": "https://testedprofit.com/",
+          "description": "Algorand web3 tools: Token Launchpad, MultiSender, Wallet Inspector, AlgoSocial, NFT Studio, and more.",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "creator": { "@type": "Organization", "name": "Profitnet", "url": "https://testedprofit.com" }
         }
       ]
     }
     </script>
 
-    <!-- External Scripts & Styles -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        :root {
-            --primary-dark: #0A091B;
-            --accent-teal: #2DD4BF;
-            --accent-emerald: #10B981;
-            --accent-blue: #60A5FA;
+      .algoflow-algo-price {
+        align-items: center;
+        background:
+          linear-gradient(135deg, rgba(5, 150, 105, 0.16), rgba(59, 130, 246, 0.12)),
+          #0a091b;
+        border-bottom: 1px solid rgba(45, 212, 191, 0.2);
+        color: #e5e7eb;
+        display: flex;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0.55rem 1rem;
+        text-decoration: none;
+        transition: background 0.18s ease, border-color 0.18s ease;
+      }
+
+      .algoflow-algo-price:hover {
+        background:
+          linear-gradient(135deg, rgba(5, 150, 105, 0.24), rgba(59, 130, 246, 0.18)),
+          #0a091b;
+        border-color: rgba(45, 212, 191, 0.36);
+        text-decoration: none;
+      }
+
+      .algoflow-algo-price__dot {
+        background: #2dd4bf;
+        border-radius: 999px;
+        box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.12);
+        flex: 0 0 auto;
+        height: 0.5rem;
+        margin-right: 0.6rem;
+        width: 0.5rem;
+      }
+
+      .algoflow-algo-price__symbol {
+        color: #e5e7eb;
+        font-size: 0.82rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        margin-right: 0.55rem;
+        text-transform: uppercase;
+      }
+
+      .algoflow-algo-price__value {
+        color: #2dd4bf;
+        font-size: 1rem;
+        font-weight: 900;
+        letter-spacing: -0.01em;
+      }
+
+      .algoflow-algo-price__source {
+        color: #9ca3af;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        margin-left: 0.65rem;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 520px) {
+        .algoflow-algo-price {
+          justify-content: flex-start;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--primary-dark);
-            color: #E5E7EB;
-            line-height: 1.6;
+        .algoflow-algo-price__source {
+          display: none;
         }
+      }
 
-        .gradient-text {
-            background: linear-gradient(90deg, #34D399, #60A5FA);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+      /* ---- Profitnet home sections below the AlgoFlow app ---- */
+      .tp-home {
+        background: #0a091b;
+        color: #e5e7eb;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
 
-        .hero-glow {
-            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
-        }
+      .tp-home section { scroll-margin-top: 100px; }
 
-        .bg-grid-pattern {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 2.5rem 2.5rem;
-        }
+      .tp-wrap { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
 
-        .card-blur {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+      .tp-explore {
+        border-top: 1px solid rgba(45, 212, 191, 0.25);
+        background: linear-gradient(180deg, rgba(20, 184, 166, 0.07), transparent 70%);
+        padding: 2.2rem 0;
+      }
 
-        .card-blur:hover {
-            border-color: var(--accent-teal);
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-        }
+      .tp-explore-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
 
-        .cta-button {
-            background: linear-gradient(90deg, #10B981, #3B82F6);
-            transition: all 0.3s ease;
-        }
+      .tp-explore-label {
+        color: #64748b;
+        font-size: 0.7rem;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.4rem;
+      }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
-        }
+      .tp-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid rgba(45, 212, 191, 0.25);
+        border-radius: 999px;
+        padding: 0.65rem 1.1rem;
+        color: #cbd5e1;
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: color 0.18s, background 0.18s, border-color 0.18s;
+      }
 
-        .table-sortable th { cursor: pointer; position: relative; }
-        .table-sortable th:hover { color: var(--accent-emerald); }
-        .table-sortable th.sorted-asc::after { content: ' ▲'; font-size: 0.7rem; color: var(--accent-emerald); }
-        .table-sortable th.sorted-desc::after { content: ' ▼'; font-size: 0.7rem; color: var(--accent-emerald); }
+      .tp-chip:hover { color: #5eead4; background: rgba(45, 212, 191, 0.08); }
 
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out;
-            transform: translateY(-100%);
-        }
-        #mobile-menu.active {
-            transform: translateY(0);
-        }
+      .tp-chip--landmark { border-color: rgba(52, 211, 153, 0.4); color: #6ee7b7; }
+      .tp-chip--landmark:hover { color: #a7f3d0; background: rgba(16, 185, 129, 0.1); }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--primary-dark); }
-        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+      .tp-section { padding: 4.5rem 0; }
 
-        section { scroll-margin-top: 100px; }
+      .tp-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.42rem 0.95rem;
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        border-radius: 999px;
+        background: rgba(16, 185, 129, 0.08);
+        color: #34d399;
+        font-size: 0.68rem;
+        font-weight: 900;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 1.2rem;
+      }
+
+      .tp-dot {
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 999px;
+        background: #10b981;
+        box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+      }
+
+      .tp-h2 {
+        margin: 0 0 0.8rem;
+        color: #fff;
+        font-size: clamp(1.9rem, 4vw, 3rem);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        line-height: 1.05;
+      }
+
+      .tp-h2 span {
+        background: linear-gradient(90deg, #34d399, #60a5fa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .tp-sub { margin: 0 0 2.2rem; color: #94a3b8; max-width: 640px; line-height: 1.7; font-weight: 600; }
+
+      .tp-table-shell {
+        overflow-x: auto;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1.6rem;
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      .tp-table { width: 100%; border-collapse: collapse; min-width: 760px; text-align: left; }
+
+      .tp-table thead tr {
+        background: rgba(15, 23, 42, 0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .tp-table th {
+        padding: 1.4rem 1.6rem;
+        font-size: 0.64rem;
+        font-weight: 900;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #64748b;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .tp-table th:hover { color: #10b981; }
+      .tp-table th.sorted-asc::after { content: " ▲"; font-size: 0.7rem; color: #10b981; }
+      .tp-table th.sorted-desc::after { content: " ▼"; font-size: 0.7rem; color: #10b981; }
+
+      .tp-table tbody tr { border-bottom: 1px solid rgba(255, 255, 255, 0.05); transition: background 0.15s; }
+      .tp-table tbody tr:hover { background: rgba(255, 255, 255, 0.03); }
+      .tp-table td { padding: 1.4rem 1.6rem; }
+
+      .tp-app-name { color: #fff; font-weight: 900; font-size: 1.05rem; }
+      .tp-money { text-align: right; color: #34d399; font-weight: 900; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .tp-threshold { text-align: right; color: #64748b; font-weight: 700; font-size: 0.85rem; }
+
+      .tp-effort {
+        display: inline-block;
+        padding: 0.35rem 0.8rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.55rem;
+        background: rgba(255, 255, 255, 0.05);
+        color: #94a3b8;
+        font-size: 0.6rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .tp-verdict { text-align: center; font-weight: 900; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
+      .tp-verdict--high { color: #34d399; }
+      .tp-verdict--mid { color: #fbbf24; }
+
+      .tp-join {
+        color: #2dd4bf;
+        font-size: 0.66rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        text-decoration: underline;
+        text-underline-offset: 6px;
+        text-decoration-color: rgba(45, 212, 191, 0.25);
+      }
+
+      .tp-join:hover { color: #fff; }
+
+      .tp-grid { display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
+
+      .tp-card {
+        display: flex;
+        flex-direction: column;
+        padding: 1.9rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1.6rem;
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        text-decoration: none;
+        transition: border-color 0.25s, transform 0.25s, background 0.25s;
+      }
+
+      .tp-card:hover {
+        border-color: #2dd4bf;
+        transform: translateY(-6px);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .tp-card-icon {
+        width: 3.1rem;
+        height: 3.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        margin-bottom: 1.4rem;
+        font-size: 1.25rem;
+      }
+
+      .tp-icon-emerald { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: #34d399; }
+      .tp-icon-blue { background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); color: #60a5fa; }
+      .tp-icon-purple { background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.2); color: #c084fc; }
+      .tp-icon-teal { background: rgba(20, 184, 166, 0.1); border: 1px solid rgba(20, 184, 166, 0.2); color: #2dd4bf; }
+      .tp-icon-pink { background: rgba(236, 72, 153, 0.1); border: 1px solid rgba(236, 72, 153, 0.2); color: #f472b6; }
+      .tp-icon-gray { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #9ca3af; }
+      .tp-icon-green { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2); color: #4ade80; }
+
+      .tp-card h3 { margin: 0 0 0.6rem; color: #fff; font-size: 1.15rem; font-weight: 900; letter-spacing: -0.02em; }
+      .tp-card p { margin: 0 0 1.4rem; color: #64748b; font-size: 0.88rem; line-height: 1.65; font-weight: 600; flex-grow: 1; }
+
+      .tp-card-cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #2dd4bf;
+        font-size: 0.66rem;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .tp-strip { border-top: 1px solid rgba(255, 255, 255, 0.05); background: rgba(15, 23, 42, 0.25); }
+
+      .tp-strip-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+      .tp-strip-card {
+        display: block;
+        padding: 1.6rem 1.8rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-left-width: 4px;
+        border-radius: 1.4rem;
+        background: rgba(255, 255, 255, 0.02);
+        text-decoration: none;
+        transition: padding-left 0.25s, border-color 0.25s;
+      }
+
+      .tp-strip-card:hover { padding-left: 2.3rem; border-color: rgba(45, 212, 191, 0.4); }
+      .tp-strip-card h4 { margin: 0 0 0.4rem; color: #fff; font-weight: 900; font-size: 1rem; }
+      .tp-strip-card p { margin: 0; color: #64748b; font-size: 0.78rem; font-weight: 600; line-height: 1.6; }
+      .tp-border-teal { border-left-color: #14b8a6; }
+      .tp-border-purple { border-left-color: #a855f7; }
+      .tp-border-emerald { border-left-color: #10b981; }
+
+      .tp-footer { border-top: 1px solid rgba(255, 255, 255, 0.05); background: #05040f; padding: 3.5rem 0 2.5rem; }
+
+      .tp-footer-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 2.2rem;
+      }
+
+      .tp-footer-brand { display: flex; align-items: center; gap: 0.9rem; }
+      .tp-footer-brand img { width: 2rem; height: 2rem; border-radius: 0.5rem; filter: grayscale(1); opacity: 0.55; transition: filter 0.2s, opacity 0.2s; }
+      .tp-footer-brand:hover img { filter: none; opacity: 1; }
+      .tp-footer-brand-name { color: #fff; font-weight: 900; font-size: 1.1rem; }
+      .tp-footer-brand-tag { color: #475569; font-size: 0.6rem; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; }
+
+      .tp-footer-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+      .tp-footer-links a { color: #64748b; font-size: 0.72rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+      .tp-footer-links a:hover { color: #5eead4; }
+
+      .tp-footer-social { display: flex; gap: 1.6rem; }
+      .tp-footer-social a { color: #475569; font-size: 1.4rem; text-decoration: none; transition: color 0.2s; }
+      .tp-footer-social a:hover { color: #fff; }
+
+      .tp-footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 1.8rem; text-align: center; }
+      .tp-footer-motto { color: #334155; font-size: 0.62rem; font-weight: 900; letter-spacing: 0.4em; text-transform: uppercase; margin: 0 0 0.8rem; }
+      .tp-footer-copy { color: #1e293b; font-size: 0.58rem; font-weight: 800; text-transform: uppercase; margin: 0; }
     </style>
+
+    <script type="module" crossorigin src="/pages/algoflow/assets/index-Dyq7g64I.js"></script>
+    <script defer src="/pages/algoflow/shape-enhancement.js"></script>
+    <script defer src="/pages/algoflow/algoflow-live-overrides.js"></script>
+    <link rel="stylesheet" crossorigin href="/pages/algoflow/assets/index-DD2NHsbe.css">
 </head>
-<body class="antialiased overflow-x-hidden">
+<body>
+    <a class="algoflow-algo-price" href="https://coinmarketcap.com/currencies/algorand/" target="_blank" rel="noopener noreferrer" aria-label="View ALGO price on CoinMarketCap">
+      <span class="algoflow-algo-price__dot" aria-hidden="true"></span>
+      <span class="algoflow-algo-price__symbol">ALGO / AlgoFlow</span>
+      <strong class="algoflow-algo-price__value" id="algoflow-algo-price-value">Loading price...</strong>
+      <span class="algoflow-algo-price__source">View on CoinMarketCap</span>
+    </a>
 
-    <!-- Sticky Navigation -->
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="flex items-center space-x-3 group">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
-                     class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet">
-                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
-            </a>
+    <!-- AlgoFlow app (landing) -->
+    <div id="root"></div>
 
-            <nav class="hidden lg:flex space-x-8 items-center">
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400 hover:text-emerald-300 transition-colors">Landmarks</a>
-                <a href="#algoflow" class="text-xs font-bold uppercase tracking-widest text-blue-400 hover:text-blue-300 transition-colors">AlgoFlow</a>
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">
-                    $PNET Dashboard
-                </a>
-            </nav>
-
-            <button id="mobile-menu-btn" class="lg:hidden text-white"><i class="fa-solid fa-bars-staggered"></i></button>
+    <!-- Profitnet research hub content -->
+    <div class="tp-home">
+      <div class="tp-explore" aria-label="Explore Profitnet">
+        <div class="tp-wrap">
+          <div class="tp-explore-row">
+            <span class="tp-explore-label">Keep exploring Profitnet</span>
+            <a class="tp-chip" href="#apps"><i class="fa-solid fa-ranking-star" aria-hidden="true"></i> The Passive Index</a>
+            <a class="tp-chip tp-chip--landmark" href="/pages/landmarks/"><i class="fa-solid fa-landmark" aria-hidden="true"></i> Landmarks Archive</a>
+            <a class="tp-chip" href="/pages/PNET/"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i> $PNET Dashboard</a>
+            <a class="tp-chip" href="#algoflow"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Standalone Tools</a>
+          </div>
         </div>
+      </div>
 
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
-            <a href="#algoflow" class="text-xl font-black text-blue-400 uppercase tracking-widest">AlgoFlow</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
-        </div>
-    </header>
+      <main>
+        <!-- The Passive Index -->
+        <section id="apps" class="tp-section">
+          <div class="tp-wrap">
+            <div class="tp-eyebrow"><span class="tp-dot" aria-hidden="true"></span> Live Testing Session 2026</div>
+            <h2 class="tp-h2">Real Data. <span>Proven Profits.</span></h2>
+            <p class="tp-sub">We personally test money-making methods, track their raw performance, and publish transparent results. Every app in The Passive Index has been rigorously tested and successfully cashed out by our team. Stop guessing, start earning.</p>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="relative pt-48 pb-32 px-6 overflow-hidden">
-            <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-            <div class="absolute inset-0 hero-glow -z-10"></div>
-
-            <div class="container mx-auto text-center relative z-10">
-                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-8" data-aos="fade-down">
-                    <span class="flex h-2 w-2 relative">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                    </span>
-                    <span class="text-[10px] font-black text-emerald-400 uppercase tracking-[0.2em]">Live Testing Session 2026</span>
-                </div>
-
-                <h1 class="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter leading-none" data-aos="fade-up">
-                    Real Data. <br><span class="gradient-text">Proven Profits.</span>
-                </h1>
-
-                <p class="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed font-medium" data-aos="fade-up" data-aos-delay="200">
-                    We personally test money-making methods, track their raw performance, and publish transparent results. Stop guessing, start earning.
-                </p>
-
-                <div class="flex justify-center" data-aos="fade-up" data-aos-delay="400">
-                    <a href="#apps" class="cta-button px-12 py-5 rounded-2xl font-bold text-white text-lg shadow-xl shadow-emerald-900/20">
-                        View Ranked Index
-                    </a>
-                </div>
+            <div class="tp-table-shell">
+              <table class="tp-table" id="apps-table">
+                <thead>
+                  <tr>
+                    <th data-sort="string" data-sort-prop="name">App Method</th>
+                    <th data-sort="money" data-sort-prop="earnings" style="text-align:right">Monthly Avg</th>
+                    <th data-sort="string" data-sort-prop="effort">Effort</th>
+                    <th data-sort="money" data-sort-prop="threshold" style="text-align:right">Threshold</th>
+                    <th data-sort="number" data-sort-prop="rating" style="text-align:center">Verdict</th>
+                    <th style="text-align:center">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="apps-table-body"></tbody>
+              </table>
             </div>
-        </section>
-
-        <!-- Ranked Index Section -->
-        <section id="apps" class="py-24">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6" data-aos="fade-up">
-                    <div class="max-w-xl text-left">
-                        <h2 class="text-3xl md:text-5xl font-black text-white mb-4">The Passive Index</h2>
-                        <p class="text-gray-500">Every app below has been rigorously tested and successfully cashed out by our team.</p>
-                    </div>
-                </div>
-
-                <div class="overflow-x-auto card-blur rounded-[2.5rem] p-2 border-white/5 shadow-2xl" data-aos="fade-up">
-                    <table class="w-full text-left table-sortable" id="apps-table">
-                        <thead class="bg-slate-900/40">
-                            <tr class="text-[10px] uppercase font-black tracking-[0.2em] text-gray-500 border-b border-white/5">
-                                <th class="p-8" data-sort="string" data-sort-prop="name">App Method</th>
-                                <th class="p-8 text-right" data-sort="money" data-sort-prop="earnings">Monthly Avg</th>
-                                <th class="p-8" data-sort="string" data-sort-prop="effort">Effort</th>
-                                <th class="p-8 text-right" data-sort="money" data-sort-prop="threshold">Threshold</th>
-                                <th class="p-8 text-center" data-sort="number" data-sort-prop="rating">Verdict</th>
-                                <th class="p-8 text-center">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="apps-table-body" class="divide-y divide-white/5">
-                            <!-- JS Injection -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+          </div>
         </section>
 
         <!-- Earning Opportunities Hub -->
-        <section id="tools" class="py-24">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-20" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">Earning Opportunities</h2>
-                    <p class="text-gray-400 max-w-2xl mx-auto">High-potential opportunities analyzed and mapped for 2026.</p>
-                </div>
+        <section id="tools" class="tp-section" style="padding-top:0">
+          <div class="tp-wrap">
+            <h2 class="tp-h2">Earning Opportunities</h2>
+            <p class="tp-sub">High-potential opportunities analyzed and mapped for 2026.</p>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Niche 1 -->
-                    <div class="card-blur p-10 rounded-[2.5rem] flex flex-col h-full group" data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 border border-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all">
-                            <i class="fa-solid fa-user-doctor text-2xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-black text-white mb-4">Professional Side Hustles</h3>
-                        <p class="text-gray-500 text-sm mb-10 flex-grow leading-relaxed">Lucrative earners tailored for high-skill professionals including nurses, engineers, and teachers.</p>
-                        <a href="https://testedprofit.com/pages/contenthub" class="text-emerald-400 font-black text-xs uppercase tracking-widest hover:text-white transition-colors flex items-center">
-                            Explore Guide <i class="fa-solid fa-arrow-right ml-3"></i>
-                        </a>
-                    </div>
-                    <!-- Niche 2 -->
-                    <div class="card-blur p-10 rounded-[2.5rem] flex flex-col h-full border-blue-500/20 group" data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 border border-blue-500/20 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all">
-                            <i class="fa-solid fa-boxes-packing text-2xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-black text-white mb-4">Resale & Collectible ROI</h3>
-                        <p class="text-gray-500 text-sm mb-10 flex-grow leading-relaxed">Master the art of flipping. From vintage tech to collectible card margins, we track profitability.</p>
-                        <a href="https://testedprofit.com/pages/pokemon-card-profit-calculator-track-roi-resale-value" class="text-blue-400 font-black text-xs uppercase tracking-widest hover:text-white transition-colors flex items-center">
-                            ROI Tracker <i class="fa-solid fa-arrow-right ml-3"></i>
-                        </a>
-                    </div>
-                    <!-- Niche 3 -->
-                    <div class="card-blur p-10 rounded-[2.5rem] flex flex-col h-full group" data-aos="fade-up" data-aos-delay="300">
-                        <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-8 border border-purple-500/20 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-all">
-                            <i class="fa-solid fa-leaf text-2xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-black text-white mb-4">Sustainability & Tech</h3>
-                        <p class="text-gray-500 text-sm mb-10 flex-grow leading-relaxed">Explore ethical earning methods that leverage carbon-negative infrastructure for long-term growth.</p>
-                        <a href="https://testedprofit.com/pages/%F0%9F%8C%BF-species-impact-calculator-see-how-your-actions-protect-wildlife" class="text-purple-400 font-black text-xs uppercase tracking-widest hover:text-white transition-colors flex items-center">
-                            Calculate Impact <i class="fa-solid fa-arrow-right ml-3"></i>
-                        </a>
-                    </div>
-                </div>
+            <div class="tp-grid">
+              <a class="tp-card" href="/pages/contenthub">
+                <span class="tp-card-icon tp-icon-emerald"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></span>
+                <h3>Professional Side Hustles</h3>
+                <p>Lucrative earners tailored for high-skill professionals including nurses, engineers, and teachers.</p>
+                <span class="tp-card-cta">Explore Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              <a class="tp-card" href="/pages/pokemon-card-profit-calculator-track-roi-resale-value">
+                <span class="tp-card-icon tp-icon-blue"><i class="fa-solid fa-boxes-packing" aria-hidden="true"></i></span>
+                <h3>Resale &amp; Collectible ROI</h3>
+                <p>Master the art of flipping. From vintage tech to collectible card margins, we track profitability.</p>
+                <span class="tp-card-cta">ROI Tracker <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              <a class="tp-card" href="/pages/%F0%9F%8C%BF-species-impact-calculator-see-how-your-actions-protect-wildlife">
+                <span class="tp-card-icon tp-icon-purple"><i class="fa-solid fa-leaf" aria-hidden="true"></i></span>
+                <h3>Sustainability &amp; Tech</h3>
+                <p>Explore ethical earning methods that leverage carbon-negative infrastructure for long-term growth.</p>
+                <span class="tp-card-cta">Calculate Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              <a class="tp-card" href="/pages/landmarks/">
+                <span class="tp-card-icon tp-icon-green"><i class="fa-solid fa-landmark" aria-hidden="true"></i></span>
+                <h3>The Digital Archive</h3>
+                <p>Landmarks, statues, parks, and local guides documented across the country — the Profitnet research archive beyond earning apps.</p>
+                <span class="tp-card-cta">Visit Landmarks <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
             </div>
+          </div>
         </section>
 
-        <!-- Tool Chest Links -->
-        <section class="py-24 bg-slate-900/20 border-t border-white/5">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                    <a href="https://testedprofit.com/pages/of-calculator" class="block card-blur p-8 rounded-3xl border-l-4 border-l-teal-500 hover:pl-10">
-                        <h4 class="text-lg font-black text-white">Profit & Tax Dashboard</h4>
-                        <p class="text-xs text-gray-500 mt-2">Professional tool for estimating take-home pay and tax obligations.</p>
-                    </a>
-                    <a href="https://testedprofit.com/pages/student-loan-delinquency-tips" class="block card-blur p-8 rounded-3xl border-l-4 border-l-purple-500 hover:pl-10">
-                        <h4 class="text-lg font-black text-white">Student Debt Strategy</h4>
-                        <p class="text-xs text-gray-500 mt-2">Data-driven advice for managing high-interest debt and repayment.</p>
-                    </a>
-                </div>
+        <!-- Tool Chest -->
+        <section class="tp-strip tp-section">
+          <div class="tp-wrap">
+            <div class="tp-strip-grid">
+              <a class="tp-strip-card tp-border-teal" href="/pages/of-calculator">
+                <h4>Profit &amp; Tax Dashboard</h4>
+                <p>Professional tool for estimating take-home pay and tax obligations.</p>
+              </a>
+              <a class="tp-strip-card tp-border-purple" href="/pages/student-loan-delinquency-tips">
+                <h4>Student Debt Strategy</h4>
+                <p>Data-driven advice for managing high-interest debt and repayment.</p>
+              </a>
+              <a class="tp-strip-card tp-border-emerald" href="/pages/landmarks/">
+                <h4>Landmarks Archive</h4>
+                <p>The Profitnet digital archive of landmarks, parks, and local research pages.</p>
+              </a>
             </div>
-        </section>
-        <!-- AlgoFlow Tools Section -->
-        <section id="algoflow" class="py-24 border-t border-white/5">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
-                        <span class="flex h-2 w-2 relative">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                        </span>
-                        <span class="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em]">Live on TestNet · MainNet Coming Soon</span>
-                    </div>
-                    <h2 class="text-3xl md:text-5xl font-black text-white mb-4">AlgoFlow Tools</h2>
-                    <p class="text-gray-400 max-w-2xl mx-auto">A suite of Algorand Web3 tools — from token creation to on-chain social. Built on trustless smart contracts.</p>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
-
-                    <a href="/pages/launchpad/" class="card-blur p-8 rounded-3xl flex flex-col group hover:border-blue-500/40">
-                        <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/20 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all">
-                            <i class="fa-solid fa-rocket text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-black text-white mb-2">Token Launchpad</h3>
-                        <p class="text-gray-500 text-sm flex-grow">Mint a fully compliant Algorand token in 2 minutes. Custom supply, decimals, and control addresses. No code needed.</p>
-                        <div class="mt-6 flex items-center justify-between">
-                            <span class="text-[10px] font-black text-blue-400 uppercase tracking-widest">No code needed</span>
-                            <i class="fa-solid fa-arrow-right text-gray-600 group-hover:text-blue-400 transition-colors"></i>
-                        </div>
-                    </a>
-
-                    <a href="/pages/genesis/" class="card-blur p-8 rounded-3xl flex flex-col group hover:border-green-500/40">
-                        <div class="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6 border border-green-500/20 text-green-400 group-hover:bg-green-500 group-hover:text-slate-950 transition-all">
-                            <i class="fa-solid fa-fire-flame-curved text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-black text-white mb-2">PNET Genesis</h3>
-                        <p class="text-gray-500 text-sm flex-grow">Launch on a trustless bonding curve. Raise 50 ALGO and automatically graduate to a Tinyman v2 DEX pool.</p>
-                        <div class="mt-6 flex items-center justify-between">
-                            <span class="text-[10px] font-black text-green-400 uppercase tracking-widest">Bonding curve</span>
-                            <i class="fa-solid fa-arrow-right text-gray-600 group-hover:text-green-400 transition-colors"></i>
-                        </div>
-                    </a>
-
-                    <a href="/pages/multisend/" class="card-blur p-8 rounded-3xl flex flex-col group hover:border-teal-500/40">
-                        <div class="w-12 h-12 bg-teal-500/10 rounded-2xl flex items-center justify-center mb-6 border border-teal-500/20 text-teal-400 group-hover:bg-teal-500 group-hover:text-slate-950 transition-all">
-                            <i class="fa-solid fa-bolt text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-black text-white mb-2">MultiSend</h3>
-                        <p class="text-gray-500 text-sm flex-grow">Distribute ALGO or any ASA to 15 wallets in a single atomic transaction. All succeed or all revert.</p>
-                        <div class="mt-6 flex items-center justify-between">
-                            <span class="text-[10px] font-black text-teal-400 uppercase tracking-widest">Atomic group txns</span>
-                            <i class="fa-solid fa-arrow-right text-gray-600 group-hover:text-teal-400 transition-colors"></i>
-                        </div>
-                    </a>
-
-                    <a href="/pages/inspector/" class="card-blur p-8 rounded-3xl flex flex-col group hover:border-purple-500/40">
-                        <div class="w-12 h-12 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6 border border-purple-500/20 text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-all">
-                            <i class="fa-solid fa-magnifying-glass-chart text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-black text-white mb-2">Wallet Inspector</h3>
-                        <p class="text-gray-500 text-sm flex-grow">X-ray any Algorand wallet. Full balance, ASA holdings, NFT detection, and explorer links. No wallet required.</p>
-                        <div class="mt-6 flex items-center justify-between">
-                            <span class="text-[10px] font-black text-purple-400 uppercase tracking-widest">No wallet needed</span>
-                            <i class="fa-solid fa-arrow-right text-gray-600 group-hover:text-purple-400 transition-colors"></i>
-                        </div>
-                    </a>
-
-                    <a href="/pages/social/" class="card-blur p-8 rounded-3xl flex flex-col group hover:border-pink-500/40">
-                        <div class="w-12 h-12 bg-pink-500/10 rounded-2xl flex items-center justify-center mb-6 border border-pink-500/20 text-pink-400 group-hover:bg-pink-500 group-hover:text-white transition-all">
-                            <i class="fa-solid fa-satellite-dish text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-black text-white mb-2">AlgoSocial</h3>
-                        <p class="text-gray-500 text-sm flex-grow">On-chain social posts on Algorand. Immutable, censorship-resistant, wallet-native. Every post is a signed transaction.</p>
-                        <div class="mt-6 flex items-center justify-between">
-                            <span class="text-[10px] font-black text-pink-400 uppercase tracking-widest">On-chain posts</span>
-                            <i class="fa-solid fa-arrow-right text-gray-600 group-hover:text-pink-400 transition-colors"></i>
-                        </div>
-                    </a>
-
-                    <a href="/pages/algoflow/" class="card-blur p-8 rounded-3xl flex flex-col group hover:border-white/20 border-dashed">
-                        <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 border border-white/10 text-gray-400 group-hover:bg-white/10 transition-all">
-                            <i class="fa-solid fa-layer-group text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-black text-white mb-2">All Tools (Dev)</h3>
-                        <p class="text-gray-500 text-sm flex-grow">Access all AlgoFlow tools in one place on TestNet. The dev environment where new features are tested first.</p>
-                        <div class="mt-6 flex items-center justify-between">
-                            <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest">TestNet sandbox</span>
-                            <i class="fa-solid fa-arrow-right text-gray-600 group-hover:text-white transition-colors"></i>
-                        </div>
-                    </a>
-
-                </div>
-            </div>
+          </div>
         </section>
 
-    </main>
+        <!-- Standalone AlgoFlow tool pages -->
+        <section id="algoflow" class="tp-section">
+          <div class="tp-wrap">
+            <h2 class="tp-h2">Standalone Tool Pages</h2>
+            <p class="tp-sub">Every AlgoFlow tool above also lives on its own page — direct links you can bookmark and share. Built on trustless Algorand smart contracts.</p>
 
-    <!-- Footer -->
-    <footer class="py-16 bg-slate-950 border-t border-white/5">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-12 mb-12">
-                <div class="flex items-center space-x-4">
-                    <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8 grayscale opacity-50 transition-all hover:grayscale-0 hover:opacity-100" alt="Profitnet">
-                    <div class="text-left">
-                        <div class="text-white font-black text-lg">Profitnet</div>
-                        <div class="text-[10px] text-gray-600 uppercase tracking-widest">Earning Research Hub</div>
-                    </div>
-                </div>
+            <div class="tp-grid">
+              <a class="tp-card" href="/pages/launchpad/">
+                <span class="tp-card-icon tp-icon-blue"><i class="fa-solid fa-rocket" aria-hidden="true"></i></span>
+                <h3>Token Launchpad</h3>
+                <p>Mint a fully compliant Algorand token in 2 minutes. Custom supply, decimals, and control addresses. No code needed.</p>
+                <span class="tp-card-cta">No code needed <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              <a class="tp-card" href="/pages/genesis/">
+                <span class="tp-card-icon tp-icon-green"><i class="fa-solid fa-fire-flame-curved" aria-hidden="true"></i></span>
+                <h3>PNET Genesis</h3>
+                <p>Bonding-curve token launches. Currently offline while the contract flow is reviewed.</p>
+                <span class="tp-card-cta">Offline for review <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              <a class="tp-card" href="/pages/multisend/">
+                <span class="tp-card-icon tp-icon-teal"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                <h3>MultiSend</h3>
+                <p>Distribute ALGO or any ASA to 15 wallets in a single atomic transaction. All succeed or all revert.</p>
+                <span class="tp-card-cta">Atomic group txns <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              <a class="tp-card" href="/pages/inspector/">
+                <span class="tp-card-icon tp-icon-purple"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i></span>
+                <h3>Wallet Inspector</h3>
+                <p>X-ray any Algorand wallet. Full balance, ASA holdings, NFT detection, and explorer links. No wallet required.</p>
+                <span class="tp-card-cta">No wallet needed <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              <a class="tp-card" href="/pages/social/">
+                <span class="tp-card-icon tp-icon-pink"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i></span>
+                <h3>AlgoSocial</h3>
+                <p>On-chain social posts on Algorand. Immutable, censorship-resistant, wallet-native. Every post is a signed transaction.</p>
+                <span class="tp-card-cta">On-chain posts <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+              <a class="tp-card" href="/pages/nfts/">
+                <span class="tp-card-icon tp-icon-gray"><i class="fa-solid fa-images" aria-hidden="true"></i></span>
+                <h3>NFT Studio</h3>
+                <p>Mint real ARC-3 NFTs on Algorand TestNet with protected IPFS pinning and wallet-signed transactions.</p>
+                <span class="tp-card-cta">TestNet minting <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
 
-                <div class="flex space-x-8">
-                    <a href="https://x.com/TestedProfit" target="_blank" class="text-gray-600 hover:text-white transition-colors text-2xl"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="https://discord.com/invite/aWG3MJGR" target="_blank" class="text-gray-600 hover:text-white transition-colors text-2xl"><i class="fa-brands fa-discord"></i></a>
-                    <a href="mailto:testedprofit@gmail.com" class="text-gray-600 hover:text-white transition-colors text-2xl"><i class="fa-solid fa-envelope"></i></a>
-                </div>
+      <!-- Footer -->
+      <footer class="tp-footer">
+        <div class="tp-wrap">
+          <div class="tp-footer-top">
+            <a class="tp-footer-brand" href="/" style="text-decoration:none">
+              <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" alt="Profitnet">
+              <span>
+                <span class="tp-footer-brand-name">Profitnet</span><br>
+                <span class="tp-footer-brand-tag">Earning Research Hub</span>
+              </span>
+            </a>
+            <nav class="tp-footer-links" aria-label="Site links">
+              <a href="/pages/landmarks/">Landmarks</a>
+              <a href="/pages/PNET/">$PNET Dashboard</a>
+              <a href="/pages/algoflow/">AlgoFlow Classic</a>
+              <a href="#apps">Passive Index</a>
+            </nav>
+            <div class="tp-footer-social">
+              <a href="https://x.com/TestedProfit" target="_blank" rel="noopener noreferrer" aria-label="TestedProfit on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+              <a href="https://discord.com/invite/aWG3MJGR" target="_blank" rel="noopener noreferrer" aria-label="Profitnet Discord"><i class="fa-brands fa-discord" aria-hidden="true"></i></a>
+              <a href="mailto:testedprofit@gmail.com" aria-label="Email TestedProfit"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
             </div>
-            <div class="mt-16 pt-8 border-t border-white/5 text-center">
-                <p class="text-gray-700 text-[10px] uppercase font-black tracking-[0.4em]">Integrity • Profit • Sustainability</p>
-                <p class="text-gray-800 text-[9px] mt-4 uppercase font-bold">&copy; 2026 Profitnet.</p>
-            </div>
+          </div>
+          <div class="tp-footer-bottom">
+            <p class="tp-footer-motto">Integrity • Profit • Sustainability</p>
+            <p class="tp-footer-copy">&copy; 2026 Profitnet.</p>
+          </div>
         </div>
-    </footer>
+      </footer>
+    </div>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Init AOS
-        AOS.init({ duration: 800, once: true });
+      (function () {
+        var priceEl = document.getElementById("algoflow-algo-price-value");
+        if (!priceEl || !window.fetch) {
+          return;
+        }
+        fetch("https://api.coingecko.com/api/v3/simple/price?ids=algorand&vs_currencies=usd", {
+          headers: { "accept": "application/json" },
+        })
+          .then(function (response) {
+            if (!response.ok) throw new Error("price unavailable");
+            return response.json();
+          })
+          .then(function (data) {
+            var price = data && data.algorand && Number(data.algorand.usd);
+            if (!Number.isFinite(price)) throw new Error("price unavailable");
+            priceEl.textContent = "$" + price.toLocaleString("en-US", {
+              minimumFractionDigits: price < 1 ? 4 : 2,
+              maximumFractionDigits: price < 1 ? 4 : 2,
+            });
+          })
+          .catch(function () {
+            priceEl.textContent = "ALGO price";
+          });
+      })();
+    </script>
 
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+    <script>
+      (function () {
+        "use strict";
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('flex');
-        });
-
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('flex');
-        });
-
-        // --- App Data ---
-        const appData = [
-            { name: 'Honeygain', earnings: 9.50, effort: 'Passive', threshold: 20.00, rating: 4.8, link: 'https://join.honeygain.com/TESTE927D4/' },
-            { name: 'Swagbucks', earnings: 55.00, effort: 'Semi-Passive', threshold: 5.00, rating: 4.5, link: 'https://www.swagbucks.com/profile/r_219527912?rp=3' },
-            { name: 'EarnApp', earnings: 8.40, effort: 'Passive', threshold: 2.50, rating: 4.3, link: 'https://earnapp.com/i/iqBdX9xU' }
+        // --- The Passive Index table ---
+        var appData = [
+          { name: "Honeygain", earnings: 9.50, effort: "Passive", threshold: 20.00, rating: 4.8, link: "https://join.honeygain.com/TESTE927D4/" },
+          { name: "Swagbucks", earnings: 55.00, effort: "Semi-Passive", threshold: 5.00, rating: 4.5, link: "https://www.swagbucks.com/profile/r_219527912?rp=3" },
+          { name: "EarnApp", earnings: 8.40, effort: "Passive", threshold: 2.50, rating: 4.3, link: "https://earnapp.com/i/iqBdX9xU" }
         ];
 
-        const tableBody = document.getElementById('apps-table-body');
+        var tableBody = document.getElementById("apps-table-body");
+
         function renderTable(data) {
-            tableBody.innerHTML = '';
-            data.forEach(app => {
-                const verdictColor = app.rating >= 4.5 ? 'text-emerald-400' : 'text-amber-400';
-                const row = `
-                    <tr class="hover:bg-white/[0.03] transition-colors group">
-                        <td class="p-8 font-black text-white text-lg">${app.name}</td>
-                        <td class="p-8 text-right font-mono text-emerald-400 font-black text-lg">$${app.earnings.toFixed(2)}</td>
-                        <td class="p-8">
-                            <span class="px-4 py-1.5 text-[9px] font-black rounded-lg bg-white/5 text-gray-500 uppercase tracking-widest border border-white/10 group-hover:border-teal-500/40 transition-all">
-                                ${app.effort}
-                            </span>
-                        </td>
-                        <td class="p-8 text-right text-sm font-bold text-gray-500">$${app.threshold.toFixed(2)}</td>
-                        <td class="p-8 text-center">
-                            <div class="${verdictColor} font-black text-sm tracking-widest uppercase">${app.rating.toFixed(1)} ★ LEGIT</div>
-                        </td>
-                        <td class="p-8 text-center">
-                            <a href="${app.link}" target="_blank" class="text-[10px] font-black text-teal-400 hover:text-white transition-colors underline decoration-teal-500/20 underline-offset-8 uppercase tracking-widest">Join Now</a>
-                        </td>
-                    </tr>
-                `;
-                tableBody.insertAdjacentHTML('beforeend', row);
-            });
+          if (!tableBody) return;
+          tableBody.innerHTML = "";
+          data.forEach(function (app) {
+            var verdictClass = app.rating >= 4.5 ? "tp-verdict--high" : "tp-verdict--mid";
+            var row = [
+              '<tr>',
+              '<td class="tp-app-name">' + app.name + "</td>",
+              '<td class="tp-money">$' + app.earnings.toFixed(2) + "</td>",
+              '<td><span class="tp-effort">' + app.effort + "</span></td>",
+              '<td class="tp-threshold">$' + app.threshold.toFixed(2) + "</td>",
+              '<td class="tp-verdict ' + verdictClass + '">' + app.rating.toFixed(1) + " ★ LEGIT</td>",
+              '<td style="text-align:center"><a class="tp-join" href="' + app.link + '" target="_blank" rel="noopener noreferrer">Join Now</a></td>',
+              "</tr>"
+            ].join("");
+            tableBody.insertAdjacentHTML("beforeend", row);
+          });
         }
+
         renderTable(appData);
 
-        // Sorting Logic
-        const headers = document.querySelectorAll('th[data-sort]');
-        let directions = {};
-        headers.forEach(header => {
-            header.addEventListener('click', () => {
-                const prop = header.dataset.sortProp;
-                const dir = directions[prop] === 'asc' ? 'desc' : 'asc';
-                directions = { [prop]: dir };
-                headers.forEach(h => h.classList.remove('sorted-asc', 'sorted-desc'));
-                header.classList.add(dir === 'asc' ? 'sorted-asc' : 'sorted-desc');
-                appData.sort((a, b) => {
-                    let vA = a[prop], vB = b[prop];
-                    if (header.dataset.sort === 'string') { vA = vA.toLowerCase(); vB = vB.toLowerCase(); }
-                    return dir === 'asc' ? (vA > vB ? 1 : -1) : (vA < vB ? 1 : -1);
-                });
-                renderTable(appData);
+        var headers = document.querySelectorAll("#apps-table th[data-sort]");
+        var directions = {};
+        headers.forEach(function (header) {
+          header.addEventListener("click", function () {
+            var prop = header.dataset.sortProp;
+            var dir = directions[prop] === "asc" ? "desc" : "asc";
+            directions = {};
+            directions[prop] = dir;
+            headers.forEach(function (h) { h.classList.remove("sorted-asc", "sorted-desc"); });
+            header.classList.add(dir === "asc" ? "sorted-asc" : "sorted-desc");
+            appData.sort(function (a, b) {
+              var vA = a[prop], vB = b[prop];
+              if (header.dataset.sort === "string") { vA = String(vA).toLowerCase(); vB = String(vB).toLowerCase(); }
+              return dir === "asc" ? (vA > vB ? 1 : -1) : (vA < vB ? 1 : -1);
             });
+            renderTable(appData);
+          });
         });
-    });
+
+        // --- Landmarks pill in the AlgoFlow app nav ---
+        var attempts = 0;
+        var navTimer = window.setInterval(function () {
+          attempts += 1;
+          var nav = document.querySelector(".af-tool-nav") || document.querySelector("#root nav");
+          if (nav && !document.getElementById("tp-landmarks-nav")) {
+            var pill = document.createElement("a");
+            pill.id = "tp-landmarks-nav";
+            pill.className = "af-tool-pill";
+            pill.href = "/pages/landmarks/";
+            pill.setAttribute("aria-label", "Open the Landmarks archive");
+            pill.innerHTML = '<i class="fa-solid fa-landmark" aria-hidden="true"></i><span>Landmarks</span>';
+            nav.appendChild(pill);
+          }
+          if (document.getElementById("tp-landmarks-nav") || attempts >= 40) window.clearInterval(navTimer);
+        }, 250);
+      })();
     </script>
 </body>
 </html>
