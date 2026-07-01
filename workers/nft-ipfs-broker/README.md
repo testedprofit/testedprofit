@@ -78,14 +78,20 @@ For temporary local browser testing, add `http://127.0.0.1:8784` to `vars.ALLOWE
 
 Do not put the Pinata token in source code, `wrangler.jsonc`, HTML, JavaScript, GitHub issues, or PR comments.
 
-The standalone NFT page expects a same-domain production route:
+The standalone NFT page now defaults to the deployed Worker broker:
+
+```text
+https://algoflow-nft-ipfs-broker.testedprofit.workers.dev
+```
+
+This keeps NFT Studio usable while `testedprofit.com` is served from GitHub Pages. The same-domain route below is still the preferred future shape if the custom domain is later proxied through Cloudflare:
 
 ```text
 https://testedprofit.com/pages/nfts/
 https://testedprofit.com/api/nft
 ```
 
-In the browser, NFT Studio defaults the broker URL to:
+If the site is moved behind Cloudflare, NFT Studio can default the broker URL to:
 
 ```text
 /api/nft
@@ -97,7 +103,7 @@ That means the Worker should be routed behind the custom domain, for example:
 testedprofit.com/api/nft*
 ```
 
-If the GitHub Pages custom domain is not proxied through Cloudflare, use the deployed `workers.dev` URL in NFT Studio instead of `/api/nft`.
+If the GitHub Pages custom domain is not proxied through Cloudflare, keep using the deployed `workers.dev` URL in NFT Studio instead of `/api/nft`.
 
 The allowed browser origins live in `wrangler.jsonc` under `vars.ALLOWED_ORIGINS`. Production defaults include only approved site origins:
 
@@ -166,11 +172,12 @@ Confirm all of the following before opening a PR:
 ## NFT Studio Flow
 
 1. User uploads image/video in the browser.
-2. Browser previews and hashes it locally.
-3. Browser sends the file to this Worker.
-4. Worker pins media to Pinata and returns `ipfs://CID`.
-5. Browser builds ARC-3 metadata JSON.
-6. Browser sends exact metadata JSON to this Worker.
-7. Worker pins metadata and returns `ipfs://CID`.
-8. Browser fills `ipfs://metadataCID#arc3`.
-9. User signs the Algorand TestNet ASA create transaction in Pera or Defly.
+2. User clicks `Create TestNet NFT`.
+3. Browser previews and hashes media locally.
+4. Browser sends the file to this Worker.
+5. Worker pins media to Pinata and returns `ipfs://CID`.
+6. Browser builds exact ARC-3 metadata JSON.
+7. Browser sends exact metadata JSON to this Worker.
+8. Worker pins metadata and returns `ipfs://CID`.
+9. Browser fills `ipfs://metadataCID#arc3`.
+10. User signs the Algorand TestNet ASA create transaction in Pera or Defly.
