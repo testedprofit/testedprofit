@@ -193,6 +193,7 @@
       "      <div class=\"af-nft-actions\">",
       "        <button class=\"af-nft-btn\" type=\"button\" data-nft-focus=\"mint\">Mint ARC-3 NFT</button>",
       "        <button class=\"af-nft-btn af-nft-btn-secondary\" type=\"button\" data-nft-focus=\"market\">Marketplace contract checklist</button>",
+      isDedicatedNftPage() ? "" : "        <a class=\"af-nft-btn af-nft-btn-secondary\" href=\"/pages/nfts/\" aria-label=\"Open the standalone NFT Studio page\">Standalone page</a>",
       "      </div>",
       "      <p class=\"af-nft-note\">Minting is TestNet wallet-signed and non-custodial. Marketplace escrow, royalties, and MainNet listing actions stay gated until reviewed contracts and TestNet evidence exist.</p>",
       "    </section>",
@@ -324,9 +325,9 @@
         document.body.appendChild(panel);
       }
     }
-    if (panel.getAttribute("data-nft-rendered") !== "nft-studio-v3") {
+    if (panel.getAttribute("data-nft-rendered") !== "nft-studio-v4") {
       panel.innerHTML = nftPanelHtml();
-      panel.setAttribute("data-nft-rendered", "nft-studio-v3");
+      panel.setAttribute("data-nft-rendered", "nft-studio-v4");
     }
 
     document.querySelectorAll(".af-tool-pill").forEach(function (button) {
@@ -1063,6 +1064,17 @@
 
   window.addEventListener("hashchange", scheduleApply);
   window.addEventListener("DOMContentLoaded", scheduleApply);
+  window.addEventListener("popstate", scheduleApply);
+
+  ["pushState", "replaceState"].forEach(function (name) {
+    var original = window.history[name];
+    if (typeof original !== "function") return;
+    window.history[name] = function () {
+      var result = original.apply(this, arguments);
+      scheduleApply();
+      return result;
+    };
+  });
 
   scheduleApply();
   var startupAttempts = 0;
