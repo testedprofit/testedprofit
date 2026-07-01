@@ -167,8 +167,8 @@
     var button = document.createElement("a");
     button.id = NAV_ID;
     button.className = "af-tool-pill";
-    button.href = "/pages/nfts/";
-    button.setAttribute("aria-label", "Open NFT Studio");
+    button.href = NFT_HASH;
+    button.setAttribute("aria-label", "Open NFT Studio inside AlgoFlow");
     button.innerHTML = "<i class=\"fa-solid fa-images\" aria-hidden=\"true\"></i><span>NFT Studio</span>";
 
     var shapeButton = Array.from(nav.querySelectorAll("button")).find(function (candidate) {

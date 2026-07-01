@@ -78,7 +78,19 @@ For temporary local browser testing, add `http://127.0.0.1:8784` to `vars.ALLOWE
 
 Do not put the Pinata token in source code, `wrangler.jsonc`, HTML, JavaScript, GitHub issues, or PR comments.
 
-The standalone NFT page now defaults to the deployed Worker broker:
+NFT Studio is primarily exposed as an AlgoFlow in-app route:
+
+```text
+https://testedprofit.com/pages/algoflow/#nfts
+```
+
+The standalone NFT page remains available as a direct deep link:
+
+```text
+https://testedprofit.com/pages/nfts/
+```
+
+Both entry points default to the deployed Worker broker:
 
 ```text
 https://algoflow-nft-ipfs-broker.testedprofit.workers.dev
