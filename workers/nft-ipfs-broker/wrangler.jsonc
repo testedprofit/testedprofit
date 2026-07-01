@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "algoflow-nft-ipfs-broker",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-06-16",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "ALLOWED_ORIGINS": "https://testedprofit.com,https://testedprofit.github.io",
+    "MAX_UPLOAD_BYTES": "26214400"
+  }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlgoFlow NFT Studio | ARC-3 NFT Minting on Algorand</title>
+    <meta name="description" content="Mint ARC-3 Algorand NFTs with media upload, IPFS metadata, Pera or Defly wallet signing, and TestNet-first safety boundaries." />
+    <link rel="canonical" href="https://testedprofit.com/pages/nfts/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://testedprofit.com/pages/nfts/" />
+    <meta property="og:title" content="AlgoFlow NFT Studio" />
+    <meta property="og:description" content="A standalone AlgoFlow page for TestNet ARC-3 NFT minting with protected IPFS upload flow." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="AlgoFlow NFT Studio" />
+    <meta name="twitter:description" content="TestNet ARC-3 NFT minting for Algorand creators." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" crossorigin href="/pages/algoflow/assets/index-DD2NHsbe.css" />
+    <style>
+      body {
+        margin: 0;
+        background: #080818;
+        color: #e5e7eb;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .nft-page-header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(8, 8, 24, 0.88);
+        backdrop-filter: blur(18px);
+      }
+
+      .nft-page-header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0.9rem 1.5rem;
+      }
+
+      .nft-page-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        color: #f8fafc;
+        font-weight: 950;
+        letter-spacing: -0.02em;
+        text-decoration: none;
+      }
+
+      .nft-page-brand img {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+      }
+
+      .nft-page-nav {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+      }
+
+      .nft-page-link {
+        border: 1px solid rgba(45, 212, 191, 0.22);
+        border-radius: 999px;
+        color: #cbd5e1;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.56rem 0.86rem;
+        font-size: 0.74rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .nft-page-link:hover {
+        color: #5eead4;
+        background: rgba(45, 212, 191, 0.08);
+      }
+
+      #root {
+        min-height: 1px;
+      }
+
+      @media (max-width: 640px) {
+        .nft-page-header-inner {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+    </style>
+    <script defer src="/pages/algoflow/algoflow-live-overrides.js"></script>
+  </head>
+  <body>
+    <header class="nft-page-header">
+      <div class="nft-page-header-inner">
+        <a class="nft-page-brand" href="/pages/algoflow/" aria-label="Back to AlgoFlow">
+          <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" alt="Profitnet" />
+          <span>AlgoFlow NFT Studio</span>
+        </a>
+        <nav class="nft-page-nav" aria-label="NFT Studio navigation">
+          <a class="nft-page-link" href="/pages/algoflow/"><i class="fa-solid fa-grid-2" aria-hidden="true"></i> AlgoFlow</a>
+          <a class="nft-page-link" href="/pages/algoflow/#inspector"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> Inspector</a>
+          <a class="nft-page-link" href="/pages/PNET/"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i> PNET</a>
+        </nav>
+      </div>
+    </header>
+    <div id="root" aria-live="polite"></div>
+    <noscript>AlgoFlow NFT Studio needs JavaScript for wallet signing, media hashing, and IPFS upload flow.</noscript>
+  </body>
+</html>
