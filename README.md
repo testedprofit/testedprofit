@@ -8,11 +8,12 @@ I build in public under the **[TestedProfit](https://testedprofit.com)** brand.
 
 ## 🚀 AlgoFlow — my main project
 
-**[AlgoFlow](https://testedprofit.com/pages/algoflow/)** is a 12-tool **Algorand Web3 suite, live on mainnet**. There's no backend — every action is a real, signed, on-chain transaction.
+**[AlgoFlow](https://testedprofit.com/pages/algoflow/)** is an **Algorand Web3 suite** with wallet-signed tools, token utilities, and staged NFT tooling. Stable tools stay live while broken or contract-sensitive tools are hidden until reviewed.
 
 | Tool | What it does | Status |
 |------|--------------|--------|
-| **[PNET LaunchPad](https://testedprofit.com/pages/genesis/)** | Bonding-curve token launchpad — tiered launch fees, automatic graduation to a Tinyman v2 liquidity pool | 🟢 Mainnet |
+| **PNET Genesis / LaunchPad** | Bonding-curve token launchpad — currently hidden from the front end while the contract flow is reviewed | 🔴 Offline for review |
+| **[NFT Studio](https://testedprofit.com/pages/nfts/)** | Standalone TestNet ARC-3 NFT minting page with media upload, protected Pinata/IPFS broker path, metadata hashing, Pera/Defly signing, and ASA total 1 / decimals 0 | 🟡 Testnet |
 | **[AlgoPool](https://testedprofit.com/pages/algopool/)** | Weekly prize draw — fees auto-split on-chain, winner picked by Algorand block VRF | 🟢 Mainnet |
 | **[ProfitLock](https://testedprofit.com/pages/profitlock/)** | Non-custodial time-lock vaults (30/90/180/365 days) | 🟢 Mainnet |
 | **Crowdfund** | On-chain fundraising campaigns | 🟡 Testnet |
