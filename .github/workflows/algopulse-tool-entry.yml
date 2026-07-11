@@ -1,0 +1,32 @@
+name: AlgoPulse Tool Entry CI
+
+on:
+  pull_request:
+    paths:
+      - "index.html"
+      - "pages/algoflow/algopulse-tool.*"
+      - "pages/algoflow/index.html"
+      - ".github/workflows/algopulse-tool-entry.yml"
+  push:
+    paths:
+      - "index.html"
+      - "pages/algoflow/algopulse-tool.*"
+      - "pages/algoflow/index.html"
+      - ".github/workflows/algopulse-tool-entry.yml"
+
+jobs:
+  static-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: JavaScript syntax
+        run: node --check pages/algoflow/algopulse-tool.js
+      - name: Tool entry contract
+        run: |
+          grep -q 'href = TOOL_HASH' pages/algoflow/algopulse-tool.js
+          grep -q 'Live execution locked' pages/algoflow/algopulse-tool.js
+          grep -q 'algopulse-tool.js' index.html
+          grep -q 'algopulse-tool.js' pages/algoflow/index.html
