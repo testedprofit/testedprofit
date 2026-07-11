@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>AlgoPulse TestNet Soak Evidence Snapshot</title>
+<style>
+  body { margin:0; font-family:Segoe UI,sans-serif; background:#071018; color:#e8fff6; }
+  .wrap { max-width:1100px; margin:0 auto; padding:24px; }
+  .card { border:1px solid rgba(120,190,255,.35); border-left:4px solid #6fb6ff; border-radius:12px; padding:18px; background:rgba(255,255,255,.03); }
+  h1 { margin:0 0 8px; font-size:1.6rem; }
+  .meta { color:#9db6ad; font-size:.85rem; margin-bottom:14px; }
+  .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+  .grid div, .block { background:rgba(0,0,0,.28); border:1px solid rgba(255,255,255,.08); border-radius:8px; padding:10px; }
+  span { display:block; color:#8ea69d; font-size:.7rem; text-transform:uppercase; font-weight:700; }
+  strong { display:block; margin-top:4px; font-size:.95rem; overflow-wrap:anywhere; }
+  .lock { margin-top:14px; display:inline-block; border:1px solid rgba(255,120,120,.4); color:#ff9696; border-radius:8px; padding:8px 12px; }
+  .badge { display:inline-block; margin-left:8px; padding:2px 8px; border-radius:999px; background:#123; border:1px solid #456; font-size:.75rem; }
+  @media (max-width:700px){ .grid{grid-template-columns:1fr;} .wrap{padding:12px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="meta">Stored API evidence snapshot from GET /api/ops/testnet-soak · not a live-trading claim · productionReady=false</div>
+    <h1>TestNet Soak <span class="badge">in_progress</span> <span class="badge">live</span></h1>
+    <p class="meta">Runner: idle · Coverage: 0% · Elapsed: 0h · Observations: 1/1</p>
+    <div class="grid">
+      <div><span>Scanner success</span><strong>0%</strong></div>
+      <div><span>Longest gap</span><strong>0s</strong></div>
+      <div><span>Pools / quotes</span><strong>1 / 0</strong></div>
+      <div><span>Tinyman ok/err</span><strong>1 / 0</strong></div>
+      <div><span>Pact ok/err</span><strong>0 / 1</strong></div>
+      <div><span>Algod ok/err</span><strong>1 / 0</strong></div>
+      <div><span>Indexer ok/err</span><strong>1 / 0</strong></div>
+      <div><span>Fresh quote %</span><strong>0</strong></div>
+      <div><span>Paper T+5 / T+30</span><strong>0 / 0</strong></div>
+    </div>
+    <div class="block" style="margin-top:10px"><span>Blockers</span><strong>elapsed_coverage_below_24h / missing_paper_trading_evidence</strong></div>
+    <div class="block" style="margin-top:10px"><span>Warnings</span><strong>pact_degraded_or_down</strong></div>
+    <div class="lock">Live execution locked · productionReady=false</div>
+  </div>
+</div>
+</body>
+</html>

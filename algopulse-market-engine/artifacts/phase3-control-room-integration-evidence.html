@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html><head><meta charset='utf-8'><title>Control Room Integration Evidence</title>
+<style>
+body{margin:0;font-family:Segoe UI,sans-serif;background:#071018;color:#e8fff6}
+.wrap{max-width:1200px;margin:0 auto;padding:20px}
+.card{border:1px solid rgba(120,190,255,.3);border-left:4px solid #6fb6ff;border-radius:12px;padding:16px;margin-bottom:14px;background:rgba(255,255,255,.03)}
+h1,h2{margin:0 0 8px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.grid div,.row{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px}
+span{display:block;color:#8ea69d;font-size:.68rem;text-transform:uppercase;font-weight:700}
+strong{display:block;margin-top:4px;font-size:.9rem;overflow-wrap:anywhere}
+.lock{display:inline-block;border:1px solid rgba(255,120,120,.4);color:#ff9696;border-radius:8px;padding:8px 12px;margin-top:8px}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;border:1px solid #456;font-size:.72rem;margin-left:6px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+</style></head><body><div class='wrap'>
+<div class='card'>
+<h1>Production Control Room Evidence <span class='badge'>Phase 3</span></h1>
+<p>Snapshot from live ops APIs · productionReady=false · live execution locked</p>
+<div class='lock'>LIVE MICRO-EXECUTION LOCKED</div>
+</div>
+<div class='card'><h2>Status / Readiness</h2>
+<div class='grid'>
+<div><span>Headline</span><strong>NOT LIVE READY</strong></div>
+<div><span>Active phase</span><strong>Phase 3: TestNet Readiness</strong></div>
+<div><span>Historical</span><strong>Phase 0B Scanner</strong></div>
+<div><span>Overall</span><strong>39%</strong></div>
+<div><span>Safe mode</span><strong>Phase 3 TestNet: Scanner / Paper / Dry Run only.</strong></div>
+<div><span>Pipeline source</span><strong>stored</strong></div>
+<div><span>Paper candidates</span><strong>0 (unavailable)</strong></div>
+<div><span>Services</span><strong>9</strong></div>
+</div></div>
+<div class='card'><h2>Phase ladder</h2>
+<div class='grid'>
+<div><span>Active</span><strong>Phase 3: TestNet Readiness</strong></div>
+<div><span>Historical phases</span><strong>7</strong></div>
+<div><span>Note</span><strong>Phase 3 is active. Phase 0A–0G remain historical gate evidence.</strong></div>
+</div></div>
+<div class='card'><h2>TestNet soak</h2>
+<div class='grid'>
+<div><span>Gate</span><strong>in_progress</strong></div>
+<div><span>Coverage</span><strong>0%</strong></div>
+<div><span>Live observations</span><strong>1</strong></div>
+<div><span>Source</span><strong>live</strong></div>
+</div>
+<p>Blockers: elapsed_coverage_below_24h / missing_paper_trading_evidence</p>
+</div>
+<div class='card'><h2>Activity tape (sample)</h2>
+<div class='row'><span>Pool Scanner · stored</span><strong>1 stored pool snapshots available.</strong></div>
+<div class='row'><span>Quote Engine · unavailable</span><strong>No comparable quote evidence yet.</strong></div>
+<div class='row'><span>Route Engine · unavailable</span><strong>Route engine needs quote evidence.</strong></div>
+<div class='row'><span>Risk Engine · unavailable</span><strong>Risk engine is waiting for route candidates.</strong></div>
+<div class='row'><span>Paper Trader · unavailable</span><strong>0 paper candidates; expected 0.000000 vs simulated 0.000000; rechecks 5s=0 30s=0.</strong></div>
+<div class='row'><span>Phase Ladder · stored</span><strong>Active phase is Phase 3 TestNet Readiness; Phase 0 ladder remains historical evidence. Paper days 0/7.</strong></div>
+<div class='row'><span>Live Micro-Execution · stored</span><strong>Live execution remains disarmed and locked.</strong></div>
+<div class='row'><span>Connector:pact · stored</span><strong>pact is down (pact_api_non_json_response).</strong></div>
+</div>
+<div class='card'><h2>Connectors</h2>
+<div class='grid'>
+<div><span>pact</span><strong>down / </strong></div>
+<div><span>tinyman</span><strong>ok / </strong></div>
+</div></div>
+</div></body></html>

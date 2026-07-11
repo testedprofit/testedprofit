@@ -1,0 +1,536 @@
+{
+  "approvedCount": 0,
+  "comparableQuotes": [
+    {
+      "appId": 1002541853,
+      "blockRound": 62996824,
+      "feeAmount": 0.0036,
+      "inputAmount": 1.0,
+      "inputAssetId": 0,
+      "outputAmount": 15529.713613525335,
+      "outputAssetId": 3169177585,
+      "poolId": "tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0",
+      "priceImpactBps": 81.56449791008824,
+      "venueId": "tinyman"
+    },
+    {
+      "appId": 1002541853,
+      "blockRound": 62996824,
+      "feeAmount": 0.018,
+      "inputAmount": 5.0,
+      "inputAssetId": 0,
+      "outputAmount": 76253.76102828122,
+      "outputAssetId": 3169177585,
+      "poolId": "tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0",
+      "priceImpactBps": 259.7300971206251,
+      "venueId": "tinyman"
+    },
+    {
+      "appId": 1002541853,
+      "blockRound": 62996824,
+      "feeAmount": 0.036,
+      "inputAmount": 10.0,
+      "inputAssetId": 0,
+      "outputAmount": 149158.34393777972,
+      "outputAssetId": 3169177585,
+      "poolId": "tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0",
+      "priceImpactBps": 473.6336370238081,
+      "venueId": "tinyman"
+    },
+    {
+      "appId": 3169274785,
+      "blockRound": 62996824,
+      "feeAmount": 0.0002,
+      "inputAmount": 1.0,
+      "inputAssetId": 0,
+      "outputAmount": 0.05362371277344813,
+      "outputAssetId": 3169177585,
+      "poolId": "pact:3169274785:0-3169177585",
+      "priceImpactBps": 9999.760005761014,
+      "venueId": "pact"
+    },
+    {
+      "appId": 3169274785,
+      "blockRound": 62996824,
+      "feeAmount": 0.001,
+      "inputAmount": 5.0,
+      "inputAssetId": 0,
+      "outputAmount": 0.05362474254974572,
+      "outputAssetId": 3169177585,
+      "poolId": "pact:3169274785:0-3169177585",
+      "priceImpactBps": 9999.952000230445,
+      "venueId": "pact"
+    },
+    {
+      "appId": 3169274785,
+      "blockRound": 62996824,
+      "feeAmount": 0.002,
+      "inputAmount": 10.0,
+      "inputAssetId": 0,
+      "outputAmount": 0.053624871274563855,
+      "outputAssetId": 3169177585,
+      "poolId": "pact:3169274785:0-3169177585",
+      "priceImpactBps": 9999.976000057612,
+      "venueId": "pact"
+    }
+  ],
+  "completedAt": 1783779694.3809636,
+  "connectors": {
+    "pact": {
+      "connectorName": "pact",
+      "detail": null,
+      "latencyMs": 4073.879,
+      "poolCount": 9,
+      "status": "ok"
+    },
+    "tinyman": {
+      "connectorName": "tinyman",
+      "detail": null,
+      "latencyMs": 701.198,
+      "poolCount": 2,
+      "status": "ok"
+    }
+  },
+  "controlRoomHint": "Open the dashboard as local-review admin and inspect Control Room: pipeline, connectors, paper scoreboard, rejections, environment (network=mainnet).",
+  "liveExecutionLocked": true,
+  "loopId": "paper_arb_4b12dc2ed60f",
+  "mode": "mainnet-readonly",
+  "network": "mainnet",
+  "opportunityCount": 6,
+  "outcome": "spread_below_profit_threshold",
+  "paper": {
+    "recent": [
+      {
+        "check_30s_due_at": 1783779687.1716776,
+        "check_5s_due_at": 1783779662.1716776,
+        "check_60s_due_at": 1783779717.1716776,
+        "checked_30s_at": 1783779694.3501413,
+        "checked_5s_at": 1783779666.07207,
+        "checked_60s_at": null,
+        "confidence_score": 0.0,
+        "created_at": 1783779657.1716776,
+        "estimated_network_fee": 0.006,
+        "expected_final_amount": 3.4125553279199608e-06,
+        "expected_net_profit": -10.068496587444672,
+        "expected_profit": -10.068496587444672,
+        "expected_vs_simulated_profit_30s": 0.0,
+        "expected_vs_simulated_profit_5s": 0.0,
+        "expected_vs_simulated_profit_60s": null,
+        "id": 228,
+        "input_amount": 10.0,
+        "input_asset_id": 0,
+        "last_error": null,
+        "notes": "skip: net_profit_after_fees_ok",
+        "opportunity_hash": "6f7c864177d99a55:1783779657.138",
+        "opportunity_status": "rejected",
+        "quote_captured_at": 1783779657.1375408,
+        "quote_decay_30s": 0.0,
+        "quote_decay_5s": 0.0,
+        "quote_decay_60s": null,
+        "route_hash": "6f7c864177d99a55",
+        "route_json": "[{\"block_round\": 62996824, \"captured_at\": 1783779657.1375408, \"expected_output\": 0.053624871274563855, \"expires_at\": 1783779662.1375408, \"fee_amount\": 0.002, \"input_amount\": 10.0, \"input_asset_id\": 0, \"output_asset_id\": 3169177585, \"pool_id\": \"pact:3169274785:0-3169177585\", \"price_impact_bps\": 9999.976000057612, \"route_kind\": \"two_leg_venue_arb\", \"venue\": \"pact\"}, {\"block_round\": 62996824, \"captured_at\": 1783779657.1375408, \"expected_output\": 3.4125553279199608e-06, \"expires_at\": 1783779662.1375408, \"fee_amount\": 0.00019304953658842987, \"input_amount\": 0.053624871274563855, \"input_asset_id\": 3169177585, \"output_asset_id\": 0, \"pool_id\": \"tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0\", \"price_impact_bps\": 36.0001567700563, \"route_kind\": \"two_leg_venue_arb\", \"venue\": \"tinyman\"}]",
+        "simulated_final_amount_30s": 3.4125553279199608e-06,
+        "simulated_final_amount_5s": 3.4125553279199608e-06,
+        "simulated_final_amount_60s": null,
+        "simulated_profit_30s": -10.068496587444672,
+        "simulated_profit_5s": -10.068496587444672,
+        "simulated_profit_60s": -10.068496587444672,
+        "skip_reason": "net_profit_after_fees_ok",
+        "slippage_buffer": 0.0625,
+        "success": 0,
+        "would_execute": 0
+      },
+      {
+        "check_30s_due_at": 1783779687.1662786,
+        "check_5s_due_at": 1783779662.1662786,
+        "check_60s_due_at": 1783779717.1662786,
+        "checked_30s_at": 1783779694.3501413,
+        "checked_5s_at": 1783779666.07207,
+        "checked_60s_at": null,
+        "confidence_score": 0.0,
+        "created_at": 1783779657.1662786,
+        "estimated_network_fee": 0.006,
+        "expected_final_amount": 2.3999991369862692e-05,
+        "expected_net_profit": -10.06847600000863,
+        "expected_profit": -10.06847600000863,
+        "expected_vs_simulated_profit_30s": 0.0,
+        "expected_vs_simulated_profit_5s": 0.0,
+        "expected_vs_simulated_profit_60s": null,
+        "id": 227,
+        "input_amount": 10.0,
+        "input_asset_id": 0,
+        "last_error": null,
+        "notes": "skip: net_profit_after_fees_ok",
+        "opportunity_hash": "6bb990119fc55fcb:1783779657.138",
+        "opportunity_status": "rejected",
+        "quote_captured_at": 1783779657.1375408,
+        "quote_decay_30s": 0.0,
+        "quote_decay_5s": 0.0,
+        "quote_decay_60s": null,
+        "route_hash": "6bb990119fc55fcb",
+        "route_json": "[{\"block_round\": 62996824, \"captured_at\": 1783779657.1375408, \"expected_output\": 149158.34393777972, \"expires_at\": 1783779662.1375408, \"fee_amount\": 0.036, \"input_amount\": 10.0, \"input_asset_id\": 0, \"output_asset_id\": 3169177585, \"pool_id\": \"tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0\", \"price_impact_bps\": 473.6336370238081, \"route_kind\": \"two_leg_venue_arb\", \"venue\": \"tinyman\"}, {\"block_round\": 62996824, \"captured_at\": 1783779657.1375408, \"expected_output\": 2.3999991369862692e-05, \"expires_at\": 1783779662.1375408, \"fee_amount\": 29.831668787555945, \"input_amount\": 149158.34393777972, \"input_asset_id\": 3169177585, \"output_asset_id\": 0, \"pool_id\": \"pact:3169274785:0-3169177585\", \"price_impact_bps\": 9999.996404828635, \"route_kind\": \"two_leg_venue_arb\", \"venue\": \"pact\"}]",
+        "simulated_final_amount_30s": 2.3999991369862692e-05,
+        "simulated_final_amount_5s": 2.3999991369862692e-05,
+        "simulated_final_amount_60s": null,
+        "simulated_profit_30s": -10.06847600000863,
+        "simulated_profit_5s": -10.06847600000863,
+        "simulated_profit_60s": -10.06847600000863,
+        "skip_reason": "net_profit_after_fees_ok",
+        "slippage_buffer": 0.0625,
+        "success": 0,
+        "would_execute": 0
+      },
+      {
+        "check_30s_due_at": 1783779687.16058,
+        "check_5s_due_at": 1783779662.16058,
+        "check_60s_due_at": 1783779717.16058,
+        "checked_30s_at": 1783779694.3501413,
+        "checked_5s_at": 1783779666.07207,
+        "checked_60s_at": null,
+        "confidence_score": 0.0,
+        "created_at": 1783779657.16058,
+        "estimated_network_fee": 0.006,
+        "expected_final_amount": 3.4125471361882766e-06,
+        "expected_net_profit": -5.068496587452864,
+        "expected_profit": -5.068496587452864,
+        "expected_vs_simulated_profit_30s": 0.0,
+        "expected_vs_simulated_profit_5s": 0.0,
+        "expected_vs_simulated_profit_60s": null,
+        "id": 226,
+        "input_amount": 5.0,
+        "input_asset_id": 0,
+        "last_error": null,
+        "notes": "skip: net_profit_after_fees_ok",
+        "opportunity_hash": "5680f96f5e02159d:1783779657.138",
+        "opportunity_status": "rejected",
+        "quote_captured_at": 1783779657.1375408,
+        "quote_decay_30s": 0.0,
+        "quote_decay_5s": 0.0,
+        "quote_decay_60s": null,
+        "route_hash": "5680f96f5e02159d",
+        "route_json": "[{\"block_round\": 62996824, \"captured_at\": 1783779657.1375408, \"expected_output\": 0.05362474254974572, \"expires_at\": 1783779662.1375408, \"fee_amount\": 0.001, \"input_amount\": 5.0, \"input_asset_id\": 0, \"output_asset_id\": 3169177585, \"pool_id\": \"pact:3169274785:0-3169177585\", \"price_impact_bps\": 9999.952000230445, \"route_kind\": \"two_leg_venue_arb\", \"venue\": \"pact\"}, {\"block_round\": 62996824, \"captured_at\": 1783779657.1375408, \"expected_output\": 3.4125471361882766e-06, \"expires_at\": 1783779662.1375408, \"fee_amount\": 0.00019304907317908458, \"input_amount\": 0.05362474254974572, \"input_asset_id\": 3169177585, \"output_asset_id\": 0, \"pool_id\": \"tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0\", \"price_impact_bps\": 36.00015676968105, \"route_kind\": \"two_leg_venue_arb\", \"venue\": \"tinyman\"}]",
+        "simulated_final_amount_30s": 3.4125471361882766e-06,
+        "simulated_final_amount_5s": 3.4125471361882766e-06,
+        "simulated_final_amount_60s": null,
+        "simulated_profit_30s": -5.068496587452864,
+        "simulated_profit_5s": -5.068496587452864,
+        "simulated_profit_60s": -5.068496587452864,
+        "skip_reason": "net_profit_after_fees_ok",
+        "slippage_buffer": 0.0625,
+        "success": 0,
+        "would_execute": 0
+      },
+      {
+        "check_30s_due_at": 1783779687.1570623,
+        "check_5s_due_at": 1783779662.1570623,
+        "check_60s_due_at": 1783779717.1570623,
+        "checked_30s_at": 1783779694.3501413,
+        "checked_5s_at": 1783779666.07207,
+        "checked_60s_at": null,
+        "confidence_score": 0.0,
+        "created_at": 1783779657.1570623,
+        "estimated_network_fee": 0.006,
+        "expected_final_amount": 2.3999983118779604e-05,
+        "expected_net_profit": -5.068476000016881,
+        "expected_profit": -5.068476000016881,
+        "expected_vs_simulated_profit_30s": 0.0,
+        "expected_vs_simulated_profit_5s": 0.0,
+        "expected_vs_simulated_profit_60s": null,
+        "id": 225,
+        "input_amount": 5.0,
+        "input_asset_id": 0,
+        "last_error": null,
+        "notes": "skip: net_profit_after_fees_ok",
+        "opportunity_hash": "ec2f62635f72803f:1783779657.138",
+        "opportunity_status": "rejected",
+        "quote_captured_at": 1783779657.1375408,
+        "quote_decay_30s": 0.0,
+        "quote_decay_5s": 0.0,
+        "quote_decay_60s": null,
+        "route_hash": "ec2f62635f72803f",
+        "route_json": "[{\"block_round\": 62996824, \"captured_at\": 1783779657.1375408, \"expected_output\": 76253.76102828122, \"expires_at\": 1783779662.1375408, \"fee_amount\": 0.018, \"input_amount\": 5.0, \"input_asset_id\": 0, \"output_asset_id\": 3169177585, \"pool_id\": \"tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0\", \"price_impact_bps\": 259.7300971206251, \"route_kind\": \"two_leg_venue_arb\", \"venue\": \"tinyman\"}, {\"block_round\": 62996824, \"captured_at\": 1783779657.1375408, \"expected_output\": 2.3999983118779604e-05, \"expires_at\": 1783779662.1375408, \"fee_amount\": 15.250752205656246, \"input_amount\": 76253.76102828122, \"input_asset_id\": 3169177585, \"output_asset_id\": 0, \"pool_id\": \"pact:3169274785:0-3169177585\", \"price_impact_bps\": 9999.992967564936, \"route_kind\": \"two_leg_venue_arb\", \"venue\": \"pact\"}]",
+        "simulated_final_amount_30s": 2.3999983118779604e-05,
+        "simulated_final_amount_5s": 2.3999983118779604e-05,
+        "simulated_final_amount_60s": null,
+        "simulated_profit_30s": -5.068476000016881,
+        "simulated_profit_5s": -5.068476000016881,
+        "simulated_profit_60s": -5.068476000016881,
+        "skip_reason": "net_profit_after_fees_ok",
+        "slippage_buffer": 0.0625,
+        "success": 0,
+        "would_execute": 0
+      },
+      {
+        "check_30s_due_at": 1783779687.1510613,
+        "check_5s_due_at": 1783779662.1510613,
+        "check_60s_due_at": 1783779717.1510613,
+        "checked_30s_at": 1783779694.3501413,
+        "checked_5s_at": 1783779666.07207,
+        "checked_60s_at": null,
+        "confidence_score": 0.0,
+        "created_at": 1783779657.1510613,
+        "estimated_network_fee": 0.006,
+        "expected_final_amount": 3.412481603750583e-06,
+        "expected_net_profit": -1.0684965875183963,
+        "expected_profit": -1.0684965875183963,
+        "expected_vs_simulated_profit_30s": 0.0,
+        "expected_vs_simulated_profit_5s": 0.0,
+        "expected_vs_simulated_profit_60s": null,
+        "id": 224,
+        "input_amount": 1.0,
+        "input_asset_id": 0,
+        "last_error": null,
+        "notes": "skip: net_profit_after_fees_ok",
+        "opportunity_hash": "1adf02c655a683f3:1783779657.138",
+        "opportunity_status": "rejected",
+        "quote_captured_at": 1783779657.1375408,
+        "quote_decay_30s": 0.0,
+        "quote_decay_5s": 0.0,
+        "quote_decay_60s": null,
+        "route_hash": "1adf02c655a683f3",
+        "route_json": "[{\"block_round\": 62996824, \"captured_at\": 1783779657.1375408, \"expected_output\": 0.05362371277344813, \"expires_at\": 1783779662.1375408, \"fee_amount\": 0.0002, \"input_amount\": 1.0, \"input_asset_id\": 0, \"output_asset_id\": 3169177585, \"pool_id\": \"pact:3169274785:0-3169177585\", \"price_impact_bps\": 9999.760005761014, \"route_kind\": \"two_leg_venue_arb\", \"venue\": \"pact\"}, {\"block_round\": 62996824, \"captured_at\": 1783779657.1375408, \"expected_output\": 3.412481603750583e-06, \"expires_at\": 1783779662.1375408, \"fee_amount\": 0.00019304536598441325, \"input_amount\": 0.05362371277344813, \"input_asset_id\": 3169177585, \"output_asset_id\": 0, \"pool_id\": \"tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0\", \"price_impact_bps\": 36.000156766673456, \"route_kind\": \"two_leg_venue_arb\", \"venue\": \"tinyman\"}]",
+        "simulated_final_amount_30s": 3.412481603750583e-06,
+        "simulated_final_amount_5s": 3.412481603750583e-06,
+        "simulated_final_amount_60s": null,
+        "simulated_profit_30s": -1.0684965875183963,
+        "simulated_profit_5s": -1.0684965875183963,
+        "simulated_profit_60s": -1.0684965875183963,
+        "skip_reason": "net_profit_after_fees_ok",
+        "slippage_buffer": 0.0625,
+        "success": 0,
+        "would_execute": 0
+      }
+    ],
+    "recheck": {
+      "checked_30s": 228,
+      "checked_5s": 228,
+      "checked_60s": 0,
+      "errors": 0,
+      "performed": true
+    },
+    "recordedCount": 6
+  },
+  "poolsInspected": [
+    {
+      "appId": 1002541853,
+      "assetA": 3169177585,
+      "assetB": 0,
+      "blockRound": 62996824,
+      "feeBps": 36,
+      "poolId": "tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0",
+      "reserveA": 3396022.639172,
+      "reserveB": 216.895381,
+      "venueId": "tinyman"
+    },
+    {
+      "appId": 3169274785,
+      "assetA": 0,
+      "assetB": 3169177585,
+      "blockRound": 62996824,
+      "feeBps": 2,
+      "poolId": "pact:3169274785:0-3169177585",
+      "reserveA": 2.4e-05,
+      "reserveB": 0.053625,
+      "venueId": "pact"
+    }
+  ],
+  "preferredPair": [
+    0,
+    3169177585
+  ],
+  "preferredPairs": [
+    [
+      0,
+      3169177585
+    ],
+    [
+      0,
+      31566704
+    ]
+  ],
+  "productionReady": false,
+  "profile": "mainnet-readonly",
+  "quoteFreshness": {
+    "freshCount": 0,
+    "quoteCount": 456,
+    "source": "stored",
+    "staleCount": 456
+  },
+  "reason": "all_routes_rejected_for_profit_rules:net_profit_after_fees_ok",
+  "rejectedCount": 6,
+  "route": {
+    "estimatedNetworkFee": 0.006,
+    "expectedFinalAmount": 2.3999917110319116e-05,
+    "expectedNetProfit": -1.0684760000828897,
+    "expectedProfitBps": -10684.760000828897,
+    "grossProfit": -0.9999760000828897,
+    "inputAmount": 1.0,
+    "inputAssetId": 0,
+    "legs": [
+      {
+        "block_round": 62996824,
+        "captured_at": 1783779657.1375408,
+        "expected_output": 15529.713613525335,
+        "expires_at": 1783779662.1375408,
+        "fee_amount": 0.0036,
+        "input_amount": 1.0,
+        "input_asset_id": 0,
+        "output_asset_id": 3169177585,
+        "pool_id": "tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0",
+        "price_impact_bps": 81.56449791008824,
+        "route_kind": "two_leg_venue_arb",
+        "venue": "tinyman"
+      },
+      {
+        "block_round": 62996824,
+        "captured_at": 1783779657.1375408,
+        "expected_output": 2.3999917110319116e-05,
+        "expires_at": 1783779662.1375408,
+        "fee_amount": 3.105942722705067,
+        "input_amount": 15529.713613525335,
+        "input_asset_id": 3169177585,
+        "output_asset_id": 0,
+        "pool_id": "pact:3169274785:0-3169177585",
+        "price_impact_bps": 9999.965469540439,
+        "route_kind": "two_leg_venue_arb",
+        "venue": "pact"
+      }
+    ],
+    "maxPriceImpactBps": 9999.965469540439,
+    "riskRules": {
+      "app_ids_allowlisted": true,
+      "assets_allowlisted": true,
+      "fee_buffer_ok": false,
+      "net_profit_after_fees_ok": false,
+      "own_funds_only": true,
+      "pool_reserves_ok": false,
+      "price_impact_ok": false,
+      "profit_bps_ok": false,
+      "quote_freshness_ok": true,
+      "route_leg_count_ok": true,
+      "trade_size_ok": true
+    },
+    "routeHash": "7994f52bfb8b6d08",
+    "skipReason": "net_profit_after_fees_ok",
+    "slippageBuffer": 0.0625,
+    "status": "rejected",
+    "totalDexFees": 3.109542722705067
+  },
+  "scan": {
+    "opportunities": 222,
+    "pools": 11,
+    "status": "ok"
+  },
+  "selectedPair": [
+    0,
+    3169177585
+  ],
+  "sharedPairs": [
+    {
+      "pactPools": [
+        {
+          "appId": 3169274785,
+          "feeBps": 2,
+          "poolId": "pact:3169274785:0-3169177585",
+          "reserveA": 2.4e-05,
+          "reserveB": 0.053625
+        }
+      ],
+      "pair": [
+        0,
+        3169177585
+      ],
+      "tinymanPools": [
+        {
+          "appId": 1002541853,
+          "feeBps": 36,
+          "poolId": "tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0",
+          "reserveA": 3396022.639172,
+          "reserveB": 216.895381
+        }
+      ]
+    },
+    {
+      "pactPools": [
+        {
+          "appId": 1073557308,
+          "feeBps": 30,
+          "poolId": "pact:1073557308:0-31566704",
+          "reserveA": 1596245.858054,
+          "reserveB": 138134.601144
+        },
+        {
+          "appId": 1076447842,
+          "feeBps": 100,
+          "poolId": "pact:1076447842:0-31566704",
+          "reserveA": 1790.95582,
+          "reserveB": 153.522655
+        },
+        {
+          "appId": 1124274750,
+          "feeBps": 2,
+          "poolId": "pact:1124274750:0-31566704",
+          "reserveA": 7.23605,
+          "reserveB": 0.623847
+        },
+        {
+          "appId": 1131884994,
+          "feeBps": 5,
+          "poolId": "pact:1131884994:0-31566704",
+          "reserveA": 98.044666,
+          "reserveB": 8.453936
+        },
+        {
+          "appId": 2757488616,
+          "feeBps": 30,
+          "poolId": "pact:2757488616:0-31566704",
+          "reserveA": 1539882.544493,
+          "reserveB": 132950.734563
+        },
+        {
+          "appId": 2966799501,
+          "feeBps": 2,
+          "poolId": "pact:2966799501:0-31566704",
+          "reserveA": 203.314097,
+          "reserveB": 17.542825
+        },
+        {
+          "appId": 2966805457,
+          "feeBps": 5,
+          "poolId": "pact:2966805457:0-31566704",
+          "reserveA": 55.092043,
+          "reserveB": 4.785542
+        },
+        {
+          "appId": 2966876920,
+          "feeBps": 100,
+          "poolId": "pact:2966876920:0-31566704",
+          "reserveA": 40004.79882,
+          "reserveB": 3436.727688
+        }
+      ],
+      "pair": [
+        0,
+        31566704
+      ],
+      "tinymanPools": [
+        {
+          "appId": 1002541853,
+          "feeBps": 36,
+          "poolId": "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+          "reserveA": 948412.647359,
+          "reserveB": 10960052.008334
+        }
+      ]
+    }
+  ],
+  "signingEnabled": false,
+  "source": "live",
+  "startedAt": 1783779646.8968332,
+  "submissionEnabled": false,
+  "tradeSizes": [
+    1.0,
+    5.0,
+    10.0
+  ]
+}

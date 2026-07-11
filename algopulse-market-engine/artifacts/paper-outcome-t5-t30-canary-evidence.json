@@ -1,0 +1,135 @@
+{
+  "mode": "paper_outcome_t5_t30",
+  "profile": "mainnet-readonly",
+  "dataDir": "data/mainnet-live-scanner",
+  "elapsedSeconds": 64.73,
+  "maxSeconds": 900.0,
+  "sessionStartedAt": 1783789675.7431,
+  "decisionCycles": 23,
+  "candidatesEnqueued": 22,
+  "loopOwned": {
+    "total": 22,
+    "completedT5": 20,
+    "completedT30": 11,
+    "completedBothT5AndT30": 11,
+    "duplicateOpportunityHashes": 0,
+    "routeClasses": {
+      "same_venue_pact": 22
+    }
+  },
+  "sharedDbSessionWindowNote": "Other concurrent writers also inserted paper_trades into the same store during the window (720 other rows). Target and samples below are loop-owned only (notes stamped round=…; routeClass=…).",
+  "targetCompletedBoth": 10,
+  "targetMet": true,
+  "paperDuplicatesSkipped": 0,
+  "rechecksApplied5s": 1460,
+  "rechecksApplied30s": 811,
+  "recheckErrors": 7455,
+  "recheckErrorsNote": "Most recheck errors come from draining historical pending rows whose pools are absent from the live cache snapshot (missing pool). Loop-owned rows used current cache pools and completed without last_error.",
+  "lastDecisionMeta": {
+    "usable": true,
+    "freshRouteCount": 72,
+    "crossVenueFreshRouteCount": 16,
+    "observedRound": 63000484,
+    "endToEndLatencyMs": 223.814,
+    "paperRows": 1,
+    "paperDuplicatesSkipped": 0,
+    "routeVenueEvidence": {
+      "counts": {
+        "cross_venue_tinyman_pact": 16,
+        "same_venue_pact": 56
+      }
+    }
+  },
+  "sampleEvidenceLoopOwnedBoth": [
+    {
+      "routeHash": "37c985776270710a",
+      "routeClass": "same_venue_pact",
+      "venues": ["pact", "pact"],
+      "poolIds": ["pact:2966805457:0-31566704", "pact:2966799501:0-31566704"],
+      "decisionNotes": "round=63000463; routeClass=same_venue_pact; near_miss:net_profit_after_fees_ok",
+      "inputAmount": 0.125,
+      "expectedFinalAmount": 0.12539044879749792,
+      "simulatedFinal5s": 0.12539044879749792,
+      "simulatedFinal30s": 0.12539044879749792,
+      "quoteDecay5s": 0.0,
+      "quoteDecay30s": 0.0,
+      "t5DeltaSeconds": 5.623,
+      "t30DeltaSeconds": 32.847,
+      "survived5s": false,
+      "survived30s": false
+    },
+    {
+      "routeHash": "77dd0eb7423f2c46",
+      "routeClass": "same_venue_pact",
+      "venues": ["pact", "pact"],
+      "poolIds": ["pact:2966805457:0-31566704", "pact:2966799501:0-31566704"],
+      "decisionNotes": "round=63000464; routeClass=same_venue_pact; near_miss:net_profit_after_fees_ok",
+      "expectedFinalAmount": 0.12539044879749792,
+      "quoteDecay5s": 0.0,
+      "quoteDecay30s": 0.0,
+      "t5DeltaSeconds": 5.573,
+      "t30DeltaSeconds": 30.098,
+      "survived5s": false,
+      "survived30s": false
+    },
+    {
+      "routeHash": "8fb82c0c0d3b33f4",
+      "routeClass": "same_venue_pact",
+      "venues": ["pact", "pact"],
+      "poolIds": ["pact:2966805457:0-31566704", "pact:2966799501:0-31566704"],
+      "decisionNotes": "round=63000473; routeClass=same_venue_pact; near_miss:net_profit_after_fees_ok",
+      "expectedFinalAmount": 0.12539044879749792,
+      "quoteDecay5s": 0.0,
+      "quoteDecay30s": 0.0,
+      "t5DeltaSeconds": 5.731,
+      "t30DeltaSeconds": 30.250,
+      "survived5s": false,
+      "survived30s": false
+    },
+    {
+      "routeHash": "b7ceb8caa41a838a",
+      "routeClass": "same_venue_pact",
+      "venues": ["pact", "pact"],
+      "poolIds": ["pact:2966805457:0-31566704", "pact:2966799501:0-31566704"],
+      "decisionNotes": "round=63000472; routeClass=same_venue_pact; near_miss:net_profit_after_fees_ok",
+      "t5DeltaSeconds": 5.564,
+      "t30DeltaSeconds": 32.593,
+      "quoteDecay5s": 0.0,
+      "quoteDecay30s": 0.0,
+      "survived5s": false,
+      "survived30s": false
+    },
+    {
+      "routeHash": "371a019c36740187",
+      "routeClass": "same_venue_pact",
+      "venues": ["pact", "pact"],
+      "poolIds": ["pact:2966805457:0-31566704", "pact:2966799501:0-31566704"],
+      "decisionNotes": "round=63000471; routeClass=same_venue_pact; near_miss:net_profit_after_fees_ok",
+      "t5DeltaSeconds": 5.546,
+      "t30DeltaSeconds": 32.530,
+      "quoteDecay5s": 0.0,
+      "quoteDecay30s": 0.0,
+      "survived5s": false,
+      "survived30s": false
+    }
+  ],
+  "crossVenueEvidenceFromDecisionPath": {
+    "note": "select_paper_rows kept best near-misses which were same-venue in this window; cross-venue routes were still observed as fresh decision inputs.",
+    "lastRoundCrossVenueFreshRouteCount": 16,
+    "lastRoundFreshRouteCount": 72,
+    "sessionWindowCrossVenuePaperRowsFromOtherWriters": 160
+  },
+  "productionReady": false,
+  "signingEnabled": false,
+  "submissionEnabled": false,
+  "constraintsHonored": [
+    "no UI",
+    "no wallet",
+    "no signing",
+    "no submission",
+    "no execution",
+    "no risk policy loosening",
+    "no commit",
+    "no push"
+  ]
+}

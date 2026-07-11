@@ -1,0 +1,362 @@
+{
+  "automaticDecisionEveryAttemptedRound": true,
+  "connectorTimestampsPreserved": true,
+  "consecutiveClaimAllowed": false,
+  "decisions": [
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 5,
+        "quote_freshness_ok": 1
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 1374.7413158416748,
+      "completedAt": 1783785536.5196633,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 88.965,
+      "decisionRound": 62998957,
+      "decisions": 58,
+      "endToEndLatencyMs": 88.965,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshRouteCount": 58,
+      "freshnessSkips": {
+        "stale_quote_over_max_age": 16
+      },
+      "lastCacheRefreshLatencyMs": 4579.67,
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62998957,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783785535.047666,
+      "sourceCaptureMin": 1783785531.5697157,
+      "sourcePoolRounds": [
+        62998954
+      ],
+      "startedAt": 1783785536.4310422,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "quote_freshness_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": null,
+      "bestNet": null,
+      "bestSize": null,
+      "bestSkipReason": null,
+      "bestStatus": null,
+      "cacheAgeMs": 4097.172260284424,
+      "completedAt": 1783785539.2217338,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 68.814,
+      "decisionRound": 62998958,
+      "decisions": 0,
+      "endToEndLatencyMs": 68.814,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshRouteCount": 0,
+      "freshnessSkips": {
+        "stale_quote_over_max_age": 74
+      },
+      "lastCacheRefreshLatencyMs": 4579.67,
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 0,
+      "observedRound": 62998958,
+      "paperRows": 0,
+      "poolCount": 11,
+      "skipReason": "stale_quote_over_max_age",
+      "skipped": true,
+      "sourceCaptureMax": null,
+      "sourceCaptureMin": null,
+      "sourcePoolRounds": [],
+      "startedAt": 1783785539.1534731,
+      "usable": false
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 5,
+        "quote_freshness_ok": 1
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 2162.335157394409,
+      "completedAt": 1783785542.022758,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 116.504,
+      "decisionRound": 62998959,
+      "decisions": 56,
+      "endToEndLatencyMs": 116.504,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshRouteCount": 56,
+      "freshnessSkips": {
+        "stale_quote_over_max_age": 18
+      },
+      "lastCacheRefreshLatencyMs": 4677.126,
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62998959,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783785538.6129985,
+      "sourceCaptureMin": 1783785538.6129985,
+      "sourcePoolRounds": [
+        62998956
+      ],
+      "startedAt": 1783785541.9062219,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "quote_freshness_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": null,
+      "bestNet": null,
+      "bestSize": null,
+      "bestSkipReason": null,
+      "bestStatus": null,
+      "cacheAgeMs": 4920.7329750061035,
+      "completedAt": 1783785544.7411368,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 76.678,
+      "decisionRound": 62998960,
+      "decisions": 0,
+      "endToEndLatencyMs": 76.678,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshRouteCount": 0,
+      "freshnessSkips": {
+        "stale_quote_over_max_age": 74
+      },
+      "lastCacheRefreshLatencyMs": 4677.126,
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 0,
+      "observedRound": 62998960,
+      "paperRows": 0,
+      "poolCount": 11,
+      "skipReason": "stale_quote_over_max_age",
+      "skipped": true,
+      "sourceCaptureMax": null,
+      "sourceCaptureMin": null,
+      "sourcePoolRounds": [],
+      "startedAt": 1783785544.6646197,
+      "usable": false
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 5,
+        "quote_freshness_ok": 1
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 1102.0607948303223,
+      "completedAt": 1783785547.5205233,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 108.338,
+      "decisionRound": 62998961,
+      "decisions": 58,
+      "endToEndLatencyMs": 108.338,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshRouteCount": 58,
+      "freshnessSkips": {
+        "stale_quote_over_max_age": 16
+      },
+      "lastCacheRefreshLatencyMs": 4547.97,
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62998961,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783785546.3011312,
+      "sourceCaptureMin": 1783785542.7576075,
+      "sourcePoolRounds": [
+        62998958,
+        62998959
+      ],
+      "startedAt": 1783785547.4112096,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 5,
+        "quote_freshness_ok": 1
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 3824.0697383880615,
+      "completedAt": 1783785550.219404,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 86.146,
+      "decisionRound": 62998962,
+      "decisions": 56,
+      "endToEndLatencyMs": 86.146,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshRouteCount": 56,
+      "freshnessSkips": {
+        "stale_quote_over_max_age": 18
+      },
+      "lastCacheRefreshLatencyMs": 4547.97,
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62998962,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783785545.3293831,
+      "sourceCaptureMin": 1783785545.3293831,
+      "sourcePoolRounds": [
+        62998959
+      ],
+      "startedAt": 1783785550.1332185,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 186.1557960510254,
+      "completedAt": 1783785552.9504776,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 93.364,
+      "decisionRound": 62998963,
+      "decisions": 74,
+      "endToEndLatencyMs": 93.364,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "lastCacheRefreshLatencyMs": 4347.353,
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62998963,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783785552.6637585,
+      "sourceCaptureMin": 1783785548.9300413,
+      "sourcePoolRounds": [
+        62998961
+      ],
+      "startedAt": 1783785552.857432,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 5,
+        "quote_freshness_ok": 1
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 2920.515537261963,
+      "completedAt": 1783785555.6931841,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 101.239,
+      "decisionRound": 62998964,
+      "decisions": 56,
+      "endToEndLatencyMs": 101.239,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshRouteCount": 56,
+      "freshnessSkips": {
+        "stale_quote_over_max_age": 18
+      },
+      "lastCacheRefreshLatencyMs": 4347.353,
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62998964,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783785551.7550106,
+      "sourceCaptureMin": 1783785551.7550106,
+      "sourcePoolRounds": [
+        62998961
+      ],
+      "startedAt": 1783785555.5917916,
+      "usable": true
+    }
+  ],
+  "decisionsRecorded": 8,
+  "feeConversion": "route_path_quote",
+  "feeUnitConsistent": true,
+  "healthIntervalSeconds": 60.0,
+  "maxQuoteAgeSeconds": 5.0,
+  "mode": "realtime_round_driven_cached",
+  "p50EndToEndLatencyMs": 93.364,
+  "p95EndToEndLatencyMs": 116.504,
+  "p95TargetMs": 5000.0,
+  "productionReady": false,
+  "realtimeReady": true,
+  "realtimeReadyVerdict": "REAL-TIME READY",
+  "roundsAreStrictlyConsecutive": false,
+  "roundsAttempted": 8,
+  "runId": "rt_loop_eb9b3e491b",
+  "signingEnabled": false,
+  "skippedRoundCount": 2,
+  "skippedRounds": [
+    {
+      "freshnessSkips": {
+        "stale_quote_over_max_age": 74
+      },
+      "observedRound": 62998958,
+      "reason": "stale_quote_over_max_age"
+    },
+    {
+      "freshnessSkips": {
+        "stale_quote_over_max_age": 74
+      },
+      "observedRound": 62998960,
+      "reason": "stale_quote_over_max_age"
+    }
+  ],
+  "submissionEnabled": false,
+  "usableRounds": 6
+}

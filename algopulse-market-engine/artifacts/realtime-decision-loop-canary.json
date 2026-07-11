@@ -1,0 +1,860 @@
+{
+  "automaticDecisionEveryUsableRound": true,
+  "decisionPerUsableRound": true,
+  "feeUnitConsistent": true,
+  "healthIntervalSeconds": 60.0,
+  "maxQuoteAgeSeconds": 5.0,
+  "mode": "realtime_round_driven",
+  "p50DecisionLatencyMs": 13483.543,
+  "p50PoolRefreshLatencyMs": 11057.317,
+  "p95DecisionLatencyMs": 16597.587,
+  "p95PoolRefreshLatencyMs": 12126.954,
+  "productionReady": false,
+  "rounds": [
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782649.4897766,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 11285.805,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2896.635,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13571.232,
+      "decisionRound": 62997898,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62997898,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 11287.54,
+      "skipReason": null,
+      "startedAt": 1783782624.6085284,
+      "totalLatencyMs": 24880.901,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782674.0812213,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 11086.612,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2707.296,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13398.277,
+      "decisionRound": 62997907,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62997907,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 11087.961,
+      "skipReason": null,
+      "startedAt": 1783782649.5893471,
+      "totalLatencyMs": 24491.938,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782698.7126975,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 10971.926,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2759.426,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13551.031,
+      "decisionRound": 62997915,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62997915,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 10972.891,
+      "skipReason": null,
+      "startedAt": 1783782674.181425,
+      "totalLatencyMs": 24531.097,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782723.3511844,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 11034.251,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2744.285,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13483.543,
+      "decisionRound": 62997924,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62997924,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 11034.814,
+      "skipReason": null,
+      "startedAt": 1783782698.8256152,
+      "totalLatencyMs": 24525.207,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782748.0347602,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 11056.414,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2749.344,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13514.664,
+      "decisionRound": 62997933,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62997933,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 11057.317,
+      "skipReason": null,
+      "startedAt": 1783782723.4552784,
+      "totalLatencyMs": 24579.329,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782773.5933366,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 11957.332,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2664.974,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13457.039,
+      "decisionRound": 62997942,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62997942,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 11958.086,
+      "skipReason": null,
+      "startedAt": 1783782748.1643567,
+      "totalLatencyMs": 25429.195,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782803.3496716,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 12739.013,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 4087.856,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 16903.646,
+      "decisionRound": 62997951,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62997951,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 12740.582,
+      "skipReason": null,
+      "startedAt": 1783782773.6996682,
+      "totalLatencyMs": 29649.797,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782829.3427045,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 12126.296,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 4633.078,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13733.28,
+      "decisionRound": 62997962,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62997962,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 12126.954,
+      "skipReason": null,
+      "startedAt": 1783782803.4653037,
+      "totalLatencyMs": 25877.965,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782853.8250332,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 10946.192,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2723.062,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13419.21,
+      "decisionRound": 62997971,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62997971,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 10948.247,
+      "skipReason": null,
+      "startedAt": 1783782829.449822,
+      "totalLatencyMs": 24374.0,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782878.3764563,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 10988.724,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2752.119,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13450.243,
+      "decisionRound": 62997980,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62997980,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 10989.836,
+      "skipReason": null,
+      "startedAt": 1783782853.917303,
+      "totalLatencyMs": 24459.315,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782905.283735,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 11131.441,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2771.567,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13486.237,
+      "decisionRound": 62997989,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62997989,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 11132.558,
+      "skipReason": null,
+      "startedAt": 1783782878.4689252,
+      "totalLatencyMs": 24625.851,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782929.6851187,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 10938.829,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2604.254,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13356.5,
+      "decisionRound": 62997998,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62997998,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 10939.876,
+      "skipReason": null,
+      "startedAt": 1783782905.369475,
+      "totalLatencyMs": 24315.647,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782954.1715934,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 10854.03,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2635.835,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13521.789,
+      "decisionRound": 62998007,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62998007,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 10855.87,
+      "skipReason": null,
+      "startedAt": 1783782929.7763538,
+      "totalLatencyMs": 24394.668,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783782978.391388,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 10830.747,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2726.828,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13274.542,
+      "decisionRound": 62998015,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62998015,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 10832.579,
+      "skipReason": null,
+      "startedAt": 1783782954.2657247,
+      "totalLatencyMs": 24125.359,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783783003.097669,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 11122.281,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2762.59,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13452.527,
+      "decisionRound": 62998024,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62998024,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 11123.095,
+      "skipReason": null,
+      "startedAt": 1783782978.5025313,
+      "totalLatencyMs": 24594.728,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783783027.37592,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 10882.622,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2722.449,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13273.469,
+      "decisionRound": 62998033,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62998033,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 10883.601,
+      "skipReason": null,
+      "startedAt": 1783783003.198624,
+      "totalLatencyMs": 24177.116,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783783051.7758408,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 10872.782,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2822.172,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13404.471,
+      "decisionRound": 62998042,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62998042,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 10874.626,
+      "skipReason": null,
+      "startedAt": 1783783027.4901505,
+      "totalLatencyMs": 24285.493,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783783076.5246196,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 11015.097,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2714.219,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13623.779,
+      "decisionRound": 62998051,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62998051,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 11016.084,
+      "skipReason": null,
+      "startedAt": 1783783051.8764124,
+      "totalLatencyMs": 24648.576,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783783105.3316283,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 11988.95,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2768.642,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 16597.587,
+      "decisionRound": 62998060,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62998060,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 11990.042,
+      "skipReason": null,
+      "startedAt": 1783783076.7381837,
+      "totalLatencyMs": 28593.076,
+      "usable": true
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 12,
+        "net_profit_after_fees_ok": 3
+      },
+      "approvedCount": 0,
+      "bestGross": 5.528765049036405e-05,
+      "bestNet": -0.062444712349509636,
+      "bestSize": 0.05,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "completedAt": 1783783129.8987072,
+      "connectorRefresh": {
+        "pact": {
+          "detail": null,
+          "latencyMs": 11081.842,
+          "poolCount": 22,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 2672.018,
+          "poolCount": 6,
+          "status": "ok"
+        }
+      },
+      "decisionLatencyMs": 13381.379,
+      "decisionRound": 62998070,
+      "decisions": 170,
+      "feeUnitConsistent": true,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 4,
+      "observedRound": 62998070,
+      "paperRows": 4,
+      "poolCount": 28,
+      "poolRefreshLatencyMs": 11083.463,
+      "skipReason": null,
+      "startedAt": 1783783105.4273462,
+      "totalLatencyMs": 24471.438,
+      "usable": true
+    }
+  ],
+  "roundsObserved": 20,
+  "runId": "rt_loop_d223c938f2",
+  "signingEnabled": false,
+  "submissionEnabled": false,
+  "usableRounds": 20
+}

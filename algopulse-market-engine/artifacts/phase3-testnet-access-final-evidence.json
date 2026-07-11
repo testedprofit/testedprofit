@@ -1,0 +1,61 @@
+{
+  "capturedAt": "2026-07-11T18:19:22.2203561Z",
+  "serverUrl": "http://127.0.0.1:8776/",
+  "profile": {
+    "network": "testnet",
+    "environment": "testnet",
+    "chainId": 416002,
+    "accessMode": "connect_only",
+    "wallets": [
+      "pera",
+      "defly"
+    ],
+    "pnetConfigured": false,
+    "pnetMessage": "PNET TestNet asset not configured",
+    "signingEnabled": false,
+    "submissionEnabled": false
+  },
+  "networkHealth": {
+    "overall": "ok",
+    "algod": {
+      "connector": "algod",
+      "status": "ok",
+      "healthy": true,
+      "lastRound": 65222989,
+      "genesisId": null,
+      "networkHint": "testnet",
+      "endpointNetworkLabel": "testnet",
+      "latencyMs": 160.48,
+      "detail": "algod_status_ok",
+      "note": null
+    },
+    "indexer": {
+      "connector": "indexer",
+      "status": "ok",
+      "healthy": true,
+      "lastRound": 65222989,
+      "networkHint": "testnet",
+      "endpointNetworkLabel": "testnet",
+      "latencyMs": 89.95,
+      "detail": "indexer_reachable"
+    }
+  },
+  "accountRead": {
+    "address": "GD64YIY3TWGDMCNPP553DZPPR6LDUSFQOIJVFDPPXWEG3FVOJCCDBBHU5A",
+    "provider": "pera",
+    "network": "testnet",
+    "chainId": 416002,
+    "algoBalance": 137959429.151082,
+    "pnetConfigured": false,
+    "pnetMessage": "PNET TestNet asset not configured",
+    "readOnly": true
+  },
+  "mainnetMismatch": {
+    "code": "WALLET_NETWORK_MISMATCH",
+    "message": "Wallet/network mismatch: backend is testnet; wallet claimed mainnet.",
+    "reasons": [
+      "wallet_network_mismatch:claimed_mainnet_expected_testnet",
+      "wallet_chain_id_mismatch:claimed_416001_expected_416002"
+    ]
+  }
+}

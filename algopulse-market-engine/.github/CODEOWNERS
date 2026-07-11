@@ -1,0 +1,24 @@
+# Default owner for all changes in this private Phase 0 repo.
+* @testedprofit
+
+# Human-review-required security and execution boundaries.
+src/algopulse/signer.py @testedprofit
+src/algopulse/executor.py @testedprofit
+src/algopulse/dry_run.py @testedprofit
+src/algopulse/dry_run_validator.py @testedprofit
+src/algopulse/config.py @testedprofit
+src/algopulse/payment_verification.py @testedprofit
+src/algopulse/refunds.py @testedprofit
+
+# Public exposure and dashboard safety surfaces.
+src/algopulse/api.py @testedprofit
+src/algopulse/public_record_redaction.py @testedprofit
+src/algopulse/static/ @testedprofit
+docs/PUBLIC_RECORD_REDACTION_* @testedprofit
+docs/API_EXPOSURE_* @testedprofit
+
+# Release, CI, and safety gates.
+.github/ @testedprofit
+docs/GATED_PROGRESS_TRACKER.md @testedprofit
+docs/HUMAN_REVIEW_GATES.md @testedprofit
+docs/SAFETY_CHECKLIST.md @testedprofit

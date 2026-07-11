@@ -1,0 +1,1944 @@
+{
+  "automaticDecisionEveryAttemptedRound": true,
+  "bottleneck": null,
+  "connectorTimestampsPreserved": true,
+  "consecutiveClaimAllowed": false,
+  "decisionComputeReady": true,
+  "decisionComputeReadyVerdict": "DECISION_COMPUTE_READY",
+  "decisions": [
+    {
+      "aggregateRejections": {},
+      "approvedCount": 0,
+      "bestGross": null,
+      "bestNet": null,
+      "bestSize": null,
+      "bestSkipReason": null,
+      "bestStatus": null,
+      "cacheAgeMs": 412.91046142578125,
+      "completedAt": 1783787834.3140867,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 0.247,
+      "decisionRound": 62999792,
+      "decisions": 0,
+      "endToEndLatencyMs": 0.247,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": false,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 2,
+        "totalPools": 2,
+        "venues": {
+          "pact": {
+            "freshCoverage": 0.0,
+            "freshPoolCount": 0,
+            "lastRefreshLatencyMs": null,
+            "lastStatus": null,
+            "maxAgeSeconds": null,
+            "minAgeSeconds": null,
+            "poolCount": 0,
+            "updatedAt": null
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 573.627,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.032062292098999,
+            "minAgeSeconds": 0.41291046142578125,
+            "poolCount": 2,
+            "updatedAt": 1783787833.9011762
+          }
+        }
+      },
+      "freshRouteCount": 0,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 0,
+      "observedRound": 62999792,
+      "paperRows": 0,
+      "poolCount": 2,
+      "skipReason": "no_qualified_pools",
+      "skipped": true,
+      "sourceCaptureMax": null,
+      "sourceCaptureMin": null,
+      "sourcePoolRounds": [],
+      "startedAt": 1783787834.3140867,
+      "usable": false,
+      "venueRefresh": {
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787833.9011762,
+          "detail": null,
+          "latencyMs": 573.627,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 5.512714385986328,
+      "completedAt": 1783787837.1428862,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 137.952,
+      "decisionRound": 62999793,
+      "decisions": 74,
+      "endToEndLatencyMs": 137.952,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1195.581,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.230031967163086,
+            "minAgeSeconds": 0.005512714385986328,
+            "poolCount": 9,
+            "updatedAt": 1783787836.9995825
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 560.972,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.1514220237731934,
+            "minAgeSeconds": 0.5632233619689941,
+            "poolCount": 2,
+            "updatedAt": 1783787836.441872
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999793,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787836.9995825,
+      "sourceCaptureMin": 1783787835.7750633,
+      "sourcePoolRounds": [
+        62999791,
+        62999792
+      ],
+      "startedAt": 1783787837.0050952,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787836.9995825,
+          "detail": null,
+          "latencyMs": 1195.581,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787836.441872,
+          "detail": null,
+          "latencyMs": 560.972,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 21.750926971435547,
+      "completedAt": 1783787839.836261,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 86.543,
+      "decisionRound": 62999794,
+      "decisions": 74,
+      "endToEndLatencyMs": 86.543,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1195.581,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 3.9742226600646973,
+            "minAgeSeconds": 2.7497034072875977,
+            "poolCount": 9,
+            "updatedAt": 1783787836.9995825
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 545.965,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.6002626419067383,
+            "minAgeSeconds": 0.021750926971435547,
+            "poolCount": 2,
+            "updatedAt": 1783787839.727535
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999794,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787839.727535,
+      "sourceCaptureMin": 1783787835.7750633,
+      "sourcePoolRounds": [
+        62999791,
+        62999792,
+        62999793
+      ],
+      "startedAt": 1783787839.749286,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787836.9995825,
+          "detail": null,
+          "latencyMs": 1195.581,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787839.727535,
+          "detail": null,
+          "latencyMs": 545.965,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 235.96453666687012,
+      "completedAt": 1783787842.5739794,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 117.706,
+      "decisionRound": 62999795,
+      "decisions": 74,
+      "endToEndLatencyMs": 117.706,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1015.586,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.5511562824249268,
+            "minAgeSeconds": 0.23596453666687012,
+            "poolCount": 9,
+            "updatedAt": 1783787842.220532
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 619.96,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.3409950733184814,
+            "minAgeSeconds": 0.4764723777770996,
+            "poolCount": 2,
+            "updatedAt": 1783787841.980024
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999795,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787842.220532,
+      "sourceCaptureMin": 1783787840.9053402,
+      "sourcePoolRounds": [
+        62999793,
+        62999794
+      ],
+      "startedAt": 1783787842.4564965,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787842.220532,
+          "detail": null,
+          "latencyMs": 1015.586,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787841.980024,
+          "detail": null,
+          "latencyMs": 619.96,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 343.9934253692627,
+      "completedAt": 1783787845.350976,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 181.657,
+      "decisionRound": 62999796,
+      "decisions": 74,
+      "endToEndLatencyMs": 181.657,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1015.586,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 4.263479232788086,
+            "minAgeSeconds": 2.9482874870300293,
+            "poolCount": 9,
+            "updatedAt": 1783787842.220532
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 568.457,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.266324520111084,
+            "minAgeSeconds": 0.3439934253692627,
+            "poolCount": 2,
+            "updatedAt": 1783787844.824826
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999796,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787844.824826,
+      "sourceCaptureMin": 1783787840.9053402,
+      "sourcePoolRounds": [
+        62999793,
+        62999794,
+        62999795
+      ],
+      "startedAt": 1783787845.1688194,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787842.220532,
+          "detail": null,
+          "latencyMs": 1015.586,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787844.824826,
+          "detail": null,
+          "latencyMs": 568.457,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 503.59225273132324,
+      "completedAt": 1783787848.0601413,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 142.835,
+      "decisionRound": 62999797,
+      "decisions": 74,
+      "endToEndLatencyMs": 142.835,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1047.398,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.909980297088623,
+            "minAgeSeconds": 0.8253860473632812,
+            "poolCount": 9,
+            "updatedAt": 1783787847.0923607
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 534.876,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.1445465087890625,
+            "minAgeSeconds": 0.5035922527313232,
+            "poolCount": 2,
+            "updatedAt": 1783787847.4141545
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999797,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787847.4141545,
+      "sourceCaptureMin": 1783787846.0077665,
+      "sourcePoolRounds": [
+        62999795,
+        62999796
+      ],
+      "startedAt": 1783787847.9177468,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787847.0923607,
+          "detail": null,
+          "latencyMs": 1047.398,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787847.4141545,
+          "detail": null,
+          "latencyMs": 534.876,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 252.03895568847656,
+      "completedAt": 1783787850.7271717,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 119.065,
+      "decisionRound": 62999798,
+      "decisions": 74,
+      "endToEndLatencyMs": 119.065,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1047.398,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 4.600712060928345,
+            "minAgeSeconds": 3.516117811203003,
+            "poolCount": 9,
+            "updatedAt": 1783787847.0923607
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 543.935,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.8259932994842529,
+            "minAgeSeconds": 0.25203895568847656,
+            "poolCount": 2,
+            "updatedAt": 1783787850.3564396
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999798,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787850.3564396,
+      "sourceCaptureMin": 1783787846.0077665,
+      "sourcePoolRounds": [
+        62999795,
+        62999796,
+        62999797
+      ],
+      "startedAt": 1783787850.6084785,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787847.0923607,
+          "detail": null,
+          "latencyMs": 1047.398,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787850.3564396,
+          "detail": null,
+          "latencyMs": 543.935,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 501.842737197876,
+      "completedAt": 1783787853.4598918,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 98.53,
+      "decisionRound": 62999799,
+      "decisions": 74,
+      "endToEndLatencyMs": 98.53,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1021.008,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 2.6605136394500732,
+            "minAgeSeconds": 1.6076381206512451,
+            "poolCount": 9,
+            "updatedAt": 1783787851.753038
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 537.737,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.0901274681091309,
+            "minAgeSeconds": 0.501842737197876,
+            "poolCount": 2,
+            "updatedAt": 1783787852.8588333
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999799,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787852.8588333,
+      "sourceCaptureMin": 1783787850.7001624,
+      "sourcePoolRounds": [
+        62999796,
+        62999798
+      ],
+      "startedAt": 1783787853.360676,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787851.753038,
+          "detail": null,
+          "latencyMs": 1021.008,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787852.8588333,
+          "detail": null,
+          "latencyMs": 537.737,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 83.74261856079102,
+      "completedAt": 1783787856.4323125,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 358.575,
+      "decisionRound": 62999800,
+      "decisions": 74,
+      "endToEndLatencyMs": 358.575,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 3559.82,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 4.320485353469849,
+            "minAgeSeconds": 0.7245533466339111,
+            "poolCount": 9,
+            "updatedAt": 1783787855.34897
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 575.389,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.7078487873077393,
+            "minAgeSeconds": 0.08374261856079102,
+            "poolCount": 2,
+            "updatedAt": 1783787855.9897807
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999800,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787855.9897807,
+      "sourceCaptureMin": 1783787851.753038,
+      "sourcePoolRounds": [
+        62999798,
+        62999799
+      ],
+      "startedAt": 1783787856.0735233,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787855.34897,
+          "detail": null,
+          "latencyMs": 3559.82,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 8,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787855.9897807,
+          "detail": null,
+          "latencyMs": 575.389,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 73.7905502319336,
+      "completedAt": 1783787858.9164643,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 94.962,
+      "decisionRound": 62999801,
+      "decisions": 74,
+      "endToEndLatencyMs": 94.962,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1194.927,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 3.471944570541382,
+            "minAgeSeconds": 2.2266178131103516,
+            "poolCount": 9,
+            "updatedAt": 1783787856.5942967
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 595.488,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.7023627758026123,
+            "minAgeSeconds": 0.07432055473327637,
+            "poolCount": 2,
+            "updatedAt": 1783787858.747124
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999801,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787858.746594,
+      "sourceCaptureMin": 1783787855.34897,
+      "sourcePoolRounds": [
+        62999798,
+        62999799,
+        62999800
+      ],
+      "startedAt": 1783787858.8209145,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787856.5942967,
+          "detail": null,
+          "latencyMs": 1194.927,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787858.747124,
+          "detail": null,
+          "latencyMs": 595.488,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 333.3001136779785,
+      "completedAt": 1783787861.6829436,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 132.629,
+      "decisionRound": 62999802,
+      "decisions": 72,
+      "endToEndLatencyMs": 132.629,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 3692.087,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 4.95620322227478,
+            "minAgeSeconds": 1.1238963603973389,
+            "poolCount": 9,
+            "updatedAt": 1783787860.4266036
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 552.188,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.917701005935669,
+            "minAgeSeconds": 0.3333001136779785,
+            "poolCount": 2,
+            "updatedAt": 1783787861.2171998
+          }
+        }
+      },
+      "freshRouteCount": 72,
+      "freshnessSkips": {
+        "stale_quote_over_max_age": 2
+      },
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999802,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787860.632799,
+      "sourceCaptureMin": 1783787860.4266036,
+      "sourcePoolRounds": [
+        62999800,
+        62999801
+      ],
+      "startedAt": 1783787861.5505,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787860.4266036,
+          "detail": null,
+          "latencyMs": 3692.087,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 8,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787861.2171998,
+          "detail": null,
+          "latencyMs": 552.188,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 378.24392318725586,
+      "completedAt": 1783787864.369394,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 103.252,
+      "decisionRound": 62999803,
+      "decisions": 74,
+      "endToEndLatencyMs": 103.252,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1093.774,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 3.8387019634246826,
+            "minAgeSeconds": 2.691802740097046,
+            "poolCount": 9,
+            "updatedAt": 1783787861.5735028
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 611.17,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.0241379737854004,
+            "minAgeSeconds": 0.37824392318725586,
+            "poolCount": 2,
+            "updatedAt": 1783787863.8870616
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999803,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787863.8870616,
+      "sourceCaptureMin": 1783787860.4266036,
+      "sourcePoolRounds": [
+        62999800,
+        62999801,
+        62999802
+      ],
+      "startedAt": 1783787864.2653055,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787861.5735028,
+          "detail": null,
+          "latencyMs": 1093.774,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787863.8870616,
+          "detail": null,
+          "latencyMs": 611.17,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 178.0533790588379,
+      "completedAt": 1783787867.1422336,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 107.385,
+      "decisionRound": 62999804,
+      "decisions": 74,
+      "endToEndLatencyMs": 107.385,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1082.737,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.9123682975769043,
+            "minAgeSeconds": 0.7931370735168457,
+            "poolCount": 9,
+            "updatedAt": 1783787866.2413647
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 546.457,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.7678577899932861,
+            "minAgeSeconds": 0.1780533790588379,
+            "poolCount": 2,
+            "updatedAt": 1783787866.8564484
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999804,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787866.8564484,
+      "sourceCaptureMin": 1783787865.1221335,
+      "sourcePoolRounds": [
+        62999802,
+        62999803
+      ],
+      "startedAt": 1783787867.0345018,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787866.2413647,
+          "detail": null,
+          "latencyMs": 1082.737,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787866.8564484,
+          "detail": null,
+          "latencyMs": 546.457,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 418.961763381958,
+      "completedAt": 1783787869.8643382,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 114.355,
+      "decisionRound": 62999805,
+      "decisions": 74,
+      "endToEndLatencyMs": 114.355,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1082.737,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 4.627285003662109,
+            "minAgeSeconds": 3.508053779602051,
+            "poolCount": 9,
+            "updatedAt": 1783787866.2413647
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 536.895,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.9890482425689697,
+            "minAgeSeconds": 0.418961763381958,
+            "poolCount": 2,
+            "updatedAt": 1783787869.3304567
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999805,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787869.3304567,
+      "sourceCaptureMin": 1783787865.1221335,
+      "sourcePoolRounds": [
+        62999802,
+        62999803,
+        62999804
+      ],
+      "startedAt": 1783787869.7494185,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787866.2413647,
+          "detail": null,
+          "latencyMs": 1082.737,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787869.3304567,
+          "detail": null,
+          "latencyMs": 536.895,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 574.866533279419,
+      "completedAt": 1783787872.5947819,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 119.254,
+      "decisionRound": 62999806,
+      "decisions": 74,
+      "endToEndLatencyMs": 119.254,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1107.35,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 2.634969711303711,
+            "minAgeSeconds": 1.4531879425048828,
+            "poolCount": 9,
+            "updatedAt": 1783787871.021728
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 556.52,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.2636046409606934,
+            "minAgeSeconds": 0.574866533279419,
+            "poolCount": 2,
+            "updatedAt": 1783787871.9000494
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999806,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787871.9000494,
+      "sourceCaptureMin": 1783787869.8399463,
+      "sourcePoolRounds": [
+        62999803,
+        62999805
+      ],
+      "startedAt": 1783787872.474916,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787871.021728,
+          "detail": null,
+          "latencyMs": 1107.35,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787871.9000494,
+          "detail": null,
+          "latencyMs": 556.52,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 234.23075675964355,
+      "completedAt": 1783787875.3267145,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 112.146,
+      "decisionRound": 62999807,
+      "decisions": 74,
+      "endToEndLatencyMs": 112.146,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 3500.561,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 4.192917346954346,
+            "minAgeSeconds": 0.49475836753845215,
+            "poolCount": 9,
+            "updatedAt": 1783787874.719887
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 591.27,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.8555984497070312,
+            "minAgeSeconds": 0.23423075675964355,
+            "poolCount": 2,
+            "updatedAt": 1783787874.9804146
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999807,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787874.9804146,
+      "sourceCaptureMin": 1783787871.021728,
+      "sourcePoolRounds": [
+        62999805,
+        62999806
+      ],
+      "startedAt": 1783787875.2146454,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787874.719887,
+          "detail": null,
+          "latencyMs": 3500.561,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 8,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787874.9804146,
+          "detail": null,
+          "latencyMs": 591.27,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 513.1714344024658,
+      "completedAt": 1783787878.044321,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 88.376,
+      "decisionRound": 62999808,
+      "decisions": 74,
+      "endToEndLatencyMs": 88.376,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1047.201,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 3.2363009452819824,
+            "minAgeSeconds": 2.1632046699523926,
+            "poolCount": 9,
+            "updatedAt": 1783787875.7929833
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 575.135,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.1337392330169678,
+            "minAgeSeconds": 0.5131714344024658,
+            "poolCount": 2,
+            "updatedAt": 1783787877.4430165
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999808,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787877.4430165,
+      "sourceCaptureMin": 1783787874.719887,
+      "sourcePoolRounds": [
+        62999805,
+        62999806,
+        62999807
+      ],
+      "startedAt": 1783787877.956188,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787875.7929833,
+          "detail": null,
+          "latencyMs": 1047.201,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787877.4430165,
+          "detail": null,
+          "latencyMs": 575.135,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 166.54491424560547,
+      "completedAt": 1783787880.8443522,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 120.997,
+      "decisionRound": 62999809,
+      "decisions": 74,
+      "endToEndLatencyMs": 120.997,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1062.856,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.2689309120178223,
+            "minAgeSeconds": 0.16654491424560547,
+            "poolCount": 9,
+            "updatedAt": 1783787880.5566604
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 580.43,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.900780439376831,
+            "minAgeSeconds": 0.2768435478210449,
+            "poolCount": 2,
+            "updatedAt": 1783787880.4463618
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999809,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787880.5566604,
+      "sourceCaptureMin": 1783787879.4542744,
+      "sourcePoolRounds": [
+        62999807,
+        62999808
+      ],
+      "startedAt": 1783787880.7232053,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787880.5566604,
+          "detail": null,
+          "latencyMs": 1062.856,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787880.4463618,
+          "detail": null,
+          "latencyMs": 580.43,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 498.97217750549316,
+      "completedAt": 1783787883.5833306,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 111.181,
+      "decisionRound": 62999810,
+      "decisions": 74,
+      "endToEndLatencyMs": 111.181,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1062.856,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 4.017677545547485,
+            "minAgeSeconds": 2.9152915477752686,
+            "poolCount": 9,
+            "updatedAt": 1783787880.5566604
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 557.651,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.0978236198425293,
+            "minAgeSeconds": 0.49897217750549316,
+            "poolCount": 2,
+            "updatedAt": 1783787882.9729798
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999810,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787882.9729798,
+      "sourceCaptureMin": 1783787879.4542744,
+      "sourcePoolRounds": [
+        62999807,
+        62999808,
+        62999809
+      ],
+      "startedAt": 1783787883.471952,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787880.5566604,
+          "detail": null,
+          "latencyMs": 1062.856,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787882.9729798,
+          "detail": null,
+          "latencyMs": 557.651,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0003904487974979165,
+      "bestNet": -0.06810955120250209,
+      "bestSize": 0.125,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 198.18425178527832,
+      "completedAt": 1783787886.4231145,
+      "connectorStamped": false,
+      "decisionComputeLatencyMs": 191.835,
+      "decisionRound": 62999811,
+      "decisions": 74,
+      "endToEndLatencyMs": 191.835,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1094.138,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 2.025743246078491,
+            "minAgeSeconds": 0.888922929763794,
+            "poolCount": 9,
+            "updatedAt": 1783787885.3420463
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 556.156,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.7902712821960449,
+            "minAgeSeconds": 0.19818425178527832,
+            "poolCount": 2,
+            "updatedAt": 1783787886.032785
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 62999811,
+      "paperRows": 1,
+      "poolCount": 11,
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783787886.032785,
+      "sourceCaptureMin": 1783787884.205226,
+      "sourcePoolRounds": [
+        62999809,
+        62999810
+      ],
+      "startedAt": 1783787886.2309692,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783787885.3420463,
+          "detail": null,
+          "latencyMs": 1094.138,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783787886.032785,
+          "detail": null,
+          "latencyMs": 556.156,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    }
+  ],
+  "decisionsRecorded": 20,
+  "fabricatedTimestamps": false,
+  "feeConversion": "route_path_quote",
+  "feeUnitConsistent": true,
+  "freshPoolCoverage": {
+    "freshCoverage": 1.0,
+    "freshPools": 11,
+    "totalPools": 11,
+    "venues": {
+      "pact": {
+        "freshCoverage": 1.0,
+        "freshPoolCount": 9,
+        "lastRefreshLatencyMs": 1094.138,
+        "lastStatus": "ok",
+        "maxAgeSeconds": 2.025743246078491,
+        "minAgeSeconds": 0.888922929763794,
+        "poolCount": 9,
+        "updatedAt": 1783787885.3420463
+      },
+      "tinyman": {
+        "freshCoverage": 1.0,
+        "freshPoolCount": 2,
+        "lastRefreshLatencyMs": 556.156,
+        "lastStatus": "ok",
+        "maxAgeSeconds": 0.7902712821960449,
+        "minAgeSeconds": 0.19818425178527832,
+        "poolCount": 2,
+        "updatedAt": 1783787886.032785
+      }
+    }
+  },
+  "healthIntervalSeconds": 60.0,
+  "maxQuoteAgeSeconds": 5.0,
+  "minRoundsForDataReady": 20,
+  "mode": "continuous_freshness_cache_v2",
+  "p50EndToEndLatencyMs": 117.706,
+  "p95EndToEndLatencyMs": 191.835,
+  "p95TargetMs": 5000.0,
+  "productionReady": false,
+  "realtimeDataReady": true,
+  "realtimeDataReadyVerdict": "REALTIME_DATA_READY",
+  "realtimeReady": true,
+  "realtimeReadyVerdict": "REAL-TIME READY",
+  "roundsAreStrictlyConsecutive": true,
+  "roundsAttempted": 20,
+  "runId": "rt_loop_95700a41a2",
+  "signingEnabled": false,
+  "skippedRoundCount": 1,
+  "skippedRounds": [
+    {
+      "freshnessSkips": {},
+      "observedRound": 62999792,
+      "reason": "no_qualified_pools"
+    }
+  ],
+  "submissionEnabled": false,
+  "usableRoundRatio": 0.95,
+  "usableRoundTarget": 0.95,
+  "usableRounds": 19,
+  "venueRefreshLatencyMs": {
+    "pact": 1094.138,
+    "tinyman": 556.156
+  }
+}

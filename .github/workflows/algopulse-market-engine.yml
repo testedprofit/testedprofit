@@ -1,0 +1,46 @@
+name: AlgoPulse Market Engine CI
+
+on:
+  pull_request:
+    paths:
+      - "algopulse-market-engine/**"
+      - ".github/workflows/algopulse-market-engine.yml"
+  push:
+    paths:
+      - "algopulse-market-engine/**"
+      - ".github/workflows/algopulse-market-engine.yml"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: algopulse-market-engine
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Repo hygiene and secret guard
+        run: python scripts/repo_guard.py
+
+      - name: Dashboard JavaScript syntax
+        run: node --check src/algopulse/static/app.js
+
+      - name: Tests
+        run: python -m pytest -q
