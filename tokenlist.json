@@ -1,0 +1,25 @@
+{
+  "name": "ProfitNet Base Token List",
+  "timestamp": "2026-07-11T00:00:00Z",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "logoURI": "https://testedprofit.com/pages/PNET/pnet-logo-32.svg",
+  "keywords": [
+    "profitnet",
+    "pnet",
+    "base"
+  ],
+  "tokens": [
+    {
+      "chainId": 8453,
+      "address": "0xe1F7F585f458cB6AFFCEE2286b8482523B19ee5a",
+      "name": "ProfitNet",
+      "symbol": "PNET",
+      "decimals": 18,
+      "logoURI": "https://testedprofit.com/pages/PNET/pnet-logo-32.svg"
+    }
+  ]
+}
