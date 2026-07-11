@@ -13,7 +13,13 @@ SECRET_FILE_SUFFIXES = (".mnemonic", ".seed", ".key")
 GENERATED_FILE_SUFFIXES = (".pyc", ".pyo", ".log", ".db", ".sqlite")
 GENERATED_PATH_PARTS = {"__pycache__", ".pytest_cache", ".venv", "htmlcov", "dist", "build"}
 GENERATED_PATH_SUFFIXES = (".egg-info",)
-ALLOWED_ENV_FILES = {".env.example", ".env.live.example", ".env.tiny-live.example"}
+ALLOWED_ENV_FILES = {
+    ".env.example",
+    ".env.live.example",
+    ".env.mainnet-readonly.example",
+    ".env.testnet.example",
+    ".env.tiny-live.example",
+}
 SCAN_SKIP_FILES = {".github/workflows/ci.yml", "scripts/repo_guard.py"}
 
 QUOTED_SECRET_RE = re.compile(
