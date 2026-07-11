@@ -1,0 +1,25 @@
+{
+  "name": "algopulse-market-engine",
+  "version": "1.0.0",
+  "description": "AlgoPulse Phase 0 is a safe-by-default Algorand market-intelligence and arb-research engine.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/testedprofit/algopulse-market-engine.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/testedprofit/algopulse-market-engine/issues"
+  },
+  "homepage": "https://github.com/testedprofit/algopulse-market-engine#readme"
+}

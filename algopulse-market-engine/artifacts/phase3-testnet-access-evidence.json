@@ -1,0 +1,54 @@
+{
+  "mode": "testnet_access_phase",
+  "localUrl": "http://127.0.0.1:8768",
+  "profile": {
+    "APP_ENV": "testnet",
+    "ALGORAND_NETWORK": "testnet",
+    "PNET_ASA_ID": 0,
+    "ENABLE_EXECUTION": false,
+    "ENABLE_SIGNER": false,
+    "KILL_SWITCH": true
+  },
+  "publicConfig": {
+    "developmentPhase": "AlgoPulse Phase 3: TestNet Access",
+    "network": "testnet",
+    "chainId": 416002,
+    "walletAccessMode": "connect_only",
+    "supportedWallets": ["pera", "defly"],
+    "pnetAsaConfigured": false,
+    "pnetMessage": "PNET TestNet asset not configured",
+    "signingEnabled": false,
+    "submissionEnabled": false,
+    "backendNetworkAuthority": true
+  },
+  "networkHealth": {
+    "overall": "ok",
+    "algodLastRound": 65222662,
+    "indexerLastRound": 65222662
+  },
+  "readiness": {
+    "status": "testnet_access_ready",
+    "walletConnectionReady": true,
+    "walletAccessStatus": "ready"
+  },
+  "mismatchProbe": {
+    "status": 409,
+    "code": "WALLET_NETWORK_MISMATCH",
+    "message": "Wallet/network mismatch: backend is testnet; wallet claimed mainnet."
+  },
+  "screenshots": [
+    "artifacts/phase3-testnet-access-desktop.png",
+    "artifacts/phase3-testnet-access-desktop-mismatch.png",
+    "artifacts/phase3-testnet-access-mobile.png"
+  ],
+  "focusedTests": "37 passed (test_testnet_access, test_testnet_readiness, test_utility_hub_static)",
+  "boundaries": {
+    "noTransactionConstruction": true,
+    "noSigningRequests": true,
+    "noSubmission": true,
+    "noAssetOptInTx": true,
+    "noLiveTrading": true,
+    "noCommit": true,
+    "noPush": true
+  }
+}

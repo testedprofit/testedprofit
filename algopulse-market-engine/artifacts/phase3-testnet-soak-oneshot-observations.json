@@ -1,0 +1,92 @@
+{
+  "ok": true,
+  "requestId": "req_1dd413cbda2c",
+  "data": {
+    "observations": [
+      {
+        "observationId": "obs_833f1f0c80924285",
+        "runId": "oneshot_review_001",
+        "sequenceNumber": 1,
+        "startedAt": 1783770077.455471,
+        "completedAt": 1783770079.5754433,
+        "network": "testnet",
+        "source": "live",
+        "algod": {
+          "detail": null,
+          "latencyMs": 282.518,
+          "latestRound": 65214203,
+          "status": "ok"
+        },
+        "indexer": {
+          "detail": null,
+          "latencyMs": 193.53,
+          "latestRound": 65214204,
+          "roundLag": 0,
+          "status": "ok"
+        },
+        "tinyman": {
+          "detail": null,
+          "latencyMs": 433.215,
+          "poolCount": 1,
+          "status": "ok"
+        },
+        "pact": {
+          "detail": "pact_api_non_json_response",
+          "latencyMs": 865.848,
+          "poolCount": 0,
+          "status": "error"
+        },
+        "scanner": {
+          "approved": 0,
+          "connectorDegradedCount": 0,
+          "connectorErrorCount": 1,
+          "opportunities": 0,
+          "paperCandidates": 0,
+          "paperRechecks30s": 0,
+          "paperRechecks5s": 0,
+          "poolsObserved": 1,
+          "status": "degraded"
+        },
+        "poolsObserved": 1,
+        "quotesObserved": 0,
+        "quoteFreshness": {
+          "aging": 0,
+          "fresh": 0,
+          "source": "unavailable",
+          "stale": 0,
+          "unavailable": 0
+        },
+        "routes": {
+          "routeCandidateCount": 0,
+          "approvedRouteCount": 0,
+          "rejectedRouteCount": 0,
+          "waitRouteCount": 0,
+          "paperOnlyRouteCount": 0,
+          "rejectionReasons": []
+        },
+        "paper": {
+          "candidateCount": 0,
+          "recheckCompleted30s": 0,
+          "recheckCompleted5s": 0
+        },
+        "errors": [],
+        "degradedReasons": [
+          "pact_error",
+          "scanner_degraded"
+        ],
+        "productionReady": false,
+        "liveExecutionLocked": true
+      }
+    ],
+    "count": 1,
+    "limit": 5,
+    "source": "stored",
+    "productionReady": false,
+    "liveExecutionLocked": true,
+    "adminSession": {
+      "wallet": "ADMIN6H2ZREVIEWWALLET9KX4CONTROL",
+      "authMode": "local-review-mock"
+    }
+  },
+  "error": null
+}

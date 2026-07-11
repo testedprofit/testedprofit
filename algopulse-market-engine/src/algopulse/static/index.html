@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Algorand Arbitrage Scanner | AlgoPulse</title>
+    <meta
+      name="description"
+      content="Monitor Algorand DEX spreads with AlgoPulse, a Tinyman and Pact market scanner for routing, paper trades, and guarded arbitrage execution."
+    />
+    <meta property="og:title" content="Algorand Arbitrage Scanner | AlgoPulse" />
+    <meta
+      property="og:description"
+      content="Track Algorand market spreads, pool health, paper trades, and guarded Tinyman/Pact arbitrage routes from one dashboard."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Algorand Arbitrage Scanner | AlgoPulse" />
+    <meta
+      name="twitter:description"
+      content="Algorand market intelligence for scanners, route engines, paper trading, risk controls, PNET access, and delayed public dashboards."
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "AlgoPulse Market Engine",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "description": "Algorand market intelligence dashboard for scanners, route engines, paper trading, risk controls, PNET access, and delayed public data."
+      }
+    </script>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/static/styles.css?v=phase3-testnet-access-v1" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="topbar" aria-label="Market controls">
+        <div>
+          <p class="eyebrow" data-app-phase-label>AlgoPulse Phase 3: TestNet Access</p>
+          <h1>PNET Market Engine</h1>
+        </div>
+        <nav class="nav-tabs" aria-label="Dashboard sections">
+          <button type="button" class="nav-tab active" data-dashboard-view="pulse">Pulse</button>
+          <button type="button" class="nav-tab" data-dashboard-view="routes">Routes</button>
+          <button type="button" class="nav-tab" data-dashboard-view="research">Research</button>
+          <button type="button" class="nav-tab" data-dashboard-view="utility">Utility</button>
+          <button type="button" class="nav-tab" data-dashboard-view="transparency">Transparency</button>
+          <button type="button" class="nav-tab" data-dashboard-view="access">PNET Access</button>
+          <button type="button" class="nav-tab" data-dashboard-view="receipts">Receipts</button>
+        </nav>
+        <div class="actions command-actions">
+          <span id="execution-status" class="status">Checking readiness</span>
+          <span id="kill-switch-status" class="kill-pill">Kill switch on</span>
+          <button id="readiness-check" type="button">Preflight</button>
+          <button id="scan-now" type="button">Scan now</button>
+          <button id="pera-wallet-button" class="wallet-button" type="button">Connect Wallet</button>
+          <span id="role-badge" class="role-badge guest">GUEST</span>
+        </div>
+      </section>
+
+      <section class="wallet-strip" aria-label="Wallet session">
+        <div class="wallet-identity">
+          <span id="wallet-state-label">Disconnected</span>
+          <strong id="wallet-address">No wallet connected</strong>
+        </div>
+        <div class="wallet-telemetry">
+          <span id="network-badge" class="network-badge">MainNet</span>
+          <span id="pnet-optin-status">PNET opt-in unknown</span>
+          <span id="pnet-balance">0 PNET</span>
+          <span id="pnet-credit-balance">0 credits</span>
+        </div>
+        <div id="wallet-quick-switch" class="wallet-quick-switch" aria-label="Wallet provider and network quick switch"></div>
+        <div class="wallet-state-controls" aria-label="Review wallet states">
+          <button type="button" data-wallet-preset="guest">Guest</button>
+          <button type="button" data-wallet-preset="user">User</button>
+          <button type="button" data-wallet-preset="admin">Admin</button>
+          <button type="button" data-wallet-preset="wrongNetwork">Wrong net</button>
+          <button type="button" data-wallet-preset="notOptedIn">No PNET</button>
+          <button type="button" data-wallet-preset="lowPnet">Low PNET</button>
+          <button type="button" data-wallet-preset="feeReady">Fee ready</button>
+        </div>
+      </section>
+
+      <section id="role-dashboard" class="control-deck" aria-label="Role-based PNET dashboard"></section>
+
+      <section class="terminal-stage" aria-label="PNET market radar">
+        <div class="stage-copy">
+          <p class="eyebrow">Vestige sourced target pools</p>
+          <h2>Live PNET pool radar</h2>
+          <div class="operator-stack" aria-label="Operator summary">
+            <div class="operator-tile operator-primary">
+              <span>Readiness</span>
+              <strong id="ops-verdict">checking</strong>
+            </div>
+            <div class="operator-tile">
+              <span>Route gate</span>
+              <strong id="ops-route">waiting</strong>
+            </div>
+            <div class="operator-tile">
+              <span>Wallet</span>
+              <strong id="ops-wallet">not configured</strong>
+            </div>
+            <div class="operator-tile">
+              <span>Last scan</span>
+              <strong id="ops-scan">none</strong>
+            </div>
+          </div>
+          <div class="safety-ribbon">
+            <span id="ops-profit-gate">Positive net after fees only</span>
+            <strong id="ops-exec-state">Live execution disarmed</strong>
+          </div>
+          <div class="stage-tags">
+            <span id="radar-target">PNET</span>
+            <span id="radar-source">Vestige discovery</span>
+            <span id="radar-venues">Tinyman / Pact</span>
+          </div>
+        </div>
+        <div class="radar-shell">
+          <div id="radar-cta" class="radar-cta" aria-live="polite">
+            <span id="radar-cta-kicker">LP slots open</span>
+            <strong id="radar-cta-main">Could be you</strong>
+            <span id="radar-cta-sub">Become an LP provider today</span>
+          </div>
+          <div class="radar-legend" aria-hidden="true">
+            <span><i class="legend-live"></i>Live pools</span>
+            <span><i class="legend-open"></i>LP openings</span>
+          </div>
+          <canvas id="market-radar" width="720" height="420" aria-label="Live pool radar"></canvas>
+          <div id="radar-pool-detail" class="radar-pool-detail muted" aria-live="polite">
+            Click a live pool for venue, app ID, reserves, liquidity, round, and freshness.
+          </div>
+          <div class="radar-readout">
+            <div>
+              <span>Pairs</span>
+              <strong id="radar-pairs">0</strong>
+            </div>
+            <div>
+              <span>Pools</span>
+              <strong id="radar-pools">0</strong>
+            </div>
+            <div>
+              <span>Routes 24h</span>
+              <strong id="radar-routes">0</strong>
+            </div>
+            <div>
+              <span>LP Slots</span>
+              <strong id="radar-lp-slots">0</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="Market pulse">
+        <article class="metric">
+          <span>Pools</span>
+          <strong id="pools-count">0</strong>
+        </article>
+        <article class="metric">
+          <span>Opps 24h</span>
+          <strong id="opportunity-count">0</strong>
+        </article>
+        <article class="metric">
+          <span>Approved</span>
+          <strong id="approved-count">0</strong>
+        </article>
+        <article class="metric">
+          <span>Paper net</span>
+          <strong id="paper-net">0 ALGO</strong>
+        </article>
+        <article class="metric">
+          <span>Last scan</span>
+          <strong id="last-scan">none</strong>
+        </article>
+        <article class="metric">
+          <span>Health</span>
+          <strong id="market-health">cold start</strong>
+        </article>
+      </section>
+
+      <section class="panel thesis-panel" aria-label="AlgoPulse product capabilities">
+        <div class="panel-head">
+          <h2>Product Capabilities</h2>
+          <span>Market engine, not script</span>
+        </div>
+        <div id="product-thesis" class="thesis-grid"></div>
+      </section>
+
+      <section class="panel version-panel" aria-label="AlgoPulse build path">
+        <div class="panel-head">
+          <h2>Build Path</h2>
+          <span>Read-only first</span>
+        </div>
+        <div id="version-ladder" class="version-ladder"></div>
+      </section>
+
+      <section class="panel phase-gate-panel" aria-label="Phase gate evidence checklist">
+        <div class="panel-head">
+          <h2>Phase Gates</h2>
+          <span>Evidence before scale</span>
+        </div>
+        <div id="phase-gates" class="phase-gates"></div>
+      </section>
+
+      <section class="panel deployment-mode-panel" aria-label="Deployment mode contract">
+        <div class="panel-head">
+          <h2>Deployment Modes</h2>
+          <span>Safe promotion path</span>
+        </div>
+        <div id="deployment-modes" class="deployment-modes"></div>
+      </section>
+
+      <section class="panel red-flag-panel" aria-label="Repo adoption safety filter">
+        <div class="panel-head">
+          <h2>Repo Safety Filter</h2>
+          <span>Reject on sight</span>
+        </div>
+        <div id="repo-red-flags" class="red-flag-grid"></div>
+      </section>
+
+      <section class="grid">
+        <article class="panel wide">
+          <div class="panel-head">
+            <h2>Live Market Readiness</h2>
+            <span id="readiness-mode">Preflight</span>
+          </div>
+          <div id="live-readiness" class="readiness"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>5 To 10 Test Run</h2>
+            <span>Synthetic demo</span>
+          </div>
+          <div id="demo-run" class="demo-run"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Best Public Route</h2>
+            <span>Delayed route data</span>
+          </div>
+          <div id="best-route" class="best-route"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Opportunity Breakdown</h2>
+            <span>Risk screened</span>
+          </div>
+          <div id="opportunity-list" class="opportunity-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Paper Trading</h2>
+            <span>5s / 30s replay</span>
+          </div>
+          <div id="paper-trades" class="paper-trades"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Paper Daily Report</h2>
+            <span>Aggregate QA</span>
+          </div>
+          <div id="paper-daily-report" class="paper-report"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Execution Receipts</h2>
+            <span>Worker / CLI only</span>
+          </div>
+          <div id="live-trades" class="paper-trades"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Balance Reconciliation</h2>
+            <span>After-fee proof</span>
+          </div>
+          <div id="reconciliations" class="paper-trades"></div>
+        </article>
+
+        <article class="panel wide">
+          <div class="panel-head">
+            <h2>Payment Verification</h2>
+            <span>Indexer receipt check</span>
+          </div>
+          <form id="payment-verification-form" class="verification-form">
+            <label>
+              TxID
+              <input id="verify-txid" name="txid" autocomplete="off" />
+            </label>
+            <label>
+              Receiver
+              <input id="verify-receiver" name="receiver" autocomplete="off" />
+            </label>
+            <label>
+              Amount
+              <input id="verify-amount" name="amount" type="number" min="0" step="0.000001" />
+            </label>
+            <label>
+              Asset ID
+              <input id="verify-asset-id" name="asset-id" type="number" min="0" step="1" value="0" />
+            </label>
+            <label>
+              Confirms
+              <input id="verify-confirmations" name="confirmations" type="number" min="1" step="1" value="1" />
+            </label>
+            <label>
+              Note prefix
+              <input id="verify-note-prefix" name="note-prefix" autocomplete="off" />
+            </label>
+            <button id="verify-payment" type="submit">Verify</button>
+          </form>
+          <div id="payment-verification-result" class="verification-result"></div>
+          <div id="payment-verifications" class="paper-trades"></div>
+        </article>
+
+        <article class="panel wide">
+          <div class="panel-head">
+            <h2>Refund / Failure Queue</h2>
+            <span>Manual resolution only</span>
+          </div>
+          <form id="refund-case-form" class="refund-form">
+            <label>
+              Verification ID
+              <input id="refund-verification-id" name="verification-id" type="number" min="1" step="1" />
+            </label>
+            <label>
+              Failure type
+              <select id="refund-failure-type" name="failure-type">
+                <option value="service_failure">Service failure</option>
+                <option value="payment_mismatch">Payment mismatch</option>
+                <option value="route_failure">Route failure</option>
+                <option value="operator_cancelled">Operator cancelled</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <label>
+              Reason
+              <input id="refund-reason" name="reason" autocomplete="off" />
+            </label>
+            <label>
+              Operator note
+              <input id="refund-note" name="operator-note" autocomplete="off" />
+            </label>
+            <button id="create-refund-case" type="submit">Create case</button>
+          </form>
+          <div id="refund-case-result" class="verification-result"></div>
+          <div id="refund-cases" class="paper-trades"></div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Pool Monitor</h2>
+          <span>Tinyman/Pact target pools</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Venue</th>
+                <th>Pool / App</th>
+                <th>Pair</th>
+                <th>Reserve A</th>
+                <th>Reserve B</th>
+                <th>Liquidity</th>
+                <th>Price A/B</th>
+                <th>Round</th>
+                <th>Freshness</th>
+              </tr>
+            </thead>
+            <tbody id="pools-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <div id="pnet-fee-modal" class="modal-backdrop hidden" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="pnet-fee-title">
+        <div class="panel-head">
+          <h2 id="pnet-fee-title">PNET Access Fee</h2>
+          <button id="close-pnet-fee-modal" class="icon-button" type="button" aria-label="Close">X</button>
+        </div>
+        <div id="pnet-fee-body" class="modal-body"></div>
+        <div class="modal-actions">
+          <button id="cancel-pnet-fee" type="button">Cancel</button>
+          <button id="confirm-pnet-fee" type="button">Confirm mock payment</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="route-detail-modal" class="modal-backdrop hidden" aria-hidden="true">
+      <div class="modal-card route-modal" role="dialog" aria-modal="true" aria-labelledby="route-detail-title">
+        <div class="panel-head">
+          <h2 id="route-detail-title">Route Detail</h2>
+          <button id="close-route-detail-modal" class="icon-button" type="button" aria-label="Close">X</button>
+        </div>
+        <div id="route-detail-body" class="modal-body"></div>
+      </div>
+    </div>
+
+    <div id="evidence-drawer" class="modal-backdrop hidden" aria-hidden="true">
+      <aside class="modal-card evidence-drawer" role="dialog" aria-modal="true" aria-labelledby="evidence-drawer-title">
+        <div class="modal-head">
+          <h2 id="evidence-drawer-title">Service Evidence</h2>
+          <button id="close-evidence-drawer" class="icon-button" type="button" aria-label="Close">X</button>
+        </div>
+        <div id="evidence-drawer-body" class="modal-body"></div>
+      </aside>
+    </div>
+
+    <div id="live-arm-modal" class="modal-backdrop hidden" aria-hidden="true">
+      <div class="modal-card danger-modal" role="dialog" aria-modal="true" aria-labelledby="live-arm-title">
+        <div class="panel-head">
+          <h2 id="live-arm-title">Live Micro-Execution Gate</h2>
+          <button id="close-live-arm-modal" class="icon-button" type="button" aria-label="Close">X</button>
+        </div>
+        <div class="modal-body">
+          <p class="danger-copy">This review UI does not arm live execution. Production arming must pass backend role checks, signer policy, kill-switch state, and reconciliation gates.</p>
+          <div id="live-arm-limits" class="policy-grid"></div>
+        </div>
+        <div class="modal-actions">
+          <button id="cancel-live-arm" type="button">Keep disarmed</button>
+          <button id="confirm-live-arm" class="danger-button" type="button">Acknowledge gate</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/app.js?v=phase3-testnet-access-v1"></script>
+  </body>
+</html>

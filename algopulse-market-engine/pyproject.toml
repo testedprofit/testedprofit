@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "algopulse-phase0"
+version = "0.1.0"
+description = "Safe-by-default Algorand market intelligence and Phase 0 arb scanner"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115.0",
+  "pydantic>=2.8.0",
+  "uvicorn[standard]>=0.30.0",
+  "python-dotenv>=1.0.1",
+  "py-algorand-sdk>=2.11.0,<3.0.0",
+  "sqlalchemy>=2.0.0",
+  "psycopg2-binary>=2.9.9",
+  "redis>=5.0.0",
+  "pactsdk>=0.7.1,<0.8.0",
+  "tinyman-py-sdk @ git+https://github.com/tinymanorg/tinyman-py-sdk.git@dd1fed50cdc18a699a994b25a1d4bdb11b902553",
+  "x402-avm[fastapi,avm]==2.0.2"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0", "httpx2>=2.4.0"]
+live = ["py-algorand-sdk>=2.6.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

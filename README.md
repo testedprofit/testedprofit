@@ -23,6 +23,14 @@ I build in public under the **[TestedProfit](https://testedprofit.com)** brand.
 
 ---
 
+## 📡 AlgoPulse / PNET Market Engine
+
+**[AlgoPulse](algopulse-market-engine/)** is the evidence-first Algorand market-intelligence and arbitrage-research system. It includes live read-only pool scanning, Tinyman/Pact quote comparison, route and triangle analysis, risk explanations, paper outcomes, TestNet connect-only Pera/Defly access, and an operations Control Room.
+
+Current posture: **Phase 3 TestNet Access**. Wallet access is read-only; signing, transaction submission, hot-wallet custody, and live trading remain disabled.
+
+---
+
 ## 🔗 Proof it's real (verify it yourself, on-chain)
 
 - 🌐 **Live suite:** <https://testedprofit.com/pages/algoflow/>

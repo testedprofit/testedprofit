@@ -1,0 +1,5885 @@
+{
+  "automaticDecisionEveryAttemptedRound": true,
+  "bottleneck": "usable_round_ratio:0.9167<0.95",
+  "connectorTimestampsPreserved": true,
+  "consecutiveClaimAllowed": false,
+  "decisionComputeReady": true,
+  "decisionComputeReadyVerdict": "DECISION_COMPUTE_READY",
+  "decisions": [
+    {
+      "aggregateRejections": {},
+      "approvedCount": 0,
+      "bestGross": null,
+      "bestNet": null,
+      "bestSize": null,
+      "bestSkipReason": null,
+      "bestStatus": null,
+      "cacheAgeMs": 389.24479484558105,
+      "completedAt": 1783791594.8382645,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 0,
+      "decisionComputeLatencyMs": 0.336,
+      "decisionRound": 63001157,
+      "decisions": 0,
+      "endToEndLatencyMs": 0.336,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": false,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 10,
+        "totalPools": 10,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 8,
+            "lastRefreshLatencyMs": 3703.142,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.38924479484558105,
+            "minAgeSeconds": 0.38924479484558105,
+            "poolCount": 8,
+            "updatedAt": 1783791594.4480205
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 556.13,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.0136237144470215,
+            "minAgeSeconds": 0.42436814308166504,
+            "poolCount": 2,
+            "updatedAt": 1783791594.4144042
+          }
+        }
+      },
+      "freshRouteCount": 0,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 0,
+      "observedRound": 63001157,
+      "paperCandidates": [],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 0,
+      "poolCount": 2,
+      "routeVenueEvidence": {
+        "counts": {},
+        "samples": []
+      },
+      "skipReason": "no_qualified_pools",
+      "skipped": true,
+      "sourceCaptureMax": null,
+      "sourceCaptureMin": null,
+      "sourcePoolRounds": [],
+      "startedAt": 1783791594.8372653,
+      "usable": false,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791594.4480205,
+          "detail": null,
+          "latencyMs": 3703.142,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 8,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791594.4144042,
+          "detail": null,
+          "latencyMs": 556.13,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {},
+      "approvedCount": 0,
+      "bestGross": null,
+      "bestNet": null,
+      "bestSize": null,
+      "bestSkipReason": null,
+      "bestStatus": null,
+      "cacheAgeMs": 88.24992179870605,
+      "completedAt": 1783791597.612132,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 0,
+      "decisionComputeLatencyMs": 0.313,
+      "decisionRound": 63001158,
+      "decisions": 0,
+      "endToEndLatencyMs": 0.313,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": false,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1145.304,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 3.163105010986328,
+            "minAgeSeconds": 1.987752914428711,
+            "poolCount": 9,
+            "updatedAt": 1783791595.6233726
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 583.674,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.696993350982666,
+            "minAgeSeconds": 0.08824992179870605,
+            "poolCount": 2,
+            "updatedAt": 1783791597.5228755
+          }
+        }
+      },
+      "freshRouteCount": 0,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 0,
+      "observedRound": 63001158,
+      "paperCandidates": [],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 0,
+      "poolCount": 2,
+      "routeVenueEvidence": {
+        "counts": {},
+        "samples": []
+      },
+      "skipReason": "no_qualified_pools",
+      "skipped": true,
+      "sourceCaptureMax": null,
+      "sourceCaptureMin": null,
+      "sourcePoolRounds": [],
+      "startedAt": 1783791597.6111255,
+      "usable": false,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791595.6233726,
+          "detail": null,
+          "latencyMs": 1145.304,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791597.5228755,
+          "detail": null,
+          "latencyMs": 583.674,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 64,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 69.55933570861816,
+      "completedAt": 1783791600.4506006,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 16,
+      "decisionComputeLatencyMs": 83.812,
+      "decisionRound": 63001159,
+      "decisions": 72,
+      "endToEndLatencyMs": 83.812,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1071.481,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.1914339065551758,
+            "minAgeSeconds": 0.06955933570861816,
+            "poolCount": 9,
+            "updatedAt": 1783791600.2967017
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 605.864,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.0333201885223389,
+            "minAgeSeconds": 0.39435577392578125,
+            "poolCount": 2,
+            "updatedAt": 1783791599.9719052
+          }
+        }
+      },
+      "freshRouteCount": 72,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001159,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001159,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "fad28c263b017b5c",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791599.174827,
+            1783791599.174827
+          ],
+          "sourceRounds": [
+            63001157,
+            63001157
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 10,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 16,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "fad28c263b017b5c",
+            "sourceCaptures": [
+              1783791599.174827,
+              1783791599.174827
+            ],
+            "sourceRounds": [
+              63001157,
+              63001157
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "eef2fbcc29e2ddc6",
+            "sourceCaptures": [
+              1783791599.174827,
+              1783791599.174827
+            ],
+            "sourceRounds": [
+              63001157,
+              63001157
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "b3473d9f1f72a7a4",
+            "sourceCaptures": [
+              1783791599.9719052,
+              1783791599.174827
+            ],
+            "sourceRounds": [
+              63001158,
+              63001157
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "313ad0ecef742db6",
+            "sourceCaptures": [
+              1783791599.174827,
+              1783791599.174827
+            ],
+            "sourceRounds": [
+              63001157,
+              63001157
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "c46cf3e8d02c90b2",
+            "sourceCaptures": [
+              1783791599.174827,
+              1783791599.174827
+            ],
+            "sourceRounds": [
+              63001157,
+              63001157
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791599.9719052,
+      "sourceCaptureMin": 1783791599.174827,
+      "sourcePoolRounds": [
+        63001157,
+        63001158
+      ],
+      "startedAt": 1783791600.366261,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791600.2967017,
+          "detail": null,
+          "latencyMs": 1071.481,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791599.9719052,
+          "detail": null,
+          "latencyMs": 605.864,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 64,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 626.7876625061035,
+      "completedAt": 1783791603.2444952,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 16,
+      "decisionComputeLatencyMs": 98.804,
+      "decisionRound": 63001160,
+      "decisions": 72,
+      "endToEndLatencyMs": 98.804,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1071.481,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 3.9700632095336914,
+            "minAgeSeconds": 2.848188638687134,
+            "poolCount": 9,
+            "updatedAt": 1783791600.2967017
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 574.674,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.2396340370178223,
+            "minAgeSeconds": 0.6267876625061035,
+            "poolCount": 2,
+            "updatedAt": 1783791602.5181026
+          }
+        }
+      },
+      "freshRouteCount": 72,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001160,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001160,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "fad28c263b017b5c",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791599.174827,
+            1783791599.174827
+          ],
+          "sourceRounds": [
+            63001157,
+            63001157
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 10,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 16,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "fad28c263b017b5c",
+            "sourceCaptures": [
+              1783791599.174827,
+              1783791599.174827
+            ],
+            "sourceRounds": [
+              63001157,
+              63001157
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "eef2fbcc29e2ddc6",
+            "sourceCaptures": [
+              1783791599.174827,
+              1783791599.174827
+            ],
+            "sourceRounds": [
+              63001157,
+              63001157
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "be0e5e81e6fb2b11",
+            "sourceCaptures": [
+              1783791602.5181026,
+              1783791599.174827
+            ],
+            "sourceRounds": [
+              63001159,
+              63001157
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "313ad0ecef742db6",
+            "sourceCaptures": [
+              1783791599.174827,
+              1783791599.174827
+            ],
+            "sourceRounds": [
+              63001157,
+              63001157
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "c46cf3e8d02c90b2",
+            "sourceCaptures": [
+              1783791599.174827,
+              1783791599.174827
+            ],
+            "sourceRounds": [
+              63001157,
+              63001157
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791602.5181026,
+      "sourceCaptureMin": 1783791599.174827,
+      "sourcePoolRounds": [
+        63001157,
+        63001159
+      ],
+      "startedAt": 1783791603.1448903,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791600.2967017,
+          "detail": null,
+          "latencyMs": 1071.481,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791602.5181026,
+          "detail": null,
+          "latencyMs": 574.674,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 64,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 228.9276123046875,
+      "completedAt": 1783791606.0550778,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 16,
+      "decisionComputeLatencyMs": 125.681,
+      "decisionRound": 63001161,
+      "decisions": 72,
+      "endToEndLatencyMs": 125.681,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1060.966,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 2.034259557723999,
+            "minAgeSeconds": 0.9336905479431152,
+            "poolCount": 9,
+            "updatedAt": 1783791604.9956827
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 573.657,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.8317523002624512,
+            "minAgeSeconds": 0.2289276123046875,
+            "poolCount": 2,
+            "updatedAt": 1783791605.7004457
+          }
+        }
+      },
+      "freshRouteCount": 72,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001161,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001161,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "f3b082548894c353",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791603.8951137,
+            1783791603.8951137
+          ],
+          "sourceRounds": [
+            63001159,
+            63001159
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 10,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 16,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "f3b082548894c353",
+            "sourceCaptures": [
+              1783791603.8951137,
+              1783791603.8951137
+            ],
+            "sourceRounds": [
+              63001159,
+              63001159
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "0646379d076de60b",
+            "sourceCaptures": [
+              1783791603.8951137,
+              1783791603.8951137
+            ],
+            "sourceRounds": [
+              63001159,
+              63001159
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "93fd539515ba3279",
+            "sourceCaptures": [
+              1783791605.097621,
+              1783791603.8951137
+            ],
+            "sourceRounds": [
+              63001160,
+              63001159
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "a1ae552e483dc497",
+            "sourceCaptures": [
+              1783791603.8951137,
+              1783791603.8951137
+            ],
+            "sourceRounds": [
+              63001159,
+              63001159
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "3b62576779e995d2",
+            "sourceCaptures": [
+              1783791603.8951137,
+              1783791603.8951137
+            ],
+            "sourceRounds": [
+              63001159,
+              63001159
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791605.097621,
+      "sourceCaptureMin": 1783791603.8951137,
+      "sourcePoolRounds": [
+        63001159,
+        63001160
+      ],
+      "startedAt": 1783791605.9293733,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791604.9956827,
+          "detail": null,
+          "latencyMs": 1060.966,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791605.7004457,
+          "detail": null,
+          "latencyMs": 573.657,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 38.5737419128418,
+      "completedAt": 1783791608.7836447,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 111.501,
+      "decisionRound": 63001162,
+      "decisions": 74,
+      "endToEndLatencyMs": 111.501,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 3613.956,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 3.676149368286133,
+            "minAgeSeconds": 0.0385737419128418,
+            "poolCount": 9,
+            "updatedAt": 1783791608.6332583
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 557.403,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.116936206817627,
+            "minAgeSeconds": 0.512169599533081,
+            "poolCount": 2,
+            "updatedAt": 1783791608.1596625
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001162,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001162,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "22ac6b8c9db0988b",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791608.6332583,
+            1783791608.6332583
+          ],
+          "sourceRounds": [
+            63001160,
+            63001160
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "22ac6b8c9db0988b",
+            "sourceCaptures": [
+              1783791608.6332583,
+              1783791608.6332583
+            ],
+            "sourceRounds": [
+              63001160,
+              63001160
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "7a3276f581c5ef6b",
+            "sourceCaptures": [
+              1783791608.6332583,
+              1783791608.6332583
+            ],
+            "sourceRounds": [
+              63001160,
+              63001160
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "7c02d3bb97abe04f",
+            "sourceCaptures": [
+              1783791607.5548959,
+              1783791608.6332583
+            ],
+            "sourceRounds": [
+              63001161,
+              63001160
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "2c507da2aaafe222",
+            "sourceCaptures": [
+              1783791608.6332583,
+              1783791608.6332583
+            ],
+            "sourceRounds": [
+              63001160,
+              63001160
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "ec67ba778c171720",
+            "sourceCaptures": [
+              1783791608.6332583,
+              1783791608.6332583
+            ],
+            "sourceRounds": [
+              63001160,
+              63001160
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791608.6332583,
+      "sourceCaptureMin": 1783791604.9956827,
+      "sourcePoolRounds": [
+        63001160,
+        63001161
+      ],
+      "startedAt": 1783791608.671832,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791608.6332583,
+          "detail": null,
+          "latencyMs": 3613.956,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 8,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791608.1596625,
+          "detail": null,
+          "latencyMs": 557.403,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 57.72137641906738,
+      "completedAt": 1783791611.5287502,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 102.886,
+      "decisionRound": 63001163,
+      "decisions": 74,
+      "endToEndLatencyMs": 102.886,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1179.88,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 2.792586088180542,
+            "minAgeSeconds": 1.5867857933044434,
+            "poolCount": 9,
+            "updatedAt": 1783791609.8390586
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 558.452,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.652498722076416,
+            "minAgeSeconds": 0.05772137641906738,
+            "poolCount": 2,
+            "updatedAt": 1783791611.368123
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001163,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001163,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "22ac6b8c9db0988b",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791608.6332583,
+            1783791608.6332583
+          ],
+          "sourceRounds": [
+            63001160,
+            63001160
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "22ac6b8c9db0988b",
+            "sourceCaptures": [
+              1783791608.6332583,
+              1783791608.6332583
+            ],
+            "sourceRounds": [
+              63001160,
+              63001160
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "7a3276f581c5ef6b",
+            "sourceCaptures": [
+              1783791608.6332583,
+              1783791608.6332583
+            ],
+            "sourceRounds": [
+              63001160,
+              63001160
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "b4566f5afc8fb381",
+            "sourceCaptures": [
+              1783791611.368123,
+              1783791608.6332583
+            ],
+            "sourceRounds": [
+              63001162,
+              63001160
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "2c507da2aaafe222",
+            "sourceCaptures": [
+              1783791608.6332583,
+              1783791608.6332583
+            ],
+            "sourceRounds": [
+              63001160,
+              63001160
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "ec67ba778c171720",
+            "sourceCaptures": [
+              1783791608.6332583,
+              1783791608.6332583
+            ],
+            "sourceRounds": [
+              63001160,
+              63001160
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791611.368123,
+      "sourceCaptureMin": 1783791608.6332583,
+      "sourcePoolRounds": [
+        63001160,
+        63001162
+      ],
+      "startedAt": 1783791611.4258444,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791609.8390586,
+          "detail": null,
+          "latencyMs": 1179.88,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791611.368123,
+          "detail": null,
+          "latencyMs": 558.452,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 436.48433685302734,
+      "completedAt": 1783791614.316276,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 115.952,
+      "decisionRound": 63001164,
+      "decisions": 74,
+      "endToEndLatencyMs": 115.952,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 3623.181,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 4.360802888870239,
+            "minAgeSeconds": 0.7022016048431396,
+            "poolCount": 9,
+            "updatedAt": 1783791613.49766
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 569.575,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.0357038974761963,
+            "minAgeSeconds": 0.43648433685302734,
+            "poolCount": 2,
+            "updatedAt": 1783791613.7633772
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001164,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001164,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "ce438ba2568585f2",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791613.49766,
+            1783791613.49766
+          ],
+          "sourceRounds": [
+            63001162,
+            63001162
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "ce438ba2568585f2",
+            "sourceCaptures": [
+              1783791613.49766,
+              1783791613.49766
+            ],
+            "sourceRounds": [
+              63001162,
+              63001162
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "6d4354a3a052599c",
+            "sourceCaptures": [
+              1783791613.49766,
+              1783791613.49766
+            ],
+            "sourceRounds": [
+              63001162,
+              63001162
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "8df257ec0f620341",
+            "sourceCaptures": [
+              1783791613.7633772,
+              1783791613.49766
+            ],
+            "sourceRounds": [
+              63001163,
+              63001162
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "686d0a233c439593",
+            "sourceCaptures": [
+              1783791613.49766,
+              1783791613.49766
+            ],
+            "sourceRounds": [
+              63001162,
+              63001162
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "b1936a2e43ba430e",
+            "sourceCaptures": [
+              1783791613.49766,
+              1783791613.49766
+            ],
+            "sourceRounds": [
+              63001162,
+              63001162
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791613.7633772,
+      "sourceCaptureMin": 1783791609.8390586,
+      "sourcePoolRounds": [
+        63001162,
+        63001163
+      ],
+      "startedAt": 1783791614.1998615,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791613.49766,
+          "detail": null,
+          "latencyMs": 3623.181,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 8,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791613.7633772,
+          "detail": null,
+          "latencyMs": 569.575,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 646.8524932861328,
+      "completedAt": 1783791617.0559702,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 124.875,
+      "decisionRound": 63001165,
+      "decisions": 74,
+      "endToEndLatencyMs": 124.875,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1294.694,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 3.433206081390381,
+            "minAgeSeconds": 2.0993669033050537,
+            "poolCount": 9,
+            "updatedAt": 1783791614.831499
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 548.452,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.2347025871276855,
+            "minAgeSeconds": 0.6468524932861328,
+            "poolCount": 2,
+            "updatedAt": 1783791616.2840135
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001165,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001165,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "ce438ba2568585f2",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791613.49766,
+            1783791613.49766
+          ],
+          "sourceRounds": [
+            63001162,
+            63001162
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "ce438ba2568585f2",
+            "sourceCaptures": [
+              1783791613.49766,
+              1783791613.49766
+            ],
+            "sourceRounds": [
+              63001162,
+              63001162
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "6d4354a3a052599c",
+            "sourceCaptures": [
+              1783791613.49766,
+              1783791613.49766
+            ],
+            "sourceRounds": [
+              63001162,
+              63001162
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "28051719d0ae2763",
+            "sourceCaptures": [
+              1783791616.2840135,
+              1783791613.49766
+            ],
+            "sourceRounds": [
+              63001164,
+              63001162
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "686d0a233c439593",
+            "sourceCaptures": [
+              1783791613.49766,
+              1783791613.49766
+            ],
+            "sourceRounds": [
+              63001162,
+              63001162
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "b1936a2e43ba430e",
+            "sourceCaptures": [
+              1783791613.49766,
+              1783791613.49766
+            ],
+            "sourceRounds": [
+              63001162,
+              63001162
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791616.2840135,
+      "sourceCaptureMin": 1783791613.49766,
+      "sourcePoolRounds": [
+        63001162,
+        63001163,
+        63001164
+      ],
+      "startedAt": 1783791616.930866,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791614.831499,
+          "detail": null,
+          "latencyMs": 1294.694,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791616.2840135,
+          "detail": null,
+          "latencyMs": 548.452,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 257.1601867675781,
+      "completedAt": 1783791619.8122113,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 137.127,
+      "decisionRound": 63001166,
+      "decisions": 74,
+      "endToEndLatencyMs": 137.127,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 3631.261,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 4.843696117401123,
+            "minAgeSeconds": 1.1629598140716553,
+            "poolCount": 9,
+            "updatedAt": 1783791618.5122354
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 567.747,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.8518471717834473,
+            "minAgeSeconds": 0.2571601867675781,
+            "poolCount": 2,
+            "updatedAt": 1783791619.418035
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001166,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001166,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "4948e43d3ab41fed",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791618.5122354,
+            1783791618.5122354
+          ],
+          "sourceRounds": [
+            63001164,
+            63001164
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "4948e43d3ab41fed",
+            "sourceCaptures": [
+              1783791618.5122354,
+              1783791618.5122354
+            ],
+            "sourceRounds": [
+              63001164,
+              63001164
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "b27d3a2eada91a04",
+            "sourceCaptures": [
+              1783791618.5122354,
+              1783791618.5122354
+            ],
+            "sourceRounds": [
+              63001164,
+              63001164
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "2582c8a8117c6ee6",
+            "sourceCaptures": [
+              1783791618.823348,
+              1783791618.5122354
+            ],
+            "sourceRounds": [
+              63001165,
+              63001164
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "03bd027b4881e415",
+            "sourceCaptures": [
+              1783791618.5122354,
+              1783791618.5122354
+            ],
+            "sourceRounds": [
+              63001164,
+              63001164
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "031e4e2b49581b13",
+            "sourceCaptures": [
+              1783791618.5122354,
+              1783791618.5122354
+            ],
+            "sourceRounds": [
+              63001164,
+              63001164
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791619.418035,
+      "sourceCaptureMin": 1783791614.831499,
+      "sourcePoolRounds": [
+        63001163,
+        63001164,
+        63001165
+      ],
+      "startedAt": 1783791619.6751952,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791618.5122354,
+          "detail": null,
+          "latencyMs": 3631.261,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 8,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791619.418035,
+          "detail": null,
+          "latencyMs": 567.747,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 565.6101703643799,
+      "completedAt": 1783791622.5403376,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 113.133,
+      "decisionRound": 63001167,
+      "decisions": 74,
+      "endToEndLatencyMs": 113.133,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1162.911,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 3.914606809616089,
+            "minAgeSeconds": 2.727090835571289,
+            "poolCount": 9,
+            "updatedAt": 1783791619.6997514
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 559.637,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.1643784046173096,
+            "minAgeSeconds": 0.5656101703643799,
+            "poolCount": 2,
+            "updatedAt": 1783791621.861232
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001167,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001167,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "4948e43d3ab41fed",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791618.5122354,
+            1783791618.5122354
+          ],
+          "sourceRounds": [
+            63001164,
+            63001164
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "4948e43d3ab41fed",
+            "sourceCaptures": [
+              1783791618.5122354,
+              1783791618.5122354
+            ],
+            "sourceRounds": [
+              63001164,
+              63001164
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "b27d3a2eada91a04",
+            "sourceCaptures": [
+              1783791618.5122354,
+              1783791618.5122354
+            ],
+            "sourceRounds": [
+              63001164,
+              63001164
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "595cc856467912ff",
+            "sourceCaptures": [
+              1783791621.2624638,
+              1783791618.5122354
+            ],
+            "sourceRounds": [
+              63001166,
+              63001164
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "03bd027b4881e415",
+            "sourceCaptures": [
+              1783791618.5122354,
+              1783791618.5122354
+            ],
+            "sourceRounds": [
+              63001164,
+              63001164
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "031e4e2b49581b13",
+            "sourceCaptures": [
+              1783791618.5122354,
+              1783791618.5122354
+            ],
+            "sourceRounds": [
+              63001164,
+              63001164
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791621.861232,
+      "sourceCaptureMin": 1783791618.5122354,
+      "sourcePoolRounds": [
+        63001164,
+        63001165,
+        63001166
+      ],
+      "startedAt": 1783791622.4268422,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791619.6997514,
+          "detail": null,
+          "latencyMs": 1162.911,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791621.861232,
+          "detail": null,
+          "latencyMs": 559.637,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 233.35862159729004,
+      "completedAt": 1783791625.2881677,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 112.787,
+      "decisionRound": 63001168,
+      "decisions": 74,
+      "endToEndLatencyMs": 112.787,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 951.634,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.8086109161376953,
+            "minAgeSeconds": 0.8025288581848145,
+            "poolCount": 9,
+            "updatedAt": 1783791624.37248
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 573.099,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.8300862312316895,
+            "minAgeSeconds": 0.23335862159729004,
+            "poolCount": 2,
+            "updatedAt": 1783791624.9416502
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001168,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001168,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "21a27af162ad913f",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791623.3663979,
+            1783791623.3663979
+          ],
+          "sourceRounds": [
+            63001166,
+            63001166
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "21a27af162ad913f",
+            "sourceCaptures": [
+              1783791623.3663979,
+              1783791623.3663979
+            ],
+            "sourceRounds": [
+              63001166,
+              63001166
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "cda3afa5e8355607",
+            "sourceCaptures": [
+              1783791623.3663979,
+              1783791623.3663979
+            ],
+            "sourceRounds": [
+              63001166,
+              63001166
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "836afc241db6b074",
+            "sourceCaptures": [
+              1783791624.9416502,
+              1783791623.3663979
+            ],
+            "sourceRounds": [
+              63001167,
+              63001166
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "23fecbc734da1fca",
+            "sourceCaptures": [
+              1783791623.3663979,
+              1783791623.3663979
+            ],
+            "sourceRounds": [
+              63001166,
+              63001166
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "8a08f4d515ada865",
+            "sourceCaptures": [
+              1783791623.3663979,
+              1783791623.3663979
+            ],
+            "sourceRounds": [
+              63001166,
+              63001166
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791624.9416502,
+      "sourceCaptureMin": 1783791623.3663979,
+      "sourcePoolRounds": [
+        63001166,
+        63001167
+      ],
+      "startedAt": 1783791625.1750088,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791624.37248,
+          "detail": null,
+          "latencyMs": 951.634,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791624.9416502,
+          "detail": null,
+          "latencyMs": 573.099,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 25.429964065551758,
+      "completedAt": 1783791628.1342318,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 123.356,
+      "decisionRound": 63001169,
+      "decisions": 74,
+      "endToEndLatencyMs": 123.356,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 3585.74,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 3.6381824016571045,
+            "minAgeSeconds": 0.025429964065551758,
+            "poolCount": 9,
+            "updatedAt": 1783791627.9852324
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 571.733,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.232412338256836,
+            "minAgeSeconds": 0.6190133094787598,
+            "poolCount": 2,
+            "updatedAt": 1783791627.391649
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001169,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001169,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "1d07a5c9b07e85c7",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791627.9852324,
+            1783791627.9852324
+          ],
+          "sourceRounds": [
+            63001167,
+            63001167
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "1d07a5c9b07e85c7",
+            "sourceCaptures": [
+              1783791627.9852324,
+              1783791627.9852324
+            ],
+            "sourceRounds": [
+              63001167,
+              63001167
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "3ebaf88266c87961",
+            "sourceCaptures": [
+              1783791627.9852324,
+              1783791627.9852324
+            ],
+            "sourceRounds": [
+              63001167,
+              63001167
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "4686450f112b0151",
+            "sourceCaptures": [
+              1783791627.391649,
+              1783791627.9852324
+            ],
+            "sourceRounds": [
+              63001168,
+              63001167
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "1838c4fd68ac79a8",
+            "sourceCaptures": [
+              1783791627.9852324,
+              1783791627.9852324
+            ],
+            "sourceRounds": [
+              63001167,
+              63001167
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "f8f630a8c73cb7ee",
+            "sourceCaptures": [
+              1783791627.9852324,
+              1783791627.9852324
+            ],
+            "sourceRounds": [
+              63001167,
+              63001167
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791627.9852324,
+      "sourceCaptureMin": 1783791624.37248,
+      "sourcePoolRounds": [
+        63001167,
+        63001168
+      ],
+      "startedAt": 1783791628.0106623,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791627.9852324,
+          "detail": null,
+          "latencyMs": 3585.74,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 8,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791627.391649,
+          "detail": null,
+          "latencyMs": 571.733,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 295.2268123626709,
+      "completedAt": 1783791630.8242319,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 104.698,
+      "decisionRound": 63001170,
+      "decisions": 74,
+      "endToEndLatencyMs": 104.698,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1118.487,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 2.7350120544433594,
+            "minAgeSeconds": 1.5708377361297607,
+            "poolCount": 9,
+            "updatedAt": 1783791629.1494067
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 552.422,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.883054256439209,
+            "minAgeSeconds": 0.2952268123626709,
+            "poolCount": 2,
+            "updatedAt": 1783791630.4250176
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001170,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001170,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "1d07a5c9b07e85c7",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791627.9852324,
+            1783791627.9852324
+          ],
+          "sourceRounds": [
+            63001167,
+            63001167
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "1d07a5c9b07e85c7",
+            "sourceCaptures": [
+              1783791627.9852324,
+              1783791627.9852324
+            ],
+            "sourceRounds": [
+              63001167,
+              63001167
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "3ebaf88266c87961",
+            "sourceCaptures": [
+              1783791627.9852324,
+              1783791627.9852324
+            ],
+            "sourceRounds": [
+              63001167,
+              63001167
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "44a5b7cf14cca4af",
+            "sourceCaptures": [
+              1783791629.8371902,
+              1783791627.9852324
+            ],
+            "sourceRounds": [
+              63001169,
+              63001167
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "1838c4fd68ac79a8",
+            "sourceCaptures": [
+              1783791627.9852324,
+              1783791627.9852324
+            ],
+            "sourceRounds": [
+              63001167,
+              63001167
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "f8f630a8c73cb7ee",
+            "sourceCaptures": [
+              1783791627.9852324,
+              1783791627.9852324
+            ],
+            "sourceRounds": [
+              63001167,
+              63001167
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791630.4250176,
+      "sourceCaptureMin": 1783791627.9852324,
+      "sourcePoolRounds": [
+        63001167,
+        63001169
+      ],
+      "startedAt": 1783791630.7202444,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791629.1494067,
+          "detail": null,
+          "latencyMs": 1118.487,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791630.4250176,
+          "detail": null,
+          "latencyMs": 552.422,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 505.3215026855469,
+      "completedAt": 1783791633.6235926,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 131.246,
+      "decisionRound": 63001171,
+      "decisions": 74,
+      "endToEndLatencyMs": 131.246,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 3492.395,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 4.342302322387695,
+            "minAgeSeconds": 0.8120980262756348,
+            "poolCount": 9,
+            "updatedAt": 1783791632.679611
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 586.768,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.1395983695983887,
+            "minAgeSeconds": 0.5053215026855469,
+            "poolCount": 2,
+            "updatedAt": 1783791632.9863875
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001171,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001171,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "0613e8c92d0d1794",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791632.679611,
+            1783791632.679611
+          ],
+          "sourceRounds": [
+            63001169,
+            63001169
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "0613e8c92d0d1794",
+            "sourceCaptures": [
+              1783791632.679611,
+              1783791632.679611
+            ],
+            "sourceRounds": [
+              63001169,
+              63001169
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "736d644b493e225a",
+            "sourceCaptures": [
+              1783791632.679611,
+              1783791632.679611
+            ],
+            "sourceRounds": [
+              63001169,
+              63001169
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "c0fcd1293452c1ef",
+            "sourceCaptures": [
+              1783791632.3521106,
+              1783791632.679611
+            ],
+            "sourceRounds": [
+              63001170,
+              63001169
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "07e60390edc402a4",
+            "sourceCaptures": [
+              1783791632.679611,
+              1783791632.679611
+            ],
+            "sourceRounds": [
+              63001169,
+              63001169
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "1be435eb20bf82fc",
+            "sourceCaptures": [
+              1783791632.679611,
+              1783791632.679611
+            ],
+            "sourceRounds": [
+              63001169,
+              63001169
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791632.9863875,
+      "sourceCaptureMin": 1783791629.1494067,
+      "sourcePoolRounds": [
+        63001169,
+        63001170
+      ],
+      "startedAt": 1783791633.491709,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791632.679611,
+          "detail": null,
+          "latencyMs": 3492.395,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 8,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791632.9863875,
+          "detail": null,
+          "latencyMs": 586.768,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 135.8776092529297,
+      "completedAt": 1783791636.3152366,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 86.943,
+      "decisionRound": 63001172,
+      "decisions": 74,
+      "endToEndLatencyMs": 86.943,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1056.889,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 3.5480072498321533,
+            "minAgeSeconds": 2.458719491958618,
+            "poolCount": 9,
+            "updatedAt": 1783791633.7688987
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 558.784,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.7319059371948242,
+            "minAgeSeconds": 0.1358776092529297,
+            "poolCount": 2,
+            "updatedAt": 1783791636.0917406
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001172,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001172,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "0613e8c92d0d1794",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791632.679611,
+            1783791632.679611
+          ],
+          "sourceRounds": [
+            63001169,
+            63001169
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "0613e8c92d0d1794",
+            "sourceCaptures": [
+              1783791632.679611,
+              1783791632.679611
+            ],
+            "sourceRounds": [
+              63001169,
+              63001169
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "736d644b493e225a",
+            "sourceCaptures": [
+              1783791632.679611,
+              1783791632.679611
+            ],
+            "sourceRounds": [
+              63001169,
+              63001169
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "7dd41236801af913",
+            "sourceCaptures": [
+              1783791636.0917406,
+              1783791632.679611
+            ],
+            "sourceRounds": [
+              63001171,
+              63001169
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "07e60390edc402a4",
+            "sourceCaptures": [
+              1783791632.679611,
+              1783791632.679611
+            ],
+            "sourceRounds": [
+              63001169,
+              63001169
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "1be435eb20bf82fc",
+            "sourceCaptures": [
+              1783791632.679611,
+              1783791632.679611
+            ],
+            "sourceRounds": [
+              63001169,
+              63001169
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791636.0917406,
+      "sourceCaptureMin": 1783791632.679611,
+      "sourcePoolRounds": [
+        63001169,
+        63001170,
+        63001171
+      ],
+      "startedAt": 1783791636.2276182,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791633.7688987,
+          "detail": null,
+          "latencyMs": 1056.889,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791636.0917406,
+          "detail": null,
+          "latencyMs": 558.784,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 463.9291763305664,
+      "completedAt": 1783791639.1036634,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 105.156,
+      "decisionRound": 63001173,
+      "decisions": 74,
+      "endToEndLatencyMs": 105.156,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1070.551,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.6574363708496094,
+            "minAgeSeconds": 0.5401022434234619,
+            "poolCount": 9,
+            "updatedAt": 1783791638.4582393
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 523.545,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.0354201793670654,
+            "minAgeSeconds": 0.4639291763305664,
+            "poolCount": 2,
+            "updatedAt": 1783791638.5344124
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001173,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001173,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "4bfc45c6ca5fadd5",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791637.3409052,
+            1783791637.3409052
+          ],
+          "sourceRounds": [
+            63001171,
+            63001171
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "4bfc45c6ca5fadd5",
+            "sourceCaptures": [
+              1783791637.3409052,
+              1783791637.3409052
+            ],
+            "sourceRounds": [
+              63001171,
+              63001171
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "6b9388e472d3b08b",
+            "sourceCaptures": [
+              1783791637.3409052,
+              1783791637.3409052
+            ],
+            "sourceRounds": [
+              63001171,
+              63001171
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "7d80b26eb7e584ec",
+            "sourceCaptures": [
+              1783791638.5344124,
+              1783791637.3409052
+            ],
+            "sourceRounds": [
+              63001172,
+              63001171
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "81621a6408244826",
+            "sourceCaptures": [
+              1783791637.3409052,
+              1783791637.3409052
+            ],
+            "sourceRounds": [
+              63001171,
+              63001171
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "41531e6e1a372c7f",
+            "sourceCaptures": [
+              1783791637.3409052,
+              1783791637.3409052
+            ],
+            "sourceRounds": [
+              63001171,
+              63001171
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791638.5344124,
+      "sourceCaptureMin": 1783791637.3409052,
+      "sourcePoolRounds": [
+        63001171,
+        63001172
+      ],
+      "startedAt": 1783791638.9983416,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791638.4582393,
+          "detail": null,
+          "latencyMs": 1070.551,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791638.5344124,
+          "detail": null,
+          "latencyMs": 523.545,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 245.27263641357422,
+      "completedAt": 1783791641.8540404,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 108.895,
+      "decisionRound": 63001174,
+      "decisions": 74,
+      "endToEndLatencyMs": 108.895,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1070.551,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 4.403945446014404,
+            "minAgeSeconds": 3.286611318588257,
+            "poolCount": 9,
+            "updatedAt": 1783791638.4582393
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 530.282,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.8066871166229248,
+            "minAgeSeconds": 0.24527263641357422,
+            "poolCount": 2,
+            "updatedAt": 1783791641.499578
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001174,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001174,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "4bfc45c6ca5fadd5",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791637.3409052,
+            1783791637.3409052
+          ],
+          "sourceRounds": [
+            63001171,
+            63001171
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "4bfc45c6ca5fadd5",
+            "sourceCaptures": [
+              1783791637.3409052,
+              1783791637.3409052
+            ],
+            "sourceRounds": [
+              63001171,
+              63001171
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "6b9388e472d3b08b",
+            "sourceCaptures": [
+              1783791637.3409052,
+              1783791637.3409052
+            ],
+            "sourceRounds": [
+              63001171,
+              63001171
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "45458b304f40cfa8",
+            "sourceCaptures": [
+              1783791640.9381635,
+              1783791637.3409052
+            ],
+            "sourceRounds": [
+              63001173,
+              63001171
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "81621a6408244826",
+            "sourceCaptures": [
+              1783791637.3409052,
+              1783791637.3409052
+            ],
+            "sourceRounds": [
+              63001171,
+              63001171
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "41531e6e1a372c7f",
+            "sourceCaptures": [
+              1783791637.3409052,
+              1783791637.3409052
+            ],
+            "sourceRounds": [
+              63001171,
+              63001171
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791641.499578,
+      "sourceCaptureMin": 1783791637.3409052,
+      "sourcePoolRounds": [
+        63001171,
+        63001172,
+        63001173
+      ],
+      "startedAt": 1783791641.7448506,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791638.4582393,
+          "detail": null,
+          "latencyMs": 1070.551,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791641.499578,
+          "detail": null,
+          "latencyMs": 530.282,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 566.422700881958,
+      "completedAt": 1783791644.6354597,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 116.389,
+      "decisionRound": 63001175,
+      "decisions": 74,
+      "endToEndLatencyMs": 116.389,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1135.098,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 2.4512786865234375,
+            "minAgeSeconds": 1.2787442207336426,
+            "poolCount": 9,
+            "updatedAt": 1783791643.239652
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 562.747,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.1654424667358398,
+            "minAgeSeconds": 0.566422700881958,
+            "poolCount": 2,
+            "updatedAt": 1783791643.9519734
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001175,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001175,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "62cd79920e7206ed",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791642.0671175,
+            1783791642.0671175
+          ],
+          "sourceRounds": [
+            63001172,
+            63001172
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "62cd79920e7206ed",
+            "sourceCaptures": [
+              1783791642.0671175,
+              1783791642.0671175
+            ],
+            "sourceRounds": [
+              63001172,
+              63001172
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "e13ae8fd9193ff34",
+            "sourceCaptures": [
+              1783791642.0671175,
+              1783791642.0671175
+            ],
+            "sourceRounds": [
+              63001172,
+              63001172
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "dd25aaa132a3fb42",
+            "sourceCaptures": [
+              1783791643.3529537,
+              1783791642.0671175
+            ],
+            "sourceRounds": [
+              63001174,
+              63001172
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "60ab815b935f7ae7",
+            "sourceCaptures": [
+              1783791642.068118,
+              1783791642.0671175
+            ],
+            "sourceRounds": [
+              63001172,
+              63001172
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "5def4bd74c9f32ea",
+            "sourceCaptures": [
+              1783791642.0671175,
+              1783791642.0671175
+            ],
+            "sourceRounds": [
+              63001172,
+              63001172
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791643.9519734,
+      "sourceCaptureMin": 1783791642.0671175,
+      "sourcePoolRounds": [
+        63001172,
+        63001174
+      ],
+      "startedAt": 1783791644.5183961,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791643.239652,
+          "detail": null,
+          "latencyMs": 1135.098,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791643.9519734,
+          "detail": null,
+          "latencyMs": 562.747,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 218.5080051422119,
+      "completedAt": 1783791647.4425986,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 146.298,
+      "decisionRound": 63001176,
+      "decisions": 74,
+      "endToEndLatencyMs": 146.298,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 3442.077,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 4.055420875549316,
+            "minAgeSeconds": 0.5742559432983398,
+            "poolCount": 9,
+            "updatedAt": 1783791646.7208169
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 561.54,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.8218488693237305,
+            "minAgeSeconds": 0.21850800514221191,
+            "poolCount": 2,
+            "updatedAt": 1783791647.0765648
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001176,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001176,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "404d8260c830e84f",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791646.7208169,
+            1783791646.7208169
+          ],
+          "sourceRounds": [
+            63001174,
+            63001174
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "404d8260c830e84f",
+            "sourceCaptures": [
+              1783791646.7208169,
+              1783791646.7208169
+            ],
+            "sourceRounds": [
+              63001174,
+              63001174
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "3f6dd1d49910b118",
+            "sourceCaptures": [
+              1783791646.7208169,
+              1783791646.7208169
+            ],
+            "sourceRounds": [
+              63001174,
+              63001174
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "9e4ba5efbe892a97",
+            "sourceCaptures": [
+              1783791647.0765648,
+              1783791646.7208169
+            ],
+            "sourceRounds": [
+              63001175,
+              63001174
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "e96f2bca759fe057",
+            "sourceCaptures": [
+              1783791646.7208169,
+              1783791646.7208169
+            ],
+            "sourceRounds": [
+              63001174,
+              63001174
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "b6c054022106be8d",
+            "sourceCaptures": [
+              1783791646.7208169,
+              1783791646.7208169
+            ],
+            "sourceRounds": [
+              63001174,
+              63001174
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791647.0765648,
+      "sourceCaptureMin": 1783791643.239652,
+      "sourcePoolRounds": [
+        63001174,
+        63001175
+      ],
+      "startedAt": 1783791647.2950728,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791646.7208169,
+          "detail": null,
+          "latencyMs": 3442.077,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 8,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791647.0765648,
+          "detail": null,
+          "latencyMs": 561.54,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 623.2028007507324,
+      "completedAt": 1783791650.177713,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 114.309,
+      "decisionRound": 63001177,
+      "decisions": 74,
+      "endToEndLatencyMs": 114.309,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1140.941,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 3.341860294342041,
+            "minAgeSeconds": 2.1744251251220703,
+            "poolCount": 9,
+            "updatedAt": 1783791647.888252
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 588.462,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.2442734241485596,
+            "minAgeSeconds": 0.6232028007507324,
+            "poolCount": 2,
+            "updatedAt": 1783791649.4394743
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001177,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001177,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "404d8260c830e84f",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791646.7208169,
+            1783791646.7208169
+          ],
+          "sourceRounds": [
+            63001174,
+            63001174
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "404d8260c830e84f",
+            "sourceCaptures": [
+              1783791646.7208169,
+              1783791646.7208169
+            ],
+            "sourceRounds": [
+              63001174,
+              63001174
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "3f6dd1d49910b118",
+            "sourceCaptures": [
+              1783791646.7208169,
+              1783791646.7208169
+            ],
+            "sourceRounds": [
+              63001174,
+              63001174
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "017c57b3b919cbd3",
+            "sourceCaptures": [
+              1783791649.4394743,
+              1783791646.7208169
+            ],
+            "sourceRounds": [
+              63001176,
+              63001174
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "e96f2bca759fe057",
+            "sourceCaptures": [
+              1783791646.7208169,
+              1783791646.7208169
+            ],
+            "sourceRounds": [
+              63001174,
+              63001174
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "b6c054022106be8d",
+            "sourceCaptures": [
+              1783791646.7208169,
+              1783791646.7208169
+            ],
+            "sourceRounds": [
+              63001174,
+              63001174
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791649.4394743,
+      "sourceCaptureMin": 1783791646.7208169,
+      "sourcePoolRounds": [
+        63001174,
+        63001175,
+        63001176
+      ],
+      "startedAt": 1783791650.0626771,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791647.888252,
+          "detail": null,
+          "latencyMs": 1140.941,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791649.4394743,
+          "detail": null,
+          "latencyMs": 588.462,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 160.48598289489746,
+      "completedAt": 1783791652.9579306,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 125.236,
+      "decisionRound": 63001178,
+      "decisions": 74,
+      "endToEndLatencyMs": 125.236,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1105.611,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 1.3057489395141602,
+            "minAgeSeconds": 0.16048598289489746,
+            "poolCount": 9,
+            "updatedAt": 1783791652.672646
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 536.661,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.8451757431030273,
+            "minAgeSeconds": 0.27578306198120117,
+            "poolCount": 2,
+            "updatedAt": 1783791652.557349
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001178,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001178,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "199cdc07da09991b",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791651.527383,
+            1783791651.527383
+          ],
+          "sourceRounds": [
+            63001176,
+            63001176
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "199cdc07da09991b",
+            "sourceCaptures": [
+              1783791651.527383,
+              1783791651.527383
+            ],
+            "sourceRounds": [
+              63001176,
+              63001176
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "e5aeb7d1cba8fc7f",
+            "sourceCaptures": [
+              1783791651.527383,
+              1783791651.527383
+            ],
+            "sourceRounds": [
+              63001176,
+              63001176
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "33f991082a4233fa",
+            "sourceCaptures": [
+              1783791651.9879563,
+              1783791651.527383
+            ],
+            "sourceRounds": [
+              63001177,
+              63001176
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "0b0b1798757d7c24",
+            "sourceCaptures": [
+              1783791651.527383,
+              1783791651.527383
+            ],
+            "sourceRounds": [
+              63001176,
+              63001176
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "efd162e00723e604",
+            "sourceCaptures": [
+              1783791651.527383,
+              1783791651.527383
+            ],
+            "sourceRounds": [
+              63001176,
+              63001176
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791652.672646,
+      "sourceCaptureMin": 1783791651.527383,
+      "sourcePoolRounds": [
+        63001176,
+        63001177
+      ],
+      "startedAt": 1783791652.833132,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791652.672646,
+          "detail": null,
+          "latencyMs": 1105.611,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791652.557349,
+          "detail": null,
+          "latencyMs": 536.661,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 33.473968505859375,
+      "completedAt": 1783791655.7102704,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 107.274,
+      "decisionRound": 63001179,
+      "decisions": 74,
+      "endToEndLatencyMs": 107.274,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1105.611,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 4.074854612350464,
+            "minAgeSeconds": 2.929591655731201,
+            "poolCount": 9,
+            "updatedAt": 1783791652.672646
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 554.722,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.616713285446167,
+            "minAgeSeconds": 0.033473968505859375,
+            "poolCount": 2,
+            "updatedAt": 1783791655.5687637
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001179,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001179,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "199cdc07da09991b",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791651.527383,
+            1783791651.527383
+          ],
+          "sourceRounds": [
+            63001176,
+            63001176
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "199cdc07da09991b",
+            "sourceCaptures": [
+              1783791651.527383,
+              1783791651.527383
+            ],
+            "sourceRounds": [
+              63001176,
+              63001176
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "e5aeb7d1cba8fc7f",
+            "sourceCaptures": [
+              1783791651.527383,
+              1783791651.527383
+            ],
+            "sourceRounds": [
+              63001176,
+              63001176
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "8b878f6638eb8268",
+            "sourceCaptures": [
+              1783791655.5687637,
+              1783791651.527383
+            ],
+            "sourceRounds": [
+              63001178,
+              63001176
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "0b0b1798757d7c24",
+            "sourceCaptures": [
+              1783791651.527383,
+              1783791651.527383
+            ],
+            "sourceRounds": [
+              63001176,
+              63001176
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "efd162e00723e604",
+            "sourceCaptures": [
+              1783791651.527383,
+              1783791651.527383
+            ],
+            "sourceRounds": [
+              63001176,
+              63001176
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791655.5687637,
+      "sourceCaptureMin": 1783791651.527383,
+      "sourcePoolRounds": [
+        63001176,
+        63001177,
+        63001178
+      ],
+      "startedAt": 1783791655.6022377,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791652.672646,
+          "detail": null,
+          "latencyMs": 1105.611,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791655.5687637,
+          "detail": null,
+          "latencyMs": 554.722,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    },
+    {
+      "aggregateRejections": {
+        "impossible_or_non_positive_gross": 66,
+        "net_profit_after_fees_ok": 6
+      },
+      "approvedCount": 0,
+      "bestGross": 0.0014221076813099032,
+      "bestNet": -0.0670778923186901,
+      "bestSize": 0.3,
+      "bestSkipReason": "net_profit_after_fees_ok",
+      "bestStatus": "rejected",
+      "cacheAgeMs": 265.5470371246338,
+      "completedAt": 1783791658.484301,
+      "connectorStamped": false,
+      "crossVenueFreshRouteCount": 18,
+      "decisionComputeLatencyMs": 137.288,
+      "decisionRound": 63001180,
+      "decisions": 74,
+      "endToEndLatencyMs": 137.288,
+      "fabricatedTimestamps": false,
+      "feeConversion": "route_path_quote",
+      "feeUnitConsistent": true,
+      "freshPoolCoverage": {
+        "freshCoverage": 1.0,
+        "freshPools": 11,
+        "totalPools": 11,
+        "venues": {
+          "pact": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 9,
+            "lastRefreshLatencyMs": 1073.321,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 2.1014325618743896,
+            "minAgeSeconds": 0.9954662322998047,
+            "poolCount": 9,
+            "updatedAt": 1783791657.350942
+          },
+          "tinyman": {
+            "freshCoverage": 1.0,
+            "freshPoolCount": 2,
+            "lastRefreshLatencyMs": 559.548,
+            "lastStatus": "ok",
+            "maxAgeSeconds": 0.8538961410522461,
+            "minAgeSeconds": 0.2655470371246338,
+            "poolCount": 2,
+            "updatedAt": 1783791658.080861
+          }
+        }
+      },
+      "freshRouteCount": 74,
+      "freshnessSkips": {},
+      "maxQuoteAgeSeconds": 5.0,
+      "nearMissCount": 1,
+      "observedRound": 63001180,
+      "paperCandidates": [
+        {
+          "decisionRound": 63001180,
+          "expectedFinalAmount": 0.3014221076813099,
+          "expectedNetProfit": -0.0670778923186901,
+          "inputAmount": 0.3,
+          "poolIds": [
+            "pact:2966799501:0-31566704",
+            "pact:1131884994:0-31566704"
+          ],
+          "routeClass": "same_venue_pact",
+          "routeHash": "8bdef27cad89f478",
+          "runId": "rt_loop_b422d05f8d",
+          "skipReason": "net_profit_after_fees_ok",
+          "sourceCaptures": [
+            1783791656.2449756,
+            1783791656.2449756
+          ],
+          "sourceRounds": [
+            63001178,
+            63001178
+          ],
+          "status": "rejected",
+          "venues": [
+            "pact",
+            "pact"
+          ]
+        }
+      ],
+      "paperDuplicatesSkipped": 0,
+      "paperRows": 1,
+      "poolCount": 11,
+      "routeVenueEvidence": {
+        "counts": {
+          "cross_venue_tinyman_pact": 18,
+          "same_venue_pact": 56
+        },
+        "samples": [
+          {
+            "poolIds": [
+              "pact:2966799501:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "8bdef27cad89f478",
+            "sourceCaptures": [
+              1783791656.2449756,
+              1783791656.2449756
+            ],
+            "sourceRounds": [
+              63001178,
+              63001178
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:1073557308:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "1369c280e3114d3b",
+            "sourceCaptures": [
+              1783791656.2449756,
+              1783791656.2449756
+            ],
+            "sourceRounds": [
+              63001178,
+              63001178
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "cross_venue_tinyman_pact",
+            "routeHash": "e10fab6611a3352f",
+            "sourceCaptures": [
+              1783791658.080861,
+              1783791656.2449756
+            ],
+            "sourceRounds": [
+              63001179,
+              63001178
+            ],
+            "venues": [
+              "tinyman",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2966805457:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "6253ef96c2b29427",
+            "sourceCaptures": [
+              1783791656.2449756,
+              1783791656.2449756
+            ],
+            "sourceRounds": [
+              63001178,
+              63001178
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          },
+          {
+            "poolIds": [
+              "pact:2757488616:0-31566704",
+              "pact:1131884994:0-31566704"
+            ],
+            "routeClass": "same_venue_pact",
+            "routeHash": "3200d57fd6c80b11",
+            "sourceCaptures": [
+              1783791656.2449756,
+              1783791656.2449756
+            ],
+            "sourceRounds": [
+              63001178,
+              63001178
+            ],
+            "venues": [
+              "pact",
+              "pact"
+            ]
+          }
+        ]
+      },
+      "skipReason": null,
+      "skipped": false,
+      "sourceCaptureMax": 1783791658.080861,
+      "sourceCaptureMin": 1783791656.2449756,
+      "sourcePoolRounds": [
+        63001178,
+        63001179
+      ],
+      "startedAt": 1783791658.3464081,
+      "usable": true,
+      "venueRefresh": {
+        "pact": {
+          "attempts": 1,
+          "completedAt": 1783791657.350942,
+          "detail": null,
+          "latencyMs": 1073.321,
+          "pair": [
+            0,
+            3169177585
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "pact"
+        },
+        "tinyman": {
+          "attempts": 1,
+          "completedAt": 1783791658.080861,
+          "detail": null,
+          "latencyMs": 559.548,
+          "pair": [
+            0,
+            31566704
+          ],
+          "poolCount": 1,
+          "status": "ok",
+          "venue": "tinyman"
+        }
+      }
+    }
+  ],
+  "decisionsRecorded": 24,
+  "fabricatedTimestamps": false,
+  "feeConversion": "route_path_quote",
+  "feeUnitConsistent": true,
+  "freshPoolCoverage": {
+    "freshCoverage": 1.0,
+    "freshPools": 11,
+    "totalPools": 11,
+    "venues": {
+      "pact": {
+        "freshCoverage": 1.0,
+        "freshPoolCount": 9,
+        "lastRefreshLatencyMs": 1073.321,
+        "lastStatus": "ok",
+        "maxAgeSeconds": 2.1014325618743896,
+        "minAgeSeconds": 0.9954662322998047,
+        "poolCount": 9,
+        "updatedAt": 1783791657.350942
+      },
+      "tinyman": {
+        "freshCoverage": 1.0,
+        "freshPoolCount": 2,
+        "lastRefreshLatencyMs": 559.548,
+        "lastStatus": "ok",
+        "maxAgeSeconds": 0.8538961410522461,
+        "minAgeSeconds": 0.2655470371246338,
+        "poolCount": 2,
+        "updatedAt": 1783791658.080861
+      }
+    }
+  },
+  "healthIntervalSeconds": 60.0,
+  "maxQuoteAgeSeconds": 5.0,
+  "minRoundsForDataReady": 20,
+  "mode": "continuous_freshness_cache_v2",
+  "p50EndToEndLatencyMs": 113.133,
+  "p95EndToEndLatencyMs": 137.288,
+  "p95TargetMs": 5000.0,
+  "paperOutcome": {
+    "candidateCount": 22,
+    "completed30sCount": 11,
+    "completed5sCount": 20,
+    "completedBothCount": 11,
+    "exactStoredRouteReplay": true,
+    "failure30sCount": 0,
+    "failure5sCount": 0,
+    "lastCycle": {
+      "availablePoolCount": 11,
+      "checkedAt": 1783791658.2688885,
+      "checked_30s": 1,
+      "checked_5s": 1,
+      "checked_60s": 0,
+      "errors": 0,
+      "freshPoolCount": 11
+    },
+    "pendingBothCount": 11,
+    "routeClassCounts": {
+      "same_venue": 22
+    },
+    "runId": "rt_loop_b422d05f8d",
+    "samples": [
+      {
+        "expectedOutput": 0.3014221076813099,
+        "expectedProfit": -0.0670778923186901,
+        "inputAmount": 0.3,
+        "poolIds": [
+          "pact:2966799501:0-31566704",
+          "pact:1131884994:0-31566704"
+        ],
+        "routeClass": "same_venue",
+        "routeHash": "1d07a5c9b07e85c7",
+        "skipReason": "net_profit_after_fees_ok",
+        "sourceCaptureTimes": [
+          1783791627.9852324,
+          1783791627.9852324
+        ],
+        "sourceRounds": [
+          63001167,
+          63001167
+        ],
+        "t30": {
+          "checkedAt": 1783791658.2688885,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "t5": {
+          "checkedAt": 1783791633.4133494,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "venues": [
+          "pact",
+          "pact"
+        ],
+        "wouldExecute": false
+      },
+      {
+        "expectedOutput": 0.3014221076813099,
+        "expectedProfit": -0.0670778923186901,
+        "inputAmount": 0.3,
+        "poolIds": [
+          "pact:2966799501:0-31566704",
+          "pact:1131884994:0-31566704"
+        ],
+        "routeClass": "same_venue",
+        "routeHash": "21a27af162ad913f",
+        "skipReason": "net_profit_after_fees_ok",
+        "sourceCaptureTimes": [
+          1783791623.3663979,
+          1783791623.3663979
+        ],
+        "sourceRounds": [
+          63001166,
+          63001166
+        ],
+        "t30": {
+          "checkedAt": 1783791655.6856947,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "t5": {
+          "checkedAt": 1783791630.793746,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "venues": [
+          "pact",
+          "pact"
+        ],
+        "wouldExecute": false
+      },
+      {
+        "expectedOutput": 0.3014221076813099,
+        "expectedProfit": -0.0670778923186901,
+        "inputAmount": 0.3,
+        "poolIds": [
+          "pact:2966799501:0-31566704",
+          "pact:1131884994:0-31566704"
+        ],
+        "routeClass": "same_venue",
+        "routeHash": "4948e43d3ab41fed",
+        "skipReason": "net_profit_after_fees_ok",
+        "sourceCaptureTimes": [
+          1783791618.5122354,
+          1783791618.5122354
+        ],
+        "sourceRounds": [
+          63001164,
+          63001164
+        ],
+        "t30": {
+          "checkedAt": 1783791652.5635085,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "t5": {
+          "checkedAt": 1783791627.7053442,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "venues": [
+          "pact",
+          "pact"
+        ],
+        "wouldExecute": false
+      },
+      {
+        "expectedOutput": 0.3014221076813099,
+        "expectedProfit": -0.0670778923186901,
+        "inputAmount": 0.3,
+        "poolIds": [
+          "pact:2966799501:0-31566704",
+          "pact:1131884994:0-31566704"
+        ],
+        "routeClass": "same_venue",
+        "routeHash": "4948e43d3ab41fed",
+        "skipReason": "net_profit_after_fees_ok",
+        "sourceCaptureTimes": [
+          1783791618.5122354,
+          1783791618.5122354
+        ],
+        "sourceRounds": [
+          63001164,
+          63001164
+        ],
+        "t30": {
+          "checkedAt": 1783791649.9933083,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "t5": {
+          "checkedAt": 1783791625.118528,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "venues": [
+          "pact",
+          "pact"
+        ],
+        "wouldExecute": false
+      },
+      {
+        "expectedOutput": 0.3014221076813099,
+        "expectedProfit": -0.0670778923186901,
+        "inputAmount": 0.3,
+        "poolIds": [
+          "pact:2966799501:0-31566704",
+          "pact:1131884994:0-31566704"
+        ],
+        "routeClass": "same_venue",
+        "routeHash": "ce438ba2568585f2",
+        "skipReason": "net_profit_after_fees_ok",
+        "sourceCaptureTimes": [
+          1783791613.49766,
+          1783791613.49766
+        ],
+        "sourceRounds": [
+          63001162,
+          63001162
+        ],
+        "t30": {
+          "checkedAt": 1783791647.3390937,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "t5": {
+          "checkedAt": 1783791622.546852,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "venues": [
+          "pact",
+          "pact"
+        ],
+        "wouldExecute": false
+      },
+      {
+        "expectedOutput": 0.3014221076813099,
+        "expectedProfit": -0.0670778923186901,
+        "inputAmount": 0.3,
+        "poolIds": [
+          "pact:2966799501:0-31566704",
+          "pact:1131884994:0-31566704"
+        ],
+        "routeClass": "same_venue",
+        "routeHash": "ce438ba2568585f2",
+        "skipReason": "net_profit_after_fees_ok",
+        "sourceCaptureTimes": [
+          1783791613.49766,
+          1783791613.49766
+        ],
+        "sourceRounds": [
+          63001162,
+          63001162
+        ],
+        "t30": {
+          "checkedAt": 1783791644.7672753,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "t5": {
+          "checkedAt": 1783791619.4609525,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "venues": [
+          "pact",
+          "pact"
+        ],
+        "wouldExecute": false
+      },
+      {
+        "expectedOutput": 0.3014221076813099,
+        "expectedProfit": -0.0670778923186901,
+        "inputAmount": 0.3,
+        "poolIds": [
+          "pact:2966799501:0-31566704",
+          "pact:1131884994:0-31566704"
+        ],
+        "routeClass": "same_venue",
+        "routeHash": "22ac6b8c9db0988b",
+        "skipReason": "net_profit_after_fees_ok",
+        "sourceCaptureTimes": [
+          1783791608.6332583,
+          1783791608.6332583
+        ],
+        "sourceRounds": [
+          63001160,
+          63001160
+        ],
+        "t30": {
+          "checkedAt": 1783791641.6859572,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "t5": {
+          "checkedAt": 1783791616.8896458,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "venues": [
+          "pact",
+          "pact"
+        ],
+        "wouldExecute": false
+      },
+      {
+        "expectedOutput": 0.3014221076813099,
+        "expectedProfit": -0.0670778923186901,
+        "inputAmount": 0.3,
+        "poolIds": [
+          "pact:2966799501:0-31566704",
+          "pact:1131884994:0-31566704"
+        ],
+        "routeClass": "same_venue",
+        "routeHash": "22ac6b8c9db0988b",
+        "skipReason": "net_profit_after_fees_ok",
+        "sourceCaptureTimes": [
+          1783791608.6332583,
+          1783791608.6332583
+        ],
+        "sourceRounds": [
+          63001160,
+          63001160
+        ],
+        "t30": {
+          "checkedAt": 1783791639.0821283,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "t5": {
+          "checkedAt": 1783791613.8025792,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "venues": [
+          "pact",
+          "pact"
+        ],
+        "wouldExecute": false
+      },
+      {
+        "expectedOutput": 0.3014221076813099,
+        "expectedProfit": -0.0670778923186901,
+        "inputAmount": 0.3,
+        "poolIds": [
+          "pact:2966799501:0-31566704",
+          "pact:1131884994:0-31566704"
+        ],
+        "routeClass": "same_venue",
+        "routeHash": "f3b082548894c353",
+        "skipReason": "net_profit_after_fees_ok",
+        "sourceCaptureTimes": [
+          1783791603.8951137,
+          1783791603.8951137
+        ],
+        "sourceRounds": [
+          63001159,
+          63001159
+        ],
+        "t30": {
+          "checkedAt": 1783791636.5301015,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "t5": {
+          "checkedAt": 1783791611.233553,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "venues": [
+          "pact",
+          "pact"
+        ],
+        "wouldExecute": false
+      },
+      {
+        "expectedOutput": 0.3014221076813099,
+        "expectedProfit": -0.0670778923186901,
+        "inputAmount": 0.3,
+        "poolIds": [
+          "pact:2966799501:0-31566704",
+          "pact:1131884994:0-31566704"
+        ],
+        "routeClass": "same_venue",
+        "routeHash": "fad28c263b017b5c",
+        "skipReason": "net_profit_after_fees_ok",
+        "sourceCaptureTimes": [
+          1783791599.174827,
+          1783791599.174827
+        ],
+        "sourceRounds": [
+          63001157,
+          63001157
+        ],
+        "t30": {
+          "checkedAt": 1783791633.4133494,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "t5": {
+          "checkedAt": 1783791608.659803,
+          "failureReason": null,
+          "profitDelta": 0.0,
+          "quoteDecay": 0.0,
+          "simulatedOutput": 0.3014221076813099,
+          "simulatedProfit": -0.0670778923186901,
+          "status": "faded",
+          "survived": false
+        },
+        "venues": [
+          "pact",
+          "pact"
+        ],
+        "wouldExecute": false
+      }
+    ],
+    "targetCompletedBoth": 10,
+    "targetMet": true,
+    "waitedSeconds": 68.109,
+    "workerTotals": {
+      "checked_30s": 11,
+      "checked_5s": 20,
+      "checked_60s": 0,
+      "errors": 0
+    }
+  },
+  "productionReady": false,
+  "realtimeDataReady": false,
+  "realtimeDataReadyVerdict": "NOT REALTIME_DATA_READY",
+  "realtimeReady": false,
+  "realtimeReadyVerdict": "NOT REAL-TIME READY",
+  "roundsAreStrictlyConsecutive": true,
+  "roundsAttempted": 24,
+  "runId": "rt_loop_b422d05f8d",
+  "signingEnabled": false,
+  "skippedRoundCount": 2,
+  "skippedRounds": [
+    {
+      "freshnessSkips": {},
+      "observedRound": 63001157,
+      "reason": "no_qualified_pools"
+    },
+    {
+      "freshnessSkips": {},
+      "observedRound": 63001158,
+      "reason": "no_qualified_pools"
+    }
+  ],
+  "submissionEnabled": false,
+  "usableRoundRatio": 0.9167,
+  "usableRoundTarget": 0.95,
+  "usableRounds": 22,
+  "venueRefreshLatencyMs": {
+    "pact": 1073.321,
+    "tinyman": 559.548
+  }
+}

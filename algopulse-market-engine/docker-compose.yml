@@ -1,0 +1,33 @@
+services:
+  algopulse:
+    build: .
+    ports:
+      - "8765:8765"
+    environment:
+      ALGO_PULSE_ENV: local
+      ALGO_PULSE_CONNECTORS: mock
+      ALGO_PULSE_DATA_DIR: /app/data
+      ALGO_PULSE_DATABASE: /app/data/market.db
+      ALGO_PULSE_ENABLE_LIVE_EXECUTION: "false"
+      ALGO_PULSE_EXECUTE_APPROVED: "false"
+      ALGO_PULSE_ALLOW_API_EXECUTION: "false"
+      ALGO_PULSE_NETWORK: mainnet
+      ALGO_PULSE_ASSET_PAIRS: "0-31566704"
+    volumes:
+      - ./data:/app/data
+
+  worker:
+    build: .
+    profiles: ["worker"]
+    command: ["python", "-m", "algopulse.cli", "worker", "--loop", "--execute-approved"]
+    environment:
+      ALGO_PULSE_ENV: local
+      ALGO_PULSE_CONNECTORS: mock
+      ALGO_PULSE_DATA_DIR: /app/data
+      ALGO_PULSE_DATABASE: /app/data/market.db
+      ALGO_PULSE_ENABLE_LIVE_EXECUTION: "false"
+      ALGO_PULSE_EXECUTE_APPROVED: "false"
+      ALGO_PULSE_NETWORK: mainnet
+      ALGO_PULSE_ASSET_PAIRS: "0-31566704"
+    volumes:
+      - ./data:/app/data

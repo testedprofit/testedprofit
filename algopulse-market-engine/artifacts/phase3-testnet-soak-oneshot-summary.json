@@ -1,0 +1,169 @@
+{
+  "ok": true,
+  "requestId": "req_7eff7256740f",
+  "data": {
+    "phase": "Phase 3 - TestNet 24h Read-Only Soak",
+    "runnerState": "idle",
+    "runIds": [
+      "oneshot_review_001"
+    ],
+    "firstObservationAt": 1783770079.5754433,
+    "latestObservationAt": 1783770079.5754433,
+    "elapsedCoverageSeconds": 0.0,
+    "targetCoverageSeconds": 86400.0,
+    "intervalSeconds": 60.0,
+    "expectedObservationCount": 1,
+    "completedObservationCount": 1,
+    "totalStoredObservationCount": 1,
+    "mockObservationCount": 0,
+    "storedObservationCount": 0,
+    "coveragePercent": 0.0,
+    "longestGapSeconds": 0.0,
+    "scannerSuccessRate": 0.0,
+    "connectors": {
+      "tinyman": {
+        "ok": 1,
+        "degraded": 0,
+        "error": 0,
+        "down": 0,
+        "unavailable": 0,
+        "mock": 0
+      },
+      "pact": {
+        "ok": 0,
+        "degraded": 0,
+        "error": 1,
+        "down": 0,
+        "unavailable": 0,
+        "mock": 0
+      },
+      "algod": {
+        "ok": 1,
+        "degraded": 0,
+        "error": 0,
+        "down": 0,
+        "unavailable": 0,
+        "mock": 0
+      },
+      "indexer": {
+        "ok": 1,
+        "degraded": 0,
+        "error": 0,
+        "down": 0,
+        "unavailable": 0,
+        "mock": 0
+      }
+    },
+    "poolsObserved": 1,
+    "quotesObserved": 0,
+    "freshQuoteCount": 0,
+    "agingQuoteCount": 0,
+    "staleQuoteCount": 0,
+    "freshQuotePercent": 0.0,
+    "routes": {
+      "candidateCount": 0,
+      "approvedCount": 0,
+      "rejectedCount": 0,
+      "rejectionReasons": []
+    },
+    "paper": {
+      "candidateCount": 0,
+      "recheckCompleted5s": 0,
+      "recheckCompleted30s": 0,
+      "coverage5s": 0.0,
+      "coverage30s": 0.0
+    },
+    "blockers": [
+      "elapsed_coverage_below_24h",
+      "missing_paper_trading_evidence"
+    ],
+    "warnings": [
+      "pact_degraded_or_down"
+    ],
+    "currentGateStatus": "in_progress",
+    "productionReady": false,
+    "liveExecutionLocked": true,
+    "source": "live",
+    "evidenceSource": "stored_observations",
+    "latestObservation": {
+      "observationId": "obs_833f1f0c80924285",
+      "runId": "oneshot_review_001",
+      "sequenceNumber": 1,
+      "startedAt": 1783770077.455471,
+      "completedAt": 1783770079.5754433,
+      "network": "testnet",
+      "source": "live",
+      "algod": {
+        "detail": null,
+        "latencyMs": 282.518,
+        "latestRound": 65214203,
+        "status": "ok"
+      },
+      "indexer": {
+        "detail": null,
+        "latencyMs": 193.53,
+        "latestRound": 65214204,
+        "roundLag": 0,
+        "status": "ok"
+      },
+      "tinyman": {
+        "detail": null,
+        "latencyMs": 433.215,
+        "poolCount": 1,
+        "status": "ok"
+      },
+      "pact": {
+        "detail": "pact_api_non_json_response",
+        "latencyMs": 865.848,
+        "poolCount": 0,
+        "status": "error"
+      },
+      "scanner": {
+        "approved": 0,
+        "connectorDegradedCount": 0,
+        "connectorErrorCount": 1,
+        "opportunities": 0,
+        "paperCandidates": 0,
+        "paperRechecks30s": 0,
+        "paperRechecks5s": 0,
+        "poolsObserved": 1,
+        "status": "degraded"
+      },
+      "poolsObserved": 1,
+      "quotesObserved": 0,
+      "quoteFreshness": {
+        "aging": 0,
+        "fresh": 0,
+        "source": "unavailable",
+        "stale": 0,
+        "unavailable": 0
+      },
+      "routes": {
+        "routeCandidateCount": 0,
+        "approvedRouteCount": 0,
+        "rejectedRouteCount": 0,
+        "waitRouteCount": 0,
+        "paperOnlyRouteCount": 0,
+        "rejectionReasons": []
+      },
+      "paper": {
+        "candidateCount": 0,
+        "recheckCompleted30s": 0,
+        "recheckCompleted5s": 0
+      },
+      "errors": [],
+      "degradedReasons": [
+        "pact_error",
+        "scanner_degraded"
+      ],
+      "productionReady": false,
+      "liveExecutionLocked": true
+    },
+    "network": "testnet",
+    "adminSession": {
+      "wallet": "ADMIN6H2ZREVIEWWALLET9KX4CONTROL",
+      "authMode": "local-review-mock"
+    }
+  },
+  "error": null
+}

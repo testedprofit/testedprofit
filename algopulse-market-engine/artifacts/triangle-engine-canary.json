@@ -1,0 +1,556 @@
+{
+  "aggregateRejections": {
+    "impossible_or_non_positive_gross": 13,
+    "net_profit_after_fees_ok": 2
+  },
+  "anyRiskApproved": false,
+  "assetsDiscovered": [
+    {
+      "assetId": 0,
+      "symbol": "ALGO"
+    },
+    {
+      "assetId": 31566704,
+      "symbol": "USDC"
+    },
+    {
+      "assetId": 386192725,
+      "symbol": "goBTC"
+    },
+    {
+      "assetId": 386195940,
+      "symbol": "goETH"
+    },
+    {
+      "assetId": 3169177585,
+      "symbol": "PNET"
+    }
+  ],
+  "bestGrossProfit": 0.00026543956166313887,
+  "bestInputSize": 0.09,
+  "bestNetProfit": -0.07123456043833687,
+  "bestPath": [
+    0,
+    31566704,
+    3169177585,
+    0
+  ],
+  "bestPathLabel": "ALGO->USDC->PNET->ALGO",
+  "bestPoolIds": [
+    "pact:2966805457:0-31566704",
+    "pact:3269240571:31566704-3169177585",
+    "tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0"
+  ],
+  "bestRiskRules": {
+    "app_ids_allowlisted": true,
+    "assets_allowlisted": true,
+    "fee_buffer_ok": false,
+    "net_profit_after_fees_ok": false,
+    "own_funds_only": true,
+    "pool_reserves_ok": false,
+    "price_impact_ok": false,
+    "profit_bps_ok": false,
+    "quote_freshness_ok": true,
+    "route_leg_count_ok": true,
+    "trade_size_ok": true
+  },
+  "bestRiskStatus": "rejected",
+  "bestSkipReason": "net_profit_after_fees_ok",
+  "bestVenues": [
+    "pact",
+    "pact",
+    "tinyman"
+  ],
+  "databasePath": "C:\\Users\\rober\\Documents\\Codex\\repos\\algopulse-market-engine\\data\\mainnet-live-scanner\\market.db",
+  "maxSwaps": 3,
+  "paperRowCount": 1,
+  "poolsDiscovered": [
+    {
+      "appId": 1073557308,
+      "blockRound": 62997718,
+      "feeBps": 30,
+      "liquidity": 469571.8356961288,
+      "pair": [
+        0,
+        31566704
+      ],
+      "poolId": "pact:1073557308:0-31566704",
+      "reserveA": 1594234.348302,
+      "reserveB": 138309.470696,
+      "venueId": "pact"
+    },
+    {
+      "appId": 1076447842,
+      "blockRound": 62997718,
+      "feeBps": 100,
+      "liquidity": 524.3589347709277,
+      "pair": [
+        0,
+        31566704
+      ],
+      "poolId": "pact:1076447842:0-31566704",
+      "reserveA": 1790.95582,
+      "reserveB": 153.522655,
+      "venueId": "pact"
+    },
+    {
+      "appId": 1124274750,
+      "blockRound": 62997718,
+      "feeBps": 2,
+      "liquidity": 2.1246618752992203,
+      "pair": [
+        0,
+        31566704
+      ],
+      "poolId": "pact:1124274750:0-31566704",
+      "reserveA": 7.23605,
+      "reserveB": 0.623847,
+      "venueId": "pact"
+    },
+    {
+      "appId": 1131884994,
+      "blockRound": 62997718,
+      "feeBps": 5,
+      "liquidity": 28.78998665344213,
+      "pair": [
+        0,
+        31566704
+      ],
+      "poolId": "pact:1131884994:0-31566704",
+      "reserveA": 98.044666,
+      "reserveB": 8.453936,
+      "venueId": "pact"
+    },
+    {
+      "appId": 2757488616,
+      "blockRound": 62997718,
+      "feeBps": 30,
+      "liquidity": 452469.9042696727,
+      "pair": [
+        0,
+        31566704
+      ],
+      "poolId": "pact:2757488616:0-31566704",
+      "reserveA": 1538256.24375,
+      "reserveB": 133091.619229,
+      "venueId": "pact"
+    },
+    {
+      "appId": 2966799501,
+      "blockRound": 62997718,
+      "feeBps": 2,
+      "liquidity": 59.721885634196326,
+      "pair": [
+        0,
+        31566704
+      ],
+      "poolId": "pact:2966799501:0-31566704",
+      "reserveA": 203.314097,
+      "reserveB": 17.542825,
+      "venueId": "pact"
+    },
+    {
+      "appId": 2966805457,
+      "blockRound": 62997718,
+      "feeBps": 5,
+      "liquidity": 16.23715756043237,
+      "pair": [
+        0,
+        31566704
+      ],
+      "poolId": "pact:2966805457:0-31566704",
+      "reserveA": 55.092043,
+      "reserveB": 4.785542,
+      "venueId": "pact"
+    },
+    {
+      "appId": 2966876920,
+      "blockRound": 62997718,
+      "feeBps": 100,
+      "liquidity": 11725.42535508046,
+      "pair": [
+        0,
+        31566704
+      ],
+      "poolId": "pact:2966876920:0-31566704",
+      "reserveA": 40004.79882,
+      "reserveB": 3436.727688,
+      "venueId": "pact"
+    },
+    {
+      "appId": 3169274785,
+      "blockRound": 62997718,
+      "feeBps": 2,
+      "liquidity": 0.001134460224071342,
+      "pair": [
+        0,
+        3169177585
+      ],
+      "poolId": "pact:3169274785:0-3169177585",
+      "reserveA": 2.4e-05,
+      "reserveB": 0.053625,
+      "venueId": "pact"
+    },
+    {
+      "appId": 1002541853,
+      "blockRound": 62997718,
+      "feeBps": 36,
+      "liquidity": 3224079.911914621,
+      "pair": [
+        0,
+        31566704
+      ],
+      "poolId": "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+      "reserveA": 949399.878505,
+      "reserveB": 10948696.659599,
+      "venueId": "tinyman"
+    },
+    {
+      "appId": 1002541853,
+      "blockRound": 62997718,
+      "feeBps": 36,
+      "liquidity": 27140.03729193894,
+      "pair": [
+        0,
+        3169177585
+      ],
+      "poolId": "tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0",
+      "reserveA": 3396022.639172,
+      "reserveB": 216.895381,
+      "venueId": "tinyman"
+    },
+    {
+      "appId": 1002541853,
+      "blockRound": 62997747,
+      "feeBps": 36,
+      "liquidity": 774.2365147469451,
+      "pair": [
+        0,
+        386192725
+      ],
+      "poolId": "tinyman:FKMV6GSU57764TQ5NLSBEDXNPUXL7OAOKANVDP2A6FSB77BHI3GTWHQAZA:386192725-0",
+      "reserveA": 0.90232216,
+      "reserveB": 664332.770867,
+      "venueId": "tinyman"
+    },
+    {
+      "appId": 1002541853,
+      "blockRound": 62997747,
+      "feeBps": 36,
+      "liquidity": 516.6090916931653,
+      "pair": [
+        0,
+        386195940
+      ],
+      "poolId": "tinyman:L6CDM74YQEZ7RABX7AGTD32ZJEMDOJ5OGY4QNGZUS35S5VPIGC5UNHZTPA:386195940-0",
+      "reserveA": 3.58697085,
+      "reserveB": 74403.99289,
+      "venueId": "tinyman"
+    },
+    {
+      "appId": 1002541853,
+      "blockRound": 62997747,
+      "feeBps": 36,
+      "liquidity": 2.210868340542331,
+      "pair": [
+        31566704,
+        386192725
+      ],
+      "poolId": "tinyman:PMYHTK3XJ32X6FJ3QNWTAXWPDCFJAMI3S6B2FSOWSSV3DA4KODENGM5OAM:386192725-31566704",
+      "reserveA": 0.00877366,
+      "reserveB": 557.11514,
+      "venueId": "tinyman"
+    },
+    {
+      "appId": 1002541853,
+      "blockRound": 62997747,
+      "feeBps": 36,
+      "liquidity": 0.6228397400541491,
+      "pair": [
+        31566704,
+        386195940
+      ],
+      "poolId": "tinyman:E53QIGCYYNRBHNL4MYVGEOFLMQGRDZN2CKCJRDUECGOUA5G6HERHCVDUQQ:386195940-31566704",
+      "reserveA": 0.01471376,
+      "reserveB": 26.365072,
+      "venueId": "tinyman"
+    },
+    {
+      "appId": 1074982809,
+      "blockRound": 62997749,
+      "feeBps": 30,
+      "liquidity": 103.0166171672111,
+      "pair": [
+        0,
+        386192725
+      ],
+      "poolId": "pact:1074982809:0-386192725",
+      "reserveA": 88394.322004,
+      "reserveB": 0.12005775,
+      "venueId": "pact"
+    },
+    {
+      "appId": 2678191626,
+      "blockRound": 62997749,
+      "feeBps": 100,
+      "liquidity": 0.0053485918062607845,
+      "pair": [
+        0,
+        386192725
+      ],
+      "poolId": "pact:2678191626:0-386192725",
+      "reserveA": 4.490963,
+      "reserveB": 6.37e-06,
+      "venueId": "pact"
+    },
+    {
+      "appId": 2757532390,
+      "blockRound": 62997749,
+      "feeBps": 30,
+      "liquidity": 343.0009596281976,
+      "pair": [
+        0,
+        386192725
+      ],
+      "poolId": "pact:2757532390:0-386192725",
+      "reserveA": 294374.13564,
+      "reserveB": 0.39966031,
+      "venueId": "pact"
+    },
+    {
+      "appId": 2966021763,
+      "blockRound": 62997749,
+      "feeBps": 5,
+      "liquidity": 0.00014670644157636705,
+      "pair": [
+        0,
+        386192725
+      ],
+      "poolId": "pact:2966021763:0-386192725",
+      "reserveA": 0.119571,
+      "reserveB": 1.8e-07,
+      "venueId": "pact"
+    },
+    {
+      "appId": 2966034033,
+      "blockRound": 62997749,
+      "feeBps": 2,
+      "liquidity": 0.00014303552006407358,
+      "pair": [
+        0,
+        386192725
+      ],
+      "poolId": "pact:2966034033:0-386192725",
+      "reserveA": 0.113662,
+      "reserveB": 1.8e-07,
+      "venueId": "pact"
+    },
+    {
+      "appId": 1076049166,
+      "blockRound": 62997749,
+      "feeBps": 30,
+      "liquidity": 188.11376892253625,
+      "pair": [
+        0,
+        386195940
+      ],
+      "poolId": "pact:1076049166:0-386195940",
+      "reserveA": 27103.57471,
+      "reserveB": 1.30561339,
+      "venueId": "pact"
+    },
+    {
+      "appId": 2757661465,
+      "blockRound": 62997749,
+      "feeBps": 30,
+      "liquidity": 0.5584470520912524,
+      "pair": [
+        0,
+        386195940
+      ],
+      "poolId": "pact:2757661465:0-386195940",
+      "reserveA": 80.379369,
+      "reserveB": 0.00387989,
+      "venueId": "pact"
+    },
+    {
+      "appId": 1073547054,
+      "blockRound": 62997749,
+      "feeBps": 30,
+      "liquidity": 0.0001346986265705779,
+      "pair": [
+        31566704,
+        386192725
+      ],
+      "poolId": "pact:1073547054:31566704-386192725",
+      "reserveA": 0.037028,
+      "reserveB": 4.9e-07,
+      "venueId": "pact"
+    },
+    {
+      "appId": 1128462078,
+      "blockRound": 62997749,
+      "feeBps": 100,
+      "liquidity": 0.0037216437766126945,
+      "pair": [
+        31566704,
+        386192725
+      ],
+      "poolId": "pact:1128462078:31566704-386192725",
+      "reserveA": 0.906455,
+      "reserveB": 1.528e-05,
+      "venueId": "pact"
+    },
+    {
+      "appId": 2182627990,
+      "blockRound": 62997749,
+      "feeBps": 5,
+      "liquidity": 0.00010889628092823006,
+      "pair": [
+        31566704,
+        386192725
+      ],
+      "poolId": "pact:2182627990:31566704-386192725",
+      "reserveA": 0.029646,
+      "reserveB": 4e-07,
+      "venueId": "pact"
+    },
+    {
+      "appId": 2966064194,
+      "blockRound": 62997749,
+      "feeBps": 2,
+      "liquidity": 0.00010256266377195943,
+      "pair": [
+        31566704,
+        386192725
+      ],
+      "poolId": "pact:2966064194:31566704-386192725",
+      "reserveA": 0.02843,
+      "reserveB": 3.7e-07,
+      "venueId": "pact"
+    },
+    {
+      "appId": 1732718467,
+      "blockRound": 62997749,
+      "feeBps": 30,
+      "liquidity": 0.44869106060796443,
+      "pair": [
+        31566704,
+        386195940
+      ],
+      "poolId": "pact:1732718467:31566704-386195940",
+      "reserveA": 18.962834,
+      "reserveB": 0.01061675,
+      "venueId": "pact"
+    },
+    {
+      "appId": 3269240571,
+      "blockRound": 62997749,
+      "feeBps": 100,
+      "liquidity": 3664.128960072093,
+      "pair": [
+        31566704,
+        3169177585
+      ],
+      "poolId": "pact:3269240571:31566704-3169177585",
+      "reserveA": 8.544315,
+      "reserveB": 1571318.594415,
+      "venueId": "pact"
+    }
+  ],
+  "poolsUsed": 28,
+  "productionReady": false,
+  "qualifiedMajorAsas": [
+    {
+      "assetId": 3169177585,
+      "symbol": "PNET"
+    }
+  ],
+  "registryAcceptedCount": 23,
+  "riskLimitsUnchanged": true,
+  "signingEnabled": false,
+  "sizesEvaluated": 194,
+  "skeletonCount": 16,
+  "skippedMajorAsas": [
+    {
+      "assetId": 386192725,
+      "reason": "missing_or_unqualified_edge:algo_asa:0-386192725",
+      "symbol": "goBTC"
+    },
+    {
+      "assetId": 386195940,
+      "reason": "missing_or_unqualified_edge:usdc_asa:31566704-386195940",
+      "symbol": "goETH"
+    }
+  ],
+  "source": "mainnet_triangle_canary",
+  "topNearMisses": [
+    {
+      "assetPath": [
+        0,
+        31566704,
+        3169177585,
+        0
+      ],
+      "bestSize": 0.09,
+      "dexFees": 5.108598745576957,
+      "grossProfit": 0.00026543956166313887,
+      "netProfit": -0.07123456043833687,
+      "networkFee": 0.009000000000000001,
+      "path": "ALGO->USDC->PNET->ALGO",
+      "poolIds": [
+        "pact:2966805457:0-31566704",
+        "pact:3269240571:31566704-3169177585",
+        "tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0"
+      ],
+      "priceImpactBps": 108.94045823580889,
+      "riskRules": {
+        "app_ids_allowlisted": true,
+        "assets_allowlisted": true,
+        "fee_buffer_ok": false,
+        "net_profit_after_fees_ok": false,
+        "own_funds_only": true,
+        "pool_reserves_ok": false,
+        "price_impact_ok": false,
+        "profit_bps_ok": false,
+        "quote_freshness_ok": true,
+        "route_leg_count_ok": true,
+        "trade_size_ok": true
+      },
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "venues": [
+        "pact",
+        "pact",
+        "tinyman"
+      ]
+    }
+  ],
+  "trianglePathsEvaluated": 2,
+  "uniqueTriangles": 16,
+  "verifiedAppIds": [
+    1002541853,
+    1073547054,
+    1073557308,
+    1074982809,
+    1076049166,
+    1076447842,
+    1124274750,
+    1128462078,
+    1131884994,
+    1732718467,
+    2182627990,
+    2678191626,
+    2757488616,
+    2757532390,
+    2757661465,
+    2966021763,
+    2966034033,
+    2966064194,
+    2966799501,
+    2966805457,
+    2966876920,
+    3169274785,
+    3269240571
+  ]
+}

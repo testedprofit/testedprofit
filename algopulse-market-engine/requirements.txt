@@ -1,0 +1,14 @@
+fastapi>=0.115.0
+pydantic>=2.8.0
+uvicorn[standard]>=0.30.0
+python-dotenv>=1.0.1
+pytest>=8.0.0
+py-algorand-sdk>=2.11.0,<3.0.0
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.9
+redis>=5.0.0
+pactsdk>=0.7.1,<0.8.0
+tinyman-py-sdk @ git+https://github.com/tinymanorg/tinyman-py-sdk.git@dd1fed50cdc18a699a994b25a1d4bdb11b902553
+
+# Gate 3 — official Algorand x402 resource-server path (managed GoPlausible facilitator)
+x402-avm[fastapi,avm]==2.0.2

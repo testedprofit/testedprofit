@@ -1,0 +1,2118 @@
+{
+  "aggregateRejections": {
+    "impossible_or_non_positive_gross": 67,
+    "net_profit_after_fees_ok": 4
+  },
+  "anyRiskApproved": false,
+  "bestGrossProfit": 0.0003904487974979165,
+  "bestNetProfit": -0.06810955120250209,
+  "bestSizePerRoute": [
+    {
+      "bestSize": 0.125,
+      "blockRound": 62997609,
+      "dexFees": 6.466561517203933e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": 0.0003904487974979165,
+      "identity": "pact:2966805457:0-31566704->pact:2966799501:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06810955120250209,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": true,
+      "poolIds": [
+        "pact:2966805457:0-31566704",
+        "pact:2966799501:0-31566704"
+      ],
+      "priceImpactBps": 27.61533139248651,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.11,
+      "blockRound": 62997609,
+      "dexFees": 5.976564734579849e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": 0.0003597203954753131,
+      "identity": "pact:2966805457:0-31566704->pact:1131884994:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06814027960452469,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966805457:0-31566704",
+        "pact:1131884994:0-31566704"
+      ],
+      "priceImpactBps": 24.90689674074953,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.075,
+      "blockRound": 62997609,
+      "dexFees": 0.00010252730915401962,
+      "direction": "pact->pact|in=0",
+      "grossProfit": 9.744594989012645e-05,
+      "identity": "pact:2966805457:0-31566704->pact:1076447842:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06840255405010988,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966805457:0-31566704",
+        "pact:1076447842:0-31566704"
+      ],
+      "priceImpactBps": 100.41512175041012,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.11,
+      "blockRound": 62997609,
+      "dexFees": 0.0003319006241226417,
+      "direction": "pact->pact|in=0",
+      "grossProfit": 5.560962508852074e-05,
+      "identity": "pact:1073557308:0-31566704->pact:2966799501:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06844439037491148,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1073557308:0-31566704",
+        "pact:2966799501:0-31566704"
+      ],
+      "priceImpactBps": 30.00068544187662,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.075,
+      "blockRound": 62997609,
+      "dexFees": 0.0002282397002799172,
+      "direction": "pact->pact|in=0",
+      "grossProfit": 4.989312161202131e-05,
+      "identity": "pact:1073557308:0-31566704->pact:1131884994:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06845010687838798,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1073557308:0-31566704",
+        "pact:1131884994:0-31566704"
+      ],
+      "priceImpactBps": 30.000467346746884,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00018215744283096305,
+      "direction": "tinyman->pact|in=0",
+      "grossProfit": -8.56425760544649e-06,
+      "identity": "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0->pact:1131884994:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06850856425760544,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+        "pact:1131884994:0-31566704"
+      ],
+      "priceImpactBps": 36.000045312178926,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "tinyman",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00018086297713238524,
+      "direction": "tinyman->pact|in=0",
+      "grossProfit": -1.4550778765963501e-05,
+      "identity": "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0->pact:2966799501:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06851455077876596,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+        "pact:2966799501:0-31566704"
+      ],
+      "priceImpactBps": 36.000045312178926,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "tinyman",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 3.801135523096018e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -1.9109463306993257e-05,
+      "identity": "pact:2966805457:0-31566704->pact:2757488616:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.068519109463307,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966805457:0-31566704",
+        "pact:2757488616:0-31566704"
+      ],
+      "priceImpactBps": 30.000323933366822,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 6.837118410320058e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -1.9234877486513924e-05,
+      "identity": "pact:2966805457:0-31566704->pact:2966876920:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06851923487748651,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966805457:0-31566704",
+        "pact:2966876920:0-31566704"
+      ],
+      "priceImpactBps": 100.01236875548214,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00015215639137671088,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -3.291573453750862e-05,
+      "identity": "pact:2757488616:0-31566704->pact:1131884994:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06853291573453751,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2757488616:0-31566704",
+        "pact:1131884994:0-31566704"
+      ],
+      "priceImpactBps": 30.00032308503542,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 1.2156147220207078e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -3.8570353630675014e-05,
+      "identity": "pact:2966799501:0-31566704->pact:1131884994:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06853857035363067,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966799501:0-31566704",
+        "pact:1131884994:0-31566704"
+      ],
+      "priceImpactBps": 10.093234641804782,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00015086255655068434,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -3.8905768505424765e-05,
+      "identity": "pact:2757488616:0-31566704->pact:2966799501:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06853890576850542,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2757488616:0-31566704",
+        "pact:2966799501:0-31566704"
+      ],
+      "priceImpactBps": 30.00032308503542,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 2.5867423682064013e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -5.067565462792828e-05,
+      "identity": "pact:2966805457:0-31566704->pact:1124274750:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06855067565462793,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966805457:0-31566704",
+        "pact:1124274750:0-31566704"
+      ],
+      "priceImpactBps": 71.01463433848987,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 3.801135523096018e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -9.799490135382893e-05,
+      "identity": "pact:2966805457:0-31566704->pact:1073557308:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06859799490135383,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966805457:0-31566704",
+        "pact:1073557308:0-31566704"
+      ],
+      "priceImpactBps": 30.00031188954644,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 4.061362627715221e-05,
+      "direction": "pact->tinyman|in=0",
+      "grossProfit": -0.00010357556375126947,
+      "identity": "pact:2966805457:0-31566704->tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06860357556375127,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966805457:0-31566704",
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0"
+      ],
+      "priceImpactBps": 36.0000453816911,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "tinyman"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 2.5861383348352335e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.00010684344547223085,
+      "identity": "pact:1131884994:0-31566704->pact:2966799501:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06860684344547223,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1131884994:0-31566704",
+        "pact:2966799501:0-31566704"
+      ],
+      "priceImpactBps": 10.092022560133085,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00019319600440717154,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.00011395496658856558,
+      "identity": "pact:1073557308:0-31566704->pact:1076447842:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06861395496658856,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1073557308:0-31566704",
+        "pact:1076447842:0-31566704"
+      ],
+      "priceImpactBps": 100.27575881007999,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0002231488566192608,
+      "direction": "tinyman->pact|in=0",
+      "grossProfit": -0.00016840331801949715,
+      "identity": "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0->pact:1076447842:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.0686684033180195,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+        "pact:1076447842:0-31566704"
+      ],
+      "priceImpactBps": 100.27545783186875,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "tinyman",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00019312782753421704,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.00019268863688193943,
+      "identity": "pact:2757488616:0-31566704->pact:1076447842:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06869268863688194,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2757488616:0-31566704",
+        "pact:1076447842:0-31566704"
+      ],
+      "priceImpactBps": 100.27532358810154,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 5.312294440414152e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.00019832789187877037,
+      "identity": "pact:2966799501:0-31566704->pact:1076447842:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06869832789187877,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966799501:0-31566704",
+        "pact:1076447842:0-31566704"
+      ],
+      "priceImpactBps": 100.27529241557254,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00016295880132215148,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.00022098628795899633,
+      "identity": "pact:1073557308:0-31566704->pact:2757488616:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.068720986287959,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1073557308:0-31566704",
+        "pact:2757488616:0-31566704"
+      ],
+      "priceImpactBps": 30.00032262497454,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00019319600440717154,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.000221110950913872,
+      "identity": "pact:1073557308:0-31566704->pact:2966876920:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06872111095091388,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1073557308:0-31566704",
+        "pact:2966876920:0-31566704"
+      ],
+      "priceImpactBps": 100.01231879714578,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00015086392008814345,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0002510379295874582,
+      "identity": "pact:1073557308:0-31566704->pact:1124274750:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06875103792958746,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1073557308:0-31566704",
+        "pact:1124274750:0-31566704"
+      ],
+      "priceImpactBps": 70.73779517554057,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 6.806916741761662e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.00026043194128100994,
+      "identity": "pact:1131884994:0-31566704->pact:1076447842:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06876043194128101,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1131884994:0-31566704",
+        "pact:1076447842:0-31566704"
+      ],
+      "priceImpactBps": 100.27494911838852,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00019294465698577824,
+      "direction": "tinyman->pact|in=0",
+      "grossProfit": -0.0002753193295735312,
+      "identity": "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0->pact:2757488616:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06877531932957354,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+        "pact:2757488616:0-31566704"
+      ],
+      "priceImpactBps": 36.000045312178926,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "tinyman",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0002231488566192608,
+      "direction": "tinyman->pact|in=0",
+      "grossProfit": -0.0002754437906830609,
+      "identity": "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0->pact:2966876920:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06877544379068307,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+        "pact:2966876920:0-31566704"
+      ],
+      "priceImpactBps": 100.01230535138129,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "tinyman",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00019312782753421704,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.000299677587453806,
+      "identity": "pact:2757488616:0-31566704->pact:2966876920:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06879967758745381,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2757488616:0-31566704",
+        "pact:2966876920:0-31566704"
+      ],
+      "priceImpactBps": 100.01229935423628,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00018086297713238524,
+      "direction": "tinyman->pact|in=0",
+      "grossProfit": -0.0003049652541628964,
+      "identity": "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0->pact:1124274750:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.0688049652541629,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+        "pact:1124274750:0-31566704"
+      ],
+      "priceImpactBps": 70.66328416592937,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "tinyman",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00016555056158658175,
+      "direction": "pact->tinyman|in=0",
+      "grossProfit": -0.0003051112286579713,
+      "identity": "pact:1073557308:0-31566704->tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06880511122865797,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1073557308:0-31566704",
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0"
+      ],
+      "priceImpactBps": 36.000045198389955,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "tinyman"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 2.2936883321242457e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0003051805282609857,
+      "identity": "pact:2966799501:0-31566704->pact:2757488616:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06880518052826098,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966799501:0-31566704",
+        "pact:2757488616:0-31566704"
+      ],
+      "priceImpactBps": 30.00032207929881,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 5.312294440414152e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0003053048784984122,
+      "identity": "pact:2966799501:0-31566704->pact:2966876920:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06880530487849841,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966799501:0-31566704",
+        "pact:2966876920:0-31566704"
+      ],
+      "priceImpactBps": 100.01229796164912,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00015086255655068434,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0003290184420373307,
+      "identity": "pact:2757488616:0-31566704->pact:1124274750:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06882901844203733,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2757488616:0-31566704",
+        "pact:1124274750:0-31566704"
+      ],
+      "priceImpactBps": 70.63005004339429,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 1.0862458888082832e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0003346038172114679,
+      "identity": "pact:2966799501:0-31566704->pact:1124274750:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06883460381721147,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966799501:0-31566704",
+        "pact:1124274750:0-31566704"
+      ],
+      "priceImpactBps": 70.62233276932895,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00015215980022035858,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0003416272723880259,
+      "identity": "pact:1073557308:0-31566704->pact:2966805457:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06884162727238803,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1073557308:0-31566704",
+        "pact:2966805457:0-31566704"
+      ],
+      "priceImpactBps": 30.00031156450089,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00019294465698577824,
+      "direction": "tinyman->pact|in=0",
+      "grossProfit": -0.0003538003888277977,
+      "identity": "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0->pact:1073557308:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.0688538003888278,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+        "pact:1073557308:0-31566704"
+      ],
+      "priceImpactBps": 36.000045312178926,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "tinyman",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 3.792075022528499e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.00036715304863943476,
+      "identity": "pact:1131884994:0-31566704->pact:2757488616:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06886715304863944,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1131884994:0-31566704",
+        "pact:2757488616:0-31566704"
+      ],
+      "priceImpactBps": 30.00032167764788,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 6.806916741761662e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.00036727716891669926,
+      "identity": "pact:1131884994:0-31566704->pact:2966876920:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.0688672771689167,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1131884994:0-31566704",
+        "pact:2966876920:0-31566704"
+      ],
+      "priceImpactBps": 100.01228262534579,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0001629383482602651,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0003779960269754898,
+      "identity": "pact:2757488616:0-31566704->pact:1073557308:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06887799602697549,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2757488616:0-31566704",
+        "pact:1073557308:0-31566704"
+      ],
+      "priceImpactBps": 30.00032308503542,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00016552601791231815,
+      "direction": "pact->tinyman|in=0",
+      "grossProfit": -0.00038354538360830387,
+      "identity": "pact:2757488616:0-31566704->tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.0688835453836083,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2757488616:0-31566704",
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0"
+      ],
+      "priceImpactBps": 36.00004512705479,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "tinyman"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 2.2936883321242457e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0003836144572634051,
+      "identity": "pact:2966799501:0-31566704->pact:1073557308:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.0688836144572634,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966799501:0-31566704",
+        "pact:1073557308:0-31566704"
+      ],
+      "priceImpactBps": 30.000310104412176,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 2.552425998549095e-05,
+      "direction": "pact->tinyman|in=0",
+      "grossProfit": -0.0003891631857219635,
+      "identity": "pact:2966799501:0-31566704->tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06888916318572197,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966799501:0-31566704",
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0"
+      ],
+      "priceImpactBps": 36.00004512194444,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "tinyman"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00018215744283096305,
+      "direction": "tinyman->pact|in=0",
+      "grossProfit": -0.00039577983567743585,
+      "identity": "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0->pact:2966805457:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06889577983567743,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0",
+        "pact:2966805457:0-31566704"
+      ],
+      "priceImpactBps": 36.000045312178926,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "tinyman",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 2.5861383348352335e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0003961150702865984,
+      "identity": "pact:1131884994:0-31566704->pact:1124274750:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.0688961150702866,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1131884994:0-31566704",
+        "pact:1124274750:0-31566704"
+      ],
+      "priceImpactBps": 70.53734309841353,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 1.2140127663998553e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.00040958171389971626,
+      "identity": "pact:1124274750:0-31566704->pact:1131884994:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06890958171389971,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1124274750:0-31566704",
+        "pact:1131884994:0-31566704"
+      ],
+      "priceImpactBps": 70.59693605854567,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 1.085605106559942e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0004156252852958314,
+      "identity": "pact:1124274750:0-31566704->pact:2966799501:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06891562528529584,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1124274750:0-31566704",
+        "pact:2966799501:0-31566704"
+      ],
+      "priceImpactBps": 70.59693605854567,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.00015215639137671088,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0004199332589724797,
+      "identity": "pact:2757488616:0-31566704->pact:2966805457:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06891993325897249,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2757488616:0-31566704",
+        "pact:2966805457:0-31566704"
+      ],
+      "priceImpactBps": 30.00032308503542,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 1.2156147220207078e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.000425541889649772,
+      "identity": "pact:2966799501:0-31566704->pact:2966805457:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06892554188964978,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966799501:0-31566704",
+        "pact:2966805457:0-31566704"
+      ],
+      "priceImpactBps": 13.993979562764158,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 3.792075022528499e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.00044548916574462666,
+      "identity": "pact:1131884994:0-31566704->pact:1073557308:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06894548916574463,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1131884994:0-31566704",
+        "pact:1073557308:0-31566704"
+      ],
+      "priceImpactBps": 30.00030971769374,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 4.050490027034199e-05,
+      "direction": "pact->tinyman|in=0",
+      "grossProfit": -0.00045103097623692967,
+      "identity": "pact:1131884994:0-31566704->tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06895103097623693,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1131884994:0-31566704",
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0"
+      ],
+      "priceImpactBps": 36.000045065675,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "tinyman"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 2.7153458370880832e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0004873087524794664,
+      "identity": "pact:1131884994:0-31566704->pact:2966805457:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06898730875247946,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1131884994:0-31566704",
+        "pact:2966805457:0-31566704"
+      ],
+      "priceImpactBps": 13.982773592530195,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 5.280255327997102e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0005683298371376988,
+      "identity": "pact:1124274750:0-31566704->pact:1076447842:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.0690683298371377,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1124274750:0-31566704",
+        "pact:1076447842:0-31566704"
+      ],
+      "priceImpactBps": 100.27324712823749,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 2.2840765983991308e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.000674398789803049,
+      "identity": "pact:1124274750:0-31566704->pact:2757488616:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06917439878980305,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1124274750:0-31566704",
+        "pact:2757488616:0-31566704"
+      ],
+      "priceImpactBps": 70.59693605854567,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 5.280255327997102e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0006745217727518113,
+      "identity": "pact:1124274750:0-31566704->pact:2966876920:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06917452177275181,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1124274750:0-31566704",
+        "pact:2966876920:0-31566704"
+      ],
+      "priceImpactBps": 100.01220659143218,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005021262175423742,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0007317410536149607,
+      "identity": "pact:2966876920:0-31566704->pact:1131884994:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06923174105361496,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966876920:0-31566704",
+        "pact:1131884994:0-31566704"
+      ],
+      "priceImpactBps": 100.01224976523227,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005008504870169496,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0007378292253197236,
+      "identity": "pact:2966876920:0-31566704->pact:2966799501:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06923782922531972,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966876920:0-31566704",
+        "pact:2966799501:0-31566704"
+      ],
+      "priceImpactBps": 100.01224976523227,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 2.2840765983991308e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0007522499776388761,
+      "identity": "pact:1124274750:0-31566704->pact:1073557308:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06925224997763887,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1124274750:0-31566704",
+        "pact:1073557308:0-31566704"
+      ],
+      "priceImpactBps": 70.59693605854567,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 2.5408919180789566e-05,
+      "direction": "pact->tinyman|in=0",
+      "grossProfit": -0.0007577574903584183,
+      "identity": "pact:1124274750:0-31566704->tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06925775749035842,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1124274750:0-31566704",
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0"
+      ],
+      "priceImpactBps": 70.59693605854567,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "tinyman"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 1.2140127663998553e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0007935369372744777,
+      "identity": "pact:1124274750:0-31566704->pact:2966805457:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06929353693727448,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1124274750:0-31566704",
+        "pact:2966805457:0-31566704"
+      ],
+      "priceImpactBps": 70.59693605854567,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005021215379255546,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.000840121765801019,
+      "identity": "pact:1076447842:0-31566704->pact:1131884994:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06934012176580102,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1076447842:0-31566704",
+        "pact:1131884994:0-31566704"
+      ],
+      "priceImpactBps": 100.27361727769745,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005008486151702219,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0008462246953167135,
+      "identity": "pact:1076447842:0-31566704->pact:2966799501:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06934622469531672,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1076447842:0-31566704",
+        "pact:2966799501:0-31566704"
+      ],
+      "priceImpactBps": 100.27361727769745,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005425243508474825,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0008896105255328524,
+      "identity": "pact:2966876920:0-31566704->pact:1076447842:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06938961052553286,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966876920:0-31566704",
+        "pact:1076447842:0-31566704"
+      ],
+      "priceImpactBps": 100.27147116102309,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005127573052542447,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0009949988650772498,
+      "identity": "pact:2966876920:0-31566704->pact:2757488616:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06949499886507725,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966876920:0-31566704",
+        "pact:2757488616:0-31566704"
+      ],
+      "priceImpactBps": 100.01224976523227,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005008504870169496,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0010193471489560318,
+      "identity": "pact:2966876920:0-31566704->pact:1124274750:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06951934714895604,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966876920:0-31566704",
+        "pact:1124274750:0-31566704"
+      ],
+      "priceImpactBps": 100.01224976523227,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005127573052542447,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0010723440463491912,
+      "identity": "pact:2966876920:0-31566704->pact:1073557308:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.0695723440463492,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966876920:0-31566704",
+        "pact:1073557308:0-31566704"
+      ],
+      "priceImpactBps": 100.01224976523227,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005153087663050937,
+      "direction": "pact->tinyman|in=0",
+      "grossProfit": -0.0010778157704472227,
+      "identity": "pact:2966876920:0-31566704->tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06957781577044722,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966876920:0-31566704",
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0"
+      ],
+      "priceImpactBps": 100.01224976523227,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "tinyman"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005127292275533275,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0011028545363307857,
+      "identity": "pact:1076447842:0-31566704->pact:2757488616:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06960285453633079,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1076447842:0-31566704",
+        "pact:2757488616:0-31566704"
+      ],
+      "priceImpactBps": 100.27361727769745,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005424307585110914,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0011029759409436485,
+      "identity": "pact:1076447842:0-31566704->pact:2966876920:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06960297594094365,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1076447842:0-31566704",
+        "pact:2966876920:0-31566704"
+      ],
+      "priceImpactBps": 100.27361727769745,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005021262175423742,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0011130788610819661,
+      "identity": "pact:2966876920:0-31566704->pact:2966805457:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06961307886108196,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:2966876920:0-31566704",
+        "pact:2966805457:0-31566704"
+      ],
+      "priceImpactBps": 100.01224976523227,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005008486151702219,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0011264211206019684,
+      "identity": "pact:1076447842:0-31566704->pact:1124274750:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06962642112060197,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1076447842:0-31566704",
+        "pact:1124274750:0-31566704"
+      ],
+      "priceImpactBps": 100.27361727769745,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005127292275533275,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.001180029487829963,
+      "identity": "pact:1076447842:0-31566704->pact:1073557308:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06968002948782996,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1076447842:0-31566704",
+        "pact:1073557308:0-31566704"
+      ],
+      "priceImpactBps": 100.27361727769745,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005152750730639929,
+      "direction": "pact->tinyman|in=0",
+      "grossProfit": -0.001185489171962928,
+      "identity": "pact:1076447842:0-31566704->tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06968548917196293,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1076447842:0-31566704",
+        "tinyman:2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM:31566704-0"
+      ],
+      "priceImpactBps": 100.27361727769745,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "tinyman"
+      ]
+    },
+    {
+      "bestSize": 0.05,
+      "blockRound": 62997609,
+      "dexFees": 0.0005021215379255546,
+      "direction": "pact->pact|in=0",
+      "grossProfit": -0.0012205793850113833,
+      "identity": "pact:1076447842:0-31566704->pact:2966805457:0-31566704|in=0|pair=0-31566704|r=62997609,62997609",
+      "netProfit": -0.06972057938501139,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "paperEligible": false,
+      "poolIds": [
+        "pact:1076447842:0-31566704",
+        "pact:2966805457:0-31566704"
+      ],
+      "priceImpactBps": 100.27361727769745,
+      "safetyBufferBps": 15.0,
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "status": "rejected",
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    }
+  ],
+  "databasePath": "C:\\Users\\rober\\Documents\\Codex\\repos\\algopulse-market-engine\\data\\mainnet-live-scanner\\market.db",
+  "paperRowCount": 1,
+  "paperRowsAdded": 1,
+  "paperRowsAfter": 5761,
+  "paperRowsBefore": 5760,
+  "poolsUsed": 9,
+  "productionReady": false,
+  "riskLimitsUnchanged": true,
+  "routesAfterDedupe": 72,
+  "routesBeforeDedupe": 870,
+  "selectedPair": [
+    0,
+    31566704
+  ],
+  "signingEnabled": false,
+  "sizesEvaluated": 870,
+  "skippedPairs": [
+    {
+      "crossVenueLiquidity": 0.001134460224071342,
+      "pactBestMinReserve": 2.4e-05,
+      "pactPools": [
+        {
+          "appId": 3169274785,
+          "blockRound": 62997609,
+          "feeBps": 2,
+          "liquidity": 0.001134460224071342,
+          "poolId": "pact:3169274785:0-3169177585",
+          "reserveA": 2.4e-05,
+          "reserveB": 0.053625
+        }
+      ],
+      "pair": [
+        0,
+        3169177585
+      ],
+      "skipReason": "pair_skipped_low_cross_venue_liquidity",
+      "status": "skipped",
+      "tinymanBestMinReserve": 216.895381,
+      "tinymanPools": [
+        {
+          "appId": 1002541853,
+          "blockRound": 62997609,
+          "feeBps": 36,
+          "liquidity": 27140.03729193894,
+          "poolId": "tinyman:ANESQRCMZ5KWZFKDGESLJEWQLRCVUZU725FJL7NO3BMKJEYMAB3TR56R3E:3169177585-0",
+          "reserveA": 3396022.639172,
+          "reserveB": 216.895381
+        }
+      ]
+    }
+  ],
+  "source": "stored_mainnet_snapshots",
+  "topNearMisses": [
+    {
+      "bestSize": 0.125,
+      "blockRound": 62997609,
+      "dexFees": 6.466561517203933e-05,
+      "direction": "pact->pact|in=0",
+      "grossProfit": 0.0003904487974979165,
+      "netProfit": -0.06810955120250209,
+      "networkFee": 0.006,
+      "pair": [
+        0,
+        31566704
+      ],
+      "poolIds": [
+        "pact:2966805457:0-31566704",
+        "pact:2966799501:0-31566704"
+      ],
+      "priceImpactBps": 27.61533139248651,
+      "riskRules": {
+        "app_ids_allowlisted": true,
+        "assets_allowlisted": true,
+        "fee_buffer_ok": false,
+        "net_profit_after_fees_ok": false,
+        "own_funds_only": true,
+        "pool_reserves_ok": false,
+        "price_impact_ok": true,
+        "profit_bps_ok": false,
+        "quote_freshness_ok": true,
+        "route_leg_count_ok": true,
+        "trade_size_ok": true
+      },
+      "skipReason": "net_profit_after_fees_ok",
+      "slippageBuffer": 0.0625,
+      "venues": [
+        "pact",
+        "pact"
+      ]
+    }
+  ]
+}
