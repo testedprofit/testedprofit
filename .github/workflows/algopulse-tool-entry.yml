@@ -28,5 +28,6 @@ jobs:
         run: |
           grep -q 'href = TOOL_HASH' pages/algoflow/algopulse-tool.js
           grep -q 'Live execution locked' pages/algoflow/algopulse-tool.js
+          grep -q 'title="AlgoPulse Market Engine"' pages/algoflow/algopulse-tool.js
           grep -q 'algopulse-tool.js' index.html
           grep -q 'algopulse-tool.js' pages/algoflow/index.html

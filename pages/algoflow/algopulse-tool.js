@@ -37,11 +37,33 @@
     nav.appendChild(link);
   }
 
-  function localEngineAction() {
-    if (!isLocalHost()) {
-      return '<span class="af-algopulse-button secondary" aria-disabled="true">Backend deployment pending</span>';
+  function engineUrl() {
+    if (typeof window.ALGOFLOW_ALGOPULSE_ENGINE_URL === "string" && window.ALGOFLOW_ALGOPULSE_ENGINE_URL.trim()) {
+      return window.ALGOFLOW_ALGOPULSE_ENGINE_URL.trim();
     }
-    return '<a class="af-algopulse-button" href="http://127.0.0.1:8777/?v=algoflow-tool#pulse">Open full local engine</a>';
+    return isLocalHost() ? "http://127.0.0.1:8777/?v=algoflow-embedded&embedded=1#pulse" : "";
+  }
+
+  function engineHtml() {
+    var url = engineUrl();
+    if (!url) {
+      return [
+        '<section class="af-algopulse-engine-unavailable">',
+        '  <span class="af-algopulse-label">Full engine</span>',
+        '  <strong>Backend deployment pending</strong>',
+        '  <p>The complete tool will render here after the read-only FastAPI service has an approved public host.</p>',
+        '</section>'
+      ].join("");
+    }
+    return [
+      '<section class="af-algopulse-engine" aria-label="Embedded AlgoPulse market engine">',
+      '  <div class="af-algopulse-engine-bar">',
+      '    <div><span class="af-algopulse-label">Full engine</span><strong>Local TestNet service</strong></div>',
+      '    <a href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">Open in new tab</a>',
+      '  </div>',
+      '  <iframe title="AlgoPulse Market Engine" src="' + escapeHtml(url) + '" loading="eager" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>',
+      '</section>'
+    ].join("");
   }
 
   function panelHtml() {
@@ -61,14 +83,7 @@
       '    <div><span>Public data</span><strong>Delayed and redacted</strong></div>',
       '    <div><span>PNET asset</span><strong data-ap-pnet>Not configured</strong></div>',
       '  </section>',
-      '  <section class="af-algopulse-grid" aria-label="AlgoPulse capabilities">',
-      '    <article class="af-algopulse-card"><span class="af-algopulse-chip">Read only</span><h2>Pool Scanner</h2><p>Tinyman and Pact pool state, reserve depth, rounds, timestamps, and connector freshness.</p></article>',
-      '    <article class="af-algopulse-card"><span class="af-algopulse-chip">Evidence</span><h2>Route Intelligence</h2><p>Two-leg and triangle candidates with comparable units, explicit fees, and decision reasons.</p></article>',
-      '    <article class="af-algopulse-card"><span class="af-algopulse-chip">Paper only</span><h2>Opportunity Decay</h2><p>Exact-route T+5 and T+30 outcomes, quote decay, survival, and failure evidence.</p></article>',
-      '    <article class="af-algopulse-card"><span class="af-algopulse-chip">Fail closed</span><h2>Risk Inspector</h2><p>Freshness, liquidity, impact, allowlist, fee, and profit-threshold rejection evidence.</p></article>',
-      '    <article class="af-algopulse-card"><span class="af-algopulse-chip">TestNet</span><h2>Pera and Defly Access</h2><p>Connect and read account state only. No signing request, opt-in action, or submission path.</p></article>',
-      '    <article class="af-algopulse-card"><span class="af-algopulse-chip">Ops</span><h2>Control Room</h2><p>Connector health, readiness gates, activity, blockers, and source-labeled evidence.</p></article>',
-      '  </section>',
+      engineHtml(),
       '  <section class="af-algopulse-evidence" aria-live="polite">',
       '    <div class="af-algopulse-evidence-head"><h2>Latest reviewed evidence</h2><span class="af-algopulse-source" data-ap-source>Loading stored evidence</span></div>',
       '    <dl>',
@@ -79,7 +94,6 @@
       '    </dl>',
       '  </section>',
       '  <div class="af-algopulse-actions">',
-      localEngineAction(),
       '    <a class="af-algopulse-button secondary" href="' + SOURCE_URL + '" target="_blank" rel="noopener noreferrer">Review source and evidence</a>',
       '  </div>',
       '</div>'
