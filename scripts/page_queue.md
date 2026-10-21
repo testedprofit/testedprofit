@@ -74,7 +74,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
 
 - https://testedprofit.com/AL/
   - Title: Alabama Statues and Landmarks | TestedProfit
-  - Status: updated in the Alabama landmarks PR (first half). Directory lists all 22 existing pages. Revised cards use the new titles. The apostrophe in the World’s Smallest City Block link is a real character. Sources for the revised guides were checked 21 October 2026.
+  - Status: updated in the Alabama landmarks PR (second half). Directory cards now use the revised titles for all 22 guides.
 - https://testedprofit.com/CO/
   - Title: Colorado 150 | Profitnet Landmark Directory
   - Status: open. no OG
@@ -160,38 +160,38 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Hank Williams Statue in Montgomery | Guide
   - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Heaviest%20Corner%20On%20Earth/
-  - Title: The Heaviest Corner on Earth | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Heaviest Corner on Earth in Birmingham | Guide
+  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Karl%20Richter%20Memorial%20Statue/
-  - Title: Karl Richter Memorial | TestedProfit Landmark
-  - Status: open. description 158 chars | no OG
+  - Title: Karl Richter Memorial at Maxwell AFB | Guide
+  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Manny,%2012%20Foot%20Tall%20Fish/
-  - Title: Manny the Bass | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Manny the Bass in Eufaula | Guide
+  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Nathan%20Bedford%20Forrest%20Monument/
-  - Title: Nathan Bedford Forrest Monument | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Forrest Monument at Old Live Oak | Guide
+  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Rainbow%20Division%20Statue/
-  - Title: Rainbow Division Statue | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Rainbow Soldier at Union Station | Guide
+  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Rosa%20Parks%20Bus%20Stop/
-  - Title: Rosa Parks Bus Stop | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Rosa Parks Arrest Site in Montgomery | Guide
+  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/The%20Bronze%20Bomber%20-%20Deontay%20Wilder%20Statue/
-  - Title: The Bronze Bomber | TestedProfit Landmark
-  - Status: open. description 159 chars | no OG
+  - Title: Deontay Wilder Statue in Tuscaloosa | Guide
+  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/The%20Four%20Spirits/
-  - Title: The Four Spirits | TestedProfit Landmark
-  - Status: open. description 165 chars | no OG
+  - Title: Four Spirits at Kelly Ingram Park | Guide
+  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Viola%20Liuzzo%20Memorial/
-  - Title: Viola Liuzzo Memorial | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Viola Liuzzo Memorial on U.S. 80 | Guide
+  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Woods%20Quad/
-  - Title: Woods Quad | TestedProfit Landmark
-  - Status: open. description 170 chars | no OG
+  - Title: Woods Quad Sculpture Garden | Guide
+  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/World's%20Smallest%20City%20Block/
-  - Title: World's Smallest City Block | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: World's Smallest City Block in Dothan | Guide
+  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Boy%20Scout%20Statue%20of%20Liberty/
   - Title: Boy Scout Statue of Liberty | La Junta, CO Directory
   - Status: open. no OG
