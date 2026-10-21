@@ -1,276 +1,897 @@
 # Page queue
 
-Remaining content pages for the visitor-guide template, one page per future pull request.
-Order: Search Console impressions, then directory hubs, then other landmark pages, then earning guides.
-The first four pages already have unique titles from the indexing pass. Their bodies are not the visitor-guide template yet. The model is `WY/rock paper scissors sculpture/index.html`.
+Checklist of every index.html page, regenerated 21 October 2026.
+The parks section is the current pull request. The ten finished landmark guides stay as merged. The homepage and app, tool, calculator, and game screens stay out of the content pass.
+Open pages still need a later section. A gap note is a title of 60 characters or more, a missing or 155-character-or-longer description, an H1 count other than one, a missing canonical, missing Open Graph tags, fewer than 180 words, or a missing sitemap entry.
 
-Left out of this queue: the homepage, wallet and dApp tools (AlgoFlow, NFT Studio, inspector, launchpad, multisend, and the other app screens), redirect stubs, browser games, and pages already on the visitor-guide or token-hub template.
+Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redirects are absent on purpose.
+404.html and the Yandex verification file are not content pages and are not listed below.
 
-## Already templated
+## parks (9)
 
-- https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/ — Visitor guide. Current title: Rock Paper Scissors Sculpture in Gillette, WY | Visit Guide
-- https://testedprofit.com/pages/cowboy-in-pajamas/ — Visitor guide. Current title: Cowboy in Pajamas Sculpture in Denver | Guide
-- https://testedprofit.com/pages/man-and-woman/ — Visitor guide. Current title: Botero's Man and Woman in Denver | Visit Guide
-- https://testedprofit.com/pages/sensory-park/ — Visitor guide. Current title: Westminster Sensory Park | Accessible Play Guide
-- https://testedprofit.com/pages/the-newsboy-statue/ — Visitor guide. Current title: The Newsboy Statue in Golden, CO | Visit Guide
-- https://testedprofit.com/pages/worlds-tallest-kachina-doll/ — Visitor guide. Current title: Kachina Woman Monument in Cave Creek, AZ | Guide
-- https://testedprofit.com/pages/PNET/ — Token hub, already rewritten. Current title: PNET Token | Profitnet Algorand ASA
+- https://testedprofit.com/pages/central-square-park/
+  - Title: Central Plaza Park in Westminster | Guide
+  - Status: updated in this parks PR. description, one H1, canonical, OG, and sources set from records checked 21 October 2026
+- https://testedprofit.com/pages/Oakhurst%20Park%20II/
+  - Title: Oakhurst II Field in Westminster | Guide
+  - Status: updated in this parks PR. description, one H1, canonical, OG, and sources set from records checked 21 October 2026
+- https://testedprofit.com/pages/rocky-flats-national-wildlife-refuge-south-entrance/
+  - Title: Rocky Flats South Entrance | Visit Guide
+  - Status: updated in this parks PR. description, one H1, canonical, OG, and sources set from records checked 21 October 2026
+- https://testedprofit.com/pages/rotary-park/
+  - Title: Oakhurst II redirect | TestedProfit
+  - Status: updated in this parks PR. noindex redirect to the keeper URL; omitted from sitemap.xml
+- https://testedprofit.com/pages/sunset-park/
+  - Title: Sunset Park in Westminster, CO | Guide
+  - Status: updated in this parks PR. description, one H1, canonical, OG, and sources set from records checked 21 October 2026
+- https://testedprofit.com/pages/torii-square-park-westminster/
+  - Title: Torii Square Park | Westminster, CO
+  - Status: updated in this parks PR. description, one H1, canonical, OG, and sources set from records checked 21 October 2026
+- https://testedprofit.com/pages/Woodbury%20Park/
+  - Title: Woodbury Park - A Craig Community Hub
+  - Status: updated in this parks PR. description, one H1, canonical, OG, and sources set from records checked 21 October 2026
+- https://testedprofit.com/pages/woodbury-park/
+  - Title: Redirect to Woodbury Park | TestedProfit
+  - Status: updated in this parks PR. noindex redirect to the keeper URL; omitted from sitemap.xml
+- https://testedprofit.com/rotary-park/
+  - Title: Redirect to Oakhurst II | TestedProfit
+  - Status: updated in this parks PR. noindex redirect to the keeper URL; omitted from sitemap.xml
 
-## 1. Search Console impressions
+## finished-guide (10)
 
-Named by the owner, in this order.
+- https://testedprofit.com/pages/albert-einstein-statue-vail-co/
+  - Title: Einstein Bench in Vail Village | Guide
+  - Status: left unchanged. merged guide; not reopened
+- https://testedprofit.com/pages/bronco-buster-statue/
+  - Title: Bronco Buster in Denver Civic Center | Guide
+  - Status: left unchanged. merged guide; not reopened
+- https://testedprofit.com/pages/cowboy-in-pajamas/
+  - Title: Cowboy in Pajamas Sculpture in Denver | Guide
+  - Status: left unchanged. merged guide; not reopened
+- https://testedprofit.com/pages/eagle-statue/
+  - Title: Eagle Statue at Denver West, Lakewood | Guide
+  - Status: left unchanged. merged guide; not reopened
+- https://testedprofit.com/pages/man-and-woman/
+  - Title: Botero's Man and Woman in Denver | Visit Guide
+  - Status: left unchanged. merged guide; not reopened
+- https://testedprofit.com/pages/sensory-park/
+  - Title: Westminster Sensory Park | Accessible Play Guide
+  - Status: left unchanged. merged guide; not reopened
+- https://testedprofit.com/pages/the-lady-doctor-statue/
+  - Title: Lady Doctor Statue at 30th and Downing | Guide
+  - Status: left unchanged. merged guide; not reopened
+- https://testedprofit.com/pages/the-newsboy-statue/
+  - Title: The Newsboy Statue in Golden, CO | Visit Guide
+  - Status: left unchanged. merged guide; not reopened
+- https://testedprofit.com/pages/worlds-tallest-kachina-doll/
+  - Title: Kachina Woman Monument in Cave Creek, AZ | Guide
+  - Status: left unchanged. merged guide; not reopened
+- https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/
+  - Title: Rock Paper Scissors Sculpture in Gillette, WY | Visit Guide
+  - Status: left unchanged. merged guide; not reopened
 
-1. https://testedprofit.com/pages/bronco-buster-statue/ — Bronco Buster Statue in Denver Civic Center Park
-2. https://testedprofit.com/pages/eagle-statue/ — American Eagle Statue at Denver West Plaza, Lakewood CO
-3. https://testedprofit.com/pages/albert-einstein-statue-vail-co/ — Albert Einstein Statue in Vail, Colorado | Bronze Bench
-4. https://testedprofit.com/pages/the-lady-doctor-statue/ — The Lady Doctor Statue: Dr. Justina Ford in Denver
+## hub (17)
 
-## 2. Landmark and guide hubs
+- https://testedprofit.com/AL/
+  - Title: Alabama Statues and Landmarks | TestedProfit
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/CO/
+  - Title: Colorado 150 | Profitnet Landmark Directory
+  - Status: open. no OG
+- https://testedprofit.com/HI/
+  - Title: Hawaii Heritage | Profitnet Landmark Directory
+  - Status: open. no OG
+- https://testedprofit.com/IA/
+  - Title: Iowa Statues and Landmarks | TestedProfit
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/IN/
+  - Title: Indiana Statues and Landmarks | TestedProfit
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/KS/
+  - Title: Kansas Statues and Landmarks | TestedProfit
+  - Status: open. 76 words
+- https://testedprofit.com/KY/
+  - Title: Kentucky Heritage | Profitnet Landmark Directory
+  - Status: open. no OG
+- https://testedprofit.com/LA/
+  - Title: Louisiana Statues and Landmarks | TestedProfit
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/MI/
+  - Title: Michigan Statues and Landmarks | TestedProfit
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/OR/
+  - Title: Oregon Statues and Landmarks | TestedProfit
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/pages/guides/
+  - Title: Earning-App Guides | TestedProfit
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/pages/landmarks/
+  - Title: Landmarks Directory by State | Guide
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/pages/landmarks/denver/
+  - Title: Denver Landmark Guides | Directory
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/pages/landmarks/vail/
+  - Title: Vail Landmark Guides | Directory
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/pages/parks/
+  - Title: About the Landmark Archive | TestedProfit
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/WV/
+  - Title: West Virginia Statues and Landmarks | TestedProfit
+  - Status: open. 128 words
+- https://testedprofit.com/WY/
+  - Title: Wyoming Statues and Landmarks | TestedProfit
+  - Status: open. title, description, H1, canonical, and OG are in range
 
-State directories and the national landmark, city, guide, and parks indexes.
+## state page (175)
 
-5. https://testedprofit.com/pages/landmarks/ — Statues and Landmarks by State | TestedProfit
-6. https://testedprofit.com/pages/landmarks/denver/ — Denver Statues and Public Art | TestedProfit
-7. https://testedprofit.com/pages/landmarks/vail/ — Vail Statues and Things to Do | TestedProfit
-8. https://testedprofit.com/pages/guides/ — Earning-App Guides | TestedProfit
-9. https://testedprofit.com/pages/parks/ — About the Landmark Archive | TestedProfit
-10. https://testedprofit.com/AL/ — Alabama Statues and Landmarks | TestedProfit
-11. https://testedprofit.com/CO/ — Colorado 150 | Profitnet Landmark Directory
-12. https://testedprofit.com/HI/ — Hawaii Heritage | Profitnet Landmark Directory
-13. https://testedprofit.com/IA/ — Iowa Statues and Landmarks | TestedProfit
-14. https://testedprofit.com/IN/ — Indiana Statues and Landmarks | TestedProfit
-15. https://testedprofit.com/KS/ — Kansas Statues and Landmarks | TestedProfit
-16. https://testedprofit.com/KY/ — Kentucky Heritage | Profitnet Landmark Directory
-17. https://testedprofit.com/LA/ — Louisiana Statues and Landmarks | TestedProfit
-18. https://testedprofit.com/MI/ — Michigan Statues and Landmarks | TestedProfit
-19. https://testedprofit.com/OR/ — Oregon Statues and Landmarks | TestedProfit
-20. https://testedprofit.com/WV/ — West Virginia Statues and Landmarks | TestedProfit
-21. https://testedprofit.com/WY/ — Wyoming Statues and Landmarks | TestedProfit
+- https://testedprofit.com/AL/Albert%20Patterson%20Statue/
+  - Title: Albert Patterson Statue | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/Angel%20of%20Hope/
+  - Title: Angel of Hope | TestedProfit Landmark
+  - Status: open. description 166 chars | no OG
+- https://testedprofit.com/AL/Atticus%20Finch%20Memorial%20Park%20Monument/
+  - Title: Atticus Finch Monument | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/Big%20Peanut/
+  - Title: The Big Peanut | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/Bigfoot%20Statue/
+  - Title: Bigfoot Statue | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/Bo%20Jackson%20Statue/
+  - Title: Bo Jackson Statue | TestedProfit Landmark
+  - Status: open. description 166 chars | no OG
+- https://testedprofit.com/AL/Charles%20Barkley%20Statue/
+  - Title: Charles Barkley Statue | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/Confederate%20Memorial%20Monument/
+  - Title: Confederate Memorial Monument | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/Court%20Square%20Fountain%20-%20Artesian%20Basin/
+  - Title: Court Square Fountain | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/English%20Village%20Statue/
+  - Title: Civitas | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/Hank%20Williams%20Statue/
+  - Title: Hank Williams Statue | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/Heaviest%20Corner%20On%20Earth/
+  - Title: The Heaviest Corner on Earth | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/Karl%20Richter%20Memorial%20Statue/
+  - Title: Karl Richter Memorial | TestedProfit Landmark
+  - Status: open. description 158 chars | no OG
+- https://testedprofit.com/AL/Manny,%2012%20Foot%20Tall%20Fish/
+  - Title: Manny the Bass | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/Nathan%20Bedford%20Forrest%20Monument/
+  - Title: Nathan Bedford Forrest Monument | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/Rainbow%20Division%20Statue/
+  - Title: Rainbow Division Statue | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/Rosa%20Parks%20Bus%20Stop/
+  - Title: Rosa Parks Bus Stop | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/The%20Bronze%20Bomber%20-%20Deontay%20Wilder%20Statue/
+  - Title: The Bronze Bomber | TestedProfit Landmark
+  - Status: open. description 159 chars | no OG
+- https://testedprofit.com/AL/The%20Four%20Spirits/
+  - Title: The Four Spirits | TestedProfit Landmark
+  - Status: open. description 165 chars | no OG
+- https://testedprofit.com/AL/Viola%20Liuzzo%20Memorial/
+  - Title: Viola Liuzzo Memorial | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/AL/Woods%20Quad/
+  - Title: Woods Quad | TestedProfit Landmark
+  - Status: open. description 170 chars | no OG
+- https://testedprofit.com/AL/World's%20Smallest%20City%20Block/
+  - Title: World's Smallest City Block | TestedProfit Landmark
+  - Status: open. no OG
+- https://testedprofit.com/CO/Boy%20Scout%20Statue%20of%20Liberty/
+  - Title: Boy Scout Statue of Liberty | La Junta, CO Directory
+  - Status: open. no OG
+- https://testedprofit.com/CO/Christ%20of%20the%20Mines%20Shrine/
+  - Title: Christ of the Mines Shrine | Silverton, CO Directory
+  - Status: open. no OG
+- https://testedprofit.com/CO/Desert%20Metal%20Art/
+  - Title: Desert Metal Art | Grand Junction, CO Directory
+  - Status: open. no OG
+- https://testedprofit.com/CO/James%20Dalton%20Trumbo%20Statue/
+  - Title: James Dalton Trumbo Statue | Grand Junction, CO Directory
+  - Status: open. no OG
+- https://testedprofit.com/CO/Landmarks/Bear-Statue/
+  - Title: Redirect to bear-statue | TestedProfit
+  - Status: redirect. noindex redirect; omitted from sitemap.xml
+- https://testedprofit.com/CO/Landmarks/Big-Baldy-Statue/
+  - Title: TestedProfit | Big Baldy Statue
+  - Status: open. description 168 chars | no OG
+- https://testedprofit.com/CO/Landmarks/Cedar-Mountain/
+  - Title: Cedar Mountain | Craig, CO Local Guide
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/CO/Landmarks/coolin'dog/
+  - Title: Coolin' the Dogs | TestedProfit Local Guide
+  - Status: open. no OG
+- https://testedprofit.com/CO/Landmarks/Former-Mine-Sites-of-Mt.%20Harris/
+  - Title: The Former Mine Sites of Mt. Harris | Profitnet Landmark
+  - Status: open. description 168 chars | no OG
+- https://testedprofit.com/CO/Landmarks/Hank%20the%20Cowboy%20statue/
+  - Title: Hank the Cowboy | TestedProfit Landmark Series
+  - Status: open. description 166 chars | no OG
+- https://testedprofit.com/CO/Landmarks/Hayden-Town-Park/
+  - Title: Hayden Town Park | Yampa Valley
+  - Status: open. description 167 chars | no OG
+- https://testedprofit.com/CO/Landmarks/Horse-Statue-Intersection/
+  - Title: The Palmer Intersection Project | Conserving History
+  - Status: open. no OG
+- https://testedprofit.com/CO/Landmarks/Isak-Heartstone/
+  - Title: Isak Heartstone | Profitnet Landmarks
+  - Status: open. description 162 chars | no OG
+- https://testedprofit.com/CO/Landmarks/octomaid/
+  - Title: Octo-Maid (Iscariot) | TestedProfit Standard
+  - Status: open. no OG
+- https://testedprofit.com/CO/Landmarks/Routt-County-Firing-Range/
+  - Title: Routt County Public Firing Range | TestedProfit Network
+  - Status: open. description 162 chars | no OG | 142 words
+- https://testedprofit.com/CO/Landmarks/Santa-Maria-Statue-of-Christ/
+  - Title: Santa Maria Statue of Christ | Christ of the Rockies - Grant, CO
+  - Status: open. description 178 chars | title 64 chars | no OG
+- https://testedprofit.com/CO/Landmarks/spirit/
+  - Title: The Spirit of the Rockies | TestedProfit
+  - Status: open. no OG
+- https://testedprofit.com/CO/Landmarks/Starr%20Kempf's%20Kinetic%20Sculptures/
+  - Title: Starr Kempf: Steel & Wind
+  - Status: open. no OG
+- https://testedprofit.com/CO/Landmarks/truffles/
+  - Title: Truffles | The Bronze Pig of Tejon St.
+  - Status: open. no OG
+- https://testedprofit.com/CO/Pueblo%20Heritage%20Walk/
+  - Title: Pueblo Heritage Walk | Pueblo, CO Directory
+  - Status: open. no OG
+- https://testedprofit.com/CO/Pyro-DuBois-Memorial/
+  - Title: Capt. William H. "Pyro" DuBois Jr. Memorial | Colorado Landmark
+  - Status: open. title 63 chars
+- https://testedprofit.com/CO/Rhino%20iguana%20sculpture/
+  - Title: Rhino Iguana Sculpture | Lafayette, CO Public Art Directory
+  - Status: open. description 174 chars | no OG
+- https://testedprofit.com/CO/Riverfront%20Park%20Statue/
+  - Title: Riverfront Park Statue (Unnamed) | Durango, CO Directory
+  - Status: open. no OG
+- https://testedprofit.com/CO/Snapshot%20statue/
+  - Title: "Snapshot" Statue | Lakewood, Colorado
+  - Status: open. no OG
+- https://testedprofit.com/CO/Telluride%20Penny%20Bear%20(%20Ursa%20Ravus)/
+  - Title: Telluride Penny Bear (Ursa Ravus) | Telluride, CO Directory
+  - Status: open. no OG
+- https://testedprofit.com/CO/Tennyson%20Sculpture%20Garden%20&%20Park/
+  - Title: Tennyson Sculpture Garden & Park | Pagosa Springs, CO Directory
+  - Status: open. title 63 chars | no OG | not in sitemap
+- https://testedprofit.com/CO/The%20Pueblo%20Christopher%20Columbus%20Monument/
+  - Title: Pueblo Christopher Columbus Monument | Pueblo, CO Directory
+  - Status: open. no OG
+- https://testedprofit.com/CO/Warren%20Barnes%20Memorial/
+  - Title: Warren Barnes Memorial | Grand Junction, CO Directory
+  - Status: open. no OG
+- https://testedprofit.com/CO/Westminster%20City%20Park/
+  - Title: Westminster City Park | The Unofficial Guide
+  - Status: open. description 166 chars | no OG
+- https://testedprofit.com/HI/Boat%20Rotor%20Statue/
+  - Title: TestedProfit | Boat Rotor Statue
+  - Status: open. description 178 chars | no OG
+- https://testedprofit.com/HI/Captain%20James%20Cook%20Monument/
+  - Title: TestedProfit | Captain James Cook Monument
+  - Status: open. no OG
+- https://testedprofit.com/HI/Charles%20Lindbergh's%20Grave/
+  - Title: TestedProfit | Lindbergh Landmark
+  - Status: open. no OG
+- https://testedprofit.com/HI/Chester%20W.%20Nimitz%20Statue/
+  - Title: Chester W. Nimitz Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/HI/Don%20Ho%20Statue/
+  - Title: Don Ho Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/HI/Dr.%20Jose%20P.%20Rizal%20Monument%20-%20Maui/
+  - Title: TestedProfit | Dr. Jose Rizal Monument
+  - Status: open. description 168 chars | no OG
+- https://testedprofit.com/HI/Fagan's%20Cross/
+  - Title: TestedProfit | Fagan's Cross Landmark
+  - Status: open. no OG
+- https://testedprofit.com/HI/Israel%20Kamakawiwo'ole%20Memorial%20Statue/
+  - Title: Israel Kamakawiwoʻole Memorial | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/HI/King%20David%20Kalākaua%20Statue/
+  - Title: TestedProfit | King David Kalākaua Statue
+  - Status: open. no OG
+- https://testedprofit.com/HI/Prince%20Kuhio%20Birthplace/
+  - Title: TestedProfit | Prince Kuhio Birthplace
+  - Status: open. no OG
+- https://testedprofit.com/HI/Queen%20Kapiʻolani%20Statue/
+  - Title: Queen Kapiʻolani Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/HI/Saint%20Marianne%20Cope%20Statue/
+  - Title: Saint Marianne Cope Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/HI/Spalding%20Monument/
+  - Title: TestedProfit | The Spalding Monument
+  - Status: open. no OG
+- https://testedprofit.com/HI/Statue%20of%20Hamana%20Kalili%20and%20the%20Shaka/
+  - Title: Statue of Hamana Kalili | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/HI/Stone%20Dam/
+  - Title: TestedProfit | The Stone Dam
+  - Status: open. description 170 chars | no OG
+- https://testedprofit.com/HI/Storyteller%20Statue/
+  - Title: The Storyteller Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/HI/The%20Naha%20Stone/
+  - Title: TestedProfit | The Naha Stone
+  - Status: open. description 173 chars | no OG
+- https://testedprofit.com/HI/The%20Princess%20Kaʻiulani%20statue/
+  - Title: Princess Kaʻiulani Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/HI/Ulumau%20Pohaku%20Pele%20sculpture/
+  - Title: TestedProfit | Ulumau Pohaku Pele
+  - Status: open. description 171 chars | no OG
+- https://testedprofit.com/HI/Wai%20Koa%20Loop%20Trail/
+  - Title: TestedProfit | Wai Koa Loop Trail
+  - Status: open. no OG
+- https://testedprofit.com/IA/Abraham%20Lincoln%20Statue/
+  - Title: Abraham Lincoln Statue | TestedProfit
+  - Status: open. no OG
+- https://testedprofit.com/IA/Cornhenge/
+  - Title: Cornhenge | TestedProfit
+  - Status: open. description 179 chars | no OG
+- https://testedprofit.com/IA/Czech%20Village%20Mushroom%20Statue/
+  - Title: Czech Village Mushroom Statue | TestedProfit
+  - Status: open. no OG
+- https://testedprofit.com/IA/Easter%20Island%20Statue/
+  - Title: Easter Island Statue (Alburnett) | TestedProfit
+  - Status: open. description 167 chars | no OG
+- https://testedprofit.com/IA/Iowa%20Statue%20of%20Liberty/
+  - Title: Iowa Statue of Liberty | TestedProfit
+  - Status: open. description 169 chars | no OG
+- https://testedprofit.com/IA/L.J.%20Maasdam%20Wagon%20Wheel%20Sculpture/
+  - Title: L.J. Maasdam Wagon Wheel Sculpture | TestedProfit
+  - Status: open. no OG
+- https://testedprofit.com/IA/Lewis%20and%20Clark%20Statue/
+  - Title: Lewis & Clark Statue | TestedProfit
+  - Status: open. description 171 chars | no OG
+- https://testedprofit.com/IA/Little%20Mermaid%20Fountain/
+  - Title: Little Mermaid Fountain | TestedProfit
+  - Status: open. no OG
+- https://testedprofit.com/IA/Moai%20Dude/
+  - Title: Moai Dude | TestedProfit
+  - Status: open. description 169 chars | no OG | 166 words
+- https://testedprofit.com/IA/Peace%20Sign/
+  - Title: Peace Sign (Iowa City) | TestedProfit
+  - Status: open. description 176 chars | no OG | 179 words
+- https://testedprofit.com/IA/South%20Des%20Moines%20Sculpture%20Park/
+  - Title: South Des Moines Sculpture Park | TestedProfit
+  - Status: open. description 175 chars | no OG | 162 words
+- https://testedprofit.com/IA/The%20Black%20Angel/
+  - Title: The Black Angel | TestedProfit
+  - Status: open. no OG
+- https://testedprofit.com/IN/Bigfoot%20Fishing/
+  - Title: Bigfoot Fishing Statue | French Lick, IN Directory
+  - Status: open. no OG
+- https://testedprofit.com/IN/Constitution%20Elm%20Stump/
+  - Title: Constitution Elm Stump | Corydon, IN Directory
+  - Status: open. no OG
+- https://testedprofit.com/IN/Larry%20Bird's%20Childhood%20Home/
+  - Title: Larry Bird's Childhood Home | French Lick, IN Directory
+  - Status: open. no OG
+- https://testedprofit.com/IN/Rosie%20the%20Riveter%20Statue/
+  - Title: Rosie the Riveter Statue | Clarksville, IN Directory
+  - Status: open. no OG
+- https://testedprofit.com/IN/Vincennes%20River%20Walk/
+  - Title: Vincennes River Walk | Vincennes, IN Directory
+  - Status: open. description 170 chars | no OG
+- https://testedprofit.com/IN/William%20Hayden%20English%20Statue/
+  - Title: William Hayden English Statue | English, IN Directory
+  - Status: open. no OG
+- https://testedprofit.com/KS/The%20Keeper%20of%20the%20Plains/
+  - Title: Keeper of the Plains | TestedProfit Landmark
+  - Status: open. description 170 chars | no OG
+- https://testedprofit.com/KY/Benjamin%20Franklin%20statue/
+  - Title: Benjamin Franklin Statue | Louisville, KY Directory
+  - Status: open. description 158 chars | no OG
+- https://testedprofit.com/KY/Bigfoot%20Statue/
+  - Title: Bigfoot Statue | Ashland, KY Directory
+  - Status: open. no OG
+- https://testedprofit.com/KY/Booker%20Noe%20Statue/
+  - Title: Booker Noe Statue | Clermont, KY Directory
+  - Status: open. no OG
+- https://testedprofit.com/KY/Coxs%20Creek%20Rooster%20Statue/
+  - Title: Cox's Creek Rooster Statue (Ozzie Frank) | Cox's Creek, KY Directory
+  - Status: open. title 68 chars | no OG
+- https://testedprofit.com/KY/Daniel%20Boone%20Monument/
+  - Title: Daniel Boone Monument | Louisville, KY Directory
+  - Status: open. no OG
+- https://testedprofit.com/KY/George%20Rogers%20Clark%20Statue/
+  - Title: George Rogers Clark Statue | Louisville, KY Directory
+  - Status: open. description 155 chars | no OG
+- https://testedprofit.com/KY/Harry%20Potter%20Chess%20King%20Statue%20Carving/
+  - Title: Harry Potter Wizard's Chess Knight | Mt Washington, KY Directory
+  - Status: open. title 64 chars | no OG
+- https://testedprofit.com/KY/In%20Gods%20Hands%20statue/
+  - Title: In God's Hands Statue | Louisville, KY Directory
+  - Status: open. no OG
+- https://testedprofit.com/KY/Jefferson%20Monument%20(Louisville,%20Kentucky)/
+  - Title: Jefferson Monument | Louisville, KY Directory
+  - Status: open. description 158 chars | no OG
+- https://testedprofit.com/KY/Keith%20Whitley%20Memorial%20Statue/
+  - Title: Keith Whitley Memorial Statue | Sandy Hook, KY Directory
+  - Status: open. description 162 chars | no OG
+- https://testedprofit.com/KY/Little%20Elina%20Forest%20Giant/
+  - Title: Little Elina Forest Giant | Shepherdsville, KY Directory
+  - Status: open. no OG
+- https://testedprofit.com/KY/Railroad%20Memorial%20Statue/
+  - Title: Railroad Memorial Statue | Carbondale, IL Directory
+  - Status: open. no OG
+- https://testedprofit.com/KY/Secretariat%20Statue/
+  - Title: Secretariat Statue: Racing Into History | Lexington, KY Directory
+  - Status: open. title 65 chars | no OG
+- https://testedprofit.com/KY/Squire%20Boone%20Statue/
+  - Title: Squire Boone Statue | Shelbyville, KY Directory
+  - Status: open. description 164 chars | no OG
+- https://testedprofit.com/KY/Statue%20Of%20Abraham%20Lincoln/
+  - Title: Statue of Abraham Lincoln | Hodgenville, KY Directory
+  - Status: open. no OG
+- https://testedprofit.com/KY/Statue%20of%20Charlie%20Farnsley/
+  - Title: Statue of Charlie Farnsley | Louisville, KY Directory
+  - Status: open. no OG
+- https://testedprofit.com/KY/Super%20Big%20Boy%20Statue/
+  - Title: Super Big Boy Statue | Metropolis, IL Directory
+  - Status: open. no OG
+- https://testedprofit.com/KY/The%20Cutting%20Edge%20of%20Simpson%20County/
+  - Title: The Cutting Edge of Simpson County | Franklin, KY Directory
+  - Status: open. no OG
+- https://testedprofit.com/KY/The%20Statue%20of%20David/
+  - Title: Statue of David | Louisville, KY Directory
+  - Status: open. no OG
+- https://testedprofit.com/KY/Wooldridge%20Monuments/
+  - Title: Wooldridge Monuments | Mayfield, KY Directory
+  - Status: open. no OG
+- https://testedprofit.com/LA/Anne%20Frank%20Statue/
+  - Title: TestedProfit | Anne Frank Statue
+  - Status: open. description 169 chars | no OG
+- https://testedprofit.com/LA/Cavelier%20De%20La%20Salle%20Monument/
+  - Title: TestedProfit | Cavelier De La Salle Monument
+  - Status: open. description 173 chars | no OG
+- https://testedprofit.com/LA/Congo%20Square/
+  - Title: TestedProfit | Congo Square
+  - Status: open. description 172 chars | no OG
+- https://testedprofit.com/LA/Geese%20In%20Flight%20Statue/
+  - Title: Geese In Flight Statue | Lake Charles, Louisiana
+  - Status: open. description 157 chars | no OG
+- https://testedprofit.com/LA/Hebe%20Statue/
+  - Title: TestedProfit | The Hebe Statue
+  - Status: open. description 177 chars | no OG
+- https://testedprofit.com/LA/Huey%20Pierce%20Long%20Statue%20and%20Tombstone/
+  - Title: Huey Pierce Long Statue & Tombstone | Baton Rouge, Louisiana
+  - Status: open. title 60 chars | no OG
+- https://testedprofit.com/LA/Hurricane%20Katrina%20Sculpture%20-%20House%20In%20A%20Tree/
+  - Title: TestedProfit | House In A Tree (Scrap House)
+  - Status: open. no OG
+- https://testedprofit.com/LA/Ignatius%20J.%20Reilly%20Statue/
+  - Title: TestedProfit | Ignatius J. Reilly Statue
+  - Status: open. description 171 chars | no OG
+- https://testedprofit.com/LA/James%20Lee%20Burke%20Statue/
+  - Title: James Lee Burke Statue | New Iberia, Louisiana
+  - Status: open. no OG
+- https://testedprofit.com/LA/Jean%20Baptiste%20le%20Moyne%20de%20Bienville/
+  - Title: TestedProfit | Bienville Monument
+  - Status: open. description 172 chars | no OG
+- https://testedprofit.com/LA/Joan%20of%20Arc,%20Maid%20of%20Orleans/
+  - Title: TestedProfit | Joan of Arc Statue
+  - Status: open. no OG
+- https://testedprofit.com/LA/Lady%20of%20New%20Orleans%20(Statue)/
+  - Title: TestedProfit | The Lady of New Orleans ("Michelle")
+  - Status: open. description 172 chars | no OG
+- https://testedprofit.com/LA/Marquis%20de%20Lafayette%20Statue/
+  - Title: Marquis de Lafayette Statue | Lafayette, Louisiana
+  - Status: open. no OG
+- https://testedprofit.com/LA/Mother%20River%20statue/
+  - Title: TestedProfit | Mother River Statue
+  - Status: open. no OG
+- https://testedprofit.com/LA/Statue%20of%20Benito%20Juarez/
+  - Title: TestedProfit | Statue of Benito Juárez
+  - Status: open. no OG
+- https://testedprofit.com/LA/Statue%20of%20G.%20K.%20Chesterton/
+  - Title: Statue of G. K. Chesterton | Ponchatoula, Louisiana
+  - Status: open. no OG
+- https://testedprofit.com/LA/Statue%20of%20Jesus/
+  - Title: TestedProfit | Sacred Heart of Jesus Statue
+  - Status: open. no OG
+- https://testedprofit.com/LA/Statue%20of%20Louis%20Armstrong/
+  - Title: TestedProfit | Statue of Louis Armstrong
+  - Status: open. no OG
+- https://testedprofit.com/LA/The%20Source%20Sculpture/
+  - Title: TestedProfit | The Source (La Source)
+  - Status: open. no OG
+- https://testedprofit.com/LA/Veterans%20Memorial%20District/
+  - Title: Veterans Memorial District (Ward 10) | Cut Off, Louisiana
+  - Status: open. description 182 chars | no OG
+- https://testedprofit.com/LA/Worlds%20Largest%20Ronald%20Reagan%20Statue/
+  - Title: TestedProfit | World's Largest Ronald Reagan Statue
+  - Status: open. no OG
+- https://testedprofit.com/MI/Brown%20Trout%20Sculpture%20Park/
+  - Title: Brown Trout Sculpture Park | Baldwin, MI | Profitnet
+  - Status: open. description 182 chars | no OG
+- https://testedprofit.com/MI/Butterfly%20House/
+  - Title: Butterfly House | Port Austin, MI | Profitnet Conservation
+  - Status: open. no OG
+- https://testedprofit.com/MI/Commodore%20Perry/
+  - Title: Commodore Perry Sculpture | Perrysburg, OH | Profitnet Heritage
+  - Status: open. title 63 chars | no OG
+- https://testedprofit.com/MI/Furtaw%20Field/
+  - Title: Furtaw Field | Oscoda Township, MI | Profitnet Community Assets
+  - Status: open. title 63 chars | no OG
+- https://testedprofit.com/MI/Gen.%20Thaddeus%20Kosciuszko%20Statue/
+  - Title: Gen. Thaddeus Kosciuszko Statue | Detroit, MI | Profitnet Heritage
+  - Status: open. description 159 chars | title 66 chars | no OG | 179 words
+- https://testedprofit.com/MI/Kirtland's%20Warbler%20Monument/
+  - Title: Kirtland's Warbler Monument | Mio, MI | Profitnet Conservation
+  - Status: open. title 62 chars | no OG
+- https://testedprofit.com/MI/Lion%20Statue/
+  - Title: Lion Statue | Bay City, MI | Profitnet Heritage
+  - Status: open. no OG
+- https://testedprofit.com/MI/Magic%20Johnson%20Statue/
+  - Title: Magic Johnson Statue | East Lansing, MI | Profitnet Heritage
+  - Status: open. description 164 chars | title 60 chars | no OG
+- https://testedprofit.com/MI/Noahquageshik%20Statue/
+  - Title: Noahquageshik Statue | Grand Rapids, MI | Profitnet Heritage
+  - Status: open. description 156 chars | title 60 chars | no OG
+- https://testedprofit.com/MI/Paul%20Bunyan%20carving/
+  - Title: Paul Bunyan Carving | Gladwin, MI | Profitnet Heritage
+  - Status: open. description 160 chars | no OG
+- https://testedprofit.com/MI/Saint%20Patrick,%20Patron%20Saint%20of%20The%20Irish%20Hills,%20Statue/
+  - Title: Saint Patrick Statue | Irish Hills, MI | Profitnet Heritage
+  - Status: open. no OG
+- https://testedprofit.com/MI/Schiller%20Statue/
+  - Title: Schiller Statue | Belle Isle, Detroit | Profitnet Cultural Assets
+  - Status: open. description 165 chars | title 65 chars | no OG
+- https://testedprofit.com/MI/Sculpture%20in%20the%20Park/
+  - Title: Sculpture in the Park | Ottawa Hills, OH | Profitnet Archive
+  - Status: open. title 60 chars | no OG
+- https://testedprofit.com/MI/Skanderbeg%20Statue/
+  - Title: Skanderbeg Statue | Rochester Hills, MI | Profitnet Heritage
+  - Status: open. title 60 chars | no OG
+- https://testedprofit.com/MI/Statue%20of%20Liberty%20Torch%20Sculpture/
+  - Title: Statue of Liberty Torch | Rogers City, MI | Profitnet Assets
+  - Status: open. title 60 chars | no OG
+- https://testedprofit.com/MI/Statue%20of%20Woodbridge%20N.%20Ferris/
+  - Title: Statue of Woodbridge N. Ferris | Big Rapids Landmark | Profitnet
+  - Status: open. title 64 chars | no OG
+- https://testedprofit.com/MI/Stevie%20Wonder%20Landmark/
+  - Title: Stevie Wonder Landmark | Saginaw Birthplace | Profitnet Landmarks
+  - Status: open. title 65 chars | no OG
+- https://testedprofit.com/MI/Verlen%20Kruger%20Statue/
+  - Title: Verlen Kruger Statue | Portland, MI | Profitnet Conservation
+  - Status: open. description 160 chars | title 60 chars | no OG
+- https://testedprofit.com/OR/Abraham%20Lincoln%20Memorial%20Statue/
+  - Title: Abraham Lincoln Memorial Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/OR/Alice%20E%20Biddle%20statue/
+  - Title: The Quest: Alice E. Biddle Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/OR/Amanda%20Statue/
+  - Title: The Amanda Statue | Profitnet Landmarks
+  - Status: open. description 165 chars | no OG
+- https://testedprofit.com/OR/Barclay%20Park/
+  - Title: Barclay Park | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/OR/Black%20Bird%20Statue%20(Medford)/
+  - Title: The Black Bird Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/OR/Bonanza%20Bigfoot%20statue/
+  - Title: Bonanza Bigfoot Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/OR/Dawson%20Creek%20Nature%20Statue%20Monument/
+  - Title: Dawson Creek Nature Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/OR/Joan%20of%20Arc,%20Portland,%20Oregon/
+  - Title: Joan of Arc Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/OR/Portlandia/
+  - Title: Portlandia Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/OR/Statue%20of%20Liberty/
+  - Title: Statue of Liberty Replica | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/OR/Statue%20of%20Rosa%20Parks/
+  - Title: Statue of Rosa Parks | Profitnet Landmarks
+  - Status: open. description 170 chars | no OG
+- https://testedprofit.com/OR/The%20Dancing%20Mary/
+  - Title: The Dancing Mary | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/OR/Two%20Bits/
+  - Title: Two Bits Sculpture | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/OR/Wildland%20Firefighter%20Monument/
+  - Title: Wildland Firefighter Monument | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/WV/Landmark/Jackson-Memorial-Fountain/
+  - Title: Jackson Memorial Fountain | TestedProfit
+  - Status: open. description 179 chars | no OG
+- https://testedprofit.com/WV/Landmark/Memorial-to-the-Start-Westward/
+  - Title: Memorial to the Start Westward | TestedProfit
+  - Status: open. description 178 chars | no OG
+- https://testedprofit.com/WV/Landmark/Mufflerman/
+  - Title: TestedProfit | Muffler Man "Big Red"
+  - Status: open. description 179 chars | no OG
+- https://testedprofit.com/WY/Benjamin%20Franklin%20Statue/
+  - Title: Benjamin Franklin Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/WY/Big%20Boy%20Statue/
+  - Title: The Wapiti Big Boy | Profitnet Landmarks
+  - Status: open. description 185 chars | no OG
+- https://testedprofit.com/WY/BSA%20Replica%20of%20Statue%20of%20Liberty/
+  - Title: BSA Replica of the Statue of Liberty | Profitnet Landmarks
+  - Status: open. description 173 chars | no OG
+- https://testedprofit.com/WY/Buffalo%20Bill%20–%20“The%20Scout”%20Statue/
+  - Title: The Scout - Buffalo Bill Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/WY/Dead%20Indian%20Summit%20Overlook/
+  - Title: Dead Indian Summit Overlook | Profitnet Landmarks
+  - Status: open. description 179 chars | no OG
+- https://testedprofit.com/WY/Jackalope%20Square/
+  - Title: Jackalope Square | Profitnet Landmarks
+  - Status: open. description 165 chars | no OG
+- https://testedprofit.com/WY/Just%20Ledoux%20It/
+  - Title: Chris LeDoux Memorial Statue | Profitnet Landmarks
+  - Status: open. description 168 chars | no OG
+- https://testedprofit.com/WY/Robert%20Burns%20Memorial%20Statue/
+  - Title: Robert Burns Memorial Statue | Profitnet Landmarks
+  - Status: open. no OG
+- https://testedprofit.com/WY/Soil%20To%20Riches%20Statue/
+  - Title: Soil to Riches Statue | Profitnet Landmarks
+  - Status: open. no OG
 
-## 3. Other landmark pages
+## earning guide (12)
 
-Individual statues, parks, and roadside stops that still need the visitor-guide template.
+- https://testedprofit.com/pages/bubblecash/
+  - Title: Bubble Cash Review 2025: Legit Payouts & Earning Guide | Profitnet Reviews
+  - Status: open. title 74 chars | no OG
+- https://testedprofit.com/pages/contenthub/
+  - Title: Content Hub | Earn Smarter with Your Degree | TestedProfit
+  - Status: open. no OG | 179 words
+- https://testedprofit.com/pages/earnapp/
+  - Title: EarnApp: The Definitive Review (Philippines Edition) | Profitnet Reviews
+  - Status: open. description 171 chars | title 72 chars
+- https://testedprofit.com/pages/earnapp-definitive-review-philippines/
+  - Title: Redirect to earnapp | TestedProfit
+  - Status: redirect. noindex redirect; omitted from sitemap.xml
+- https://testedprofit.com/pages/honeygain/
+  - Title: Honeygain - Earn Passive Income & Get $3 Bonus | TestedProfit
+  - Status: open. description 163 chars | title 61 chars
+- https://testedprofit.com/pages/honeygain-content-delivery/
+  - Title: Honeygain Content Delivery: Boost Your Earnings - TestedProfit.com
+  - Status: open. title 66 chars
+- https://testedprofit.com/pages/how-to-start-a-vending-machine-business-a-beginners-passive-income-journey/
+  - Title: How to Start a Vending Machine Business | Profitnet Guides
+  - Status: open. description 168 chars
+- https://testedprofit.com/pages/roadmap/
+  - Title: Profitnet ($PNET) | Project Roadmap
+  - Status: open. description 177 chars | no OG | 119 words
+- https://testedprofit.com/pages/social/
+  - Title: AlgoSocial | Permanent On-Chain Social Posts on Algorand | AlgoFlow by Profitnet
+  - Status: open. description 189 chars | title 80 chars
+- https://testedprofit.com/pages/student-loan-delinquency-tips/
+  - Title: Profitnet | Student Loan Delinquency Strategy
+  - Status: open. no OG
+- https://testedprofit.com/pages/the-ai-powered-kdp-revolution/
+  - Title: What is KDP? The AI-Powered Self-Publishing Guide (2026)
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/pages/top-gig-apps-to-make-money-fast-in-2025/
+  - Title: Top Gig Apps to Make Money Fast in 2025 | TestedProfit Edition
+  - Status: open. description 178 chars | title 62 chars | no OG
 
-22. https://testedprofit.com/AL/Albert%20Patterson%20Statue/ — Albert Patterson Statue | TestedProfit Landmark
-23. https://testedprofit.com/AL/Angel%20of%20Hope/ — Angel of Hope | TestedProfit Landmark
-24. https://testedprofit.com/AL/Atticus%20Finch%20Memorial%20Park%20Monument/ — Atticus Finch Monument | TestedProfit Landmark
-25. https://testedprofit.com/AL/Big%20Peanut/ — The Big Peanut | TestedProfit Landmark
-26. https://testedprofit.com/AL/Bigfoot%20Statue/ — Bigfoot Statue | TestedProfit Landmark
-27. https://testedprofit.com/AL/Bo%20Jackson%20Statue/ — Bo Jackson Statue | TestedProfit Landmark
-28. https://testedprofit.com/AL/Charles%20Barkley%20Statue/ — Charles Barkley Statue | TestedProfit Landmark
-29. https://testedprofit.com/AL/Confederate%20Memorial%20Monument/ — Confederate Memorial Monument | TestedProfit Landmark
-30. https://testedprofit.com/AL/Court%20Square%20Fountain%20-%20Artesian%20Basin/ — Court Square Fountain | TestedProfit Landmark
-31. https://testedprofit.com/AL/English%20Village%20Statue/ — Civitas | TestedProfit Landmark
-32. https://testedprofit.com/AL/Hank%20Williams%20Statue/ — Hank Williams Statue | TestedProfit Landmark
-33. https://testedprofit.com/AL/Heaviest%20Corner%20On%20Earth/ — The Heaviest Corner on Earth | TestedProfit Landmark
-34. https://testedprofit.com/AL/Karl%20Richter%20Memorial%20Statue/ — Karl Richter Memorial | TestedProfit Landmark
-35. https://testedprofit.com/AL/Manny,%2012%20Foot%20Tall%20Fish/ — Manny the Bass | TestedProfit Landmark
-36. https://testedprofit.com/AL/Nathan%20Bedford%20Forrest%20Monument/ — Nathan Bedford Forrest Monument | TestedProfit Landmark
-37. https://testedprofit.com/AL/Rainbow%20Division%20Statue/ — Rainbow Division Statue | TestedProfit Landmark
-38. https://testedprofit.com/AL/Rosa%20Parks%20Bus%20Stop/ — Rosa Parks Bus Stop | TestedProfit Landmark
-39. https://testedprofit.com/AL/The%20Bronze%20Bomber%20-%20Deontay%20Wilder%20Statue/ — The Bronze Bomber | TestedProfit Landmark
-40. https://testedprofit.com/AL/The%20Four%20Spirits/ — The Four Spirits | TestedProfit Landmark
-41. https://testedprofit.com/AL/Viola%20Liuzzo%20Memorial/ — Viola Liuzzo Memorial | TestedProfit Landmark
-42. https://testedprofit.com/AL/Woods%20Quad/ — Woods Quad | TestedProfit Landmark
-43. https://testedprofit.com/AL/World's%20Smallest%20City%20Block/ — World's Smallest City Block | TestedProfit Landmark
-44. https://testedprofit.com/CO/Boy%20Scout%20Statue%20of%20Liberty/ — Boy Scout Statue of Liberty | La Junta, CO Directory
-45. https://testedprofit.com/CO/Christ%20of%20the%20Mines%20Shrine/ — Christ of the Mines Shrine | Silverton, CO Directory
-46. https://testedprofit.com/CO/Desert%20Metal%20Art/ — Desert Metal Art | Grand Junction, CO Directory
-47. https://testedprofit.com/CO/James%20Dalton%20Trumbo%20Statue/ — James Dalton Trumbo Statue | Grand Junction, CO Directory
-48. https://testedprofit.com/CO/Landmarks/Big-Baldy-Statue/ — TestedProfit | Big Baldy Statue
-49. https://testedprofit.com/CO/Landmarks/Cedar-Mountain/ — Cedar Mountain | Craig, CO Local Guide
-50. https://testedprofit.com/CO/Landmarks/Former-Mine-Sites-of-Mt.%20Harris/ — The Former Mine Sites of Mt. Harris | Profitnet Landmark
-51. https://testedprofit.com/CO/Landmarks/Hank%20the%20Cowboy%20statue/ — Hank the Cowboy | TestedProfit Landmark Series
-52. https://testedprofit.com/CO/Landmarks/Hayden-Town-Park/ — Hayden Town Park | Yampa Valley
-53. https://testedprofit.com/CO/Landmarks/Horse-Statue-Intersection/ — The Palmer Intersection Project | Conserving History
-54. https://testedprofit.com/CO/Landmarks/Isak-Heartstone/ — Isak Heartstone | Profitnet Landmarks
-55. https://testedprofit.com/CO/Landmarks/Routt-County-Firing-Range/ — Routt County Public Firing Range | TestedProfit Network
-56. https://testedprofit.com/CO/Landmarks/Santa-Maria-Statue-of-Christ/ — Santa Maria Statue of Christ | Christ of the Rockies - Grant, CO
-57. https://testedprofit.com/CO/Landmarks/Starr%20Kempf's%20Kinetic%20Sculptures/ — Starr Kempf: Steel & Wind
-58. https://testedprofit.com/CO/Landmarks/coolin'dog/ — Coolin' the Dogs | TestedProfit Local Guide
-59. https://testedprofit.com/CO/Landmarks/octomaid/ — Octo-Maid (Iscariot) | TestedProfit Standard
-60. https://testedprofit.com/CO/Landmarks/spirit/ — The Spirit of the Rockies | TestedProfit
-61. https://testedprofit.com/CO/Landmarks/truffles/ — Truffles | The Bronze Pig of Tejon St.
-62. https://testedprofit.com/CO/Pueblo%20Heritage%20Walk/ — Pueblo Heritage Walk | Pueblo, CO Directory
-63. https://testedprofit.com/CO/Pyro-DuBois-Memorial/ — Capt. William H. "Pyro" DuBois Jr. Memorial | Colorado Landmark
-64. https://testedprofit.com/CO/Rhino%20iguana%20sculpture/ — Rhino Iguana Sculpture | Lafayette, CO Public Art Directory
-65. https://testedprofit.com/CO/Riverfront%20Park%20Statue/ — Riverfront Park Statue (Unnamed) | Durango, CO Directory
-66. https://testedprofit.com/CO/Snapshot%20statue/ — "Snapshot" Statue | Lakewood, Colorado
-67. https://testedprofit.com/CO/Telluride%20Penny%20Bear%20(%20Ursa%20Ravus)/ — Telluride Penny Bear (Ursa Ravus) | Telluride, CO Directory
-68. https://testedprofit.com/CO/Tennyson%20Sculpture%20Garden%20&%20Park/ — Tennyson Sculpture Garden & Park | Pagosa Springs, CO Directory
-69. https://testedprofit.com/CO/The%20Pueblo%20Christopher%20Columbus%20Monument/ — Pueblo Christopher Columbus Monument | Pueblo, CO Directory
-70. https://testedprofit.com/CO/Warren%20Barnes%20Memorial/ — Warren Barnes Memorial | Grand Junction, CO Directory
-71. https://testedprofit.com/CO/Westminster%20City%20Park/ — Westminster City Park | The Unofficial Guide
-72. https://testedprofit.com/Captain%20James%20Cook%20Statue/ — TestedProfit | Captain James Cook Statue (Waimea)
-73. https://testedprofit.com/Freelance Rate Fairness Checker/ — (no title)
-74. https://testedprofit.com/HI/Boat%20Rotor%20Statue/ — TestedProfit | Boat Rotor Statue
-75. https://testedprofit.com/HI/Captain%20James%20Cook%20Monument/ — TestedProfit | Captain James Cook Monument
-76. https://testedprofit.com/HI/Charles%20Lindbergh's%20Grave/ — TestedProfit | Lindbergh Landmark
-77. https://testedprofit.com/HI/Chester%20W.%20Nimitz%20Statue/ — Chester W. Nimitz Statue | Profitnet Landmarks
-78. https://testedprofit.com/HI/Don%20Ho%20Statue/ — Don Ho Statue | Profitnet Landmarks
-79. https://testedprofit.com/HI/Dr.%20Jose%20P.%20Rizal%20Monument%20-%20Maui/ — TestedProfit | Dr. Jose Rizal Monument
-80. https://testedprofit.com/HI/Fagan's%20Cross/ — TestedProfit | Fagan's Cross Landmark
-81. https://testedprofit.com/HI/Israel%20Kamakawiwo'ole%20Memorial%20Statue/ — Israel Kamakawiwoʻole Memorial | Profitnet Landmarks
-82. https://testedprofit.com/HI/King%20David%20Kalākaua%20Statue/ — TestedProfit | King David Kalākaua Statue
-83. https://testedprofit.com/HI/Prince%20Kuhio%20Birthplace/ — TestedProfit | Prince Kuhio Birthplace
-84. https://testedprofit.com/HI/Queen%20Kapiʻolani%20Statue/ — Queen Kapiʻolani Statue | Profitnet Landmarks
-85. https://testedprofit.com/HI/Saint%20Marianne%20Cope%20Statue/ — Saint Marianne Cope Statue | Profitnet Landmarks
-86. https://testedprofit.com/HI/Spalding%20Monument/ — TestedProfit | The Spalding Monument
-87. https://testedprofit.com/HI/Statue%20of%20Hamana%20Kalili%20and%20the%20Shaka/ — Statue of Hamana Kalili | Profitnet Landmarks
-88. https://testedprofit.com/HI/Stone%20Dam/ — TestedProfit | The Stone Dam
-89. https://testedprofit.com/HI/Storyteller%20Statue/ — The Storyteller Statue | Profitnet Landmarks
-90. https://testedprofit.com/HI/The%20Naha%20Stone/ — TestedProfit | The Naha Stone
-91. https://testedprofit.com/HI/The%20Princess%20Kaʻiulani%20statue/ — Princess Kaʻiulani Statue | Profitnet Landmarks
-92. https://testedprofit.com/HI/Ulumau%20Pohaku%20Pele%20sculpture/ — TestedProfit | Ulumau Pohaku Pele
-93. https://testedprofit.com/HI/Wai%20Koa%20Loop%20Trail/ — TestedProfit | Wai Koa Loop Trail
-94. https://testedprofit.com/IA/Abraham%20Lincoln%20Statue/ — Abraham Lincoln Statue | TestedProfit
-95. https://testedprofit.com/IA/Cornhenge/ — Cornhenge | TestedProfit
-96. https://testedprofit.com/IA/Czech%20Village%20Mushroom%20Statue/ — Czech Village Mushroom Statue | TestedProfit
-97. https://testedprofit.com/IA/Easter%20Island%20Statue/ — Easter Island Statue (Alburnett) | TestedProfit
-98. https://testedprofit.com/IA/Iowa%20Statue%20of%20Liberty/ — Iowa Statue of Liberty | TestedProfit
-99. https://testedprofit.com/IA/L.J.%20Maasdam%20Wagon%20Wheel%20Sculpture/ — L.J. Maasdam Wagon Wheel Sculpture | TestedProfit
-100. https://testedprofit.com/IA/Lewis%20and%20Clark%20Statue/ — Lewis & Clark Statue | TestedProfit
-101. https://testedprofit.com/IA/Little%20Mermaid%20Fountain/ — Little Mermaid Fountain | TestedProfit
-102. https://testedprofit.com/IA/Moai%20Dude/ — Moai Dude | TestedProfit
-103. https://testedprofit.com/IA/Peace%20Sign/ — Peace Sign (Iowa City) | TestedProfit
-104. https://testedprofit.com/IA/South%20Des%20Moines%20Sculpture%20Park/ — South Des Moines Sculpture Park | TestedProfit
-105. https://testedprofit.com/IA/The%20Black%20Angel/ — The Black Angel | TestedProfit
-106. https://testedprofit.com/IN/Bigfoot%20Fishing/ — Bigfoot Fishing Statue | French Lick, IN Directory
-107. https://testedprofit.com/IN/Constitution%20Elm%20Stump/ — Constitution Elm Stump | Corydon, IN Directory
-108. https://testedprofit.com/IN/Larry%20Bird's%20Childhood%20Home/ — Larry Bird's Childhood Home | French Lick, IN Directory
-109. https://testedprofit.com/IN/Rosie%20the%20Riveter%20Statue/ — Rosie the Riveter Statue | Clarksville, IN Directory
-110. https://testedprofit.com/IN/Vincennes%20River%20Walk/ — Vincennes River Walk | Vincennes, IN Directory
-111. https://testedprofit.com/IN/William%20Hayden%20English%20Statue/ — William Hayden English Statue | English, IN Directory
-112. https://testedprofit.com/KS/The%20Keeper%20of%20the%20Plains/ — Keeper of the Plains | TestedProfit Landmark
-113. https://testedprofit.com/KY/Benjamin%20Franklin%20statue/ — Benjamin Franklin Statue | Louisville, KY Directory
-114. https://testedprofit.com/KY/Bigfoot%20Statue/ — Bigfoot Statue | Ashland, KY Directory
-115. https://testedprofit.com/KY/Booker%20Noe%20Statue/ — Booker Noe Statue | Clermont, KY Directory
-116. https://testedprofit.com/KY/Coxs%20Creek%20Rooster%20Statue/ — Cox's Creek Rooster Statue (Ozzie Frank) | Cox's Creek, KY Directory
-117. https://testedprofit.com/KY/Daniel%20Boone%20Monument/ — Daniel Boone Monument | Louisville, KY Directory
-118. https://testedprofit.com/KY/George%20Rogers%20Clark%20Statue/ — George Rogers Clark Statue | Louisville, KY Directory
-119. https://testedprofit.com/KY/Harry%20Potter%20Chess%20King%20Statue%20Carving/ — Harry Potter Wizard's Chess Knight | Mt Washington, KY Directory
-120. https://testedprofit.com/KY/In%20Gods%20Hands%20statue/ — In God's Hands Statue | Louisville, KY Directory
-121. https://testedprofit.com/KY/Jefferson%20Monument%20(Louisville,%20Kentucky)/ — Jefferson Monument | Louisville, KY Directory
-122. https://testedprofit.com/KY/Keith%20Whitley%20Memorial%20Statue/ — Keith Whitley Memorial Statue | Sandy Hook, KY Directory
-123. https://testedprofit.com/KY/Little%20Elina%20Forest%20Giant/ — Little Elina Forest Giant | Shepherdsville, KY Directory
-124. https://testedprofit.com/KY/Railroad%20Memorial%20Statue/ — Railroad Memorial Statue | Carbondale, IL Directory
-125. https://testedprofit.com/KY/Secretariat%20Statue/ — Secretariat Statue: Racing Into History | Lexington, KY Directory
-126. https://testedprofit.com/KY/Squire%20Boone%20Statue/ — Squire Boone Statue | Shelbyville, KY Directory
-127. https://testedprofit.com/KY/Statue%20Of%20Abraham%20Lincoln/ — Statue of Abraham Lincoln | Hodgenville, KY Directory
-128. https://testedprofit.com/KY/Statue%20of%20Charlie%20Farnsley/ — Statue of Charlie Farnsley | Louisville, KY Directory
-129. https://testedprofit.com/KY/Super%20Big%20Boy%20Statue/ — Super Big Boy Statue | Metropolis, IL Directory
-130. https://testedprofit.com/KY/The%20Cutting%20Edge%20of%20Simpson%20County/ — The Cutting Edge of Simpson County | Franklin, KY Directory
-131. https://testedprofit.com/KY/The%20Statue%20of%20David/ — Statue of David | Louisville, KY Directory
-132. https://testedprofit.com/KY/Wooldridge%20Monuments/ — Wooldridge Monuments | Mayfield, KY Directory
-133. https://testedprofit.com/LA/Anne%20Frank%20Statue/ — TestedProfit | Anne Frank Statue
-134. https://testedprofit.com/LA/Cavelier%20De%20La%20Salle%20Monument/ — TestedProfit | Cavelier De La Salle Monument
-135. https://testedprofit.com/LA/Congo%20Square/ — TestedProfit | Congo Square
-136. https://testedprofit.com/LA/Geese%20In%20Flight%20Statue/ — Geese In Flight Statue | Lake Charles, Louisiana
-137. https://testedprofit.com/LA/Hebe%20Statue/ — TestedProfit | The Hebe Statue
-138. https://testedprofit.com/LA/Huey%20Pierce%20Long%20Statue%20and%20Tombstone/ — Huey Pierce Long Statue & Tombstone | Baton Rouge, Louisiana
-139. https://testedprofit.com/LA/Hurricane%20Katrina%20Sculpture%20-%20House%20In%20A%20Tree/ — TestedProfit | House In A Tree (Scrap House)
-140. https://testedprofit.com/LA/Ignatius%20J.%20Reilly%20Statue/ — TestedProfit | Ignatius J. Reilly Statue
-141. https://testedprofit.com/LA/James%20Lee%20Burke%20Statue/ — James Lee Burke Statue | New Iberia, Louisiana
-142. https://testedprofit.com/LA/Jean%20Baptiste%20le%20Moyne%20de%20Bienville/ — TestedProfit | Bienville Monument
-143. https://testedprofit.com/LA/Joan%20of%20Arc,%20Maid%20of%20Orleans/ — TestedProfit | Joan of Arc Statue
-144. https://testedprofit.com/LA/Lady%20of%20New%20Orleans%20(Statue)/ — TestedProfit | The Lady of New Orleans ("Michelle")
-145. https://testedprofit.com/LA/Marquis%20de%20Lafayette%20Statue/ — Marquis de Lafayette Statue | Lafayette, Louisiana
-146. https://testedprofit.com/LA/Mother%20River%20statue/ — TestedProfit | Mother River Statue
-147. https://testedprofit.com/LA/Statue%20of%20Benito%20Juarez/ — TestedProfit | Statue of Benito Juárez
-148. https://testedprofit.com/LA/Statue%20of%20G.%20K.%20Chesterton/ — Statue of G. K. Chesterton | Ponchatoula, Louisiana
-149. https://testedprofit.com/LA/Statue%20of%20Jesus/ — TestedProfit | Sacred Heart of Jesus Statue
-150. https://testedprofit.com/LA/Statue%20of%20Louis%20Armstrong/ — TestedProfit | Statue of Louis Armstrong
-151. https://testedprofit.com/LA/The%20Source%20Sculpture/ — TestedProfit | The Source (La Source)
-152. https://testedprofit.com/LA/Veterans%20Memorial%20District/ — Veterans Memorial District (Ward 10) | Cut Off, Louisiana
-153. https://testedprofit.com/LA/Worlds%20Largest%20Ronald%20Reagan%20Statue/ — TestedProfit | World's Largest Ronald Reagan Statue
-154. https://testedprofit.com/MI/Brown%20Trout%20Sculpture%20Park/ — Brown Trout Sculpture Park | Baldwin, MI | Profitnet
-155. https://testedprofit.com/MI/Butterfly%20House/ — Butterfly House | Port Austin, MI | Profitnet Conservation
-156. https://testedprofit.com/MI/Commodore%20Perry/ — Commodore Perry Sculpture | Perrysburg, OH | Profitnet Heritage
-157. https://testedprofit.com/MI/Furtaw%20Field/ — Furtaw Field | Oscoda Township, MI | Profitnet Community Assets
-158. https://testedprofit.com/MI/Gen.%20Thaddeus%20Kosciuszko%20Statue/ — Gen. Thaddeus Kosciuszko Statue | Detroit, MI | Profitnet Heritage
-159. https://testedprofit.com/MI/Kirtland's%20Warbler%20Monument/ — Kirtland's Warbler Monument | Mio, MI | Profitnet Conservation
-160. https://testedprofit.com/MI/Lion%20Statue/ — Lion Statue | Bay City, MI | Profitnet Heritage
-161. https://testedprofit.com/MI/Magic%20Johnson%20Statue/ — Magic Johnson Statue | East Lansing, MI | Profitnet Heritage
-162. https://testedprofit.com/MI/Noahquageshik%20Statue/ — Noahquageshik Statue | Grand Rapids, MI | Profitnet Heritage
-163. https://testedprofit.com/MI/Paul%20Bunyan%20carving/ — Paul Bunyan Carving | Gladwin, MI | Profitnet Heritage
-164. https://testedprofit.com/MI/Saint%20Patrick,%20Patron%20Saint%20of%20The%20Irish%20Hills,%20Statue/ — Saint Patrick Statue | Irish Hills, MI | Profitnet Heritage
-165. https://testedprofit.com/MI/Schiller%20Statue/ — Schiller Statue | Belle Isle, Detroit | Profitnet Cultural Assets
-166. https://testedprofit.com/MI/Sculpture%20in%20the%20Park/ — Sculpture in the Park | Ottawa Hills, OH | Profitnet Archive
-167. https://testedprofit.com/MI/Skanderbeg%20Statue/ — Skanderbeg Statue | Rochester Hills, MI | Profitnet Heritage
-168. https://testedprofit.com/MI/Statue%20of%20Liberty%20Torch%20Sculpture/ — Statue of Liberty Torch | Rogers City, MI | Profitnet Assets
-169. https://testedprofit.com/MI/Statue%20of%20Woodbridge%20N.%20Ferris/ — Statue of Woodbridge N. Ferris | Big Rapids Landmark | Profitnet
-170. https://testedprofit.com/MI/Stevie%20Wonder%20Landmark/ — Stevie Wonder Landmark | Saginaw Birthplace | Profitnet Landmarks
-171. https://testedprofit.com/MI/Verlen%20Kruger%20Statue/ — Verlen Kruger Statue | Portland, MI | Profitnet Conservation
-172. https://testedprofit.com/OR/Abraham%20Lincoln%20Memorial%20Statue/ — Abraham Lincoln Memorial Statue | Profitnet Landmarks
-173. https://testedprofit.com/OR/Alice%20E%20Biddle%20statue/ — The Quest: Alice E. Biddle Statue | Profitnet Landmarks
-174. https://testedprofit.com/OR/Amanda%20Statue/ — The Amanda Statue | Profitnet Landmarks
-175. https://testedprofit.com/OR/Barclay%20Park/ — Barclay Park | Profitnet Landmarks
-176. https://testedprofit.com/OR/Black%20Bird%20Statue%20(Medford)/ — The Black Bird Statue | Profitnet Landmarks
-177. https://testedprofit.com/OR/Bonanza%20Bigfoot%20statue/ — Bonanza Bigfoot Statue | Profitnet Landmarks
-178. https://testedprofit.com/OR/Dawson%20Creek%20Nature%20Statue%20Monument/ — Dawson Creek Nature Statue | Profitnet Landmarks
-179. https://testedprofit.com/OR/Joan%20of%20Arc,%20Portland,%20Oregon/ — Joan of Arc Statue | Profitnet Landmarks
-180. https://testedprofit.com/OR/Portlandia/ — Portlandia Statue | Profitnet Landmarks
-181. https://testedprofit.com/OR/Statue%20of%20Liberty/ — Statue of Liberty Replica | Profitnet Landmarks
-182. https://testedprofit.com/OR/Statue%20of%20Rosa%20Parks/ — Statue of Rosa Parks | Profitnet Landmarks
-183. https://testedprofit.com/OR/The%20Dancing%20Mary/ — The Dancing Mary | Profitnet Landmarks
-184. https://testedprofit.com/OR/Two%20Bits/ — Two Bits Sculpture | Profitnet Landmarks
-185. https://testedprofit.com/OR/Wildland%20Firefighter%20Monument/ — Wildland Firefighter Monument | Profitnet Landmarks
-186. https://testedprofit.com/TikTok%20Shop%20Fee%20Calculator%20&%20Profit%20Estimator/ — Profitnet | TikTok Shop Profit Estimator
-187. https://testedprofit.com/US%20Kitchen%20&%20Unit%20Standard/ — US Kitchen & Unit Standard | Cups to Grams Converter
-188. https://testedprofit.com/WV/Landmark/Jackson-Memorial-Fountain/ — Jackson Memorial Fountain | TestedProfit
-189. https://testedprofit.com/WV/Landmark/Memorial-to-the-Start-Westward/ — Memorial to the Start Westward | TestedProfit
-190. https://testedprofit.com/WV/Landmark/Mufflerman/ — TestedProfit | Muffler Man "Big Red"
-191. https://testedprofit.com/WY/BSA%20Replica%20of%20Statue%20of%20Liberty/ — BSA Replica of the Statue of Liberty | Profitnet Landmarks
-192. https://testedprofit.com/WY/Benjamin%20Franklin%20Statue/ — Benjamin Franklin Statue | Profitnet Landmarks
-193. https://testedprofit.com/WY/Big%20Boy%20Statue/ — The Wapiti Big Boy | Profitnet Landmarks
-194. https://testedprofit.com/WY/Buffalo%20Bill%20–%20“The%20Scout”%20Statue/ — The Scout - Buffalo Bill Statue | Profitnet Landmarks
-195. https://testedprofit.com/WY/Dead%20Indian%20Summit%20Overlook/ — Dead Indian Summit Overlook | Profitnet Landmarks
-196. https://testedprofit.com/WY/Jackalope%20Square/ — Jackalope Square | Profitnet Landmarks
-197. https://testedprofit.com/WY/Just%20Ledoux%20It/ — Chris LeDoux Memorial Statue | Profitnet Landmarks
-198. https://testedprofit.com/WY/Robert%20Burns%20Memorial%20Statue/ — Robert Burns Memorial Statue | Profitnet Landmarks
-199. https://testedprofit.com/WY/Soil%20To%20Riches%20Statue/ — Soil to Riches Statue | Profitnet Landmarks
-200. https://testedprofit.com/espanol/ — Spanish path redirect | TestedProfit
-201. https://testedprofit.com/pages/Oakhurst%20Park%20II/ — Oakhurst Park II - Westminster's Hidden Gem
-202. https://testedprofit.com/pages/PR-President-Walkway/ — Walkway of the Presidents | San Juan, Puerto Rico
-203. https://testedprofit.com/pages/Woodbury%20Park/ — Woodbury Park - A Craig Community Hub
-204. https://testedprofit.com/pages/bear-statue/ — TestedProfit | The Guardian of Grizzly Gulch
-205. https://testedprofit.com/pages/bulldog-towing-recovery/ — Bulldog Towing & Recovery - 24/7 Service in Craig, CO
-206. https://testedprofit.com/pages/central-square-park/ — Central Square Park, Westminster CO | Overview & Amenities
-207. https://testedprofit.com/pages/goldens-vibrant-triceratops/ — Colorado's Ancient Guardians | TestedProfit
-208. https://testedprofit.com/pages/honey-rock-dogs-boarding-kennels/ — Honey Rock Dogs Boarding Kennels - Craig, CO
-209. https://testedprofit.com/pages/james-dalton-trumbo-statue/ — Dalton Trumbo Statue | Grand Junction, CO Directory
-210. https://testedprofit.com/pages/lowell-ponds-state-wildlife-area/ — Lowell Ponds Natural Area | Thornton, CO Directory
-211. https://testedprofit.com/pages/madre-e-hijo-sculpture/ — Fernando Botero: Madre e Hijo | TestedProfit
-212. https://testedprofit.com/pages/martin-luther-king-memorial/ — Dr. Martin Luther King, Jr. Memorial - Denver
-213. https://testedprofit.com/pages/roadmap/ — Profitnet ($PNET) | Project Roadmap
-214. https://testedprofit.com/pages/rocky-flats-national-wildlife-refuge-south-entrance/ — Rocky Flats National Wildlife Refuge - South Entrance
-215. https://testedprofit.com/pages/social/ — AlgoSocial | Permanent On-Chain Social Posts on Algorand | AlgoFlow by Profitnet
-216. https://testedprofit.com/pages/sunset-park/ — Sunset Park | Westminster, CO | Community Landmark
-217. https://testedprofit.com/pages/things%20to%20do%20in%20vail%20colorado/ — Vail on a Budget | Free & Local Guide 2026
-218. https://testedprofit.com/pages/things-to-do-in-vail-colorado/ — Things to Do in Vail, Colorado | Official 2026 Visitor Guide
-219. https://testedprofit.com/pages/tokenomics/ — Profitnet | Tokenomics, Vaults & Tools
-220. https://testedprofit.com/pages/torii-square-park-westminster/ — Torii Square Park | Westminster, CO
-221. https://testedprofit.com/pages/🌿-species-impact-calculator-see-how-your-actions-protect-wildlife/ — Species Impact Calculator | See How Your Actions Protect Wildlife | TestedProfit
-222. https://testedprofit.com/rotary-park/ — Oakhurst Park II | Data Points for Nerds
+## other content (33)
 
-## 4. Earning guides
+- https://testedprofit.com/Captain%20James%20Cook%20Statue/
+  - Title: TestedProfit | Captain James Cook Statue (Waimea)
+  - Status: open. description 162 chars | no OG
+- https://testedprofit.com/freebrowsergames/
+  - Title: ProfitNet Games - Free Browser Arcade
+  - Status: open. no OG
+- https://testedprofit.com/freebrowsergames/conservation%20game%20for%20kids/
+  - Title: Protect Our Planet – Interactive Conservation Portal
+  - Status: open. no OG
+- https://testedprofit.com/freebrowsergames/darkpulse/
+  - Title: DARK PULSE
+  - Status: open. no OG | 23 words
+- https://testedprofit.com/freebrowsergames/deadzone/
+  - Title: Dead Zone: Goth Ops
+  - Status: open. no OG | 20 words
+- https://testedprofit.com/freebrowsergames/glitchswarm/
+  - Title: GLITCH SWARM
+  - Status: open. no OG | 22 words
+- https://testedprofit.com/freebrowsergames/GRIDLOCKTD/
+  - Title: GRIDLOCK: Gacha Defense
+  - Status: open. no OG | 59 words
+- https://testedprofit.com/freebrowsergames/ludusmagnus/
+  - Title: LUDUS MAGNUS: Grand Strategy
+  - Status: open. no OG
+- https://testedprofit.com/freebrowsergames/neonleap/
+  - Title: Neon Leap: Chrono Climb
+  - Status: open. no OG | 26 words
+- https://testedprofit.com/freebrowsergames/neonvoidOVERDRIVE/
+  - Title: Neon Void: Overdrive
+  - Status: open. description 171 chars | no OG | 72 words
+- https://testedprofit.com/freebrowsergames/nikbtd/
+  - Title: Nikb: The Debugger
+  - Status: open. no OG | 54 words
+- https://testedprofit.com/freebrowsergames/polymergeTD/
+  - Title: Endless Fusion Defense - Improved Edition
+  - Status: open. no OG | 120 words
+- https://testedprofit.com/freebrowsergames/scrapstation/
+  - Title: SCRAP STATION
+  - Status: open. no OG | 32 words
+- https://testedprofit.com/freebrowsergames/singularity/
+  - Title: SINGULARITY
+  - Status: open. no OG | 29 words
+- https://testedprofit.com/freebrowsergames/solarcycle/
+  - Title: Solar Cycle - A Game of Balance
+  - Status: open. no OG | 24 words
+- https://testedprofit.com/freebrowsergames/terrahex/
+  - Title: TerraHex: Strategy
+  - Status: open. no OG | 45 words
+- https://testedprofit.com/gameinfo/omgpets/
+  - Title: OMG Pets! | Recipes, Effects & Strategy Guide
+  - Status: open. no OG
+- https://testedprofit.com/pages/bear-statue/
+  - Title: TestedProfit | The Guardian of Grizzly Gulch
+  - Status: open. no OG
+- https://testedprofit.com/pages/bulldog-towing-recovery/
+  - Title: Bulldog Towing & Recovery - 24/7 Service in Craig, CO
+  - Status: open. 136 words
+- https://testedprofit.com/pages/data-sharing-opt-out/
+  - Title: Data Sharing Opt-Out | Profitnet
+  - Status: open. no OG
+- https://testedprofit.com/pages/goldens-vibrant-triceratops/
+  - Title: Colorado's Ancient Guardians | TestedProfit
+  - Status: open. no OG
+- https://testedprofit.com/pages/honey-rock-dogs-boarding-kennels/
+  - Title: Honey Rock Dogs Boarding Kennels - Craig, CO
+  - Status: open. no description | no OG
+- https://testedprofit.com/pages/james-dalton-trumbo-statue/
+  - Title: Dalton Trumbo Statue | Grand Junction, CO Directory
+  - Status: open. no OG
+- https://testedprofit.com/pages/lowell-ponds-state-wildlife-area/
+  - Title: Lowell Ponds Natural Area | Thornton, CO Directory
+  - Status: open. no OG
+- https://testedprofit.com/pages/madre-e-hijo-sculpture/
+  - Title: Fernando Botero: Madre e Hijo | TestedProfit
+  - Status: open. title, description, H1, canonical, and OG are in range
+- https://testedprofit.com/pages/martin-luther-king-memorial/
+  - Title: Dr. Martin Luther King, Jr. Memorial - Denver
+  - Status: open. no description | no OG
+- https://testedprofit.com/pages/PR-President-Walkway/
+  - Title: Walkway of the Presidents | San Juan, Puerto Rico
+  - Status: open. description 169 chars | no OG
+- https://testedprofit.com/pages/things%20to%20do%20in%20vail%20colorado/
+  - Title: Vail on a Budget | Free & Local Guide 2026
+  - Status: open. description 156 chars | no OG | 42 words
+- https://testedprofit.com/pages/things-to-do-in-vail-colorado/
+  - Title: Things to Do in Vail, Colorado | Official 2026 Visitor Guide
+  - Status: open. title 60 chars | no OG
+- https://testedprofit.com/pages/tokenomics/
+  - Title: Profitnet | Tokenomics, Vaults & Tools
+  - Status: open. description 178 chars | no OG
+- https://testedprofit.com/scam-scan/
+  - Title: Reality Check | SMS & Phishing Scan | Profitnet
+  - Status: open. no OG
+- https://testedprofit.com/TikTok%20Shop%20Fee%20Calculator%20&%20Profit%20Estimator/
+  - Title: Profitnet | TikTok Shop Profit Estimator
+  - Status: open. no OG | 135 words | not in sitemap
+- https://testedprofit.com/US%20Kitchen%20&%20Unit%20Standard/
+  - Title: US Kitchen & Unit Standard | Cups to Grams Converter
+  - Status: open. no OG | 92 words | not in sitemap
 
-Reviews and practical guides. Interactive tools in this group should keep their working controls.
+## redirect (1)
 
-223. https://testedprofit.com/pages/bubblecash/ — Bubble Cash Review 2025: Legit Payouts & Earning Guide | Profitnet Reviews
-224. https://testedprofit.com/pages/contenthub/ — Content Hub | Earn Smarter with Your Degree | TestedProfit
-225. https://testedprofit.com/pages/data-sharing-opt-out/ — Data Sharing Opt-Out | Profitnet
-226. https://testedprofit.com/pages/earnapp/ — EarnApp: The Definitive Review (Philippines Edition) | Profitnet Reviews
-227. https://testedprofit.com/pages/free-ai-paraphrasing-tool/ — Free AI Paraphrasing Tool | Profitnet
-228. https://testedprofit.com/pages/honeygain/ — Honeygain - Earn Passive Income & Get $3 Bonus | TestedProfit
-229. https://testedprofit.com/pages/honeygain-content-delivery/ — Honeygain Content Delivery: Boost Your Earnings - TestedProfit.com
-230. https://testedprofit.com/pages/how-to-start-a-vending-machine-business-a-beginners-passive-income-journey/ — How to Start a Vending Machine Business | Profitnet Guides
-231. https://testedprofit.com/pages/of-calculator/ — Profit & Tax Dashboard | OnlyFans & Business Financial Tools
-232. https://testedprofit.com/pages/pokemon-card-profit-calculator-track-roi-resale-value/ — TestedProfit | Resale & Collectible ROI
-233. https://testedprofit.com/pages/smart-financial-dashboard/ — Profitnet | Smart Financial Dashboard
-234. https://testedprofit.com/pages/student-loan-delinquency-tips/ — Profitnet | Student Loan Delinquency Strategy
-235. https://testedprofit.com/pages/the-ai-powered-kdp-revolution/ — What is KDP? The AI-Powered Self-Publishing Guide (2026)
-236. https://testedprofit.com/pages/top-gig-apps-to-make-money-fast-in-2025/ — Top Gig Apps to Make Money Fast in 2025 | TestedProfit Edition
+- https://testedprofit.com/pages/cedar-mountain-craig-co-local-guide/
+  - Title: Redirect to Cedar-Mountain | TestedProfit
+  - Status: redirect. noindex redirect; omitted from sitemap.xml
 
-Total remaining: 236.
+## app-or-tool (29)
+
+- https://testedprofit.com/Algohub/
+  - Title: Algorand Utility Hub
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/blogs/news/
+  - Title: Redirect to guides | TestedProfit
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/CheckIP/
+  - Title: NetBeacon | My IP 2026
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/conservation-fund/contracts/rework_archive/frontend/algopool/
+  - Title: AlgoPool Temporarily Offline | AlgoFlow by Profitnet
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/conservation-fund/contracts/rework_archive/frontend/crowdfund/
+  - Title: Crowdfund | Algorand On-Chain Fundraising | AlgoFlow by Profitnet
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/conservation-fund/contracts/rework_archive/frontend/profitlock/
+  - Title: ProfitLock | Algorand Time-Lock Vault for ALGO & ASA Tokens | AlgoFlow by Profitnet
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/Crypto%20Tax-Loss%20Harvester/
+  - Title: (no title)
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/espanol/
+  - Title: Spanish path redirect | TestedProfit
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/Freelance%20Rate%20Fairness%20Checker/
+  - Title: (no title)
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/Impermanent%20Loss%20Visualizer/
+  - Title: Impermanent Loss Visualizer | Profitnet
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/libreng-browser-laro/Bayani%20ng%20Kalikasan%20Game/
+  - Title: Bayani ng Kalikasan
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/libreng-browser-laro/Jeepney/
+  - Title: Lilipad na Jeep: Space Edition
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/algoflow/
+  - Title: AlgoFlow – Algorand Web3 Tools | Token Launchpad, MultiSender & Wallet Inspector
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/free-ai-paraphrasing-tool/
+  - Title: Free AI Paraphrasing Tool | Profitnet
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/genesis/
+  - Title: PNET Genesis Temporarily Unavailable | AlgoFlow by Profitnet
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/inspector/
+  - Title: Wallet Inspector | Algorand Address Auditor & Risk Scorer | AlgoFlow by Profitnet
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/launchpad/
+  - Title: Launchpad | Algorand Token Minting — No Code Required | AlgoFlow by Profitnet
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/multisend/
+  - Title: Multisend | Algorand Bulk Token Sender — ALGO & ASA | AlgoFlow by Profitnet
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/nfts/
+  - Title: AlgoFlow NFT Studio | ARC-3 NFT Minting on Algorand
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/of-calculator/
+  - Title: Profit & Tax Dashboard | OnlyFans & Business Financial Tools
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/PNET/
+  - Title: PNET Token on Algorand | Profitnet
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/PNET/pnetleaderboard/
+  - Title: ProfitSearch | Top PNET Holders
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/pokemon-card-profit-calculator-track-roi-resale-value/
+  - Title: TestedProfit | Resale & Collectible ROI
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/Security%20Lab/
+  - Title: Profitnet | Algorand Security Lab
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/smart-financial-dashboard/
+  - Title: Profitnet | Smart Financial Dashboard
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/pages/🌿-species-impact-calculator-see-how-your-actions-protect-wildlife/
+  - Title: Species Impact Calculator | See How Your Actions Protect Wildlife | TestedProfit
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/preview/
+  - Title: Preview: TestedProfit SEO structure
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/superbowlLX/
+  - Title: Profitnet | Utility Hub
+  - Status: excluded. out of the content pass
+- https://testedprofit.com/tokenomics/
+  - Title: Redirect to tokenomics | TestedProfit
+  - Status: excluded. out of the content pass
+
+## homepage (1)
+
+- https://testedprofit.com/
+  - Title: Profitnet | AlgoFlow — Algorand Web3 Tools & The Passive Index
+  - Status: excluded. out of the content pass
 
