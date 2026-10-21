@@ -1,21 +1,28 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Man and Woman | Denver, CO Directory</title>
+    <title>Botero&#x27;s Man and Woman in Denver | Visit Guide</title>
     <link rel="canonical" href="https://testedprofit.com/pages/man-and-woman/">
-    <meta name="description" content="A guide to the 'Man and Woman' sculptures in Denver, CO. Explore the iconic bronze figures by Fernando Botero at the Denver Performing Arts Complex.">
-    
-    <!-- External Scripts & Styles -->
+    <meta name="description" content="Fernando Botero&#x27;s bronze Man and Woman stand in the Denver Performing Arts galleria at 14th and Curtis. Free to view. Map, facts, and FAQ.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Botero&#x27;s Man and Woman in Denver | Visit Guide">
+    <meta property="og:description" content="Fernando Botero&#x27;s bronze Man and Woman stand in the Denver Performing Arts galleria at 14th and Curtis. Free to view. Map, facts, and FAQ.">
+    <meta property="og:url" content="https://testedprofit.com/pages/man-and-woman/">
+    <meta property="og:site_name" content="Profitnet Landmarks">
+    <meta name="twitter:card" content="summary">
+    <meta name="geo.region" content="US-CO">
+    <meta name="geo.placename" content="Denver">
+    <meta name="geo.position" content="39.7452;-104.9971">
+    <meta name="ICBM" content="39.7452, -104.9971">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script>
@@ -28,7 +35,8 @@
                             teal: '#2DD4BF',
                             emerald: '#10B981',
                             blue: '#60A5FA',
-                            bronze: '#CD7F32'
+                            bronze: '#D97706',
+                            steel: '#94A3B8'
                         }
                     },
                     animation: {
@@ -38,29 +46,68 @@
             }
         }
     </script>
-
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0A091B; /* Fallback */
+            background-color: #0A091B;
             color: #E5E7EB;
             line-height: 1.6;
             min-height: 100vh;
         }
-
         .hero-glow {
-            background: radial-gradient(circle at 30% 20%, rgba(205, 127, 50, 0.15) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+            background: radial-gradient(circle at 30% 20%, rgba(217, 119, 6, 0.1) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(148, 163, 184, 0.1) 0%, transparent 60%);
             will-change: opacity;
         }
-
         .bg-grid-pattern {
             background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                               linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 2.5rem 2.5rem;
         }
-
-        /* Mobile Menu Transitions */
+        .gradient-text {
+            background: linear-gradient(90deg, #D97706, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-blur {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-blur:hover {
+            border-color: #D97706;
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .info-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #D97706;
+        }
+        .stat-badge {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(148, 163, 184, 0.1));
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+            display: inline-block;
+        }
+        .cta-button {
+            background: linear-gradient(90deg, #D97706, #475569);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.4);
+        }
         #mobile-menu {
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
             transform: translateY(-100%);
@@ -72,6 +119,18 @@
             opacity: 1;
             pointer-events: auto;
         }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        .qf dt{color:#94A3B8;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+        .qf dd{color:#fff;font-weight:600;margin:0 0 1rem}
+        details.faq{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1rem 1.25rem;margin-bottom:.75rem}
+        details.faq summary{cursor:pointer;font-weight:700;color:#fff;list-style:none}
+        details.faq summary::after{content:"+";float:right;color:#D97706;font-weight:900}
+        details.faq[open] summary::after{content:"–"}
+        details.faq p{color:#9CA3AF;margin-top:.6rem}
+        .map-frame{width:100%;height:320px;border:0;border-radius:12px;filter:grayscale(.2) contrast(1.05)}
     </style>
 <style id="tp-seo-style">
 .tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
@@ -85,31 +144,26 @@
 .tp-seo-related a{color:#5eead4}
 .tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":["TouristAttraction","LandmarksOrHistoricalBuildings"],"@id":"https://testedprofit.com/pages/man-and-woman/#place","name":"Man and Woman","description":"Two bronze sculptures by Fernando Botero in the Denver Performing Arts Complex galleria at 14th and Curtis streets. Denver Arts and Venues lists the work in 1998.","url":"https://testedprofit.com/pages/man-and-woman/","address":{"@type":"PostalAddress","streetAddress":"998 14th St","addressLocality":"Denver","addressRegion":"CO","addressCountry":"US","postalCode":"80202"},"geo":{"@type":"GeoCoordinates","latitude":39.7452,"longitude":-104.9971},"hasMap":"https://www.google.com/maps/search/?api=1&query=998%2014th%20St%2C%20Denver%2C%20CO%2080202","isAccessibleForFree":true,"publicAccess":true,"touristType":["Theatergoers","Public art fans"],"alternateName":["Man, Woman","Botero Man and Woman"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://testedprofit.com/"},{"@type":"ListItem","position":2,"name":"Landmarks","item":"https://testedprofit.com/pages/landmarks/"},{"@type":"ListItem","position":3,"name":"Colorado","item":"https://testedprofit.com/CO/"},{"@type":"ListItem","position":4,"name":"Man and Woman","item":"https://testedprofit.com/pages/man-and-woman/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where are Botero's Man and Woman sculptures in Denver?","acceptedAnswer":{"@type":"Answer","text":"In the Denver Performing Arts Complex galleria at 14th and Curtis streets. A street address used for the spot is 998 14th St, Denver, CO 80202. Denver Arts and Venues tours meet at the sculptures, and Visit Denver places them outside the Temple Hoyne Buell Theatre."}},{"@type":"Question","name":"Who made Man and Woman, and when?","acceptedAnswer":{"@type":"Answer","text":"Fernando Botero. The Denver Arts and Venues downtown guide lists the bronzes in the galleria in 1998, and a Denver Post account says they were donated to the city in 1998. A 2023 Denver Gazette story says they were installed in 1988 and also says they have stood there since 1983. 303 Magazine says 1983."}},{"@type":"Question","name":"What are Man and Woman made of?","acceptedAnswer":{"@type":"Answer","text":"Bronze. That is the material listed by Denver Arts and Venues."}},{"@type":"Question","name":"Do I need a ticket to see Man and Woman?","acceptedAnswer":{"@type":"Answer","text":"No ticket is required to see the sculptures. They stand in the public galleria. The city guide does not list separate viewing hours."}},{"@type":"Question","name":"How tall are the Man and Woman sculptures?","acceptedAnswer":{"@type":"Answer","text":"Published heights do not match. The Denver Gazette and Go Play Denver describe them as about 13 feet tall. A 2023 303 Magazine article said about 8 feet. The Arts and Venues guide does not list a height."}}]}]}
+</script>
 </head>
 <body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
-
-    <!-- Global Background -->
     <div class="fixed inset-0 z-0 pointer-events-none">
         <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
         <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
     </div>
-
-    <!-- Sticky Navigation -->
     <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            
-            <!-- Logo Section -->
             <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
-                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12"
                      alt="Profitnet Logo"
-                     width="32" 
+                     width="32"
                      height="32"
                      fetchpriority="high">
                 <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
             </a>
-            
-            <!-- Desktop Nav -->
             <nav class="hidden lg:flex space-x-10 items-center">
                 <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
                 <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
@@ -117,179 +171,106 @@
                     $PNET Asset Dashboard
                 </a>
             </nav>
-
-            <!-- Mobile Menu Button -->
             <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
-        </div>
     </header>
-
-    <!-- Main Content Area -->
-    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6 max-w-4xl">
-<!-- tp-seo:breadcrumbs -->
+    <!-- Mobile menu sits outside the header. The header's backdrop blur would otherwise
+         become the containing block and shrink this fixed overlay to the nav bar. -->
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[60] lg:hidden flex flex-col items-center justify-center space-y-8">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+        <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+        <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+    </div>
+    <main class="relative z-10 pt-28 md:pt-32 pb-24 container mx-auto px-4 md:px-6">
 <nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
 <li><a href="/">Home</a></li>
 <li><a href="/pages/landmarks/">Landmarks</a></li>
 <li><a href="/CO/">Colorado</a></li>
 <li aria-current="page">Man and Woman</li>
 </ol></nav>
-<!-- /tp-seo:breadcrumbs -->
-
-
-        
-        <!-- Header Section -->
-        <div class="mb-12 border-b border-white/10 pb-8" data-aos="fade-up">
-            <span class="text-accent-teal font-bold tracking-widest text-xs uppercase mb-3 block">Public Art</span>
-            <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">Man and Woman</h1>
-            <p class="text-lg text-gray-400 max-w-2xl">Iconic bronze sculptures by Fernando Botero standing guard at the Denver Performing Arts Complex.</p>
-        </div>
-
-        <!-- Introduction -->
-        <section class="mb-12" data-aos="fade-up" data-aos-delay="100">
-            <div class="prose prose-invert prose-lg max-w-none">
-                <p>
-                    "Man and Woman" is a celebrated pair of bronze sculptures located within the high-glass galleria of the Denver Performing Arts Complex (DPAC). Created by the internationally renowned Colombian artist Fernando Botero, these figures stand as prominent cultural sentinels in the heart of Denver's theater district.
-                </p>
-                <p>
-                    Installed in 1998, the sculptures exemplify Botero's signature style, often referred to as "Boterismo." This aesthetic is characterized by exaggerated volume and rotund proportions, lending the figures a sense of monumentality, stability, and subtle humor. The man and woman stand separately but are unified in style and presence, creating a silent dialogue across the galleria floor.
-                </p>
-                <p>
-                    The artwork serves as a central meeting point for theatergoers attending performances at the Temple Hoyne Buell Theatre or Ellie Caulkins Opera House. As part of the City and County of Denver's public art collection, "Man and Woman" represents the city's commitment to integrating world-class art into its civic spaces.
-                </p>
-            </div>
-        </section>
-
-        <!-- Key Facts Grid -->
-        <section class="mb-12 bg-white/5 rounded-2xl p-8 border border-white/10" data-aos="fade-up" data-aos-delay="200">
-            <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
-                <svg class="w-6 h-6 mr-3 text-accent-emerald" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                Key Facts
-            </h2>
-            <ul class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-gray-300">
-                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Location:</span> 998 14th St, Denver, CO 80202</li>
-                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Artist:</span> Fernando Botero</li>
-                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Installed:</span> 1998</li>
-                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Height:</span> Approx. 13 feet</li>
-                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Material:</span> Cast Bronze</li>
-                <li class="flex items-start"><span class="w-2 h-2 mt-2 mr-3 bg-accent-teal rounded-full shrink-0"></span><span class="font-semibold text-white mr-2">Setting:</span> Denver Performing Arts Complex Galleria</li>
-            </ul>
-        </section>
-
-        <!-- Notable Features -->
-        <section class="mb-12" data-aos="fade-up" data-aos-delay="300">
-            <h2 class="text-2xl font-bold text-white mb-6">Notable Features & Attributes</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
-                    <h3 class="font-bold text-accent-emerald mb-2">Signature "Boterismo"</h3>
-                    <p class="text-sm text-gray-400">The figures display Botero's trademark volumetric style. By exaggerating the size and roundness of the subjects, the artist explores the sensuality of form and volume in three-dimensional space.</p>
-                </div>
-                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
-                    <h3 class="font-bold text-accent-emerald mb-2">Imposing Scale</h3>
-                    <p class="text-sm text-gray-400">Standing roughly 13 feet tall, the sculptures command the large, open space of the galleria. Their height allows them to hold their own against the towering glass roof and surrounding architectural structures.</p>
-                </div>
-                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
-                    <h3 class="font-bold text-accent-emerald mb-2">Interactive Placement</h3>
-                    <p class="text-sm text-gray-400">Placed at ground level without high pedestals, the artwork invites interaction. Theater patrons frequently gather around the base, using the statues as a recognizable rendezvous point.</p>
-                </div>
-                <div class="bg-slate-900/50 p-6 rounded-xl border border-white/5 hover:border-accent-emerald/30 transition-colors">
-                    <h3 class="font-bold text-accent-emerald mb-2">Enduring Material</h3>
-                    <p class="text-sm text-gray-400">Cast in bronze, the figures possess a timeless durability. The dark patina of the metal contrasts sharply with the light, airy atmosphere of the glass-enclosed galleria.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Visitor Information -->
-        <section class="mb-12" data-aos="fade-up" data-aos-delay="400">
-            <h2 class="text-2xl font-bold text-white mb-6">Visitor Information</h2>
-            <div class="space-y-6 text-gray-300">
-                <p>
-                    <strong class="text-white block mb-1">Access & Location</strong>
-                    The sculptures are located within the open-air galleria of the Denver Performing Arts Complex at 14th and Curtis Streets. The area is publicly accessible 24 hours a day, though it is liveliest during showtimes.
-                </p>
-                <p>
-                    <strong class="text-white block mb-1">Parking</strong>
-                    The DPAC garage provides direct access to the galleria. Visitors can park and take the elevator up to the main level, emerging directly near the sculptures.
-                </p>
-                <p>
-                    <strong class="text-white block mb-1">Photography</strong>
-                    "Man and Woman" are among the most photographed landmarks in the complex. The natural light filtering through the galleria roof makes daytime photography particularly effective.
-                </p>
-            </div>
-        </section>
-
-        <!-- Local Context -->
-        <section class="mb-16 pt-8 border-t border-white/10" data-aos="fade-up" data-aos-delay="500">
-            <h3 class="text-xl font-bold text-white mb-4">Local Context & Connections</h3>
-            <p class="text-gray-400 mb-6">
-                The artwork anchors the cultural hub of downtown Denver, connecting various performance venues.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="https://testedprofit.com/pages/landmarks/" class="flex-1 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
-                    <span class="text-accent-teal text-xs font-bold uppercase tracking-wider mb-1 block">Venue Context</span>
-                    <span class="font-bold text-white group-hover:text-accent-teal transition-colors">Denver Performing Arts Complex</span>
-                </a>
-                <a href="https://testedprofit.com/pages/landmarks/" class="flex-1 p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
-                    <span class="text-accent-teal text-xs font-bold uppercase tracking-wider mb-1 block">Nearby Art</span>
-                    <span class="font-bold text-white group-hover:text-accent-teal transition-colors">"The Dancers" (Sculpture Park)</span>
-                </a>
-            </div>
-        </section>
-
-        <!-- Neutral Summary -->
-        <footer class="bg-slate-950/50 rounded-xl p-6 border border-white/5" data-aos="fade-in">
-            <p class="text-sm text-gray-500 leading-relaxed">
-                "Man and Woman" consists of two monumental bronze sculptures by Fernando Botero, located in the Denver Performing Arts Complex. Installed in 1998, these 13-foot figures exemplify the artist's signature volumetric style and serve as a central public landmark within Denver's theater district.
-            </p>
-        </footer>
-
-    
-
-<!-- tp-seo:related -->
-<aside class="tp-seo-related" aria-label="Related landmarks">
-    <h2>Related landmarks</h2>
-    <ul>
-        <li><a href="/pages/eagle-statue/">The Majestic Eagle Sculpture</a></li>
-<li><a href="/pages/albert-einstein-statue-vail-co/">Albert Einstein Memorial Statue</a></li>
-<li><a href="/pages/bronco-buster-statue/">The Bronco Buster</a></li>
-<li><a href="/pages/the-lady-doctor-statue/">Dr. Justina L. Ford</a></li>
-<li><a href="/pages/madre-e-hijo-sculpture/">Madre e Hijo</a></li>
+<article>
+  <header class="max-w-5xl mx-auto mb-10" data-aos="fade-up">
+    <span class="stat-badge text-xs font-bold text-accent-bronze uppercase tracking-wider"><i class="fa-solid fa-user-group mr-2" aria-hidden="true"></i>Denver Performing Arts Complex · Free to view</span>
+    <h1 class="text-4xl md:text-6xl font-black mt-5 mb-4 leading-tight"><span class="gradient-text">Man and Woman</span><span class="block text-2xl md:text-3xl text-white mt-2">Fernando Botero&#x27;s bronzes in the Denver galleria</span></h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Two bronze figures by Fernando Botero stand in the galleria of the Denver Performing Arts Complex, at 14th and Curtis streets, outside the Temple Hoyne Buell Theatre. Denver Arts and Venues lists them as a 1998 public sculpture. You do not need a ticket to walk up to them.</p>
+    <div class="flex flex-wrap gap-3 mt-6">
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=998%2014th%20St%2C%20Denver%2C%20CO%2080202" target="_blank" rel="noopener" class="cta-button inline-block px-6 py-3 rounded-full text-white font-bold text-sm uppercase tracking-wider"><i class="fa-solid fa-map-location-dot mr-2" aria-hidden="true"></i>Get directions</a>
+      <a href="#faq" class="inline-block px-6 py-3 rounded-full border border-white/20 text-white font-bold text-sm uppercase tracking-wider hover:border-accent-bronze">Visitor FAQ</a>
+    </div>
+  </header>
+  <div class="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+    <aside class="info-card lg:col-span-1" aria-labelledby="qf-h" data-aos="fade-up">
+      <h2 id="qf-h" class="text-xl font-black text-white mb-4"><i class="fa-solid fa-circle-info text-accent-bronze mr-2" aria-hidden="true"></i>Quick facts</h2>
+      <dl class="qf">
+        <dt>Address</dt><dd>998 14th St, Denver, CO 80202</dd>
+        <dt>Exact spot</dt><dd>Denver Performing Arts Complex galleria, flanking the entrance at 14th and Curtis, by the Temple Hoyne Buell Theatre</dd>
+        <dt>Artist</dt><dd>Fernando Botero</dd>
+        <dt>Year</dt><dd>1998 in the Denver Arts and Venues guide. Other articles say 1983 or 1988.</dd>
+        <dt>Materials</dt><dd>Bronze</dd>
+        <dt>Cost &amp; hours</dt><dd>Free to view in the public galleria. The city guide does not list separate viewing hours.</dd>
+        <dt>GPS</dt><dd>39.7452, -104.9971</dd>
+      </dl>
+    </aside>
+    <figure class="info-card lg:col-span-2 p-3" data-aos="fade-up" data-aos-delay="100">
+      <iframe class="map-frame" title="Map of Botero&#x27;s Man and Woman at 998 14th St, Denver" src="https://maps.google.com/maps?q=998%2014th%20St%2C%20Denver%2C%20CO%2080202&amp;z=16&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <figcaption class="text-xs text-gray-400 mt-2 px-1">Map: 998 14th St, the galleria at 14th and Curtis. <a class="text-teal-300 underline" href="https://www.google.com/maps/search/?api=1&amp;query=998%2014th%20St%2C%20Denver%2C%20CO%2080202" target="_blank" rel="noopener">Open in Google Maps</a></figcaption>
+    </figure>
+  </div>
+  <section class="max-w-5xl mx-auto mb-12" data-aos="fade-up">
+    <div class="card-blur rounded-2xl p-6 md:p-10">
+      <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">What you'll see</h2>
+      <p class="text-gray-300 mb-4">Denver Arts and Venues lists Man and Woman as bronze sculpture by Fernando Botero in the Performing Arts Complex galleria, dated 1998. A Denver Post account says the two bronzes flank the galleria entrance at 14th and Curtis and were donated to the city in 1998. Visit Denver places them with theatergoers outside the Temple Hoyne Buell Theatre.</p>
+      <p class="text-gray-300 mb-4">The figures use Botero&#x27;s exaggerated, rounded proportions. Published heights do not agree. The Denver Gazette and Go Play Denver describe them as about 13 feet tall. A 2023 303 Magazine article said about 8 feet. The Arts and Venues guide does not list a height, so this page does not treat either number as official.</p>
+      <p class="text-gray-300 mb-4">The date is also reported more than one way. The city guide and the Denver Post account use 1998. A September 15, 2023 Denver Gazette article says the sculptures were installed in 1988 and, in the same story, that they have greeted visitors since 1983. 303 Magazine also says 1983.</p>
+    </div>
+  </section>
+  <section class="max-w-5xl mx-auto mb-12" data-aos="fade-up">
+    <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">Visiting tips</h2>
+    <ul class="grid md:grid-cols-2 gap-4 text-gray-300">
+      <li class="info-card"><strong class="text-white">Use them as the meeting point:</strong> Denver Arts and Venues public-art walks start at Man and Woman, in the galleria near 14th and Curtis.</li>
+      <li class="info-card"><strong class="text-white">No ticket for the sculptures:</strong> A performance ticket is not required to see the bronzes. The city guide does not publish separate viewing hours.</li>
+      <li class="info-card"><strong class="text-white">Street address:</strong> 303 Magazine and this page use 998 14th St. That address geocodes to the 14th and Curtis block.</li>
+      <li class="info-card"><strong class="text-white">Another Botero on this site:</strong> The Madre e Hijo page covers a different Botero sculpture, not this pair.</li>
     </ul>
-    <p><a href="/pages/landmarks/denver/">Denver city page</a></p>
-</aside>
-<!-- /tp-seo:related -->
-</main>
-
-    <!-- Scripts -->
+  </section>
+  <section id="faq" class="max-w-5xl mx-auto mb-12" data-aos="fade-up">
+    <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">Man and Woman FAQ</h2>
+    <details class="faq" open><summary>Where are Botero&#x27;s Man and Woman sculptures in Denver?</summary><p>In the Denver Performing Arts Complex galleria at 14th and Curtis streets. A street address used for the spot is 998 14th St, Denver, CO 80202. Denver Arts and Venues tours meet at the sculptures, and Visit Denver places them outside the Temple Hoyne Buell Theatre.</p></details>
+    <details class="faq"><summary>Who made Man and Woman, and when?</summary><p>Fernando Botero. The Denver Arts and Venues downtown guide lists the bronzes in the galleria in 1998, and a Denver Post account says they were donated to the city in 1998. A 2023 Denver Gazette story says they were installed in 1988 and also says they have stood there since 1983. 303 Magazine says 1983.</p></details>
+    <details class="faq"><summary>What are Man and Woman made of?</summary><p>Bronze. That is the material listed by Denver Arts and Venues.</p></details>
+    <details class="faq"><summary>Do I need a ticket to see Man and Woman?</summary><p>No ticket is required to see the sculptures. They stand in the public galleria. The city guide does not list separate viewing hours.</p></details>
+    <details class="faq"><summary>How tall are the Man and Woman sculptures?</summary><p>Published heights do not match. The Denver Gazette and Go Play Denver describe them as about 13 feet tall. A 2023 303 Magazine article said about 8 feet. The Arts and Venues guide does not list a height.</p></details>
+  </section>
+  <aside class="tp-seo-related max-w-5xl mx-auto" aria-label="More Denver public art on this site">
+    <h2>More Denver public art on this site</h2>
+    <ul>
+      <li><a href="https://testedprofit.com/pages/madre-e-hijo-sculpture/">Madre e Hijo, another Fernando Botero sculpture page</a></li>
+      <li><a href="https://testedprofit.com/pages/bronco-buster-statue/">Bronco Buster statue in Civic Center Park</a></li>
+      <li><a href="https://testedprofit.com/pages/the-lady-doctor-statue/">Dr. Justina Ford, the Lady Doctor statue</a></li>
+      <li><a href="https://testedprofit.com/pages/martin-luther-king-memorial/">Dr. Martin Luther King, Jr. Memorial in Denver</a></li>
+      <li><a href="https://testedprofit.com/pages/cowboy-in-pajamas/">Cowboy in Pajamas sculpture on Champa Street</a></li>
+    </ul>
+    <p><a href="https://testedprofit.com/pages/landmarks/denver/">Denver landmarks</a> · <a href="https://testedprofit.com/CO/">All Colorado pages</a></p>
+  </aside>
+  <p class="max-w-5xl mx-auto text-xs text-gray-500 mt-6">Sources: Denver Arts and Venues downtown public art guide; Denver Arts and Venues walking-tour listing; Denver Post scene article; Visit Denver public-art guide; Denver Gazette, September 15, 2023; 303 Magazine, April 2023; Go Play Denver. GPS is the geocode for 998 14th St. Last checked October 2026.</p>
+</article>
+    </main>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Init AOS
-        AOS.init({ 
-            duration: 800, 
-            once: true,
-            offset: 50
-        });
-
-        // Mobile Menu Logic
+        AOS.init({ duration: 800, once: true, offset: 50 });
         const menuBtn = document.getElementById('mobile-menu-btn');
         const closeBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-
         function toggleMenu(show) {
             if (show) {
                 mobileMenu.classList.add('active');
@@ -299,7 +280,6 @@
                 document.body.style.overflow = '';
             }
         }
-
         menuBtn.addEventListener('click', () => toggleMenu(true));
         closeBtn.addEventListener('click', () => toggleMenu(false));
         mobileMenu.querySelectorAll('a').forEach(link => {
