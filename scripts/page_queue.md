@@ -89,7 +89,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the Indiana landmarks PR. Cards for all 6 Indiana guides use the revised titles.
 - https://testedprofit.com/KS/
   - Title: Kansas Statues and Landmarks | TestedProfit
-  - Status: open. 76 words
+  - Status: updated in the Kansas landmarks PR. The card for the Kansas guide uses the revised title.
 - https://testedprofit.com/KY/
   - Title: Kentucky Heritage | Profitnet Landmark Directory
   - Status: open. no OG
@@ -394,8 +394,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: English Statue in Crawford County | Guide
   - Status: updated in the Indiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KS/The%20Keeper%20of%20the%20Plains/
-  - Title: Keeper of the Plains | TestedProfit Landmark
-  - Status: open. description 170 chars | no OG
+  - Title: Keeper of the Plains in Wichita | Guide
+  - Status: updated in the Kansas landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Benjamin%20Franklin%20statue/
   - Title: Benjamin Franklin Statue | Louisville, KY Directory
   - Status: open. description 158 chars | no OG
