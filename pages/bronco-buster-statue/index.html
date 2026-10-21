@@ -3,461 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bronco Buster Statue in Denver Civic Center Park</title>
+    <title>Bronco Buster in Denver Civic Center | Guide</title>
     <link rel="canonical" href="https://testedprofit.com/pages/bronco-buster-statue/">
-    <meta name="description" content="The Bronco Buster statue in Denver's Civic Center Park is Alexander Phimister Proctor's Western bronze — not the Denver Broncos horse at the stadium. Artist, history, and how to visit.">
-    
-    <!-- External Scripts & Styles -->
+    <meta name="description" content="Proctor's 1920 bronze cowboy on a bucking horse in Denver's Civic Center Park, given by J.K. Mullen. Map and FAQ.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Bronco Buster in Denver Civic Center | Guide">
+    <meta property="og:description" content="Proctor's 1920 bronze cowboy on a bucking horse in Denver's Civic Center Park, given by J.K. Mullen. Map and FAQ.">
+    <meta property="og:url" content="https://testedprofit.com/pages/bronco-buster-statue/">
+    <meta property="og:site_name" content="Profitnet Landmarks">
+    <meta name="twitter:card" content="summary">
+    <meta name="geo.region" content="US-CO">
+    <meta name="geo.placename" content="Denver">
+    <meta name="geo.position" content="39.738912;-104.989069">
+    <meta name="ICBM" content="39.738912, -104.989069">
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts: Preconnected for speed -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Merged Fonts: Inter (Backbone) + Playfair Display (Content) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Animation Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
                     colors: {
-                        // Merged Palette: Header uses Template colors, Body uses Bronze colors
-                        primary: '#0A091B', // Dark header background from template
-                        accent: {
-                            teal: '#2DD4BF',
-                            emerald: '#10B981',
-                            blue: '#60A5FA'
-                        },
-                        stone: {
-                            800: '#292524',
-                            900: '#1c1917',
-                        },
-                        bronze: {
-                            50: '#fbf7f4',
-                            100: '#f5ebe3',
-                            200: '#ebd6c5',
-                            300: '#debfa2',
-                            400: '#cd9c76',
-                            500: '#a87853',
-                            600: '#9b6645',
-                            700: '#825239',
-                            800: '#6b4533', 
-                            900: '#56392d',
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        primary: '#0A091B',
+                        accent: { teal: '#2DD4BF', emerald: '#10B981', blue: '#60A5FA', bronze: '#D97706', steel: '#94A3B8' }
                     }
                 }
             }
         }
     </script>
-
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fbf7f4; /* Light body background for the content */
-            color: #1c1917;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Hero Pattern (Dot Grid) */
-        .bg-grid-pattern {
-            background-image: radial-gradient(#825239 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
-
-        .statue-gradient {
-            background: linear-gradient(135deg, #a87853 0%, #6b4533 100%);
-        }
-
-        /* Mobile Menu Transitions */
-        #mobile-menu {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-            transform: translateY(-100%);
-            opacity: 0;
-            pointer-events: none;
-        }
-        #mobile-menu.active {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #fbf7f4; }
-        ::-webkit-scrollbar-thumb { background: #a87853; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #825239; }
-
-        /* Timeline Logic */
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: #e5e7eb;
-            transform: translateX(-50%);
-        }
-        @media (max-width: 768px) {
-            .timeline-line { left: 20px; }
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #0A091B; color: #E5E7EB; line-height: 1.6; min-height: 100vh; }
+        .hero-glow { background: radial-gradient(circle at 30% 20%, rgba(217, 119, 6, 0.1) 0%, transparent 60%), radial-gradient(circle at 70% 80%, rgba(148, 163, 184, 0.1) 0%, transparent 60%); }
+        .bg-grid-pattern { background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 2.5rem 2.5rem; }
+        .gradient-text { background: linear-gradient(90deg, #D97706, #94A3B8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card-blur { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .info-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 1.5rem; }
+        .stat-badge { background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(148, 163, 184, 0.1)); border: 1px solid rgba(217, 119, 6, 0.3); border-radius: 8px; padding: 0.75rem 1.25rem; display: inline-block; }
+        .cta-button { background: linear-gradient(90deg, #D97706, #475569); }
+        #mobile-menu { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease; transform: translateY(-100%); opacity: 0; pointer-events: none; }
+        #mobile-menu.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
+        .tp-seo-crumbs { list-style: none; display: flex; flex-wrap: wrap; gap: .35rem .45rem; margin: 0 0 1.25rem; padding: .55rem .9rem; font: 500 .82rem/1.4 Inter, system-ui, sans-serif; background: rgba(15, 23, 42, .72); border: 1px solid rgba(148, 163, 184, .28); border-radius: 999px; }
+        .tp-seo-crumbs a { color: #5eead4; text-decoration: none; }
+        .tp-seo-crumbs li+li::before { content: "/"; color: #94a3b8; margin-right: .45rem; }
+        .tp-seo-related { margin: 2rem 0 0; padding: 1rem 1.1rem; border: 1px solid rgba(148, 163, 184, .28); border-radius: 16px; background: rgba(15, 23, 42, .55); }
+        .tp-seo-related h2 { margin: 0 0 .6rem; font-size: 1rem; color: #fff; }
+        .tp-seo-related ul { margin: 0; padding-left: 1.1rem; }
+        .tp-seo-related a { color: #5eead4; }
+        .qf dt { color: #94A3B8; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+        .qf dd { color: #fff; font-weight: 600; margin: 0 0 1rem; }
+        details.faq { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: .75rem; }
+        details.faq summary { cursor: pointer; font-weight: 700; color: #fff; list-style: none; }
+        details.faq summary::after { content: "+"; float: right; color: #D97706; font-weight: 900; }
+        details.faq[open] summary::after { content: "–"; }
+        details.faq p { color: #9CA3AF; margin-top: .6rem; }
+        .map-frame { width: 100%; height: 320px; border: 0; border-radius: 12px; }
     </style>
-<style id="tp-seo-style">
-.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
-.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
-.tp-seo-crumbs a:hover{text-decoration:underline}
-.tp-seo-crumbs li{color:#e5e7eb}
-.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
-.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
-.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
-.tp-seo-related ul{margin:0;padding-left:1.1rem}
-.tp-seo-related a{color:#5eead4}
-.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
-</style>
+    <script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":["TouristAttraction","LandmarksOrHistoricalBuildings"],"@id":"https://testedprofit.com/pages/bronco-buster-statue/#place","name":"Bronco Buster","alternateName":"Broncho Buster","description":"1920 bronze by Alexander Phimister Proctor of a cowboy on a bucking horse, in Denver's Civic Center Park. The Civic Center Conservancy says it was presented by John Kernan Mullen.","url":"https://testedprofit.com/pages/bronco-buster-statue/","address":{"@type":"PostalAddress","addressLocality":"Denver","addressRegion":"CO","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":39.738912,"longitude":-104.989069},"hasMap":"https://www.google.com/maps/search/?api=1&query=39.738912,-104.989069"},
+ {"@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://testedprofit.com/"},
+  {"@type":"ListItem","position":2,"name":"Landmarks","item":"https://testedprofit.com/pages/landmarks/"},
+  {"@type":"ListItem","position":3,"name":"Colorado","item":"https://testedprofit.com/CO/"},
+  {"@type":"ListItem","position":4,"name":"Bronco Buster","item":"https://testedprofit.com/pages/bronco-buster-statue/"}]},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"Where is the Bronco Buster statue in Denver?","acceptedAnswer":{"@type":"Answer","text":"In Civic Center Park. The Civic Center Conservancy lists the park at 101 14th Ave, Denver, CO 80204. Denver Public Art files the sculpture under the McNichols Civic Center Building in the Civic Center neighborhood. A statue directory and Wikipedia place the pin near 39.738912, -104.989069."}},
+  {"@type":"Question","name":"Who made the Bronco Buster, and when?","acceptedAnswer":{"@type":"Answer","text":"Alexander Phimister Proctor. The Civic Center Conservancy, Denver Public Art, and the inscription recorded by the van der Krogt statue directory date the bronze to 1920. The directory records the inscription as presented to Denver by J.K. Mullen, and the conservancy gives his name as John Kernan Mullen."}},
+  {"@type":"Question","name":"Why do some signs say Broncho instead of Bronco?","acceptedAnswer":{"@type":"Answer","text":"Denver Public Art titles the work Broncho Buster. It says the 1893 Chicago plaster was called The Buckaroo and was slightly modified for the Denver bronze, which was called The Broncho Buster. The van der Krogt directory records the pedestal word as BRONCHO BUSTER."}},
+  {"@type":"Question","name":"Who was the model for the rider?","acceptedAnswer":{"@type":"Answer","text":"Denver Public Art names Bill \"Slim\" Ridings and says he was arrested for cattle rustling while modeling, then wrote to Proctor, who provided bail. The Civic Center Conservancy also names Slim Ridings and says the charge was horse rustling. The horse models, per Denver Public Art, were several horses from a Pendleton, Oregon round-up."}},
+  {"@type":"Question","name":"What other Proctor bronze is in Civic Center?","acceptedAnswer":{"@type":"Answer","text":"On the War Trail, dedicated in 1922. The Civic Center Conservancy calls it the second of two Proctor statues for the park and says it was presented by Stephan Knight. It shows an American Indian riding bareback with a spear."}}]}
+]}
+</script>
 </head>
-<body class="antialiased overflow-x-hidden relative bg-[#fbf7f4] text-stone-900 selection:bg-bronze-200 selection:text-bronze-900">
-
-    <!-- Sticky Navigation (EXACTLY FROM TEMPLATE) -->
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow"></div>
+    </div>
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            
-            <!-- Logo Section -->
-            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
-                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
-                     alt="Profitnet Logo"
-                     width="32" 
-                     height="32"
-                     fetchpriority="high">
+            <a href="/" class="flex items-center space-x-3" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8" alt="Profitnet Logo" width="32" height="32">
                 <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
             </a>
-            
-            <!-- Desktop Nav -->
             <nav class="hidden lg:flex space-x-10 items-center">
-                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
-                
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
-                
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
-                    $PNET Asset Dashboard
-                </a>
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-widest text-accent-emerald">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 uppercase tracking-[0.2em]">$PNET Asset Dashboard</a>
             </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Open Menu" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
             </button>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        
     </header>
-
     <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
     <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[60] lg:hidden flex flex-col items-center justify-center space-y-8">
-            <!-- Close Button -->
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-
-            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
-        </div>
-
-
-    <!-- Main Content Area -->
-    <main class="relative z-10">
-<!-- tp-seo:breadcrumbs -->
-<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
-<li><a href="/">Home</a></li>
-<li><a href="/pages/landmarks/">Landmarks</a></li>
-<li><a href="/CO/">Colorado</a></li>
-<li aria-current="page">Bronco Buster Statue in Denver Civic Center Park</li>
-</ol></nav>
-<!-- /tp-seo:breadcrumbs -->
-
-
-        
-        <!-- Hero Section -->
-        <header class="relative bg-stone-900 text-white pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
-            <!-- Background Pattern specific to Hero -->
-            <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/80 to-transparent"></div>
-            
-            <div class="container mx-auto px-6 relative z-10 flex flex-col items-center text-center" data-aos="fade-up">
-                <div class="mb-6 inline-block p-4 rounded-full bg-bronze-900/50 border border-bronze-500/30 backdrop-blur-sm shadow-[0_0_30px_rgba(168,120,83,0.3)]">
-                    <span class="text-4xl filter drop-shadow-lg">🐎</span>
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2" aria-label="Close Menu" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+        <a href="/" class="text-xl font-black text-white uppercase tracking-widest">Home</a>
+        <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest">Landmarks</a>
+        <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
+    </div>
+    <main class="relative z-10 pt-28 md:pt-32 pb-24 container mx-auto px-4 md:px-6">
+        <nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/landmarks/">Landmarks</a></li>
+            <li><a href="/CO/">Colorado</a></li>
+            <li aria-current="page">Bronco Buster</li>
+        </ol></nav>
+        <article>
+            <header class="max-w-5xl mx-auto mb-10">
+                <span class="stat-badge text-xs font-bold text-accent-bronze uppercase tracking-wider">Civic Center Park · Bronze · 1920</span>
+                <h1 class="text-4xl md:text-6xl font-black mt-5 mb-4 leading-tight"><span class="gradient-text">Bronco Buster</span><span class="block text-2xl md:text-3xl text-white mt-2">Denver Civic Center: how to see it</span></h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Alexander Phimister Proctor's bronze of a cowboy on a bucking horse. The Civic Center Conservancy says John Kernan Mullen presented it to the city in 1920. The pedestal spelling recorded by a statue directory is <strong>Broncho Buster</strong>.</p>
+                <div class="flex flex-wrap gap-3 mt-6">
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=39.738912,-104.989069" target="_blank" rel="noopener" class="cta-button inline-block px-6 py-3 rounded-full text-white font-bold text-sm uppercase tracking-wider">Get directions</a>
+                    <a href="#faq" class="inline-block px-6 py-3 rounded-full border border-white/20 text-white font-bold text-sm uppercase tracking-wider">Visitor FAQ</a>
                 </div>
-                <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight text-bronze-100">
-                    The Bronco Buster
-                </h1>
-                <p class="text-lg md:text-xl font-light text-stone-300 max-w-2xl leading-relaxed mb-10">
-                    A masterpiece of Western realism located in the heart of Denver's Civic Center Park. Capturing the raw tension between man and nature.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                    <a href="#history" class="bg-bronze-600 hover:bg-bronze-500 text-white px-8 py-3.5 rounded-md font-medium transition shadow-lg shadow-bronze-900/50 text-center">
-                        Explore History
-                    </a>
-                    <a href="#legacy" class="bg-transparent border border-stone-400 hover:border-white text-stone-300 hover:text-white px-8 py-3.5 rounded-md font-medium transition text-center">
-                        View Significance
-                    </a>
-                </div>
+            </header>
+            <div class="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+                <aside class="info-card lg:col-span-1" aria-labelledby="qf-h">
+                    <h2 id="qf-h" class="text-xl font-black text-white mb-4">Quick facts</h2>
+                    <dl class="qf">
+                        <dt>Artist</dt><dd>Alexander Phimister Proctor (1860–1950)</dd>
+                        <dt>Year</dt><dd>1920</dd>
+                        <dt>Material</dt><dd>Bronze, per Denver Public Art</dd>
+                        <dt>Inscribed title</dt><dd>BRONCHO BUSTER</dd>
+                        <dt>Donor</dt><dd>J.K. Mullen (John Kernan Mullen)</dd>
+                        <dt>Park</dt><dd>Civic Center Park, Denver</dd>
+                        <dt>Park address on the conservancy site</dt><dd>101 14th Ave, Denver, CO 80204</dd>
+                        <dt>Catalog location</dt><dd>McNichols Civic Center Building, Civic Center neighborhood</dd>
+                        <dt>Published pin</dt><dd>39.738912, -104.989069</dd>
+                    </dl>
+                </aside>
+                <figure class="info-card lg:col-span-2 p-3">
+                    <iframe class="map-frame" title="Map pin for the Bronco Buster coordinates published for Civic Center Park" src="https://maps.google.com/maps?q=39.738912,-104.989069&amp;z=16&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <figcaption class="text-xs text-gray-400 mt-2 px-1">Pin: 39.738912, -104.989069, the decimal coordinates on the Wikipedia article (the van der Krogt directory prints N 39°44′20″, W 104°59′20″). <a class="text-teal-300 underline" href="https://www.google.com/maps/search/?api=1&amp;query=39.738912,-104.989069" target="_blank" rel="noopener">Open in Google Maps</a></figcaption>
+                </figure>
             </div>
-        </header>
-
-        <!-- History Timeline Section -->
-        <section id="history" class="py-24 bg-white overflow-hidden">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="font-serif text-4xl font-bold text-stone-800 mb-4">A Historic Timeline</h2>
-                    <div class="h-1 w-20 bg-bronze-500 mx-auto rounded-full"></div>
-                    <p class="mt-4 text-stone-600 max-w-2xl mx-auto">From the Columbian Exhibition to its permanent home in Denver, trace the journey of this iconic sculpture.</p>
-                </div>
-
-                <div class="relative max-w-4xl mx-auto">
-                    <!-- Vertical Line -->
-                    <div class="timeline-line"></div>
-
-                    <!-- Item 1 -->
-                    <div class="relative md:flex items-center justify-between mb-12 group" data-aos="fade-right">
-                        <div class="order-1 w-full md:w-5/12 md:text-right px-4 pl-12 md:pl-4">
-                            <h3 class="font-serif text-xl font-bold text-stone-800">The "Buckaroo" Debut</h3>
-                            <span class="text-bronze-600 font-bold text-sm tracking-widest uppercase">1893</span>
-                            <p class="text-stone-600 mt-2 text-sm leading-relaxed">Alexander Phimister Proctor debuts the original plaster model, titled "The Buckaroo," at the World's Columbian Exposition in Chicago, gaining national attention.</p>
-                        </div>
-                        <div class="z-10 flex items-center order-1 bg-bronze-600 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto ml-[4px] md:ml-0"></div>
-                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <!-- Spacer -->
-                    </div>
-
-                    <!-- Item 2 -->
-                    <div class="relative md:flex items-center justify-between mb-12 group" data-aos="fade-left">
-                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <!-- Spacer -->
-                        <div class="z-10 flex items-center order-1 bg-stone-700 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto ml-[4px] md:ml-0"></div>
-                        <div class="order-1 w-full md:w-5/12 text-left px-4 pl-12 md:pl-4">
-                            <h3 class="font-serif text-xl font-bold text-stone-800">Modeling with Controversy</h3>
-                            <span class="text-bronze-600 font-bold text-sm tracking-widest uppercase">Early 1900s</span>
-                            <p class="text-stone-600 mt-2 text-sm leading-relaxed">Proctor refines the model. His cowboy model, Bill "Slim" Ridings, is arrested for cattle rustling. Proctor famously posts his bail to finish the sculpture.</p>
-                        </div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="relative md:flex items-center justify-between mb-12 group" data-aos="fade-right">
-                        <div class="order-1 w-full md:w-5/12 md:text-right px-4 pl-12 md:pl-4">
-                            <h3 class="font-serif text-xl font-bold text-stone-800">Gift to the City</h3>
-                            <span class="text-bronze-600 font-bold text-sm tracking-widest uppercase">1920</span>
-                            <p class="text-stone-600 mt-2 text-sm leading-relaxed">Commissioned by Mayor Robert Speer's administration during the "City Beautiful" movement, the statue is gifted to Denver by philanthropist J.K. Mullen.</p>
-                        </div>
-                        <div class="z-10 flex items-center order-1 bg-bronze-600 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto ml-[4px] md:ml-0"></div>
-                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <!-- Spacer -->
-                    </div>
-
-                     <!-- Item 4 -->
-                     <div class="relative md:flex items-center justify-between group" data-aos="fade-left">
-                        <div class="order-1 w-full md:w-5/12 px-4 mt-4 md:mt-0 opacity-0 md:opacity-100"></div> <!-- Spacer -->
-                        <div class="z-10 flex items-center order-1 bg-stone-700 shadow-xl w-8 h-8 rounded-full border-4 border-white absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto ml-[4px] md:ml-0"></div>
-                        <div class="order-1 w-full md:w-5/12 text-left px-4 pl-12 md:pl-4">
-                            <h3 class="font-serif text-xl font-bold text-stone-800">Civic Center Icon</h3>
-                            <span class="text-bronze-600 font-bold text-sm tracking-widest uppercase">Today</span>
-                            <p class="text-stone-600 mt-2 text-sm leading-relaxed">Paired with "On the War Trail," it remains a central fixture of Civic Center Park, representing the complexities of the American frontier.</p>
-                        </div>
+            <section class="max-w-5xl mx-auto mb-12">
+                <div class="card-blur rounded-2xl p-6 md:p-10">
+                    <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">What you'll see</h2>
+                    <p class="text-gray-300 mb-4">A cowboy on a bucking horse, cast in bronze. Denver Public Art says the original plaster was made for the Chicago exhibition of 1893, titled <strong>The Buckaroo</strong>, later given to Denver, where it deteriorated. Proctor was then commissioned to make a bronze. That plaster was slightly changed for the Denver monument, which was titled <strong>The Broncho Buster</strong>.</p>
+                    <p class="text-gray-300 mb-4">The van der Krogt directory, from a 17 October 2010 visit, records the inscription as "BRONCHO BUSTER" presented to Denver by J.K. Mullen, A.D. 1920, and the signature as "a. phimister proctor." Denver Public Art adds the identifying marks "signed A.P. Proctor" and a trademark coin.</p>
+                    <p class="text-gray-300">The same directory says that in the mid-1910s, at the request of Major Robert Speer (Denver mayor 1904–1912 and 1916–1918), two large bronzes in Civic Center were given by two residents. The second Proctor bronze is <strong>On the War Trail</strong>, which the conservancy dates to 1922 and says was presented by Stephan Knight.</p>
+                    <div class="grid md:grid-cols-3 gap-4 mt-6">
+                        <div class="bg-slate-900/50 rounded-xl p-5 border border-white/10"><p class="font-bold text-white">The rider</p><p class="text-sm text-gray-400 mt-2">Bill "Slim" Ridings. Denver Public Art says cattle rustling; the conservancy says horse rustling. Both say Proctor put up bail so the modeling could finish.</p></div>
+                        <div class="bg-slate-900/50 rounded-xl p-5 border border-white/10"><p class="font-bold text-white">The horse</p><p class="text-sm text-gray-400 mt-2">Denver Public Art says Proctor used several horses from a Pendleton, Oregon round-up as models.</p></div>
+                        <div class="bg-slate-900/50 rounded-xl p-5 border border-white/10"><p class="font-bold text-white">Other bronzes</p><p class="text-sm text-gray-400 mt-2">Denver Public Art says casts from Proctor's lifetime can be seen at the Denver Public Library, the Mead Art Museum at Amherst College, and the R.W. Norton Gallery in Shreveport.</p></div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- The Making / Process Section -->
-        <section id="process" class="py-24 bg-stone-100">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row gap-12 items-start">
-                    
-                    <!-- Left Side: Visual -->
-                    <div class="w-full md:w-1/3 sticky top-24" data-aos="fade-up">
-                        <div class="statue-gradient p-8 rounded-2xl shadow-2xl text-center text-white">
-                            <div class="text-6xl mb-4">⚒️</div>
-                            <h3 class="font-serif text-2xl font-bold mb-2">The Lost-Wax Method</h3>
-                            <p class="text-bronze-100 text-sm mb-6">A 6,000-year-old technique used to create the fine details of the Bronco Buster.</p>
-                            <div class="bg-white/10 rounded-lg p-4 text-left space-y-2">
-                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3 flex-shrink-0">1</span> Clay Modeling</div>
-                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3 flex-shrink-0">2</span> Wax Positive</div>
-                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3 flex-shrink-0">3</span> Ceramic Shell</div>
-                                <div class="flex items-center text-sm"><span class="w-6 h-6 rounded-full bg-white text-bronze-800 flex items-center justify-center text-xs font-bold mr-3 flex-shrink-0">4</span> Bronze Pour</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Side: Content -->
-                    <div class="w-full md:w-2/3">
-                        <h2 class="font-serif text-4xl font-bold text-stone-800 mb-8" data-aos="fade-up" data-aos-delay="100">From Clay to Bronze</h2>
-                        
-                        <div class="grid gap-6">
-                            <article class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-bronze-300 transition duration-300" data-aos="fade-up" data-aos-delay="200">
-                                <h4 class="font-bold text-lg text-stone-800 mb-2">1. The Dynamic Composition</h4>
-                                <p class="text-stone-600">Proctor's genius lies in the "suspended energy" of the piece. The horse's neck twists violently, counterbalancing the cowboy's sharp pull on the reins. This wasn't just imagination; Proctor attended rodeos and lived with western communities to study the anatomy of movement.</p>
-                            </article>
-
-                            <article class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-bronze-300 transition duration-300" data-aos="fade-up" data-aos-delay="300">
-                                <h4 class="font-bold text-lg text-stone-800 mb-2">2. Cire Perdue (Lost Wax)</h4>
-                                <p class="text-stone-600">Unlike earlier sand-casting methods which were cheaper but cruder, this statue utilized the lost-wax method. A wax replica of the original clay model is encased in a heat-resistant mold. The wax is melted out, and molten bronze is poured into the void. This captures the artist's literal fingerprints from the clay.</p>
-                            </article>
-
-                            <article class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:border-bronze-300 transition duration-300" data-aos="fade-up" data-aos-delay="400">
-                                <h4 class="font-bold text-lg text-stone-800 mb-2">3. The Patina</h4>
-                                <p class="text-stone-600">The final stage involved chemical applications and heat to create the "patina"—the surface color. Over the last century, Denver's weather has interacted with this bronze, requiring careful conservation to maintain the intended aesthetic against oxidation.</p>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Artist Profile -->
-        <section id="artist" class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="bg-stone-900 rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row" data-aos="zoom-in">
-                    <div class="lg:w-1/2 p-12 flex flex-col justify-center">
-                        <span class="text-bronze-400 font-bold tracking-widest uppercase text-sm mb-2">The Sculptor</span>
-                        <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Alexander Phimister Proctor</h2>
-                        <p class="text-stone-300 leading-relaxed mb-6">
-                            Known as the "Sculptor in Buckskin," Proctor (1860–1950) was unique among his Beaux-Arts contemporaries. He didn't just observe the West; he lived it.
-                        </p>
-                        <ul class="space-y-4 text-stone-400">
-                            <li class="flex items-start">
-                                <span class="text-bronze-500 mr-2 mt-1">✦</span> 
-                                <span>Raised in Denver when it was still a frontier town (arrived 1871).</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-bronze-500 mr-2 mt-1">✦</span> 
-                                <span>Studied in Paris but returned to the Rockies to hunt and sketch.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-bronze-500 mr-2 mt-1">✦</span> 
-                                <span>Often confused with Frederic Remington, though Proctor's work is considered by critics to be more anatomically precise.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="lg:w-1/2 bg-bronze-800 relative min-h-[400px]">
-                        <!-- Abstract representation of the artist's workspace -->
-                        <div class="absolute inset-0 flex items-center justify-center opacity-20 select-none">
-                            <div class="text-[12rem] md:text-[15rem]">👨‍🎨</div>
-                        </div>
-                        <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-stone-900 to-transparent">
-                            <p class="text-white font-serif italic text-lg text-center lg:text-left">"I am capturing the West that is passing."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Legacy & Conclusion -->
-        <section id="legacy" class="py-24 bg-bronze-50">
-            <div class="container mx-auto px-6 text-center">
-                <div class="max-w-3xl mx-auto" data-aos="fade-up">
-                    <h2 class="font-serif text-4xl font-bold text-stone-800 mb-6">A Legacy Set in Bronze</h2>
-                    <p class="text-lg text-stone-600 leading-relaxed mb-10">
-                        The Bronco Buster is more than metal; it is a time capsule of the 1920s "City Beautiful" movement. While it celebrates the grit of the American cowboy, modern viewers also reflect on the era it represents—a time of rapid expansion and changing landscapes. It stands today not just as art, but as a conversation starter about our history.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-bronze-500 hover:shadow-md transition">
-                            <h4 class="font-bold text-stone-800">Location</h4>
-                            <p class="text-sm text-stone-600">Civic Center Park<br>W. 14th Ave & Bannock St</p>
-                        </div>
-                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-bronze-500 hover:shadow-md transition">
-                            <h4 class="font-bold text-stone-800">Material</h4>
-                            <p class="text-sm text-stone-600">Cast Bronze<br>Granite Pedestal</p>
-                        </div>
-                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-bronze-500 hover:shadow-md transition">
-                            <h4 class="font-bold text-stone-800">Year Dedicated</h4>
-                            <p class="text-sm text-stone-600">1920<br>Donor: J.K. Mullen</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    
-
-<!-- tp-seo:related -->
-<aside class="tp-seo-related" aria-label="Related landmarks">
-    <h2>Related landmarks</h2>
-    <ul>
-        <li><a href="/pages/eagle-statue/">The Majestic Eagle Sculpture</a></li>
-<li><a href="/pages/albert-einstein-statue-vail-co/">Albert Einstein Memorial Statue</a></li>
-<li><a href="/pages/the-lady-doctor-statue/">Dr. Justina L. Ford</a></li>
-<li><a href="/pages/man-and-woman/">Man and Woman</a></li>
-<li><a href="/pages/madre-e-hijo-sculpture/">Madre e Hijo</a></li>
-    </ul>
-    <p><a href="/pages/landmarks/denver/">Denver city page</a></p>
-</aside>
-<!-- /tp-seo:related -->
-</main>
-
-    <!-- Footer -->
-    <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-            <div class="mb-6 md:mb-0">
-                <span class="font-serif text-2xl font-bold text-white block mb-2">Denver Public Art</span>
-                <p class="text-sm">Preserving history through bronze and stone.</p>
-            </div>
-            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 text-sm">
-                <a href="#" class="hover:text-white transition py-2 md:py-0">Accessibility</a>
-                <a href="#" class="hover:text-white transition py-2 md:py-0">Park Map</a>
-                <a href="mailto:testedprofit@gmail.com" class="hover:text-white transition py-2 md:py-0">Contact Us</a>
-            </div>
-        </div>
-        <div class="container mx-auto px-6 mt-8 pt-8 border-t border-stone-800 text-center text-xs">
-            &copy; 2025 Denver Public Art Legacy. Website Design by Tested Profit.
-        </div>
-    </footer>
-
-    <!-- Scripts (From Backbone) -->
+            </section>
+            <section class="max-w-5xl mx-auto mb-12">
+                <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">Visiting tips</h2>
+                <ul class="grid md:grid-cols-2 gap-4 text-gray-300">
+                    <li class="info-card"><strong class="text-white">Find the pair.</strong> The conservancy treats Bronco Buster and On the War Trail (1922) as the two Proctor statues in this park.</li>
+                    <li class="info-card"><strong class="text-white">Read the spelling.</strong> Look for BRONCHO on the bronze. That is the form in the 2010 inscription transcription.</li>
+                    <li class="info-card"><strong class="text-white">Use the park address as a start, not a pedestal survey.</strong> The conservancy prints 101 14th Ave for Civic Center Park. Its art catalog line for this sculpture is the McNichols Civic Center Building.</li>
+                    <li class="info-card"><strong class="text-white">No separate ticket is listed.</strong> The conservancy publishes it as art in the park. That page does not give opening hours or an admission price for the statue.</li>
+                </ul>
+            </section>
+            <section id="faq" class="max-w-5xl mx-auto mb-12">
+                <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">Bronco Buster FAQ</h2>
+                <details class="faq" open><summary>Where is the Bronco Buster statue in Denver?</summary><p>In Civic Center Park. The Civic Center Conservancy lists the park at 101 14th Ave, Denver, CO 80204. Denver Public Art files the sculpture under the McNichols Civic Center Building in the Civic Center neighborhood. A statue directory and Wikipedia place the pin near 39.738912, -104.989069.</p></details>
+                <details class="faq"><summary>Who made the Bronco Buster, and when?</summary><p>Alexander Phimister Proctor. The Civic Center Conservancy, Denver Public Art, and the inscription recorded by the van der Krogt statue directory date the bronze to 1920. The directory records the inscription as presented to Denver by J.K. Mullen, and the conservancy gives his name as John Kernan Mullen.</p></details>
+                <details class="faq"><summary>Why do some signs say Broncho instead of Bronco?</summary><p>Denver Public Art titles the work Broncho Buster. It says the 1893 Chicago plaster was called The Buckaroo and was slightly modified for the Denver bronze, which was called The Broncho Buster. The van der Krogt directory records the pedestal word as BRONCHO BUSTER.</p></details>
+                <details class="faq"><summary>Who was the model for the rider?</summary><p>Denver Public Art names Bill "Slim" Ridings and says he was arrested for cattle rustling while modeling, then wrote to Proctor, who provided bail. The Civic Center Conservancy also names Slim Ridings and says the charge was horse rustling. The horse models, per Denver Public Art, were several horses from a Pendleton, Oregon round-up.</p></details>
+                <details class="faq"><summary>What other Proctor bronze is in Civic Center?</summary><p>On the War Trail, dedicated in 1922. The Civic Center Conservancy calls it the second of two Proctor statues for the park and says it was presented by Stephan Knight. It shows an American Indian riding bareback with a spear.</p></details>
+            </section>
+            <aside class="tp-seo-related max-w-5xl mx-auto" aria-label="Related landmarks">
+                <h2>More public art on this site</h2>
+                <ul>
+                    <li><a href="/pages/eagle-statue/">American Eagle sculpture at Denver West Plaza, Lakewood</a></li>
+                    <li><a href="/pages/the-lady-doctor-statue/">The Lady Doctor statue of Dr. Justina Ford in Denver</a></li>
+                    <li><a href="/pages/man-and-woman/">Botero's Man and Woman in Denver</a></li>
+                    <li><a href="/pages/madre-e-hijo-sculpture/">Madre e Hijo sculpture</a></li>
+                    <li><a href="/pages/albert-einstein-statue-vail-co/">Albert Einstein bench statue in Vail</a></li>
+                </ul>
+                <p><a href="/pages/landmarks/denver/">Denver landmark pages</a> · <a href="/CO/">All Colorado pages</a></p>
+            </aside>
+            <p class="max-w-5xl mx-auto text-xs text-gray-500 mt-6">Sources: Civic Center Conservancy, Art in the Park; Denver Public Art, Broncho Buster; René and Peter van der Krogt, statue usco42 (photo 17 October 2010); Wikipedia, Bronco Buster (Proctor), citing Michael Paglia, Westword, 25 July 2017. Last checked October 21, 2026.</p>
+        </article>
+    </main>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Init AOS (Animation on Scroll)
-        AOS.init({ 
-            duration: 800, 
-            once: true,
-            offset: 50 // Trigger animations slightly earlier
-        });
-
-        // Mobile Menu Toggle Logic
+        if (window.AOS) AOS.init({ duration: 800, once: true, offset: 50 });
         const menuBtn = document.getElementById('mobile-menu-btn');
         const closeBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const body = document.body;
-
         function toggleMenu(show) {
-            if (show) {
-                mobileMenu.classList.add('active');
-                body.style.overflow = 'hidden'; // Prevent background scrolling
-            } else {
-                mobileMenu.classList.remove('active');
-                body.style.overflow = '';
-            }
+            if (!mobileMenu) return;
+            mobileMenu.classList.toggle('active', show);
+            document.body.style.overflow = show ? 'hidden' : '';
         }
-
-        menuBtn.addEventListener('click', () => toggleMenu(true));
-        closeBtn.addEventListener('click', () => toggleMenu(false));
-
-        // Close menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => toggleMenu(false));
-        });
+        if (menuBtn) menuBtn.addEventListener('click', () => toggleMenu(true));
+        if (closeBtn) closeBtn.addEventListener('click', () => toggleMenu(false));
+        if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
     });
     </script>
 </body>
