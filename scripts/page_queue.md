@@ -95,7 +95,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Kentucky landmarks PR. Each card uses the title of the page it opens, including the ten guides in this PR.
 - https://testedprofit.com/LA/
   - Title: Louisiana Statues and Landmarks | TestedProfit
-  - Status: updated in the first Louisiana landmarks PR. Each card uses the title of the page it opens, including the eleven guides revised in the first Louisiana PR.
+  - Status: updated in the second Louisiana landmarks PR. Each card uses the title of the page it opens, including the ten guides revised in the second Louisiana PR.
 - https://testedprofit.com/MI/
   - Title: Michigan Statues and Landmarks | TestedProfit
   - Status: open. title, description, H1, canonical, and OG are in range
@@ -490,35 +490,35 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Joan of Arc Statue on Decatur Street
   - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Lady%20of%20New%20Orleans%20(Statue)/
-  - Title: TestedProfit | The Lady of New Orleans ("Michelle")
-  - Status: open. description 172 chars | no OG
+  - Title: Michelle Statue near Decatur Street
+  - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Marquis%20de%20Lafayette%20Statue/
-  - Title: Marquis de Lafayette Statue | Lafayette, Louisiana
-  - Status: open. no OG
+  - Title: Lafayette Statue on University Avenue
+  - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Mother%20River%20statue/
-  - Title: TestedProfit | Mother River Statue
-  - Status: open. no OG
+  - Title: Mother River at the Port of New Orleans
+  - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Statue%20of%20Benito%20Juarez/
-  - Title: TestedProfit | Statue of Benito Juárez
-  - Status: open. no OG
+  - Title: Benito Juárez Statue on Conti Street
+  - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Statue%20of%20G.%20K.%20Chesterton/
-  - Title: Statue of G. K. Chesterton | Ponchatoula, Louisiana
-  - Status: open. no OG
+  - Title: Chesterton Statue in Ponchatoula | Guide
+  - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Statue%20of%20Jesus/
-  - Title: TestedProfit | Sacred Heart of Jesus Statue
-  - Status: open. no OG
+  - Title: Sacred Heart Statue at the Cathedral
+  - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Statue%20of%20Louis%20Armstrong/
-  - Title: TestedProfit | Statue of Louis Armstrong
-  - Status: open. no OG
+  - Title: Louis Armstrong Statue in His Park
+  - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/The%20Source%20Sculpture/
-  - Title: TestedProfit | The Source (La Source)
-  - Status: open. no OG
+  - Title: The Source Sculpture on Elk Place
+  - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Veterans%20Memorial%20District/
-  - Title: Veterans Memorial District (Ward 10) | Cut Off, Louisiana
-  - Status: open. description 182 chars | no OG
+  - Title: Veterans Memorial Wall in Cut Off
+  - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Worlds%20Largest%20Ronald%20Reagan%20Statue/
-  - Title: TestedProfit | World's Largest Ronald Reagan Statue
-  - Status: open. no OG
+  - Title: Ronald Reagan Statue in Covington
+  - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Brown%20Trout%20Sculpture%20Park/
   - Title: Brown Trout Sculpture Park | Baldwin, MI | Profitnet
   - Status: open. description 182 chars | no OG
