@@ -114,6 +114,18 @@
             -webkit-text-fill-color: transparent;
         }
     </style>
+<style id="tp-seo-style">
+.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
+.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
+.tp-seo-crumbs a:hover{text-decoration:underline}
+.tp-seo-crumbs li{color:#e5e7eb}
+.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
+.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
+.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
+.tp-seo-related ul{margin:0;padding-left:1.1rem}
+.tp-seo-related a{color:#5eead4}
+.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
+</style>
 </head>
 <body class="antialiased topo-bg relative">
 
@@ -149,6 +161,16 @@
     </header>
 
     <main class="relative z-10 pt-32">
+<!-- tp-seo:breadcrumbs -->
+<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
+<li><a href="/">Home</a></li>
+<li><a href="/pages/landmarks/">Landmarks</a></li>
+<li><a href="/MI/">Michigan</a></li>
+<li aria-current="page">Brown Trout Sculpture Park</li>
+</ol></nav>
+<!-- /tp-seo:breadcrumbs -->
+
+
         
         <!-- Hero Section: "The Catch" -->
         <section class="container mx-auto px-6 py-20 relative">
@@ -299,7 +321,22 @@
             </div>
         </section>
 
-    </main>
+    
+
+<!-- tp-seo:related -->
+<aside class="tp-seo-related" aria-label="Related landmarks">
+    <h2>Related landmarks</h2>
+    <ul>
+        <li><a href="/MI/Magic%20Johnson%20Statue/">ALWAYS A SPARTAN.</a></li>
+<li><a href="/MI/Furtaw%20Field/">COMMUNITY GATHERING.</a></li>
+<li><a href="/MI/Paul%20Bunyan%20carving/">GIANT OF GLADWIN.</a></li>
+<li><a href="/MI/Saint%20Patrick%2C%20Patron%20Saint%20of%20The%20Irish%20Hills%2C%20Statue/">GUARDIAN OF THE HILLS.</a></li>
+<li><a href="/MI/">Michigan statues and landmarks</a></li>
+    </ul>
+    <p><a href="/MI/">All Michigan pages</a></p>
+</aside>
+<!-- /tp-seo:related -->
+</main>
 
     <!-- Footer (Profitnet Standard) -->
     <footer class="bg-slate-950 pt-20 pb-10 border-t border-white/5 relative z-10">

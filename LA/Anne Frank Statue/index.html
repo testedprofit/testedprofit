@@ -96,6 +96,18 @@
         ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #334155; }
     </style>
+<style id="tp-seo-style">
+.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
+.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
+.tp-seo-crumbs a:hover{text-decoration:underline}
+.tp-seo-crumbs li{color:#e5e7eb}
+.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
+.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
+.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
+.tp-seo-related ul{margin:0;padding-left:1.1rem}
+.tp-seo-related a{color:#5eead4}
+.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
+</style>
 </head>
 <body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
 
@@ -152,6 +164,16 @@
 
     <!-- Main Content Area -->
     <main class="relative z-10 pt-32 pb-20 container mx-auto px-6">
+<!-- tp-seo:breadcrumbs -->
+<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
+<li><a href="/">Home</a></li>
+<li><a href="/pages/landmarks/">Landmarks</a></li>
+<li><a href="/LA/">Louisiana</a></li>
+<li aria-current="page">TestedProfit</li>
+</ol></nav>
+<!-- /tp-seo:breadcrumbs -->
+
+
         
         <!-- Hero / Title Section -->
         <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-down">
@@ -257,7 +279,22 @@
                 <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Historic French Quarter</h3><p class="text-sm text-gray-400">New Orleans' oldest neighborhood preserves an extraordinary collection of 18th and 19th century Creole architecture. Jackson Square, the St. Louis Cathedral, and the French Market are all within easy walking distance and provide essential context for understanding the layered cultural history of one of America's most distinctive cities.</p></div>
             </div>
         </div>
-    </main>
+    
+
+<!-- tp-seo:related -->
+<aside class="tp-seo-related" aria-label="Related landmarks">
+    <h2>Related landmarks</h2>
+    <ul>
+        <li><a href="/LA/Lady%20of%20New%20Orleans%20(Statue)/">&quot;Michelle&quot; The Muse.</a></li>
+<li><a href="/LA/The%20Source%20Sculpture/">&quot;The Source&quot; (La Source).</a></li>
+<li><a href="/LA/Ignatius%20J.%20Reilly%20Statue/">A Confederacy of Dunces.</a></li>
+<li><a href="/LA/Cavelier%20De%20La%20Salle%20Monument/">Cavelier De La Salle.</a></li>
+<li><a href="/LA/Congo%20Square/">Congo Square.</a></li>
+    </ul>
+    <p><a href="/LA/">All Louisiana pages</a></p>
+</aside>
+<!-- /tp-seo:related -->
+</main>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

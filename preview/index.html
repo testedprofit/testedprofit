@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Preview: TestedProfit SEO structure</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        body { margin: 0; font-family: Inter, system-ui, sans-serif; background: #f8fafc; color: #0f172a; }
+        main { max-width: 980px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+        h1 { font-size: 2rem; margin-bottom: .25rem; }
+        a { color: #0f766e; }
+        .ok { background: #ecfdf5; border: 1px solid #6ee7b7; border-radius: 12px; padding: 1rem 1.1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .75rem; margin: 1rem 0 1.5rem; }
+        .card { display: block; background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem; color: inherit; text-decoration: none; }
+        .card strong { display: block; margin-bottom: .3rem; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th, td { border: 1px solid #e2e8f0; padding: .55rem .6rem; vertical-align: top; font-size: .92rem; }
+        code { font-size: .85rem; }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Preview before merge</h1>
+    <p>Open these pages from a local server at the repository root, or from GitHub's file view. GitHub Pages deploys only <code>main</code>, so this branch has no live preview URL on testedprofit.com.</p>
+    <div class="ok">
+        <strong>Homepage unchanged.</strong>
+        <p>The AlgoFlow landing page at <a href="/">/</a> was not edited. SHA-256 of <code>index.html</code>:</p>
+        <p><code>f9d7e9bb7650226bb2c5c91cb760dffeb04cebbe5400520ffa45aca69d7c9603</code></p>
+    </div>
+    <h2>Screenshots from this branch</h2>
+    <p>Captured locally. GitHub Pages does not publish this branch.</p>
+    <p><img alt="Landmark hub with state links and a separate earning-guides card" src="screenshots/landmarks_hub.png" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px"></p>
+    <p><img alt="Eagle statue page with breadcrumb and updated title" src="screenshots/eagle_statue.png" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px"></p>
+    <p><img alt="Earning-app guides section" src="screenshots/earning_guides.png" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px"></p>
+    <p><img alt="Homepage still the AlgoFlow app" src="screenshots/homepage_unchanged.png" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px"></p>
+    <h2>New structure</h2>
+    <div class="grid">
+        <a class="card" href="/pages/landmarks/"><strong>Landmarks hub</strong><span>States, Denver, Vail, and a separate link to earning guides.</span></a>
+        <a class="card" href="/AL/"><strong>Alabama category</strong><span>New state page. Existing statue URLs are linked, not moved.</span></a>
+        <a class="card" href="/CO/"><strong>Colorado category</strong><span>Existing Colorado directory, now with breadcrumbs.</span></a>
+        <a class="card" href="/pages/landmarks/denver/"><strong>Denver city page</strong><span>Eagle, Bronco Buster, Lady Doctor, and nearby statues.</span></a>
+        <a class="card" href="/pages/landmarks/vail/"><strong>Vail city page</strong><span>Einstein statue and the Vail guides.</span></a>
+        <a class="card" href="/pages/guides/"><strong>Earning-app guides</strong><span>EarnApp, Honeygain, Bubble Cash, and the other reviews.</span></a>
+        <a class="card" href="/pages/eagle-statue/"><strong>Sample landmark</strong><span>New title, description, breadcrumb, and related links.</span></a>
+    </div>
+    <h2>Titles and descriptions on high-impression pages</h2>
+    <table>
+        <tr><th>Page</th><th>Title</th><th>Meta description</th></tr>
+        <tr><td><a href="/pages/eagle-statue/">pages/eagle-statue</a></td><td>The Majestic Eagle Sculpture</td><td>American eagle statue at Denver West Plaza in Lakewood, Colorado: where it stands, how it differs from the Nicolosi eagle on Denver&#x27;s City and County Building, and what the sculpture symbolizes.</td></tr><tr><td><a href="/pages/albert-einstein-statue-vail-co/">pages/albert-einstein-statue-vail-co</a></td><td>Albert Einstein Memorial Statue</td><td>Visit the Albert Einstein statue in Vail Village, Colorado. Gary Lee Price&#x27;s bronze bench lets you sit with Einstein — location, artist, and what to know before you go.</td></tr><tr><td><a href="/pages/bronco-buster-statue/">pages/bronco-buster-statue</a></td><td>The Bronco Buster</td><td>The Bronco Buster statue in Denver&#x27;s Civic Center Park is Alexander Phimister Proctor&#x27;s Western bronze — not the Denver Broncos horse at the stadium. Artist, history, and how to visit.</td></tr><tr><td><a href="/pages/the-lady-doctor-statue/">pages/the-lady-doctor-statue</a></td><td>Dr. Justina L. Ford</td><td>The Lady Doctor statue honors Dr. Justina Ford, Colorado&#x27;s first licensed Black woman physician. Find the Denver sculpture, her Five Points house, and her story.</td></tr>
+    </table>
+    <h2>Sample breadcrumb</h2>
+    <p>On the eagle statue page the visible trail is Home / Landmarks / Colorado / American Eagle Statue at Denver West Plaza, Lakewood CO. Related links point at the Einstein statue, the Bronco Buster, and the Lady Doctor statue.</p>
+    <p>Landmark pages with the new breadcrumb: 215 existing pages, plus the new state and city pages.</p>
+    <h2>Redirects added in this branch</h2>
+    <ul>
+        <li><a href="/pages/earnapp-definitive-review-philippines/">/pages/earnapp-definitive-review-philippines/</a> → /pages/earnapp/</li>
+        <li><a href="/pages/cedar-mountain-craig-co-local-guide/">/pages/cedar-mountain-craig-co-local-guide/</a> → /CO/Landmarks/Cedar-Mountain/</li>
+        <li><a href="/pages/rotary-park/">/pages/rotary-park/</a> → /rotary-park/</li>
+        <li><a href="/pages/woodbury-park/">/pages/woodbury-park/</a> → /pages/Woodbury Park/</li>
+        <li><a href="/tokenomics/">/tokenomics/</a> → /pages/tokenomics/</li>
+        <li><a href="/CO/Landmarks/Bear-Statue/">/CO/Landmarks/Bear-Statue/</a> → /pages/bear-statue/ (exact duplicate)</li>
+        <li><a href="/blogs/news/">/blogs/news/</a> → /pages/guides/</li>
+    </ul>
+</main>
+</body>
+</html>

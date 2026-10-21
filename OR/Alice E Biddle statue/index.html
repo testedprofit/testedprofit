@@ -134,6 +134,18 @@
         ::-webkit-scrollbar-thumb { background: #D73F09; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #B93506; }
     </style>
+<style id="tp-seo-style">
+.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
+.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
+.tp-seo-crumbs a:hover{text-decoration:underline}
+.tp-seo-crumbs li{color:#e5e7eb}
+.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
+.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
+.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
+.tp-seo-related ul{margin:0;padding-left:1.1rem}
+.tp-seo-related a{color:#5eead4}
+.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
+</style>
 </head>
 <body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
 
@@ -193,6 +205,16 @@
 
     <!-- Main Content Area -->
     <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
+<!-- tp-seo:breadcrumbs -->
+<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
+<li><a href="/">Home</a></li>
+<li><a href="/pages/landmarks/">Landmarks</a></li>
+<li><a href="/OR/">Oregon</a></li>
+<li aria-current="page">The Quest: Alice E. Biddle Statue</li>
+</ol></nav>
+<!-- /tp-seo:breadcrumbs -->
+
+
         
         <!-- Hero Section -->
         <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up">
@@ -330,7 +352,22 @@
                 <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Lane County History Museum</h3><p class="text-sm text-gray-400">Documents the history of Lane County and the southern Willamette Valley from indigenous settlement through the Oregon Trail era and into the 20th century. The museum's collections include photographs, documents, and artifacts relating to both the settlers and the Kalapuya people who lived in the valley before European contact and displacement.</p></div>
             </div>
         </div>
-    </main>
+    
+
+<!-- tp-seo:related -->
+<aside class="tp-seo-related" aria-label="Related landmarks">
+    <h2>Related landmarks</h2>
+    <ul>
+        <li><a href="/OR/Abraham%20Lincoln%20Memorial%20Statue/">Abraham Lincoln Memorial Statue</a></li>
+<li><a href="/OR/Barclay%20Park/">Barclay Park</a></li>
+<li><a href="/OR/Bonanza%20Bigfoot%20statue/">Bonanza Bigfoot Statue</a></li>
+<li><a href="/OR/Joan%20of%20Arc%2C%20Portland%2C%20Oregon/">Joan of Arc Statue</a></li>
+<li><a href="/OR/Statue%20of%20Liberty/">Lady Liberty Replica</a></li>
+    </ul>
+    <p><a href="/OR/">All Oregon pages</a></p>
+</aside>
+<!-- /tp-seo:related -->
+</main>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

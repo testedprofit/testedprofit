@@ -1,66 +1,149 @@
-import os
-import datetime
-import urllib.parse
+#!/usr/bin/env python3
+"""Write sitemap.xml for final, indexable URLs only.
 
-BASE_URL = "https://testedprofit.com/"
-EXCLUDED_DIRS = {'.git', '.github', 'src', 'verification'}
+Preferred host is https://testedprofit.com (GitHub Pages 301s www and http
+to the apex, and adds a trailing slash on directories). Parameter URLs are
+not listed. Redirect stubs and noindex pages are not listed.
+"""
+
+import os
+import re
+from datetime import datetime, timezone
+from pathlib import Path
+from urllib.parse import quote, unquote, urlparse
+from xml.sax.saxutils import escape
+
+ROOT = Path(__file__).resolve().parent
+BASE = "https://testedprofit.com"
+SKIP_DIRS = {
+    ".git",
+    ".github",
+    "src",
+    "workers",
+    "node_modules",
+    "preview",
+    "scripts",
+    "verification",
+}
+# Archived copies of app screens. They are noindex and must not be submitted.
+SKIP_PREFIXES = ("conservation-fund/contracts",)
+
+
+def is_html_document(text):
+    head = text.lstrip("\ufeff \t\r\n")[:400].lower()
+    return head.startswith("<!doctype html") or head.startswith("<html")
+
+
+def _attr(tag, name):
+    match = re.search(rf"{name}\s*=\s*([\"'])(.*?)\1", tag, re.I | re.S)
+    return match.group(2).strip() if match else ""
+
+
+def canonical_href(text):
+    for tag in re.findall(r"<link\b[^>]*>", text, re.I):
+        if _attr(tag, "rel").lower() == "canonical":
+            return _attr(tag, "href")
+    return ""
+
+
+def robots_content(text):
+    for tag in re.findall(r"<meta\b[^>]*>", text, re.I):
+        if _attr(tag, "name").lower() == "robots":
+            return _attr(tag, "content").lower()
+    return ""
+
+
+def public_path(rel):
+    if not rel:
+        return "/"
+    parts = []
+    for part in rel.split("/"):
+        # Keep apostrophes and okina readable; encode spaces and reserved characters.
+        parts.append(quote(part, safe="-._~()'ʻ’–—"))
+    return "/" + "/".join(parts) + "/"
+
 
 def generate_sitemap():
     urls = []
+    skipped = []
 
-    # Walk the directory tree
-    for root, dirs, files in os.walk('.'):
-        # Modify dirs in-place to skip excluded directories
-        dirs[:] = [d for d in dirs if d not in EXCLUDED_DIRS and not d.startswith('.')]
+    for dirpath, dirs, files in os.walk(ROOT):
+        dirs[:] = [d for d in dirs if d not in SKIP_DIRS and not d.startswith(".")]
+        if "index.html" not in files:
+            continue
+        path = Path(dirpath) / "index.html"
+        rel = str(path.parent.relative_to(ROOT))
+        if rel == ".":
+            rel = ""
+        if rel == "preview" or rel.startswith("preview/"):
+            continue
+        if any(rel == prefix or rel.startswith(prefix + "/") for prefix in SKIP_PREFIXES):
+            skipped.append((rel, "archive"))
+            continue
 
-        if 'index.html' in files:
-            # Construct the URL path
-            rel_path = os.path.relpath(root, '.')
+        text = path.read_text(encoding="utf-8", errors="replace")
+        if not is_html_document(text):
+            skipped.append((rel, "not-html"))
+            continue
+        if "tp-seo:redirect" in text:
+            skipped.append((rel, "redirect"))
+            continue
+        robots = robots_content(text)
+        if "noindex" in robots:
+            skipped.append((rel, "noindex"))
+            continue
 
-            if rel_path == '.':
-                url_path = ''
-                priority = '1.00'
-            else:
-                # Replace backslashes with forward slashes for cross-platform compatibility
-                # URL encode path components to handle spaces and special characters
-                parts = rel_path.split(os.sep)
-                parts = [urllib.parse.quote(p) for p in parts]
-                url_path = '/'.join(parts) + '/'
-                priority = '0.80'
+        canonical = canonical_href(text)
+        expected = public_path(rel)
+        if canonical:
+            parsed = urlparse(canonical)
+            if parsed.scheme != "https" or parsed.netloc != "testedprofit.com":
+                skipped.append((rel, "bad-canonical-host"))
+                continue
+            if unquote(parsed.path) != unquote(expected):
+                skipped.append((rel, "canonical-points-elsewhere"))
+                continue
+            loc = canonical
+        else:
+            loc = BASE + expected
 
-            full_url = BASE_URL + url_path
-            lastmod = datetime.date.today().isoformat()
+        if not loc.endswith("/") and rel:
+            skipped.append((rel, "canonical-missing-slash"))
+            continue
 
-            urls.append({
-                'loc': full_url,
-                'lastmod': lastmod,
-                'priority': priority
-            })
+        mtime = datetime.fromtimestamp(path.stat().st_mtime, timezone.utc).date().isoformat()
+        if rel == "":
+            priority = "1.00"
+        elif rel in {"pages/landmarks", "pages/guides"} or rel in {
+            "AL", "CO", "HI", "IA", "IN", "KS", "KY", "LA", "MI", "OR", "WV", "WY"
+        } or rel.startswith("pages/landmarks/"):
+            priority = "0.80"
+        else:
+            priority = "0.60"
 
-    # Sort URLs for consistent output
-    urls.sort(key=lambda x: x['loc'])
+        urls.append((loc, mtime, priority, rel))
 
-    # Generate XML content
-    xml_content = ['<?xml version="1.0" encoding="UTF-8"?>']
-    xml_content.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
-                       'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '
-                       'xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 '
-                       'http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">')
-    xml_content.append('<!-- created with generate_sitemap.py -->')
+    urls.sort(key=lambda item: item[0])
 
-    for url in urls:
-        xml_content.append('<url>')
-        xml_content.append(f'  <loc>{url["loc"]}</loc>')
-        xml_content.append(f'  <lastmod>{url["lastmod"]}</lastmod>')
-        xml_content.append(f'  <priority>{url["priority"]}</priority>')
-        xml_content.append('</url>')
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        "<!-- final URLs only; generated by generate_sitemap.py -->",
+    ]
+    for loc, lastmod, priority, _rel in urls:
+        lines.append("  <url>")
+        lines.append(f"    <loc>{escape(loc)}</loc>")
+        lines.append(f"    <lastmod>{lastmod}</lastmod>")
+        lines.append(f"    <priority>{priority}</priority>")
+        lines.append("  </url>")
+    lines.append("</urlset>")
+    lines.append("")
 
-    xml_content.append('</urlset>')
+    out = ROOT / "sitemap.xml"
+    out.write_text("\n".join(lines), encoding="utf-8")
+    print(f"Sitemap generated with {len(urls)} URLs. Skipped {len(skipped)}.")
+    return urls, skipped
 
-    with open('sitemap.xml', 'w', encoding='utf-8') as f:
-        f.write('\n'.join(xml_content))
-
-    print(f"Sitemap generated with {len(urls)} URLs.")
 
 if __name__ == "__main__":
     generate_sitemap()

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profitnet | The Digital Archive</title>
+    <title>Statues and Landmarks by State | TestedProfit</title>
     <link rel="canonical" href="https://testedprofit.com/pages/landmarks/">
-    <meta name="description" content="TestedProfit builds the digital infrastructure for public art and landmarks, ensuring accurate data integration for the AI era.">
+    <meta name="description" content="Directory of public statues, sculptures, and parks by state, plus Denver and Vail city pages. Earning-app reviews live in a separate guides section.">
     
     <!-- External Scripts & Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -135,6 +135,18 @@
             transform: translateY(0);
         }
     </style>
+<style id="tp-seo-style">
+.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
+.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
+.tp-seo-crumbs a:hover{text-decoration:underline}
+.tp-seo-crumbs li{color:#e5e7eb}
+.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
+.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
+.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
+.tp-seo-related ul{margin:0;padding-left:1.1rem}
+.tp-seo-related a{color:#5eead4}
+.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
+</style>
 </head>
 <body class="antialiased overflow-x-hidden relative">
 
@@ -158,7 +170,8 @@
             <nav class="hidden lg:flex space-x-10 items-center">
                 <a href="/" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
                 
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400 hover:text-emerald-300 transition-colors">Landmarks</a>
+                <a href="/pages/landmarks/" class="text-xs font-bold uppercase tracking-widest text-emerald-400 hover:text-emerald-300 transition-colors">Landmarks</a>
+                <a href="/pages/guides/" class="text-xs font-bold uppercase tracking-widest text-white hover:text-emerald-300 transition-colors">Guides</a>
                 
                 <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all uppercase tracking-[0.2em]">
                     $PNET Asset Dashboard
@@ -172,31 +185,73 @@
         <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
             <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl p-2 hover:bg-white/10 rounded-full transition-colors"><i class="fa-solid fa-xmark"></i></button>
             <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-emerald-400 transition-colors">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+            <a href="/pages/guides/" class="text-xl font-black text-white uppercase tracking-widest hover:text-emerald-300 transition-colors">Guides</a>
             <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
         </div>
     </header>
 
     <!-- Main Content Area -->
     <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
+<!-- tp-seo:breadcrumbs -->
+<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
+<li><a href="/">Home</a></li>
+<li aria-current="page">Landmarks</li>
+</ol></nav>
+<!-- /tp-seo:breadcrumbs -->
+
+
         
         <!-- Hero Section -->
         <section class="text-center max-w-5xl mx-auto mb-20" data-aos="fade-up">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-bold tracking-wide uppercase mb-8">
                 <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-                Digital Preservation Initiative
+                Statues and landmarks
             </div>
             
             <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8 leading-[1.1]">
-                Bridging Physical Heritage <br class="hidden md:block" />
-                <span class="gradient-text">with Digital Intelligence.</span>
+                Statues and landmarks, <br class="hidden md:block" />
+                <span class="gradient-text">sorted by state.</span>
             </h1>
             
-            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
-                A structured directory of landmarks, art, and public spaces, optimized for discovery in the AI era.
+            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-8 font-light leading-relaxed">
+                Public statues, sculptures, and parks. Earning-app reviews are a separate section and are not mixed into this directory.
             </p>
+            <!-- tp-seo:hub-split -->
+            <div class="grid md:grid-cols-2 gap-4 text-left max-w-3xl mx-auto">
+                <a href="/pages/landmarks/" class="card-blur rounded-2xl p-5 block">
+                    <span class="text-teal-300 text-xs font-bold uppercase tracking-widest">You are here</span>
+                    <strong class="block text-white text-lg mt-1">Statues and landmarks</strong>
+                    <span class="text-gray-400 text-sm">Browse by state, or open the Denver and Vail city pages.</span>
+                </a>
+                <a href="/pages/guides/" class="card-blur rounded-2xl p-5 block">
+                    <span class="text-blue-300 text-xs font-bold uppercase tracking-widest">Separate section</span>
+                    <strong class="block text-white text-lg mt-1">Earning-app guides</strong>
+                    <span class="text-gray-400 text-sm">EarnApp, Honeygain, Bubble Cash, and other passive-income reviews.</span>
+                </a>
+            </div>
+            <!-- /tp-seo:hub-split -->
         </section>
 
+
+        <!-- tp-seo:state-jump -->
+        <nav class="mb-10 flex flex-wrap gap-2" aria-label="States and cities">
+            <a class="px-3 py-1 rounded-full border border-white/10 text-sm text-gray-200 hover:border-teal-400" href="/AL/">Alabama</a>
+            <a class="px-3 py-1 rounded-full border border-white/10 text-sm text-gray-200 hover:border-teal-400" href="/CO/">Colorado</a>
+            <a class="px-3 py-1 rounded-full border border-white/10 text-sm text-gray-200 hover:border-teal-400" href="/HI/">Hawaii</a>
+            <a class="px-3 py-1 rounded-full border border-white/10 text-sm text-gray-200 hover:border-teal-400" href="/IA/">Iowa</a>
+            <a class="px-3 py-1 rounded-full border border-white/10 text-sm text-gray-200 hover:border-teal-400" href="/IN/">Indiana</a>
+            <a class="px-3 py-1 rounded-full border border-white/10 text-sm text-gray-200 hover:border-teal-400" href="/KS/">Kansas</a>
+            <a class="px-3 py-1 rounded-full border border-white/10 text-sm text-gray-200 hover:border-teal-400" href="/KY/">Kentucky</a>
+            <a class="px-3 py-1 rounded-full border border-white/10 text-sm text-gray-200 hover:border-teal-400" href="/LA/">Louisiana</a>
+            <a class="px-3 py-1 rounded-full border border-white/10 text-sm text-gray-200 hover:border-teal-400" href="/MI/">Michigan</a>
+            <a class="px-3 py-1 rounded-full border border-white/10 text-sm text-gray-200 hover:border-teal-400" href="/OR/">Oregon</a>
+            <a class="px-3 py-1 rounded-full border border-white/10 text-sm text-gray-200 hover:border-teal-400" href="/WV/">West Virginia</a>
+            <a class="px-3 py-1 rounded-full border border-white/10 text-sm text-gray-200 hover:border-teal-400" href="/WY/">Wyoming</a>
+            <a class="px-3 py-1 rounded-full border border-teal-400/40 text-sm text-teal-200 hover:border-teal-300" href="/pages/landmarks/denver/">Denver</a>
+            <a class="px-3 py-1 rounded-full border border-teal-400/40 text-sm text-teal-200 hover:border-teal-300" href="/pages/landmarks/vail/">Vail</a>
+        </nav>
+        <!-- /tp-seo:state-jump -->
         <!-- Directory Search & Header -->
         <section class="mb-12" data-aos="fade-up">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
@@ -229,6 +284,17 @@
                     <h3 class="font-display text-xl font-bold text-white">Colorado</h3>
                 </div>
                 <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+
+                    <!-- tp-seo:featured-co -->
+                    <a href="/pages/eagle-statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">American Eagle Statue (Lakewood)</a>
+                    <a href="/pages/albert-einstein-statue-vail-co/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Albert Einstein Statue (Vail)</a>
+                    <a href="/pages/bronco-buster-statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bronco Buster Statue (Denver)</a>
+                    <a href="/pages/the-lady-doctor-statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Lady Doctor Statue (Denver)</a>
+                    <a href="/pages/man-and-woman/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Man and Woman (Denver)</a>
+                    <a href="/pages/things-to-do-in-vail-colorado/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Things to Do in Vail</a>
+                    <a href="/pages/landmarks/denver/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-teal-300">Denver city page</a>
+                    <a href="/pages/landmarks/vail/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-teal-300">Vail city page</a>
+                    <!-- /tp-seo:featured-co -->
                     <a href="https://testedprofit.com/CO/Landmarks/Big-Baldy-Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Big Baldy Statue</a>
                     <a href="https://testedprofit.com/CO/Landmarks/octomaid/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Octo-Maid (Iscariot)</a>
                     <a href="https://testedprofit.com/CO/Landmarks/Former-Mine-Sites-of-Mt. Harris/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Former Mine Sites of Mt. Harris</a>
@@ -244,7 +310,7 @@
                     <a href="https://testedprofit.com/CO/Pueblo Heritage Walk/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Pueblo Heritage Walk</a>
                     <a href="https://testedprofit.com/CO/Riverfront Park Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Riverfront Park Statue</a>
                     <a href="https://testedprofit.com/CO/Landmarks/Hayden-Town-Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Hayden Town Park</a>
-                    <a href="https://testedprofit.com/CO/Landmarks/Bear-Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Guardian of Grizzly Gulch</a>
+                    <a href="/pages/bear-statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Guardian of Grizzly Gulch</a>
                     <a href="https://testedprofit.com/CO/Landmarks/coolin'dog/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Coolin' the Dogs</a>
                     <a href="https://testedprofit.com/CO/Desert Metal Art/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Desert Metal Art</a>
                     <a href="https://testedprofit.com/CO/Christ of the Mines Shrine/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Christ of the Mines Shrine</a>
@@ -424,6 +490,54 @@
                 </div>
             </div>
 
+
+            <!-- tp-seo:state-card-AL -->
+            <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="alabama">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-rose-500/10 text-rose-300 flex items-center justify-center font-bold border border-rose-500/20">AL</div>
+                    <h3 class="font-display text-xl font-bold text-white"><a href="/AL/">Alabama</a></h3>
+                </div>
+                <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                    <a href="/AL/Albert%20Patterson%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Albert Patterson Statue</a><a href="/AL/Angel%20of%20Hope/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Angel of Hope</a><a href="/AL/Atticus%20Finch%20Memorial%20Park%20Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Atticus Finch Monument</a><a href="/AL/Big%20Peanut/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Big Peanut</a><a href="/AL/Bigfoot%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bigfoot Capital of Alabama</a><a href="/AL/Bo%20Jackson%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bo Jackson Statue</a><a href="/AL/Charles%20Barkley%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Charles Barkley Statue</a><a href="/AL/Confederate%20Memorial%20Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Confederate Memorial Monument</a><a href="/AL/Court%20Square%20Fountain%20-%20Artesian%20Basin/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Court Square Fountain</a><a href="/AL/English%20Village%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Civitas: The Spirit of Community</a><a href="/AL/Hank%20Williams%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Hank Williams Statue</a><a href="/AL/Heaviest%20Corner%20On%20Earth/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Heaviest Corner on Earth</a><a href="/AL/Karl%20Richter%20Memorial%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Here Am I. Send Me.</a><a href="/AL/Manny%2C%2012%20Foot%20Tall%20Fish/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Manny the Bass</a><a href="/AL/Nathan%20Bedford%20Forrest%20Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Nathan Bedford Forrest Monument</a><a href="/AL/Rainbow%20Division%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Rainbow Soldier</a><a href="/AL/Rosa%20Parks%20Bus%20Stop/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Spark of a Movement</a><a href="/AL/The%20Bronze%20Bomber%20-%20Deontay%20Wilder%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Bronze Bomber</a><a href="/AL/The%20Four%20Spirits/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Four Spirits</a><a href="/AL/Viola%20Liuzzo%20Memorial/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Viola Liuzzo Memorial</a><a href="/AL/Woods%20Quad/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Woods Quad</a><a href="/AL/World&#x27;s%20Smallest%20City%20Block/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">World&#x27;s Smallest City Block</a>
+                </div>
+            </div>
+
+
+            <!-- tp-seo:state-card-IA -->
+            <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="iowa">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-300 flex items-center justify-center font-bold border border-amber-500/20">IA</div>
+                    <h3 class="font-display text-xl font-bold text-white"><a href="/IA/">Iowa</a></h3>
+                </div>
+                <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                    <a href="/IA/Abraham%20Lincoln%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Abraham Lincoln Statue</a><a href="/IA/Cornhenge/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Cornhenge Lowe Park</a><a href="/IA/Czech%20Village%20Mushroom%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Czech Village Mushroom Statue</a><a href="/IA/Easter%20Island%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Easter Island Statue</a><a href="/IA/Iowa%20Statue%20of%20Liberty/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Iowa Statue of Liberty</a><a href="/IA/L.J.%20Maasdam%20Wagon%20Wheel%20Sculpture/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">L.J. Maasdam Wagon Wheel Sculpture</a><a href="/IA/Lewis%20and%20Clark%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Lewis &amp; Clark Statue</a><a href="/IA/Little%20Mermaid%20Fountain/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Little Mermaid Fountain</a><a href="/IA/Moai%20Dude/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Moai Dude</a><a href="/IA/Peace%20Sign/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Peace Sign</a><a href="/IA/South%20Des%20Moines%20Sculpture%20Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">South Des Moines Sculpture Park</a><a href="/IA/The%20Black%20Angel/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Black Angel</a>
+                </div>
+            </div>
+
+
+            <!-- tp-seo:state-card-MI -->
+            <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="michigan">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-300 flex items-center justify-center font-bold border border-cyan-500/20">MI</div>
+                    <h3 class="font-display text-xl font-bold text-white"><a href="/MI/">Michigan</a></h3>
+                </div>
+                <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                    <a href="/MI/Brown%20Trout%20Sculpture%20Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE GREAT BROWN TROUT.</a><a href="/MI/Butterfly%20House/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">WINGS OF PORT AUSTIN.</a><a href="/MI/Commodore%20Perry/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">WE HAVE MET THE ENEMY.</a><a href="/MI/Furtaw%20Field/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">COMMUNITY GATHERING.</a><a href="/MI/Gen.%20Thaddeus%20Kosciuszko%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE ENGINEER OF LIBERTY.</a><a href="/MI/Kirtland&#x27;s%20Warbler%20Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">PHOENIX OF THE PINES.</a><a href="/MI/Lion%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE SILENT GUARDIAN.</a><a href="/MI/Magic%20Johnson%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">ALWAYS A SPARTAN.</a><a href="/MI/Noahquageshik%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE PEACEMAKER.</a><a href="/MI/Paul%20Bunyan%20carving/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">GIANT OF GLADWIN.</a><a href="/MI/Saint%20Patrick%2C%20Patron%20Saint%20of%20The%20Irish%20Hills%2C%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">GUARDIAN OF THE HILLS.</a><a href="/MI/Schiller%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE POET OF LIBERTY.</a><a href="/MI/Sculpture%20in%20the%20Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">SCULPTURE IN THE PARK.</a><a href="/MI/Skanderbeg%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE DRAGON OF ALBANIA.</a><a href="/MI/Statue%20of%20Liberty%20Torch%20Sculpture/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE FLAME OF THE NORTH.</a><a href="/MI/Statue%20of%20Woodbridge%20N.%20Ferris/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">WOODBRIDGE N. FERRIS.</a><a href="/MI/Stevie%20Wonder%20Landmark/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE ROOTS OF RHYTHM.</a><a href="/MI/Verlen%20Kruger%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE RIVER WALKER.</a>
+                </div>
+            </div>
+
+
+            <!-- tp-seo:state-card-KS -->
+            <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="kansas">
+                <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-lime-500/10 text-lime-300 flex items-center justify-center font-bold border border-lime-500/20">KS</div>
+                    <h3 class="font-display text-xl font-bold text-white"><a href="/KS/">Kansas</a></h3>
+                </div>
+                <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                    <a href="/KS/The%20Keeper%20of%20the%20Plains/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Keeper of the Plains</a>
+                </div>
+            </div>
+
             <!-- GENERAL & TOOLS -->
             <div class="state-card card-blur rounded-3xl p-8 flex flex-col h-full" data-state="general">
                 <div class="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
@@ -446,7 +560,7 @@
                     <a href="https://testedprofit.com/pages/bulldog-towing-recovery/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bulldog Towing & Recovery</a>
                     <a href="https://testedprofit.com/scam-scan/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Reality Check | Phishing Scan</a>
                     <a href="https://testedprofit.com/pages/honeygain-content-delivery/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Honeygain Content Delivery</a>
-                    <a href="https://testedprofit.com/superbowlsalesteam/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Broncos Super Bowl LX Parade</a>
+                    <a href="/pages/guides/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Earning-app guides</a>
                     <a href="https://testedprofit.com/US Kitchen & Unit Standard/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">US Kitchen & Unit Standard</a>
                     <a href="https://testedprofit.com/Impermanent Loss Visualizer/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Impermanent Loss Visualizer</a>
                     <a href="https://testedprofit.com/pages/honey-rock-dogs-boarding-kennels/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Honey Rock Dogs Boarding</a>
