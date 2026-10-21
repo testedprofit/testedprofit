@@ -101,7 +101,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Michigan landmarks PR. Each card uses the title of the page it opens, including the seven guides revised in the second Michigan PR.
 - https://testedprofit.com/OR/
   - Title: Oregon Statues and Landmarks | TestedProfit
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the first Oregon landmarks PR. Each card uses the title of the page it opens.
 - https://testedprofit.com/pages/guides/
   - Title: Earning-App Guides | TestedProfit
   - Status: updated in the guides-hub PR. Index of earning articles with live titles. Bonuses are not restated here.
@@ -577,44 +577,44 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Abraham Lincoln Memorial Statue | Profitnet Landmarks
   - Status: open. no OG
 - https://testedprofit.com/OR/Alice%20E%20Biddle%20statue/
-  - Title: The Quest: Alice E. Biddle Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Alice E. Biddle Statue at OSU | Guide
+  - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Amanda%20Statue/
-  - Title: The Amanda Statue | Profitnet Landmarks
-  - Status: open. description 165 chars | no OG
+  - Title: Amanda Statue on the Amanda Trail | Guide
+  - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Barclay%20Park/
-  - Title: Barclay Park | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Barclay Park in Sisters | Guide
+  - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Black%20Bird%20Statue%20(Medford)/
-  - Title: The Black Bird Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Black Bird Statue in Medford | Guide
+  - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Bonanza%20Bigfoot%20statue/
-  - Title: Bonanza Bigfoot Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Bonanza Bigfoot Statue | Guide
+  - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Dawson%20Creek%20Nature%20Statue%20Monument/
   - Title: Dawson Creek Nature Statue | Profitnet Landmarks
   - Status: open. no OG
 - https://testedprofit.com/OR/Joan%20of%20Arc,%20Portland,%20Oregon/
-  - Title: Joan of Arc Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Joan of Arc Statue in Portland | Guide
+  - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Portlandia/
-  - Title: Portlandia Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Portlandia Statue in Portland | Guide
+  - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Statue%20of%20Liberty/
-  - Title: Statue of Liberty Replica | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Statue of Liberty in Milwaukie | Guide
+  - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Statue%20of%20Rosa%20Parks/
-  - Title: Statue of Rosa Parks | Profitnet Landmarks
-  - Status: open. description 170 chars | no OG
+  - Title: Rosa Parks Statue in Eugene | Guide
+  - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/The%20Dancing%20Mary/
   - Title: The Dancing Mary | Profitnet Landmarks
   - Status: open. no OG
 - https://testedprofit.com/OR/Two%20Bits/
-  - Title: Two Bits Sculpture | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Two Bits Sculpture in Bend | Guide
+  - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Wildland%20Firefighter%20Monument/
-  - Title: Wildland Firefighter Monument | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Wildland Firefighter Monument | Guide
+  - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WV/Landmark/Jackson-Memorial-Fountain/
   - Title: Jackson Memorial Fountain | TestedProfit
   - Status: open. description 179 chars | no OG

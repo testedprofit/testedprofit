@@ -1,413 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joan of Arc Statue | Profitnet Landmarks</title>
+    <title>Joan of Arc Statue in Portland | Guide</title>
+    <meta name="description" content="A bronze Joan of Arc stands in Coe Circle, a 1924 casting from Emmanuel Fremiet's 1874 statue, later restored in gold leaf.">
     <link rel="canonical" href="https://testedprofit.com/OR/Joan%20of%20Arc,%20Portland,%20Oregon/">
-    <meta name="description" content="Visit the Joan of Arc Statue in Portland, Oregon. A gleaming 23-karat gold leaf equestrian monument in Coe Circle, dedicated to WWI soldiers.">
-    
-    <!-- External Scripts & Styles -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Joan of Arc Statue in Portland | Guide">
+    <meta property="og:description" content="A bronze Joan of Arc stands in Coe Circle, a 1924 casting from Emmanuel Fremiet's 1874 statue, later restored in gold leaf.">
+    <meta property="og:url" content="https://testedprofit.com/OR/Joan%20of%20Arc,%20Portland,%20Oregon/">
+    <meta property="og:site_name" content="Profitnet Landmarks">
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts: Preconnected for speed -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome: Required for content icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0A091B', /* Deep Profitnet Blue */
-                        accent: {
-                            teal: '#2DD4BF',
-                            gold: '#C5A017',   /* Gilded Gold */
-                            laurel: '#15803D', /* Laurel Green */
-                            slate: '#64748B'
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
-            }
-        }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0A091B;
-            color: #E5E7EB;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Optimization: Animations */
-        .hero-glow {
-            background: radial-gradient(circle at 30% 20%, rgba(197, 160, 23, 0.15) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(21, 128, 61, 0.15) 0%, transparent 60%);
-            will-change: opacity;
-        }
-
-        .bg-grid-pattern {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 2.5rem 2.5rem;
-        }
-
-        /* Custom Content Styles */
-        .gradient-text {
-            background: linear-gradient(90deg, #C5A017, #15803D); /* Gold to Laurel */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .card-blur {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-blur:hover {
-            border-color: #C5A017;
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-        }
-
-        .info-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: #C5A017;
-        }
-
-        .stat-badge {
-            background: linear-gradient(135deg, rgba(197, 160, 23, 0.2), rgba(21, 128, 61, 0.2));
-            border: 1px solid rgba(197, 160, 23, 0.4);
-            border-radius: 8px;
-            padding: 0.75rem 1.25rem;
-            display: inline-block;
-        }
-
-        .cta-button {
-            background: linear-gradient(90deg, #C5A017, #15803D);
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(197, 160, 23, 0.4);
-        }
-
-        /* Mobile Menu */
-        #mobile-menu {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-            transform: translateY(-100%);
-            opacity: 0;
-            pointer-events: none;
-        }
-        #mobile-menu.active {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0A091B; }
-        ::-webkit-scrollbar-thumb { background: #C5A017; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #EAB308; }
-    </style>
-<style id="tp-seo-style">
-.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
-.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
-.tp-seo-crumbs a:hover{text-decoration:underline}
-.tp-seo-crumbs li{color:#e5e7eb}
-.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
-.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
-.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
-.tp-seo-related ul{margin:0;padding-left:1.1rem}
-.tp-seo-related a{color:#5eead4}
-.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
+body{font-family:Inter,system-ui,sans-serif}
+a{color:#5eead4}
+main a{overflow-wrap:anywhere}
+.source-list a,.tp-related a,.guide-list a{text-decoration:underline}
+.source-list li,.guide-list li{margin:.45rem 0}
+.tp-related{margin-top:2rem;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55)}
+.guide-list{list-style:none;padding:0}
+.guide-list a{display:block;padding:.85rem 1rem;border:1px solid rgba(148,163,184,.28);border-radius:14px;background:rgba(15,23,42,.45)}
+details{border-top:1px solid rgba(148,163,184,.25);padding:.7rem 0}
+summary{cursor:pointer;font-weight:650}
 </style>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TouristAttraction", "@id": "https://testedprofit.com/OR/Joan%20of%20Arc,%20Portland,%20Oregon/#place", "name": "Joan of Arc statue", "description": "A bronze Joan of Arc stands in Coe Circle, a 1924 casting from Emmanuel Fremiet's 1874 statue, later restored in gold leaf.", "url": "https://testedprofit.com/OR/Joan%20of%20Arc,%20Portland,%20Oregon/", "dateModified": "2026-10-21", "address": {"@type": "PostalAddress", "addressLocality": "Portland", "addressRegion": "OR", "addressCountry": "US"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://testedprofit.com/"}, {"@type": "ListItem", "position": 2, "name": "Landmarks", "item": "https://testedprofit.com/pages/landmarks/"}, {"@type": "ListItem", "position": 3, "name": "Oregon", "item": "https://testedprofit.com/OR/"}, {"@type": "ListItem", "position": 4, "name": "Joan of Arc statue", "item": "https://testedprofit.com/OR/Joan%20of%20Arc,%20Portland,%20Oregon/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where is the Joan of Arc statue?", "acceptedAnswer": {"@type": "Answer", "text": "Wikipedia places it in Coe Circle, at Northeast Cesar E. Chavez Boulevard and Glisan, in Portland's Laurelhurst neighborhood."}}, {"@type": "Question", "name": "When was it dedicated?", "acceptedAnswer": {"@type": "Answer", "text": "Wikipedia says the copy arrived from France in 1924 and was dedicated on Memorial Day in 1925. The arts council dates a dedication reading to May 30, 1925."}}, {"@type": "Question", "name": "What do the two height figures say?", "acceptedAnswer": {"@type": "Answer", "text": "Wikipedia gives about 12 by 5.5 by 9 feet for the bronze. The Regional Arts and Culture Council catalog lists a height of 13 feet."}}]}]}</script>
 </head>
-<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
-
-    <!-- Global Background -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
-    </div>
-
-    <!-- Sticky Navigation -->
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            
-            <!-- Logo Section -->
-            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
-                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
-                     alt="Profitnet Logo"
-                     width="32" 
-                     height="32"
-                     fetchpriority="high">
-                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
-            </a>
-            
-            <!-- Desktop Nav -->
-            <nav class="hidden lg:flex space-x-10 items-center">
-                <a href="/" class="text-sm font-bold text-white hover:text-accent-gold transition-colors duration-200">HOME</a>
-                
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-gold hover:text-yellow-400 transition-colors duration-200">Landmarks</a>
-                
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
-                    $PNET Asset Dashboard
-                </a>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button>
+<body class="bg-slate-950 text-gray-200">
+    <header class="border-b border-white/10">
+        <div class="max-w-3xl mx-auto px-6 py-4 flex flex-wrap gap-x-5 gap-y-2 items-center">
+            <a href="/" class="text-white font-extrabold">Profitnet</a>
+            <a href="/pages/landmarks/">Landmarks</a>
+            <a href="/OR/">Oregon</a>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        
     </header>
-
-    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
-    <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[60] lg:hidden flex flex-col items-center justify-center space-y-8">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-
-            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-gold transition-colors">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-gold uppercase tracking-widest hover:text-yellow-400 transition-colors">Landmarks</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
-        </div>
-
-
-    <!-- Main Content Area -->
-    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
-<!-- tp-seo:breadcrumbs -->
-<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
-<li><a href="/">Home</a></li>
-<li><a href="/pages/landmarks/">Landmarks</a></li>
-<li><a href="/OR/">Oregon</a></li>
-<li aria-current="page">Joan of Arc Statue</li>
-</ol></nav>
-<!-- /tp-seo:breadcrumbs -->
-
-
-        
-        <!-- Hero Section -->
-        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up">
-            <div class="inline-block mb-4">
-                <span class="stat-badge text-xs font-bold text-accent-gold uppercase tracking-wider">
-                    <i class="fa-solid fa-flag mr-2"></i>The Golden Crusader
-                </span>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
-                <span class="gradient-text">Joan of Arc</span><br>
-                <span class="text-white">Statue</span>
-            </h1>
-            <p class="text-xl text-gray-400 max-w-3xl">
-                A shining piece of French history in the Pacific Northwest. This gilded bronze equestrian monument stands as a memorial to WWI soldiers at the gateway to the Laurelhurst district.
-            </p>
-        </div>
-
-        <!-- Quick Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">1924</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Dedicated</div>
-            </div>
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">23k</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Gold Leaf</div>
-            </div>
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">4</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Global Replicas</div>
-            </div>
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">2022</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Restored</div>
-            </div>
-        </div>
-
-        <!-- The Golden Rider -->
-        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-blur rounded-2xl p-8 md:p-12">
-                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
-                    <i class="fa-solid fa-horse-head text-accent-gold mr-4"></i>
-                    The Golden Rider
-                </h2>
-                
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div class="space-y-6 text-gray-300">
-                        <div class="border-l-4 border-accent-gold pl-6">
-                            <h3 class="text-xl font-bold text-white mb-2">Magnificent Design</h3>
-                            <p>Depicting the French heroine <em>Jeanne d’Arc</em> in armor, triumphantly hoisting a banner. It is a replica of an 1874 work by French sculptor <strong>Emmanuel Frémiet</strong>, with sister statues in Paris, Philadelphia, and New Orleans.</p>
-                        </div>
-                        <div class="flex items-center space-x-3 text-accent-laurel">
-                            <i class="fa-solid fa-leaf text-xl"></i>
-                            <span class="text-sm font-bold uppercase tracking-widest text-gray-500">Laurelhurst Gateway</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
-                        <h3 class="text-xl font-bold text-white mb-4">Memorial & Restoration</h3>
-                        <p class="text-gray-400 mb-4">Donated in 1924 by Dr. Henry Waldo Coe to honor American soldiers. After being damaged in 2020, it underwent significant restoration and re-gilding with brilliant <strong>23-karat gold leaf</strong> before returning in October 2022.</p>
-                        <div class="flex items-center text-sm text-accent-gold">
-                            <i class="fa-solid fa-star mr-2"></i>
-                            <span>Shines brightest during "Golden Hour".</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Location & Visit -->
-        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-blur rounded-2xl p-8 md:p-12">
-                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
-                    <i class="fa-solid fa-map-location-dot text-accent-laurel mr-4"></i>
-                    Location & Visit
-                </h2>
-                
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Location -->
-                    <div class="bg-slate-900/50 rounded-xl p-6 border border-accent-gold/30">
-                        <div class="w-12 h-12 rounded-full bg-yellow-900/30 border border-yellow-500/30 flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-location-crosshairs text-accent-gold"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Coe Circle</h3>
-                        <p class="text-gray-400 text-sm">Situated in a landscaped traffic circle at <strong>NE Glisan St & Caesar E. Chavez Blvd</strong> (39th Ave).</p>
-                    </div>
-
-                    <!-- Accessibility -->
-                    <div class="bg-slate-900/50 rounded-xl p-6 border border-accent-laurel/30">
-                        <div class="w-12 h-12 rounded-full bg-green-900/30 border border-green-500/30 flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-universal-access text-accent-laurel"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Accessibility</h3>
-                        <p class="text-gray-400 text-sm">Viewable 24/7. Crosswalks provide access to the center of the circle for close-up viewing of the details.</p>
-                    </div>
-
-                    <!-- Best Viewing -->
-                    <div class="bg-slate-900/50 rounded-xl p-6 border border-teal-500/30">
-                        <div class="w-12 h-12 rounded-full bg-teal-900/30 border border-teal-500/30 flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-sun text-teal-400"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Best Viewing</h3>
-                        <p class="text-gray-400 text-sm">Striking at night when illuminated, or during sunrise/sunset when the gold leaf catches the light.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Location & CTA -->
-        <div class="max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="400">
-            <div class="card-blur rounded-2xl p-12">
-                <h2 class="text-3xl font-black mb-4 text-white">Visit Coe Circle</h2>
-                <p class="text-gray-400 mb-8">Experience this gleaming tribute to history in the heart of Portland's Laurelhurst district.</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Joan+of+Arc+Statue+Portland+OR" 
-                   target="_blank"
-                   class="cta-button inline-block px-8 py-4 rounded-full text-white font-bold uppercase tracking-wider">
-                    <i class="fa-solid fa-location-dot mr-2"></i>
-                    Get Directions
-                </a>
-            </div>
-        </div>
-        <div class="max-w-4xl mx-auto mt-16 mb-12" data-aos="fade-up">
-            <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-yellow-600 pl-4">History &amp; Background</h2>
-            <div class="space-y-4 text-gray-300 leading-relaxed">
-                <p>Joan of Arc (c.1412–1431) was a French peasant girl from Domrémy who claimed to receive divine visions directing her to support Charles VII and recover France from English domination during the Hundred Years War. At age 17, she convinced the French royal court to allow her to lead troops. Her military campaigns turned the tide of the war — most importantly, she broke the Siege of Orléans in 1429, an event that changed the course of French history. She was subsequently captured by Burgundian forces, sold to the English, tried for heresy, and burned at the stake in Rouen at approximately age 19.</p>
-                <p>Joan of Arc was declared a martyr and ultimately canonized as a saint by the Catholic Church in 1920 — nearly 500 years after her death. She has become one of the most iconic figures in Western history, inspiring centuries of art, literature, and political movements. She is simultaneously a Catholic saint, a French national heroine, a symbol of feminine courage, and a figure appropriated by diverse political ideologies ranging from French nationalism to feminism. Her image — armored, on horseback, carrying a standard — is immediately recognizable worldwide.</p>
-                <p>Portland's Joan of Arc statue reflects the city's connection to French culture through immigration and cultural exchange, as well as the strong Catholic presence in early Oregon history. The French name "Portland" — chosen in 1845 by a coin toss between two founders from Massachusetts and Maine — is coincidental, but the city has maintained French cultural connections. The equestrian statue of Joan of Arc in Portland joins a tradition of such monuments in cities across the United States and France, honoring a figure who transcends her medieval origins to speak to enduring themes of courage, faith, and resistance.</p>
-            </div>
-        </div>
-        <div class="max-w-4xl mx-auto mb-12" data-aos="fade-up">
-            <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-green-500 pl-4">Nearby Attractions</h2>
-            <div class="space-y-4">
-                <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Portland Art Museum</h3><p class="text-sm text-gray-400">The oldest art museum on the West Coast and one of the top 25 art museums in the United States, the Portland Art Museum houses a permanent collection spanning 35,000 works. The Native American collection is particularly notable. The museum is located in the South Park Blocks, a linear park cutting through downtown Portland that also hosts multiple cultural institutions.</p></div>
-                <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Oregon Historical Society Museum</h3><p class="text-sm text-gray-400">Also located in the South Park Blocks, the Oregon Historical Society houses a comprehensive collection of Oregon historical documents, photographs, and artifacts. The museum's trompe l'oeil murals on its exterior walls are Portland landmarks in themselves. Rotating exhibitions explore Oregon history from Indigenous cultures to contemporary events.</p></div>
-                <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Lan Su Chinese Garden</h3><p class="text-sm text-gray-400">A classical Suzhou-style garden in Portland's Chinatown district, Lan Su was built by artisans from Suzhou, China — Portland's sister city. The walled garden features traditional architecture, koi ponds, teahouse, and seasonal plantings that create a tranquil urban retreat. It represents Portland's diverse cultural connections and its significant Chinese immigrant history.</p></div>
-            </div>
-        </div>
-    
-
-<!-- tp-seo:related -->
-<aside class="tp-seo-related" aria-label="Related landmarks">
-    <h2>Related landmarks</h2>
-    <ul>
-        <li><a href="/OR/Abraham%20Lincoln%20Memorial%20Statue/">Abraham Lincoln Memorial Statue</a></li>
-<li><a href="/OR/Barclay%20Park/">Barclay Park</a></li>
-<li><a href="/OR/Bonanza%20Bigfoot%20statue/">Bonanza Bigfoot Statue</a></li>
-<li><a href="/OR/Statue%20of%20Liberty/">Lady Liberty Replica</a></li>
-<li><a href="/OR/Dawson%20Creek%20Nature%20Statue%20Monument/">Nature Statue Dawson Creek</a></li>
-    </ul>
-    <p><a href="/OR/">All Oregon pages</a></p>
-</aside>
-<!-- /tp-seo:related -->
-</main>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Init AOS
-        AOS.init({ 
-            duration: 800, 
-            once: true,
-            offset: 50
-        });
-
-        // Mobile Menu Toggle Logic
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const body = document.body;
-
-        function toggleMenu(show) {
-            if (show) {
-                mobileMenu.classList.add('active');
-                body.style.overflow = 'hidden';
-            } else {
-                mobileMenu.classList.remove('active');
-                body.style.overflow = '';
-            }
-        }
-
-        menuBtn.addEventListener('click', () => toggleMenu(true));
-        closeBtn.addEventListener('click', () => toggleMenu(false));
-
-        // Close menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => toggleMenu(false));
-        });
-    });
-    </script>
+    <main class="max-w-3xl mx-auto px-6 py-10">
+        <nav aria-label="Breadcrumb"><ol class="flex flex-wrap gap-x-2 text-sm text-gray-400 list-none p-0 m-0 mb-6"><li><a href="/">Home</a></li><li aria-hidden="true">/</li><li><a href="/pages/landmarks/">Landmarks</a></li><li aria-hidden="true">/</li><li><a href="/OR/">Oregon</a></li><li aria-hidden="true">/</li><li aria-current="page">Joan of Arc</li></ol></nav>
+        <h1 class="text-4xl font-black text-white mb-4">Joan of Arc statue</h1>
+        <p>The Joan of Arc statue is a roadside landmark in Portland's Laurelhurst neighborhood. Wikipedia places the equestrian bronze in Coe Circle, at Northeast Cesar E. Chavez Boulevard, formerly 39th Avenue, and Glisan. Henry Waldo Coe donated it after seeing Emmanuel Frémiet's 1874 gilded bronze, Jeanne d'Arc, at the Place des Pyramides in Paris. Portland's copy arrived from France in 1924 and was dedicated on Memorial Day in 1925 for the doughboys of World War I.</p><p>Wikipedia says the bronze measures about 12 feet by 5.5 feet by 9 feet, the flag is copper, and the granite base measures about 8 feet in one of its dimensions. A Regional Arts and Culture Council catalog lists the work as bronze, copper, and gold leaf, dated 1924, with a height of 13 feet. That catalog says the May 30, 1925 dedication included a reading of remarks from President Calvin Coolidge and French president Gaston Doumergue.</p><p>Wikipedia says the gold leaf wore away until a 1993 Smithsonian Save Outdoor Sculpture survey found no luster left. In 2002, after fundraising and a $24,000 grant, the city restored the gold leaf and replaced the pennant in Joan's right hand and the laurel wreath on her head. The arts council says the sculpture was rededicated in May 2002 after nearly three years of planning, with support from a Save Outdoor Sculpture grant, Target Stores, the National Endowment for the Arts, Providence Health Systems, and local residents.</p>
+        <p class="text-sm text-gray-400 mt-6">Last updated <time datetime="2026-10-21">21 October 2026</time>.</p>
+        <section aria-labelledby="faq-heading"><h2 id="faq-heading" class="text-2xl font-black text-white mt-10 mb-2">Questions</h2><details><summary>Where is the Joan of Arc statue?</summary><p>Wikipedia places it in Coe Circle, at Northeast Cesar E. Chavez Boulevard and Glisan, in Portland's Laurelhurst neighborhood.</p></details><details><summary>When was it dedicated?</summary><p>Wikipedia says the copy arrived from France in 1924 and was dedicated on Memorial Day in 1925. The arts council dates a dedication reading to May 30, 1925.</p></details><details><summary>What do the two height figures say?</summary><p>Wikipedia gives about 12 by 5.5 by 9 feet for the bronze. The Regional Arts and Culture Council catalog lists a height of 13 feet.</p></details></section>
+        <section aria-labelledby="sources-heading"><h2 id="sources-heading" class="text-2xl font-black text-white mt-10 mb-3">Sources</h2><ul class="source-list list-disc pl-5 text-gray-300"><li><a href="https://en.wikipedia.org/wiki/Joan_of_Arc_(Portland,_Oregon)">https://en.wikipedia.org/wiki/Joan_of_Arc_(Portland,_Oregon)</a>. Wikipedia on Coe Circle, the 1925 dedication, and the 2002 gold-leaf restoration.</li><li><a href="https://oregonvisualarts.org/emmanuel-frmiet-racc-historic-portland-sculpture-2/">https://oregonvisualarts.org/emmanuel-frmiet-racc-historic-portland-sculpture-2/</a>. Regional Arts and Culture Council catalog on the 1924 casting, the 13-foot height, and the 2002 rededication.</li></ul></section>
+        <section aria-labelledby="cite-heading"><h2 id="cite-heading" class="text-2xl font-black text-white mt-8 mb-3">Cite or link to this guide</h2><p>Link to <a href="https://testedprofit.com/OR/Joan%20of%20Arc,%20Portland,%20Oregon/">https://testedprofit.com/OR/Joan%20of%20Arc,%20Portland,%20Oregon/</a>.</p></section>
+        <aside class="tp-related" aria-label="Related guides"><h2 class="text-xl font-black text-white mb-2">Related guides</h2><ul class="list-disc pl-5"><li><a href="/OR/Portlandia/">Portlandia statue</a></li><li><a href="/OR/">Oregon landmark directory</a></li><li><a href="/pages/landmarks/">Landmarks hub</a></li><li><a href="/pages/parks/">Park guides</a></li><li><a href="/pages/guides/">Earning-app guides</a></li></ul></aside>
+    </main>
 </body>
 </html>

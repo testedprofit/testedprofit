@@ -1,414 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Black Bird Statue | Profitnet Landmarks</title>
+    <title>Black Bird Statue in Medford | Guide</title>
+    <meta name="description" content="Lee Hobbs built the 29-foot Black Bird statue in 1965. It stands at 1810 W. Main Street in Medford.">
     <link rel="canonical" href="https://testedprofit.com/OR/Black%20Bird%20Statue%20(Medford)/">
-    <meta name="description" content="Visit The Black Bird Statue in Medford, Oregon. A 29-foot tall roadside icon and mascot known for its bulging biceps and yellow speaker beak.">
-    
-    <!-- External Scripts & Styles -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Black Bird Statue in Medford | Guide">
+    <meta property="og:description" content="Lee Hobbs built the 29-foot Black Bird statue in 1965. It stands at 1810 W. Main Street in Medford.">
+    <meta property="og:url" content="https://testedprofit.com/OR/Black%20Bird%20Statue%20(Medford)/">
+    <meta property="og:site_name" content="Profitnet Landmarks">
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts: Preconnected for speed -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome: Required for content icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0A091B', /* Deep Profitnet Blue */
-                        accent: {
-                            teal: '#2DD4BF',
-                            yellow: '#EAB308', /* Beak Yellow */
-                            black: '#171717',  /* Bird Black */
-                            zinc: '#52525B'
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
-            }
-        }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0A091B;
-            color: #E5E7EB;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Optimization: Animations */
-        .hero-glow {
-            background: radial-gradient(circle at 30% 20%, rgba(234, 179, 8, 0.15) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(82, 82, 91, 0.15) 0%, transparent 60%);
-            will-change: opacity;
-        }
-
-        .bg-grid-pattern {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 2.5rem 2.5rem;
-        }
-
-        /* Custom Content Styles */
-        .gradient-text {
-            background: linear-gradient(90deg, #EAB308, #A1A1AA); /* Yellow to Zinc */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .card-blur {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-blur:hover {
-            border-color: #EAB308;
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-        }
-
-        .info-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: #EAB308;
-        }
-
-        .stat-badge {
-            background: linear-gradient(135deg, rgba(234, 179, 8, 0.2), rgba(82, 82, 91, 0.2));
-            border: 1px solid rgba(234, 179, 8, 0.4);
-            border-radius: 8px;
-            padding: 0.75rem 1.25rem;
-            display: inline-block;
-        }
-
-        .cta-button {
-            background: linear-gradient(90deg, #EAB308, #52525B);
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(234, 179, 8, 0.4);
-        }
-
-        /* Mobile Menu */
-        #mobile-menu {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-            transform: translateY(-100%);
-            opacity: 0;
-            pointer-events: none;
-        }
-        #mobile-menu.active {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0A091B; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
-    </style>
-<style id="tp-seo-style">
-.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
-.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
-.tp-seo-crumbs a:hover{text-decoration:underline}
-.tp-seo-crumbs li{color:#e5e7eb}
-.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
-.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
-.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
-.tp-seo-related ul{margin:0;padding-left:1.1rem}
-.tp-seo-related a{color:#5eead4}
-.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
+body{font-family:Inter,system-ui,sans-serif}
+a{color:#5eead4}
+main a{overflow-wrap:anywhere}
+.source-list a,.tp-related a,.guide-list a{text-decoration:underline}
+.source-list li,.guide-list li{margin:.45rem 0}
+.tp-related{margin-top:2rem;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55)}
+.guide-list{list-style:none;padding:0}
+.guide-list a{display:block;padding:.85rem 1rem;border:1px solid rgba(148,163,184,.28);border-radius:14px;background:rgba(15,23,42,.45)}
+details{border-top:1px solid rgba(148,163,184,.25);padding:.7rem 0}
+summary{cursor:pointer;font-weight:650}
 </style>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TouristAttraction", "@id": "https://testedprofit.com/OR/Black%20Bird%20Statue%20(Medford)/#place", "name": "Black Bird statue", "description": "Lee Hobbs built the 29-foot Black Bird statue in 1965. It stands at 1810 W. Main Street in Medford.", "url": "https://testedprofit.com/OR/Black%20Bird%20Statue%20(Medford)/", "dateModified": "2026-10-21", "address": {"@type": "PostalAddress", "addressLocality": "Medford", "addressRegion": "OR", "addressCountry": "US", "streetAddress": "1810 W. Main Street", "postalCode": "97501"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://testedprofit.com/"}, {"@type": "ListItem", "position": 2, "name": "Landmarks", "item": "https://testedprofit.com/pages/landmarks/"}, {"@type": "ListItem", "position": 3, "name": "Oregon", "item": "https://testedprofit.com/OR/"}, {"@type": "ListItem", "position": 4, "name": "Black Bird statue", "item": "https://testedprofit.com/OR/Black%20Bird%20Statue%20(Medford)/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where is the Black Bird statue?", "acceptedAnswer": {"@type": "Answer", "text": "The store and The Oregonian place the statue at 1810 W. Main Street in Medford, in front of the Black Bird store."}}, {"@type": "Question", "name": "Who built it, and when?", "acceptedAnswer": {"@type": "Answer", "text": "The store says Lee Hobbs designed and built the 29-foot bird in 1965 from rebar, hog wire, and fiberglass. Southern Oregon Historical Society describes a concrete-bar skeleton, hog wire, and fiberglass."}}, {"@type": "Question", "name": "What does the store put on the bird?", "acceptedAnswer": {"@type": "Answer", "text": "The store says the bird wears a tank top and shorts for the Pear Blossom Run and a Santa hat and candy cane at Christmas."}}]}]}</script>
 </head>
-<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
-
-    <!-- Global Background -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
-    </div>
-
-    <!-- Sticky Navigation -->
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            
-            <!-- Logo Section -->
-            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
-                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
-                     alt="Profitnet Logo"
-                     width="32" 
-                     height="32"
-                     fetchpriority="high">
-                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
-            </a>
-            
-            <!-- Desktop Nav -->
-            <nav class="hidden lg:flex space-x-10 items-center">
-                <a href="/" class="text-sm font-bold text-white hover:text-accent-yellow transition-colors duration-200">HOME</a>
-                
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-yellow hover:text-yellow-300 transition-colors duration-200">Landmarks</a>
-                
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
-                    $PNET Asset Dashboard
-                </a>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button>
+<body class="bg-slate-950 text-gray-200">
+    <header class="border-b border-white/10">
+        <div class="max-w-3xl mx-auto px-6 py-4 flex flex-wrap gap-x-5 gap-y-2 items-center">
+            <a href="/" class="text-white font-extrabold">Profitnet</a>
+            <a href="/pages/landmarks/">Landmarks</a>
+            <a href="/OR/">Oregon</a>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        
     </header>
-
-    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
-    <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[60] lg:hidden flex flex-col items-center justify-center space-y-8">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-
-            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-yellow transition-colors">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-yellow uppercase tracking-widest hover:text-yellow-300 transition-colors">Landmarks</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
-        </div>
-
-
-    <!-- Main Content Area -->
-    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
-<!-- tp-seo:breadcrumbs -->
-<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
-<li><a href="/">Home</a></li>
-<li><a href="/pages/landmarks/">Landmarks</a></li>
-<li><a href="/OR/">Oregon</a></li>
-<li aria-current="page">The Black Bird Statue</li>
-</ol></nav>
-<!-- /tp-seo:breadcrumbs -->
-
-
-        
-        <!-- Hero Section -->
-        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up">
-            <div class="inline-block mb-4">
-                <span class="stat-badge text-xs font-bold text-accent-yellow uppercase tracking-wider">
-                    <i class="fa-solid fa-crow mr-2"></i>Medford's Iconic Mascot
-                </span>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
-                <span class="gradient-text">The Black Bird</span><br>
-                <span class="text-white">Statue</span>
-            </h1>
-            <p class="text-xl text-gray-400 max-w-3xl">
-                Standing 29 feet tall, this "grotesque" yet beloved mascot has been greeting Medford locals and I-5 travelers with its bulging biceps and yellow speaker-beak for over 60 years.
-            </p>
-        </div>
-
-        <!-- Quick Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">1965</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Created</div>
-            </div>
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">29 ft</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Height</div>
-            </div>
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">Fiberglass</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Material</div>
-            </div>
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">Store</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Mascot</div>
-            </div>
-        </div>
-
-        <!-- The Bird & The Builder -->
-        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-blur rounded-2xl p-8 md:p-12">
-                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
-                    <i class="fa-solid fa-hammer text-accent-yellow mr-4"></i>
-                    The Bird & The Builder
-                </h2>
-                
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div class="space-y-6 text-gray-300">
-                        <div class="border-l-4 border-accent-yellow pl-6">
-                            <h3 class="text-xl font-bold text-white mb-2">A Grotesque Icon</h3>
-                            <p>Affectionately known as "The Bird," this statue is famous for its unique features: bulging human-like biceps, hands with three twisted fingers instead of wings, and a bright yellow beak equipped with a speaker system that once greeted customers.</p>
-                        </div>
-                        <div class="flex items-center space-x-3 text-accent-yellow">
-                            <i class="fa-solid fa-dumbbell text-xl"></i>
-                            <i class="fa-solid fa-bullhorn text-xl"></i>
-                            <span class="text-sm font-bold uppercase tracking-widest text-gray-500">Signature Features</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
-                        <h3 class="text-xl font-bold text-white mb-4">Fabrication History</h3>
-                        <p class="text-gray-400 mb-4">Designed and built in 1965 by store founder <strong>Lee Hobbs</strong>. He utilized fabrication skills learned at Boeing to construct the massive bird using a skeleton of rebar and hog wire sprayed with fiberglass.</p>
-                        <div class="flex items-center text-sm text-accent-zinc">
-                            <i class="fa-solid fa-plane-up mr-2"></i>
-                            <span>Inspired by aerospace techniques & "Yard Birds" statues.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Community & Context -->
-        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-blur rounded-2xl p-8 md:p-12">
-                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
-                    <i class="fa-solid fa-users text-accent-zinc mr-4"></i>
-                    Community & Context
-                </h2>
-                
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- The Store -->
-                    <div class="bg-slate-900/50 rounded-xl p-6 border border-accent-yellow/30">
-                        <div class="w-12 h-12 rounded-full bg-yellow-900/30 border border-yellow-500/30 flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-cart-shopping text-accent-yellow"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">The Store</h3>
-                        <p class="text-gray-400 text-sm">The Black Bird Shopping Center began as an army surplus store and evolved into a massive, family-owned destination for sporting goods and hardware.</p>
-                    </div>
-
-                    <!-- Traditions -->
-                    <div class="bg-slate-900/50 rounded-xl p-6 border border-red-500/30">
-                        <div class="w-12 h-12 rounded-full bg-red-900/30 border border-red-500/30 flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-hat-santa text-red-400"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Traditions</h3>
-                        <p class="text-gray-400 text-sm">A living part of the community calendar. The store occasionally dresses "The Bird" in holiday costumes, most notably donning a giant Santa hat during Christmas.</p>
-                    </div>
-
-                    <!-- Visit -->
-                    <div class="bg-slate-900/50 rounded-xl p-6 border border-teal-500/30">
-                        <div class="w-12 h-12 rounded-full bg-teal-900/30 border border-teal-500/30 flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-camera text-teal-400"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Photo Op</h3>
-                        <p class="text-gray-400 text-sm">Located in the parking lot, it is a popular, free photo opportunity for travelers passing through Medford on the I-5 corridor.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Location & CTA -->
-        <div class="max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="400">
-            <div class="card-blur rounded-2xl p-12">
-                <h2 class="text-3xl font-black mb-4 text-white">Visit The Bird</h2>
-                <p class="text-gray-400 mb-8">Located at 1810 W. Main St., Medford, OR. Open to the public daily.</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=1810+W+Main+St+Medford+OR" 
-                   target="_blank"
-                   class="cta-button inline-block px-8 py-4 rounded-full text-white font-bold uppercase tracking-wider">
-                    <i class="fa-solid fa-location-arrow mr-2"></i>
-                    Get Directions
-                </a>
-            </div>
-        </div>
-        <div class="max-w-4xl mx-auto mt-16 mb-12" data-aos="fade-up">
-            <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-slate-400 pl-4">History &amp; Background</h2>
-            <div class="space-y-4 text-gray-300 leading-relaxed">
-                <p>The Black Bird Statue in Medford, Oregon is a striking piece of public art that celebrates the natural world through abstract or representational sculpture. Medford sits in the Rogue Valley of southern Oregon, a region of remarkable natural beauty and biodiversity that includes the Rogue River, the Cascade foothills, and proximity to Crater Lake National Park. Public art in Medford increasingly reflects the area's identity as a community embedded in and shaped by its natural surroundings.</p>
-                <p>Birds hold particular cultural and ecological significance in the Pacific Northwest. The region is a vital flyway for migratory species, and Oregon supports a remarkably diverse avian population from the shorebirds of the coast to the raptors of the high desert. The Rogue Valley serves as important habitat for numerous species. In many Indigenous traditions of the Pacific Northwest, ravens and crows hold powerful symbolic meaning as tricksters, messengers, and creators — beings of intelligence and transformation.</p>
-                <p>Medford was founded in 1883 as a railroad town and grew through the 20th century as a regional commercial hub for southwestern Oregon. The city has invested in downtown revitalization including public art installations that give the urban core character and draw visitors. The Black Bird Statue, whether representational or abstract, participates in the broader effort to make Medford's downtown a destination that reflects the creative and natural identity of the Rogue Valley.</p>
-            </div>
-        </div>
-        <div class="max-w-4xl mx-auto mb-12" data-aos="fade-up">
-            <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-green-500 pl-4">Nearby Attractions</h2>
-            <div class="space-y-4">
-                <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Crater Lake National Park</h3><p class="text-sm text-gray-400">Approximately 80 miles north of Medford, Crater Lake is the deepest lake in the United States and one of the most visually stunning places in the country. The vivid blue water sits in the caldera of the collapsed volcano Mount Mazama, which erupted catastrophically approximately 7,700 years ago. Rim Drive circles the crater with multiple overlooks, and boat tours reach Wizard Island in summer.</p></div>
-                <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Lithia Park (Ashland)</h3><p class="text-sm text-gray-400">In nearby Ashland, Lithia Park is a stunning 93-acre park designed by John McLaren (who also designed Golden Gate Park). The park surrounds Ashland Creek and includes formal rose gardens, Japanese garden, tennis courts, and natural forest areas. Ashland is also home to the Oregon Shakespeare Festival, one of the largest repertory theater companies in the United States.</p></div>
-                <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Table Rocks Natural Area</h3><p class="text-sm text-gray-400">Two flat-topped buttes — Upper Table Rock and Lower Table Rock — rise dramatically from the Rogue Valley floor just north of Medford. These ancient lava formations are managed by the Bureau of Land Management and the Nature Conservancy and host spring wildflower blooms, endemic plant species, and spectacular views of the entire valley. Hiking trails of moderate difficulty reach the summits.</p></div>
-            </div>
-        </div>
-    
-
-<!-- tp-seo:related -->
-<aside class="tp-seo-related" aria-label="Related landmarks">
-    <h2>Related landmarks</h2>
-    <ul>
-        <li><a href="/OR/Abraham%20Lincoln%20Memorial%20Statue/">Abraham Lincoln Memorial Statue</a></li>
-<li><a href="/OR/Barclay%20Park/">Barclay Park</a></li>
-<li><a href="/OR/Bonanza%20Bigfoot%20statue/">Bonanza Bigfoot Statue</a></li>
-<li><a href="/OR/Joan%20of%20Arc%2C%20Portland%2C%20Oregon/">Joan of Arc Statue</a></li>
-<li><a href="/OR/Statue%20of%20Liberty/">Lady Liberty Replica</a></li>
-    </ul>
-    <p><a href="/OR/">All Oregon pages</a></p>
-</aside>
-<!-- /tp-seo:related -->
-</main>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Init AOS
-        AOS.init({ 
-            duration: 800, 
-            once: true,
-            offset: 50
-        });
-
-        // Mobile Menu Toggle Logic
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const body = document.body;
-
-        function toggleMenu(show) {
-            if (show) {
-                mobileMenu.classList.add('active');
-                body.style.overflow = 'hidden';
-            } else {
-                mobileMenu.classList.remove('active');
-                body.style.overflow = '';
-            }
-        }
-
-        menuBtn.addEventListener('click', () => toggleMenu(true));
-        closeBtn.addEventListener('click', () => toggleMenu(false));
-
-        // Close menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => toggleMenu(false));
-        });
-    });
-    </script>
+    <main class="max-w-3xl mx-auto px-6 py-10">
+        <nav aria-label="Breadcrumb"><ol class="flex flex-wrap gap-x-2 text-sm text-gray-400 list-none p-0 m-0 mb-6"><li><a href="/">Home</a></li><li aria-hidden="true">/</li><li><a href="/pages/landmarks/">Landmarks</a></li><li aria-hidden="true">/</li><li><a href="/OR/">Oregon</a></li><li aria-hidden="true">/</li><li aria-current="page">Black Bird</li></ol></nav>
+        <h1 class="text-4xl font-black text-white mb-4">Black Bird statue</h1>
+        <p>The Black Bird statue is a roadside landmark in front of the Black Bird store at 1810 W. Main Street, Medford, Oregon 97501. The store says Lee Hobbs founded it in 1965 as an army surplus store and designed and built the 29-foot bird himself from rebar, hog wire, and fiberglass. The store says the figure was fashioned after a 10-foot magpie at Yard Birds in Centralia, Washington, a shop owned by a friend of Hobbs. Staff dress the bird in a tank top and shorts for the Pear Blossom Run and in a Santa hat and candy cane for Christmas.</p><p>The Oregonian, in a May 2022 feature, says Hobbs had worked as a fabricator at Boeing and as a mechanic. It describes bulging biceps, toes that curl upward, and claws that bend at opposing angles, with arms about twice the length of the legs. The open beak looks down from two concrete pillars painted B.B. Jonathan Quitt, then vice president of the shopping center, told the paper the statue is a Medford icon. The paper prints the same street address, 1810 W. Main Street.</p><p>Southern Oregon Historical Society describes a skeleton of concrete bars, hog wire clipped over the frame, and fiberglass sprayed over the wire, with the underpinning 30 feet below the surface. It describes a yellow and black head wired with a speaker, three talons on each hand and two on each foot, and a small plaque under the left foot memorializing Hobbs, who died in 1973. The account says the bird still gets a paint job and seasonal wardrobe changes.</p>
+        <p class="text-sm text-gray-400 mt-6">Last updated <time datetime="2026-10-21">21 October 2026</time>.</p>
+        <section aria-labelledby="faq-heading"><h2 id="faq-heading" class="text-2xl font-black text-white mt-10 mb-2">Questions</h2><details><summary>Where is the Black Bird statue?</summary><p>The store and The Oregonian place the statue at 1810 W. Main Street in Medford, in front of the Black Bird store.</p></details><details><summary>Who built it, and when?</summary><p>The store says Lee Hobbs designed and built the 29-foot bird in 1965 from rebar, hog wire, and fiberglass. Southern Oregon Historical Society describes a concrete-bar skeleton, hog wire, and fiberglass.</p></details><details><summary>What does the store put on the bird?</summary><p>The store says the bird wears a tank top and shorts for the Pear Blossom Run and a Santa hat and candy cane at Christmas.</p></details></section>
+        <section aria-labelledby="sources-heading"><h2 id="sources-heading" class="text-2xl font-black text-white mt-10 mb-3">Sources</h2><ul class="source-list list-disc pl-5 text-gray-300"><li><a href="https://theblackbird.com/about-us/">https://theblackbird.com/about-us/</a>. Black Bird store on Lee Hobbs, the 1965 construction, and 1810 W. Main Street.</li><li><a href="https://www.hereisoregon.com/places/2022/05/medfords-black-bird-statue-a-roadside-attraction-since-1965-will-soon-have-a-twin.html">https://www.hereisoregon.com/places/2022/05/medfords-black-bird-statue-a-roadside-attraction-since-1965-will-soon-have-a-twin.html</a>. The Oregonian on the 1965 statue, its builder, and the Medford address.</li><li><a href="https://research.sohs.org/node/14105">https://research.sohs.org/node/14105</a>. Southern Oregon Historical Society on the frame, the speaker, and the 1973 plaque.</li></ul></section>
+        <section aria-labelledby="cite-heading"><h2 id="cite-heading" class="text-2xl font-black text-white mt-8 mb-3">Cite or link to this guide</h2><p>Link to <a href="https://testedprofit.com/OR/Black%20Bird%20Statue%20(Medford)/">https://testedprofit.com/OR/Black%20Bird%20Statue%20(Medford)/</a>.</p></section>
+        <aside class="tp-related" aria-label="Related guides"><h2 class="text-xl font-black text-white mb-2">Related guides</h2><ul class="list-disc pl-5"><li><a href="/OR/Bonanza%20Bigfoot%20statue/">Bonanza Bigfoot statue</a></li><li><a href="/OR/">Oregon landmark directory</a></li><li><a href="/pages/landmarks/">Landmarks hub</a></li><li><a href="/pages/parks/">Park guides</a></li><li><a href="/pages/guides/">Earning-app guides</a></li></ul></aside>
+    </main>
 </body>
 </html>
