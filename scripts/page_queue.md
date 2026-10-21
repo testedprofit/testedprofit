@@ -77,7 +77,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the Alabama landmarks PR (second half). Directory cards now use the revised titles for all 22 guides.
 - https://testedprofit.com/CO/
   - Title: Colorado Statues and Landmarks | TestedProfit
-  - Status: updated in the second Colorado landmarks PR. Cards use revised titles for nineteen guides and the bear keeper, current titles for nine guides still waiting, and live titles for finished Colorado guides and parks outside this folder.
+  - Status: updated in the final Colorado landmarks PR. Cards for every Colorado directory guide use the revised titles. The fourth group still links finished Colorado pages outside this folder.
 - https://testedprofit.com/HI/
   - Title: Hawaii Heritage | Profitnet Landmark Directory
   - Status: open. no OG
@@ -253,32 +253,32 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Pueblo History and Art Walk | Guide
   - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Pyro-DuBois-Memorial/
-  - Title: Capt. William H. "Pyro" DuBois Jr. Memorial | Colorado Landmark
-  - Status: open. title 63 chars
+  - Title: Pyro DuBois Memorial in New Castle | Guide
+  - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Rhino%20iguana%20sculpture/
-  - Title: Rhino Iguana Sculpture | Lafayette, CO Public Art Directory
-  - Status: open. description 174 chars | no OG
+  - Title: Rhino Iguana Sculpture in Lafayette | Guide
+  - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Riverfront%20Park%20Statue/
-  - Title: Riverfront Park Statue (Unnamed) | Durango, CO Directory
-  - Status: open. no OG
+  - Title: Riverfront Park in Durango | Guide
+  - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026. The tourism listing does not name a sculpture.
 - https://testedprofit.com/CO/Snapshot%20statue/
-  - Title: "Snapshot" Statue | Lakewood, Colorado
-  - Status: open. no OG
+  - Title: Snapshot Bronze in Addenbrooke Park | Guide
+  - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Telluride%20Penny%20Bear%20(%20Ursa%20Ravus)/
-  - Title: Telluride Penny Bear (Ursa Ravus) | Telluride, CO Directory
-  - Status: open. no OG
+  - Title: Telluride Penny Bear on Colorado Ave | Guide
+  - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Tennyson%20Sculpture%20Garden%20&%20Park/
-  - Title: Tennyson Sculpture Garden & Park | Pagosa Springs, CO Directory
-  - Status: open. title 63 chars | no OG | not in sitemap
+  - Title: Tennyson Sculpture Garden in Pagosa | Guide
+  - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/The%20Pueblo%20Christopher%20Columbus%20Monument/
-  - Title: Pueblo Christopher Columbus Monument | Pueblo, CO Directory
-  - Status: open. no OG
+  - Title: Columbus Monument in Pueblo | Guide
+  - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Warren%20Barnes%20Memorial/
-  - Title: Warren Barnes Memorial | Grand Junction, CO Directory
-  - Status: open. no OG
+  - Title: Warren Barnes Memorial in Grand Junction | Guide
+  - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Westminster%20City%20Park/
-  - Title: Westminster City Park | The Unofficial Guide
-  - Status: open. description 166 chars | no OG
+  - Title: Westminster City Park | Visit Guide
+  - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Boat%20Rotor%20Statue/
   - Title: TestedProfit | Boat Rotor Statue
   - Status: open. description 178 chars | no OG
