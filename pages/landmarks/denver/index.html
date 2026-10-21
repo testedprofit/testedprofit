@@ -1,56 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Denver Statues and Public Art | TestedProfit</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denver Landmark Guides | Directory</title>
     <link rel="canonical" href="https://testedprofit.com/pages/landmarks/denver/">
-    <meta name="description" content="Denver metro statues and public art on TestedProfit, including the American eagle statue, Bronco Buster, and Dr. Justina Ford.">
+    <meta name="description" content="Six Denver-area visitor guides: Bronco Buster, Lady Doctor, Botero's Man and Woman, Cowboy in Pajamas, Golden's Newsboy, and Westminster Sensory Park.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Denver Statues and Public Art | TestedProfit">
-    <meta property="og:description" content="Denver metro statues and public art on TestedProfit, including the American eagle statue, Bronco Buster, and Dr. Justina Ford.">
+    <meta property="og:title" content="Denver Landmark Guides | Directory">
+    <meta property="og:description" content="Six Denver-area visitor guides: Bronco Buster, Lady Doctor, Botero's Man and Woman, Cowboy in Pajamas, Golden's Newsboy, and Westminster Sensory Park.">
     <meta property="og:url" content="https://testedprofit.com/pages/landmarks/denver/">
+    <meta property="og:site_name" content="Profitnet Landmarks">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"CollectionPage","@id":"https://testedprofit.com/pages/landmarks/denver/#collection","name":"Denver landmarks","url":"https://testedprofit.com/pages/landmarks/denver/","description":"Six Denver-area visitor guides: Bronco Buster, Lady Doctor, Botero's Man and Woman, Cowboy in Pajamas, Golden's Newsboy, and Westminster Sensory Park.","mainEntity":{"@type":"ItemList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Bronco Buster in Denver Civic Center | Guide","url":"https://testedprofit.com/pages/bronco-buster-statue/"},
+  {"@type":"ListItem","position":2,"name":"Lady Doctor Statue at 30th and Downing | Guide","url":"https://testedprofit.com/pages/the-lady-doctor-statue/"},
+  {"@type":"ListItem","position":3,"name":"Botero's Man and Woman in Denver | Visit Guide","url":"https://testedprofit.com/pages/man-and-woman/"},
+  {"@type":"ListItem","position":4,"name":"Cowboy in Pajamas Sculpture in Denver | Guide","url":"https://testedprofit.com/pages/cowboy-in-pajamas/"},
+  {"@type":"ListItem","position":5,"name":"The Newsboy Statue in Golden, CO | Visit Guide","url":"https://testedprofit.com/pages/the-newsboy-statue/"},
+  {"@type":"ListItem","position":6,"name":"Westminster Sensory Park | Accessible Play Guide","url":"https://testedprofit.com/pages/sensory-park/"}
+ ]}},
+ {"@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://testedprofit.com/"},
+  {"@type":"ListItem","position":2,"name":"Landmarks","item":"https://testedprofit.com/pages/landmarks/"},
+  {"@type":"ListItem","position":3,"name":"Colorado","item":"https://testedprofit.com/CO/"},
+  {"@type":"ListItem","position":4,"name":"Denver","item":"https://testedprofit.com/pages/landmarks/denver/"}
+ ]}
+]}
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: { teal: '#2DD4BF', emerald: '#10B981' }
+                    },
+                    fontFamily: {
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body { margin: 0; font-family: Inter, system-ui, sans-serif; background: #0A091B; color: #E5E7EB; }
-        a { color: #5eead4; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        header { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,.08); }
-        header nav { display: flex; gap: 1rem; font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-        main { max-width: 960px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
-        h1 { font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.15; margin: 0 0 .75rem; }
-        .lede { color: #9CA3AF; font-size: 1.05rem; max-width: 42rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: .75rem; margin-top: 1.5rem; }
-        .card { display: block; padding: 1rem; border: 1px solid rgba(255,255,255,.08); border-radius: 14px; background: rgba(255,255,255,.03); color: inherit; }
-        .card:hover { border-color: rgba(45,212,191,.5); text-decoration: none; }
-        .card strong { display: block; color: white; margin-bottom: .25rem; }
-        .card span { color: #9CA3AF; font-size: .92rem; }
-        .crumbs { display: flex; flex-wrap: wrap; gap: .35rem .5rem; list-style: none; padding: 0; margin: 0 0 1.25rem; font-size: .85rem; }
-        .crumbs li + li::before { content: "/"; color: #64748b; margin-right: .5rem; }
-        footer { border-top: 1px solid rgba(255,255,255,.06); color: #64748b; font-size: .85rem; padding: 1.5rem; text-align: center; }
+        body { font-family: 'Inter', sans-serif; background-color: #0A091B; color: #E5E7EB; line-height: 1.6; min-height: 100vh; }
+        h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .gradient-text { background: linear-gradient(90deg, #34D399, #60A5FA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
+        }
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+        .card-blur {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .card-blur:hover { border-color: #2DD4BF; transform: translateY(-2px); }
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
+        .tp-seo-crumbs { list-style: none; display: flex; flex-wrap: wrap; gap: .35rem .45rem; margin: 0 0 1.25rem; padding: .55rem .9rem; font: 500 .82rem/1.4 Inter, system-ui, sans-serif; background: rgba(15,23,42,.72); border: 1px solid rgba(148,163,184,.28); border-radius: 999px; }
+        .tp-seo-crumbs a { color: #5eead4; text-decoration: none; }
+        .tp-seo-crumbs a:hover { text-decoration: underline; }
+        .tp-seo-crumbs li { color: #e5e7eb; }
+        .tp-seo-crumbs li + li::before { content: "/"; color: #94a3b8; margin-right: .45rem; }
     </style>
 </head>
-<body>
-    <header>
-        <a href="/" style="color:white;font-weight:800;">TestedProfit</a>
-        <nav>
-            <a href="/pages/landmarks/">Landmarks</a>
-            <a href="/pages/guides/">Earning guides</a>
-        </nav>
-    </header>
-    <main>
-        <ol class="crumbs">
-<li><a href="/">Home</a></li>
-<li><a href="/pages/landmarks/">Landmarks</a></li>
-<li><a href="/CO/">Colorado</a></li>
-<li aria-current="page">Denver</li>
-</ol>
-        <h1>Denver statues and public art</h1>
-        <p class="lede">The Denver metro pages people search for: the American eagle statue, the Bronco Buster, and the Lady Doctor statue, plus nearby Golden and Westminster stops.</p>
-        <div class="grid"><a class="card" href="/pages/eagle-statue/"><strong>The Majestic Eagle Sculpture</strong><span>Lakewood, at Denver West Plaza. Often confused with the Nicolosi eagle on the City and County Building.</span></a><a class="card" href="/pages/bronco-buster-statue/"><strong>The Bronco Buster</strong><span>Civic Center Park. Alexander Phimister Proctor&#x27;s Bronco Buster, not the Denver Broncos stadium horse.</span></a><a class="card" href="/pages/the-lady-doctor-statue/"><strong>Dr. Justina L. Ford</strong><span>Dr. Justina Ford, the Lady Doctor, and her Five Points house.</span></a><a class="card" href="/pages/man-and-woman/"><strong>Man and Woman</strong><span>The Man and Woman sculpture in Denver.</span></a><a class="card" href="/pages/madre-e-hijo-sculpture/"><strong>Madre e Hijo</strong><span>Madre e Hijo, a Denver-area sculpture guide.</span></a><a class="card" href="/pages/the-newsboy-statue/"><strong>The Newsboy Statue</strong><span>The Newsboy in Golden, west of Denver.</span></a><a class="card" href="/pages/goldens-vibrant-triceratops/"><strong>The Ancient Guardians</strong><span>The triceratops sculpture in Golden.</span></a><a class="card" href="/pages/torii-square-park-westminster/"><strong>Torii Square Park</strong><span>Torii Square Park in Westminster.</span></a><a class="card" href="/pages/sensory-park/"><strong>Sensory Park</strong><span>Sensory Park in Westminster.</span></a><a class="card" href="/pages/sunset-park/"><strong>SUNSET PARK</strong><span>Sunset Park in Westminster.</span></a></div>
+<body class="antialiased overflow-x-hidden relative">
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow"></div>
+    </div>
 
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-8 w-8" alt="Profitnet">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
+                <a href="/pages/landmarks/" class="text-xs font-bold uppercase tracking-widest text-emerald-400 hover:text-emerald-300 transition-colors">Landmarks</a>
+                <a href="/pages/guides/" class="text-xs font-bold uppercase tracking-widest text-white hover:text-emerald-300 transition-colors">Guides</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">$PNET Asset Dashboard</a>
+            </nav>
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Open Menu" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+            </button>
+        </div>
+    </header>
+    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[60] lg:hidden flex flex-col items-center justify-center space-y-8">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2" aria-label="Close Menu" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+        <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-emerald-400 transition-colors">Home</a>
+        <a href="/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+        <a href="/pages/guides/" class="text-xl font-black text-white uppercase tracking-widest hover:text-emerald-300 transition-colors">Guides</a>
+        <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+    </div>
+
+    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
+        <nav aria-label="Breadcrumb">
+            <ol class="tp-seo-crumbs">
+                <li><a href="/">Home</a></li>
+                <li><a href="/pages/landmarks/">Landmarks</a></li>
+                <li><a href="/CO/">Colorado</a></li>
+                <li aria-current="page">Denver</li>
+            </ol>
+        </nav>
+
+        <section class="max-w-3xl mb-14">
+            <p class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-bold tracking-wide uppercase mb-6">Denver metro</p>
+            <h1 class="text-5xl md:text-6xl font-bold text-white tracking-tight mb-6 leading-[1.1]">Denver <span class="gradient-text">landmarks</span></h1>
+            <p class="text-xl text-gray-400 font-light leading-relaxed">Finished visitor guides for Denver, plus Golden and Westminster. Other metro pages stay linked below and are not in the guide list.</p>
+        </section>
+
+        <section class="mb-16" aria-labelledby="guides-heading">
+            <h2 id="guides-heading" class="text-2xl font-bold text-white mb-6">Visitor guides</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <a class="card-blur block rounded-2xl p-5" href="/pages/bronco-buster-statue/">
+                    <strong class="block text-white text-lg mb-1">Bronco Buster in Denver Civic Center | Guide</strong>
+                    <span class="text-gray-400 text-sm">Proctor's 1920 bronze in Civic Center Park, given by J.K. Mullen.</span>
+                </a>
+                <a class="card-blur block rounded-2xl p-5" href="/pages/the-lady-doctor-statue/">
+                    <strong class="block text-white text-lg mb-1">Lady Doctor Statue at 30th and Downing | Guide</strong>
+                    <span class="text-gray-400 text-sm">Jess DuBois's 1998 bronze on the plaza at RTD's 30th and Downing station.</span>
+                </a>
+                <a class="card-blur block rounded-2xl p-5" href="/pages/man-and-woman/">
+                    <strong class="block text-white text-lg mb-1">Botero's Man and Woman in Denver | Visit Guide</strong>
+                    <span class="text-gray-400 text-sm">Fernando Botero's bronzes in the Denver Performing Arts galleria at 14th and Curtis.</span>
+                </a>
+                <a class="card-blur block rounded-2xl p-5" href="/pages/cowboy-in-pajamas/">
+                    <strong class="block text-white text-lg mb-1">Cowboy in Pajamas Sculpture in Denver | Guide</strong>
+                    <span class="text-gray-400 text-sm">Sean O'Meallie's 20-foot painted bronze, listed at 1725 Champa St.</span>
+                </a>
+                <a class="card-blur block rounded-2xl p-5" href="/pages/the-newsboy-statue/">
+                    <strong class="block text-white text-lg mb-1">The Newsboy Statue in Golden, CO | Visit Guide</strong>
+                    <span class="text-gray-400 text-sm">James Muir's bronze at Golden's Washington Avenue bridge.</span>
+                </a>
+                <a class="card-blur block rounded-2xl p-5" href="/pages/sensory-park/">
+                    <strong class="block text-white text-lg mb-1">Westminster Sensory Park | Accessible Play Guide</strong>
+                    <span class="text-gray-400 text-sm">Accessible playground near Wadsworth and W 103rd.</span>
+                </a>
+            </div>
+        </section>
+
+        <section aria-labelledby="other-heading">
+            <h2 id="other-heading" class="text-2xl font-bold text-white mb-2">Other metro pages</h2>
+            <p class="text-gray-400 mb-6 max-w-2xl">These pages are still the older articles. The Lakewood eagle page is not a finished guide.</p>
+            <div class="grid md:grid-cols-2 gap-4">
+                <a class="card-blur block rounded-2xl p-5" href="/pages/eagle-statue/">
+                    <strong class="block text-white text-lg mb-1">American Eagle Statue (Lakewood)</strong>
+                    <span class="text-gray-400 text-sm">Older article. Left off the visitor-guide list.</span>
+                </a>
+                <a class="card-blur block rounded-2xl p-5" href="/pages/madre-e-hijo-sculpture/">
+                    <strong class="block text-white text-lg mb-1">Fernando Botero: Madre e Hijo</strong>
+                    <span class="text-gray-400 text-sm">Older sculpture page. Not a finished visitor guide.</span>
+                </a>
+                <a class="card-blur block rounded-2xl p-5" href="/pages/goldens-vibrant-triceratops/">
+                    <strong class="block text-white text-lg mb-1">Golden's Vibrant Triceratops</strong>
+                    <span class="text-gray-400 text-sm">Older Golden page. Not a finished visitor guide.</span>
+                </a>
+                <a class="card-blur block rounded-2xl p-5" href="/pages/torii-square-park-westminster/">
+                    <strong class="block text-white text-lg mb-1">Torii Square Park</strong>
+                    <span class="text-gray-400 text-sm">Westminster park page. Not a finished visitor guide.</span>
+                </a>
+                <a class="card-blur block rounded-2xl p-5" href="/pages/sunset-park/">
+                    <strong class="block text-white text-lg mb-1">Sunset Park</strong>
+                    <span class="text-gray-400 text-sm">Westminster park page. Not a finished visitor guide.</span>
+                </a>
+            </div>
+        </section>
     </main>
-    <footer>Statues and landmarks are catalogued separately from earning-app guides.</footer>
+
+    <footer class="relative z-10 border-t border-white/5 bg-black/20 pt-16 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-gray-500 text-sm leading-relaxed max-w-xl mb-8">Statue and park pages for the Denver metro. Earning-app reviews stay on the guides page.</p>
+            <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500 mb-8">
+                <li><a href="/pages/landmarks/" class="hover:text-teal-400">Landmarks</a></li>
+                <li><a href="/pages/guides/" class="hover:text-teal-400">Earning-app guides</a></li>
+                <li><a href="/pages/roadmap/" class="hover:text-teal-400">Roadmap</a></li>
+                <li><a href="/pages/data-sharing-opt-out/" class="hover:text-teal-400">Data sharing opt-out</a></li>
+                <li><a href="mailto:testedprofit@gmail.com" class="hover:text-teal-400">Support</a></li>
+            </ul>
+            <p class="text-gray-600 text-sm border-t border-white/5 pt-8">© 2026 TestedProfit.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.AOS) AOS.init({ duration: 800, once: true });
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMenu(show) {
+            if (!mobileMenu) return;
+            mobileMenu.classList.toggle('active', show);
+            document.body.style.overflow = show ? 'hidden' : '';
+        }
+        if (menuBtn) menuBtn.addEventListener('click', () => toggleMenu(true));
+        if (closeBtn) closeBtn.addEventListener('click', () => toggleMenu(false));
+        if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+    });
+    </script>
 </body>
 </html>
