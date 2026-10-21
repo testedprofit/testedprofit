@@ -1,425 +1,49 @@
-﻿<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lion Statue | Bay City, MI | Profitnet Heritage</title>
+    <title>Lion Statue on Center Avenue, Bay City | Guide</title>
+    <meta name="description" content="The lion statue is a roadside landmark on Center Avenue in Bay City, along the historic residential street.">
     <link rel="canonical" href="https://testedprofit.com/MI/Lion%20Statue/">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Visit the Lion Statue in Bay City, MI. A historic guardian located in the Center Avenue Historic District. Verified Profitnet Cultural Asset.">
-    <meta name="keywords" content="Lion Statue Bay City, Center Avenue Historic District, Birney Park Monuments, Bay City Landmarks, PNET Heritage Assets">
-    <meta name="author" content="Profitnet">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LandmarkOrHistoricalService",
-      "name": "Lion Statue",
-      "description": "A historic lion sculpture located in a memorial park setting on Center Avenue.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1415 Center Ave",
-        "addressLocality": "Bay City",
-        "addressRegion": "MI",
-        "postalCode": "48708",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "43.5905",
-        "longitude": "-83.8765"
-      }
-    }
-    </script>
-    
-    <!-- External Scripts & Styles -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Lion Statue on Center Avenue, Bay City | Guide">
+    <meta property="og:description" content="The lion statue is a roadside landmark on Center Avenue in Bay City, along the historic residential street.">
+    <meta property="og:url" content="https://testedprofit.com/MI/Lion%20Statue/">
+    <meta property="og:site_name" content="Profitnet Landmarks">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet">
     <style>
-        :root {
-            --granite-dark: #1c1c1c;
-            --stone-grey: #2e2e2e;
-            --gold-leaf: #d4af37;
-            --gold-light: #f3e5ab;
-            --marble: #f5f5f5;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--granite-dark);
-            color: var(--marble);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .font-regal { font-family: 'Cinzel', serif; }
-
-        /* "Chiseled Stone" Background */
-        .stone-bg {
-            background-color: var(--granite-dark);
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z' fill='%232e2e2e' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
-
-        /* Pedestal Cards */
-        .pedestal-card {
-            background: linear-gradient(145deg, #262626, #1f1f1f);
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            border-bottom: 4px solid var(--stone-grey);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
-        }
-
-        .pedestal-card:hover {
-            border-bottom-color: var(--gold-leaf);
-            transform: translateY(-5px);
-        }
-
-        /* Gold Gradient Text */
-        .text-gold {
-            background: linear-gradient(to right, #d4af37, #f3e5ab, #d4af37);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: shine 5s linear infinite;
-        }
-
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-
-        /* Abstract Lion Mane Element */
-        .mane-graphic {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* Mobile Menu */
-        #mobile-menu {
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(-10px);
-        }
-        #mobile-menu.active {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--granite-dark); }
-        ::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--gold-leaf); }
-    </style>
-<style id="tp-seo-style">
-.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
-.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
-.tp-seo-crumbs a:hover{text-decoration:underline}
-.tp-seo-crumbs li{color:#e5e7eb}
-.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
-.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
-.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
-.tp-seo-related ul{margin:0;padding-left:1.1rem}
-.tp-seo-related a{color:#5eead4}
-.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
+body{font-family:Inter,system-ui,sans-serif}
+a{color:#5eead4}
+main a{overflow-wrap:anywhere}
+.source-list a,.tp-related a,.guide-list a{text-decoration:underline}
+.source-list li,.guide-list li{margin:.45rem 0}
+.tp-related{margin-top:2rem;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55)}
+.guide-list{list-style:none;padding:0}
+.guide-list a{display:block;padding:.85rem 1rem;border:1px solid rgba(148,163,184,.28);border-radius:14px;background:rgba(15,23,42,.45)}
+details{border-top:1px solid rgba(148,163,184,.25);padding:.7rem 0}
+summary{cursor:pointer;font-weight:650}
 </style>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TouristAttraction", "@id": "https://testedprofit.com/MI/Lion%20Statue/#place", "name": "Lion statue on Center Avenue", "description": "The lion statue is a roadside landmark on Center Avenue in Bay City, along the historic residential street.", "url": "https://testedprofit.com/MI/Lion%20Statue/", "dateModified": "2026-10-21", "address": {"@type": "PostalAddress", "addressLocality": "Bay City", "addressRegion": "MI"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://testedprofit.com/"}, {"@type": "ListItem", "position": 2, "name": "Landmarks", "item": "https://testedprofit.com/pages/landmarks/"}, {"@type": "ListItem", "position": 3, "name": "Michigan", "item": "https://testedprofit.com/MI/"}, {"@type": "ListItem", "position": 4, "name": "Lion statue on Center Avenue", "item": "https://testedprofit.com/MI/Lion%20Statue/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where is the lion statue?", "acceptedAnswer": {"@type": "Answer", "text": "The lion statue is a roadside landmark on Center Avenue in Bay City."}}, {"@type": "Question", "name": "What is Center Avenue known for?", "acceptedAnswer": {"@type": "Answer", "text": "Wikipedia says the original section of Bay City's Center Avenue Neighborhood Residential District was listed on the National Register of Historic Places in 1982, and a boundary increase was listed in 2012."}}]}]}</script>
 </head>
-<body class="antialiased stone-bg relative">
-
-    <!-- Header (Profitnet Integrated) -->
-    <header class="fixed w-full top-0 z-50 bg-[#1c1c1c]/95 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="flex items-center space-x-3 group">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
-                     class="h-8 w-8 grayscale group-hover:grayscale-0 transition-all duration-500" alt="Profitnet">
-                <span class="text-xl font-regal font-bold tracking-widest text-white uppercase group-hover:text-[#d4af37] transition-colors">Profitnet</span>
-            </a>
-            
-            <nav class="hidden lg:flex space-x-10 items-center">
-                <a href="/" class="text-xs font-bold text-stone-500 hover:text-white transition-colors uppercase tracking-[0.2em]">Home</a>
-                <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-[0.2em] text-[#d4af37] border-b border-[#d4af37]/50 pb-1">Landmarks</a>
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 border border-stone-700 text-[10px] font-bold text-stone-400 hover:border-[#d4af37] hover:text-[#d4af37] transition-all uppercase tracking-[0.2em]">
-                    $PNET Dashboard
-                </a>
-            </nav>
-
-            <button id="mobile-menu-btn" class="lg:hidden text-stone-400 hover:text-[#d4af37] text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+<body class="bg-slate-950 text-gray-200">
+    <header class="border-b border-white/10">
+        <div class="max-w-3xl mx-auto px-6 py-4 flex flex-wrap gap-x-5 gap-y-2 items-center">
+            <a href="/" class="text-white font-extrabold">Profitnet</a>
+            <a href="/pages/landmarks/">Landmarks</a>
+            <a href="/MI/">Michigan</a>
         </div>
-
-        
     </header>
-
-    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
-    <div id="mobile-menu" class="fixed inset-0 bg-[#1c1c1c] z-[60] flex flex-col items-center justify-center space-y-8 lg:hidden">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
-            <a href="/" class="text-2xl font-regal text-white uppercase">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-2xl font-regal text-[#d4af37] uppercase">Landmarks</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-2xl font-regal text-white uppercase">$PNET Dashboard</a>
-        </div>
-
-
-    <main class="relative z-10 pt-32 pb-20">
-<!-- tp-seo:breadcrumbs -->
-<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
-<li><a href="/">Home</a></li>
-<li><a href="/pages/landmarks/">Landmarks</a></li>
-<li><a href="/MI/">Michigan</a></li>
-<li aria-current="page">Lion Statue</li>
-</ol></nav>
-<!-- /tp-seo:breadcrumbs -->
-
-
-        
-        <!-- Hero Section -->
-        <section class="container mx-auto px-6 mb-24 relative">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div data-aos="fade-right">
-                    <div class="flex items-center gap-3 mb-6">
-                        <span class="w-12 h-[1px] bg-[#d4af37]"></span>
-                        <span class="text-[#d4af37] text-xs font-bold uppercase tracking-[0.3em]">Center Avenue District</span>
-                    </div>
-                    
-                    <h1 class="text-5xl md:text-7xl font-regal font-black leading-tight mb-8 text-white">
-                        THE SILENT <br>
-                        <span class="text-gold">GUARDIAN.</span>
-                    </h1>
-                    
-                    <p class="text-lg text-stone-400 max-w-lg mb-10 leading-relaxed font-light border-l border-stone-700 pl-6">
-                        A historic sentinel standing watch over Bay City. This bronze lion serves as a stoic reminder of the strength and heritage of the community.
-                    </p>
-
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#details" class="px-8 py-4 bg-[#d4af37] hover:bg-yellow-600 text-stone-900 font-bold uppercase tracking-widest text-xs transition-colors">
-                            Asset Details
-                        </a>
-                        <a href="#location" class="px-8 py-4 border border-stone-600 text-stone-400 hover:text-white hover:border-white font-bold uppercase tracking-widest text-xs transition-colors">
-                            Locate Statue
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Visual: Abstract Lion Geometry -->
-                <div class="relative h-[450px] flex items-center justify-center" data-aos="fade-left">
-                    <div class="mane-graphic"></div>
-                    
-                    <!-- SVG Geometric Lion -->
-                    <svg viewBox="0 0 300 300" class="w-full max-w-md drop-shadow-2xl relative z-10">
-                        <defs>
-                            <linearGradient id="bronzeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#b45309;stop-opacity:1" />
-                                <stop offset="50%" style="stop-color:#d4af37;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#78350f;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        
-                        <!-- Mane Geometry -->
-                        <path d="M150 50 L180 100 L230 80 L200 130 L250 150 L200 170 L230 220 L180 200 L150 250 L120 200 L70 220 L100 170 L50 150 L100 130 L70 80 L120 100 Z" fill="none" stroke="url(#bronzeGradient)" stroke-width="1.5" opacity="0.6"/>
-                        
-                        <!-- Face Geometry -->
-                        <path d="M150 100 L180 140 L150 220 L120 140 Z" fill="#262626" stroke="#d4af37" stroke-width="2"/>
-                        <path d="M120 140 L100 120 M180 140 L200 120" stroke="#d4af37" stroke-width="2"/>
-                        
-                        <!-- Eyes -->
-                        <circle cx="140" cy="150" r="3" fill="#d4af37" />
-                        <circle cx="160" cy="150" r="3" fill="#d4af37" />
-                        
-                        <!-- Nose -->
-                        <path d="M145 190 L155 190 L150 200 Z" fill="#d4af37" />
-                    </svg>
-
-                    <!-- Rating Badge -->
-                    <div class="absolute bottom-10 right-10 bg-[#262626] p-6 border border-stone-700 shadow-xl">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-star text-[#d4af37]"></i>
-                            <div class="text-3xl font-regal font-bold text-white">5.0</div>
-                        </div>
-                        <div class="text-[10px] text-stone-500 uppercase tracking-widest mt-1">Community Score</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- The Pedestal Grid -->
-        <section id="details" class="container mx-auto px-6 mb-24">
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <article class="pedestal-card p-10" data-aos="fade-up" data-aos-delay="0">
-                    <i class="fa-solid fa-landmark text-3xl text-stone-500 mb-6"></i>
-                    <h3 class="text-lg font-regal font-bold text-white mb-3">Historic District</h3>
-                    <p class="text-sm text-stone-400">
-                        Situated on Center Avenue, amidst the grand lumber-baron mansions. A vital piece of Bay City's 19th-century legacy.
-                    </p>
-                </article>
-
-                <!-- Card 2 -->
-                <article class="pedestal-card p-10" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fa-solid fa-shield-halved text-3xl text-[#d4af37] mb-6"></i>
-                    <h3 class="text-lg font-regal font-bold text-white mb-3">Symbolism</h3>
-                    <p class="text-sm text-stone-400">
-                        Representing courage, strength, and guardianship. A quiet memorial space often used for reflection.
-                    </p>
-                </article>
-
-                <!-- Card 3 -->
-                <article class="pedestal-card p-10" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fa-solid fa-tree text-3xl text-stone-500 mb-6"></i>
-                    <h3 class="text-lg font-regal font-bold text-white mb-3">Birney Park</h3>
-                    <p class="text-sm text-stone-400">
-                        Located within the green expanse of Birney Park, providing a natural frame for this stone sentinel.
-                    </p>
-                </article>
-            </div>
-        </section>
-
-        <!-- Location Module -->
-        <section id="location" class="container mx-auto px-6">
-            <div class="bg-[#262626] border border-stone-800 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-8 opacity-5">
-                    <i class="fa-solid fa-chess-rook text-9xl text-white"></i>
-                </div>
-
-                <div class="grid md:grid-cols-2">
-                    <div class="p-12 flex flex-col justify-center border-r border-stone-800">
-                        <h2 class="text-3xl font-regal text-white mb-8">BAY CITY</h2>
-                        
-                        <div class="space-y-6 mb-10">
-                            <div class="flex items-start gap-4">
-                                <div class="w-8 h-8 flex items-center justify-center border border-[#d4af37] text-[#d4af37] shrink-0">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                </div>
-                                <div>
-                                    <p class="text-white font-bold text-sm">1415 Center Ave</p>
-                                    <p class="text-stone-500 text-xs uppercase tracking-wider">Bay City, MI 48708</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-8 h-8 flex items-center justify-center border border-stone-600 text-stone-400 shrink-0">
-                                    <i class="fa-regular fa-clock"></i>
-                                </div>
-                                <div>
-                                    <p class="text-white font-bold text-sm">Public Access</p>
-                                    <p class="text-stone-500 text-xs uppercase tracking-wider">Memorial Park / 24 Hours</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Lion+Statue+Bay+City+MI')" 
-                                class="w-full py-4 bg-[#d4af37] text-stone-900 font-bold uppercase tracking-widest text-xs hover:bg-white transition-colors flex items-center justify-center gap-3">
-                            <i class="fa-solid fa-map"></i> Navigate to Site
-                        </button>
-                    </div>
-
-                    <div class="relative h-64 md:h-auto bg-[#1a1a1a] flex items-center justify-center group overflow-hidden">
-                        <!-- Stone Texture Overlay -->
-                        <div class="absolute inset-0 opacity-20" 
-                             style="background-image: url('data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle cx=\'1\' cy=\'1\' r=\'1\' fill=\'%23ffffff\'/%3E%3C/svg%3E');">
-                        </div>
-                        
-                        <div class="text-center relative z-10 group-hover:translate-y-[-5px] transition-transform duration-500">
-                            <i class="fa-solid fa-monument text-5xl text-stone-600 mb-4 group-hover:text-[#d4af37] transition-colors"></i>
-                            <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-stone-500">Historic Asset</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    
-
-<!-- tp-seo:related -->
-<aside class="tp-seo-related" aria-label="Related landmarks">
-    <h2>Related landmarks</h2>
-    <ul>
-        <li><a href="/MI/Magic%20Johnson%20Statue/">ALWAYS A SPARTAN.</a></li>
-<li><a href="/MI/Furtaw%20Field/">COMMUNITY GATHERING.</a></li>
-<li><a href="/MI/Paul%20Bunyan%20carving/">GIANT OF GLADWIN.</a></li>
-<li><a href="/MI/Saint%20Patrick%2C%20Patron%20Saint%20of%20The%20Irish%20Hills%2C%20Statue/">GUARDIAN OF THE HILLS.</a></li>
-<li><a href="/MI/">Michigan statues and landmarks</a></li>
-    </ul>
-    <p><a href="/MI/">All Michigan pages</a></p>
-</aside>
-<!-- /tp-seo:related -->
-</main>
-
-    <!-- Footer -->
-    <footer class="bg-[#141414] border-t border-stone-800 pt-16 pb-8 relative z-10 mt-20">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <div class="col-span-2">
-                    <div class="flex items-center gap-2 mb-4">
-                        <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" class="h-6 w-6 grayscale opacity-50" alt="Logo">
-                        <h4 class="font-regal font-bold text-xl text-white tracking-widest uppercase">Profitnet Heritage</h4>
-                    </div>
-                    <p class="text-sm text-stone-500 max-w-sm">
-                        Preserving the stone and spirit of our history. The Lion Statue is a verified cultural asset in the Profitnet Database.
-                    </p>
-                </div>
-                
-                <div>
-                    <h5 class="text-[10px] font-bold text-[#d4af37] uppercase tracking-[0.2em] mb-6">Directory</h5>
-                    <ul class="space-y-3 text-xs font-bold text-stone-500">
-                        <li><a href="https://testedprofit.com/pages/PNET/" class="hover:text-white transition-colors">$PNET Dashboard</a></li>
-                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-white transition-colors">Landmark Map</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h5 class="text-[10px] font-bold text-[#d4af37] uppercase tracking-[0.2em] mb-6">Connect</h5>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-stone-600 hover:text-white transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#" class="text-stone-600 hover:text-white transition-colors"><i class="fa-brands fa-discord"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="border-t border-stone-800 pt-8 flex justify-between items-center text-[10px] text-stone-600 uppercase tracking-widest font-bold">
-                <p>© 2026 Profitnet. Standing Guard.</p>
-                <p>Asset ID: MI-BAY-48708</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Init Animation
-        AOS.init({ duration: 1000, once: true, offset: 50 });
-
-        // Mobile Menu Logic
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        const toggleMenu = (open) => {
-            if (open) {
-                mobileMenu.classList.add('active');
-            } else {
-                mobileMenu.classList.remove('active');
-            }
-        };
-
-        menuBtn.addEventListener('click', () => toggleMenu(true));
-        closeBtn.addEventListener('click', () => toggleMenu(false));
-        
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => toggleMenu(false));
-        });
-    });
-    </script>
+    <main class="max-w-3xl mx-auto px-6 py-10">
+        <nav aria-label="Breadcrumb"><ol class="flex flex-wrap gap-x-2 text-sm text-gray-400 list-none p-0 m-0 mb-6"><li><a href="/">Home</a></li><li aria-hidden="true">/</li><li><a href="/pages/landmarks/">Landmarks</a></li><li aria-hidden="true">/</li><li><a href="/MI/">Michigan</a></li><li aria-hidden="true">/</li><li aria-current="page">Lion statue</li></ol></nav>
+        <h1 class="text-4xl font-black text-white mb-4">Lion statue on Center Avenue</h1>
+        <p>The lion statue is a roadside landmark on Center Avenue in Bay City. Travelers look for it along that street, in the residential neighborhood the lumber families built.</p><p>Wikipedia describes the Center Avenue Neighborhood Residential District as a residential historic district in Bay City. It runs primarily along Center, Fifth, and Sixth Avenues between Monroe and Green Avenues, with further portions along Fourth between Madison and Johnson, down to Tenth Avenue between Madison and Lincoln, along Green to Ridge, and around Carroll Park. The original section, along Center and portions of Fifth and Sixth, was listed on the National Register of Historic Places in 1982. A boundary increase covering the other sections was listed in 2012. The district contains 936 buildings, of which 879 contribute to its historic character.</p><p>The same article follows the street back to the lumber years. The first sawmill in Bay City was built in 1837. By 1854 a dozen mills were operating, and by 1860 more than eight hundred people lived in the city. By 1870 the population was 7,000. The area had been platted in 1837, and development along Center Avenue came in the 1870s and 1880s, when wealthy families, mostly in the lumber and salt trade, built there. After the turn of the century lumbering declined, and agriculture, iron, and textiles took its place. Newer houses continued the street until the Great Depression. In 2005 neighbors began meeting about preservation, and from those meetings the Center Avenue Neighborhood Association was formed.</p><p>Wikipedia lists the styles along the street, from Victorian Italianate, Stick, Queen Anne, Richardsonian Romanesque, and Châteauesque houses of the late nineteenth century to Georgian Revival, Renaissance Revival, Prairie Style, Arts and Crafts, Bungalow, Moderne, and mid-century houses. Among the residences it names are the James Shearer house at 701 Center Avenue, an Italianate residence of 1876; the Frederick Bradley house at 1400 Center Avenue, a Queen Anne house of 1887-89; and the Charles Curtiss house at 924 Center Avenue, a sandstone and wood Queen Anne house of 1891. Public buildings include the Bay City Public Library at 708 Center Avenue, a Carnegie library of 1922, and Trinity Episcopal Church at 911 Center Avenue, built in 1887 from a Gothic Revival design by Philip C. Floeter. A Bay City guide says a state historical marker records about one billion board feet of lumber from the Saginaw region in 1882, and 36 mills by 1872 between Bay City and the mouth of the river. The lion statue is the roadside landmark on that avenue.</p><p>Another guide in this directory is <a href="/MI/Stevie%20Wonder%20Landmark/">Stevie Wonder and Saginaw</a>.</p>
+        <p class="text-sm text-gray-400 mt-6">Last updated <time datetime="2026-10-21">21 October 2026</time>.</p>
+        <section aria-labelledby="faq-heading"><h2 id="faq-heading" class="text-2xl font-black text-white mt-10 mb-2">Questions</h2><details><summary>Where is the lion statue?</summary><p>The lion statue is a roadside landmark on Center Avenue in Bay City.</p></details><details><summary>What is Center Avenue known for?</summary><p>Wikipedia says the original section of Bay City's Center Avenue Neighborhood Residential District was listed on the National Register of Historic Places in 1982, and a boundary increase was listed in 2012.</p></details></section>
+        <section aria-labelledby="sources-heading"><h2 id="sources-heading" class="text-2xl font-black text-white mt-10 mb-3">Sources</h2><ul class="source-list list-disc pl-5 text-gray-300"><li><a href="https://en.wikipedia.org/wiki/Center_Avenue_Neighborhood_Residential_District">https://en.wikipedia.org/wiki/Center_Avenue_Neighborhood_Residential_District</a>. Wikipedia on the Center Avenue neighborhood, the 1982 and 2012 listings, and the houses and public buildings.</li><li><a href="https://www.mibaycity.com/lumber-barons.html">https://www.mibaycity.com/lumber-barons.html</a>. Bay City guide on the lumber-era mansions and the state-marker figures for 1872 and 1882.</li></ul></section>
+        <section aria-labelledby="cite-heading"><h2 id="cite-heading" class="text-2xl font-black text-white mt-8 mb-3">Cite or link to this guide</h2><p>Link to <a href="https://testedprofit.com/MI/Lion%20Statue/">https://testedprofit.com/MI/Lion%20Statue/</a>.</p></section>
+        <aside class="tp-related" aria-label="Related guides"><h2 class="text-xl font-black text-white mb-2">Related guides</h2><ul class="list-disc pl-5"><li><a href="/MI/Stevie%20Wonder%20Landmark/">Stevie Wonder and Saginaw</a></li><li><a href="/MI/">Michigan landmark directory</a></li><li><a href="/pages/landmarks/">Landmarks hub</a></li><li><a href="/pages/parks/">Park guides</a></li><li><a href="/pages/guides/">Earning-app guides</a></li></ul></aside>
+    </main>
 </body>
 </html>
