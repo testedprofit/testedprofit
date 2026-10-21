@@ -1,413 +1,61 @@
-﻿<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About the Landmark Archive | TestedProfit</title>
+    <meta name="description" content="Index of the TestedProfit landmark archive: state directories, statue guides, and park guides. Earning articles are separate.">
     <link rel="canonical" href="https://testedprofit.com/pages/parks/">
-    <meta name="description" content="About TestedProfit's landmark archive. Browse the statue directory by state, or open the separate earning-app guides.">
-    <meta name="robots" content="index, follow">
-
-    <!-- Social Media Tags (Fixes 'Open Graph tags missing' & 'X card missing') -->
-    <meta property="og:title" content="About the Landmark Archive | TestedProfit">
-    <meta property="og:description" content="About TestedProfit's landmark archive. Browse the statue directory by state, or open the separate earning-app guides.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://testedprofit.com">
-    <meta property="og:image" content="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About the Landmark Archive | TestedProfit">
-    <meta name="twitter:description" content="About TestedProfit's landmark archive. Browse the statue directory by state, or open the separate earning-app guides.">
-    <meta name="twitter:image" content="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m">
-    
-    <!-- External Scripts & Styles (Strict HTTPS) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta property="og:title" content="About the Landmark Archive | TestedProfit">
+    <meta property="og:description" content="Index of the TestedProfit landmark archive: state directories, statue guides, and park guides. Earning articles are separate.">
+    <meta property="og:url" content="https://testedprofit.com/pages/parks/">
+    <meta property="og:site_name" content="TestedProfit">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-dark: #0A091B;
-            --accent-teal: #2DD4BF;
-            --accent-emerald: #10B981;
-            --accent-blue: #60A5FA;
-            --accent-purple: #A78BFA;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--primary-dark);
-            color: #E5E7EB;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        h1, h2, h3, .font-display {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, #34D399, #60A5FA);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Background Utilities */
-        .hero-glow {
-            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 60%);
-        }
-
-        .bg-grid-pattern {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 2.5rem 2.5rem;
-        }
-
-        /* Card Styles */
-        .card-blur {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-blur:hover {
-            border-color: var(--accent-teal);
-            transform: translateY(-4px);
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-        }
-
-        .link-item {
-            transition: all 0.2s ease;
-            border-left: 2px solid transparent;
-        }
-        .link-item:hover {
-            border-left-color: var(--accent-teal);
-            padding-left: 0.5rem;
-            color: var(--accent-teal);
-            background: rgba(255,255,255,0.03);
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--primary-dark); }
-        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #334155; }
-        
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out;
-            transform: translateY(-100%);
-        }
-        #mobile-menu.active {
-            transform: translateY(0);
-        }
-    </style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#0A091B;color:#E5E7EB}
+a{color:#5eead4;overflow-wrap:anywhere}
+header{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:center;padding:1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.08)}
+header nav{display:flex;flex-wrap:wrap;gap:.75rem 1rem;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+main{max-width:960px;margin:0 auto;padding:1.5rem 1.25rem 3rem}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;margin:0 0 .75rem}
+h2{font-size:1.35rem;margin:2rem 0 .75rem}
+.lede{color:#9CA3AF;font-size:1.05rem;max-width:42rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.75rem}
+.card{display:block;padding:1rem;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.03);color:inherit;text-decoration:none}
+.card:hover{border-color:rgba(45,212,191,.5)}
+.card strong{display:block;color:#fff;margin-bottom:.25rem}
+.crumbs{display:flex;flex-wrap:wrap;gap:.35rem .5rem;list-style:none;padding:0;margin:0 0 1.25rem;font-size:.85rem}
+.crumbs li+li::before{content:"/";color:#64748b;margin-right:.5rem}
+details{border-top:1px solid rgba(148,163,184,.25);padding:.7rem 0}
+summary{cursor:pointer;font-weight:650}
+footer{border-top:1px solid rgba(255,255,255,.06);color:#64748b;font-size:.85rem;padding:1.5rem;text-align:center}
+</style>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://testedprofit.com/pages/parks/#page", "name": "About the Landmark Archive", "description": "Index of the TestedProfit landmark archive: state directories, statue guides, and park guides. Earning articles are separate.", "url": "https://testedprofit.com/pages/parks/", "dateModified": "2026-10-21", "isPartOf": {"@type": "WebSite", "name": "TestedProfit", "url": "https://testedprofit.com/"}}, {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Alabama Statues and Landmarks | TestedProfit", "url": "https://testedprofit.com/AL/"}, {"@type": "ListItem", "position": 2, "name": "Colorado 150 | Profitnet Landmark Directory", "url": "https://testedprofit.com/CO/"}, {"@type": "ListItem", "position": 3, "name": "Hawaii Heritage | Profitnet Landmark Directory", "url": "https://testedprofit.com/HI/"}, {"@type": "ListItem", "position": 4, "name": "Iowa Statues and Landmarks | TestedProfit", "url": "https://testedprofit.com/IA/"}, {"@type": "ListItem", "position": 5, "name": "Indiana Statues and Landmarks | TestedProfit", "url": "https://testedprofit.com/IN/"}, {"@type": "ListItem", "position": 6, "name": "Kansas Statues and Landmarks | TestedProfit", "url": "https://testedprofit.com/KS/"}, {"@type": "ListItem", "position": 7, "name": "Kentucky Heritage | Profitnet Landmark Directory", "url": "https://testedprofit.com/KY/"}, {"@type": "ListItem", "position": 8, "name": "Louisiana Statues and Landmarks | TestedProfit", "url": "https://testedprofit.com/LA/"}, {"@type": "ListItem", "position": 9, "name": "Michigan Statues and Landmarks | TestedProfit", "url": "https://testedprofit.com/MI/"}, {"@type": "ListItem", "position": 10, "name": "Oregon Statues and Landmarks | TestedProfit", "url": "https://testedprofit.com/OR/"}, {"@type": "ListItem", "position": 11, "name": "West Virginia Statues and Landmarks | TestedProfit", "url": "https://testedprofit.com/WV/"}, {"@type": "ListItem", "position": 12, "name": "Wyoming Statues and Landmarks | TestedProfit", "url": "https://testedprofit.com/WY/"}, {"@type": "ListItem", "position": 13, "name": "Landmarks Directory by State | Guide", "url": "https://testedprofit.com/pages/landmarks/"}, {"@type": "ListItem", "position": 14, "name": "Denver Landmark Guides | Directory", "url": "https://testedprofit.com/pages/landmarks/denver/"}, {"@type": "ListItem", "position": 15, "name": "Vail Landmark Guides | Directory", "url": "https://testedprofit.com/pages/landmarks/vail/"}, {"@type": "ListItem", "position": 16, "name": "Westminster Sensory Park | Accessible Play Guide", "url": "https://testedprofit.com/pages/sensory-park/"}, {"@type": "ListItem", "position": 17, "name": "Woodbury Park - A Craig Community Hub", "url": "https://testedprofit.com/pages/Woodbury%20Park/"}, {"@type": "ListItem", "position": 18, "name": "Torii Square Park | Westminster, CO", "url": "https://testedprofit.com/pages/torii-square-park-westminster/"}, {"@type": "ListItem", "position": 19, "name": "Sunset Park in Westminster, CO | Guide", "url": "https://testedprofit.com/pages/sunset-park/"}, {"@type": "ListItem", "position": 20, "name": "Central Plaza Park in Westminster | Guide", "url": "https://testedprofit.com/pages/central-square-park/"}, {"@type": "ListItem", "position": 21, "name": "Oakhurst II Field in Westminster | Guide", "url": "https://testedprofit.com/pages/Oakhurst%20Park%20II/"}, {"@type": "ListItem", "position": 22, "name": "Rocky Flats South Entrance | Visit Guide", "url": "https://testedprofit.com/pages/rocky-flats-national-wildlife-refuge-south-entrance/"}, {"@type": "ListItem", "position": 23, "name": "Lowell Ponds Natural Area | Thornton, CO Directory", "url": "https://testedprofit.com/pages/lowell-ponds-state-wildlife-area/"}, {"@type": "ListItem", "position": 24, "name": "Bronco Buster in Denver Civic Center | Guide", "url": "https://testedprofit.com/pages/bronco-buster-statue/"}, {"@type": "ListItem", "position": 25, "name": "Eagle Statue at Denver West, Lakewood | Guide", "url": "https://testedprofit.com/pages/eagle-statue/"}, {"@type": "ListItem", "position": 26, "name": "Einstein Bench in Vail Village | Guide", "url": "https://testedprofit.com/pages/albert-einstein-statue-vail-co/"}, {"@type": "ListItem", "position": 27, "name": "Lady Doctor Statue at 30th and Downing | Guide", "url": "https://testedprofit.com/pages/the-lady-doctor-statue/"}, {"@type": "ListItem", "position": 28, "name": "Botero's Man and Woman in Denver | Visit Guide", "url": "https://testedprofit.com/pages/man-and-woman/"}, {"@type": "ListItem", "position": 29, "name": "Cowboy in Pajamas Sculpture in Denver | Guide", "url": "https://testedprofit.com/pages/cowboy-in-pajamas/"}, {"@type": "ListItem", "position": 30, "name": "The Newsboy Statue in Golden, CO | Visit Guide", "url": "https://testedprofit.com/pages/the-newsboy-statue/"}, {"@type": "ListItem", "position": 31, "name": "Kachina Woman Monument in Cave Creek, AZ | Guide", "url": "https://testedprofit.com/pages/worlds-tallest-kachina-doll/"}, {"@type": "ListItem", "position": 32, "name": "Dr. Martin Luther King, Jr. Memorial - Denver", "url": "https://testedprofit.com/pages/martin-luther-king-memorial/"}, {"@type": "ListItem", "position": 33, "name": "Dalton Trumbo Statue | Grand Junction, CO Directory", "url": "https://testedprofit.com/pages/james-dalton-trumbo-statue/"}, {"@type": "ListItem", "position": 34, "name": "Fernando Botero: Madre e Hijo | TestedProfit", "url": "https://testedprofit.com/pages/madre-e-hijo-sculpture/"}, {"@type": "ListItem", "position": 35, "name": "TestedProfit | The Guardian of Grizzly Gulch", "url": "https://testedprofit.com/pages/bear-statue/"}, {"@type": "ListItem", "position": 36, "name": "Colorado's Ancient Guardians | TestedProfit", "url": "https://testedprofit.com/pages/goldens-vibrant-triceratops/"}, {"@type": "ListItem", "position": 37, "name": "Earning-App Guides | TestedProfit", "url": "https://testedprofit.com/pages/guides/"}, {"@type": "ListItem", "position": 38, "name": "PNET Token on Algorand | Profitnet", "url": "https://testedprofit.com/pages/PNET/"}, {"@type": "ListItem", "position": 39, "name": "Data Sharing Opt-Out | Profitnet", "url": "https://testedprofit.com/pages/data-sharing-opt-out/"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://testedprofit.com/"}, {"@type": "ListItem", "position": 2, "name": "Landmark archive", "item": "https://testedprofit.com/pages/parks/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where are the park guides?", "acceptedAnswer": {"@type": "Answer", "text": "This index links Westminster Sensory Park, Woodbury Park, Torii Square Park, Sunset Park, Central Plaza Park, Oakhurst II, the Rocky Flats south entrance, and Lowell Ponds."}}, {"@type": "Question", "name": "Is this page a city parks department?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is an index on testedprofit.com. Placement facts stay on the individual park guides and the state directories."}}]}]}</script>
 </head>
-<body class="antialiased overflow-x-hidden relative">
-
-    <!-- Global Background -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute inset-0 hero-glow"></div>
-    </div>
-
-    <!-- Sticky Navigation -->
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo Section -->
-            <a href="/" class="flex items-center space-x-3 group">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
-                     class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet Logo">
-                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
-            </a>
-            
-            <!-- Desktop Nav -->
-            <nav class="hidden lg:flex space-x-10 items-center">
-                <a href="/" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
-                
-                <!-- Updated Link to use www to prevent 301 redirects -->
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400">Landmarks</a>
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">
-                    $PNET Asset Dashboard
-                </a>
-            </nav>
-
-            <button id="mobile-menu-btn" class="lg:hidden text-white" aria-label="Open Menu"><i class="fa-solid fa-bars-staggered"></i></button>
-        </div>
-
-        <!-- Mobile Menu Overlay -->
-        
+<body>
+    <header>
+        <a href="/" style="color:white;font-weight:800;text-decoration:none;">TestedProfit</a>
+        <nav>
+            <a href="/pages/landmarks/">Landmarks</a>
+            <a href="/pages/parks/">Archive</a>
+            <a href="/pages/guides/">Earning guides</a>
+        </nav>
     </header>
-
-    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
-    <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-[60] hidden flex-col items-center justify-center space-y-8 lg:hidden">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
-            <a href="/" class="text-xl font-black text-white uppercase tracking-widest">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
-        </div>
-
-
-    <!-- Main Content Area -->
-    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
+    <main>
+        <ol class="crumbs"><li><a href="/">Home</a></li><li aria-current="page">Landmark archive</li></ol>
+        <h1>About the Landmark Archive</h1>
         
-        <!-- Hero Section -->
-        <section class="text-center max-w-5xl mx-auto mb-24" data-aos="fade-up">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-bold tracking-wide uppercase mb-8">
-                <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-                AI Integration Initiative
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8 leading-[1.1]">
-                Bridging Physical Heritage <br class="hidden md:block" />
-                <span class="gradient-text">with Digital Intelligence.</span>
-            </h1>
-            
-            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-6 font-light leading-relaxed">
-                We construct the digital footprints for public sculptures and landmarks, ensuring our culture is recognized by the AI systems of tomorrow.
-            </p>
-            <p class="text-base mb-12"><a href="/pages/landmarks/">Browse statues and landmarks by state</a> · <a href="/pages/guides/">Earning-app guides</a></p>
-
-            <!-- Mission Card -->
-            <div class="card-blur rounded-3xl p-8 md:p-10 text-left border border-white/10">
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="md:col-span-2">
-                        <h3 class="text-lg font-display font-bold text-white mb-3">Why This Exists</h3>
-                        <p class="text-gray-400 leading-relaxed">
-                            AI models train on web data. If a landmark lacks a URL, it is invisible to the future. We provide structured, clean data to ensure search engines and smart assistants recognize our community's assets.
-                        </p>
-                    </div>
-                    <div class="md:border-l border-white/10 md:pl-8 flex flex-col justify-center space-y-3">
-                        <div class="flex items-center gap-3 text-teal-400 font-bold">
-                            <i class="fa-solid fa-check-circle"></i> Verified Accuracy
-                        </div>
-                        <div class="flex items-center gap-3 text-teal-400 font-bold">
-                            <i class="fa-solid fa-users"></i> Public Good
-                        </div>
-                        <div class="flex items-center gap-3 text-teal-400 font-bold">
-                            <i class="fa-solid fa-shield-halved"></i> Preservation
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Directory Grid -->
-        <section class="mb-24">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4" data-aos="fade-right">
-                <div>
-                    <h2 class="font-display text-3xl font-bold text-white">Public Interest Directory</h2>
-                    <p class="text-gray-400 mt-2">Curated digital endpoints for physical assets.</p>
-                </div>
-                <div class="h-px bg-white/10 flex-grow md:mx-8"></div>
-                <span class="text-xs font-mono text-gray-500">UPDATED: JAN 2026</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Category 1: Landmarks -->
-                <div class="card-blur rounded-3xl p-8 flex flex-col h-full group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center border border-teal-500/20">
-                            <i class="fa-solid fa-landmark text-xl"></i>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-white">Landmarks</h3>
-                    </div>
-                    <div class="flex-grow space-y-2">
-                        <!-- Standardized all URLs to www.testedprofit.com -->
-                        <a href="https://testedprofit.com/pages/bronco-buster-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Bronco Buster Statue</a>
-                        <a href="https://testedprofit.com/pages/albert-einstein-statue-vail-co" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Albert Einstein - Vail, CO</a>
-                        <a href="https://testedprofit.com/pages/man-and-woman" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Man and Woman Sculpture</a>
-                        <a href="https://testedprofit.com/pages/worlds-tallest-kachina-doll" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">World's Tallest Kachina Doll</a>
-                        <a href="https://testedprofit.com/pages/the-lady-doctor-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">The Lady Doctor Statue</a>
-                        <a href="https://testedprofit.com/pages/eagle-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Eagle Statue</a>
-                        <a href="https://testedprofit.com/pages/cowboy-in-pajamas" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Cowboy in Pajamas</a>
-                        <a href="https://testedprofit.com/pages/the-newsboy-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">The Newsboy Statue</a>
-                        <a href="https://testedprofit.com/pages/martin-luther-king-memorial" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Martin Luther King Memorial</a>
-                        <a href="https://testedprofit.com/pages/james-dalton-trumbo-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">James Dalton Trumbo Statue</a>
-                        <a href="https://testedprofit.com/pages/madre-e-hijo-sculpture" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Madre e Hijo Sculpture</a>
-                        <a href="https://testedprofit.com/pages/bear-statue" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Bear Statue</a>
-                        <a href="https://testedprofit.com/pages/goldens-vibrant-triceratops" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Golden's Vibrant Triceratops</a>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-white/10">
-                        <a href="https://testedprofit.com/pages/landmarks" class="flex items-center text-sm font-bold text-teal-400 group-hover:translate-x-1 transition-transform">
-                            View Full Archive <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Category 2: Nature -->
-                <div class="card-blur rounded-3xl p-8 flex flex-col h-full group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-500/20">
-                            <i class="fa-solid fa-leaf text-xl"></i>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-white">Nature & Wildlife</h3>
-                    </div>
-                    <div class="flex-grow space-y-2">
-                        <a href="https://testedprofit.com/pages/sensory-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Sensory Park</a>
-                        <a href="https://testedprofit.com/pages/lowell-ponds-state-wildlife-area" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Lowell Ponds Wildlife Area</a>
-                        <a href="https://testedprofit.com/pages/rocky-flats-national-wildlife-refuge-south-entrance" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Rocky Flats South Entrance</a>
-                        <a href="https://testedprofit.com/pages/torii-square-park-westminster" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Torii Square Park</a>
-                        <a href="https://testedprofit.com/pages/central-square-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Central Square Park</a>
-                        <a href="https://testedprofit.com/pages/rotary-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Rotary Park</a>
-                        <a href="https://testedprofit.com/pages/sunset-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Sunset Park</a>
-                        <a href="https://testedprofit.com/pages/woodbury-park" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Woodbury Park</a>
-                    </div>
-                    
-                    <div class="mt-6 pt-6 border-t border-white/10">
-                         <a href="https://testedprofit.com/pages/🌿-species-impact-calculator-see-how-your-actions-protect-wildlife" class="block bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-4 hover:bg-emerald-500/20 transition-all group-hover:scale-[1.02]">
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm font-bold text-emerald-300">Species Impact Calculator</span>
-                                <span class="text-emerald-400">🌿</span>
-                            </div>
-                            <p class="text-xs text-emerald-500/80 mt-1">Measure your conservation effect.</p>
-                        </a>
-                        <a href="https://testedprofit.com/pages/parks" class="flex items-center text-sm font-bold text-emerald-400 mt-4 group-hover:translate-x-1 transition-transform">
-                            View Park Directory <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Category 3: AI Tools -->
-                <div class="card-blur rounded-3xl p-8 flex flex-col h-full group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center border border-blue-500/20">
-                            <i class="fa-solid fa-robot text-xl"></i>
-                        </div>
-                        <h3 class="font-display text-xl font-bold text-white">AI & Growth</h3>
-                    </div>
-                    <div class="flex-grow space-y-2">
-                        <a href="https://testedprofit.com/pages/free-ai-paraphrasing-tool/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Free AI Paraphrasing Tool</a>
-                        <a href="https://testedprofit.com/pages/the-ai-powered-kdp-revolution/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">AI KDP Revolution</a>
-                        <a href="https://testedprofit.com/pages/bubblecash" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">BubbleCash Insights</a>
-                        <a href="https://testedprofit.com/pages/honeygain" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Honeygain Dashboard</a>
-                        <a href="https://testedprofit.com/pages/earnapp" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">EarnApp Integration</a>
-                        <a href="https://testedprofit.com/pages/top-gig-apps-to-make-money-fast-in-2025" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Top Gig Apps 2025</a>
-                        <a href="https://testedprofit.com/pages/how-to-start-a-vending-machine-business-a-beginners-passive-income-journey" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Vending Machine Business</a>
-                        <a href="https://testedprofit.com/pages/smart-financial-dashboard" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Financial Dashboard</a>
-                        <a href="https://testedprofit.com/pages/of-calculator" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Earnings Calculator</a>
-                        <a href="https://testedprofit.com/pages/tokenomics" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Project Tokenomics</a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Stewardship Section -->
-        <section class="card-blur rounded-[2.5rem] p-8 md:p-16 border border-white/10 relative overflow-hidden" data-aos="zoom-in">
-            <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-6">Stewardship & Privacy</h2>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                        TestedProfit operates as a volunteer initiative. We are dedicated to respecting property rights while ensuring public history is preserved for the digital age.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="mailto:testedprofit@gmail.com" class="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 rounded-xl font-bold hover:bg-teal-50 transition-colors">
-                            Contact for Removal
-                        </a>
-                        <a href="https://testedprofit.com/pages/data-sharing-opt-out/" class="inline-flex items-center justify-center px-6 py-3 border border-white/15 text-white rounded-xl font-bold hover:border-teal-400 transition-colors">Data opt-out form</a>
-                    </div>
-                </div>
-                <div class="hidden md:block border-l border-white/10 pl-12">
-                    <p class="text-gray-300 italic text-xl">
-                        "We are building the memory bank for the artificial minds of the future. Let's ensure it's accurate."
-                    </p>
-                    <div class="mt-4 text-teal-400 font-mono text-sm uppercase tracking-widest">
-                        — The TestedProfit Mission
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <p class="lede">This URL is the index for the landmark archive on testedprofit.com. It links the state directories, the statue guides already published here, and the park guides. It is not a city parks department, and it does not add facts those guides do not already state.</p>
+        <p>The old rotary-park address on this site redirects to the Oakhurst II guide. The hyphenated Woodbury address redirects to the Woodbury Park guide.</p>
+        
+        <h2>State directories</h2><div class="grid"><a class="card" href="/AL/"><strong>Alabama Statues and Landmarks | TestedProfit</strong></a><a class="card" href="/CO/"><strong>Colorado 150 | Profitnet Landmark Directory</strong></a><a class="card" href="/HI/"><strong>Hawaii Heritage | Profitnet Landmark Directory</strong></a><a class="card" href="/IA/"><strong>Iowa Statues and Landmarks | TestedProfit</strong></a><a class="card" href="/IN/"><strong>Indiana Statues and Landmarks | TestedProfit</strong></a><a class="card" href="/KS/"><strong>Kansas Statues and Landmarks | TestedProfit</strong></a><a class="card" href="/KY/"><strong>Kentucky Heritage | Profitnet Landmark Directory</strong></a><a class="card" href="/LA/"><strong>Louisiana Statues and Landmarks | TestedProfit</strong></a><a class="card" href="/MI/"><strong>Michigan Statues and Landmarks | TestedProfit</strong></a><a class="card" href="/OR/"><strong>Oregon Statues and Landmarks | TestedProfit</strong></a><a class="card" href="/WV/"><strong>West Virginia Statues and Landmarks | TestedProfit</strong></a><a class="card" href="/WY/"><strong>Wyoming Statues and Landmarks | TestedProfit</strong></a></div><h2>Landmark hubs</h2><div class="grid"><a class="card" href="/pages/landmarks/"><strong>Landmarks Directory by State | Guide</strong></a><a class="card" href="/pages/landmarks/denver/"><strong>Denver Landmark Guides | Directory</strong></a><a class="card" href="/pages/landmarks/vail/"><strong>Vail Landmark Guides | Directory</strong></a></div><h2>Park guides</h2><div class="grid"><a class="card" href="/pages/sensory-park/"><strong>Westminster Sensory Park | Accessible Play Guide</strong></a><a class="card" href="/pages/Woodbury%20Park/"><strong>Woodbury Park - A Craig Community Hub</strong></a><a class="card" href="/pages/torii-square-park-westminster/"><strong>Torii Square Park | Westminster, CO</strong></a><a class="card" href="/pages/sunset-park/"><strong>Sunset Park in Westminster, CO | Guide</strong></a><a class="card" href="/pages/central-square-park/"><strong>Central Plaza Park in Westminster | Guide</strong></a><a class="card" href="/pages/Oakhurst%20Park%20II/"><strong>Oakhurst II Field in Westminster | Guide</strong></a><a class="card" href="/pages/rocky-flats-national-wildlife-refuge-south-entrance/"><strong>Rocky Flats South Entrance | Visit Guide</strong></a><a class="card" href="/pages/lowell-ponds-state-wildlife-area/"><strong>Lowell Ponds Natural Area | Thornton, CO Directory</strong></a></div><h2>Statue guides linked from this archive</h2><div class="grid"><a class="card" href="/pages/bronco-buster-statue/"><strong>Bronco Buster in Denver Civic Center | Guide</strong></a><a class="card" href="/pages/eagle-statue/"><strong>Eagle Statue at Denver West, Lakewood | Guide</strong></a><a class="card" href="/pages/albert-einstein-statue-vail-co/"><strong>Einstein Bench in Vail Village | Guide</strong></a><a class="card" href="/pages/the-lady-doctor-statue/"><strong>Lady Doctor Statue at 30th and Downing | Guide</strong></a><a class="card" href="/pages/man-and-woman/"><strong>Botero&#x27;s Man and Woman in Denver | Visit Guide</strong></a><a class="card" href="/pages/cowboy-in-pajamas/"><strong>Cowboy in Pajamas Sculpture in Denver | Guide</strong></a><a class="card" href="/pages/the-newsboy-statue/"><strong>The Newsboy Statue in Golden, CO | Visit Guide</strong></a><a class="card" href="/pages/worlds-tallest-kachina-doll/"><strong>Kachina Woman Monument in Cave Creek, AZ | Guide</strong></a><a class="card" href="/pages/martin-luther-king-memorial/"><strong>Dr. Martin Luther King, Jr. Memorial - Denver</strong></a><a class="card" href="/pages/james-dalton-trumbo-statue/"><strong>Dalton Trumbo Statue | Grand Junction, CO Directory</strong></a><a class="card" href="/pages/madre-e-hijo-sculpture/"><strong>Fernando Botero: Madre e Hijo | TestedProfit</strong></a><a class="card" href="/pages/bear-statue/"><strong>TestedProfit | The Guardian of Grizzly Gulch</strong></a><a class="card" href="/pages/goldens-vibrant-triceratops/"><strong>Colorado&#x27;s Ancient Guardians | TestedProfit</strong></a></div><h2>Other pages</h2><div class="grid"><a class="card" href="/pages/guides/"><strong>Earning-App Guides | TestedProfit</strong></a><a class="card" href="/pages/PNET/"><strong>PNET Token on Algorand | Profitnet</strong></a><a class="card" href="/pages/data-sharing-opt-out/"><strong>Data Sharing Opt-Out | Profitnet</strong></a></div>
+        <p class="lede">Last updated <time datetime="2026-10-21">21 October 2026</time>.</p>
+        <section aria-labelledby="faq-heading"><h2 id="faq-heading">Questions</h2><details><summary>Where are the park guides?</summary><p>This index links Westminster Sensory Park, Woodbury Park, Torii Square Park, Sunset Park, Central Plaza Park, Oakhurst II, the Rocky Flats south entrance, and Lowell Ponds.</p></details><details><summary>Is this page a city parks department?</summary><p>No. It is an index on testedprofit.com. Placement facts stay on the individual park guides and the state directories.</p></details></section>
+        <h2>Cite or link to this page</h2>
+        <p>Link to <a href="https://testedprofit.com/pages/parks/">https://testedprofit.com/pages/parks/</a>.</p>
     </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-white/5 bg-black/20 pt-20 pb-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
-                <div class="col-span-2 md:col-span-1">
-                    <div class="flex items-center space-x-3 mb-6">
-                        <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
-                             class="h-6 w-6" loading="lazy" alt="Profitnet Logo">
-                        <span class="font-bold text-white">Profitnet</span>
-                    </div>
-                    <p class="text-gray-500 text-sm leading-relaxed">
-                        Connecting the physical world to the digital future through structured data and AI integration.
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-white mb-4">Platform</h4>
-                    <ul class="space-y-3 text-sm text-gray-500">
-                        <li><a href="https://testedprofit.com/pages/roadmap/" class="hover:text-teal-400 transition-colors">Strategic Roadmap</a></li>
-                        <li><a href="https://testedprofit.com/pages/guides/" class="hover:text-teal-400 transition-colors">Earning guides</a></li>
-                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-teal-400 transition-colors">Landmark directory</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-white mb-4">Governance</h4>
-                    <ul class="space-y-3 text-sm text-gray-500">
-                        <li><a href="https://testedprofit.com/pages/data-sharing-opt-out/" class="hover:text-teal-400 transition-colors">Data opt-out</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-white mb-4">Connect</h4>
-                    <ul class="space-y-3 text-sm text-gray-500">
-                        <li><a href="mailto:testedprofit@gmail.com" class="hover:text-teal-400 transition-colors">Support</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-600 text-sm">© 2026 TestedProfit. All rights reserved.</p>
-                <div class="flex gap-6 text-sm text-gray-600">
-                    <a href="https://testedprofit.com/pages/data-sharing-opt-out/" class="hover:text-gray-400">Data opt-out</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Init AOS
-        AOS.init({ duration: 800, once: true });
-
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.remove('hidden');
-                mobileMenu.classList.add('flex');
-                requestAnimationFrame(() => {
-                    mobileMenu.classList.add('active');
-                });
-            });
-        }
-
-        if (closeBtn && mobileMenu) {
-            closeBtn.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
-                }, 300);
-            });
-        }
-    });
-    </script>
+    <footer>This archive index is not a city parks department. Park facts stay on each park guide.</footer>
 </body>
 </html>
