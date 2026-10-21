@@ -104,7 +104,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: open. title, description, H1, canonical, and OG are in range
 - https://testedprofit.com/pages/guides/
   - Title: Earning-App Guides | TestedProfit
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the guides-hub PR. Index of earning articles with live titles. Bonuses are not restated here.
 - https://testedprofit.com/pages/landmarks/
   - Title: Landmarks Directory by State | Guide
   - Status: open. title, description, H1, canonical, and OG are in range
@@ -116,7 +116,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: open. title, description, H1, canonical, and OG are in range
 - https://testedprofit.com/pages/parks/
   - Title: About the Landmark Archive | TestedProfit
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the guides-hub PR. Archive index. Open Graph URL is the page itself. Park links use the keeper URLs.
 - https://testedprofit.com/WV/
   - Title: West Virginia Statues and Landmarks | TestedProfit
   - Status: open. 128 words
