@@ -91,8 +91,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Kansas Statues and Landmarks | TestedProfit
   - Status: updated in the Kansas landmarks PR. The card for the Kansas guide uses the revised title.
 - https://testedprofit.com/KY/
-  - Title: Kentucky Heritage | Profitnet Landmark Directory
-  - Status: open. no OG
+  - Title: Kentucky Statues and Landmarks | TestedProfit
+  - Status: updated in the first Kentucky landmarks PR. Cards for the first 10 Kentucky guides use the revised titles. The second group still uses the titles of the pages not revised in this pass.
 - https://testedprofit.com/LA/
   - Title: Louisiana Statues and Landmarks | TestedProfit
   - Status: open. title, description, H1, canonical, and OG are in range
@@ -397,35 +397,35 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Keeper of the Plains in Wichita | Guide
   - Status: updated in the Kansas landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Benjamin%20Franklin%20statue/
-  - Title: Benjamin Franklin Statue | Louisville, KY Directory
-  - Status: open. description 158 chars | no OG
+  - Title: Benjamin Franklin Statue in Louisville | Guide
+  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Bigfoot%20Statue/
-  - Title: Bigfoot Statue | Ashland, KY Directory
-  - Status: open. no OG
+  - Title: 14-Foot Sasquatch at Armco Park | Guide
+  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Booker%20Noe%20Statue/
-  - Title: Booker Noe Statue | Clermont, KY Directory
-  - Status: open. no OG
+  - Title: Booker Noe and Dot at Jim Beam | Guide
+  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Coxs%20Creek%20Rooster%20Statue/
-  - Title: Cox's Creek Rooster Statue (Ozzie Frank) | Cox's Creek, KY Directory
-  - Status: open. title 68 chars | no OG
+  - Title: Ozzie Frank at Rooster Run | Guide
+  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Daniel%20Boone%20Monument/
-  - Title: Daniel Boone Monument | Louisville, KY Directory
-  - Status: open. no OG
+  - Title: Daniel Boone Statue in Cherokee Park
+  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/George%20Rogers%20Clark%20Statue/
-  - Title: George Rogers Clark Statue | Louisville, KY Directory
-  - Status: open. description 155 chars | no OG
+  - Title: George Rogers Clark on the Belvedere
+  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Harry%20Potter%20Chess%20King%20Statue%20Carving/
-  - Title: Harry Potter Wizard's Chess Knight | Mt Washington, KY Directory
-  - Status: open. title 64 chars | no OG
+  - Title: Chess Carving | News Story Did Not Load
+  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/In%20Gods%20Hands%20statue/
-  - Title: In God's Hands Statue | Louisville, KY Directory
-  - Status: open. no OG
+  - Title: In God's Hand Garden at Calvary | Guide
+  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Jefferson%20Monument%20(Louisville,%20Kentucky)/
-  - Title: Jefferson Monument | Louisville, KY Directory
-  - Status: open. description 158 chars | no OG
+  - Title: Jefferson Monument at Metro Hall | Guide
+  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Keith%20Whitley%20Memorial%20Statue/
-  - Title: Keith Whitley Memorial Statue | Sandy Hook, KY Directory
-  - Status: open. description 162 chars | no OG
+  - Title: Keith Whitley Statue in Sandy Hook
+  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Little%20Elina%20Forest%20Giant/
   - Title: Little Elina Forest Giant | Shepherdsville, KY Directory
   - Status: open. no OG
