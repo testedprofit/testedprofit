@@ -139,8 +139,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: The Big Peanut at the Dothan Fairgrounds | Guide
   - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Bigfoot%20Statue/
-  - Title: Evergreen, Big Foot Capital of Alabama | Guide
-  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Title: Bigfoot Statue in Evergreen | Guide
+  - Status: Landmark name kept in the title, H1, description, and directory card. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Bo%20Jackson%20Statue/
   - Title: Bo Jackson Statue at Jordan-Hare | Guide
   - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -280,8 +280,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Westminster City Park | Visit Guide
   - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Boat%20Rotor%20Statue/
-  - Title: Papakōlea Beach near South Point | Guide
-  - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Title: Boat Rotor Statue near Papakōlea | Guide
+  - Status: Landmark name kept in the title, H1, description, and directory card. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Captain%20James%20Cook%20Monument/
   - Title: Cook Monument at Kealakekua Bay | Guide
   - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -382,8 +382,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Constitution Elm in Corydon | Guide
   - Status: updated in the Indiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IN/Larry%20Bird's%20Childhood%20Home/
-  - Title: Larry Bird in French Lick | Guide
-  - Status: updated in the Indiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Title: Larry Bird's Childhood Home in French Lick
+  - Status: Landmark name kept in the title, H1, description, and directory card. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IN/Rosie%20the%20Riveter%20Statue/
   - Title: Rosie Statue in Ashland Park | Guide
   - Status: updated in the Indiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -415,8 +415,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: George Rogers Clark on the Belvedere
   - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Harry%20Potter%20Chess%20King%20Statue%20Carving/
-  - Title: Chess Sculpture Carving in Kentucky | Guide
-  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Title: Harry Potter Chess King Statue Carving | Guide
+  - Status: Landmark name kept in the title, H1, description, and directory card. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/In%20Gods%20Hands%20statue/
   - Title: In God's Hand Garden at Calvary | Guide
   - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -538,8 +538,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Kirtland's Warbler Monument in Mio
   - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Lion%20Statue/
-  - Title: Center Avenue in Bay City | Guide
-  - Status: updated in the second Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Title: Lion Statue on Center Avenue, Bay City | Guide
+  - Status: Landmark name kept in the title, H1, description, and directory card. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Magic%20Johnson%20Statue/
   - Title: Magic Johnson Statue at Breslin | Guide
   - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -547,11 +547,11 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Noahquageshik Statue in Grand Rapids
   - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Paul%20Bunyan%20carving/
-  - Title: Paul Bunyan and Gladwin | Guide
-  - Status: updated in the second Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Title: Paul Bunyan Carving in Gladwin | Guide
+  - Status: Landmark name kept in the title, H1, description, and directory card. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Saint%20Patrick,%20Patron%20Saint%20of%20The%20Irish%20Hills,%20Statue/
-  - Title: Saint Joseph Shrine in the Irish Hills
-  - Status: updated in the second Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Title: Saint Patrick Statue, Irish Hills | Guide
+  - Status: Landmark name kept in the title, H1, description, and directory card. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Schiller%20Statue/
   - Title: Schiller Monument on Belle Isle | Guide
   - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
