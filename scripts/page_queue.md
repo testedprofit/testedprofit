@@ -83,7 +83,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Hawaii landmarks PR. Cards for all 20 Hawaii directory guides and the Waimea Cook page use the revised titles.
 - https://testedprofit.com/IA/
   - Title: Iowa Statues and Landmarks | TestedProfit
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the Iowa landmarks PR. Cards for all 12 Iowa guides use the revised titles.
 - https://testedprofit.com/IN/
   - Title: Indiana Statues and Landmarks | TestedProfit
   - Status: open. title, description, H1, canonical, and OG are in range
@@ -340,41 +340,41 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Wai Koa Loop Trail in Kilauea | Guide
   - Status: updated in the second Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/Abraham%20Lincoln%20Statue/
-  - Title: Abraham Lincoln Statue | TestedProfit
-  - Status: open. no OG
+  - Title: Lincoln Statue in Jefferson | Guide
+  - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/Cornhenge/
-  - Title: Cornhenge | TestedProfit
-  - Status: open. description 179 chars | no OG
+  - Title: Steel Corn on Marion 35th Street | Guide
+  - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/Czech%20Village%20Mushroom%20Statue/
-  - Title: Czech Village Mushroom Statue | TestedProfit
-  - Status: open. no OG
+  - Title: Czech Village Morel in Cedar Rapids | Guide
+  - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/Easter%20Island%20Statue/
-  - Title: Easter Island Statue (Alburnett) | TestedProfit
-  - Status: open. description 167 chars | no OG
+  - Title: Etzel Moai near Alburnett | Guide
+  - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/Iowa%20Statue%20of%20Liberty/
-  - Title: Iowa Statue of Liberty | TestedProfit
-  - Status: open. description 169 chars | no OG
+  - Title: Liberty Replica at the Iowa Capitol | Guide
+  - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/L.J.%20Maasdam%20Wagon%20Wheel%20Sculpture/
-  - Title: L.J. Maasdam Wagon Wheel Sculpture | TestedProfit
-  - Status: open. no OG
+  - Title: Maasdam Wagon Wheels near Grinnell | Guide
+  - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/Lewis%20and%20Clark%20Statue/
-  - Title: Lewis & Clark Statue | TestedProfit
-  - Status: open. description 171 chars | no OG
+  - Title: Spirit of Discovery in Sioux City | Guide
+  - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/Little%20Mermaid%20Fountain/
-  - Title: Little Mermaid Fountain | TestedProfit
-  - Status: open. no OG
+  - Title: Little Mermaid in Kimballton | Guide
+  - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/Moai%20Dude/
-  - Title: Moai Dude | TestedProfit
-  - Status: open. description 169 chars | no OG | 166 words
+  - Title: Moai Dude in Altoona | Guide
+  - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/Peace%20Sign/
-  - Title: Peace Sign (Iowa City) | TestedProfit
-  - Status: open. description 176 chars | no OG | 179 words
+  - Title: Peace Sign on Dubuque Street | Guide
+  - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/South%20Des%20Moines%20Sculpture%20Park/
-  - Title: South Des Moines Sculpture Park | TestedProfit
-  - Status: open. description 175 chars | no OG | 162 words
+  - Title: Sculpture Park on McKinley | Guide
+  - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/The%20Black%20Angel/
-  - Title: The Black Angel | TestedProfit
-  - Status: open. no OG
+  - Title: Black Angel in Oakland Cemetery | Guide
+  - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IN/Bigfoot%20Fishing/
   - Title: Bigfoot Fishing Statue | French Lick, IN Directory
   - Status: open. no OG
