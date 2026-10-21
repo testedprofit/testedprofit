@@ -653,23 +653,23 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
 
 ## earning guide (12)
 - https://testedprofit.com/pages/bubblecash/
-  - Title: Bubble Cash Review 2025: Legit Payouts & Earning Guide | Profitnet Reviews
-  - Status: open. title 74 chars | no OG
+  - Title: Bubble Cash Review | Papaya Gaming Guide
+  - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/pages/contenthub/
   - Title: Content Hub | Earn Smarter with Your Degree | TestedProfit
   - Status: open. no OG | 179 words
 - https://testedprofit.com/pages/earnapp/
-  - Title: EarnApp: The Definitive Review (Philippines Edition) | Profitnet Reviews
-  - Status: open. description 171 chars | title 72 chars
+  - Title: EarnApp Review | Bright Data Bandwidth
+  - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/pages/earnapp-definitive-review-philippines/
   - Title: Redirect to earnapp | TestedProfit
   - Status: redirect. noindex redirect; omitted from sitemap.xml
 - https://testedprofit.com/pages/honeygain/
-  - Title: Honeygain - Earn Passive Income & Get $3 Bonus | TestedProfit
-  - Status: open. description 163 chars | title 61 chars
+  - Title: Honeygain Review | Unused Bandwidth Guide
+  - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/pages/honeygain-content-delivery/
-  - Title: Honeygain Content Delivery: Boost Your Earnings - TestedProfit.com
-  - Status: open. title 66 chars
+  - Title: Honeygain Content Delivery | Hourly Credits
+  - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/pages/how-to-start-a-vending-machine-business-a-beginners-passive-income-journey/
   - Title: How to Start a Vending Machine Business | Profitnet Guides
   - Status: open. description 168 chars
