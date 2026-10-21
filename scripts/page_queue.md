@@ -119,7 +119,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the guides-hub PR. Archive index. Open Graph URL is the page itself. Park links use the keeper URLs.
 - https://testedprofit.com/WV/
   - Title: West Virginia Statues and Landmarks | TestedProfit
-  - Status: open. 128 words
+  - Status: updated in the West Virginia landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026. Each card uses the title of the page it opens.
 - https://testedprofit.com/WY/
   - Title: Wyoming Statues and Landmarks | TestedProfit
   - Status: open. title, description, H1, canonical, and OG are in range
@@ -232,8 +232,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Isak Heartstone in Breckenridge | Guide
   - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/octomaid/
-  - Title: Iscariot Sculpture in Colorado Springs | Guide
-  - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Title: Octo-Maid in Colorado Springs | Guide
+  - Status: updated in the West Virginia landmarks PR. The page subject is Octo-Maid at 234 W Colorado Ave. Iscariot remains the name on the Gazette captions and the Downtown Partnership page for that address. Checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/Routt-County-Firing-Range/
   - Title: Hayden Shooting Range | Visit Guide
   - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -616,14 +616,14 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Wildland Firefighter Monument | Guide
   - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WV/Landmark/Jackson-Memorial-Fountain/
-  - Title: Jackson Memorial Fountain | TestedProfit
-  - Status: open. description 179 chars | no OG
+  - Title: Jackson Memorial Fountain in Parkersburg | Guide
+  - Status: updated in the West Virginia landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WV/Landmark/Memorial-to-the-Start-Westward/
-  - Title: Memorial to the Start Westward | TestedProfit
-  - Status: open. description 178 chars | no OG
+  - Title: Memorial to the Start Westward, Marietta | Guide
+  - Status: updated in the West Virginia landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WV/Landmark/Mufflerman/
-  - Title: TestedProfit | Muffler Man "Big Red"
-  - Status: open. description 179 chars | no OG
+  - Title: Muffler Man Big Red in Parkersburg | Guide
+  - Status: updated in the West Virginia landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WY/Benjamin%20Franklin%20Statue/
   - Title: Benjamin Franklin Statue | Profitnet Landmarks
   - Status: open. no OG
