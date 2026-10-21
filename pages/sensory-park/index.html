@@ -1,35 +1,136 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sensory Park | Westminster, CO</title>
+    <title>Westminster Sensory Park | Accessible Play Guide</title>
     <link rel="canonical" href="https://testedprofit.com/pages/sensory-park/">
-    <!-- Tailwind CSS CDN -->
+    <meta name="description" content="Westminster Sensory Park is a free ADA-accessible playground near Wadsworth and W 103rd, built in 2000 with Children&#x27;s Hospital Colorado. Map and FAQ.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Westminster Sensory Park | Accessible Play Guide">
+    <meta property="og:description" content="Westminster Sensory Park is a free ADA-accessible playground near Wadsworth and W 103rd, built in 2000 with Children&#x27;s Hospital Colorado. Map and FAQ.">
+    <meta property="og:url" content="https://testedprofit.com/pages/sensory-park/">
+    <meta property="og:site_name" content="Profitnet Landmarks">
+    <meta name="twitter:card" content="summary">
+    <meta name="geo.region" content="US-CO">
+    <meta name="geo.placename" content="Westminster">
+    <meta name="geo.position" content="39.8849;-105.0784">
+    <meta name="ICBM" content="39.8849, -105.0784">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA',
+                            bronze: '#D97706',
+                            steel: '#94A3B8'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Light gray background */
-            color: #334155; /* Dark slate gray text */
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
         }
-        .container {
-            max-width: 1200px;
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(217, 119, 6, 0.1) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(148, 163, 184, 0.1) 0%, transparent 60%);
+            will-change: opacity;
         }
-        .section-heading {
-            font-size: 2.25rem; /* text-4xl */
-            font-weight: 700; /* font-bold */
-            color: #1e3a8a; /* Dark blue heading */
-            margin-bottom: 1.5rem; /* mb-6 */
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
         }
-        .feature-icon {
+        .gradient-text {
+            background: linear-gradient(90deg, #D97706, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-blur {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-blur:hover {
+            border-color: #D97706;
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .info-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #D97706;
+        }
+        .stat-badge {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(148, 163, 184, 0.1));
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
             display: inline-block;
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
-            vertical-align: middle;
         }
+        .cta-button {
+            background: linear-gradient(90deg, #D97706, #475569);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.4);
+        }
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        .qf dt{color:#94A3B8;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+        .qf dd{color:#fff;font-weight:600;margin:0 0 1rem}
+        details.faq{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1rem 1.25rem;margin-bottom:.75rem}
+        details.faq summary{cursor:pointer;font-weight:700;color:#fff;list-style:none}
+        details.faq summary::after{content:"+";float:right;color:#D97706;font-weight:900}
+        details.faq[open] summary::after{content:"–"}
+        details.faq p{color:#9CA3AF;margin-top:.6rem}
+        .map-frame{width:100%;height:320px;border:0;border-radius:12px;filter:grayscale(.2) contrast(1.05)}
     </style>
 <style id="tp-seo-style">
 .tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
@@ -43,235 +144,148 @@
 .tp-seo-related a{color:#5eead4}
 .tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":["TouristAttraction","LandmarksOrHistoricalBuildings"],"@id":"https://testedprofit.com/pages/sensory-park/#place","name":"Westminster Sensory Park","description":"City of Westminster playground near Wadsworth Boulevard and West 103rd Avenue, listed at 10376 Wadsworth Blvd. Year built 2000. The city's first completely accessible play area, built with Children's Hospital Colorado.","url":"https://testedprofit.com/pages/sensory-park/","address":{"@type":"PostalAddress","streetAddress":"10376 Wadsworth Blvd.","addressLocality":"Westminster","addressRegion":"CO","addressCountry":"US","postalCode":"80021"},"geo":{"@type":"GeoCoordinates","latitude":39.8849,"longitude":-105.0784},"hasMap":"https://www.google.com/maps/search/?api=1&query=39.884875%2C-105.078443","isAccessibleForFree":true,"publicAccess":true,"touristType":["Families","Caregivers"],"alternateName":["Sensory Park"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://testedprofit.com/"},{"@type":"ListItem","position":2,"name":"Landmarks","item":"https://testedprofit.com/pages/landmarks/"},{"@type":"ListItem","position":3,"name":"Colorado","item":"https://testedprofit.com/CO/"},{"@type":"ListItem","position":4,"name":"Westminster Sensory Park","item":"https://testedprofit.com/pages/sensory-park/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where is Westminster Sensory Park?","acceptedAnswer":{"@type":"Answer","text":"The City of Westminster playground inventory lists Sensory Park at 10376 Wadsworth Blvd., in the west district. The playground footprint on that map sits near Wadsworth Boulevard and West 103rd Avenue. A 2020 parks spokeswoman gave 7577 W 103rd Ave., and 5280's 2024 guide printed 7355 W 103rd Ave."}},{"@type":"Question","name":"Is Westminster Sensory Park free and accessible?","acceptedAnswer":{"@type":"Answer","text":"No admission fee is listed. Parks spokeswoman Angela Simental told Colorado Community Media in 2020 that it is ADA-compliant and is the city's first completely accessible play area, built in cooperation with Children's Hospital Colorado. 5280 describes supportive swings, a wheelchair walkway, and paths painted for visual impairments."}},{"@type":"Question","name":"When was Westminster Sensory Park built?","acceptedAnswer":{"@type":"Answer","text":"The city inventory lists the year built as 2000. A 2012 news report, citing the city, also says Westminster and Children's Hospital built it in 2000. 5280 says the hospital approached the city with funds in 1998 and a grant paid for the rest of the project. The grant amount was not stated."}},{"@type":"Question","name":"What playground surface does Sensory Park have?","acceptedAnswer":{"@type":"Answer","text":"The city inventory lists the surface as EWF, engineered wood fiber, and records a Replace Sand / EWF project completed in August 2016. 5280's 2024 article still describes sand pits, along with brightly colored decorative fish."}},{"@type":"Question","name":"Does Westminster Sensory Park have restrooms, water play, or a static-free slide?","acceptedAnswer":{"@type":"Answer","text":"The sources checked do not describe a water-play area or a static-free slide at this park. A 2018 visitor write-up reports no restrooms. Posted hours were not found in the city inventory or the magazine guides."}}]}]}
+</script>
 </head>
-<body class="antialiased">
-<!-- tp-seo:breadcrumbs -->
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12"
+                     alt="Profitnet Logo"
+                     width="32"
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <!-- Mobile menu sits outside the header. The header's backdrop blur would otherwise
+         become the containing block and shrink this fixed overlay to the nav bar. -->
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[60] lg:hidden flex flex-col items-center justify-center space-y-8">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+        <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+        <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+    </div>
+    <main class="relative z-10 pt-28 md:pt-32 pb-24 container mx-auto px-4 md:px-6">
 <nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
 <li><a href="/">Home</a></li>
 <li><a href="/pages/landmarks/">Landmarks</a></li>
 <li><a href="/CO/">Colorado</a></li>
-<li aria-current="page">Sensory Park</li>
+<li aria-current="page">Westminster Sensory Park</li>
 </ol></nav>
-<!-- /tp-seo:breadcrumbs -->
-
-<!-- tp-seo:related -->
-<aside class="tp-seo-related" aria-label="Related landmarks">
-    <h2>Related landmarks</h2>
-    <ul>
-        <li><a href="/pages/eagle-statue/">The Majestic Eagle Sculpture</a></li>
-<li><a href="/pages/albert-einstein-statue-vail-co/">Albert Einstein Memorial Statue</a></li>
-<li><a href="/pages/bronco-buster-statue/">The Bronco Buster</a></li>
-<li><a href="/pages/the-lady-doctor-statue/">Dr. Justina L. Ford</a></li>
-<li><a href="/pages/man-and-woman/">Man and Woman</a></li>
+<article>
+  <header class="max-w-5xl mx-auto mb-10" data-aos="fade-up">
+    <span class="stat-badge text-xs font-bold text-accent-bronze uppercase tracking-wider"><i class="fa-solid fa-child-reaching mr-2" aria-hidden="true"></i>Westminster · City playground · No admission fee listed</span>
+    <h1 class="text-4xl md:text-6xl font-black mt-5 mb-4 leading-tight"><span class="gradient-text">Westminster Sensory Park</span><span class="block text-2xl md:text-3xl text-white mt-2">The city&#x27;s first completely accessible playground</span></h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Westminster Sensory Park is a city playground near Wadsworth Boulevard and West 103rd Avenue, built for children of all abilities. The city&#x27;s playground inventory lists it at 10376 Wadsworth Blvd., built in 2000, in the west district. Parks spokeswoman Angela Simental called it the city&#x27;s first completely accessible play area, built with Children&#x27;s Hospital Colorado.</p>
+    <div class="flex flex-wrap gap-3 mt-6">
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=39.884875%2C-105.078443" target="_blank" rel="noopener" class="cta-button inline-block px-6 py-3 rounded-full text-white font-bold text-sm uppercase tracking-wider"><i class="fa-solid fa-map-location-dot mr-2" aria-hidden="true"></i>Get directions</a>
+      <a href="#faq" class="inline-block px-6 py-3 rounded-full border border-white/20 text-white font-bold text-sm uppercase tracking-wider hover:border-accent-bronze">Visitor FAQ</a>
+    </div>
+  </header>
+  <div class="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+    <aside class="info-card lg:col-span-1" aria-labelledby="qf-h" data-aos="fade-up">
+      <h2 id="qf-h" class="text-xl font-black text-white mb-4"><i class="fa-solid fa-circle-info text-accent-bronze mr-2" aria-hidden="true"></i>Quick facts</h2>
+      <dl class="qf">
+        <dt>Address</dt><dd>10376 Wadsworth Blvd., Westminster, CO 80021</dd>
+        <dt>Exact spot</dt><dd>West-district playground near Wadsworth and W 103rd. Other guides print 7577 or 7355 W 103rd Ave.</dd>
+        <dt>Artist</dt><dd>None named. City of Westminster with Children&#x27;s Hospital Colorado.</dd>
+        <dt>Year</dt><dd>2000 in the city playground inventory. 5280 says the hospital approached the city in 1998.</dd>
+        <dt>Materials</dt><dd>Play surface listed as engineered wood fiber. A sand-to-EWF project is recorded as done in August 2016.</dd>
+        <dt>Cost &amp; hours</dt><dd>No admission fee is listed. Posted hours were not in the sources checked.</dd>
+        <dt>GPS</dt><dd>39.8849, -105.0784</dd>
+      </dl>
+    </aside>
+    <figure class="info-card lg:col-span-2 p-3" data-aos="fade-up" data-aos-delay="100">
+      <iframe class="map-frame" title="Map of Westminster Sensory Park near Wadsworth Boulevard and West 103rd Avenue" src="https://maps.google.com/maps?q=39.884875%2C-105.078443&amp;z=17&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <figcaption class="text-xs text-gray-400 mt-2 px-1">Map pin: city playground footprint, not the conflicting street numbers. <a class="text-teal-300 underline" href="https://www.google.com/maps/search/?api=1&amp;query=39.884875%2C-105.078443" target="_blank" rel="noopener">Open in Google Maps</a></figcaption>
+    </figure>
+  </div>
+  <section class="max-w-5xl mx-auto mb-12" data-aos="fade-up">
+    <div class="card-blur rounded-2xl p-6 md:p-10">
+      <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">What you'll see</h2>
+      <p class="text-gray-300 mb-4">In a July 22, 2020 Colorado Community Media story, Westminster parks spokeswoman Angela Simental said Sensory Park is ADA-compliant and therapy-focused, and still fun for all kids. She called it the city&#x27;s first completely accessible play area, built in cooperation with Children&#x27;s Hospital Colorado, and said it is easy to reach from the local trail system. The address she gave was 7577 W 103rd Ave.</p>
+      <p class="text-gray-300 mb-4">5280&#x27;s April 16, 2024 guide says the playground has been popular since 1998, when Children&#x27;s Hospital approached the city with funds and a grant paid for the rest. It describes supportive swings, an undulating walkway for wheelchairs, steps and paths painted for people with visual impairments, sand pits, and brightly colored decorative fish. 5280 prints the address as 7355 W 103rd Ave. and says the park is a few miles from Children&#x27;s Hospital Colorado&#x27;s North Campus.</p>
+      <p class="text-gray-300 mb-4">The City of Westminster playground inventory is the address and year used on the map: Sensory Park, 10376 Wadsworth Blvd., year built 2000, west district, surface EWF, with a recorded improvement &quot;Replace Sand / EWF&quot; completed in August 2016. A January 19, 2012 Colorado Community Media report, citing the city, also said Westminster and Children&#x27;s Hospital built the playground in 2000. That 2012 story placed a hospital therapy center at 7577 W 103rd Ave., across from the park, and said the center was moving.</p>
+    </div>
+  </section>
+  <section class="max-w-5xl mx-auto mb-12" data-aos="fade-up">
+    <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">Visiting tips</h2>
+    <ul class="grid md:grid-cols-2 gap-4 text-gray-300">
+      <li class="info-card"><strong class="text-white">If the street number disagrees:</strong> Use the playground at Wadsworth and W 103rd. The city inventory says 10376 Wadsworth Blvd. A 2020 city spokeswoman said 7577 W 103rd Ave. 5280 in 2024 printed 7355 W 103rd Ave.</li>
+      <li class="info-card"><strong class="text-white">What is built for access:</strong> Simental said it is ADA-compliant. 5280 describes supportive swings, a wheelchair walkway, and painted steps and paths.</li>
+      <li class="info-card"><strong class="text-white">Restrooms:</strong> A 2018 visitor write-up reports no restroom on site. That is a visitor report, not a city statement.</li>
+      <li class="info-card"><strong class="text-white">Fee:</strong> No admission fee appears in the city inventory or the magazine guides. Hours were not posted in those sources.</li>
     </ul>
-    <p><a href="/pages/landmarks/denver/">Denver city page</a></p>
-</aside>
-<!-- /tp-seo:related -->
-
-
-
-
-    <!-- Header Section -->
-    <header class="bg-white shadow-lg py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-3xl font-extrabold text-blue-800">Sensory Park</h1>
-            <nav>
-                <ul class="flex space-x-6 text-lg">
-                    <li><a href="#overview" class="text-gray-700 hover:text-blue-600 transition duration-300">Overview</a></li>
-                    <li><a href="#features" class="text-gray-700 hover:text-blue-600 transition duration-300">Features</a></li>
-                    <li><a href="#visit" class="text-gray-700 hover:text-blue-600 transition duration-300">Visit</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="relative bg-gradient-to-r from-blue-500 to-teal-400 text-white py-20 md:py-32 overflow-hidden">
-        <div class="container mx-auto px-4 text-center relative z-10">
-            <h2 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-down">
-                Play Without Limits at Sensory Park
-            </h2>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90 animate-fade-in-up">
-                A pioneering and vital resource in Westminster, CO, designed for inclusivity and joy.
-            </p>
-            <a href="#features" class="bg-white text-blue-700 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg shadow-xl transition transform hover:scale-105 duration-300 inline-block">
-                Discover Our Unique Features
-            </a>
-        </div>
-        <!-- Background decorative shapes -->
-        <div class="absolute inset-0 z-0">
-            <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-white opacity-10 rounded-full animate-pulse-slow"></div>
-            <div class="absolute bottom-1/3 right-1/3 w-48 h-48 bg-white opacity-10 rounded-full animate-pulse-slow delay-200"></div>
-            <div class="absolute top-1/2 left-1/12 w-24 h-24 bg-white opacity-10 rounded-full animate-pulse-slow delay-400"></div>
-        </div>
-    </section>
-
-    <!-- Overview and Inclusivity Section -->
-    <section id="overview" class="py-16 md:py-24 bg-white shadow-inner">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="order-2 md:order-1">
-                <h3 class="section-heading">A Haven of Inclusivity</h3>
-                <p class="text-lg leading-relaxed mb-6">
-                    Sensory Park is more than just a playground; it's a testament to community commitment, providing a rich and accessible play experience for children of all abilities. Located in Westminster, Colorado, it stands as a shining example of inclusive public spaces.
-                </p>
-                <p class="text-lg leading-relaxed text-gray-600">
-                    With over 17 years of service to families, and significant involvement from Children's Hospital in its early funding, Sensory Park pioneered accessible play in the Denver metropolitan area, making it a beloved community asset.
-                </p>
-            </div>
-            <div class="order-1 md:order-2 flex justify-center">
-                <img src="https://placehold.co/500x350/ADD8E6/000000?text=Joyful+Kids+Playing" alt="Kids playing happily at Sensory Park" class="rounded-xl shadow-2xl object-cover w-full h-auto max-w-md md:max-w-none">
-            </div>
-        </div>
-    </section>
-
-    <!-- Key Features Section -->
-    <section id="features" class="py-16 md:py-24 bg-blue-50">
-        <div class="container mx-auto px-4">
-            <h3 class="section-heading text-center mb-12">Unforgettable Features for Every Child</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Feature Card 1: 100% Accessibility -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <svg class="feature-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v-6h-2v6zm0-8h2V7h-2v2z"/></svg>
-                        <span class="text-2xl font-semibold">100% Accessibility</span>
-                    </div>
-                    <p class="text-gray-700 leading-relaxed">
-                        One of the only fully accessible parks in Denver, with ramps integrated throughout play structures, ensuring every area is reachable for mobility device users.
-                    </p>
-                </div>
-
-                <!-- Feature Card 2: Adaptive Swings -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <svg class="feature-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M15 15.5H9v-2h6v2zm-2-6h-2v2h2v-2zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-16c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"/></svg>
-                        <span class="text-2xl font-semibold">Adaptive Swings</span>
-                    </div>
-                    <p class="text-gray-700 leading-relaxed">
-                        Enjoy specially designed adaptive and supportive swings, allowing children of all physical abilities to experience the joy of swinging.
-                    </p>
-                </div>
-
-                <!-- Feature Card 3: Musical Instruments -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <svg class="feature-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-8z"/></svg>
-                        <span class="text-2xl font-semibold">Musical Delights</span>
-                    </div>
-                    <p class="text-gray-700 leading-relaxed">
-                        Engage auditory senses with various musical instruments, including drums and xylophones, for interactive sound play.
-                    </p>
-                </div>
-
-                <!-- Feature Card 4: Water Play Area -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <svg class="feature-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-2.34 1.02-4.46 2.62-5.96L12 10l-4 4 5 5 5-5-4-4L12 4.07C16.48 4.07 20 7.59 20 12c0 4.08-3.05 7.44-7 7.93z"/></svg>
-                        <span class="text-2xl font-semibold">Cool Water Play</span>
-                    </div>
-                    <p class="text-gray-700 leading-relaxed">
-                        A dedicated water play area provides refreshing fun and sensory exploration, especially on warmer days.
-                    </p>
-                </div>
-
-                <!-- Feature Card 5: Static-Free Slide -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <svg class="feature-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-.96 17.5l-4.5-4.5 1.41-1.41L11 16.59l4.5-4.5 1.41 1.41-5.91 5.91z"/></svg>
-                        <span class="text-2xl font-semibold">Unique Static-Free Slide</span>
-                    </div>
-                    <p class="text-gray-700 leading-relaxed">
-                        Experience a one-of-a-kind slide designed to eliminate static electricity, a crucial benefit for children with cochlear implants.
-                    </p>
-                </div>
-
-                <!-- Feature Card 6: Nature Access -->
-                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition duration-300">
-                    <div class="text-blue-600 mb-4">
-                        <svg class="feature-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v-6h-2v6zm0-8h2V7h-2v2z"/></svg>
-                        <span class="text-2xl font-semibold">Scenic Views & Trails</span>
-                    </div>
-                    <p class="text-gray-700 leading-relaxed">
-                        Enjoy pleasant mountain views and direct access to the adjacent Walnut Creek Open Space, perfect for extending your outdoor adventure.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Visit Information Section -->
-    <section id="visit" class="py-16 md:py-24 bg-white shadow-inner">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="flex justify-center order-2 md:order-1">
-                <img src="https://placehold.co/550x380/ADD8E6/000000?text=Park+Entrance+Sign" alt="Sensory Park entrance sign" class="rounded-xl shadow-2xl object-cover w-full h-auto max-w-md md:max-w-none">
-            </div>
-            <div class="order-1 md:order-2">
-                <h3 class="section-heading">Plan Your Visit</h3>
-
-                <div class="mb-8 p-6 bg-green-50 rounded-lg shadow">
-                    <h4 class="text-2xl font-bold text-green-700 mb-2">Cost to Visit: Absolutely FREE!</h4>
-                    <p class="text-lg text-green-800">
-                        As a public park, Sensory Park is completely free for all visitors to enjoy. No tickets, no fees, just endless fun.
-                    </p>
-                </div>
-
-                <div class="mb-8">
-                    <h4 class="text-2xl font-semibold text-blue-700 mb-4">Construction & Renovation</h4>
-                    <p class="text-lg leading-relaxed text-gray-700 mb-4">
-                        While its original construction cost is not readily available, Sensory Park has received significant investments for improvements. In 2019, an Adams County Open Space Grant of <span class="font-bold text-blue-600">$375,000</span> combined with <span class="font-bold text-blue-600">$250,000</span> from the Conservation Trust Fund budget, totaled <span class="font-bold text-blue-600">$625,000</span> for vital upgrades including equipment replacement, surface improvements, and new entryway arches.
-                    </p>
-                    <p class="text-lg leading-relaxed text-gray-700">
-                        The park has served the community for <span class="font-bold text-blue-600">over 17 years</span>, with many sources indicating its popularity and initial funding/creation around <span class="font-bold text-blue-600">1998</span>, making it one of the very first accessible playgrounds in the Denver area.
-                    </p>
-                </div>
-
-                <div class="mb-8">
-                    <h4 class="text-2xl font-semibold text-blue-700 mb-4">Park Amenities & Important Notes</h4>
-                    <ul class="list-disc list-inside text-lg text-gray-700 space-y-2">
-                        <li>Playground equipment for diverse play</li>
-                        <li>Covered picnic shelter and tables for family gatherings</li>
-                        <li>Convenient parking lot</li>
-                        <li>Drinking fountain available</li>
-                        <li class="text-red-600 font-medium"><strong>Important Note:</strong> Some sources indicate a lack of public restrooms. Please plan accordingly for your visit.</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-2xl font-semibold text-blue-700 mb-4">Location</h4>
-                    <p class="text-lg text-gray-700 mb-4">
-                        7577 W 103rd Ave, Westminster, CO 80021
-                    </p>
-                    <!-- Placeholder for a map or link to map -->
-                    <a href="https://www.google.com/maps/search/Sensory+Park+7577+W+103rd+Ave,+Westminster,+CO+80021" target="_blank" class="text-blue-600 hover:text-blue-800 text-lg font-medium inline-flex items-center">
-                        View on Google Maps
-                        <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L12.586 12H4a1 1 0 110-2h8.586l-2.293-2.293a1 1 0 111.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action Section -->
-    <section class="py-16 bg-blue-600 text-white text-center">
-        <div class="container mx-auto px-4">
-            <h3 class="text-4xl font-extrabold mb-4">Come Experience the Joy!</h3>
-            <p class="text-xl max-w-2xl mx-auto mb-8">
-                Sensory Park is a vibrant, engaging play environment where all children can learn, grow, and play together.
-            </p>
-            <a href="mailto:testedprofit@gmail.com" class="bg-white text-blue-700 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg shadow-xl transition transform hover:scale-105 duration-300 inline-block">
-                Contact Us
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="bg-gray-800 text-gray-300 py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="mb-4">&copy; 2025 Sensory Park. All rights reserved. | <a href="https://testedprofit.com" class="text-blue-400 hover:underline">testedprofit.com</a></p>
-            <p>Designed with care for an inclusive community.</p>
-        </div>
-    </footer>
-
+  </section>
+  <section id="faq" class="max-w-5xl mx-auto mb-12" data-aos="fade-up">
+    <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">Westminster Sensory Park FAQ</h2>
+    <details class="faq" open><summary>Where is Westminster Sensory Park?</summary><p>The City of Westminster playground inventory lists Sensory Park at 10376 Wadsworth Blvd., in the west district. The playground footprint on that map sits near Wadsworth Boulevard and West 103rd Avenue. A 2020 parks spokeswoman gave 7577 W 103rd Ave., and 5280&#x27;s 2024 guide printed 7355 W 103rd Ave.</p></details>
+    <details class="faq"><summary>Is Westminster Sensory Park free and accessible?</summary><p>No admission fee is listed. Parks spokeswoman Angela Simental told Colorado Community Media in 2020 that it is ADA-compliant and is the city&#x27;s first completely accessible play area, built in cooperation with Children&#x27;s Hospital Colorado. 5280 describes supportive swings, a wheelchair walkway, and paths painted for visual impairments.</p></details>
+    <details class="faq"><summary>When was Westminster Sensory Park built?</summary><p>The city inventory lists the year built as 2000. A 2012 news report, citing the city, also says Westminster and Children&#x27;s Hospital built it in 2000. 5280 says the hospital approached the city with funds in 1998 and a grant paid for the rest of the project. The grant amount was not stated.</p></details>
+    <details class="faq"><summary>What playground surface does Sensory Park have?</summary><p>The city inventory lists the surface as EWF, engineered wood fiber, and records a Replace Sand / EWF project completed in August 2016. 5280&#x27;s 2024 article still describes sand pits, along with brightly colored decorative fish.</p></details>
+    <details class="faq"><summary>Does Westminster Sensory Park have restrooms, water play, or a static-free slide?</summary><p>The sources checked do not describe a water-play area or a static-free slide at this park. A 2018 visitor write-up reports no restrooms. Posted hours were not found in the city inventory or the magazine guides.</p></details>
+  </section>
+  <aside class="tp-seo-related max-w-5xl mx-auto" aria-label="More Westminster parks on this site">
+    <h2>More Westminster parks on this site</h2>
+    <ul>
+      <li><a href="https://testedprofit.com/pages/torii-square-park-westminster/">Torii Square Park on Lowell Boulevard in Westminster</a></li>
+      <li><a href="https://testedprofit.com/pages/central-square-park/">Central Square Park in downtown Westminster</a></li>
+      <li><a href="https://testedprofit.com/pages/sunset-park/">Sunset Park in Westminster</a></li>
+      <li><a href="https://testedprofit.com/pages/landmarks/denver/">Denver statues and public art</a></li>
+      <li><a href="https://testedprofit.com/pages/the-lady-doctor-statue/">Dr. Justina Ford, the Lady Doctor statue in Denver</a></li>
+    </ul>
+    <p><a href="https://testedprofit.com/CO/">All Colorado pages</a> · <a href="https://testedprofit.com/pages/landmarks/">All U.S. landmarks</a></p>
+  </aside>
+  <p class="max-w-5xl mx-auto text-xs text-gray-500 mt-6">Sources: City of Westminster Parks/Playgrounds GIS inventory (address, year built 2000, surface, August 2016 EWF project, footprint); Colorado Community Media, July 22, 2020, quoting parks spokeswoman Angela Simental; 5280, April 16, 2024; Colorado Community Media, January 19, 2012. A 2018 visitor write-up is the restroom note only. Last checked October 2026.</p>
+</article>
+    </main>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({ duration: 800, once: true, offset: 50 });
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
+    </script>
 </body>
 </html>

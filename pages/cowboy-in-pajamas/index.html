@@ -1,22 +1,136 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cowboy in Pajamas Sculpture</title>
+    <title>Cowboy in Pajamas Sculpture in Denver | Guide</title>
     <link rel="canonical" href="https://testedprofit.com/pages/cowboy-in-pajamas/">
+    <meta name="description" content="Sean O&#x27;Meallie&#x27;s 20-foot painted-bronze Cowboy in Pajamas, listed at 1725 Champa St, Denver. Free sidewalk view, map, and FAQ.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Cowboy in Pajamas Sculpture in Denver | Guide">
+    <meta property="og:description" content="Sean O&#x27;Meallie&#x27;s 20-foot painted-bronze Cowboy in Pajamas, listed at 1725 Champa St, Denver. Free sidewalk view, map, and FAQ.">
+    <meta property="og:url" content="https://testedprofit.com/pages/cowboy-in-pajamas/">
+    <meta property="og:site_name" content="Profitnet Landmarks">
+    <meta name="twitter:card" content="summary">
+    <meta name="geo.region" content="US-CO">
+    <meta name="geo.placename" content="Denver">
+    <meta name="geo.position" content="39.7482;-104.9921">
+    <meta name="ICBM" content="39.7482, -104.9921">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A091B',
+                        accent: {
+                            teal: '#2DD4BF',
+                            emerald: '#10B981',
+                            blue: '#60A5FA',
+                            bronze: '#D97706',
+                            steel: '#94A3B8'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+            background-color: #0A091B;
+            color: #E5E7EB;
+            line-height: 1.6;
+            min-height: 100vh;
         }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+        .hero-glow {
+            background: radial-gradient(circle at 30% 20%, rgba(217, 119, 6, 0.1) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(148, 163, 184, 0.1) 0%, transparent 60%);
+            will-change: opacity;
         }
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #D97706, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-blur {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-blur:hover {
+            border-color: #D97706;
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .info-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #D97706;
+        }
+        .stat-badge {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(148, 163, 184, 0.1));
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+            display: inline-block;
+        }
+        .cta-button {
+            background: linear-gradient(90deg, #D97706, #475569);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.4);
+        }
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A091B; }
+        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        .qf dt{color:#94A3B8;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+        .qf dd{color:#fff;font-weight:600;margin:0 0 1rem}
+        details.faq{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1rem 1.25rem;margin-bottom:.75rem}
+        details.faq summary{cursor:pointer;font-weight:700;color:#fff;list-style:none}
+        details.faq summary::after{content:"+";float:right;color:#D97706;font-weight:900}
+        details.faq[open] summary::after{content:"–"}
+        details.faq p{color:#9CA3AF;margin-top:.6rem}
+        .map-frame{width:100%;height:320px;border:0;border-radius:12px;filter:grayscale(.2) contrast(1.05)}
     </style>
 <style id="tp-seo-style">
 .tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
@@ -30,162 +144,148 @@
 .tp-seo-related a{color:#5eead4}
 .tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":["TouristAttraction","LandmarksOrHistoricalBuildings"],"@id":"https://testedprofit.com/pages/cowboy-in-pajamas/#place","name":"Cowboy in Pajamas","description":"20-foot painted bronze of an abstract cowboy by Sean O'Meallie, installed in downtown Denver in 2008 and listed outside 1725 Champa St.","url":"https://testedprofit.com/pages/cowboy-in-pajamas/","address":{"@type":"PostalAddress","streetAddress":"1725 Champa St","addressLocality":"Denver","addressRegion":"CO","addressCountry":"US","postalCode":"80202"},"geo":{"@type":"GeoCoordinates","latitude":39.7482,"longitude":-104.9921},"hasMap":"https://www.google.com/maps/search/?api=1&query=1725%20Champa%20St%2C%20Denver%2C%20CO%2080202","isAccessibleForFree":true,"publicAccess":true,"touristType":["Walkers","Public art fans"],"alternateName":["Cowboy Pajamas"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://testedprofit.com/"},{"@type":"ListItem","position":2,"name":"Landmarks","item":"https://testedprofit.com/pages/landmarks/"},{"@type":"ListItem","position":3,"name":"Colorado","item":"https://testedprofit.com/CO/"},{"@type":"ListItem","position":4,"name":"Cowboy in Pajamas","item":"https://testedprofit.com/pages/cowboy-in-pajamas/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where is the Cowboy in Pajamas sculpture?","acceptedAnswer":{"@type":"Answer","text":"Place listings and a July 30, 2021 visitor account put it outside the Residence Inn Denver City Center at 1725 Champa St, Denver, CO 80202. Sean O'Meallie's site says the sculpture is in downtown Denver and does not give a street address."}},{"@type":"Question","name":"Who made Cowboy in Pajamas, and how big is it?","acceptedAnswer":{"@type":"Answer","text":"Sean O'Meallie. His site calls it a 20-foot painted bronze of an abstract cowboy with its guns drawn. The Colorado Springs Gazette reported on June 8, 2008 that it was 20 feet tall and over 3 tons."}},{"@type":"Question","name":"When was Cowboy in Pajamas installed?","acceptedAnswer":{"@type":"Answer","text":"The Gazette story of June 8, 2008 said it would be installed in downtown Denver that month. The 2021 account says it has been outside the Residence Inn since 2008."}},{"@type":"Question","name":"Is Cowboy in Pajamas free, and who owns the land?","acceptedAnswer":{"@type":"Answer","text":"There is no admission fee to look at it from the sidewalk. The Gazette said an anonymous donor commissioned it for private land that would be on public view. The fabrication cost was not published."}},{"@type":"Question","name":"Why is the cowboy in pajamas?","acceptedAnswer":{"@type":"Answer","text":"That is the artist's title. The Gazette said O'Meallie enlarged an earlier Cowboy Pajamas sculpture and described the stylized figure as a humorous, sometimes intellectual twist. His site describes an abstract cowboy with its guns drawn."}}]}]}
+</script>
 </head>
-<body class="text-slate-800 antialiased min-h-screen flex flex-col items-center py-8 px-4 sm:px-6">
-
-    <main class="w-full max-w-5xl bg-white shadow-2xl rounded-2xl overflow-hidden ring-1 ring-slate-900/5">
-<!-- tp-seo:breadcrumbs -->
+<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
+        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
+    </div>
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
+                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m"
+                     class="h-8 w-8 transition-transform group-hover:rotate-12"
+                     alt="Profitnet Logo"
+                     width="32"
+                     height="32"
+                     fetchpriority="high">
+                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
+            </a>
+            <nav class="hidden lg:flex space-x-10 items-center">
+                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
+                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
+                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
+                    $PNET Asset Dashboard
+                </a>
+            </nav>
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+    </header>
+    <!-- Mobile menu sits outside the header. The header's backdrop blur would otherwise
+         become the containing block and shrink this fixed overlay to the nav bar. -->
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[60] lg:hidden flex flex-col items-center justify-center space-y-8">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
+        <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
+        <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
+    </div>
+    <main class="relative z-10 pt-28 md:pt-32 pb-24 container mx-auto px-4 md:px-6">
 <nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
 <li><a href="/">Home</a></li>
 <li><a href="/pages/landmarks/">Landmarks</a></li>
 <li><a href="/CO/">Colorado</a></li>
-<li aria-current="page">Cowboy in Pajamas Sculpture</li>
+<li aria-current="page">Cowboy in Pajamas</li>
 </ol></nav>
-<!-- /tp-seo:breadcrumbs -->
-
-
-        
-        <!-- Hero Header -->
-        <header class="relative bg-slate-900 text-white p-8 sm:p-12 text-center overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 to-slate-900 opacity-90"></div>
-            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-            <div class="relative z-10 max-w-2xl mx-auto">
-                <div class="inline-flex items-center justify-center p-3 bg-white/10 rounded-full mb-6 backdrop-blur-sm">
-                    <i data-lucide="map-pin" class="w-6 h-6 text-indigo-300"></i>
-                </div>
-                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4">
-                    The Cowboy in Pajamas
-                </h1>
-                <p class="text-indigo-200 text-lg sm:text-xl font-light">
-                    A 20-foot whimsical twist on Western tradition in the heart of Denver.
-                </p>
-            </div>
-        </header>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-0 lg:divide-x divide-slate-100">
-            
-            <!-- Left Column: Details & Reviews -->
-            <div class="col-span-2 p-8 sm:p-10 space-y-10">
-                
-                <!-- About Section -->
-                <section>
-                    <div class="flex items-center space-x-2 mb-4 text-indigo-600">
-                        <i data-lucide="info" class="w-5 h-5"></i>
-                        <h2 class="text-sm font-bold uppercase tracking-wider">About the Piece</h2>
-                    </div>
-                    <p class="text-lg leading-relaxed text-slate-600">
-                        Standing 20 feet tall, this bronze sculpture features a cowboy dressed in colorful pajamas, offering a playful and unexpected twist on traditional Western imagery. It challenges the rugged mythology of the American West with a sense of humor and domestic vulnerability.
-                    </p>
-                    <div class="mt-6 flex flex-wrap gap-4 text-sm font-medium text-slate-500">
-                        <div class="bg-slate-50 px-3 py-1 rounded-full border border-slate-200">
-                            Artist: <span class="text-slate-900">Sean O'Meallie</span>
-                        </div>
-                        <div class="bg-slate-50 px-3 py-1 rounded-full border border-slate-200">
-                            Established: <span class="text-slate-900">2008</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Review Section -->
-                <section>
-                    <div class="flex items-center space-x-2 mb-4 text-indigo-600">
-                        <i data-lucide="message-square-quote" class="w-5 h-5"></i>
-                        <h2 class="text-sm font-bold uppercase tracking-wider">Community Voice</h2>
-                    </div>
-                    <div class="bg-indigo-50/50 p-6 rounded-xl border border-indigo-100 relative">
-                        <i data-lucide="quote" class="absolute top-4 left-4 w-8 h-8 text-indigo-200 -z-10 opacity-50"></i>
-                        <p class="italic text-slate-700 leading-relaxed mb-4 relative z-10">
-                            "Art either speaks to you, or it doesn't. To me, this sculpture is a total delight. It kinda reminds me of Yosemite Sam, but from a Toy Story perspective. Could also be kind of a commentary on the mythology embodied in the Hollywood version of the history of the American West."
-                        </p>
-                        <div class="flex items-center space-x-2 text-sm text-indigo-800 font-medium">
-                            <span>— Local Visitor Review</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Nearby Dining -->
-                <section>
-                    <div class="flex items-center space-x-2 mb-6 text-indigo-600">
-                        <i data-lucide="utensils" class="w-5 h-5"></i>
-                        <h2 class="text-sm font-bold uppercase tracking-wider">Nearby Dining</h2>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <a href="https://maps.google.com/?cid=6665378868563934674" target="_blank" class="group p-4 rounded-lg border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all duration-200 bg-white">
-                            <h3 class="font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">Atomic Cowboy</h3>
-                            <p class="text-xs text-slate-500 mt-1">Denver Biscuit Co. & Fat Sully's</p>
-                        </a>
-                        <a href="https://maps.google.com/?cid=1879574838017544881" target="_blank" class="group p-4 rounded-lg border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all duration-200 bg-white">
-                            <h3 class="font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">Corinne Denver</h3>
-                            <p class="text-xs text-slate-500 mt-1">Modern Comfort Food</p>
-                        </a>
-                        <a href="https://maps.google.com/?cid=1245068242557223395" target="_blank" class="group p-4 rounded-lg border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all duration-200 bg-white">
-                            <h3 class="font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">Steuben's Uptown</h3>
-                            <p class="text-xs text-slate-500 mt-1">Regional American Classics</p>
-                        </a>
-                        <a href="https://maps.google.com/?cid=8631572649105598032" target="_blank" class="group p-4 rounded-lg border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all duration-200 bg-white">
-                            <h3 class="font-bold text-slate-800 group-hover:text-indigo-600 transition-colors">Revival Denver</h3>
-                            <p class="text-xs text-slate-500 mt-1">Public House</p>
-                        </a>
-                    </div>
-                </section>
-            </div>
-
-            <!-- Right Column: Location & Map -->
-            <div class="bg-slate-50 p-8 sm:p-10 flex flex-col h-full">
-                <div class="mb-6">
-                    <div class="flex items-center space-x-2 mb-4 text-indigo-600">
-                        <i data-lucide="navigation" class="w-5 h-5"></i>
-                        <h2 class="text-sm font-bold uppercase tracking-wider">Visit</h2>
-                    </div>
-                    <address class="not-italic text-slate-600 mb-6 bg-white p-4 rounded-lg shadow-sm border border-slate-200">
-                        <strong class="block text-slate-900 mb-1">Residence Inn Information</strong>
-                        1725 Champa St<br>
-                        Denver, CO 80202
-                    </address>
-                </div>
-                
-                <!-- OpenStreetMap Embed -->
-                <div class="flex-grow min-h-[400px] bg-slate-200 rounded-xl overflow-hidden shadow-inner border border-slate-300 relative">
-                    <iframe 
-                        width="100%" 
-                        height="100%" 
-                        frameborder="0" 
-                        scrolling="no" 
-                        marginheight="0" 
-                        marginwidth="0" 
-                        src="https://www.openstreetmap.org/export/embed.html?bbox=-104.9945%2C39.7465%2C-104.9905%2C39.7505&amp;layer=mapnik&amp;marker=39.7485%2C-104.9925" 
-                        class="absolute inset-0 w-full h-full"
-                        style="border: 0;">
-                    </iframe>
-                    <div class="absolute bottom-2 right-2 bg-white/90 px-2 py-1 text-xs rounded shadow text-slate-500 pointer-events-none z-10">
-                        © OpenStreetMap
-                    </div>
-                </div>
-                <p class="text-center text-xs text-slate-400 mt-3">
-                    Map data © OpenStreetMap contributors
-                </p>
-            </div>
-        </div>
-    
-
-<!-- tp-seo:related -->
-<aside class="tp-seo-related" aria-label="Related landmarks">
-    <h2>Related landmarks</h2>
-    <ul>
-        <li><a href="/pages/eagle-statue/">The Majestic Eagle Sculpture</a></li>
-<li><a href="/pages/albert-einstein-statue-vail-co/">Albert Einstein Memorial Statue</a></li>
-<li><a href="/pages/bronco-buster-statue/">The Bronco Buster</a></li>
-<li><a href="/pages/the-lady-doctor-statue/">Dr. Justina L. Ford</a></li>
-<li><a href="/pages/man-and-woman/">Man and Woman</a></li>
+<article>
+  <header class="max-w-5xl mx-auto mb-10" data-aos="fade-up">
+    <span class="stat-badge text-xs font-bold text-accent-bronze uppercase tracking-wider"><i class="fa-solid fa-hat-cowboy mr-2" aria-hidden="true"></i>Downtown Denver · 20 feet · Sidewalk view</span>
+    <h1 class="text-4xl md:text-6xl font-black mt-5 mb-4 leading-tight"><span class="gradient-text">Cowboy in Pajamas</span><span class="block text-2xl md:text-3xl text-white mt-2">Sean O&#x27;Meallie&#x27;s 20-foot painted bronze on Champa Street</span></h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl">Cowboy in Pajamas, also called Cowboy Pajamas, is a 20-foot painted bronze by Sean O&#x27;Meallie. His site describes an abstract cowboy with its guns drawn, in downtown Denver. Place listings and a 2021 visitor account put it outside the Residence Inn at 1725 Champa St. A June 8, 2008 Colorado Springs Gazette story said it would be installed that month.</p>
+    <div class="flex flex-wrap gap-3 mt-6">
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=1725%20Champa%20St%2C%20Denver%2C%20CO%2080202" target="_blank" rel="noopener" class="cta-button inline-block px-6 py-3 rounded-full text-white font-bold text-sm uppercase tracking-wider"><i class="fa-solid fa-map-location-dot mr-2" aria-hidden="true"></i>Get directions</a>
+      <a href="#faq" class="inline-block px-6 py-3 rounded-full border border-white/20 text-white font-bold text-sm uppercase tracking-wider hover:border-accent-bronze">Visitor FAQ</a>
+    </div>
+  </header>
+  <div class="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+    <aside class="info-card lg:col-span-1" aria-labelledby="qf-h" data-aos="fade-up">
+      <h2 id="qf-h" class="text-xl font-black text-white mb-4"><i class="fa-solid fa-circle-info text-accent-bronze mr-2" aria-hidden="true"></i>Quick facts</h2>
+      <dl class="qf">
+        <dt>Address</dt><dd>1725 Champa St, Denver, CO 80202</dd>
+        <dt>Exact spot</dt><dd>Listed outside the Residence Inn Denver City Center. The artist site says only downtown Denver.</dd>
+        <dt>Artist</dt><dd>Sean O&#x27;Meallie</dd>
+        <dt>Year</dt><dd>2008. The Gazette said on June 8, 2008 that it would be installed that month.</dd>
+        <dt>Materials</dt><dd>Painted bronze, cast in China. 20 feet and over 3 tons.</dd>
+        <dt>Cost &amp; hours</dt><dd>Free to view from the sidewalk. An anonymous donor commissioned it for private land. The price was not published.</dd>
+        <dt>GPS</dt><dd>39.7482, -104.9921</dd>
+      </dl>
+    </aside>
+    <figure class="info-card lg:col-span-2 p-3" data-aos="fade-up" data-aos-delay="100">
+      <iframe class="map-frame" title="Map of the Cowboy in Pajamas sculpture at 1725 Champa St, Denver" src="https://maps.google.com/maps?q=1725%20Champa%20St%2C%20Denver%2C%20CO%2080202&amp;z=16&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <figcaption class="text-xs text-gray-400 mt-2 px-1">Map: 1725 Champa St, Residence Inn Denver City Center. <a class="text-teal-300 underline" href="https://www.google.com/maps/search/?api=1&amp;query=1725%20Champa%20St%2C%20Denver%2C%20CO%2080202" target="_blank" rel="noopener">Open in Google Maps</a></figcaption>
+    </figure>
+  </div>
+  <section class="max-w-5xl mx-auto mb-12" data-aos="fade-up">
+    <div class="card-blur rounded-2xl p-6 md:p-10">
+      <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">What you'll see</h2>
+      <p class="text-gray-300 mb-4">Sean O&#x27;Meallie&#x27;s site calls Cowboy Pajamas a 20-foot painted bronze of an abstract cowboy with its guns drawn, in downtown Denver. The Colorado College Fine Arts Center describes the same piece as a 20-foot playfully abstracted cowboy in downtown Denver.</p>
+      <p class="text-gray-300 mb-4">The June 8, 2008 Gazette profile is the installation record. It says the sculpture was 20 feet tall and over 3 tons, would be installed that month on private land downtown, and was cast in China because an American foundry quote would have stopped the project. O&#x27;Meallie said the first time he would see it assembled and painted was at the installation. He based the enlargement on an earlier Cowboy Pajamas sculpture.</p>
+      <p class="text-gray-300 mb-4">The Gazette said an anonymous donor asked for a work that would be on public view. It does not describe the piece as city-owned public art. A July 30, 2021 visitor account says it has stood outside the Residence Inn since 2008.</p>
+    </div>
+  </section>
+  <section class="max-w-5xl mx-auto mb-12" data-aos="fade-up">
+    <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">Visiting tips</h2>
+    <ul class="grid md:grid-cols-2 gap-4 text-gray-300">
+      <li class="info-card"><strong class="text-white">Look from the sidewalk:</strong> The Gazette said the land was private and the view was public. Treat it as a sidewalk stop, not a museum gallery.</li>
+      <li class="info-card"><strong class="text-white">The address source:</strong> 1725 Champa St is the Residence Inn Denver City Center. The artist site does not print that street address. Place listings and the 2021 account do.</li>
+      <li class="info-card"><strong class="text-white">What to photograph:</strong> A painted, stylized cowboy in pajamas, with guns drawn, at 20 feet. The Gazette called the twist humorous and sometimes intellectual.</li>
+      <li class="info-card"><strong class="text-white">Time needed:</strong> A few minutes from the sidewalk. There is no ticket and no published viewing schedule.</li>
     </ul>
-    <p><a href="/CO/">All Colorado pages</a></p>
-</aside>
-<!-- /tp-seo:related -->
-</main>
-
+  </section>
+  <section id="faq" class="max-w-5xl mx-auto mb-12" data-aos="fade-up">
+    <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">Cowboy in Pajamas FAQ</h2>
+    <details class="faq" open><summary>Where is the Cowboy in Pajamas sculpture?</summary><p>Place listings and a July 30, 2021 visitor account put it outside the Residence Inn Denver City Center at 1725 Champa St, Denver, CO 80202. Sean O&#x27;Meallie&#x27;s site says the sculpture is in downtown Denver and does not give a street address.</p></details>
+    <details class="faq"><summary>Who made Cowboy in Pajamas, and how big is it?</summary><p>Sean O&#x27;Meallie. His site calls it a 20-foot painted bronze of an abstract cowboy with its guns drawn. The Colorado Springs Gazette reported on June 8, 2008 that it was 20 feet tall and over 3 tons.</p></details>
+    <details class="faq"><summary>When was Cowboy in Pajamas installed?</summary><p>The Gazette story of June 8, 2008 said it would be installed in downtown Denver that month. The 2021 account says it has been outside the Residence Inn since 2008.</p></details>
+    <details class="faq"><summary>Is Cowboy in Pajamas free, and who owns the land?</summary><p>There is no admission fee to look at it from the sidewalk. The Gazette said an anonymous donor commissioned it for private land that would be on public view. The fabrication cost was not published.</p></details>
+    <details class="faq"><summary>Why is the cowboy in pajamas?</summary><p>That is the artist&#x27;s title. The Gazette said O&#x27;Meallie enlarged an earlier Cowboy Pajamas sculpture and described the stylized figure as a humorous, sometimes intellectual twist. His site describes an abstract cowboy with its guns drawn.</p></details>
+  </section>
+  <aside class="tp-seo-related max-w-5xl mx-auto" aria-label="More Denver sculpture guides">
+    <h2>More Denver sculpture guides</h2>
+    <ul>
+      <li><a href="https://testedprofit.com/pages/man-and-woman/">Botero&#x27;s Man and Woman at the Denver Performing Arts Complex</a></li>
+      <li><a href="https://testedprofit.com/pages/bronco-buster-statue/">Bronco Buster statue in Civic Center Park</a></li>
+      <li><a href="https://testedprofit.com/pages/eagle-statue/">American Eagle statue at Denver West Plaza in Lakewood</a></li>
+      <li><a href="https://testedprofit.com/pages/the-lady-doctor-statue/">Dr. Justina Ford, the Lady Doctor statue</a></li>
+      <li><a href="https://testedprofit.com/pages/the-newsboy-statue/">The Newsboy statue on Golden&#x27;s Washington Avenue bridge</a></li>
+    </ul>
+    <p><a href="https://testedprofit.com/pages/landmarks/denver/">Denver landmarks</a> · <a href="https://testedprofit.com/CO/">All Colorado pages</a></p>
+  </aside>
+  <p class="max-w-5xl mx-auto text-xs text-gray-500 mt-6">Sources: seanomeallie.com; Colorado Springs Gazette, June 8, 2008; Colorado College Fine Arts Center artist note; place listings and a July 30, 2021 visitor account for 1725 Champa St. GPS is the geocode for that address. Last checked October 2026.</p>
+</article>
+    </main>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
+    document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({ duration: 800, once: true, offset: 50 });
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+    });
     </script>
 </body>
 </html>
