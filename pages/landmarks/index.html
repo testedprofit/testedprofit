@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Statues and Landmarks by State | TestedProfit</title>
+    <title>Landmarks Directory by State | Guide</title>
     <link rel="canonical" href="https://testedprofit.com/pages/landmarks/">
-    <meta name="description" content="Directory of public statues, sculptures, and parks by state, plus Denver and Vail city pages. Earning-app reviews live in a separate guides section.">
+    <meta name="description" content="Directory of statue and park pages by state, with the nine visitor guides already on the template. Earning reviews stay separate.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Landmarks Directory by State | Guide">
+    <meta property="og:description" content="Directory of statue and park pages by state, with the nine visitor guides already on the template. Earning reviews stay separate.">
+    <meta property="og:url" content="https://testedprofit.com/pages/landmarks/">
+    <meta property="og:site_name" content="Profitnet Landmarks">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"CollectionPage","@id":"https://testedprofit.com/pages/landmarks/#collection","name":"Landmarks by state","url":"https://testedprofit.com/pages/landmarks/","description":"Directory of statue and park pages by state, with the nine visitor guides already on the template. Earning reviews stay separate.","mainEntity":{"@type":"ItemList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Bronco Buster in Denver Civic Center","url":"https://testedprofit.com/pages/bronco-buster-statue/"},
+  {"@type":"ListItem","position":2,"name":"Einstein Bench in Vail Village","url":"https://testedprofit.com/pages/albert-einstein-statue-vail-co/"},
+  {"@type":"ListItem","position":3,"name":"Lady Doctor Statue at 30th and Downing","url":"https://testedprofit.com/pages/the-lady-doctor-statue/"},
+  {"@type":"ListItem","position":4,"name":"Botero's Man and Woman in Denver","url":"https://testedprofit.com/pages/man-and-woman/"},
+  {"@type":"ListItem","position":5,"name":"Cowboy in Pajamas Sculpture in Denver","url":"https://testedprofit.com/pages/cowboy-in-pajamas/"},
+  {"@type":"ListItem","position":6,"name":"The Newsboy Statue in Golden, CO","url":"https://testedprofit.com/pages/the-newsboy-statue/"},
+  {"@type":"ListItem","position":7,"name":"Westminster Sensory Park","url":"https://testedprofit.com/pages/sensory-park/"},
+  {"@type":"ListItem","position":8,"name":"Kachina Woman Monument in Cave Creek, AZ","url":"https://testedprofit.com/pages/worlds-tallest-kachina-doll/"},
+  {"@type":"ListItem","position":9,"name":"Rock Paper Scissors Sculpture in Gillette, WY","url":"https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/"}
+ ]}},
+ {"@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://testedprofit.com/"},
+  {"@type":"ListItem","position":2,"name":"Landmarks","item":"https://testedprofit.com/pages/landmarks/"}
+ ]}
+]}
+    </script>
     
     <!-- External Scripts & Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -128,11 +154,15 @@
         ::-webkit-scrollbar-thumb:hover { background: #334155; }
         
         #mobile-menu {
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
             transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
         }
         #mobile-menu.active {
             transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
         }
     </style>
 <style id="tp-seo-style">
@@ -178,16 +208,16 @@
                 </a>
             </nav>
 
-            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors"><i class="fa-solid fa-bars-staggered"></i></button>
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Open Menu" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+            </button>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        
     </header>
-
     <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
-    <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-[60] hidden flex-col items-center justify-center space-y-8 lg:hidden">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl p-2 hover:bg-white/10 rounded-full transition-colors"><i class="fa-solid fa-xmark"></i></button>
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[60] lg:hidden flex flex-col items-center justify-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2" aria-label="Close Menu" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
             <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-emerald-400 transition-colors">Home</a>
             <a href="/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
             <a href="/pages/guides/" class="text-xl font-black text-white uppercase tracking-widest hover:text-emerald-300 transition-colors">Guides</a>
@@ -214,8 +244,7 @@
             </div>
             
             <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-8 leading-[1.1]">
-                Statues and landmarks, <br class="hidden md:block" />
-                <span class="gradient-text">sorted by state.</span>
+                Landmarks <span class="gradient-text">by state</span>
             </h1>
             
             <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-8 font-light leading-relaxed">
@@ -256,6 +285,21 @@
             <a class="px-3 py-1 rounded-full border border-teal-400/40 text-sm text-teal-200 hover:border-teal-300" href="/pages/landmarks/vail/">Vail</a>
         </nav>
         <!-- /tp-seo:state-jump -->
+        <section class="mb-12" aria-labelledby="guides-h">
+            <h2 id="guides-h" class="font-display text-3xl font-bold text-white mb-2">Visitor guides</h2>
+            <p class="text-gray-400 mb-6">These nine pages are on the visitor-guide template. The Eagle page is still the older article and is not in this list.</p>
+            <ul class="grid md:grid-cols-2 gap-3">
+                <li><a class="link-item block py-3 px-4 rounded-xl card-blur text-gray-200" href="/pages/bronco-buster-statue/">Bronco Buster in Denver Civic Center</a></li>
+                <li><a class="link-item block py-3 px-4 rounded-xl card-blur text-gray-200" href="/pages/albert-einstein-statue-vail-co/">Einstein Bench in Vail Village</a></li>
+                <li><a class="link-item block py-3 px-4 rounded-xl card-blur text-gray-200" href="/pages/the-lady-doctor-statue/">Lady Doctor Statue at 30th and Downing</a></li>
+                <li><a class="link-item block py-3 px-4 rounded-xl card-blur text-gray-200" href="/pages/man-and-woman/">Botero's Man and Woman in Denver</a></li>
+                <li><a class="link-item block py-3 px-4 rounded-xl card-blur text-gray-200" href="/pages/cowboy-in-pajamas/">Cowboy in Pajamas Sculpture in Denver</a></li>
+                <li><a class="link-item block py-3 px-4 rounded-xl card-blur text-gray-200" href="/pages/the-newsboy-statue/">The Newsboy Statue in Golden, CO</a></li>
+                <li><a class="link-item block py-3 px-4 rounded-xl card-blur text-gray-200" href="/pages/sensory-park/">Westminster Sensory Park</a></li>
+                <li><a class="link-item block py-3 px-4 rounded-xl card-blur text-gray-200" href="/pages/worlds-tallest-kachina-doll/">Kachina Woman Monument in Cave Creek, AZ</a></li>
+                <li><a class="link-item block py-3 px-4 rounded-xl card-blur text-gray-200" href="/WY/rock%20paper%20scissors%20sculpture/">Rock Paper Scissors Sculpture in Gillette, WY</a></li>
+            </ul>
+        </section>
         <!-- Directory Search & Header -->
         <section class="mb-12" data-aos="fade-up">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
@@ -271,7 +315,7 @@
                     </div>
                     <input type="text" id="directory-search" 
                            class="search-input w-full rounded-xl py-3 pl-11 pr-4 text-sm font-medium placeholder-gray-500"
-                           placeholder="Search landmarks, states, or tools...">
+                           placeholder="Search landmarks or states">
                 </div>
             </div>
             <div class="h-px bg-white/10 w-full"></div>
@@ -291,10 +335,13 @@
 
                     <!-- tp-seo:featured-co -->
                     <a href="/pages/eagle-statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">American Eagle Statue (Lakewood)</a>
-                    <a href="/pages/albert-einstein-statue-vail-co/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Albert Einstein Statue (Vail)</a>
-                    <a href="/pages/bronco-buster-statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bronco Buster Statue (Denver)</a>
-                    <a href="/pages/the-lady-doctor-statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Lady Doctor Statue (Denver)</a>
-                    <a href="/pages/man-and-woman/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Man and Woman (Denver)</a>
+                    <a href="/pages/albert-einstein-statue-vail-co/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Einstein Bench in Vail Village</a>
+                    <a href="/pages/bronco-buster-statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bronco Buster in Denver Civic Center</a>
+                    <a href="/pages/the-lady-doctor-statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Lady Doctor Statue at 30th and Downing</a>
+                    <a href="/pages/man-and-woman/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Botero's Man and Woman in Denver</a>
+                    <a href="/pages/cowboy-in-pajamas/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Cowboy in Pajamas Sculpture in Denver</a>
+                    <a href="/pages/the-newsboy-statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Newsboy Statue in Golden</a>
+                    <a href="/pages/sensory-park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Westminster Sensory Park</a>
                     <a href="/pages/things-to-do-in-vail-colorado/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Things to Do in Vail</a>
                     <a href="/pages/landmarks/denver/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-teal-300">Denver city page</a>
                     <a href="/pages/landmarks/vail/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-teal-300">Vail city page</a>
@@ -502,7 +549,7 @@
                     <h3 class="font-display text-xl font-bold text-white"><a href="/AL/">Alabama</a></h3>
                 </div>
                 <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
-                    <a href="/AL/Albert%20Patterson%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Albert Patterson Statue</a><a href="/AL/Angel%20of%20Hope/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Angel of Hope</a><a href="/AL/Atticus%20Finch%20Memorial%20Park%20Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Atticus Finch Monument</a><a href="/AL/Big%20Peanut/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Big Peanut</a><a href="/AL/Bigfoot%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bigfoot Capital of Alabama</a><a href="/AL/Bo%20Jackson%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bo Jackson Statue</a><a href="/AL/Charles%20Barkley%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Charles Barkley Statue</a><a href="/AL/Confederate%20Memorial%20Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Confederate Memorial Monument</a><a href="/AL/Court%20Square%20Fountain%20-%20Artesian%20Basin/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Court Square Fountain</a><a href="/AL/English%20Village%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Civitas: The Spirit of Community</a><a href="/AL/Hank%20Williams%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Hank Williams Statue</a><a href="/AL/Heaviest%20Corner%20On%20Earth/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Heaviest Corner on Earth</a><a href="/AL/Karl%20Richter%20Memorial%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Here Am I. Send Me.</a><a href="/AL/Manny%2C%2012%20Foot%20Tall%20Fish/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Manny the Bass</a><a href="/AL/Nathan%20Bedford%20Forrest%20Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Nathan Bedford Forrest Monument</a><a href="/AL/Rainbow%20Division%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Rainbow Soldier</a><a href="/AL/Rosa%20Parks%20Bus%20Stop/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Spark of a Movement</a><a href="/AL/The%20Bronze%20Bomber%20-%20Deontay%20Wilder%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Bronze Bomber</a><a href="/AL/The%20Four%20Spirits/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Four Spirits</a><a href="/AL/Viola%20Liuzzo%20Memorial/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Viola Liuzzo Memorial</a><a href="/AL/Woods%20Quad/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Woods Quad</a><a href="/AL/World&#x27;s%20Smallest%20City%20Block/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">World&#x27;s Smallest City Block</a>
+                    <a href="/AL/Albert%20Patterson%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Albert Patterson Statue</a><a href="/AL/Angel%20of%20Hope/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Angel of Hope</a><a href="/AL/Atticus%20Finch%20Memorial%20Park%20Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Atticus Finch Monument</a><a href="/AL/Big%20Peanut/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Big Peanut</a><a href="/AL/Bigfoot%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bigfoot Capital of Alabama</a><a href="/AL/Bo%20Jackson%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bo Jackson Statue</a><a href="/AL/Charles%20Barkley%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Charles Barkley Statue</a><a href="/AL/Confederate%20Memorial%20Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Confederate Memorial Monument</a><a href="/AL/Court%20Square%20Fountain%20-%20Artesian%20Basin/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Court Square Fountain</a><a href="/AL/English%20Village%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Civitas: The Spirit of Community</a><a href="/AL/Hank%20Williams%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Hank Williams Statue</a><a href="/AL/Heaviest%20Corner%20On%20Earth/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Heaviest Corner on Earth</a><a href="/AL/Karl%20Richter%20Memorial%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Here Am I. Send Me.</a><a href="/AL/Manny%2C%2012%20Foot%20Tall%20Fish/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Manny the Bass</a><a href="/AL/Nathan%20Bedford%20Forrest%20Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Nathan Bedford Forrest Monument</a><a href="/AL/Rainbow%20Division%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Rainbow Soldier</a><a href="/AL/Rosa%20Parks%20Bus%20Stop/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Spark of a Movement</a><a href="/AL/The%20Bronze%20Bomber%20-%20Deontay%20Wilder%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Bronze Bomber</a><a href="/AL/The%20Four%20Spirits/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Four Spirits</a><a href="/AL/Viola%20Liuzzo%20Memorial/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Viola Liuzzo Memorial</a><a href="/AL/Woods%20Quad/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Woods Quad</a><a href="/AL/World's%20Smallest%20City%20Block/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">World's Smallest City Block</a>
                 </div>
             </div>
 
@@ -526,7 +573,7 @@
                     <h3 class="font-display text-xl font-bold text-white"><a href="/MI/">Michigan</a></h3>
                 </div>
                 <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
-                    <a href="/MI/Brown%20Trout%20Sculpture%20Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE GREAT BROWN TROUT.</a><a href="/MI/Butterfly%20House/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">WINGS OF PORT AUSTIN.</a><a href="/MI/Commodore%20Perry/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">WE HAVE MET THE ENEMY.</a><a href="/MI/Furtaw%20Field/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">COMMUNITY GATHERING.</a><a href="/MI/Gen.%20Thaddeus%20Kosciuszko%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE ENGINEER OF LIBERTY.</a><a href="/MI/Kirtland&#x27;s%20Warbler%20Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">PHOENIX OF THE PINES.</a><a href="/MI/Lion%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE SILENT GUARDIAN.</a><a href="/MI/Magic%20Johnson%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">ALWAYS A SPARTAN.</a><a href="/MI/Noahquageshik%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE PEACEMAKER.</a><a href="/MI/Paul%20Bunyan%20carving/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">GIANT OF GLADWIN.</a><a href="/MI/Saint%20Patrick%2C%20Patron%20Saint%20of%20The%20Irish%20Hills%2C%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">GUARDIAN OF THE HILLS.</a><a href="/MI/Schiller%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE POET OF LIBERTY.</a><a href="/MI/Sculpture%20in%20the%20Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">SCULPTURE IN THE PARK.</a><a href="/MI/Skanderbeg%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE DRAGON OF ALBANIA.</a><a href="/MI/Statue%20of%20Liberty%20Torch%20Sculpture/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE FLAME OF THE NORTH.</a><a href="/MI/Statue%20of%20Woodbridge%20N.%20Ferris/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">WOODBRIDGE N. FERRIS.</a><a href="/MI/Stevie%20Wonder%20Landmark/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE ROOTS OF RHYTHM.</a><a href="/MI/Verlen%20Kruger%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE RIVER WALKER.</a>
+                    <a href="/MI/Brown%20Trout%20Sculpture%20Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE GREAT BROWN TROUT.</a><a href="/MI/Butterfly%20House/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">WINGS OF PORT AUSTIN.</a><a href="/MI/Commodore%20Perry/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">WE HAVE MET THE ENEMY.</a><a href="/MI/Furtaw%20Field/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">COMMUNITY GATHERING.</a><a href="/MI/Gen.%20Thaddeus%20Kosciuszko%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE ENGINEER OF LIBERTY.</a><a href="/MI/Kirtland's%20Warbler%20Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Kirtland's Warbler Monument</a><a href="/MI/Lion%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE SILENT GUARDIAN.</a><a href="/MI/Magic%20Johnson%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">ALWAYS A SPARTAN.</a><a href="/MI/Noahquageshik%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE PEACEMAKER.</a><a href="/MI/Paul%20Bunyan%20carving/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">GIANT OF GLADWIN.</a><a href="/MI/Saint%20Patrick%2C%20Patron%20Saint%20of%20The%20Irish%20Hills%2C%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">GUARDIAN OF THE HILLS.</a><a href="/MI/Schiller%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE POET OF LIBERTY.</a><a href="/MI/Sculpture%20in%20the%20Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">SCULPTURE IN THE PARK.</a><a href="/MI/Skanderbeg%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE DRAGON OF ALBANIA.</a><a href="/MI/Statue%20of%20Liberty%20Torch%20Sculpture/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE FLAME OF THE NORTH.</a><a href="/MI/Statue%20of%20Woodbridge%20N.%20Ferris/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">WOODBRIDGE N. FERRIS.</a><a href="/MI/Stevie%20Wonder%20Landmark/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE ROOTS OF RHYTHM.</a><a href="/MI/Verlen%20Kruger%20Statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">THE RIVER WALKER.</a>
                 </div>
             </div>
 
@@ -548,26 +595,15 @@
                     <div class="w-10 h-10 rounded-lg bg-gray-500/10 text-gray-400 flex items-center justify-center font-bold border border-gray-500/20">
                         <i class="fa-solid fa-layer-group"></i>
                     </div>
-                    <h3 class="font-display text-xl font-bold text-white">General & Tools</h3>
+                    <h3 class="font-display text-xl font-bold text-white">More place pages</h3>
                 </div>
                 <div class="flex-grow space-y-1 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
-                    <a href="https://testedprofit.com/pages/things-to-do-in-vail-colorado/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Things to Do in Vail</a>
-                    <a href="https://testedprofit.com/superbowlLX/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Super Bowl LX Official Hub</a>
-                    <a href="https://testedprofit.com/pages/algoflow/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">AlgoFlow</a>
-                    <a href="https://testedprofit.com/pages/Security Lab/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Algorand Security Lab</a>
-                    <a href="https://testedprofit.com/pages/Woodbury Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Woodbury Park Hub</a>
-                    <a href="https://testedprofit.com/CheckIP/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">NetBeacon | My IP 2026</a>
-                    <a href="https://testedprofit.com/pages/PR-President-Walkway/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Walkway of the Presidents (PR)</a>
-                    <a href="https://testedprofit.com/pages/Oakhurst Park II/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Oakhurst Park II</a>
-                    <a href="https://testedprofit.com/rotary-park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Oakhurst Park II Data</a>
-                    <a href="https://testedprofit.com/TikTok Shop Fee Calculator & Profit Estimator/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">TikTok Shop Profit Estimator</a>
-                    <a href="https://testedprofit.com/pages/bulldog-towing-recovery/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Bulldog Towing & Recovery</a>
-                    <a href="https://testedprofit.com/scam-scan/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Reality Check | Phishing Scan</a>
-                    <a href="https://testedprofit.com/pages/honeygain-content-delivery/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Honeygain Content Delivery</a>
+                    <a href="/pages/things-to-do-in-vail-colorado/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Things to Do in Vail</a>
+                    <a href="/pages/Woodbury%20Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Woodbury Park</a>
+                    <a href="/pages/PR-President-Walkway/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Walkway of the Presidents</a>
+                    <a href="/pages/Oakhurst%20Park%20II/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Oakhurst Park II</a>
+                    <a href="/rotary-park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Rotary Park</a>
                     <a href="/pages/guides/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Earning-app guides</a>
-                    <a href="https://testedprofit.com/US Kitchen & Unit Standard/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">US Kitchen & Unit Standard</a>
-                    <a href="https://testedprofit.com/Impermanent Loss Visualizer/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Impermanent Loss Visualizer</a>
-                    <a href="https://testedprofit.com/pages/honey-rock-dogs-boarding-kennels/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Honey Rock Dogs Boarding</a>
                 </div>
             </div>
 
@@ -585,43 +621,22 @@
                         <span class="font-bold text-white">Profitnet</span>
                     </div>
                     <p class="text-gray-500 text-sm leading-relaxed">
-                        Connecting the physical world to the digital future through structured data and AI integration.
+                        Statue and park pages, listed by state. Earning-app reviews are on the guides page.
                     </p>
                 </div>
-                
                 <div>
-                    <h4 class="font-bold text-white mb-4">Platform</h4>
+                    <h4 class="font-bold text-white mb-4">On this site</h4>
                     <ul class="space-y-3 text-sm text-gray-500">
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Strategic Roadmap</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Integration API</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Coverage Map</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-white mb-4">Governance</h4>
-                    <ul class="space-y-3 text-sm text-gray-500">
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Governance Gateway</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Ethics Committee</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Data Opt-Out</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-white mb-4">Connect</h4>
-                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li><a href="/pages/landmarks/" class="hover:text-teal-400 transition-colors">Landmarks</a></li>
+                        <li><a href="/pages/guides/" class="hover:text-teal-400 transition-colors">Earning-app guides</a></li>
+                        <li><a href="/pages/roadmap/" class="hover:text-teal-400 transition-colors">Roadmap</a></li>
+                        <li><a href="/pages/data-sharing-opt-out/" class="hover:text-teal-400 transition-colors">Data sharing opt-out</a></li>
                         <li><a href="mailto:testedprofit@gmail.com" class="hover:text-teal-400 transition-colors">Support</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Partnerships</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-600 text-sm">© 2026 TestedProfit. All rights reserved.</p>
-                <div class="flex gap-6 text-sm text-gray-600">
-                    <a href="#" class="hover:text-gray-400">Privacy Policy</a>
-                    <a href="#" class="hover:text-gray-400">Terms of Service</a>
-                </div>
+            <div class="border-t border-white/5 pt-8">
+                <p class="text-gray-600 text-sm">© 2026 TestedProfit.</p>
             </div>
         </div>
     </footer>
@@ -631,29 +646,21 @@
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Init AOS
-        AOS.init({ duration: 800, once: true });
+        if (window.AOS) AOS.init({ duration: 800, once: true });
 
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
         const closeBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        if (menuBtn && closeBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.remove('hidden');
-                mobileMenu.classList.add('flex');
-                void mobileMenu.offsetWidth; 
-                mobileMenu.classList.add('active');
-            });
-
-            closeBtn.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('flex');
-                }, 300);
-            });
+        function toggleMenu(show) {
+            if (!mobileMenu) return;
+            mobileMenu.classList.toggle('active', show);
+            document.body.style.overflow = show ? 'hidden' : '';
         }
+        if (menuBtn) menuBtn.addEventListener('click', () => toggleMenu(true));
+        if (closeBtn) closeBtn.addEventListener('click', () => toggleMenu(false));
+        if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
 
         // Smart Directory Search Logic
         const searchInput = document.getElementById('directory-search');
