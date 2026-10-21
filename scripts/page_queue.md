@@ -77,7 +77,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the Alabama landmarks PR (second half). Directory cards now use the revised titles for all 22 guides.
 - https://testedprofit.com/CO/
   - Title: Colorado Statues and Landmarks | TestedProfit
-  - Status: updated in the first Colorado landmarks PR. Directory cards use revised titles for nine guides and the bear keeper, and current titles for the rest.
+  - Status: updated in the second Colorado landmarks PR. Cards use revised titles for nineteen guides and the bear keeper, current titles for nine guides still waiting, and live titles for finished Colorado guides and parks outside this folder.
 - https://testedprofit.com/HI/
   - Title: Hawaii Heritage | Profitnet Landmark Directory
   - Status: open. no OG
@@ -223,35 +223,35 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Hank the Cowboy in Colorado Springs | Guide
   - Status: updated in the first Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/Hayden-Town-Park/
-  - Title: Hayden Town Park | Yampa Valley
-  - Status: open. description 167 chars | no OG
+  - Title: Hayden Town Park in Hayden | Guide
+  - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/Horse-Statue-Intersection/
-  - Title: The Palmer Intersection Project | Conserving History
-  - Status: open. no OG
+  - Title: Palmer Statue at Nevada and Platte | Guide
+  - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/Isak-Heartstone/
-  - Title: Isak Heartstone | Profitnet Landmarks
-  - Status: open. description 162 chars | no OG
+  - Title: Isak Heartstone in Breckenridge | Guide
+  - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/octomaid/
-  - Title: Octo-Maid (Iscariot) | TestedProfit Standard
-  - Status: open. no OG
+  - Title: Iscariot Sculpture in Colorado Springs | Guide
+  - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/Routt-County-Firing-Range/
-  - Title: Routt County Public Firing Range | TestedProfit Network
-  - Status: open. description 162 chars | no OG | 142 words
+  - Title: Hayden Shooting Range | Visit Guide
+  - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/Santa-Maria-Statue-of-Christ/
-  - Title: Santa Maria Statue of Christ | Christ of the Rockies - Grant, CO
-  - Status: open. description 178 chars | title 64 chars | no OG
+  - Title: Christ of the Rockies in Grant | Guide
+  - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/spirit/
-  - Title: The Spirit of the Rockies | TestedProfit
-  - Status: open. no OG
+  - Title: Spirit Statue at Red Rocks | Guide
+  - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/Starr%20Kempf's%20Kinetic%20Sculptures/
-  - Title: Starr Kempf: Steel & Wind
-  - Status: open. no OG
+  - Title: Starr Kempf Sculptures in Colorado Springs | Guide
+  - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/truffles/
-  - Title: Truffles | The Bronze Pig of Tejon St.
-  - Status: open. no OG
+  - Title: Truffles Bronze Pig in Colorado Springs | Guide
+  - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Pueblo%20Heritage%20Walk/
-  - Title: Pueblo Heritage Walk | Pueblo, CO Directory
-  - Status: open. no OG
+  - Title: Pueblo History and Art Walk | Guide
+  - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Pyro-DuBois-Memorial/
   - Title: Capt. William H. "Pyro" DuBois Jr. Memorial | Colorado Landmark
   - Status: open. title 63 chars
@@ -760,8 +760,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Honey Rock Dogs Boarding Kennels - Craig, CO
   - Status: open. no description | no OG
 - https://testedprofit.com/pages/james-dalton-trumbo-statue/
-  - Title: Dalton Trumbo Statue | Grand Junction, CO Directory
-  - Status: open. no OG
+  - Title: Redirect to Dalton Trumbo Statue | TestedProfit
+  - Status: redirect. noindex redirect to https://testedprofit.com/CO/James%20Dalton%20Trumbo%20Statue/; removed from sitemap.xml
 - https://testedprofit.com/pages/lowell-ponds-state-wildlife-area/
   - Title: Lowell Ponds Natural Area | Thornton, CO Directory
   - Status: open. no OG
