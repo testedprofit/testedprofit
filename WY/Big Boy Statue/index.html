@@ -1,431 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wapiti Big Boy | Profitnet Landmarks</title>
+    <title>Big Boy Statue in Wapiti | Guide</title>
+    <meta name="description" content="The Big Boy statue stands in a field on the North Fork Highway in Wapiti, on the road between Cody and Yellowstone.">
     <link rel="canonical" href="https://testedprofit.com/WY/Big%20Boy%20Statue/">
-    <meta name="description" content="The Wapiti Big Boy is a surreal oversized roadside statue on the highway to Yellowstone near Cody, Wyoming — a quirky landmark that surprises and delights travelers heading to the park.">
-    
-    <!-- External Scripts & Styles -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Big Boy Statue in Wapiti | Guide">
+    <meta property="og:description" content="The Big Boy statue stands in a field on the North Fork Highway in Wapiti, on the road between Cody and Yellowstone.">
+    <meta property="og:url" content="https://testedprofit.com/WY/Big%20Boy%20Statue/">
+    <meta property="og:site_name" content="Profitnet Landmarks">
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts: Preconnected for speed -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome: Required for content icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0A091B',
-                        accent: {
-                            teal: '#2DD4BF',
-                            emerald: '#10B981',
-                            blue: '#60A5FA',
-                            red: '#EF4444' /* Added for Big Boy accent */
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
-            }
-        }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0A091B;
-            color: #E5E7EB;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Optimization: Animations */
-        .hero-glow {
-            background: radial-gradient(circle at 30% 20%, rgba(239, 68, 68, 0.1) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(45, 212, 191, 0.1) 0%, transparent 60%);
-            will-change: opacity;
-        }
-
-        .bg-grid-pattern {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 2.5rem 2.5rem;
-        }
-
-        /* Custom Content Styles */
-        .gradient-text {
-            background: linear-gradient(90deg, #F87171, #60A5FA); /* Red to Blue for Americana vibe */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .card-blur {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-blur:hover {
-            border-color: #EF4444; /* Red border on hover for this page */
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-        }
-
-        .info-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: #EF4444;
-        }
-
-        .stat-badge {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(96, 165, 250, 0.1));
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            border-radius: 8px;
-            padding: 0.75rem 1.25rem;
-            display: inline-block;
-        }
-
-        .cta-button {
-            background: linear-gradient(90deg, #EF4444, #3B82F6);
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.4);
-        }
-
-        /* Mobile Menu */
-        #mobile-menu {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-            transform: translateY(-100%);
-            opacity: 0;
-            pointer-events: none;
-        }
-        #mobile-menu.active {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0A091B; }
-        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #334155; }
-    </style>
-<style id="tp-seo-style">
-.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
-.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
-.tp-seo-crumbs a:hover{text-decoration:underline}
-.tp-seo-crumbs li{color:#e5e7eb}
-.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
-.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
-.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
-.tp-seo-related ul{margin:0;padding-left:1.1rem}
-.tp-seo-related a{color:#5eead4}
-.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
+body{font-family:Inter,system-ui,sans-serif}
+a{color:#5eead4}
+main a{overflow-wrap:anywhere}
+.source-list a,.tp-related a,.guide-list a{text-decoration:underline}
+.source-list li,.guide-list li{margin:.45rem 0}
+.tp-related{margin-top:2rem;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55)}
+.guide-list{list-style:none;padding:0}
+.guide-list a{display:block;padding:.85rem 1rem;border:1px solid rgba(148,163,184,.28);border-radius:14px;background:rgba(15,23,42,.45)}
+details{border-top:1px solid rgba(148,163,184,.25);padding:.7rem 0}
+summary{cursor:pointer;font-weight:650}
 </style>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TouristAttraction", "@id": "https://testedprofit.com/WY/Big%20Boy%20Statue/#place", "name": "Big Boy statue", "description": "The Big Boy statue stands in a field on the North Fork Highway in Wapiti, on the road between Cody and Yellowstone.", "url": "https://testedprofit.com/WY/Big%20Boy%20Statue/", "dateModified": "2026-10-21", "address": {"@type": "PostalAddress", "addressLocality": "Wapiti", "addressRegion": "WY", "addressCountry": "US", "streetAddress": "North Fork Highway"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://testedprofit.com/"}, {"@type": "ListItem", "position": 2, "name": "Landmarks", "item": "https://testedprofit.com/pages/landmarks/"}, {"@type": "ListItem", "position": 3, "name": "Wyoming", "item": "https://testedprofit.com/WY/"}, {"@type": "ListItem", "position": 4, "name": "Big Boy statue", "item": "https://testedprofit.com/WY/Big%20Boy%20Statue/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where is the Wapiti Big Boy?", "acceptedAnswer": {"@type": "Answer", "text": "Cowboy State Daily says the statue stands on a concrete pedestal in a field about 20 miles west of Cody along U.S. Highway 14/16/20, on the way to Yellowstone's east entrance. The Cody Enterprise of October 12, 2026 says it stands on the south side of the North Fork Highway in Wapiti."}}, {"@type": "Question", "name": "Who put it there?", "acceptedAnswer": {"@type": "Answer", "text": "James Geier told Cowboy State Daily that he owns the statue and the land and that he put it there in 2013. The story says it is an authentic Big Boy from a California Big Boy restaurant. The Cody Enterprise says the figure returned to the pedestal on the Saturday night before its October 12, 2026 story, after a Captain Morgan figure had stood in its place."}}]}]}</script>
 </head>
-<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
-
-    <!-- Global Background -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
-    </div>
-
-    <!-- Sticky Navigation -->
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            
-            <!-- Logo Section -->
-            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
-                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
-                     alt="Profitnet Logo"
-                     width="32" 
-                     height="32"
-                     fetchpriority="high">
-                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
-            </a>
-            
-            <!-- Desktop Nav -->
-            <nav class="hidden lg:flex space-x-10 items-center">
-                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
-                
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
-                
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
-                    $PNET Asset Dashboard
-                </a>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button>
+<body class="bg-slate-950 text-gray-200">
+    <header class="border-b border-white/10">
+        <div class="max-w-3xl mx-auto px-6 py-4 flex flex-wrap gap-x-5 gap-y-2 items-center">
+            <a href="/" class="text-white font-extrabold">Profitnet</a>
+            <a href="/pages/landmarks/">Landmarks</a>
+            <a href="/WY/">Wyoming</a>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        
     </header>
-
-    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
-    <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[60] lg:hidden flex flex-col items-center justify-center space-y-8">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-
-            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
-        </div>
-
-
-    <!-- Main Content Area -->
-    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
-<!-- tp-seo:breadcrumbs -->
-<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
-<li><a href="/">Home</a></li>
-<li><a href="/pages/landmarks/">Landmarks</a></li>
-<li><a href="/WY/">Wyoming</a></li>
-<li aria-current="page">The Wapiti Big Boy</li>
-</ol></nav>
-<!-- /tp-seo:breadcrumbs -->
-
-
-        
-        <!-- Hero Section -->
-        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up">
-            <div class="inline-block mb-4">
-                <span class="stat-badge text-xs font-bold text-red-400 uppercase tracking-wider">
-                    <i class="fa-solid fa-burger mr-2"></i>Roadside Americana
-                </span>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
-                <span class="gradient-text">The Wapiti Big Boy</span>
-            </h1>
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">A Surreal Slice of History</h2>
-            <p class="text-xl text-gray-400 max-w-3xl">
-                A smiling Big Boy statue standing surreal in the middle of a wide Wyoming field, holding up a giant double-decker burger against a backdrop of sagebrush and mountains on the road to Yellowstone.
-            </p>
-        </div>
-
-        <!-- Quick Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">2013</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Installed</div>
-            </div>
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">6 ft</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Height</div>
-            </div>
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">Hwy 14</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Route Number</div>
-            </div>
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">View Only</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Private Property</div>
-            </div>
-        </div>
-
-        <!-- The Surreal Sight -->
-        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-blur rounded-2xl p-8 md:p-12">
-                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
-                    <i class="fa-solid fa-eye text-red-400 mr-4"></i>
-                    A Surreal Sight
-                </h2>
-                
-                <div class="space-y-6 text-gray-300">
-                    <p class="text-lg leading-relaxed">
-                        In the middle of sagebrush country, this authentic fiberglass mascot stands on a concrete pedestal. Rescued from a real Big Boy restaurant in California, it was given a second life as highway art in 2013. Today, it’s one of those unexpected stops that people talk about long after their Yellowstone trip is over.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Details & Story -->
-        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-blur rounded-2xl p-8 md:p-12">
-                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
-                    <i class="fa-solid fa-paintbrush text-blue-400 mr-4"></i>
-                    The Story & Style
-                </h2>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-user-pen text-red-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white mb-1">The Artist</h3>
-                                <p class="text-gray-400">Local artist and sculptor James Geier owns both the land and the statue. He installed it as a conversation starter to celebrate the now-rare Big Boy restaurants.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-brush text-blue-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white mb-1">Restoration</h3>
-                                <p class="text-gray-400">Geier periodically repaints and repairs the statue. In 2020, its brief disappearance for professional restoration caused a local stir before it triumphantly returned.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 rounded-full bg-teal-500/10 border border-teal-500/30 flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-shirt text-teal-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white mb-1">Classic Look</h3>
-                                <p class="text-gray-400">Styled in the classic Bob’s Big Boy look: red-and-white checkered overalls, white T-shirt, signature hair curl, and that giant burger.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-house-chimney text-emerald-400"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white mb-1">Nearby Sights</h3>
-                                <p class="text-gray-400">Shares the highway with the distinctive multi-story log <strong>Smith Mansion</strong> and Yellowstone Valley Inn, creating a gallery of roadside curiosities.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Location & CTA -->
-        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="400">
-            <div class="card-blur rounded-2xl p-8 md:p-12">
-                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
-                    <i class="fa-solid fa-map-location-dot text-emerald-400 mr-4"></i>
-                    Location & Access
-                </h2>
-                
-                <div class="bg-slate-900/50 rounded-xl p-6 border border-teal-500/20 mb-8">
-                    <div class="flex items-center mb-3">
-                        <i class="fa-solid fa-road text-teal-400 mr-3"></i>
-                        <h3 class="text-lg font-bold text-white">Finding It</h3>
-                    </div>
-                    <p class="text-gray-300 text-lg mb-4">South side of U.S. Highway 14/16/20 (North Fork Highway) between mileposts 34 and 35. Roughly 20 miles west of Cody.</p>
-                    <div class="flex items-start space-x-3 text-sm text-gray-400">
-                        <i class="fa-solid fa-circle-exclamation text-red-400 mt-1"></i>
-                        <p>The statue sits on private property. Please utilize the small pull-off along the shoulder to safely view and take photos without entering the fenced land.</p>
-                    </div>
-                </div>
-
-                <div class="text-center">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Wapiti+Wyoming+Big+Boy+Statue" 
-                       target="_blank"
-                       class="cta-button inline-block px-8 py-4 rounded-full text-white font-bold uppercase tracking-wider">
-                        <i class="fa-solid fa-map-pin mr-2"></i>
-                        Get Directions
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="max-w-4xl mx-auto mt-16 mb-12" data-aos="fade-up">
-            <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-gray-400 pl-4">History &amp; Background</h2>
-            <div class="space-y-4 text-gray-300 leading-relaxed">
-                <p>Big Boy is the name given to the Union Pacific Railroad's 4000-class steam locomotives — the largest steam locomotives ever built in the United States. Constructed by the American Locomotive Company between 1941 and 1944, these massive machines were designed specifically to haul freight over the Wasatch Range in Utah and the Sherman Hill grade in Wyoming. They weighed over 600 tons fully loaded and measured 132 feet in length — so long they required an articulated design to navigate curves. Twenty-five were built in total.</p>
-                <p>The Big Boy locomotives became legends of American railroading during their working lives from the 1940s through 1959, when diesel locomotives replaced steam power throughout the Union Pacific system. Eight Big Boys survived into preservation. Union Pacific restored locomotive No. 4014 to operating condition in 2019 — making it the only operational Big Boy in the world — and it has toured the country to enthusiastic crowds who turn out by the thousands to see and hear the great machine in action. The Big Boy statue or display in Wyoming honors the railroad's profound role in Wyoming's development.</p>
-                <p>Wyoming's relationship with railroads is fundamental. The transcontinental railroad, completed in 1869 with the famous golden spike ceremony at Promontory Summit, Utah, crossed through Wyoming via Cheyenne and Laramie. The railroad brought settlers, connected Wyoming ranches to markets, and enabled the cattle and sheep ranching economy that defined the state. Cheyenne existed because of the railroad — it was established as a railroad camp in 1867 and grew quickly into the territorial capital. The Big Boy represents the apex of the steam era that shaped Wyoming's economy and character.</p>
-            </div>
-        </div>
-        <div class="max-w-4xl mx-auto mb-12" data-aos="fade-up">
-            <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-green-500 pl-4">Nearby Attractions</h2>
-            <div class="space-y-4">
-                <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Union Pacific Railroad Depot (Cheyenne)</h3><p class="text-sm text-gray-400">The historic Cheyenne depot, built in 1886 and restored, houses a railroad museum, Amtrak station, and tourism information center. The building is a Romanesque Revival landmark that reflects the railroad's enormous economic and cultural power in 19th-century Wyoming. The Cheyenne depot was a major hub for cross-country travel and commerce.</p></div>
-                <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Ames Monument</h3><p class="text-sim text-gray-400">Located at the summit of Sherman Hill on Interstate 80, this 60-foot granite pyramid was built in 1882 to honor Oakes and Oliver Ames, financiers of the transcontinental railroad. Designed by Henry Hobson Richardson, it stands at the highest point on the transcontinental railroad route — an isolated monument to the era when railroads connected a continent.</p></div>
-                <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Wyoming Transportation Museum</h3><p class="text-sm text-gray-400">Covers the full history of transportation in Wyoming from the Oregon Trail through railroads, early automobiles, and aviation. Exhibits explain how transportation networks shaped settlement patterns, economic development, and the daily life of Wyoming residents over 150 years of territorial and state history.</p></div>
-            </div>
-        </div>
-    
-
-<!-- tp-seo:related -->
-<aside class="tp-seo-related" aria-label="Related landmarks">
-    <h2>Related landmarks</h2>
-    <ul>
-        <li><a href="/WY/Benjamin%20Franklin%20Statue/">Benjamin Franklin Statue</a></li>
-<li><a href="/WY/BSA%20Replica%20of%20Statue%20of%20Liberty/">BSA Replica Statue of Liberty</a></li>
-<li><a href="/WY/Dead%20Indian%20Summit%20Overlook/">Dead Indian Summit Overlook</a></li>
-<li><a href="/WY/Jackalope%20Square/">Jackalope Square</a></li>
-<li><a href="/WY/Just%20Ledoux%20It/">Just LeDoux It</a></li>
-    </ul>
-    <p><a href="/WY/">All Wyoming pages</a></p>
-</aside>
-<!-- /tp-seo:related -->
-</main>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Init AOS
-        AOS.init({ 
-            duration: 800, 
-            once: true,
-            offset: 50
-        });
-
-        // Mobile Menu Toggle Logic
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const body = document.body;
-
-        function toggleMenu(show) {
-            if (show) {
-                mobileMenu.classList.add('active');
-                body.style.overflow = 'hidden';
-            } else {
-                mobileMenu.classList.remove('active');
-                body.style.overflow = '';
-            }
-        }
-
-        menuBtn.addEventListener('click', () => toggleMenu(true));
-        closeBtn.addEventListener('click', () => toggleMenu(false));
-
-        // Close menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => toggleMenu(false));
-        });
-    });
-    </script>
+    <main class="max-w-3xl mx-auto px-6 py-10">
+        <nav aria-label="Breadcrumb"><ol class="flex flex-wrap gap-x-2 text-sm text-gray-400 list-none p-0 m-0 mb-6"><li><a href="/">Home</a></li><li aria-hidden="true">/</li><li><a href="/pages/landmarks/">Landmarks</a></li><li aria-hidden="true">/</li><li><a href="/WY/">Wyoming</a></li><li aria-hidden="true">/</li><li aria-current="page">Big Boy statue</li></ol></nav>
+        <h1 class="text-4xl font-black text-white mb-4">Big Boy statue</h1>
+        <h2 class="text-2xl font-black text-white mt-8 mb-3">A Big Boy on the road to Yellowstone</h2><p>The Big Boy statue is the roadside figure in Wapiti. Cowboy State Daily, on June 11, 2023, says anyone driving to or from Yellowstone National Park's east entrance on U.S. Highway 14/16/20 over the previous decade was likely to have seen the Wapiti Big Boy. It describes a larger-than-life statue on a concrete pedestal in the middle of a field about 20 miles west of Cody, with a smile, serving a giant burger. The story says it is an authentic Big Boy rescued from a California Big Boy restaurant, and that it was placed in that field on purpose.</p><p>James Geier told Cowboy State Daily that he owns the statue and the land. He said Big Boy restaurants were everywhere at one time and that he had always wanted one. He said he had heard people claim it just showed up. The story says he put it there, deliberately, in 2013.</p><p>The Cody Enterprise of October 12, 2026 says the Big Boy statue returned to his pedestal along the south side of the North Fork Highway in Wapiti on the previous Saturday night. The story says that return ended a short stay by a Captain Morgan figure. It says that for about 13 years, drivers bound for Yellowstone had passed the grinning kid in checkered overalls holding a double-decker burger over his head. It says the figure vanished that fall and a pirate with a sword and a barrel appeared in its place. Tim Whitmore, described as a longtime collaborator of property owner James Geier, said the sheriff's office called to ask whether the statue had been vandalized, and that the captain was only keeping Big Boy's seat hot. Geier dates the placement to 2013. The Enterprise counts about 13 years of drivers passing the figure.</p>
+        <p class="text-sm text-gray-400 mt-6">Last updated <time datetime="2026-10-21">21 October 2026</time>.</p>
+        <section aria-labelledby="faq-heading"><h2 id="faq-heading" class="text-2xl font-black text-white mt-10 mb-2">Questions</h2><details><summary>Where is the Wapiti Big Boy?</summary><p>Cowboy State Daily says the statue stands on a concrete pedestal in a field about 20 miles west of Cody along U.S. Highway 14/16/20, on the way to Yellowstone's east entrance. The Cody Enterprise of October 12, 2026 says it stands on the south side of the North Fork Highway in Wapiti.</p></details><details><summary>Who put it there?</summary><p>James Geier told Cowboy State Daily that he owns the statue and the land and that he put it there in 2013. The story says it is an authentic Big Boy from a California Big Boy restaurant. The Cody Enterprise says the figure returned to the pedestal on the Saturday night before its October 12, 2026 story, after a Captain Morgan figure had stood in its place.</p></details></section>
+        <section aria-labelledby="sources-heading"><h2 id="sources-heading" class="text-2xl font-black text-white mt-10 mb-3">Sources</h2><ul class="source-list list-disc pl-5 text-gray-300"><li><a href="https://cowboystatedaily.com/2023/06/11/what-the-heck-is-that-lonely-big-boy-statue-in-the-middle-of-a-field-in-wapiti-wyoming/">https://cowboystatedaily.com/2023/06/11/what-the-heck-is-that-lonely-big-boy-statue-in-the-middle-of-a-field-in-wapiti-wyoming/</a>. Cowboy State Daily, June 11, 2023. James Geier, the 2013 placement, and the field west of Cody.</li><li><a href="https://www.codyenterprise.com/news/local/article_4e29f76a-a78c-4a4e-8204-f5a8703ae6c7.html">https://www.codyenterprise.com/news/local/article_4e29f76a-a78c-4a4e-8204-f5a8703ae6c7.html</a>. Cody Enterprise, October 12, 2026. The statue's return to the North Fork Highway pedestal in Wapiti.</li></ul></section>
+        <section aria-labelledby="cite-heading"><h2 id="cite-heading" class="text-2xl font-black text-white mt-8 mb-3">Cite or link to this guide</h2><p>Link to <a href="https://testedprofit.com/WY/Big%20Boy%20Statue/">https://testedprofit.com/WY/Big%20Boy%20Statue/</a>.</p></section>
+        <aside class="tp-related" aria-label="Related guides"><h2 class="text-xl font-black text-white mb-2">Related guides</h2><ul class="list-disc pl-5"><li><a href="/WY/Benjamin%20Franklin%20Statue/">Benjamin Franklin Statue in Laramie | Guide</a></li><li><a href="/WY/">Wyoming landmark directory</a></li><li><a href="/pages/landmarks/">Landmarks hub</a></li><li><a href="/pages/parks/">Park guides</a></li><li><a href="/pages/guides/">Earning-app guides</a></li></ul></aside>
+    </main>
 </body>
 </html>
