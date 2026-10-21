@@ -899,6 +899,12 @@ def write_preview(records):
         <p>The AlgoFlow landing page at <a href="/">/</a> was not edited. SHA-256 of <code>index.html</code>:</p>
         <p><code>{HOME_HASH}</code></p>
     </div>
+    <h2>Screenshots from this branch</h2>
+    <p>Captured locally. GitHub Pages does not publish this branch.</p>
+    <p><img alt="Landmark hub with state links and a separate earning-guides card" src="screenshots/landmarks_hub.png" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px"></p>
+    <p><img alt="Eagle statue page with breadcrumb and updated title" src="screenshots/eagle_statue.png" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px"></p>
+    <p><img alt="Earning-app guides section" src="screenshots/earning_guides.png" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px"></p>
+    <p><img alt="Homepage still the AlgoFlow app" src="screenshots/homepage_unchanged.png" style="max-width:100%;border:1px solid #e2e8f0;border-radius:12px"></p>
     <h2>New structure</h2>
     <div class="grid">
         <a class="card" href="/pages/landmarks/"><strong>Landmarks hub</strong><span>States, Denver, Vail, and a separate link to earning guides.</span></a>
