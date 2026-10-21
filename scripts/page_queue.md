@@ -80,7 +80,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the final Colorado landmarks PR. Cards for every Colorado directory guide use the revised titles. The fourth group still links finished Colorado pages outside this folder.
 - https://testedprofit.com/HI/
   - Title: Hawaii Statues and Landmarks | TestedProfit
-  - Status: updated in the first Hawaii landmarks PR. Cards link all 20 Hawaii directory guides plus the Waimea Cook page. Ten guides use revised titles. Ten still use current titles.
+  - Status: updated in the second Hawaii landmarks PR. Cards for all 20 Hawaii directory guides and the Waimea Cook page use the revised titles.
 - https://testedprofit.com/IA/
   - Title: Iowa Statues and Landmarks | TestedProfit
   - Status: open. title, description, H1, canonical, and OG are in range
@@ -310,35 +310,35 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Prince Kūhiō Park on Kauaʻi | Guide
   - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Queen%20Kapiʻolani%20Statue/
-  - Title: Queen Kapiʻolani Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Queen Kapiʻolani in Kapiʻolani Park | Guide
+  - Status: updated in the second Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Saint%20Marianne%20Cope%20Statue/
-  - Title: Saint Marianne Cope Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Marianne Cope Statue at Kewalo | Guide
+  - Status: updated in the second Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Spalding%20Monument/
-  - Title: TestedProfit | The Spalding Monument
-  - Status: open. no OG
+  - Title: Spalding Monument above Kealia | Guide
+  - Status: updated in the second Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Statue%20of%20Hamana%20Kalili%20and%20the%20Shaka/
-  - Title: Statue of Hamana Kalili | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Hamana Kalili Shaka Statue | Guide
+  - Status: updated in the second Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Stone%20Dam/
-  - Title: TestedProfit | The Stone Dam
-  - Status: open. description 170 chars | no OG
+  - Title: Kilauea Stone Dam on Wai Koa | Guide
+  - Status: updated in the second Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Storyteller%20Statue/
-  - Title: The Storyteller Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Storyteller Bronze on Kalakaua | Guide
+  - Status: updated in the second Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/The%20Naha%20Stone/
-  - Title: TestedProfit | The Naha Stone
-  - Status: open. description 173 chars | no OG
+  - Title: Naha Stone at the Hilo Library | Guide
+  - Status: updated in the second Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/The%20Princess%20Kaʻiulani%20statue/
-  - Title: Princess Kaʻiulani Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Princess Kaʻiulani in Waikiki | Guide
+  - Status: updated in the second Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Ulumau%20Pohaku%20Pele%20sculpture/
-  - Title: TestedProfit | Ulumau Pohaku Pele
-  - Status: open. description 171 chars | no OG
+  - Title: Ulumau Pohaku Pele at Kilauea | Guide
+  - Status: updated in the second Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Wai%20Koa%20Loop%20Trail/
-  - Title: TestedProfit | Wai Koa Loop Trail
-  - Status: open. no OG
+  - Title: Wai Koa Loop Trail in Kilauea | Guide
+  - Status: updated in the second Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/Abraham%20Lincoln%20Statue/
   - Title: Abraham Lincoln Statue | TestedProfit
   - Status: open. no OG
@@ -694,8 +694,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
 ## other content (33)
 
 - https://testedprofit.com/Captain%20James%20Cook%20Statue/
-  - Title: TestedProfit | Captain James Cook Statue (Waimea)
-  - Status: open. description 162 chars | no OG
+  - Title: Cook Statue in Waimea, Kauai | Guide
+  - Status: updated in the second Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/freebrowsergames/
   - Title: ProfitNet Games - Free Browser Arcade
   - Status: open. no OG
