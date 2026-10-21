@@ -79,8 +79,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Colorado Statues and Landmarks | TestedProfit
   - Status: updated in the final Colorado landmarks PR. Cards for every Colorado directory guide use the revised titles. The fourth group still links finished Colorado pages outside this folder.
 - https://testedprofit.com/HI/
-  - Title: Hawaii Heritage | Profitnet Landmark Directory
-  - Status: open. no OG
+  - Title: Hawaii Statues and Landmarks | TestedProfit
+  - Status: updated in the first Hawaii landmarks PR. Cards link all 20 Hawaii directory guides plus the Waimea Cook page. Ten guides use revised titles. Ten still use current titles.
 - https://testedprofit.com/IA/
   - Title: Iowa Statues and Landmarks | TestedProfit
   - Status: open. title, description, H1, canonical, and OG are in range
@@ -280,35 +280,35 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Westminster City Park | Visit Guide
   - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Boat%20Rotor%20Statue/
-  - Title: TestedProfit | Boat Rotor Statue
-  - Status: open. description 178 chars | no OG
+  - Title: Papakōlea Beach near South Point | Guide
+  - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Captain%20James%20Cook%20Monument/
-  - Title: TestedProfit | Captain James Cook Monument
-  - Status: open. no OG
+  - Title: Cook Monument at Kealakekua Bay | Guide
+  - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Charles%20Lindbergh's%20Grave/
-  - Title: TestedProfit | Lindbergh Landmark
-  - Status: open. no OG
+  - Title: Lindbergh Grave in Kipahulu | Guide
+  - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Chester%20W.%20Nimitz%20Statue/
-  - Title: Chester W. Nimitz Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Nimitz Statue at the Missouri | Guide
+  - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Don%20Ho%20Statue/
-  - Title: Don Ho Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Don Ho Bronze in Waikiki | Guide
+  - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Dr.%20Jose%20P.%20Rizal%20Monument%20-%20Maui/
-  - Title: TestedProfit | Dr. Jose Rizal Monument
-  - Status: open. description 168 chars | no OG
+  - Title: Rizal Bust at Kepaniwai Park | Guide
+  - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Fagan's%20Cross/
-  - Title: TestedProfit | Fagan's Cross Landmark
-  - Status: open. no OG
+  - Title: Fagan's Cross above Hana | Guide
+  - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Israel%20Kamakawiwo'ole%20Memorial%20Statue/
-  - Title: Israel Kamakawiwoʻole Memorial | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Iz Memorial Bust in Waianae | Guide
+  - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/King%20David%20Kalākaua%20Statue/
-  - Title: TestedProfit | King David Kalākaua Statue
-  - Status: open. no OG
+  - Title: Kalākaua Statue in Hilo Park | Guide
+  - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Prince%20Kuhio%20Birthplace/
-  - Title: TestedProfit | Prince Kuhio Birthplace
-  - Status: open. no OG
+  - Title: Prince Kūhiō Park on Kauaʻi | Guide
+  - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Queen%20Kapiʻolani%20Statue/
   - Title: Queen Kapiʻolani Statue | Profitnet Landmarks
   - Status: open. no OG
