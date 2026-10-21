@@ -95,7 +95,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Kentucky landmarks PR. Each card uses the title of the page it opens, including the ten guides in this PR.
 - https://testedprofit.com/LA/
   - Title: Louisiana Statues and Landmarks | TestedProfit
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the first Louisiana landmarks PR. Each card uses the title of the page it opens, including the eleven guides revised in the first Louisiana PR.
 - https://testedprofit.com/MI/
   - Title: Michigan Statues and Landmarks | TestedProfit
   - Status: open. title, description, H1, canonical, and OG are in range
@@ -457,38 +457,38 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Wooldridge Monuments in Mayfield
   - Status: updated in the second Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Anne%20Frank%20Statue/
-  - Title: TestedProfit | Anne Frank Statue
-  - Status: open. description 169 chars | no OG
+  - Title: Anne Frank at the WWII Museum | Guide
+  - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Cavelier%20De%20La%20Salle%20Monument/
-  - Title: TestedProfit | Cavelier De La Salle Monument
-  - Status: open. description 173 chars | no OG
+  - Title: La Salle Monument in Plaquemines Parish
+  - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Congo%20Square/
-  - Title: TestedProfit | Congo Square
-  - Status: open. description 172 chars | no OG
+  - Title: Congo Square in Louis Armstrong Park
+  - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Geese%20In%20Flight%20Statue/
-  - Title: Geese In Flight Statue | Lake Charles, Louisiana
-  - Status: open. description 157 chars | no OG
+  - Title: Geese Fountain in Lake Charles | Guide
+  - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Hebe%20Statue/
-  - Title: TestedProfit | The Hebe Statue
-  - Status: open. description 177 chars | no OG
+  - Title: Hebe Statue in Baton Rouge | Guide
+  - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Huey%20Pierce%20Long%20Statue%20and%20Tombstone/
-  - Title: Huey Pierce Long Statue & Tombstone | Baton Rouge, Louisiana
-  - Status: open. title 60 chars | no OG
+  - Title: Huey Long Statue at the State Capitol
+  - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Hurricane%20Katrina%20Sculpture%20-%20House%20In%20A%20Tree/
-  - Title: TestedProfit | House In A Tree (Scrap House)
-  - Status: open. no OG
+  - Title: Scraphouse in New Orleans | Guide
+  - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Ignatius%20J.%20Reilly%20Statue/
-  - Title: TestedProfit | Ignatius J. Reilly Statue
-  - Status: open. description 171 chars | no OG
+  - Title: Ignatius Reilly Statue on Canal Street
+  - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/James%20Lee%20Burke%20Statue/
-  - Title: James Lee Burke Statue | New Iberia, Louisiana
-  - Status: open. no OG
+  - Title: James Lee Burke Statue in New Iberia
+  - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Jean%20Baptiste%20le%20Moyne%20de%20Bienville/
-  - Title: TestedProfit | Bienville Monument
-  - Status: open. description 172 chars | no OG
+  - Title: Bienville Monument in the French Quarter
+  - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Joan%20of%20Arc,%20Maid%20of%20Orleans/
-  - Title: TestedProfit | Joan of Arc Statue
-  - Status: open. no OG
+  - Title: Joan of Arc Statue on Decatur Street
+  - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Lady%20of%20New%20Orleans%20(Statue)/
   - Title: TestedProfit | The Lady of New Orleans ("Michelle")
   - Status: open. description 172 chars | no OG
