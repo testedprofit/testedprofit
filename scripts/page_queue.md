@@ -92,7 +92,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the Kansas landmarks PR. The card for the Kansas guide uses the revised title.
 - https://testedprofit.com/KY/
   - Title: Kentucky Statues and Landmarks | TestedProfit
-  - Status: updated in the first Kentucky landmarks PR. Cards for the first 10 Kentucky guides use the revised titles. The second group still uses the titles of the pages not revised in this pass.
+  - Status: updated in the first Kentucky landmarks PR. Each card uses the title of the page it opens.
 - https://testedprofit.com/LA/
   - Title: Louisiana Statues and Landmarks | TestedProfit
   - Status: open. title, description, H1, canonical, and OG are in range
@@ -415,7 +415,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: George Rogers Clark on the Belvedere
   - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Harry%20Potter%20Chess%20King%20Statue%20Carving/
-  - Title: Chess Carving | News Story Did Not Load
+  - Title: Chess Sculpture Carving in Kentucky | Guide
   - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/In%20Gods%20Hands%20statue/
   - Title: In God's Hand Garden at Calvary | Guide
