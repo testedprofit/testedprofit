@@ -56,13 +56,17 @@
       </nav>
       <button id="mobile-menu-btn" class="lg:hidden text-white text-xl"><i class="fa-solid fa-bars"></i></button>
     </div>
-    <div id="mobile-menu" class="fixed inset-0 bg-[#0A091B] z-50 hidden flex-col items-center justify-center space-y-8">
+    
+  </header>
+
+    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
+    <div id="mobile-menu" class="z-[60] fixed inset-0 bg-[#0A091B] z-50 hidden flex-col items-center justify-center space-y-8">
       <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
       <a href="/" class="text-2xl font-black text-white uppercase tracking-widest">Home</a>
       <a href="https://testedprofit.com/pages/landmarks/" class="text-2xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
       <a href="https://testedprofit.com/pages/PNET/" class="text-2xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
     </div>
-  </header>
+
 
   <!-- HERO -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">

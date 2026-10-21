@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>Endless Fusion Defense - Improved Edition</title>
+    <meta name="description" content="Endless Fusion Defense. Place up to five towers, buy units and items, and survive incoming waves.">
     <link rel="canonical" href="https://testedprofit.com/freebrowsergames/polymergeTD/">
 
 <style>
@@ -445,6 +446,8 @@ body.light-mode {
 
 <body>
 
+<h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0">Endless Fusion Defense</h1>
+<div id="drag-helper" style="display:none;position:fixed;left:0;top:0;pointer-events:none;z-index:10000;"></div>
 <div id="game-container">
   <!-- Top HUD -->
   <div id="top-ui">
@@ -566,7 +569,7 @@ body.light-mode {
 <!-- Game Over Modal -->
 <div id="game-over-modal" class="modal-overlay">
   <div class="modal-box">
-    <h1 class="modal-title" style="color:#ff4444;">CRITICAL FAILURE</h1>
+    <h2 class="modal-title" style="color:#ff4444;">CRITICAL FAILURE</h2>
     <p style="color:#ccc;margin-bottom:20px;">The defense line has fallen.</p>
     <p style="font-size:1.2rem;margin-bottom:5px;">Waves Survived</p>
     <div style="font-size:3rem;font-weight:bold;color:white;text-shadow:0 0 20px rgba(255,255,255,0.5);" id="final-wave">0</div>

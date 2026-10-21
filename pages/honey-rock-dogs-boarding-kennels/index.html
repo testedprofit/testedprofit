@@ -103,14 +103,18 @@
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+        
+    </header>
+
+    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
+    <div id="mobile-menu" class="z-[60] hidden md:hidden px-6 pb-4">
             <a href="#about" class="block py-2 text-center hover:text-amber-700 transition duration-300">About</a>
             <a href="#services" class="block py-2 text-center hover:text-amber-700 transition duration-300">Services</a>
             <a href="#reviews" class="block py-2 text-center hover:text-amber-700 transition duration-300">Reviews</a>
             <a href="#contact" class="block py-2 text-center hover:text-amber-700 transition duration-300">Contact</a>
             <a href="tel:970-824-9518" class="block mt-2 text-center bg-amber-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-amber-700 transition duration-300">Call to Book</a>
         </div>
-    </header>
+
 
     <!-- Hero Section -->
     <section class="hero-bg pt-32 pb-20 text-white">
