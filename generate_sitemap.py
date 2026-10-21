@@ -63,7 +63,8 @@ def public_path(rel):
     return "/" + "/".join(parts) + "/"
 
 
-def generate_sitemap():
+def collect_sitemap_entries():
+    """Return (urls, skipped) using the same rules as sitemap.xml. Does not write."""
     urls = []
     skipped = []
 
@@ -124,6 +125,11 @@ def generate_sitemap():
         urls.append((loc, mtime, priority, rel))
 
     urls.sort(key=lambda item: item[0])
+    return urls, skipped
+
+
+def generate_sitemap():
+    urls, skipped = collect_sitemap_entries()
 
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',

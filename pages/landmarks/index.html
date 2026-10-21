@@ -182,14 +182,18 @@
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
+        
+    </header>
+
+    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-[60] hidden flex-col items-center justify-center space-y-8 lg:hidden">
             <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl p-2 hover:bg-white/10 rounded-full transition-colors"><i class="fa-solid fa-xmark"></i></button>
             <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-emerald-400 transition-colors">Home</a>
             <a href="/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
             <a href="/pages/guides/" class="text-xl font-black text-white uppercase tracking-widest hover:text-emerald-300 transition-colors">Guides</a>
             <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
         </div>
-    </header>
+
 
     <!-- Main Content Area -->
     <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
@@ -301,7 +305,7 @@
                     <a href="https://testedprofit.com/CO/Tennyson Sculpture Garden & Park/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Tennyson Sculpture Garden</a>
                     <a href="https://testedprofit.com/CO/The Pueblo Christopher Columbus Monument/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Pueblo Columbus Monument</a>
                     <a href="https://testedprofit.com/CO/Landmarks/Isak-Heartstone/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Isak Heartstone</a>
-                    <a href="https://testedprofit.com/CO/Capt. William H. 'Pyro' DuBois, Jr. Memorial/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Capt. William H. DuBois Memorial</a>
+                    <a href="https://testedprofit.com/CO/Pyro-DuBois-Memorial/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Capt. William H. DuBois Memorial</a>
                     <a href="https://testedprofit.com/CO/Landmarks/Hank the Cowboy statue/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Hank the Cowboy</a>
                     <a href="https://testedprofit.com/CO/Landmarks/Horse-Statue-Intersection/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">The Palmer Intersection Project</a>
                     <a href="https://testedprofit.com/CO/Telluride Penny Bear ( Ursa Ravus)/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm text-gray-300">Telluride Penny Bear</a>

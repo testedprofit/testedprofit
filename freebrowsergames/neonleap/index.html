@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Neon Leap: Chrono Climb</title>
+    <meta name="description" content="Neon Leap: Chrono Climb. Drag and release to jump. Time slows while you aim, and height is the score.">
     <link rel="canonical" href="https://testedprofit.com/freebrowsergames/neonleap/">
     <style>
         body {
@@ -88,12 +89,13 @@
 <body>
 
 <div id="ui-layer">
+    <h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0">Neon Leap: Chrono Climb</h1>
     <div id="height-display">0m</div>
     <p>Jumps: <span id="jumps-display">2</span></p>
 </div>
 
 <div id="game-over">
-    <h1 style="color: #ff0055; text-shadow: 0 0 20px #ff0055;">SIGNAL LOST</h1>
+    <h2 style="color: #ff0055; text-shadow: 0 0 20px #ff0055; font-size: 2em; margin: 0.4em 0;">SIGNAL LOST</h2>
     <p style="margin-top: 10px;">Height Reached: <span id="final-score">0</span>m</p>
     <button onclick="resetGame()">REBOOT</button>
 </div>

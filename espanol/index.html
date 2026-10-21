@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting | TestedProfit</title>
+    <title>Spanish path redirect | TestedProfit</title>
+    <link rel="canonical" href="https://testedprofit.com/espanol/">
+    <meta name="description" content="Legacy /espanol/ URLs redirect to the same TestedProfit path without the espanol prefix.">
     <meta name="robots" content="noindex, nofollow">
     <script>
         // Redirect /espanol/some/path → /some/path
@@ -12,6 +14,7 @@
     </script>
 </head>
 <body>
+    <h1>Redirecting</h1>
     <p>Redirecting... <a id="link" href="/">Click here if not redirected</a></p>
     <script>
         document.getElementById('link').href = window.location.pathname.replace(/^\/espanol/, '') || '/';
