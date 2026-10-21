@@ -74,7 +74,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
 
 - https://testedprofit.com/AL/
   - Title: Alabama Statues and Landmarks | TestedProfit
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the Alabama landmarks PR (first half). Directory lists all 22 existing pages. Revised cards use the new titles. The apostrophe in the World’s Smallest City Block link is a real character. Sources for the revised guides were checked 21 October 2026.
 - https://testedprofit.com/CO/
   - Title: Colorado 150 | Profitnet Landmark Directory
   - Status: open. no OG
@@ -127,38 +127,38 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
 ## state page (175)
 
 - https://testedprofit.com/AL/Albert%20Patterson%20Statue/
-  - Title: Albert Patterson Statue | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Albert Patterson Statue in Phenix City | Guide
+  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Angel%20of%20Hope/
-  - Title: Angel of Hope | TestedProfit Landmark
-  - Status: open. description 166 chars | no OG
+  - Title: Angel of Hope at Westgate Park | Dothan
+  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Atticus%20Finch%20Memorial%20Park%20Monument/
-  - Title: Atticus Finch Monument | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Atticus Finch Monument in Monroeville | Guide
+  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Big%20Peanut/
-  - Title: The Big Peanut | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: The Big Peanut at the Dothan Fairgrounds | Guide
+  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Bigfoot%20Statue/
-  - Title: Bigfoot Statue | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Evergreen, Big Foot Capital of Alabama | Guide
+  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Bo%20Jackson%20Statue/
-  - Title: Bo Jackson Statue | TestedProfit Landmark
-  - Status: open. description 166 chars | no OG
+  - Title: Bo Jackson Statue at Jordan-Hare | Guide
+  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Charles%20Barkley%20Statue/
-  - Title: Charles Barkley Statue | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Charles Barkley Statue at Auburn Arena | Guide
+  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Confederate%20Memorial%20Monument/
-  - Title: Confederate Memorial Monument | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Confederate Monument on Capitol Hill | Guide
+  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Court%20Square%20Fountain%20-%20Artesian%20Basin/
-  - Title: Court Square Fountain | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Court Square Fountain in Montgomery | Guide
+  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/English%20Village%20Statue/
-  - Title: Civitas | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Civitas Statue in English Village | Guide
+  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Hank%20Williams%20Statue/
-  - Title: Hank Williams Statue | TestedProfit Landmark
-  - Status: open. no OG
+  - Title: Hank Williams Statue in Montgomery | Guide
+  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Heaviest%20Corner%20On%20Earth/
   - Title: The Heaviest Corner on Earth | TestedProfit Landmark
   - Status: open. no OG
@@ -894,4 +894,3 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
 - https://testedprofit.com/
   - Title: Profitnet | AlgoFlow — Algorand Web3 Tools & The Passive Index
   - Status: excluded. out of the content pass
-
