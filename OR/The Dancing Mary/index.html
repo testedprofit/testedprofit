@@ -1,413 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Dancing Mary | Profitnet Landmarks</title>
+    <title>The Dancing Mary in Portland | Guide</title>
+    <meta name="description" content="The Dancing Mary is a roadside landmark in a Portland cemetery. A 2024 account records the inscription Consolatrix Afflictorum.">
     <link rel="canonical" href="https://testedprofit.com/OR/The%20Dancing%20Mary/">
-    <meta name="description" content="Visit 'The Dancing Mary' statue at Mt. Calvary Catholic Cemetery in Portland, Oregon. A religious icon famous for a ghostly optical illusion.">
-    
-    <!-- External Scripts & Styles -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Dancing Mary in Portland | Guide">
+    <meta property="og:description" content="The Dancing Mary is a roadside landmark in a Portland cemetery. A 2024 account records the inscription Consolatrix Afflictorum.">
+    <meta property="og:url" content="https://testedprofit.com/OR/The%20Dancing%20Mary/">
+    <meta property="og:site_name" content="Profitnet Landmarks">
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts: Preconnected for speed -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome: Required for content icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0F172A', /* Midnight Blue */
-                        accent: {
-                            teal: '#2DD4BF',
-                            ethereal: '#64748B', /* Ethereal Blue-Grey */
-                            marble: '#F8FAFC',   /* Marble White */
-                            spirit: '#94A3B8'    /* Spirit Grey */
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
-            }
-        }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0F172A;
-            color: #E5E7EB;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Optimization: Animations */
-        .hero-glow {
-            background: radial-gradient(circle at 30% 20%, rgba(100, 116, 139, 0.15) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(248, 250, 252, 0.05) 0%, transparent 60%);
-            will-change: opacity;
-        }
-
-        .bg-grid-pattern {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 2.5rem 2.5rem;
-        }
-
-        /* Custom Content Styles */
-        .gradient-text {
-            background: linear-gradient(90deg, #F8FAFC, #64748B); /* Marble to Ethereal */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .card-blur {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-blur:hover {
-            border-color: #64748B;
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-        }
-
-        .info-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: #64748B;
-        }
-
-        .stat-badge {
-            background: linear-gradient(135deg, rgba(100, 116, 139, 0.2), rgba(248, 250, 252, 0.1));
-            border: 1px solid rgba(100, 116, 139, 0.4);
-            border-radius: 8px;
-            padding: 0.75rem 1.25rem;
-            display: inline-block;
-        }
-
-        .cta-button {
-            background: linear-gradient(90deg, #64748B, #334155);
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(100, 116, 139, 0.4);
-        }
-
-        /* Mobile Menu */
-        #mobile-menu {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-            transform: translateY(-100%);
-            opacity: 0;
-            pointer-events: none;
-        }
-        #mobile-menu.active {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0F172A; }
-        ::-webkit-scrollbar-thumb { background: #64748B; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
-    </style>
-<style id="tp-seo-style">
-.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
-.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
-.tp-seo-crumbs a:hover{text-decoration:underline}
-.tp-seo-crumbs li{color:#e5e7eb}
-.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
-.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
-.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
-.tp-seo-related ul{margin:0;padding-left:1.1rem}
-.tp-seo-related a{color:#5eead4}
-.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
+body{font-family:Inter,system-ui,sans-serif}
+a{color:#5eead4}
+main a{overflow-wrap:anywhere}
+.source-list a,.tp-related a,.guide-list a{text-decoration:underline}
+.source-list li,.guide-list li{margin:.45rem 0}
+.tp-related{margin-top:2rem;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55)}
+.guide-list{list-style:none;padding:0}
+.guide-list a{display:block;padding:.85rem 1rem;border:1px solid rgba(148,163,184,.28);border-radius:14px;background:rgba(15,23,42,.45)}
+details{border-top:1px solid rgba(148,163,184,.25);padding:.7rem 0}
+summary{cursor:pointer;font-weight:650}
 </style>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TouristAttraction", "@id": "https://testedprofit.com/OR/The%20Dancing%20Mary/#place", "name": "The Dancing Mary", "description": "The Dancing Mary is a roadside landmark in a Portland cemetery. A 2024 account records the inscription Consolatrix Afflictorum.", "url": "https://testedprofit.com/OR/The%20Dancing%20Mary/", "dateModified": "2026-10-21", "address": {"@type": "PostalAddress", "addressLocality": "Portland", "addressRegion": "OR", "addressCountry": "US"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://testedprofit.com/"}, {"@type": "ListItem", "position": 2, "name": "Landmarks", "item": "https://testedprofit.com/pages/landmarks/"}, {"@type": "ListItem", "position": 3, "name": "Oregon", "item": "https://testedprofit.com/OR/"}, {"@type": "ListItem", "position": 4, "name": "The Dancing Mary", "item": "https://testedprofit.com/OR/The%20Dancing%20Mary/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Where is The Dancing Mary?", "acceptedAnswer": {"@type": "Answer", "text": "Bill Natkin's October 12, 2024 account places The Dancing Mary in a cemetery in Portland, Oregon, and describes that cemetery as a hilltop."}}, {"@type": "Question", "name": "What name is on the statue?", "acceptedAnswer": {"@type": "Answer", "text": "Natkin records the inscription Consolatrix Afflictorum and says local folklore calls the statue the Dancing Mary or Moving Mary. He explains the Latin as a Catholic title for Mary, comforter of the afflicted."}}]}]}</script>
 </head>
-<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
-
-    <!-- Global Background -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
-    </div>
-
-    <!-- Sticky Navigation -->
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            
-            <!-- Logo Section -->
-            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
-                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
-                     alt="Profitnet Logo"
-                     width="32" 
-                     height="32"
-                     fetchpriority="high">
-                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
-            </a>
-            
-            <!-- Desktop Nav -->
-            <nav class="hidden lg:flex space-x-10 items-center">
-                <a href="/" class="text-sm font-bold text-white hover:text-accent-ethereal transition-colors duration-200">HOME</a>
-                
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-ethereal hover:text-white transition-colors duration-200">Landmarks</a>
-                
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
-                    $PNET Asset Dashboard
-                </a>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button>
+<body class="bg-slate-950 text-gray-200">
+    <header class="border-b border-white/10">
+        <div class="max-w-3xl mx-auto px-6 py-4 flex flex-wrap gap-x-5 gap-y-2 items-center">
+            <a href="/" class="text-white font-extrabold">Profitnet</a>
+            <a href="/pages/landmarks/">Landmarks</a>
+            <a href="/OR/">Oregon</a>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        
     </header>
-
-    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
-    <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[60] lg:hidden flex flex-col items-center justify-center space-y-8">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-
-            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-ethereal transition-colors">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-ethereal uppercase tracking-widest hover:text-white transition-colors">Landmarks</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
-        </div>
-
-
-    <!-- Main Content Area -->
-    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
-<!-- tp-seo:breadcrumbs -->
-<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
-<li><a href="/">Home</a></li>
-<li><a href="/pages/landmarks/">Landmarks</a></li>
-<li><a href="/OR/">Oregon</a></li>
-<li aria-current="page">The Dancing Mary</li>
-</ol></nav>
-<!-- /tp-seo:breadcrumbs -->
-
-
-        
-        <!-- Hero Section -->
-        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up">
-            <div class="inline-block mb-4">
-                <span class="stat-badge text-xs font-bold text-accent-ethereal uppercase tracking-wider">
-                    <i class="fa-solid fa-wind mr-2"></i>Portland's Ethereal Legend
-                </span>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
-                <span class="gradient-text">The Dancing</span><br>
-                <span class="text-white">Mary</span>
-            </h1>
-            <p class="text-xl text-gray-400 max-w-3xl">
-                Officially "Our Lady of Consolation," this graceful statue atop Portland's west hills is famous for an optical illusion that makes her appear to move in the moonlight.
-            </p>
-        </div>
-
-        <!-- Quick Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">Icon</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Religious</div>
-            </div>
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">Location</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Mt. Calvary</div>
-            </div>
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">Illusion</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">"Dancing"</div>
-            </div>
-            <div class="info-card text-center">
-                <div class="text-3xl font-black gradient-text mb-2">Access</div>
-                <div class="text-sm text-gray-400 uppercase tracking-wide">Public Cemetery</div>
-            </div>
-        </div>
-
-        <!-- The Statue & The Story -->
-        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-blur rounded-2xl p-8 md:p-12">
-                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
-                    <i class="fa-solid fa-eye text-accent-ethereal mr-4"></i>
-                    The Legend
-                </h2>
-                
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div class="space-y-6 text-gray-300">
-                        <div class="border-l-4 border-accent-ethereal pl-6">
-                            <h3 class="text-xl font-bold text-white mb-2">A Religious Icon</h3>
-                            <p>Located at the grave of <strong>Mary Forbush Failing</strong>, the statue is meant to offer peace. While there is no record of her being a dancer in life, the nickname comes purely from local observation.</p>
-                        </div>
-                        <div class="flex items-center space-x-3 text-accent-spirit">
-                            <i class="fa-solid fa-cross text-xl"></i>
-                            <span class="text-sm font-bold uppercase tracking-widest text-gray-500">Comforter of the Afflicted</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
-                        <h3 class="text-xl font-bold text-white mb-4">The "Dancing" Illusion</h3>
-                        <p class="text-gray-400 mb-4">The local legend stems from a persistent optical trick. The statue's fluid, graceful posture, when viewed in shifting moonlight or passing shadows, creates the eerie effect that the stone figure is swaying or dancing.</p>
-                        <div class="flex items-center text-sm text-accent-ethereal">
-                            <i class="fa-solid fa-moon mr-2"></i>
-                            <span>Best viewed in low light.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Location & Atmosphere -->
-        <div class="max-w-5xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-blur rounded-2xl p-8 md:p-12">
-                <h2 class="text-3xl font-black mb-8 text-white flex items-center">
-                    <i class="fa-solid fa-map-pin text-accent-spirit mr-4"></i>
-                    Location & Atmosphere
-                </h2>
-                
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Setting -->
-                    <div class="bg-slate-900/50 rounded-xl p-6 border border-accent-ethereal/30">
-                        <div class="w-12 h-12 rounded-full bg-slate-700/30 border border-slate-500/30 flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-mountain-city text-accent-ethereal"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">The Setting</h3>
-                        <p class="text-gray-400 text-sm">Situated in <strong>Mt. Calvary Catholic Cemetery</strong> in Portland's west hills. It rests on one of the city's highest points, offering spectacular views.</p>
-                    </div>
-
-                    <!-- Atmosphere -->
-                    <div class="bg-slate-900/50 rounded-xl p-6 border border-teal-500/30">
-                        <div class="w-12 h-12 rounded-full bg-teal-900/30 border border-teal-500/30 flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-cloud-moon text-teal-400"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Atmosphere</h3>
-                        <p class="text-gray-400 text-sm">Peaceful and quiet, ideal for reflection. The legend attracts curious visitors, but the grounds remain solemn.</p>
-                    </div>
-
-                    <!-- Access -->
-                    <div class="bg-slate-900/50 rounded-xl p-6 border border-accent-spirit/30">
-                        <div class="w-12 h-12 rounded-full bg-slate-600/30 border border-slate-400/30 flex items-center justify-center mb-4">
-                            <i class="fa-solid fa-bus text-accent-spirit"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Access</h3>
-                        <p class="text-gray-400 text-sm">Open to the public. Accessible via <strong>TriMet bus 20</strong> (Burnside/Stark) to the stop at the base of the cemetery stairs.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Location & CTA -->
-        <div class="max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-delay="400">
-            <div class="card-blur rounded-2xl p-12">
-                <h2 class="text-3xl font-black mb-4 text-white">Find the Legend</h2>
-                <p class="text-gray-400 mb-8">Located at 333 SW Skyline Blvd, Portland, OR. Please be respectful of the grounds and other visitors.</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=333+SW+Skyline+Blvd+Portland+OR" 
-                   target="_blank"
-                   class="cta-button inline-block px-8 py-4 rounded-full text-white font-bold uppercase tracking-wider">
-                    <i class="fa-solid fa-location-dot mr-2"></i>
-                    Get Directions
-                </a>
-            </div>
-        </div>
-        <div class="max-w-4xl mx-auto mt-16 mb-12" data-aos="fade-up">
-            <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-violet-500 pl-4">History &amp; Background</h2>
-            <div class="space-y-4 text-gray-300 leading-relaxed">
-                <p>The Dancing Mary is a charming folk art statue located in Jacksonville, Oregon — a remarkably well-preserved Gold Rush era town in Jackson County that was designated a National Historic Landmark in 1966. Jacksonville was founded in 1851 after gold was discovered in Rich Gulch, and it quickly grew into the largest city in southern Oregon. At its peak, it was a cosmopolitan mining town with banks, newspapers, hotels, and cultural institutions serving a diverse population of miners, merchants, and settlers.</p>
-                <p>Mary Deuber was a Jacksonville resident in the 19th century whose memory is preserved in local lore. The Dancing Mary statue represents the folk tradition of preserving ordinary people's stories as part of a community's identity — a counterpoint to the monuments of generals and politicians. This kind of vernacular commemoration reflects Jacksonville's approach to history: the town as a whole is the monument, and the stories of its everyday residents are as important as its formal historical records.</p>
-                <p>Jacksonville's remarkable preservation — it was bypassed by the railroad in 1884, which actually protected it from the development pressures that destroyed most Gold Rush era towns — means visitors can walk streets lined with 19th-century brick buildings largely unchanged from the mining era. The Beekman House, the U.S. Hotel, and the Jacksonville Museum of Southern Oregon History are among the resources that bring the Gold Rush period to life. The Dancing Mary statue adds a touch of whimsy and local character to this historically rich environment.</p>
-            </div>
-        </div>
-        <div class="max-w-4xl mx-auto mb-12" data-aos="fade-up">
-            <h2 class="text-2xl font-bold text-white mb-6 border-l-4 border-green-500 pl-4">Nearby Attractions</h2>
-            <div class="space-y-4">
-                <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Jacksonville Museum of Southern Oregon History</h3><p class="text-sm text-gray-400">Housed in the 1883 Jackson County Courthouse — a National Historic Landmark — the museum documents the history of southwestern Oregon from its Indigenous past through the Gold Rush, agricultural development, and 20th-century changes. The adjacent Children's Museum occupies the former county jail. Together, they make Jacksonville one of the richest small-town historical destinations in the Pacific Northwest.</p></div>
-                <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Britt Festivals</h3><p class="text-sm text-gray-400">Every summer, the outdoor Peter Britt Gardens amphitheater in Jacksonville hosts the Britt Festivals — performances by world-class musicians in genres from classical and jazz to folk and contemporary pop. The setting, surrounded by ponderosa pines on the estate of pioneer photographer Peter Britt, is one of the most beautiful outdoor performance venues in the Pacific Northwest.</p></div>
-                <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Oregon Caves National Monument</h3><p class="text-sim text-gray-400">Located approximately 50 miles southwest of Jacksonville in the Siskiyou Mountains, Oregon Caves is a rare marble cave system accessible by guided tour. The cave maintains a constant cool temperature year-round. Above ground, old-growth Douglas fir and Port Orford cedar forests contain some of the largest trees in Oregon. The historic Chateau cave lodge, built in 1934, is open seasonally.</p></div>
-            </div>
-        </div>
-    
-
-<!-- tp-seo:related -->
-<aside class="tp-seo-related" aria-label="Related landmarks">
-    <h2>Related landmarks</h2>
-    <ul>
-        <li><a href="/OR/Abraham%20Lincoln%20Memorial%20Statue/">Abraham Lincoln Memorial Statue</a></li>
-<li><a href="/OR/Barclay%20Park/">Barclay Park</a></li>
-<li><a href="/OR/Bonanza%20Bigfoot%20statue/">Bonanza Bigfoot Statue</a></li>
-<li><a href="/OR/Joan%20of%20Arc%2C%20Portland%2C%20Oregon/">Joan of Arc Statue</a></li>
-<li><a href="/OR/Statue%20of%20Liberty/">Lady Liberty Replica</a></li>
-    </ul>
-    <p><a href="/OR/">All Oregon pages</a></p>
-</aside>
-<!-- /tp-seo:related -->
-</main>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Init AOS
-        AOS.init({ 
-            duration: 800, 
-            once: true,
-            offset: 50
-        });
-
-        // Mobile Menu Toggle Logic
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const body = document.body;
-
-        function toggleMenu(show) {
-            if (show) {
-                mobileMenu.classList.add('active');
-                body.style.overflow = 'hidden';
-            } else {
-                mobileMenu.classList.remove('active');
-                body.style.overflow = '';
-            }
-        }
-
-        menuBtn.addEventListener('click', () => toggleMenu(true));
-        closeBtn.addEventListener('click', () => toggleMenu(false));
-
-        // Close menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => toggleMenu(false));
-        });
-    });
-    </script>
+    <main class="max-w-3xl mx-auto px-6 py-10">
+        <nav aria-label="Breadcrumb"><ol class="flex flex-wrap gap-x-2 text-sm text-gray-400 list-none p-0 m-0 mb-6"><li><a href="/">Home</a></li><li aria-hidden="true">/</li><li><a href="/pages/landmarks/">Landmarks</a></li><li aria-hidden="true">/</li><li><a href="/OR/">Oregon</a></li><li aria-hidden="true">/</li><li aria-current="page">Dancing Mary</li></ol></nav>
+        <h1 class="text-4xl font-black text-white mb-4">The Dancing Mary</h1>
+        <p>The Dancing Mary is a roadside landmark in Portland, Oregon. Bill Natkin's account, published October 12, 2024, places the statue in a Portland cemetery and says local folklore calls it the Dancing Mary or Moving Mary. He records the inscription Consolatrix Afflictorum on the figure.</p><p>Natkin writes that Our Lady of Consolation, or Mary, Comforter of the Afflicted, is a title the Catholic Church gives to the Virgin Mary, and that Consolatrix Afflictorum is the Latin form of that title. He says the Portland legend has been around a long time. In the versions he sets down, people say the statue has been seen dancing or moving late at night, and some tales say she haunts visitors.</p><p>He describes the cemetery as a hilltop where sound carries, close enough to his home that he knows the grounds draw people after dark. The photograph he published on October 12, 2024, is tagged Portland, Oregon, and shows the cemetery sculpture those stories call The Dancing Mary. The figure is the roadside landmark this page names, in that Portland cemetery, under the inscription he records.</p>
+        <p class="text-sm text-gray-400 mt-6">Last updated <time datetime="2026-10-21">21 October 2026</time>.</p>
+        <section aria-labelledby="faq-heading"><h2 id="faq-heading" class="text-2xl font-black text-white mt-10 mb-2">Questions</h2><details><summary>Where is The Dancing Mary?</summary><p>Bill Natkin's October 12, 2024 account places The Dancing Mary in a cemetery in Portland, Oregon, and describes that cemetery as a hilltop.</p></details><details><summary>What name is on the statue?</summary><p>Natkin records the inscription Consolatrix Afflictorum and says local folklore calls the statue the Dancing Mary or Moving Mary. He explains the Latin as a Catholic title for Mary, comforter of the afflicted.</p></details></section>
+        <section aria-labelledby="sources-heading"><h2 id="sources-heading" class="text-2xl font-black text-white mt-10 mb-3">Sources</h2><ul class="source-list list-disc pl-5 text-gray-300"><li><a href="https://www.deviantart.com/billnatkin/art/Read-the-Story-of-Dancing-Mary-1109140747">https://www.deviantart.com/billnatkin/art/Read-the-Story-of-Dancing-Mary-1109140747</a>. Bill Natkin, October 12, 2024, on The Dancing Mary, the inscription, and the Portland cemetery.</li></ul></section>
+        <section aria-labelledby="cite-heading"><h2 id="cite-heading" class="text-2xl font-black text-white mt-8 mb-3">Cite or link to this guide</h2><p>Link to <a href="https://testedprofit.com/OR/The%20Dancing%20Mary/">https://testedprofit.com/OR/The%20Dancing%20Mary/</a>.</p></section>
+        <aside class="tp-related" aria-label="Related guides"><h2 class="text-xl font-black text-white mb-2">Related guides</h2><ul class="list-disc pl-5"><li><a href="/OR/Joan%20of%20Arc,%20Portland,%20Oregon/">Joan of Arc statue</a></li><li><a href="/OR/">Oregon landmark directory</a></li><li><a href="/pages/landmarks/">Landmarks hub</a></li><li><a href="/pages/parks/">Park guides</a></li><li><a href="/pages/guides/">Earning-app guides</a></li></ul></aside>
+    </main>
 </body>
 </html>

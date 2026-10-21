@@ -56,7 +56,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: left unchanged. merged guide; not reopened
 - https://testedprofit.com/pages/sensory-park/
   - Title: Westminster Sensory Park | Accessible Play Guide
-  - Status: left unchanged. merged guide; not reopened
+  - Status: City inventory address kept in the page data. A line notes that Google Maps shows 7577 W 103rd Ave. Checked 21 October 2026.
 - https://testedprofit.com/pages/the-lady-doctor-statue/
   - Title: Lady Doctor Statue at 30th and Downing | Guide
   - Status: left unchanged. merged guide; not reopened
@@ -101,7 +101,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Michigan landmarks PR. Each card uses the title of the page it opens, including the seven guides revised in the second Michigan PR.
 - https://testedprofit.com/OR/
   - Title: Oregon Statues and Landmarks | TestedProfit
-  - Status: updated in the first Oregon landmarks PR. Each card uses the title of the page it opens.
+  - Status: updated in the second Oregon landmarks PR. Each card uses the title of the page it opens, including the Lincoln, Dawson Creek, and Dancing Mary guides.
 - https://testedprofit.com/pages/guides/
   - Title: Earning-App Guides | TestedProfit
   - Status: updated in the guides-hub PR. Index of earning articles with live titles. Bonuses are not restated here.
@@ -574,8 +574,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Verlen Kruger Statue in Portland | Guide
   - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Abraham%20Lincoln%20Memorial%20Statue/
-  - Title: Abraham Lincoln Memorial Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Abraham Lincoln Memorial Statue, Lincoln City | Guide
+  - Status: updated in the second Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Alice%20E%20Biddle%20statue/
   - Title: Alice E. Biddle Statue at OSU | Guide
   - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -592,8 +592,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Bonanza Bigfoot Statue | Guide
   - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Dawson%20Creek%20Nature%20Statue%20Monument/
-  - Title: Dawson Creek Nature Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Dawson Creek Nature Statue in Hillsboro | Guide
+  - Status: updated in the second Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Joan%20of%20Arc,%20Portland,%20Oregon/
   - Title: Joan of Arc Statue in Portland | Guide
   - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -607,8 +607,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Rosa Parks Statue in Eugene | Guide
   - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/The%20Dancing%20Mary/
-  - Title: The Dancing Mary | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: The Dancing Mary in Portland | Guide
+  - Status: updated in the second Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Two%20Bits/
   - Title: Two Bits Sculpture in Bend | Guide
   - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
