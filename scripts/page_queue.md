@@ -92,7 +92,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the Kansas landmarks PR. The card for the Kansas guide uses the revised title.
 - https://testedprofit.com/KY/
   - Title: Kentucky Statues and Landmarks | TestedProfit
-  - Status: updated in the first Kentucky landmarks PR. Each card uses the title of the page it opens.
+  - Status: updated in the second Kentucky landmarks PR. Each card uses the title of the page it opens, including the ten guides in this PR.
 - https://testedprofit.com/LA/
   - Title: Louisiana Statues and Landmarks | TestedProfit
   - Status: open. title, description, H1, canonical, and OG are in range
@@ -427,35 +427,35 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Keith Whitley Statue in Sandy Hook
   - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Little%20Elina%20Forest%20Giant/
-  - Title: Little Elina Forest Giant | Shepherdsville, KY Directory
-  - Status: open. no OG
+  - Title: Little Elina at Bernheim Forest | Guide
+  - Status: updated in the second Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Railroad%20Memorial%20Statue/
-  - Title: Railroad Memorial Statue | Carbondale, IL Directory
-  - Status: open. no OG
+  - Title: Train Conductor in Carbondale | Guide
+  - Status: updated in the second Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Secretariat%20Statue/
-  - Title: Secretariat Statue: Racing Into History | Lexington, KY Directory
-  - Status: open. title 65 chars | no OG
+  - Title: Secretariat in a Lexington Roundabout
+  - Status: updated in the second Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Squire%20Boone%20Statue/
-  - Title: Squire Boone Statue | Shelbyville, KY Directory
-  - Status: open. description 164 chars | no OG
+  - Title: Squire Boone Statue in Shelbyville
+  - Status: updated in the second Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Statue%20Of%20Abraham%20Lincoln/
-  - Title: Statue of Abraham Lincoln | Hodgenville, KY Directory
-  - Status: open. no OG
+  - Title: Lincoln Statue in Hodgenville | Guide
+  - Status: updated in the second Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Statue%20of%20Charlie%20Farnsley/
-  - Title: Statue of Charlie Farnsley | Louisville, KY Directory
-  - Status: open. no OG
+  - Title: Charlie Farnsley on West Main | Guide
+  - Status: updated in the second Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Super%20Big%20Boy%20Statue/
-  - Title: Super Big Boy Statue | Metropolis, IL Directory
-  - Status: open. no OG
+  - Title: Super Big Boy in Metropolis | Guide
+  - Status: updated in the second Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/The%20Cutting%20Edge%20of%20Simpson%20County/
-  - Title: The Cutting Edge of Simpson County | Franklin, KY Directory
-  - Status: open. no OG
+  - Title: Simpson County Butter Knife | Guide
+  - Status: updated in the second Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/The%20Statue%20of%20David/
-  - Title: Statue of David | Louisville, KY Directory
-  - Status: open. no OG
+  - Title: Golden David at 21c Louisville | Guide
+  - Status: updated in the second Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Wooldridge%20Monuments/
-  - Title: Wooldridge Monuments | Mayfield, KY Directory
-  - Status: open. no OG
+  - Title: Wooldridge Monuments in Mayfield
+  - Status: updated in the second Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Anne%20Frank%20Statue/
   - Title: TestedProfit | Anne Frank Statue
   - Status: open. description 169 chars | no OG
