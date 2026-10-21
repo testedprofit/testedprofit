@@ -1,0 +1,1526 @@
+[
+  {
+    "status": "verified",
+    "path": "IA/Iowa Statue of Liberty/index.html",
+    "canonical": "https://testedprofit.com/IA/Iowa%20Statue%20of%20Liberty/",
+    "kind": "landmark",
+    "state_code": "IA",
+    "name": "Iowa Statue of Liberty",
+    "title": "Iowa's Boy Scout Statue of Liberty",
+    "description": "An 8-foot-4-inch sheet-copper Statue of Liberty replica, given to Iowa in 1950, stands on the State Capitol grounds in Des Moines.",
+    "h1": "Iowa Statue of Liberty",
+    "subtitle": "Boy Scout replica on the Capitol grounds",
+    "badge": "Des Moines, Iowa",
+    "lede": "A sheet-copper Statue of Liberty, 8 feet 4 inches tall, stands on the Iowa State Capitol grounds. The Tall Corn Council of the Boy Scouts gave it to the state in 1950.",
+    "city": "Des Moines",
+    "geo_region": "US-IA",
+    "lat": 41.59215,
+    "lng": -93.60205,
+    "facts": [
+      {"label": "Height", "value": "8 feet 4 inches"},
+      {"label": "Material", "value": "47 pieces of sheet copper"},
+      {"label": "Given", "value": "1950, by the Tall Corn Council of the Boy Scouts"},
+      {"label": "Place", "value": "Northeast corner of the Capitol grounds, 12th Street south of Grand Avenue"}
+    ],
+    "paragraphs": [
+      "The Iowa Legislature's Capitol tour text says the Tall Corn Council of the Boy Scouts of America, now the Mid-Iowa Council, donated this replica to the State of Iowa in 1950 as part of its annual service project. The statue stands 8 feet 4 inches tall and is made of 47 pieces of sheet copper.",
+      "That same account credits the idea to Jack Whitaker, a Kansas City businessman active in the Boy Scouts. After seeing a chicken-wire and concrete Statue of Liberty in Spirit Lake, Iowa, he paid to have a mold made. Scout troops then bought replicas and presented them to cities and towns across the country.",
+      "A historical marker beside the Des Moines figure quotes the Boy Scouts' 40th Anniversary Crusade to Strengthen the Arm of Liberty and dates the dedication to 1950. The Historical Marker Database places the marker on 12th Street south of Grand Avenue, near the northeast corner of the Capitol grounds in the East Village."
+    ],
+    "see_items": [
+      {"title": "Sheet-copper figure", "text": "The legislature's guide says the replica is built from 47 pieces of sheet copper and stands 8 feet 4 inches tall."},
+      {"title": "1950 dedication marker", "text": "The marker pledges the Boy Scouts' 40th Anniversary Crusade to Strengthen the Arm of Liberty and was erected in 1950."},
+      {"title": "Capitol grounds setting", "text": "The figure is on the Capitol grounds, on 12th Street south of Grand Avenue, not on East 15th Street."}
+    ],
+    "tips": [
+      "Use 12th Street south of Grand Avenue, at the northeast corner of the Capitol grounds, to find the marker and statue.",
+      "The marker's stated postal address is at or near 1007 East Grand Avenue, Des Moines, IA 50319.",
+      "The published coordinates are 41° 35.529′ N, 93° 36.123′ W.",
+      "The Historical Marker Database places the marker in Des Moines's East Village."
+    ],
+    "faq": [
+      {"q": "How tall is the Iowa Statue of Liberty?", "a": "The Iowa Legislature's Capitol guide says the replica stands 8 feet 4 inches tall."},
+      {"q": "What is it made of?", "a": "The same guide says it is made of 47 pieces of sheet copper."},
+      {"q": "Who gave the statue to Iowa?", "a": "In 1950 the Tall Corn Council of the Boy Scouts of America, now the Mid-Iowa Council, donated it to the state as a service project."},
+      {"q": "Why were these small statues made?", "a": "The legislature's account says Jack Whitaker paid for a mold after seeing a chicken-wire and concrete replica in Spirit Lake, and Scout troops then presented copies to towns across the country."},
+      {"q": "Where on the Capitol grounds is it?", "a": "The Historical Marker Database places the 1950 marker on 12th Street south of Grand Avenue, near the northeast corner of the Capitol grounds in Des Moines."}
+    ],
+    "sources": "Iowa Legislature Capitol tour sheet; Historical Marker Database, marker 72403. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://www.legis.iowa.gov/docs/publications/CT/798089.pdf",
+      "https://www.hmdb.org/m.asp?m=72403"
+    ],
+    "removed_claims": [
+      "Location near East 15th Street and Grand Avenue",
+      "Open 24 hours",
+      "A distinguishing smiling face",
+      "A full-scale crown replica on the Exile Brewing Company rooftop",
+      "Wheelchair accessible",
+      "One of over 200 replicas"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "1007 East Grand Avenue",
+      "addressLocality": "Des Moines",
+      "addressRegion": "IA",
+      "postalCode": "50319"
+    },
+    "map_query": "41.59215,-93.60205",
+    "map_title": "Map of the Capitol grounds Statue of Liberty marker",
+    "map_caption": "Coordinates published for the 1950 Boy Scout marker on the Iowa State Capitol grounds."
+  },
+  {
+    "status": "verified",
+    "path": "IA/L.J. Maasdam Wagon Wheel Sculpture/index.html",
+    "canonical": "https://testedprofit.com/IA/L.J.%20Maasdam%20Wagon%20Wheel%20Sculpture/",
+    "kind": "landmark",
+    "state_code": "IA",
+    "name": "L.J. Maasdam Wagon Wheel Sculpture",
+    "title": "Maasdam's 60-Foot Wagon Wheel Tower",
+    "description": "L.J. Maasdam welded more than 200 wagon wheels into a 60-foot sculpture south of Grinnell in 1994, when he was 90.",
+    "h1": "L.J. Maasdam Wagon Wheel Sculpture",
+    "subtitle": "Wagon wheels welded beside a Jasper County field",
+    "badge": "Grinnell, Iowa",
+    "lede": "South of Grinnell, a 60-foot tower of more than 200 wagon wheels stands at the edge of a field. Farmer L.J. Maasdam started welding it in 1994, when he was 90.",
+    "city": "Grinnell",
+    "geo_region": "US-IA",
+    "facts": [
+      {"label": "Height", "value": "60 feet"},
+      {"label": "Built from", "value": "More than 200 wagon wheels"},
+      {"label": "Built", "value": "1994, when L.J. Maasdam was 90"},
+      {"label": "Address", "value": "S. 48th Ave. E, Grinnell, IA 50112"}
+    ],
+    "paragraphs": [
+      "Grow Jasper County describes the L.J. Maasdam wheel art as more than 200 large wagon wheels welded together, built in 1994 when the sculptor was 90. The site is a short trip off Interstate 80 and has a picnic table.",
+      "Iowa Road Trip places the tower just off the road near South 48th Avenue East and East 140th Street South in Jasper County, with the address South 48th Avenue East, Grinnell, Iowa 50112. It says the sculpture stands 60 feet tall at the corner of a field and contains more than 200 wheels.",
+      "That account says Maasdam had collected hundreds of wagon wheels and began welding them at 90. He welded during the day, and his family welded at night to strengthen sections. He died in 2003 at age 98."
+    ],
+    "see_items": [
+      {"title": "Welded wheels", "text": "Both the county listing and Iowa Road Trip say more than 200 wagon wheels were welded into the tower."},
+      {"title": "Field-edge setting", "text": "Iowa Road Trip describes it on a small corner of a field south of Grinnell, visible from the road."},
+      {"title": "Picnic table", "text": "Grow Jasper County says the site includes a picnic table."}
+    ],
+    "tips": [
+      "The published address is S. 48th Ave. E, Grinnell, IA 50112, near East 140th Street South.",
+      "Grow Jasper County calls it a quick trip off I-80, but it does not give an exit number.",
+      "The county listing says the sculpture was built in 1994, when Maasdam was 90.",
+      "A picnic table is on the site if you want to stop and look."
+    ],
+    "faq": [
+      {"q": "How tall is the wagon wheel sculpture?", "a": "Iowa Road Trip says the Wagon Wheel Sculpture stands 60 feet tall."},
+      {"q": "How many wheels are in it?", "a": "Grow Jasper County and Iowa Road Trip both say it includes more than 200 wagon wheels welded together."},
+      {"q": "Who built it, and when?", "a": "Grow Jasper County says L.J. Maasdam constructed it in 1994, when he was 90 years old."},
+      {"q": "Where is it?", "a": "The listed address is S. 48th Ave. E, Grinnell, IA 50112, near the intersection with E. 140th St. S in Jasper County."},
+      {"q": "What happened to Maasdam?", "a": "Iowa Road Trip says L.J. Maasdam died in 2003 at the age of 98."}
+    ],
+    "sources": "Grow Jasper County business directory; Iowa Road Trip. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://www.growjaspercountyiowa.com/about/business-directory/p/item/21166/lj-maasdam-wagon-wheel-sculpture",
+      "https://iowaroadtrip.net/see-a-60-foot-tower-made-from-hundreds-of-wagon-wheels/"
+    ],
+    "removed_claims": [
+      "Open 24 hours",
+      "Free admission stated as a posted policy",
+      "Exit 179 and a three-mile drive south",
+      "Described as a self-taught art environment"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "S. 48th Ave. E",
+      "addressLocality": "Grinnell",
+      "addressRegion": "IA",
+      "postalCode": "50112"
+    },
+    "map_query": "S. 48th Ave. E, Grinnell, IA 50112",
+    "map_title": "Map of the Maasdam wagon wheel sculpture",
+    "map_caption": "Address published by Grow Jasper County and Iowa Road Trip for the wheel sculpture."
+  },
+  {
+    "status": "verified",
+    "path": "IA/Lewis and Clark Statue/index.html",
+    "canonical": "https://testedprofit.com/IA/Lewis%20and%20Clark%20Statue/",
+    "kind": "landmark",
+    "state_code": "IA",
+    "name": "Lewis and Clark Statue",
+    "title": "Spirit of Discovery in Sioux City",
+    "description": "Pat Kennedy's 15-foot bronze of Lewis, Clark, and a Newfoundland stands outside the Lewis and Clark Interpretive Center.",
+    "h1": "Lewis and Clark Statue",
+    "subtitle": "Spirit of Discovery at the interpretive center",
+    "badge": "Sioux City, Iowa",
+    "lede": "Pat Kennedy's 15-foot Spirit of Discovery shows Meriwether Lewis, William Clark, and a Newfoundland dog at the entrance of Sioux City's Lewis and Clark Interpretive Center.",
+    "city": "Sioux City",
+    "geo_region": "US-IA",
+    "facts": [
+      {"label": "Artist", "value": "Pat Kennedy"},
+      {"label": "Size", "value": "Fifteen feet, described as double life-size"},
+      {"label": "Subject", "value": "Meriwether Lewis, William Clark, and a Newfoundland dog named Seadog"},
+      {"label": "Address", "value": "900 Larsen Park Road, Sioux City, IA 51103"}
+    ],
+    "paragraphs": [
+      "A January 2003 Boody Fine Arts newsletter describes Pat Kennedy's double life-size Spirit of Discovery: Meriwether Lewis, William Clark, and Seadog, the Newfoundland that accompanied the explorers. The Missouri River Historical Development of Sioux City commissioned the fifteen-foot monument for the entrance of its Lewis and Clark Interpretive Center, in connection with the bicentennial of the 1804 Corps of Discovery.",
+      "The center's own page lists the building at 900 Larsen Park Road, Sioux City, IA 51103, reached from Exit 149 off I-29, and says it was built in 2002. Exhibits cover the Corps of Discovery in the Sioux City area from late July to early September 1804, centered on Sergeant Charles Floyd, who died on August 20 and was the first U.S. soldier to die west of the Mississippi River.",
+      "The National Park Service places the center on the banks of the Missouri River and says admission is free. It lists hours as Tuesday through Friday, 9 a.m. to 5 p.m., and Saturday and Sunday, noon to 5 p.m. That page was last updated August 25, 2026."
+    ],
+    "see_items": [
+      {"title": "Two captains and a dog", "text": "Boody Fine Arts says the bronze shows Lewis, Clark, and the Newfoundland it names Seadog."},
+      {"title": "Floyd's story inside", "text": "The center's exhibits focus on the expedition's weeks near Sioux City and Floyd's death on August 20, 1804."},
+      {"title": "Riverfront building", "text": "The National Park Service describes a 20,000-square-foot center in a park along the Missouri."}
+    ],
+    "tips": [
+      "The center address is 900 Larsen Park Road, Sioux City, IA 51103, Exit 149 off I-29.",
+      "The National Park Service lists free admission and hours of Tuesday–Friday 9 a.m.–5 p.m. and Saturday–Sunday noon–5 p.m.",
+      "The phone published by the center is 712-224-5242.",
+      "Boody Fine Arts says the monument was commissioned for the entrance of the interpretive center."
+    ],
+    "faq": [
+      {"q": "Who made the Sioux City Lewis and Clark statue?", "a": "Boody Fine Arts credits the Spirit of Discovery to sculptor Pat Kennedy."},
+      {"q": "How big is it?", "a": "The newsletter calls it a fifteen-foot, double life-size monument."},
+      {"q": "Who is shown?", "a": "It depicts Meriwether Lewis, William Clark, and a Newfoundland dog the newsletter names Seadog."},
+      {"q": "Where does it stand?", "a": "It was commissioned for the entrance of the Lewis and Clark Interpretive Center at 900 Larsen Park Road, Sioux City, IA 51103."},
+      {"q": "Is the interpretive center free?", "a": "The National Park Service says admission is free and lists Tuesday–Friday 9 a.m.–5 p.m. and Saturday–Sunday noon–5 p.m."}
+    ],
+    "sources": "Boody Fine Arts newsletter, January 2003; Sioux City Lewis and Clark Interpretive Center; National Park Service place page, updated August 25, 2026. Last checked October 21, 2026.",
+    "source_urls": [
+      "http://www.boodyfinearts.com/newsletters/jan-2003/index.html",
+      "https://siouxcitylcic.com/venue/lewis-and-clark-interpretive-center/",
+      "https://www.nps.gov/places/sioux-city-lewis-clark-interpretive-center.htm"
+    ],
+    "removed_claims": [
+      "Life-sized sculpture",
+      "The outdoor statue's dog named Seaman",
+      "Statue commissioned or unveiled on a specific day in 2002",
+      "Created specifically in 2002 as a dated commission year"
+    ],
+    "free": true,
+    "public_access": true,
+    "address": {
+      "streetAddress": "900 Larsen Park Road",
+      "addressLocality": "Sioux City",
+      "addressRegion": "IA",
+      "postalCode": "51103"
+    },
+    "map_query": "900 Larsen Park Road, Sioux City, IA 51103",
+    "map_title": "Map of the Lewis and Clark Interpretive Center",
+    "map_caption": "Address published by the Sioux City Lewis and Clark Interpretive Center, where the Spirit of Discovery stands at the entrance."
+  },
+  {
+    "status": "verified",
+    "path": "IA/Little Mermaid Fountain/index.html",
+    "canonical": "https://testedprofit.com/IA/Little%20Mermaid%20Fountain/",
+    "kind": "landmark",
+    "state_code": "IA",
+    "name": "Little Mermaid Fountain",
+    "title": "Kimballton's Little Mermaid Fountain",
+    "description": "Kimballton's Copenhagen mermaid replica was recast in bronze and rededicated in 2008 beside eight Andersen sculptures.",
+    "h1": "Little Mermaid Fountain",
+    "subtitle": "A Copenhagen replica in Mermaid Park",
+    "badge": "Kimballton, Iowa",
+    "lede": "Kimballton's Little Mermaid, a replica of the Copenhagen harbor statue, was recast in bronze and rededicated in 2008 in a park ringed by eight Hans Christian Andersen sculptures.",
+    "city": "Kimballton",
+    "geo_region": "US-IA",
+    "facts": [
+      {"label": "Bought", "value": "1974, by the Progressive Danes of Kimballton"},
+      {"label": "Recast", "value": "Bronze, rededicated in 2008"},
+      {"label": "Garden", "value": "Eight Andersen sculptures by Troy Muller"},
+      {"label": "Address", "value": "Mermaid Park, 310 N. Main St., Kimballton, IA"}
+    ],
+    "paragraphs": [
+      "The City of Elk Horn's Kimballton directory says that in 1974 the Progressive Danes of Kimballton bought a mermaid sculpted by two college students in Modesto, California. It is a replica of the Little Mermaid in Copenhagen harbor and honors Hans Christian Andersen's fairy tale. After the figure deteriorated, it was recast in bronze. In 2008 the statue and the Hans Christian Andersen Park were rededicated during Kimballton's quasquicentennial.",
+      "Roadside America says a fiberglass Little Mermaid was installed in town in 1978, was moved indoors each winter, and was recast in bronze by 2008. It says the figure was rededicated, with a new fountain and landscaping, at the town's 125th anniversary celebration in June 2008. The two accounts agree on the 2008 bronze recasting; they do not agree on whether the first version was cold-cast bronze in 1974 or fiberglass in 1978.",
+      "Troy Muller, art director of the New Century Art Guild in Kimballton, designed eight sculptures based on Andersen stories for the garden. Marne and Elk Horn Telephone Company offers a call-in menu at 712-773-4267 so visitors can hear a three-minute synopsis of each fairy tale. The park also includes the Audubon County Freedom Rock. Roadside America places Mermaid Park at 310 N. Main St., on the east side of the street just south of Highway 44, next to a half-sized replica windmill."
+    ],
+    "see_items": [
+      {"title": "Bronze mermaid", "text": "Local and roadside accounts both say the figure was recast in bronze and rededicated in 2008."},
+      {"title": "Eight story sculptures", "text": "Troy Muller created eight sculptures from Hans Christian Andersen stories around the mermaid."},
+      {"title": "Phone stories", "text": "Dial 712-773-4267 to hear a three-minute synopsis of each sculpture's fairy tale."}
+    ],
+    "tips": [
+      "Roadside America lists Mermaid Park at 310 N. Main St., Kimballton, on the east side of the street just south of Highway 44.",
+      "The fairy-tale phone line published by the city directory is 712-773-4267.",
+      "Roadside America lists a park phone of 712-764-4343.",
+      "The original material is described differently by the two sources, so the confirmed shared fact is the 2008 bronze recasting."
+    ],
+    "faq": [
+      {"q": "Why is there a Little Mermaid in Kimballton?", "a": "The city directory says the Progressive Danes bought a replica of Copenhagen's Little Mermaid in 1974 to honor Hans Christian Andersen."},
+      {"q": "When was it recast?", "a": "The directory and Roadside America both say it was recast in bronze and rededicated in 2008, during the town's 125th anniversary."},
+      {"q": "What else is in the park?", "a": "Troy Muller created eight bronze story sculptures, and the park also includes the Audubon County Freedom Rock. Roadside America also notes a half-sized replica windmill."},
+      {"q": "How do the audio stories work?", "a": "The city directory says visitors can dial 712-773-4267, spelled HANS, and choose a three-minute synopsis of each fairy-tale sculpture."},
+      {"q": "What is the street address?", "a": "Roadside America lists Mermaid Park at 310 N. Main St., Kimballton, IA."}
+    ],
+    "sources": "City of Elk Horn, Kimballton business directory; Roadside America, Little Mermaid story. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://www.cityofelkhornia.com/kimballton-business-directory.html",
+      "https://www.roadsideamerica.com/story/2080"
+    ],
+    "removed_claims": [
+      "100 Esbeck Street address",
+      "Open 24 hours",
+      "An exact full-size match stated as a measured height",
+      "A single agreed account of the original material"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "310 N. Main St.",
+      "addressLocality": "Kimballton",
+      "addressRegion": "IA",
+      "postalCode": ""
+    },
+    "map_query": "310 N. Main St., Kimballton, IA",
+    "map_title": "Map of Mermaid Park in Kimballton",
+    "map_caption": "Mermaid Park address published by Roadside America."
+  },
+  {
+    "status": "verified",
+    "path": "IA/Moai Dude/index.html",
+    "canonical": "https://testedprofit.com/IA/Moai%20Dude/",
+    "kind": "landmark",
+    "state_code": "IA",
+    "name": "Moai Dude",
+    "title": "Moai Dude in Altoona's Ironwood Park",
+    "description": "John Brommel's 11-foot, 1,800-pound rusted-steel moai, unveiled in 2013, smirks in an Altoona playground.",
+    "h1": "Moai Dude",
+    "subtitle": "Altoona's first public sculpture",
+    "badge": "Altoona, Iowa",
+    "lede": "Moai Dude is an 11-foot, 1,800-pound rusted-steel Easter Island head with a smirk. John Brommel made it, and Altoona unveiled it in 2013 as the city's first public sculpture.",
+    "city": "Altoona",
+    "geo_region": "US-IA",
+    "facts": [
+      {"label": "Artist", "value": "John Brommel"},
+      {"label": "Size", "value": "11 feet tall and 1,800 pounds"},
+      {"label": "Material", "value": "Rusted steel"},
+      {"label": "Unveiled", "value": "2013, Altoona's first public sculpture"}
+    ],
+    "paragraphs": [
+      "Visit Altoona's public-art page says Moai Dude, by John Brommel, stands 11 feet tall and weighs 1,800 pounds. It is rusted steel, a playful version of the moai of Rapa Nui, with a smirk instead of the usual solemn face. The page calls it Altoona's first public sculpture and says it was unveiled in 2013.",
+      "Roadside America describes the same 11-foot rusted-steel head with a surfer-dude grin, created by John Brommel in 2013, in a playground on the west side of 3rd Avenue SW just north of 24th Street SW. A 2025 visitor note on that page says it is in Ironwood Park. The City of Altoona lists Ironwood Park at 2222 3rd Ave. SW, Altoona, IA 50009."
+    ],
+    "see_items": [
+      {"title": "The smirk", "text": "Visit Altoona contrasts the cheeky smirk with the solemn faces of the Rapa Nui moai that inspired it."},
+      {"title": "Rusted steel", "text": "The tourism page says the surface is rusted steel and the figure weighs 1,800 pounds."},
+      {"title": "Playground setting", "text": "Roadside America places it in a small park playground on 3rd Avenue SW."}
+    ],
+    "tips": [
+      "Look on the west side of 3rd Avenue SW, just north of 24th Street SW, two blocks west of 1st Avenue S at I-80 exit 143.",
+      "A visitor report identifies the playground as Ironwood Park, which the city lists at 2222 3rd Ave. SW.",
+      "It is a neighborhood playground, so expect families using the park.",
+      "Visit Altoona calls the 2013 unveiling the city's first public sculpture."
+    ],
+    "faq": [
+      {"q": "Who made Moai Dude?", "a": "Visit Altoona and Roadside America both credit sculptor John Brommel."},
+      {"q": "How big is it?", "a": "Visit Altoona says it stands 11 feet tall and weighs 1,800 pounds."},
+      {"q": "What is it made of?", "a": "The tourism page says it is rusted steel."},
+      {"q": "When was it unveiled?", "a": "Visit Altoona says the unveiling in 2013 made it Altoona's first public sculpture."},
+      {"q": "Where is it?", "a": "Roadside America places it in a playground on the west side of 3rd Avenue SW just north of 24th Street SW, and a visitor note says that park is Ironwood Park, listed by the city at 2222 3rd Ave. SW."}
+    ],
+    "sources": "Visit Altoona, Masterpieces of Altoona; Roadside America; City of Altoona parks directory. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://art.visitaltoona.com/uncategorized/moai-dude-statue-by-john-brommel/",
+      "https://www.roadsideamerica.com/tip/38026",
+      "https://www.altoona-iowa.com/departments/engineering___public_works/parks/parks___amenities.php"
+    ],
+    "removed_claims": [
+      "Made from recycled steel",
+      "Wheelchair accessible, as a stated feature of the sculpture",
+      "Open 24 hours"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "2222 3rd Ave SW",
+      "addressLocality": "Altoona",
+      "addressRegion": "IA",
+      "postalCode": "50009"
+    },
+    "map_query": "2222 3rd Ave SW, Altoona, IA 50009",
+    "map_title": "Map of Ironwood Park",
+    "map_caption": "City of Altoona address for Ironwood Park, identified by a Roadside America visitor note as the Moai Dude site."
+  },
+  {
+    "status": "verified",
+    "path": "IA/Peace Sign/index.html",
+    "canonical": "https://testedprofit.com/IA/Peace%20Sign/",
+    "kind": "landmark",
+    "state_code": "IA",
+    "name": "Peace Sign",
+    "title": "Imagine, the Iowa City Peace Hand",
+    "description": "Gary Keenan carved a derecho-damaged Iowa City yard tree into a peace-sign hand that homeowner Allen Roe named Imagine.",
+    "h1": "Peace Sign",
+    "subtitle": "A yard tree carved into a peace hand",
+    "badge": "Iowa City, Iowa",
+    "lede": "In Iowa City, homeowner Allen Roe had chainsaw artist Gary Keenan turn a derecho-damaged tree in his front yard into a hand making the peace sign. Roe named the carving Imagine.",
+    "city": "Iowa City",
+    "geo_region": "US-IA",
+    "facts": [
+      {"label": "Homeowner", "value": "Allen Roe, Iowa City"},
+      {"label": "Carver", "value": "Gary Keenan"},
+      {"label": "Form", "value": "A hand giving the peace sign"},
+      {"label": "Name", "value": "Imagine, after the John Lennon song"}
+    ],
+    "paragraphs": [
+      "KCRG reported on May 7, 2021, that Iowa City homeowner Allen Roe had chainsaw artist Gary Keenan sculpt a tree in his front yard into a hand giving the peace sign. The station said many people were using art to memorialize the August 10 derecho, and this tree was one of those damaged trees.",
+      "Roe named the carving Imagine after the John Lennon song about world peace. The report does not give a street address, a height, or public hours. It is a sculpture on a private front lawn in Iowa City."
+    ],
+    "see_items": [
+      {"title": "Peace-sign hand", "text": "KCRG says the tree was sculpted into a hand giving the peace sign."},
+      {"title": "The name Imagine", "text": "Roe named it after the John Lennon song about world peace."},
+      {"title": "Derecho wood", "text": "The station ties the carving to trees damaged in the August 10 derecho."}
+    ],
+    "tips": [
+      "The only opened report places it in a private front yard in Iowa City and does not publish a street address.",
+      "Do not treat the old page's Dubuque Street address as confirmed.",
+      "It is on private property, so view it only from the public way if you find it.",
+      "KCRG spells the homeowner's name Allen Roe."
+    ],
+    "faq": [
+      {"q": "What is the Iowa City peace sign?", "a": "KCRG says it is a front-yard tree sculpted into a hand giving the peace sign."},
+      {"q": "Who carved it?", "a": "Chainsaw artist Gary Keenan carved it for homeowner Allen Roe."},
+      {"q": "What is it called?", "a": "Roe named it Imagine, after the John Lennon song about world peace."},
+      {"q": "Why was the tree carved?", "a": "KCRG says the carving memorializes the August 10 derecho, which damaged the tree."},
+      {"q": "Is a street address confirmed?", "a": "The opened KCRG report says only that it is in an Iowa City front yard. A specific street address was not on that page."}
+    ],
+    "sources": "KCRG, May 7, 2021. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://www.kcrg.com/2021/05/07/iowa-city-man-has-peace-sign-carved-into-derecho-damaged-tree/"
+    ],
+    "removed_claims": [
+      "3176 Dubuque St NE, Iowa City, IA 52240",
+      "A 4.8-star visitor rating",
+      "A stated height of 22 feet",
+      "Carved from a green ash tree",
+      "Open roadside hours"
+    ],
+    "free": null,
+    "public_access": false,
+    "map_title": "",
+    "map_caption": ""
+  },
+  {
+    "status": "verified",
+    "path": "IA/South Des Moines Sculpture Park/index.html",
+    "canonical": "https://testedprofit.com/IA/South%20Des%20Moines%20Sculpture%20Park/",
+    "kind": "landmark",
+    "state_code": "IA",
+    "name": "South Des Moines Sculpture Park",
+    "title": "South Des Moines Sculpture Park",
+    "description": "Phil Barber's free park at SW 8th and McKinley holds a homemade UFO, a steel pyramid, a giant clothespin, and other sculptures.",
+    "h1": "South Des Moines Sculpture Park",
+    "subtitle": "Homemade sculpture on the south side",
+    "badge": "Des Moines, Iowa",
+    "lede": "At Southwest Eighth and McKinley, Phil Barber turned a dumping ground into a free outdoor sculpture park he calls a poor man's Pappajohn, with a UFO, a steel pyramid, and a giant paper clip.",
+    "city": "Des Moines",
+    "geo_region": "US-IA",
+    "facts": [
+      {"label": "Founder", "value": "Phil Barber"},
+      {"label": "Corner", "value": "Southwest Eighth and McKinley"},
+      {"label": "Admission", "value": "Free"},
+      {"label": "Notable piece", "value": "Egg-shaped UFO with a smoke machine in an outhouse"}
+    ],
+    "paragraphs": [
+      "Cityview's September 5, 2018, profile says the South Des Moines Sculpture Park sits at the corner of Southwest Eighth and McKinley, across from Phil Barber's house. Barber called it a poor man's Pappajohn, referring to the downtown sculpture park. About a decade earlier the narrow lot was swampland used for dumping. Barber and friends bought it and put sculptures there because, he said, there was not much art on the south side. The story says the park then had more than a dozen sculptures.",
+      "Cityview describes a 30-foot-tall egg-shaped UFO fed by a smoke machine hidden in an outhouse, a giant steel pyramid, and a functioning paper clip weighing 300 pounds. The same story said a giant typewriter, with keys as benches, was planned but not yet installed. The September 15, 2018, art festival was the park's 10th and was to award a $1,000 art scholarship to a Lincoln High School student.",
+      "Roadside America lists admission as free and places the park on the southeast corner of SW McKinley Avenue and SW 8th Street. It describes an egg-shaped UFO on 27-foot-tall legs, an oversized clothespin, lightning bolts, a flying woman, and a six-foot target with a 25-foot-long arrow. A 2013 note says the UFO's smoke machines were run with a War of the Worlds soundtrack during a September festival."
+    ],
+    "see_items": [
+      {"title": "Egg-shaped UFO", "text": "Cityview describes a 30-foot UFO linked to a smoke machine in an outhouse. Roadside America describes a UFO on 27-foot legs."},
+      {"title": "Steel pyramid and paper clip", "text": "Cityview places a steel pyramid near a functioning paper clip that weighs 300 pounds."},
+      {"title": "Clothespin and target", "text": "Roadside America also lists an oversized clothespin and a six-foot target pierced by a 25-foot arrow."}
+    ],
+    "tips": [
+      "Roadside America says admission is free and the park is on the southeast corner of SW McKinley Avenue and SW 8th Street.",
+      "Cityview says Barber lives across the street, so treat the block as a residential neighborhood.",
+      "The 30-foot and 27-foot UFO descriptions come from different sources and are not reconciled here.",
+      "The typewriter with bench keys was described in 2018 as a future piece, not as something already installed."
+    ],
+    "faq": [
+      {"q": "Who started the park?", "a": "Cityview calls it the brainchild of Phil Barber, who bought the former dumping site with friends and added sculptures."},
+      {"q": "Where is it?", "a": "Cityview places it at Southwest Eighth and McKinley. Roadside America says the southeast corner of SW McKinley Avenue and SW 8th Street."},
+      {"q": "Is it free?", "a": "Roadside America lists admission as free."},
+      {"q": "What is the UFO?", "a": "Cityview describes a 30-foot egg-shaped spacecraft connected to a smoke machine hidden in an outhouse. Roadside America describes an egg-shaped UFO on 27-foot legs."},
+      {"q": "What else is there?", "a": "Cityview mentions a steel pyramid and a 300-pound functioning paper clip. Roadside America also lists a clothespin, lightning bolts, a flying woman, and a target with a long arrow."}
+    ],
+    "sources": "Cityview, September 5, 2018; Roadside America. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://www.dmcityview.com/collections-and-hobbies/2018/09/05/this-is-a-true-story/",
+      "https://www.roadsideamerica.com/tip/34365"
+    ],
+    "removed_claims": [
+      "Street range 768-798 McKinley Ave as a confirmed address",
+      "Open 24 hours",
+      "The giant typewriter already installed"
+    ],
+    "free": true,
+    "public_access": true,
+    "address": {
+      "streetAddress": "SW McKinley Ave and SW 8th St",
+      "addressLocality": "Des Moines",
+      "addressRegion": "IA",
+      "postalCode": ""
+    },
+    "map_query": "SW McKinley Ave and SW 8th St, Des Moines, IA",
+    "map_title": "Map of the South Des Moines Sculpture Park corner",
+    "map_caption": "Intersection given by Cityview and Roadside America for the sculpture park."
+  },
+  {
+    "status": "verified",
+    "path": "IA/The Black Angel/index.html",
+    "canonical": "https://testedprofit.com/IA/The%20Black%20Angel/",
+    "kind": "landmark",
+    "state_code": "IA",
+    "name": "The Black Angel",
+    "title": "The Black Angel at Oakland Cemetery",
+    "description": "An 8.5-foot bronze angel at Oakland Cemetery turned black from oxidation after Teresa Feldevert commissioned it.",
+    "h1": "The Black Angel",
+    "subtitle": "Feldevert monument in Oakland Cemetery",
+    "badge": "Iowa City, Iowa",
+    "lede": "Oakland Cemetery's 8.5-foot Black Angel is a bronze monument for the Feldevert family. The City of Iowa City says the dark color is oxidation, and it asks visitors not to touch the monuments.",
+    "city": "Iowa City",
+    "geo_region": "US-IA",
+    "facts": [
+      {"label": "Height", "value": "8.5 feet"},
+      {"label": "Sculptor", "value": "Mario Korbel, Chicago"},
+      {"label": "Arrived", "value": "November 21, 1912"},
+      {"label": "Cemetery hours", "value": "Daily, 7:00 a.m. to 9:00 p.m."}
+    ],
+    "paragraphs": [
+      "The City of Iowa City says Oakland Cemetery, at 1000 Brown Street, holds an 8.5-foot monument called the Black Angel, erected for the Feldevert family in 1912. Teresa Dolezal Feldevert was born in 1836 in Strmilov, Bohemia. Her son Eddie Dolezal died of meningitis in 1891 at age 18 and was buried in the cemetery. After her husband Nicholas Feldevert died in 1911, she returned to Iowa City and commissioned Bohemian artist Mario Korbel, then in Chicago, to design a $5,000 bronze monument. The angel arrived on a flatcar on November 21, 1912.",
+      "The city says oral history places the installation in 1912, while other publications say it sat in a barn and was not erected until 1918 after Teresa lost a court case over the $5,000 price and the missing tree-stump detail. Eddie's tree-stump marker was later moved beside the angel. His remains and Nicholas's ashes were placed in repositories under it. Teresa died of cancer on November 18, 1924, and her ashes were buried there too.",
+      "The city says the bronze is black because the metal oxidized in the weather, and that the color change from a golden bronze cast fed myths that outlasted the documented history. Cemetery rules say to look and enjoy but not touch the monuments, and rubbings are not allowed. The grounds are open daily from 7:00 a.m. to 9:00 p.m."
+    ],
+    "see_items": [
+      {"title": "8.5-foot bronze", "text": "The city describes an 8.5-foot monument commissioned from Mario Korbel for $5,000."},
+      {"title": "Family burials", "text": "Eddie Dolezal, Nicholas Feldevert, and Teresa Feldevert are associated with repositories under the angel."},
+      {"title": "Dark patina", "text": "The city attributes the black color to oxidation, not to a curse."}
+    ],
+    "tips": [
+      "The cemetery address is 1000 Brown Street, Iowa City, and the grounds are open daily from 7:00 a.m. to 9:00 p.m.",
+      "The cemetery office phone is 319-356-5105, with office hours Monday–Friday 8:00 a.m.–4:30 p.m.",
+      "City rules say not to touch monuments and not to make rubbings.",
+      "Dogs must stay inside a vehicle, except service animals."
+    ],
+    "faq": [
+      {"q": "How tall is the Black Angel?", "a": "The City of Iowa City calls it an 8.5-foot-tall monument."},
+      {"q": "Who commissioned it?", "a": "Teresa Dolezal Feldevert commissioned Mario Korbel, a Bohemian artist in Chicago, to design the $5,000 bronze."},
+      {"q": "When did it arrive in Iowa City?", "a": "The city says the angel arrived on a flatcar on November 21, 1912. Whether it was erected that year or in 1918 is disputed in the city's own account."},
+      {"q": "Why is it black?", "a": "The city says oxidation from exposure to the weather turned the golden bronze black."},
+      {"q": "When can I visit?", "a": "Oakland Cemetery at 1000 Brown Street is open daily from 7:00 a.m. to 9:00 p.m., and visitors are asked not to touch the monuments."}
+    ],
+    "sources": "City of Iowa City, Oakland Cemetery. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://www.icgov.org/government/departments-and-divisions/parks-and-recreation/oakland-cemetery"
+    ],
+    "removed_claims": [
+      "704 Reno Street address",
+      "Sunrise-to-sunset hours",
+      "A curse that touching or kissing the angel brings misfortune, lightning, or death",
+      "A reputation as a haunted site for paranormal investigations"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "1000 Brown Street",
+      "addressLocality": "Iowa City",
+      "addressRegion": "IA",
+      "postalCode": ""
+    },
+    "map_query": "1000 Brown Street, Iowa City, IA",
+    "map_title": "Map of Oakland Cemetery",
+    "map_caption": "Oakland Cemetery address published by the City of Iowa City."
+  },
+  {
+    "status": "verified",
+    "path": "IN/Bigfoot Fishing/index.html",
+    "canonical": "https://testedprofit.com/IN/Bigfoot%20Fishing/",
+    "kind": "landmark",
+    "state_code": "IN",
+    "name": "Bigfoot Fishing",
+    "title": "Otis, the Fishing Sasquatch",
+    "description": "Bear Hollow carvers built a 25-foot wooden Sasquatch with a fishing pole at French Lick Cabins on Patoka Lake in 2023.",
+    "h1": "Bigfoot Fishing",
+    "subtitle": "Otis at French Lick Cabins",
+    "badge": "French Lick, Indiana",
+    "lede": "Otis is a 25-foot wooden Sasquatch with a fishing pole at French Lick Cabins at Patoka Lake. Bear Hollow's carving team finished him in April 2023.",
+    "city": "French Lick",
+    "geo_region": "US-IN",
+    "facts": [
+      {"label": "Name", "value": "Otis"},
+      {"label": "Height", "value": "25 feet"},
+      {"label": "Finished", "value": "April 2023"},
+      {"label": "Makers", "value": "Bear Hollow carving team, including Jason and Ethan Emmons"}
+    ],
+    "paragraphs": [
+      "The Southern Indiana Business Report says Otis, a 25-foot sasquatch at French Lick Cabins at Patoka Lake, was completed in April 2023 by the Bear Hollow carving team. Owners Jason and Cindy Emmons said visitors began showing up in school buses, motorcycle groups, and Jeeps. Otis later appeared on the cover of Indiana's official spring/summer 2024 travel magazine, seated on a fishing dock with a pole.",
+      "Nine carvers, including Jason Emmons and his son Ethan, built Otis on site in about four days after about six months of planning. The frame is treated lumber from Paoli Bender Lumber. Twelve bundles of poplar sawmill slabs became the fur, and solid white pine logs became the face and feet. The report says the dock bows under his weight and a red and white bobber hangs from the pole.",
+      "Roadside America lists the cabins at 7900 W. Co Rd 1025 S., French Lick. From IN-145 just north of the Patoka Lake bridge, it says to turn east onto SR-1045 and drive about a quarter mile; the figure is on the left. A 2024 note there also calls it a 25-foot wood statue made by Bear Hollow in 2023."
+    ],
+    "see_items": [
+      {"title": "Fishing pose", "text": "Jason Emmons pictured a smiling sasquatch dipping a pole because the cabins are near Patoka Lake."},
+      {"title": "Poplar fur", "text": "Sawmill slabs of poplar cover a treated-lumber frame, with white pine for the face and feet."},
+      {"title": "Bowed dock", "text": "The report says the wooden dock is built as if it bows under Otis, with a red and white bobber on the line."}
+    ],
+    "tips": [
+      "Roadside America lists 7900 W. Co Rd 1025 S., French Lick, and directions from IN-145 via SR-1045.",
+      "The build was finished in April 2023 and is outdoors at the cabins.",
+      "Bear Hollow also has a retail store in downtown French Lick, separate from the lakeside carving.",
+      "The old page's credit to Brad Hadlock is not in these sources."
+    ],
+    "faq": [
+      {"q": "What is the fishing Bigfoot called?", "a": "The Southern Indiana Business Report and Roadside America call the carving Otis."},
+      {"q": "How tall is Otis?", "a": "Both sources describe a 25-foot sasquatch."},
+      {"q": "Who carved him?", "a": "The Bear Hollow team, including Jason Emmons and his son Ethan, built him. Nine carvers worked on site."},
+      {"q": "When was he finished?", "a": "Construction was completed in April 2023 after about four days of on-site work."},
+      {"q": "Where is he?", "a": "At French Lick Cabins at Patoka Lake, listed by Roadside America at 7900 W. Co Rd 1025 S., French Lick, IN."}
+    ],
+    "sources": "Southern Indiana Business Report, May 1, 2024; Roadside America. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://southernindianabusinessreport.com/2024/05/01/small-towns-can-do-big-things-just-look-at-otis/",
+      "https://www.roadsideamerica.com/tip/84642"
+    ],
+    "removed_claims": [
+      "Created by local artist Brad Hadlock"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "7900 W. Co Rd 1025 S.",
+      "addressLocality": "French Lick",
+      "addressRegion": "IN",
+      "postalCode": ""
+    },
+    "map_query": "7900 W. Co Rd 1025 S., French Lick, IN",
+    "map_title": "Map of French Lick Cabins at Patoka Lake",
+    "map_caption": "Address published by Roadside America for Otis at French Lick Cabins."
+  },
+  {
+    "status": "verified",
+    "path": "IN/Constitution Elm Stump/index.html",
+    "canonical": "https://testedprofit.com/IN/Constitution%20Elm%20Stump/",
+    "kind": "landmark",
+    "state_code": "IN",
+    "name": "Constitution Elm Stump",
+    "title": "Corydon's Constitution Elm Stump",
+    "description": "The preserved trunk of the elm where 43 delegates worked on Indiana's 1816 constitution stands under a sandstone shelter in Corydon.",
+    "h1": "Constitution Elm Stump",
+    "subtitle": "Where the 1816 delegates sought shade",
+    "badge": "Corydon, Indiana",
+    "lede": "In June 1816, 43 delegates drafting Indiana's first constitution left a hot log cabin and worked under a huge elm in Corydon. Dutch elm disease killed the tree in 1925; the trunk remains in a sandstone shelter.",
+    "city": "Corydon",
+    "geo_region": "US-IN",
+    "lat": 38.21366,
+    "lng": -86.12721,
+    "facts": [
+      {"label": "Convention", "value": "June 1816, 43 delegates"},
+      {"label": "Original tree", "value": "50 feet tall, more than 130 feet across"},
+      {"label": "Died", "value": "1925, Dutch elm disease"},
+      {"label": "Shelter", "value": "1937 sandstone shelter by the WPA, stone cut by the CCC"}
+    ],
+    "paragraphs": [
+      "An Indiana State Museum account says that in June 1816, while the capitol was unfinished, 43 delegates left an overheated log cabin and met under the elm. The tree spread more than 130 feet across and stood 50 feet tall. It became known as the Constitution Elm.",
+      "The same account says Dutch elm disease overcame the tree in 1925. Branches were trimmed, and the wood, down to the shavings, was saved for souvenirs. The 1816 constitution displayed in the Indiana Statehouse in Indianapolis is housed in wood from this elm. The remaining trunk was later set in a large sandstone monument.",
+      "Living New Deal says the stump was preserved with creosote, and in 1937 the Works Progress Administration built a shelter of local sandstone cut by Civilian Conservation Corps laborers. A bronze tablet from the Daughters of the American Revolution commemorates the site. Harrison County's visitor bureau lists 200 W. High St., Corydon, Indiana 47112, and the phone 812-738-4890. Living New Deal gives the coordinates 38.21366, -86.12721."
+    ],
+    "see_items": [
+      {"title": "The trunk", "text": "What remains is the preserved trunk, not the living 50-foot tree."},
+      {"title": "Sandstone shelter", "text": "The WPA built the 1937 sandstone shelter, using stone cut by CCC workers."},
+      {"title": "DAR tablet", "text": "Living New Deal says a Daughters of the American Revolution bronze tablet tells the site's history."}
+    ],
+    "tips": [
+      "The visitor bureau lists 200 W. High St., Corydon, IN 47112, and phone 812-738-4890.",
+      "Living New Deal says the elm is a five-minute walk from Corydon's original state capitol.",
+      "The bureau's posted hours are pulled from a Google listing and are flagged as possibly out of date, so call before relying on them.",
+      "The state museum notes that conservators have studied how to preserve a tree that is already dead."
+    ],
+    "faq": [
+      {"q": "Why is the elm historic?", "a": "In June 1816, 43 delegates drafting Indiana's first constitution met under it after the log capitol became too hot."},
+      {"q": "How large was the living tree?", "a": "The Indiana State Museum account says it stretched more than 130 feet across and stood 50 feet tall."},
+      {"q": "When did it die?", "a": "Dutch elm disease killed it in 1925. The limbs were removed and the trunk was preserved."},
+      {"q": "What protects the stump?", "a": "In 1937 the WPA built a local-sandstone shelter, with the stone cut by CCC laborers. The trunk had been treated with creosote."},
+      {"q": "Where is it?", "a": "Harrison County tourism lists 200 W. High St., Corydon, IN 47112. Living New Deal publishes coordinates 38.21366, -86.12721."}
+    ],
+    "sources": "Indiana State Museum, Preserving the Constitution Elm, November 7, 2012; Living New Deal; This Is Indiana visitor listing. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://indianastatemuseum.wordpress.com/2012/11/07/preserving-the-constitution-elm/",
+      "https://livingnewdeal.org/sites/constitution-elm-stump-corydon-in/",
+      "https://www.thisisindiana.org/directory/constitution-elm/"
+    ],
+    "removed_claims": [
+      "Delegates met under the tree for nine days",
+      "A branch spread of exactly 132 feet"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "200 W. High St.",
+      "addressLocality": "Corydon",
+      "addressRegion": "IN",
+      "postalCode": "47112"
+    },
+    "map_query": "200 W. High St., Corydon, IN 47112",
+    "map_title": "Map of the Constitution Elm",
+    "map_caption": "Address published by Harrison County tourism for the Constitution Elm."
+  },
+  {
+    "status": "verified",
+    "path": "IN/Larry Bird's Childhood Home/index.html",
+    "canonical": "https://testedprofit.com/IN/Larry%20Bird's%20Childhood%20Home/",
+    "kind": "landmark",
+    "state_code": "IN",
+    "name": "Larry Bird's Childhood Home",
+    "title": "Larry Bird's Childhood House",
+    "description": "A private house at 983 South Washington Street in French Lick is the childhood home visitors view from the street.",
+    "h1": "Larry Bird's Childhood Home",
+    "subtitle": "A private house on South Washington Street",
+    "badge": "French Lick, Indiana",
+    "lede": "French Lick points basketball visitors to Larry Bird's childhood house. It is a private residence at 983 South Washington Street, with no plaque, and the original driveway hoop is gone.",
+    "city": "French Lick",
+    "geo_region": "US-IN",
+    "lat": 38.5426,
+    "lng": -86.6128,
+    "facts": [
+      {"label": "Address", "value": "983 South Washington Street, French Lick, IN 47432"},
+      {"label": "Status", "value": "Private residence, no sign or plaque"},
+      {"label": "Hoop", "value": "Original hoop removed; a later backboard is on the garage"},
+      {"label": "Corner", "value": "South Washington and South Jefferson"}
+    ],
+    "paragraphs": [
+      "French Lick Resort's self-guided Larry Bird tour says visitors can see his childhood home, and that the house and garage have been updated. The original basketball hoop is gone. The new owners put up an old wooden backboard in its place. The resort does not print the street number on that page.",
+      "Amazing America, from a September 14, 2024, visit, identifies the house as 983 South Washington Street, French Lick, Indiana 47432, at the corner of South Washington and South Jefferson. It says there is no sign, plaque, parking area, or gift shop, and that someone lives there. The writer says to look from the public right of way and not walk up the driveway. The page's coordinates are 38.5426, -86.6128.",
+      "That 2024 account says the house has been renovated and that a white backboard with an orange rim was bolted on the detached garage that evening. It also says the hoop should be treated as a marker rather than the one Bird used. The resort's earlier note that the original hoop is gone fits that caution."
+    ],
+    "see_items": [
+      {"title": "The garage hoop", "text": "The resort says a wooden backboard replaced the original hoop. A September 14, 2024, photo showed a backboard and rim on the garage."},
+      {"title": "No marker", "text": "Amazing America says there is no sign or plaque identifying the house."},
+      {"title": "A lived-in house", "text": "The house is occupied and has been renovated, including newer siding."}
+    ],
+    "tips": [
+      "Use the full address, 983 South Washington Street, French Lick, IN 47432, so a map does not send you to another Washington Street.",
+      "Stop only briefly at the curb. Do not walk up the driveway or onto the porch.",
+      "There is no visitor parking lot.",
+      "The resort also points to Larry Bird Boulevard, the high school gym, and a bust at the Springs Valley Teen Center as separate stops."
+    ],
+    "faq": [
+      {"q": "Where is Larry Bird's childhood home?", "a": "Amazing America places it at 983 South Washington Street, French Lick, IN 47432, at the corner of South Washington and South Jefferson."},
+      {"q": "Can I go inside?", "a": "No. It is a private residence with no tours. The 2024 account says to photograph it from the public right of way and not walk up the driveway."},
+      {"q": "Is the original basketball hoop still there?", "a": "French Lick Resort says the original hoop is gone and that later owners put up an old wooden backboard. A September 14, 2024, visit found a backboard and rim on the garage."},
+      {"q": "Is the house marked?", "a": "Amazing America says there is no sign, plaque, or gift shop."},
+      {"q": "What are the coordinates?", "a": "The Amazing America page lists 38.5426, -86.6128."}
+    ],
+    "sources": "French Lick Resort, self-guided Larry Bird tour, March 3, 2022; Amazing America, visit dated September 14, 2024. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://www.frenchlick.com/blog/take-the-self-guided-larry-bird-tour-through-french-lick/",
+      "https://amazingamerica.com/locations/larry-bird-childhood-home/"
+    ],
+    "removed_claims": [
+      "A public historic house open to visitors",
+      "Three NBA championships and three MVP awards stated as facts on these pages"
+    ],
+    "free": true,
+    "public_access": false,
+    "address": {
+      "streetAddress": "983 South Washington Street",
+      "addressLocality": "French Lick",
+      "addressRegion": "IN",
+      "postalCode": "47432"
+    },
+    "map_query": "983 South Washington Street, French Lick, IN 47432",
+    "map_title": "Map of Larry Bird's childhood home",
+    "map_caption": "Street address published by Amazing America. The house is private; view it from the street."
+  },
+  {
+    "status": "verified",
+    "path": "IN/Rosie the Riveter Statue/index.html",
+    "canonical": "https://testedprofit.com/IN/Rosie%20the%20Riveter%20Statue/",
+    "kind": "landmark",
+    "state_code": "IN",
+    "name": "Rosie the Riveter Statue",
+    "title": "Clarksville's Rosie the Riveter",
+    "description": "A life-size Rosie statue in Ashland Park, dedicated September 16, 2022, honors former Clarksville resident Rose Will Monroe.",
+    "h1": "Rosie the Riveter Statue",
+    "subtitle": "Ashland Park tribute to Rose Will Monroe",
+    "badge": "Clarksville, Indiana",
+    "lede": "Clarksville dedicated a life-size Rosie the Riveter statue in Ashland Park on September 16, 2022. It honors Rose Will Monroe, a riveter who later lived in Clarksville.",
+    "city": "Clarksville",
+    "geo_region": "US-IN",
+    "facts": [
+      {"label": "Dedicated", "value": "September 16, 2022"},
+      {"label": "Maker", "value": "The Weber Group, Sellersburg"},
+      {"label": "Honors", "value": "Rose Will Monroe"},
+      {"label": "Address", "value": "Ashland Park, 430 E. Riverside Drive, Clarksville, IN 47179"}
+    ],
+    "paragraphs": [
+      "The Town of Clarksville says the Historic Preservation Commission dedicated the Rosie the Riveter installation on Friday, September 16, 2022. Rose Will Monroe was a 22-year-old widow with two children when she left Kentucky for a Ford plant in Michigan. She riveted B-24 airplanes at Willow Run and was chosen for war-bond films after Walter Pidgeon visited the plant. She later moved to Clarksville, remarried, owned a home-construction company, drove a taxi, ran a beauty shop, and earned a pilot's license.",
+      "The town says more than 70 donors gave more than $130,000, including $40,000 from a matching grant by the Indiana Housing and Community Development Authority's Placemaking Indiana Initiative. A later town post quotes The Weber Group of Sellersburg, which built a life-size replica in the \"We Can Do It!\" pose as a photo opportunity at Ashland Park, 430 E. Riverside Drive, Clarksville, IN 47179, on the riverfront with a view of the Louisville skyline. The Weber Group says the town dedicated it on September 16, 2022."
+    ],
+    "see_items": [
+      {"title": "We Can Do It pose", "text": "Weber Group describes a life-size figure in the familiar flexed-arm pose, made as a photo stop."},
+      {"title": "Riverfront park", "text": "The installation is in Ashland Park along the Ohio River, with the Louisville skyline across the water."},
+      {"title": "Monroe's story", "text": "Town text ties the statue to her Willow Run riveting work and her later years in Clarksville."}
+    ],
+    "tips": [
+      "The Weber Group statement on the town website gives Ashland Park, 430 E. Riverside Drive, Clarksville, IN 47179.",
+      "The dedication ceremony used a gravel lot at Market Street and Missouri Avenue; that was event parking, not the statue address.",
+      "Family members, including daughter Vicki Will Croston, attended the unveiling.",
+      "The project was an outdoor art installation, so there is no ticket office described on the town pages."
+    ],
+    "faq": [
+      {"q": "When was the statue dedicated?", "a": "The Town of Clarksville dedicated it on September 16, 2022."},
+      {"q": "Who does it honor?", "a": "Rose Will Monroe, a B-24 riveter at Ford's Willow Run plant who later lived in Clarksville and appeared in war-bond films."},
+      {"q": "Who made it?", "a": "The Weber Group of Sellersburg designed and built the life-size photo-op figure."},
+      {"q": "Where is it?", "a": "Ashland Park, 430 E. Riverside Drive, Clarksville, IN 47179, on the riverfront."},
+      {"q": "How was it funded?", "a": "The town says more than 70 donors contributed more than $130,000, including a $40,000 matching grant from the Indiana Housing and Community Development Authority."}
+    ],
+    "sources": "Town of Clarksville, September 19, 2022, and November 4, 2022. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://www.townofclarksville.com/celebrating-the-legacy-of-clarksvilles-rosie-the-riveter/",
+      "https://www.townofclarksville.com/cast-your-vote-for-clarksvilles-rosie-the-riveter/"
+    ],
+    "removed_claims": [
+      "Described as an interactive monument beyond the stated photo opportunity"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "430 E. Riverside Drive",
+      "addressLocality": "Clarksville",
+      "addressRegion": "IN",
+      "postalCode": "47179"
+    },
+    "map_query": "430 E. Riverside Drive, Clarksville, IN 47179",
+    "map_title": "Map of the Rosie the Riveter statue",
+    "map_caption": "Ashland Park address quoted from The Weber Group on the Town of Clarksville website."
+  },
+  {
+    "status": "verified",
+    "path": "IN/Vincennes River Walk/index.html",
+    "canonical": "https://testedprofit.com/IN/Vincennes%20River%20Walk/",
+    "kind": "landmark",
+    "state_code": "IN",
+    "name": "Vincennes River Walk",
+    "title": "Vincennes Riverwalk on the Wabash",
+    "description": "The lit Wabash Riverwalk from Main to Hart Street passes a bronze of the city's founder and a wooden Tecumseh.",
+    "h1": "Vincennes River Walk",
+    "subtitle": "A lit path from Main Street to Hart Street",
+    "badge": "Vincennes, Indiana",
+    "lede": "Vincennes's riverwalk runs along the Wabash from Main Street to Hart Street. It is lit, open to people walking and bicycling, and passes a bronze of founder François-Marie Bissot and a wooden Tecumseh.",
+    "city": "Vincennes",
+    "geo_region": "US-IN",
+    "facts": [
+      {"label": "Route", "value": "Main Street to Hart Street"},
+      {"label": "River", "value": "Wabash River"},
+      {"label": "Founder statue", "value": "Life-size bronze by Bill Wolfe, dedicated May 2018"},
+      {"label": "Tecumseh", "value": "Wooden carving by Peter Wolf Toth at First and Hart Streets"}
+    ],
+    "paragraphs": [
+      "The Vincennes/Knox County visitors bureau says the riverwalk along the Wabash runs from Main Street to Hart Street, with access from either street. It has an observation deck, is open to walkers and bicyclists on foot power only, and is illuminated for evening walks. The bureau phone is 800-886-6443.",
+      "Visit Indiana reported on June 22, 2018, that Vincennes had dedicated a life-size bronze of François-Marie Bissot, Sieur de Vincennes, that May. The Friends of Vincennes' Heritage commissioned it, and Terre Haute artist Bill Wolfe made it. The statue is on the riverwalk at the end of Main Street, close to the George Rogers Clark National Monument. The article says Bissot established the French trading post in 1732 and was killed in 1736.",
+      "At First and Hart Streets, the visitors bureau describes a hand-carved wooden Tecumseh by Peter Wolf Toth, a Hungarian immigrant. The bureau says Tecumseh confronted Indiana territorial governor William Henry Harrison and demanded that Shawnee land purchases be rescinded. Hart Street is the north end of the riverwalk."
+    ],
+    "see_items": [
+      {"title": "Founder's bronze", "text": "Bill Wolfe's life-size bronze of François-Marie Bissot stands at the Main Street end of the walk."},
+      {"title": "Wooden Tecumseh", "text": "Peter Wolf Toth's carving is at First and Hart Streets."},
+      {"title": "Observation deck", "text": "The visitors bureau says the walk has a deck for looking at the river and is lit after dark."}
+    ],
+    "tips": [
+      "Enter from Main Street or Hart Street. Motorized vehicles are not part of the described use.",
+      "The founder statue is at the end of Main Street, near the George Rogers Clark National Monument.",
+      "Tecumseh is at First and Hart Streets, Vincennes, IN 47591.",
+      "The visitors bureau phone is 800-886-6443."
+    ],
+    "faq": [
+      {"q": "How long is the described walk?", "a": "The visitors bureau says it spans Main Street to Hart Street along the Wabash, with access from either end."},
+      {"q": "Who is allowed on it?", "a": "It is open to walkers and bicyclists, and the bureau says it is non-motorized."},
+      {"q": "Who made the founder statue?", "a": "Visit Indiana credits Terre Haute artist Bill Wolfe. The Friends of Vincennes' Heritage commissioned the life-size bronze, dedicated in May 2018."},
+      {"q": "Where is that statue?", "a": "On the riverwalk at the end of Main Street, close to the George Rogers Clark National Monument."},
+      {"q": "What is the Tecumseh sculpture?", "a": "A hand-carved wooden figure by Peter Wolf Toth at First and Hart Streets."}
+    ],
+    "sources": "Vincennes/Knox County Visitors Bureau, riverwalk and Tecumseh pages; Visit Indiana, June 22, 2018. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://visitvincennes.org/attractions/river-walk-downtown-vincennes/",
+      "https://visitindiana.in.gov/blog/post/monument-oldest-city/",
+      "https://visitvincennes.org/attractions/tecumseh-sculpture/"
+    ],
+    "removed_claims": [
+      "A continuous outdoor gallery of additional named sculptures beyond the founder bronze and the Tecumseh carving"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "Main Street to Hart Street",
+      "addressLocality": "Vincennes",
+      "addressRegion": "IN",
+      "postalCode": "47591"
+    },
+    "map_query": "Main Street and the Wabash River, Vincennes, IN 47591",
+    "map_title": "Map of the Vincennes riverwalk",
+    "map_caption": "The visitors bureau says the walk runs from Main Street to Hart Street along the Wabash."
+  },
+  {
+    "status": "thin",
+    "path": "IN/William Hayden English Statue/index.html",
+    "canonical": "https://testedprofit.com/IN/William%20Hayden%20English%20Statue/",
+    "name": "William Hayden English Statue",
+    "reason": "Opened pages do not confirm a William Hayden English monument on the Crawford County Courthouse grounds. The Encyclopedia of Indianapolis only notes that John H. Mahoney made a 1891 sculpture of William E. English, with castings for English and Scottsburg, which is not enough to identify this statue's site, material, or pose.",
+    "removed_claims": [
+      "Stands on the Crawford County Courthouse grounds",
+      "Bronze figure with a stated pose",
+      "William Hayden English lived 1822–1896 as a caption on this monument",
+      "Four terms in the U.S. House and the 1880 Democratic vice-presidential nomination, as facts tied to this statue",
+      "Town founded in 1849 by his father Elisha English"
+    ],
+    "searches": [
+      "William Hayden English statue Crawford County Courthouse English Indiana bronze",
+      "William English statue English Park John Mahoney 1891 Smithsonian",
+      "https://indyencyclopedia.org/john-h-mahoney/"
+    ]
+  },
+  {
+    "status": "verified",
+    "path": "KS/The Keeper of the Plains/index.html",
+    "canonical": "https://testedprofit.com/KS/The%20Keeper%20of%20the%20Plains/",
+    "kind": "landmark",
+    "state_code": "KS",
+    "name": "The Keeper of the Plains",
+    "title": "Keeper of the Plains, Wichita",
+    "description": "Blackbear Bosin's 44-foot Cor-Ten steel figure stands where Wichita's two Arkansas rivers meet, with a nightly ring of fire.",
+    "h1": "The Keeper of the Plains",
+    "subtitle": "44-foot steel figure at the rivers' meeting",
+    "badge": "Wichita, Kansas",
+    "lede": "Blackbear Bosin's 44-foot Cor-Ten steel Keeper of the Plains stands where the Big and Little Arkansas rivers meet. The plaza is free from 5 a.m. to midnight, and five fire drums burn for 15 minutes each night.",
+    "city": "Wichita",
+    "geo_region": "US-KS",
+    "facts": [
+      {"label": "Artist", "value": "Blackbear Bosin"},
+      {"label": "Sculpture", "value": "44 feet, Cor-Ten steel, five tons"},
+      {"label": "Dedicated", "value": "May 18, 1974; plaza rededicated May 18, 2007"},
+      {"label": "Hours", "value": "5 a.m. to midnight; closed midnight to 5 a.m."}
+    ],
+    "paragraphs": [
+      "The City of Wichita says the Keeper stands at the confluence of the Big and Little Arkansas rivers with hands raised in supplication to the Great Spirit. Blackbear Bosin donated it to the citizens of Wichita in 1974. It was dedicated May 18, 1974, with Senator Bob Dole present, for the U.S. Bicentennial. The 44-foot Cor-Ten steel figure now stands on a 30-foot rock promontory. An eight-year, $20 million river project was completed in May 2007, and the renovated Keeper was dedicated on May 18, 2007.",
+      "Visit Wichita calls it a five-ton, 44-foot steel sculpture and says five fire drums illuminate it. The city says the Ring of Fire burns nightly for 15 minutes and is run by hand. It is not lit in high wind, rain, or other bad weather, if the river is too high, or if a person or goose is too close to the burners. Daylight saving time hours are 9:00 to 9:15 p.m.; standard time is 7:00 to 7:15 p.m. Visit Wichita says the 15 minutes symbolize the sacred hoop of earth, air, water, and fire.",
+      "Both the city and Visit Wichita say the plaza is free and open from 5 a.m. to midnight. Two cable-stay bridges inspired by a bow and arrow cross the rivers. During the day, visitors can enter the plaza from the Mid-America All-Indian Museum, which charges admission. City ordinance 11.16.085 bans skateboarding on the plaza and bridges. As of the city page, trail and parking-lot work near the Keeper was expected to last until November 2026, with a temporary path for pedestrians."
+    ],
+    "see_items": [
+      {"title": "Raised hands", "text": "The city says the hands are raised in supplication to the Great Spirit."},
+      {"title": "Ring of Fire", "text": "Five drums burn for 15 minutes, at 9:00 p.m. during daylight saving time and 7:00 p.m. in standard time."},
+      {"title": "30-foot base", "text": "The figure stands on a 30-foot rock promontory above the plaza."}
+    ],
+    "tips": [
+      "The plaza is closed from midnight to 5 a.m.",
+      "The fire may be canceled for wind, rain, high water, or anyone too close to the burners.",
+      "Skateboarding is banned on the plaza and the pedestrian bridges.",
+      "The adjacent Mid-America All-Indian Museum is ticketed, even though the outdoor plaza is free.",
+      "Through the work expected to last until November 2026, the Central and Nims parking lot may be limited and parts of the river trail may be closed."
+    ],
+    "faq": [
+      {"q": "Who made the Keeper of the Plains?", "a": "The City of Wichita says Native American artist Blackbear Bosin donated the sculpture to the citizens of Wichita in 1974."},
+      {"q": "How tall is it?", "a": "The city says it is 44 feet of Cor-Ten steel. Visit Wichita also calls it five tons."},
+      {"q": "When was it dedicated?", "a": "It was dedicated May 18, 1974, with Senator Bob Dole present. The renovated setting was dedicated May 18, 2007."},
+      {"q": "When does the Ring of Fire burn?", "a": "For 15 minutes nightly, 9:00 to 9:15 p.m. during daylight saving time and 7:00 to 7:15 p.m. during standard time, unless weather or safety stops it."},
+      {"q": "Is the plaza free?", "a": "Yes. The city and Visit Wichita say the plaza is free and open from 5 a.m. to midnight. The Mid-America All-Indian Museum next to it charges admission."}
+    ],
+    "sources": "City of Wichita, Keeper of the Plains; Visit Wichita. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://www.wichita.gov/1164/Keeper-of-the-Plains",
+      "https://www.visitwichita.com/things-to-do/uniquely-wichita/keeper-of-the-plains/"
+    ],
+    "removed_claims": [
+      "A stated street address or GPS coordinate for the statue",
+      "Access hours of 5 a.m. to midnight described as the only older schedule without the midnight closure"
+    ],
+    "free": true,
+    "public_access": true,
+    "map_query": "Keeper of the Plains, confluence of the Big and Little Arkansas Rivers, Wichita, KS",
+    "map_title": "Map of the Keeper of the Plains",
+    "map_caption": "The city places the sculpture at the confluence of the Big and Little Arkansas rivers. No street address was published on the opened pages."
+  },
+  {
+    "status": "verified",
+    "path": "KY/Benjamin Franklin statue/index.html",
+    "canonical": "https://testedprofit.com/KY/Benjamin%20Franklin%20statue/",
+    "kind": "landmark",
+    "state_code": "KY",
+    "name": "Benjamin Franklin statue",
+    "title": "Franklin at Louisville's Main Library",
+    "description": "Felix de Weldon, sculptor of the Iwo Jima Memorial, made the Benjamin Franklin sculpture on the main library grounds.",
+    "h1": "Benjamin Franklin statue",
+    "subtitle": "On the grounds of the main library",
+    "badge": "Louisville, Kentucky",
+    "lede": "A Benjamin Franklin sculpture by Felix de Weldon, the sculptor of the Iwo Jima Marine Corps War Memorial, stands on the grounds of Louisville's main public library at 301 York Street.",
+    "city": "Louisville",
+    "geo_region": "US-KY",
+    "facts": [
+      {"label": "Sculptor", "value": "Felix de Weldon"},
+      {"label": "Also known for", "value": "Iwo Jima U.S. Marine Corps War Memorial"},
+      {"label": "Library", "value": "Louisville Free Public Library main branch"},
+      {"label": "Address", "value": "301 York Street, Louisville, KY 40203"}
+    ],
+    "paragraphs": [
+      "Clio's history of the Louisville Free Public Library says the main branch, designed by Pilcher and Tachau, opened in 1908 at 301 York Street. In 1969 a 110,000-square-foot concrete-and-glass addition was built at the rear. Clio says that along with that addition, a sculpture of Benjamin Franklin by Felix de Weldon was added to the grounds. It identifies de Weldon as the sculptor of the Iwo Jima U.S. Marine Corps War Memorial.",
+      "The opened page does not describe the figure's pose, height, or metal, and it does not give a separate dedication date for the sculpture beyond placing it with the 1969 addition. Clio's library hours were last updated in 2017, so they are not repeated here as current hours."
+    ],
+    "see_items": [
+      {"title": "Franklin on the grounds", "text": "Clio says the de Weldon sculpture was added outside the main library, not inside a gallery."},
+      {"title": "1908 building", "text": "The Beaux-Arts main library opened in 1908 after construction began in 1905."},
+      {"title": "1969 addition", "text": "The Franklin sculpture is tied in Clio's account to the 110,000-square-foot rear addition."}
+    ],
+    "tips": [
+      "The main library address on the Clio page is 301 York Street, Louisville, KY 40203.",
+      "The listed phone is (502) 574-1611.",
+      "Check current library hours with the library; the Clio hours date from 2017.",
+      "The page does not confirm a seated pose or a 1973 installation date."
+    ],
+    "faq": [
+      {"q": "Who sculpted the library's Benjamin Franklin?", "a": "Clio credits Felix de Weldon, sculptor of the Iwo Jima Marine Corps War Memorial."},
+      {"q": "Where is it?", "a": "On the grounds of the Louisville Free Public Library main branch at 301 York Street."},
+      {"q": "When was it added?", "a": "Clio says it was added to the grounds along with the 110,000-square-foot addition constructed in 1969."},
+      {"q": "When did the library open?", "a": "Clio says construction of the main building began in 1905 and it officially opened in 1908."},
+      {"q": "Is the pose described?", "a": "The opened library history does not say whether Franklin is seated or standing, and it does not give a height."}
+    ],
+    "sources": "Clio, Louisville Free Public Library, entry updated March 17, 2017. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://theclio.com/entry/12892"
+    ],
+    "removed_claims": [
+      "Installed in 1973",
+      "Located on Curran Way",
+      "Seated on a bench",
+      "Larger-than-life bronze",
+      "Library hours presented as current"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "301 York Street",
+      "addressLocality": "Louisville",
+      "addressRegion": "KY",
+      "postalCode": "40203"
+    },
+    "map_query": "301 York Street, Louisville, KY 40203",
+    "map_title": "Map of the Louisville Free Public Library",
+    "map_caption": "Main library address published by Clio, where the Franklin sculpture stands on the grounds."
+  },
+  {
+    "status": "verified",
+    "path": "KY/Bigfoot Statue/index.html",
+    "canonical": "https://testedprofit.com/KY/Bigfoot%20Statue/",
+    "kind": "landmark",
+    "state_code": "KY",
+    "name": "Bigfoot Statue",
+    "title": "14-Foot Sasquatch at Armco Park",
+    "description": "Travis Williams spent about 40 hours chainsaw-carving a 14-foot Sasquatch on the trails at Armco Park in Ashland.",
+    "h1": "Bigfoot Statue",
+    "subtitle": "A chainsaw Sasquatch in Armco Park",
+    "badge": "Ashland, Kentucky",
+    "lede": "Travis Williams finished a 14-foot wood Sasquatch in Armco Park in September 2023. He told the Ashland Daily Independent it took about 40 hours, after a log in the park was mistaken for a bear.",
+    "city": "Ashland",
+    "geo_region": "US-KY",
+    "facts": [
+      {"label": "Height", "value": "14 feet"},
+      {"label": "Carver", "value": "Travis Williams of Boyd County"},
+      {"label": "Time", "value": "About 40 hours over a week"},
+      {"label": "Park", "value": "Armco Park, Ashland"}
+    ],
+    "paragraphs": [
+      "The Ashland Daily Independent, published by Kentucky Today on September 7, 2023, says Travis Williams of Boyd County finished a 14-foot wood-carved Sasquatch that Monday in Armco Park. Williams said it took about 40 hours spread through a week, and that it was his largest carving. His next largest was a 12-foot Ohio State Brutus.",
+      "Williams said the idea started about a year earlier, when people thought they saw a bear in Armco Park and it turned out to be a fallen log. He suggested a bear carving off the trail to County Administrator Justin Pruitt. The talks later became a Sasquatch. Williams said he took up chainsaw carving after watching carvers in Gatlinburg, Tennessee, and that his first bear, cut from a dead tree in his yard, was not allowed to stay there."
+    ],
+    "see_items": [
+      {"title": "14-foot figure", "text": "The Daily Independent calls it a 14-foot wood Sasquatch and Williams's biggest carving."},
+      {"title": "Chainsaw work", "text": "Williams described detail work after learning chainsaw carving, including borrowing his father's saw."},
+      {"title": "Park trails", "text": "The carving is in Armco Park, where he had first proposed putting a bear off a trail."}
+    ],
+    "tips": [
+      "The opened article places it in Armco Park in Ashland and does not give a street address or trail number.",
+      "Williams said the work was finished the Monday before the September 7, 2023, story.",
+      "He identified Justin Pruitt as the county administrator he approached about a park carving.",
+      "The piece is wood, outdoors, and was carved with a chainsaw rather than only hand tools."
+    ],
+    "faq": [
+      {"q": "How tall is the Armco Park Bigfoot?", "a": "The Ashland Daily Independent calls it a 14-foot wood-carved Sasquatch."},
+      {"q": "Who carved it?", "a": "Travis Williams of Boyd County."},
+      {"q": "How long did it take?", "a": "Williams said about 40 hours spread through a week."},
+      {"q": "Why a Sasquatch?", "a": "He first proposed a bear after a log in the park was mistaken for a bear. Talks with County Administrator Justin Pruitt grew into a Sasquatch."},
+      {"q": "Where is it?", "a": "In Armco Park in Ashland, Kentucky. The opened article does not give a street address."}
+    ],
+    "sources": "Ashland Daily Independent, via Kentucky Today, September 7, 2023. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://www.kentuckytoday.com/news/14-foot-sasquatch-carving-at-ashland-park/article_689d0800-4d96-11ee-90ac-3f01b8f64176.html"
+    ],
+    "removed_claims": [
+      "Carved only with hand tools",
+      "A stated street address inside Armco Park"
+    ],
+    "free": null,
+    "public_access": true,
+    "map_query": "Armco Park, Ashland, KY",
+    "map_title": "Map of Armco Park",
+    "map_caption": "The Daily Independent places the carving in Armco Park, Ashland, without a street address."
+  },
+  {
+    "status": "verified",
+    "path": "KY/Booker Noe Statue/index.html",
+    "canonical": "https://testedprofit.com/KY/Booker%20Noe%20Statue/",
+    "kind": "landmark",
+    "state_code": "KY",
+    "name": "Booker Noe Statue",
+    "title": "Booker Noe and Dot at Jim Beam",
+    "description": "A bronze of master distiller Booker Noe and his dog Dot stands at the Jim Beam American Stillhouse in Clermont.",
+    "h1": "Booker Noe Statue",
+    "subtitle": "Bronze of the distiller and his dog Dot",
+    "badge": "Clermont, Kentucky",
+    "lede": "A bronze of Booker Noe and his dog Dot stands at the Jim Beam American Stillhouse. The marker beside it names University of Kentucky professor Garry R. Bibbs and artist Ben Bartlet.",
+    "city": "Clermont",
+    "geo_region": "US-KY",
+    "lat": 37.930483,
+    "lng": -85.653167,
+    "facts": [
+      {"label": "Dates on marker", "value": "December 7, 1929 – February 24, 2004"},
+      {"label": "Role", "value": "Sixth-generation master distiller, grandson of Jim Beam"},
+      {"label": "With him", "value": "His dog Dot"},
+      {"label": "Credits", "value": "University of Kentucky Sculpture Department, Professor Garry R. Bibbs, artist Ben Bartlet"}
+    ],
+    "paragraphs": [
+      "The Historical Marker Database records the marker text at the statue: Booker Noe, December 7, 1929–February 24, 2004, grandson of Jim Beam, shown with his dog Dot. It calls him the sixth-generation master distiller and says he spent more than 50 years overseeing the family's whiskies. In 1988 he introduced his private-stock small-batch whiskey, Booker's. The marker credits the University of Kentucky Sculpture Department, Professor Garry R. Bibbs, and artist Ben Bartlet, and says Jim Beam Distillery Company erected it.",
+      "The Bourbon Babe's 2017 visitor note places a bronze of Booker Noe and Dot on the grounds of the Jim Beam American Stillhouse at 526 Happy Hollow Road, Clermont, KY 40010, and lists the phone 502-543-9877. The marker page says the marker is at or near 526 Happy Hollow Road and gives a postal address of Shepherdsville, KY 40165, with coordinates 37° 55.829′ N, 85° 39.19′ W. A December 13, 2023, photo caption says the marker stands between the camera and the statue."
+    ],
+    "see_items": [
+      {"title": "Noe and Dot", "text": "The marker says the distiller is seen with his dog and pal, Dot."},
+      {"title": "1988 Booker's", "text": "The inscription says he introduced the private-stock small-batch whiskey Booker's in 1988."},
+      {"title": "Stillhouse grounds", "text": "The Bourbon Babe says visitors can photograph the bronze on the American Stillhouse grounds."}
+    ],
+    "tips": [
+      "The Bourbon Babe lists 526 Happy Hollow Road, Clermont, KY 40010, and phone 502-543-9877.",
+      "The marker's postal line uses Shepherdsville, KY 40165, for the same road number.",
+      "The artist name on the marker is spelled Ben Bartlet.",
+      "The stillhouse is a working visitor distillery, so check Jim Beam's current tour rules before you go."
+    ],
+    "faq": [
+      {"q": "Who is the statue of?", "a": "Booker Noe, December 7, 1929–February 24, 2004, grandson of Jim Beam and the family's sixth-generation master distiller, shown with his dog Dot."},
+      {"q": "Who made it?", "a": "The marker credits the University of Kentucky Sculpture Department, Professor Garry R. Bibbs, and artist Ben Bartlet. Jim Beam Distillery Company erected the marker."},
+      {"q": "What does the marker say he did?", "a": "He spent more than 50 years overseeing the family's whiskies and in 1988 introduced Booker's, his private-stock small-batch whiskey."},
+      {"q": "Is it bronze?", "a": "The Bourbon Babe describes the sculpture of Booker Noe and Dot as bronze."},
+      {"q": "Where is it?", "a": "On the grounds of the Jim Beam American Stillhouse, 526 Happy Hollow Road, Clermont. The marker coordinates are 37° 55.829′ N, 85° 39.19′ W."}
+    ],
+    "sources": "Historical Marker Database, marker 237869, photographed December 13, 2023; The Bourbon Babe, June 12, 2017. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://www.hmdb.org/m.asp?m=237869",
+      "https://thebourbonbabe.com/2017/06/12/jim-beam-american-stillhouse/"
+    ],
+    "removed_claims": [
+      "A stated height or a claim that the figure is life-size",
+      "A single ZIP code; Clermont 40010 and Shepherdsville 40165 both appear for 526 Happy Hollow Road"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "526 Happy Hollow Road",
+      "addressLocality": "Clermont",
+      "addressRegion": "KY",
+      "postalCode": "40010"
+    },
+    "map_query": "37.930483,-85.653167",
+    "map_title": "Map of the Booker Noe marker",
+    "map_caption": "Coordinates published by the Historical Marker Database for the marker beside the Booker Noe statue."
+  },
+  {
+    "status": "verified",
+    "path": "KY/Coxs Creek Rooster Statue/index.html",
+    "canonical": "https://testedprofit.com/KY/Coxs%20Creek%20Rooster%20Statue/",
+    "kind": "landmark",
+    "state_code": "KY",
+    "name": "Coxs Creek Rooster Statue",
+    "title": "Ozzie Frank, the Rooster Run Rooster",
+    "description": "A 13.5-foot fiberglass rooster named Ozzie Frank stands in front of the Rooster Run store on Kentucky Route 245.",
+    "h1": "Coxs Creek Rooster Statue",
+    "subtitle": "Ozzie Frank at Rooster Run",
+    "badge": "Cox's Creek, Kentucky",
+    "lede": "Ozzie Frank is the 13.5-foot fiberglass rooster in front of Rooster Run, the Nelson County store Joe Evans opened in 1967. The store on Kentucky Route 245 reopened in June 2024 with the rooster repainted.",
+    "city": "Cox's Creek",
+    "geo_region": "US-KY",
+    "lat": 37.886358,
+    "lng": -85.549739,
+    "facts": [
+      {"label": "Name", "value": "Ozzie Frank (bib reported as Ozzy Frank)"},
+      {"label": "Size", "value": "13.5-foot fiberglass rooster"},
+      {"label": "Store opened", "value": "1967, by Joe Evans"},
+      {"label": "Address", "value": "6516 New Shepherdsville Rd, Samuels, KY"}
+    ],
+    "paragraphs": [
+      "Wikipedia's article on Rooster Run says Joe Evans opened the store, then called Evans Beverage Depot, in 1967. The name came from a friend who said \"Look at that rooster run!\" when a man hurried off as his wife arrived. A 13.5-foot fiberglass rooster dubbed Ozzie Frank was placed in front of the store. Evans later toured with the rooster during a 1991 campaign for Kentucky secretary of state. The store's mail uses the Cox's Creek ZIP code, and the Kentucky Transportation Cabinet put Rooster Run on highway maps and signed Kentucky Route 245 toward it. Wikipedia lists coordinates 37.886358° N, 85.549739° W.",
+      "Roadside America lists Rooster Run General Store at 6516 New Shepherdsville Road, Samuels, on the south side of Highway 245 between I-65 exit 112 and Bardstown. It says the rooster wears a bib reading \"Hello, my name is Ozzy Frank.\"",
+      "The Kentucky Standard reported on July 27, 2024, that Ozzie Frank had been away that spring and returned with a fresh coat of paint for the store's reopening. New owners Tim Hutchins, Muni Patel, and Kash Patel reopened the gas station and convenience store on June 26 after a closure in the late 2010s. The dining room includes clippings and pictures of founder Joe Evans."
+    ],
+    "see_items": [
+      {"title": "Fiberglass rooster", "text": "Wikipedia calls Ozzie Frank a 13.5-foot fiberglass statue in front of the store."},
+      {"title": "Name bib", "text": "Roadside America quotes the bib as \"Hello, my name is Ozzy Frank.\""},
+      {"title": "Repainted mascot", "text": "The Kentucky Standard said the rooster was repainted and put back for the 2024 reopening."}
+    ],
+    "tips": [
+      "Roadside America lists 6516 New Shepherdsville Road, Samuels, on the south side of Highway 245.",
+      "The Kentucky Standard said the store reopened June 26, 2024. Confirm current hours on site.",
+      "Wikipedia and the newspaper use Ozzie; the bib text reported by Roadside America uses Ozzy.",
+      "The locale is associated with the Cox's Creek ZIP code even though the street listing says Samuels."
+    ],
+    "faq": [
+      {"q": "What is the rooster's name?", "a": "Wikipedia calls the 13.5-foot fiberglass rooster Ozzie Frank. Roadside America says the bib reads \"Hello, my name is Ozzy Frank.\""},
+      {"q": "How tall is it?", "a": "Wikipedia says 13.5 feet, or 4.1 meters."},
+      {"q": "Why is the store called Rooster Run?", "a": "Wikipedia says a friend yelled \"Look at that rooster run!\" when a customer hurried away as his wife arrived, and the nickname stuck."},
+      {"q": "Where does it stand?", "a": "In front of Rooster Run General Store, listed at 6516 New Shepherdsville Road, Samuels, on Highway 245."},
+      {"q": "Is the store open?", "a": "The Kentucky Standard reported that it reopened on June 26, 2024, under Tim Hutchins, Muni Patel, and Kash Patel, with Ozzie Frank back out front."}
+    ],
+    "sources": "Wikipedia, Rooster Run; Roadside America; Kentucky Standard, July 27, 2024. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://en.wikipedia.org/wiki/Rooster_Run",
+      "https://www.roadsideamerica.com/tip/3903",
+      "https://www.pmg-ky2.com/kystandard/news/rooster-run-back-in-business/article_6f52ada0-67e8-5f5c-8e33-1e928c954d08.html"
+    ],
+    "removed_claims": [
+      "Manufactured by the Plycrete Mold Company",
+      "A height of about 10 feet given in a Roadside America editor note, which conflicts with the 13.5-foot figure"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "6516 New Shepherdsville Rd",
+      "addressLocality": "Samuels",
+      "addressRegion": "KY",
+      "postalCode": ""
+    },
+    "map_query": "6516 New Shepherdsville Rd, Samuels, KY",
+    "map_title": "Map of Rooster Run General Store",
+    "map_caption": "Street address published by Roadside America for the rooster at Rooster Run."
+  },
+  {
+    "status": "verified",
+    "path": "KY/Daniel Boone Monument/index.html",
+    "canonical": "https://testedprofit.com/KY/Daniel%20Boone%20Monument/",
+    "kind": "landmark",
+    "state_code": "KY",
+    "name": "Daniel Boone Monument",
+    "title": "Daniel Boone Monument, Cherokee Park",
+    "description": "Enid Yandell's bronze Daniel Boone, unveiled June 15, 1906, stands at the Eastern Parkway entrance to Cherokee Park.",
+    "h1": "Daniel Boone Monument",
+    "subtitle": "Enid Yandell's bronze at Cherokee Park",
+    "badge": "Louisville, Kentucky",
+    "lede": "Louisville's Daniel Boone Monument is Enid Yandell's bronze pioneer, unveiled on June 15, 1906, at the Eastern Parkway entrance to Cherokee Park. It is not a stone cairn.",
+    "city": "Louisville",
+    "geo_region": "US-KY",
+    "facts": [
+      {"label": "Sculptor", "value": "Enid Yandell"},
+      {"label": "Material", "value": "Bronze and limestone"},
+      {"label": "Unveiled", "value": "June 15, 1906"},
+      {"label": "Place", "value": "Eastern Parkway entrance of Cherokee Park"}
+    ],
+    "paragraphs": [
+      "Olmsted Parks Conservancy says Enid Yandell first made the Daniel Boone figure for the Kentucky Building at the 1893 World's Fair in Chicago, commissioned by what is now the Filson Historical Society. She used Boone's hunting shirt, rifle, tomahawk, knife, and powder horn while shaping the likeness. Businessman C.C. Bickel later paid to have it cast in bronze and installed at the Eastern Parkway entrance of Cherokee Park.",
+      "Louisville Metro's public-art record dates the bronze-and-limestone statue to 1906 and says Charles C. Bickel, a local architect, asked Yandell for the permanent bronze. The unveiling on June 15, 1906, included a Boone family reception and a staged fort attack. The record says the statue was moved from a shallow alcove in Cherokee Park, where Boone was meant to look as if he were coming out of the woods, to a more visible spot in the Cherokee Triangle off Eastern Parkway.",
+      "A Kentucky Historical Society marker for Yandell, number 2133, erected in 2004, lists two noted Louisville works: the Daniel Boone Monument and Hogan's Fountain. That marker stands at Cherokee Road and Cherokee Park Road, which is a marker site rather than a measured pin for the statue itself."
+    ],
+    "see_items": [
+      {"title": "Pioneer figure", "text": "Yandell used Boone's shirt, flintlock, tomahawk, knife, and powder horn from the Filson collection as references."},
+      {"title": "Bronze on limestone", "text": "The city art record lists the material as bronze and limestone."},
+      {"title": "Park entrance", "text": "Olmsted Parks says it stands at the Eastern Parkway entrance to Cherokee Park."}
+    ],
+    "tips": [
+      "Look for the statue at the Eastern Parkway entrance of Cherokee Park, in the Cherokee Triangle.",
+      "The 2004 Yandell historical marker is at Cherokee Road and Cherokee Park Road; that pin is for the marker.",
+      "Hogan's Fountain, also by Yandell, is a separate work in Cherokee Park.",
+      "The old description of a six-foot stone cairn does not match these sources."
+    ],
+    "faq": [
+      {"q": "Who sculpted the Daniel Boone Monument?", "a": "Enid Yandell. The Kentucky Historical Society marker and the city art record both name her."},
+      {"q": "When was the Louisville bronze unveiled?", "a": "Louisville Metro's art record says the unveiling was June 15, 1906."},
+      {"q": "What was the statue made from?", "a": "The city record lists bronze and limestone. C.C. Bickel paid to have the earlier fair figure cast in bronze."},
+      {"q": "Where did the design start?", "a": "Yandell made it for the Kentucky Building at the 1893 World's Columbian Exposition, commissioned by the Filson Club."},
+      {"q": "Where is it now?", "a": "Olmsted Parks Conservancy says it is at the Eastern Parkway entrance of Cherokee Park. The city record says it was moved from a wooded alcove to the Cherokee Triangle off Eastern Parkway."}
+    ],
+    "sources": "Olmsted Parks Conservancy, February 27, 2025; Louisville Metro public-art record PALM 00010; Historical Marker Database, marker 2133. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://www.olmstedparks.org/womens-history-month-celebrating-enid-yandell/",
+      "https://louisvillemetro.github.io/COPA_VirtualExhibit/vex3/05AB5E13-B072-40E2-851D-341656729748.htm",
+      "https://www.hmdb.org/m.asp?m=101765"
+    ],
+    "removed_claims": [
+      "A pyramid of rough-hewn stones about six feet tall",
+      "A stone cairn in a grassy median with no bronze figure",
+      "Daniel Boone lived at this intersection"
+    ],
+    "free": null,
+    "public_access": true,
+    "map_query": "Eastern Parkway entrance of Cherokee Park, Louisville, KY",
+    "map_title": "Map of the Daniel Boone Monument",
+    "map_caption": "Olmsted Parks Conservancy places the bronze at the Eastern Parkway entrance of Cherokee Park."
+  },
+  {
+    "status": "verified",
+    "path": "KY/George Rogers Clark Statue/index.html",
+    "canonical": "https://testedprofit.com/KY/George%20Rogers%20Clark%20Statue/",
+    "kind": "landmark",
+    "state_code": "KY",
+    "name": "George Rogers Clark Statue",
+    "title": "George Rogers Clark on the Belvedere",
+    "description": "Felix de Weldon's bronze of George Rogers Clark, a Hillman-Hopkins gift, stands at Louisville's Riverfront Plaza.",
+    "h1": "George Rogers Clark Statue",
+    "subtitle": "Bronze at Riverfront Plaza / Belvedere",
+    "badge": "Louisville, Kentucky",
+    "lede": "Felix W. de Weldon's bronze of George Rogers Clark stands at Riverfront Plaza/Belvedere. Louisville Downtown Partnership lists it as a gift of the Hillman-Hopkins family at 485 West Main Street.",
+    "city": "Louisville",
+    "geo_region": "US-KY",
+    "facts": [
+      {"label": "Artist", "value": "Felix W. de Weldon"},
+      {"label": "Material", "value": "Bronze"},
+      {"label": "Donor", "value": "Hillman-Hopkins family"},
+      {"label": "Address", "value": "485 West Main Street"}
+    ],
+    "paragraphs": [
+      "Louisville Downtown Partnership's public-art listing names Felix W. de Weldon as the artist of the George Rogers Clark statue at Riverfront Plaza/Belvedere. It says the Hillman-Hopkins family gave it to the people of Louisville and lists the address 485 West Main Street.",
+      "Wikipedia's article on Riverfront Plaza/Belvedere says the plaza was dedicated on April 27, 1973, and runs between Third and Sixth streets above the Ohio River. In its statue list, George Rogers Clark by Felix de Weldon is bronze and located immediately east of the park section. The opened pages do not give the statue's own installation year."
+    ],
+    "see_items": [
+      {"title": "Bronze Clark", "text": "Both the downtown art listing and Wikipedia call the figure a work by Felix de Weldon in bronze."},
+      {"title": "Belvedere setting", "text": "Wikipedia places it immediately east of the grassy park section of the riverfront plaza."},
+      {"title": "Family gift", "text": "Downtown Partnership says the Hillman-Hopkins family gave it to Louisville."}
+    ],
+    "tips": [
+      "The downtown partnership address is 485 West Main Street.",
+      "The plaza runs between Third and Sixth streets on the Ohio riverfront.",
+      "A separate bronze of York, by Ed Hamilton, was erected on the Belvedere in 2003 and is not this statue.",
+      "The plaza itself was dedicated April 27, 1973; that date is for the plaza, not a documented statue unveiling."
+    ],
+    "faq": [
+      {"q": "Who sculpted the George Rogers Clark statue?", "a": "Louisville Downtown Partnership and Wikipedia both credit Felix de Weldon. The partnership uses the name Felix W. de Weldon."},
+      {"q": "What is it made of?", "a": "Wikipedia lists it as bronze."},
+      {"q": "Who gave it to the city?", "a": "Louisville Downtown Partnership says it was a gift of the Hillman-Hopkins family."},
+      {"q": "Where does it stand?", "a": "At Riverfront Plaza/Belvedere, immediately east of the park section. The listed address is 485 West Main Street."},
+      {"q": "When was the plaza dedicated?", "a": "Wikipedia says Riverfront Plaza/Belvedere was dedicated on April 27, 1973. The opened pages do not give a separate dedication year for the statue."}
+    ],
+    "sources": "Louisville Downtown Partnership public-art listing; Wikipedia, Riverfront Plaza/Belvedere. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://louisvilledowntown.org/art/george-rogers-clark/",
+      "https://en.wikipedia.org/wiki/Riverfront_Plaza/Belvedere"
+    ],
+    "removed_claims": [
+      "Installed in 1970",
+      "A stated height or pose",
+      "The statue overlooks the river from a described viewpoint beyond the plaza location"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "485 West Main Street",
+      "addressLocality": "Louisville",
+      "addressRegion": "KY",
+      "postalCode": ""
+    },
+    "map_query": "485 West Main Street, Louisville, KY",
+    "map_title": "Map of the George Rogers Clark statue",
+    "map_caption": "Address published by Louisville Downtown Partnership for the statue at Riverfront Plaza/Belvedere."
+  },
+  {
+    "status": "thin",
+    "path": "KY/Harry Potter Chess King Statue Carving/index.html",
+    "canonical": "https://testedprofit.com/KY/Harry%20Potter%20Chess%20King%20Statue%20Carving/",
+    "name": "Harry Potter Chess King Statue Carving",
+    "reason": "The WDRB story about a Mt. Washington yard carving did not return the article when the URL was opened, so the carver, height, subject, and address could not be taken from a fetched page.",
+    "removed_claims": [
+      "A 13-foot height",
+      "Inspired by the Isle of Lewis chessmen",
+      "A king piece rather than the film's chess knight",
+      "A confirmed street address in Mt. Washington"
+    ],
+    "searches": [
+      "Harry Potter wizard chess carving Mt Washington Kentucky chainsaw",
+      "Tyler Fenwick Derek Richardson Harry Potter chess knight Mt. Washington oak tree",
+      "https://www.wdrb.com/news/dying-tree-in-mt-washington-transformed-into-knight-in-shining-armor-local-landmark/article_13b309d4-a75e-11ef-832b-7f731b87b85e.html"
+    ]
+  },
+  {
+    "status": "verified",
+    "path": "KY/In Gods Hands statue/index.html",
+    "canonical": "https://testedprofit.com/KY/In%20Gods%20Hands%20statue/",
+    "kind": "landmark",
+    "state_code": "KY",
+    "name": "In Gods Hands statue",
+    "title": "In God's Hand at Calvary Cemetery",
+    "description": "A bronze of God's hand cradling a baby, dedicated in 2010, anchors the Holy Innocents section at Calvary Cemetery.",
+    "h1": "In Gods Hands statue",
+    "subtitle": "Bronze in the Holy Innocents section",
+    "badge": "Louisville, Kentucky",
+    "lede": "Calvary Cemetery's In God's Hand Garden, dedicated in June 2010 by Archbishop Joseph E. Kurtz, centers on a bronze of God's hand cradling a baby.",
+    "city": "Louisville",
+    "geo_region": "US-KY",
+    "facts": [
+      {"label": "Dedicated", "value": "June 2010, by Archbishop Joseph E. Kurtz"},
+      {"label": "Sculpture", "value": "Bronze of God's hand cradling a baby"},
+      {"label": "Around it", "value": "More than 1,500 granite pavers"},
+      {"label": "Cemetery", "value": "Calvary Cemetery, 1600 Newburg Road"}
+    ],
+    "paragraphs": [
+      "Catholic Cemeteries of the Archdiocese of Louisville says that in June 2010 Archbishop Joseph E. Kurtz dedicated the In God's Hand Garden in Calvary Cemetery's Holy Innocents section. The garden has a central bronze of God's hand cradling a baby, surrounded by more than 1,500 granite pavers that families may buy to memorialize a child.",
+      "Calvary Cemetery, at 1600 Newburg Road, Louisville, KY 40205, was established in 1921 and covers more than 200 acres. The Holy Innocents section is Section 20, for infant and stillborn burials. Visiting hours are 8:00 a.m. to 5:00 p.m. from October through March and 8:00 a.m. to 7:00 p.m. from April through September. A prayer service is held in the section on the last Wednesday of each month at 1:30 p.m. The office phone is 502-451-7710."
+    ],
+    "see_items": [
+      {"title": "The bronze hand", "text": "The cemetery describes a central bronze of God's hand cradling a baby."},
+      {"title": "Granite pavers", "text": "More than 1,500 pavers surround the sculpture and can be inscribed."},
+      {"title": "Section 20", "text": "Calvary's map key labels Section 20 as the Holy Innocents section."}
+    ],
+    "tips": [
+      "The cemetery address is 1600 Newburg Road, Louisville, KY 40205.",
+      "October–March visiting hours are 8:00 a.m.–5:00 p.m.; April–September hours are 8:00 a.m.–7:00 p.m.",
+      "The monthly infant prayer service is the last Wednesday at 1:30 p.m.",
+      "Office hours are Monday–Friday 8:00 a.m.–4:30 p.m. and Saturday 9:00 a.m.–1:00 p.m. Call 502-451-7710 about pavers."
+    ],
+    "faq": [
+      {"q": "What does the statue show?", "a": "Catholic Cemeteries describes a bronze of God's hand cradling a baby."},
+      {"q": "When was the garden dedicated?", "a": "In June 2010, by Archbishop Joseph E. Kurtz."},
+      {"q": "Where is it?", "a": "In the Holy Innocents section, Section 20, at Calvary Cemetery, 1600 Newburg Road, Louisville."},
+      {"q": "What are the pavers?", "a": "More than 1,500 granite pavers around the bronze may be purchased to memorialize a child buried there or elsewhere."},
+      {"q": "When is the cemetery open?", "a": "8:00 a.m. to 5:00 p.m. from October through March, and 8:00 a.m. to 7:00 p.m. from April through September."}
+    ],
+    "sources": "Catholic Cemeteries of the Archdiocese of Louisville, Holy Innocents and Calvary pages. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://catholiccemeterieslouisville.org/holy-innocents-section/",
+      "https://catholiccemeterieslouisville.org/calvary/"
+    ],
+    "removed_claims": [
+      "The cemetery's own name for the garden is plural \"In God's Hands\"; the opened pages say \"In God's Hand Garden\""
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "1600 Newburg Road",
+      "addressLocality": "Louisville",
+      "addressRegion": "KY",
+      "postalCode": "40205"
+    },
+    "map_query": "1600 Newburg Road, Louisville, KY 40205",
+    "map_title": "Map of Calvary Cemetery",
+    "map_caption": "Calvary Cemetery address published by Catholic Cemeteries of the Archdiocese of Louisville."
+  },
+  {
+    "status": "verified",
+    "path": "KY/Jefferson Monument (Louisville, Kentucky)/index.html",
+    "canonical": "https://testedprofit.com/KY/Jefferson%20Monument%20(Louisville,%20Kentucky)/",
+    "kind": "landmark",
+    "state_code": "KY",
+    "name": "Jefferson Monument (Louisville, Kentucky)",
+    "title": "Jefferson Monument at Metro Hall",
+    "description": "Moses Ezekiel's bronze Thomas Jefferson, given by the Bernheim brothers in 1901, stands on a Liberty Bell outside Metro Hall.",
+    "h1": "Jefferson Monument (Louisville, Kentucky)",
+    "subtitle": "Ezekiel's bronze outside Metro Hall",
+    "badge": "Louisville, Kentucky",
+    "lede": "Moses Jacob Ezekiel's Thomas Jefferson stands outside Louisville Metro Hall on a bronze Liberty Bell. The Bernheim brothers gave the monument to the city in November 1901.",
+    "city": "Louisville",
+    "geo_region": "US-KY",
+    "facts": [
+      {"label": "Sculptor", "value": "Moses Jacob Ezekiel"},
+      {"label": "Figure", "value": "9-foot bronze, Jefferson at age 33"},
+      {"label": "Whole monument", "value": "25 feet, on dark Quincy granite"},
+      {"label": "Given", "value": "November 1901, by the Bernheim brothers"}
+    ],
+    "paragraphs": [
+      "Wikipedia, drawing on the 1902 Monumental News, says Moses Jacob Ezekiel's Jefferson Monument stands outside Louisville Metro Hall. The Bernheim brothers presented it to Louisville in November 1901. The bronze figure is 9 feet high and shows Jefferson at age 33 presenting the Declaration of Independence. He stands on a bronze Liberty Bell 9 feet high and nearly 10 feet in diameter. Four figures on the bell represent Liberty, Equality, Justice, and the Brotherhood of Man. The lower part is dark Quincy granite. The whole monument is 25 feet high. Clarke & Loomis of Louisville were the constructing architects, the bronze was cast in Berlin, and Ezekiel made the models in his Rome studio.",
+      "Louisville Metro's public-art record dates the bronze to 1901 and says the Bernheim brothers approached Ezekiel in 1899. It places the work on the front lawn of the former Jefferson County Courthouse at 527 West Jefferson Street, now Louisville Metro Hall. It identifies the four winged figures as Liberty, Justice, Religious Freedom, and Equality, also called the Brotherhood of Man or Human Freedom. A catalog image is captioned as Justice before the theft of her scales. The record also points to a Courier-Journal unveiling story dated November 10, 1901. A smaller replica was placed at the University of Virginia in 1910."
+    ],
+    "see_items": [
+      {"title": "Jefferson on the bell", "text": "The 9-foot figure holds the Declaration and stands on an uncracked Liberty Bell."},
+      {"title": "Four allegories", "text": "Liberty, Equality, Justice, and Brotherhood of Man, also described as Religious Freedom and Equality, ring the bell."},
+      {"title": "Quincy granite base", "text": "The polished dark granite die is 5 feet high, and the whole monument is 25 feet."}
+    ],
+    "tips": [
+      "Louisville Metro places it at 527 West Jefferson Street, in front of Metro Hall.",
+      "The city catalog notes that Justice's scales were later stolen.",
+      "A smaller replica of the monument is at the University of Virginia.",
+      "The 9-foot figure and the 25-foot overall height are different measurements; both come from the 1902 description."
+    ],
+    "faq": [
+      {"q": "Who sculpted the Jefferson Monument?", "a": "Sir Moses Jacob Ezekiel, who made the models in his studio in Rome. The bronze was cast in Berlin."},
+      {"q": "Who gave it to Louisville?", "a": "The Bernheim brothers, Isaac W. and Bernard, presented it in November 1901."},
+      {"q": "How tall is it?", "a": "The 1902 account says the bronze Jefferson is 9 feet high and the whole monument is 25 feet high."},
+      {"q": "What is he standing on?", "a": "A bronze pedestal shaped like the Liberty Bell, 9 feet high and nearly 10 feet across, with four allegorical figures around it."},
+      {"q": "Where is it?", "a": "On the front lawn of Louisville Metro Hall, the former Jefferson County Courthouse, at 527 West Jefferson Street."}
+    ],
+    "sources": "Wikipedia, Jefferson Monument (Louisville, Kentucky), citing Monumental News, 1902; Louisville Metro public-art record PALM 00020. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://en.wikipedia.org/wiki/Jefferson_Monument_(Louisville,_Kentucky)",
+      "https://louisvillemetro.github.io/COPA_VirtualExhibit/vex1/B127ED65-16BC-4EC9-A385-533222340950.htm"
+    ],
+    "removed_claims": [
+      "Dedicated on a specific day other than the November 1901 presentation and the November 10, 1901 Courier-Journal unveiling reference",
+      "Called life-size in the city catalog, which conflicts with the 9-foot figure in the 1902 description"
+    ],
+    "free": null,
+    "public_access": true,
+    "address": {
+      "streetAddress": "527 West Jefferson Street",
+      "addressLocality": "Louisville",
+      "addressRegion": "KY",
+      "postalCode": ""
+    },
+    "map_query": "527 West Jefferson Street, Louisville, KY",
+    "map_title": "Map of the Jefferson Monument",
+    "map_caption": "Louisville Metro places the monument on the lawn of Metro Hall at 527 West Jefferson Street."
+  },
+  {
+    "status": "verified",
+    "path": "KY/Keith Whitley Memorial Statue/index.html",
+    "canonical": "https://testedprofit.com/KY/Keith%20Whitley%20Memorial%20Statue/",
+    "kind": "landmark",
+    "state_code": "KY",
+    "name": "Keith Whitley Memorial Statue",
+    "title": "Keith Whitley Statue in Sandy Hook",
+    "description": "Montana sculptor Bill Rains's bronze of Keith Whitley with his guitar has stood at a Sandy Hook cemetery since 1999.",
+    "h1": "Keith Whitley Memorial Statue",
+    "subtitle": "Bronze with a guitar in a Sandy Hook cemetery",
+    "badge": "Sandy Hook, Kentucky",
+    "lede": "Since 1999, a bronze of Keith Whitley with his guitar has stood in a cemetery in Sandy Hook. The Keith Whitley Memorial Association commissioned Montana sculptor Bill Rains. Whitley is buried in Nashville.",
+    "city": "Sandy Hook",
+    "geo_region": "US-KY",
+    "facts": [
+      {"label": "Sculptor", "value": "Bill Rains of Montana"},
+      {"label": "Commissioned by", "value": "Keith Whitley Memorial Association"},
+      {"label": "On view since", "value": "1999"},
+      {"label": "Place", "value": "A cemetery in Sandy Hook"}
+    ],
+    "paragraphs": [
+      "The Kaintuckeean, posted July 25, 2011, says Keith Whitley was born in Ashland in 1954 and had Elliott County roots. By the 1980s he had five consecutive number-one singles, including \"When You Say Nothing at All\" and \"I'm No Stranger to the Rain.\" He died in 1989 at age 33 and is buried in Nashville's Spring Hill Cemetery.",
+      "The same account says the Keith Whitley Memorial Association commissioned Montana sculptor Bill Rains to portray Whitley with his guitar. The sculpture has been displayed at the cemetery in Sandy Hook since 1999. The opened page does not name the cemetery, give a street address, or describe a courthouse setting."
+    ],
+    "see_items": [
+      {"title": "Guitar in hand", "text": "The Kaintuckeean says Rains showed Whitley with his guitar."},
+      {"title": "Cemetery site", "text": "The bronze is at a cemetery in Sandy Hook, not at the Elliott County Courthouse."},
+      {"title": "Separate burial", "text": "Whitley's grave is at Spring Hill Cemetery in Nashville."}
+    ],
+    "tips": [
+      "The opened account says only \"the cemetery in Sandy Hook\" and does not give the cemetery's name or street.",
+      "Do not look for a 2019 courthouse unveiling; this source dates the Sandy Hook display to 1999.",
+      "The sculptor named here is Bill Rains of Montana.",
+      "The page was posted in 2011 and updated August 20, 2019, without changing the 1999 date."
+    ],
+    "faq": [
+      {"q": "Who sculpted the Sandy Hook statue?", "a": "The Kaintuckeean credits Montana sculptor Bill Rains."},
+      {"q": "Who commissioned it?", "a": "The Keith Whitley Memorial Association."},
+      {"q": "When was it placed in Sandy Hook?", "a": "The account says it has been displayed at the cemetery there since 1999."},
+      {"q": "Is Keith Whitley buried there?", "a": "No. The page says he is buried in Nashville's Spring Hill Cemetery. The Sandy Hook sculpture is a memorial."},
+      {"q": "Where exactly is it?", "a": "At a cemetery in Sandy Hook, Elliott County. The opened page does not give a street address or the cemetery's name."}
+    ],
+    "sources": "The Kaintuckeean, July 25, 2011, updated August 20, 2019. Last checked October 21, 2026.",
+    "source_urls": [
+      "https://www.thekaintuckeean.com/nod-keith-whitley-tribute/"
+    ],
+    "removed_claims": [
+      "In front of the Elliott County Courthouse",
+      "Unveiled May 10, 2019",
+      "Sculpted by Gary Staab",
+      "Life-size",
+      "Country Music Hall of Fame induction stated on the opened page"
+    ],
+    "free": null,
+    "public_access": true,
+    "map_query": "Sandy Hook, KY",
+    "map_title": "Map of Sandy Hook",
+    "map_caption": "The opened account places the statue at a cemetery in Sandy Hook and does not give a street address."
+  }
+]
