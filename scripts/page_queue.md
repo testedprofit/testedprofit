@@ -98,7 +98,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Louisiana landmarks PR. Each card uses the title of the page it opens, including the ten guides revised in the second Louisiana PR.
 - https://testedprofit.com/MI/
   - Title: Michigan Statues and Landmarks | TestedProfit
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the first Michigan landmarks PR. Each card uses the title of the page it opens, including the eleven guides revised in the first Michigan PR.
 - https://testedprofit.com/OR/
   - Title: Oregon Statues and Landmarks | TestedProfit
   - Status: open. title, description, H1, canonical, and OG are in range
@@ -520,32 +520,32 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Ronald Reagan Statue in Covington
   - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Brown%20Trout%20Sculpture%20Park/
-  - Title: Brown Trout Sculpture Park | Baldwin, MI | Profitnet
-  - Status: open. description 182 chars | no OG
+  - Title: Brown Trout Sculpture in Baldwin | Guide
+  - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Butterfly%20House/
-  - Title: Butterfly House | Port Austin, MI | Profitnet Conservation
-  - Status: open. no OG
+  - Title: Butterfly House in Port Austin | Guide
+  - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Commodore%20Perry/
-  - Title: Commodore Perry Sculpture | Perrysburg, OH | Profitnet Heritage
-  - Status: open. title 63 chars | no OG
+  - Title: Commodore Perry Statue in Perrysburg
+  - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Furtaw%20Field/
-  - Title: Furtaw Field | Oscoda Township, MI | Profitnet Community Assets
-  - Status: open. title 63 chars | no OG
+  - Title: Furtaw Field in Downtown Oscoda
+  - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Gen.%20Thaddeus%20Kosciuszko%20Statue/
-  - Title: Gen. Thaddeus Kosciuszko Statue | Detroit, MI | Profitnet Heritage
-  - Status: open. description 159 chars | title 66 chars | no OG | 179 words
+  - Title: Kosciuszko Monument in Detroit | Guide
+  - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Kirtland's%20Warbler%20Monument/
-  - Title: Kirtland's Warbler Monument | Mio, MI | Profitnet Conservation
-  - Status: open. title 62 chars | no OG
+  - Title: Kirtland's Warbler Monument in Mio
+  - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Lion%20Statue/
   - Title: Lion Statue | Bay City, MI | Profitnet Heritage
   - Status: open. no OG
 - https://testedprofit.com/MI/Magic%20Johnson%20Statue/
-  - Title: Magic Johnson Statue | East Lansing, MI | Profitnet Heritage
-  - Status: open. description 164 chars | title 60 chars | no OG
+  - Title: Magic Johnson Statue at Breslin | Guide
+  - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Noahquageshik%20Statue/
-  - Title: Noahquageshik Statue | Grand Rapids, MI | Profitnet Heritage
-  - Status: open. description 156 chars | title 60 chars | no OG
+  - Title: Noahquageshik Statue in Grand Rapids
+  - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Paul%20Bunyan%20carving/
   - Title: Paul Bunyan Carving | Gladwin, MI | Profitnet Heritage
   - Status: open. description 160 chars | no OG
@@ -553,8 +553,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Saint Patrick Statue | Irish Hills, MI | Profitnet Heritage
   - Status: open. no OG
 - https://testedprofit.com/MI/Schiller%20Statue/
-  - Title: Schiller Statue | Belle Isle, Detroit | Profitnet Cultural Assets
-  - Status: open. description 165 chars | title 65 chars | no OG
+  - Title: Schiller Monument on Belle Isle | Guide
+  - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Sculpture%20in%20the%20Park/
   - Title: Sculpture in the Park | Ottawa Hills, OH | Profitnet Archive
   - Status: open. title 60 chars | no OG
@@ -565,14 +565,14 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Statue of Liberty Torch | Rogers City, MI | Profitnet Assets
   - Status: open. title 60 chars | no OG
 - https://testedprofit.com/MI/Statue%20of%20Woodbridge%20N.%20Ferris/
-  - Title: Statue of Woodbridge N. Ferris | Big Rapids Landmark | Profitnet
-  - Status: open. title 64 chars | no OG
+  - Title: Woodbridge Ferris Statue in Big Rapids
+  - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Stevie%20Wonder%20Landmark/
   - Title: Stevie Wonder Landmark | Saginaw Birthplace | Profitnet Landmarks
   - Status: open. title 65 chars | no OG
 - https://testedprofit.com/MI/Verlen%20Kruger%20Statue/
-  - Title: Verlen Kruger Statue | Portland, MI | Profitnet Conservation
-  - Status: open. description 160 chars | title 60 chars | no OG
+  - Title: Verlen Kruger Statue in Portland | Guide
+  - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Abraham%20Lincoln%20Memorial%20Statue/
   - Title: Abraham Lincoln Memorial Statue | Profitnet Landmarks
   - Status: open. no OG

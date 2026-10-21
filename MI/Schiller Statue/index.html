@@ -1,372 +1,49 @@
-﻿<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schiller Statue | Belle Isle, Detroit | Profitnet Cultural Assets</title>
+    <title>Schiller Monument on Belle Isle | Guide</title>
+    <meta name="description" content="A Detroit Historical Society postcard shows a seated bronze Schiller on Belle Isle, with a 1907 inscription on the base.">
     <link rel="canonical" href="https://testedprofit.com/MI/Schiller%20Statue/">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Explore the Friedrich Schiller Statue on Belle Isle, Detroit. A historical monument to the German poet of liberty and a key cultural asset in the Profitnet database.">
-    <meta name="keywords" content="Schiller Statue Detroit, Friedrich Schiller Belle Isle, German-American Landmarks, Detroit Historical Statues, PNET Cultural Assets, Belle Isle Park">
-    <meta name="author" content="Profitnet">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LandmarkOrHistoricalService",
-      "name": "Schiller Statue",
-      "description": "Bronze statue of German poet Friedrich Schiller, located on Belle Isle Park.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Central Ave",
-        "addressLocality": "Detroit",
-        "addressRegion": "MI",
-        "postalCode": "48207",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "42.3365",
-        "longitude": "-82.9846"
-      }
-    }
-    </script>
-    
-    <!-- External Scripts & Styles -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Schiller Monument on Belle Isle | Guide">
+    <meta property="og:description" content="A Detroit Historical Society postcard shows a seated bronze Schiller on Belle Isle, with a 1907 inscription on the base.">
+    <meta property="og:url" content="https://testedprofit.com/MI/Schiller%20Statue/">
+    <meta property="og:site_name" content="Profitnet Landmarks">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-dark: #0f0e0e; /* Deep Charcoal */
-            --bronze-aged: #4ade80; /* Oxidized Green/Teal for patina */
-            --bronze-polish: #d4a373; /* Copper/Gold */
-            --parchment: #e5e5e5;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--primary-dark);
-            color: var(--parchment);
-            line-height: 1.7;
-        }
-
-        .font-classic { font-family: 'Cinzel', serif; }
-
-        /* Etched Background Pattern */
-        .etched-bg {
-            background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 10px),
-                              repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 10px);
-            background-size: 20px 20px;
-        }
-
-        /* "Book Plate" Borders */
-        .book-plate {
-            position: relative;
-            border: 1px solid rgba(212, 163, 115, 0.2);
-        }
-        .book-plate::before, .book-plate::after {
-            content: '';
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border: 1px solid var(--bronze-polish);
-            transition: all 0.5s ease;
-        }
-        .book-plate::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
-        .book-plate::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
-        
-        .book-plate:hover::before, .book-plate:hover::after {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Typography Styling */
-        .drop-cap {
-            float: left;
-            font-family: 'Cinzel', serif;
-            font-size: 4rem;
-            line-height: 3.5rem;
-            padding-right: 1rem;
-            color: var(--bronze-polish);
-        }
-
-        .gradient-bronze {
-            background: linear-gradient(to right, #d4a373, #fae1dd, #d4a373);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: shine 5s linear infinite;
-        }
-
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--primary-dark); }
-        ::-webkit-scrollbar-thumb { background: #333; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--bronze-polish); }
-
-        /* Mobile Menu */
-        #mobile-menu {
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            transform: translateY(-100%);
-        }
-        #mobile-menu.active { transform: translateY(0); }
-    </style>
-<style id="tp-seo-style">
-.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
-.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
-.tp-seo-crumbs a:hover{text-decoration:underline}
-.tp-seo-crumbs li{color:#e5e7eb}
-.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
-.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
-.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
-.tp-seo-related ul{margin:0;padding-left:1.1rem}
-.tp-seo-related a{color:#5eead4}
-.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
+body{font-family:Inter,system-ui,sans-serif}
+a{color:#5eead4}
+main a{overflow-wrap:anywhere}
+.source-list a,.tp-related a,.guide-list a{text-decoration:underline}
+.source-list li,.guide-list li{margin:.45rem 0}
+.tp-related{margin-top:2rem;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55)}
+.guide-list{list-style:none;padding:0}
+.guide-list a{display:block;padding:.85rem 1rem;border:1px solid rgba(148,163,184,.28);border-radius:14px;background:rgba(15,23,42,.45)}
+details{border-top:1px solid rgba(148,163,184,.25);padding:.7rem 0}
+summary{cursor:pointer;font-weight:650}
 </style>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "TouristAttraction", "@id": "https://testedprofit.com/MI/Schiller%20Statue/#place", "name": "Schiller monument", "description": "A Detroit Historical Society postcard shows a seated bronze Schiller on Belle Isle, with a 1907 inscription on the base.", "url": "https://testedprofit.com/MI/Schiller%20Statue/", "dateModified": "2026-10-21", "address": {"@type": "PostalAddress", "addressLocality": "Detroit", "addressRegion": "MI"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://testedprofit.com/"}, {"@type": "ListItem", "position": 2, "name": "Landmarks", "item": "https://testedprofit.com/pages/landmarks/"}, {"@type": "ListItem", "position": 3, "name": "Michigan", "item": "https://testedprofit.com/MI/"}, {"@type": "ListItem", "position": 4, "name": "Schiller monument", "item": "https://testedprofit.com/MI/Schiller%20Statue/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does the monument look like, and what year is on the base?", "acceptedAnswer": {"@type": "Answer", "text": "The Detroit Historical Society describes a postcard of a seated bronze figure of Friedrich Schiller on a wide stone base. The carved text says the monument was erected by citizens of German descent in Detroit in 1907."}}, {"@type": "Question", "name": "Who designed it?", "acceptedAnswer": {"@type": "Answer", "text": "Wikipedia says the Friedrich Schiller statue on Belle Isle was commissioned by Detroit's German-American community in 1908, at a cost of $12,000, and that the designer was Herman Matzen."}}]}]}</script>
 </head>
-<body class="antialiased etched-bg relative">
-
-    <!-- Header -->
-    <header class="fixed w-full top-0 z-50 bg-[#0f0e0e]/90 backdrop-blur-sm border-b border-white/10">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="flex items-center space-x-3 group">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
-                     class="h-8 w-8 opacity-80 group-hover:opacity-100 transition-opacity" alt="Profitnet">
-                <span class="text-lg font-classic font-bold tracking-widest text-white group-hover:text-[#d4a373] transition-colors">PROFITNET</span>
-            </a>
-            
-            <nav class="hidden lg:flex space-x-12 items-center">
-                <a href="/" class="text-[10px] font-bold text-slate-400 hover:text-white transition-colors uppercase tracking-[0.2em]">Home</a>
-                <a href="https://testedprofit.com/pages/landmarks/" class="text-[10px] font-bold text-[#d4a373] uppercase tracking-[0.2em] relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-[1px] after:bg-[#d4a373]">Landmarks</a>
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 border border-[#d4a373]/30 text-[10px] font-bold text-[#d4a373] hover:bg-[#d4a373]/10 transition-all uppercase tracking-[0.2em]">
-                    $PNET Archive
-                </a>
-            </nav>
-
-            <button id="mobile-menu-btn" class="lg:hidden text-[#d4a373]"><i class="fa-solid fa-bars"></i></button>
+<body class="bg-slate-950 text-gray-200">
+    <header class="border-b border-white/10">
+        <div class="max-w-3xl mx-auto px-6 py-4 flex flex-wrap gap-x-5 gap-y-2 items-center">
+            <a href="/" class="text-white font-extrabold">Profitnet</a>
+            <a href="/pages/landmarks/">Landmarks</a>
+            <a href="/MI/">Michigan</a>
         </div>
-
-        
     </header>
-
-    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
-    <div id="mobile-menu" class="fixed inset-0 bg-[#0f0e0e] z-[60] flex flex-col items-center justify-center space-y-8 lg:hidden border-b border-[#d4a373]/20">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-times"></i></button>
-            <a href="/" class="text-xl font-classic text-white">HOME</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-classic text-[#d4a373]">LANDMARKS</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-classic text-white">$PNET ARCHIVE</a>
-        </div>
-
-
-    <main class="relative z-10 pt-40 pb-20">
-<!-- tp-seo:breadcrumbs -->
-<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
-<li><a href="/">Home</a></li>
-<li><a href="/pages/landmarks/">Landmarks</a></li>
-<li><a href="/MI/">Michigan</a></li>
-<li aria-current="page">Schiller Statue</li>
-</ol></nav>
-<!-- /tp-seo:breadcrumbs -->
-
-
-        
-        <!-- Hero Section -->
-        <section class="container mx-auto px-6 mb-32 text-center" data-aos="fade-up">
-            <div class="inline-flex items-center space-x-4 mb-8 opacity-60">
-                <span class="h-[1px] w-20 bg-[#d4a373]"></span>
-                <span class="text-[10px] uppercase tracking-[0.4em] text-[#d4a373]">Belle Isle Collection</span>
-                <span class="h-[1px] w-20 bg-[#d4a373]"></span>
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-classic font-bold mb-8 leading-tight">
-                THE POET OF <br>
-                <span class="gradient-bronze">LIBERTY.</span>
-            </h1>
-            
-            <p class="max-w-2xl mx-auto text-slate-400 font-light text-lg mb-12 italic">
-                "Art is the daughter of Freedom." <br>
-                <span class="text-sm not-italic mt-2 block text-[#d4a373]">— Friedrich Schiller</span>
-            </p>
-
-            <div class="flex justify-center gap-6">
-                <a href="#history" class="group relative px-8 py-3 border border-[#d4a373] text-[#d4a373] overflow-hidden">
-                    <span class="relative z-10 text-xs font-bold uppercase tracking-[0.2em] group-hover:text-black transition-colors">Read History</span>
-                    <div class="absolute inset-0 bg-[#d4a373] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></div>
-                </a>
-            </div>
-        </section>
-
-        <!-- The Triptych Grid -->
-        <section id="history" class="container mx-auto px-6 mb-32">
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Panel 1 -->
-                <article class="book-plate p-10 bg-white/5 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-[#4ade80] text-2xl mb-6"><i class="fa-solid fa-feather-pointed"></i></div>
-                    <h2 class="text-xl font-classic text-white mb-4">The Subject</h2>
-                    <p class="text-sm text-slate-400 text-justify">
-                        <span class="drop-cap">F</span>riedrich Schiller (1759-1805) was a German poet, philosopher, and historian. His works celebrated reason, humanity, and the struggle for freedom, resonating deeply with the ideals of the Enlightenment.
-                    </p>
-                </article>
-
-                <!-- Panel 2 -->
-                <article class="book-plate p-10 bg-white/5 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-[#d4a373] text-2xl mb-6"><i class="fa-solid fa-landmark"></i></div>
-                    <h2 class="text-xl font-classic text-white mb-4">The Monument</h2>
-                    <p class="text-sm text-slate-400 text-justify">
-                        Erected in 1908 by Detroit's German-American community, this bronze figure stands as a testament to cultural heritage. Over a century later, it remains a stoic guardian of Central Avenue.
-                    </p>
-                </article>
-
-                <!-- Panel 3 -->
-                <article class="book-plate p-10 bg-white/5 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-white text-2xl mb-6"><i class="fa-solid fa-tree"></i></div>
-                    <h2 class="text-xl font-classic text-white mb-4">The Setting</h2>
-                    <p class="text-sm text-slate-400 text-justify">
-                        Located on Belle Isle, an island park designed by Frederick Law Olmsted. The statue is surrounded by nature, bridging the gap between intellectual pursuit and the natural world.
-                    </p>
-                </article>
-            </div>
-        </section>
-
-        <!-- Location & Stats -->
-        <section class="container mx-auto px-6">
-            <div class="relative border-t border-b border-white/10 py-20">
-                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#0f0e0e] px-4">
-                    <i class="fa-solid fa-diamond text-[#d4a373] text-xs"></i>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-16 items-center">
-                    <div data-aos="fade-right">
-                        <h3 class="text-3xl font-classic mb-8">Asset Coordinates</h3>
-                        <ul class="space-y-6">
-                            <li class="flex items-start">
-                                <span class="text-[#d4a373] w-8 mt-1"><i class="fa-solid fa-map-pin"></i></span>
-                                <div>
-                                    <strong class="block text-white text-sm uppercase tracking-widest">Address</strong>
-                                    <span class="text-slate-400">Central Ave, Detroit, MI 48207</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-[#d4a373] w-8 mt-1"><i class="fa-regular fa-clock"></i></span>
-                                <div>
-                                    <strong class="block text-white text-sm uppercase tracking-widest">Access</strong>
-                                    <span class="text-slate-400">Open 24 Hours / Belle Isle Park Pass Required for Vehicle Entry</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-[#d4a373] w-8 mt-1"><i class="fa-solid fa-star"></i></span>
-                                <div>
-                                    <strong class="block text-white text-sm uppercase tracking-widest">Rating</strong>
-                                    <span class="text-slate-400">5.0 (4 Reviews) - A quiet, contemplative site.</span>
-                                </div>
-                            </li>
-                        </ul>
-                        <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Schiller+Statue+Detroit')" 
-                                class="mt-10 px-8 py-4 bg-[#d4a373] text-[#0f0e0e] font-bold text-xs uppercase tracking-[0.2em] hover:bg-white transition-colors">
-                            Navigate to Isle
-                        </button>
-                    </div>
-
-                    <div class="relative h-full min-h-[300px] border border-white/5 bg-[#1a1a1a] p-8 flex items-center justify-center" data-aos="fade-left">
-                        <!-- Abstract Statue Representation SVG -->
-                        <svg viewBox="0 0 200 300" class="w-full h-64 drop-shadow-2xl opacity-80">
-                            <!-- Pedestal -->
-                            <rect x="70" y="250" width="60" height="50" fill="#2d2d2d" />
-                            <rect x="60" y="290" width="80" height="10" fill="#2d2d2d" />
-                            <!-- Statue Silhouette (Abstract) -->
-                            <path d="M100 250 L100 100" stroke="#4ade80" stroke-width="2" />
-                            <circle cx="100" cy="80" r="20" fill="none" stroke="#d4a373" stroke-width="2" />
-                            <path d="M100 100 Q60 150 100 200 Q140 150 100 100" fill="none" stroke="#4ade80" stroke-width="1" />
-                            <text x="100" y="275" text-anchor="middle" font-family="Cinzel" font-size="8" fill="#555" letter-spacing="2">SCHILLER</text>
-                        </svg>
-                        
-                        <div class="absolute bottom-4 right-4 text-[10px] text-[#4ade80] uppercase tracking-widest font-bold">
-                            Profitnet Verified
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    
-
-<!-- tp-seo:related -->
-<aside class="tp-seo-related" aria-label="Related landmarks">
-    <h2>Related landmarks</h2>
-    <ul>
-        <li><a href="/MI/Magic%20Johnson%20Statue/">ALWAYS A SPARTAN.</a></li>
-<li><a href="/MI/Furtaw%20Field/">COMMUNITY GATHERING.</a></li>
-<li><a href="/MI/Paul%20Bunyan%20carving/">GIANT OF GLADWIN.</a></li>
-<li><a href="/MI/Saint%20Patrick%2C%20Patron%20Saint%20of%20The%20Irish%20Hills%2C%20Statue/">GUARDIAN OF THE HILLS.</a></li>
-<li><a href="/MI/">Michigan statues and landmarks</a></li>
-    </ul>
-    <p><a href="/MI/">All Michigan pages</a></p>
-</aside>
-<!-- /tp-seo:related -->
-</main>
-
-    <!-- Footer -->
-    <footer class="bg-[#0a0a0a] border-t border-[#d4a373]/20 pt-16 pb-8">
-        <div class="container mx-auto px-6 text-center md:text-left">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <div class="col-span-2">
-                    <h4 class="font-classic text-xl text-white mb-4">PROFITNET</h4>
-                    <p class="text-sm text-slate-500 max-w-md mx-auto md:mx-0">
-                        Preserving the intellectual and physical history of our shared spaces. The Schiller Statue is cataloged as a protected cultural landmark.
-                    </p>
-                </div>
-                <div>
-                    <h5 class="text-[10px] font-bold text-[#d4a373] uppercase tracking-[0.2em] mb-6">Directory</h5>
-                    <ul class="space-y-3 text-xs text-slate-400">
-                        <li><a href="https://testedprofit.com/pages/PNET/" class="hover:text-white transition-colors">$PNET Dashboard</a></li>
-                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-white transition-colors">Landmark Map</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="text-[10px] font-bold text-[#d4a373] uppercase tracking-[0.2em] mb-6">Connect</h5>
-                    <div class="flex justify-center md:justify-start space-x-6">
-                        <a href="#" class="text-slate-500 hover:text-[#d4a373]"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#" class="text-slate-500 hover:text-[#d4a373]"><i class="fa-brands fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-[10px] text-slate-600 uppercase tracking-widest">© 2026 Profitnet Cultural Preservation.</p>
-                <p class="text-[10px] text-slate-600 uppercase tracking-widest mt-2 md:mt-0">ID: DET-SCH-1908</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        AOS.init({ duration: 1200, once: true, offset: 50 });
-
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        const toggleMenu = (open) => {
-            if(open) mobileMenu.classList.add('active');
-            else mobileMenu.classList.remove('active');
-        }
-
-        menuBtn.addEventListener('click', () => toggleMenu(true));
-        closeBtn.addEventListener('click', () => toggleMenu(false));
-    });
-    </script>
+    <main class="max-w-3xl mx-auto px-6 py-10">
+        <nav aria-label="Breadcrumb"><ol class="flex flex-wrap gap-x-2 text-sm text-gray-400 list-none p-0 m-0 mb-6"><li><a href="/">Home</a></li><li aria-hidden="true">/</li><li><a href="/pages/landmarks/">Landmarks</a></li><li aria-hidden="true">/</li><li><a href="/MI/">Michigan</a></li><li aria-hidden="true">/</li><li aria-current="page">Schiller</li></ol></nav>
+        <h1 class="text-4xl font-black text-white mb-4">Schiller monument</h1>
+        <p>The Detroit Historical Society holds a postcard titled Schiller Monument on Belle Isle, Detroit, Mich., dated about 1915. The catalog says the card shows a statue of the German poet and philosopher Friedrich Schiller. The monument is a seated bronze figure on a wide stone base. Carved text on the base says the monument was erected by citizens of German descent, Detroit, Michigan, 1907. The society lists the card in its postcard collection, 3.5 by 5.5 inches, under the search terms Belle Isle and monuments.</p><p>Wikipedia's article on Friedrich Schiller says there is a statue of him on Belle Isle in Detroit. It says this statue of the German playwright was commissioned by Detroit's German-American community in 1908, at a cost of $12,000, and that the designer was Herman Matzen. The postcard shows the seated bronze, the stone base, and the 1907 inscription. Wikipedia names Herman Matzen, the $12,000 cost, and a commission dated 1908.</p><p>A visitor on Belle Isle is looking for that seated bronze of the German poet, on the stone base whose inscription names the citizens of German descent and the year 1907. The Wikipedia sentence adds the designer's name and the cost recorded for the commission.</p><p>The equestrian monument at Third and Michigan has its own guide: <a href="/MI/Gen.%20Thaddeus%20Kosciuszko%20Statue/">the Kosciuszko monument</a>.</p>
+        <p class="text-sm text-gray-400 mt-6">Last updated <time datetime="2026-10-21">21 October 2026</time>.</p>
+        <section aria-labelledby="faq-heading"><h2 id="faq-heading" class="text-2xl font-black text-white mt-10 mb-2">Questions</h2><details><summary>What does the monument look like, and what year is on the base?</summary><p>The Detroit Historical Society describes a postcard of a seated bronze figure of Friedrich Schiller on a wide stone base. The carved text says the monument was erected by citizens of German descent in Detroit in 1907.</p></details><details><summary>Who designed it?</summary><p>Wikipedia says the Friedrich Schiller statue on Belle Isle was commissioned by Detroit's German-American community in 1908, at a cost of $12,000, and that the designer was Herman Matzen.</p></details></section>
+        <section aria-labelledby="sources-heading"><h2 id="sources-heading" class="text-2xl font-black text-white mt-10 mb-3">Sources</h2><ul class="source-list list-disc pl-5 text-gray-300"><li><a href="https://www.detroithistorical.org/learn/online-research/collection/archive/postcard-schiller-monument-belle-isle-detroit-mich-1">https://www.detroithistorical.org/learn/online-research/collection/archive/postcard-schiller-monument-belle-isle-detroit-mich-1</a>. Detroit Historical Society postcard of the seated bronze and the 1907 base inscription.</li><li><a href="https://en.wikipedia.org/wiki/Friedrich_Schiller">https://en.wikipedia.org/wiki/Friedrich_Schiller</a>. Wikipedia on the Belle Isle statue, Herman Matzen, the 1908 commission, and the $12,000 cost.</li></ul></section>
+        <section aria-labelledby="cite-heading"><h2 id="cite-heading" class="text-2xl font-black text-white mt-8 mb-3">Cite or link to this guide</h2><p>Link to <a href="https://testedprofit.com/MI/Schiller%20Statue/">https://testedprofit.com/MI/Schiller%20Statue/</a>.</p></section>
+        <aside class="tp-related" aria-label="Related guides"><h2 class="text-xl font-black text-white mb-2">Related guides</h2><ul class="list-disc pl-5"><li><a href="/MI/Gen.%20Thaddeus%20Kosciuszko%20Statue/">Kosciuszko monument</a></li><li><a href="/MI/">Michigan landmark directory</a></li><li><a href="/pages/landmarks/">Landmarks hub</a></li><li><a href="/pages/parks/">Park guides</a></li><li><a href="/pages/guides/">Earning-app guides</a></li></ul></aside>
+    </main>
 </body>
 </html>
