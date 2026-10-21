@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="title desc">
+  <title id="title">ProfitNet PNET gold badge logo</title>
+  <desc id="desc">Simplified 32 by 32 ProfitNet gold badge token icon with mountain, star, and red banner.</desc>
+  <defs>
+    <linearGradient id="gold" x1="5" y1="3" x2="27" y2="30" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffe17b"/><stop offset="0.48" stop-color="#c7972e"/><stop offset="1" stop-color="#6f4b13"/></linearGradient>
+    <linearGradient id="sky" x1="16" y1="7" x2="16" y2="20" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3bb7ee"/><stop offset="1" stop-color="#c9ecff"/></linearGradient>
+    <linearGradient id="red" x1="5" y1="19" x2="27" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8f0917"/><stop offset="0.52" stop-color="#c41527"/><stop offset="1" stop-color="#6e0711"/></linearGradient>
+  </defs>
+  <path d="M16 1.6 25.1 5.8l3.4 8.7-3 10.7L16 31 6.5 25.2l-3-10.7 3.4-8.7Z" fill="url(#gold)"/>
+  <path d="M16 3.9 23.4 7.2l2.7 7.2-2.5 9L16 28.2 8.4 23.4l-2.5-9 2.7-7.2Z" fill="#082f4f"/>
+  <path d="M8.1 18.9c.2-5.7 3.6-10.2 7.9-10.2s7.7 4.5 7.9 10.2Z" fill="url(#sky)"/>
+  <path d="M16 5.6 16.9 8.2 19.7 8.2 17.5 9.9 18.3 12.6 16 11 13.7 12.6 14.5 9.9 12.3 8.2 15.1 8.2Z" fill="#fff121" stroke="#c8a021" stroke-width=".35"/>
+  <path d="M8 18.8 12.1 12.7 15.1 16.1 18.2 10.6 24.2 18.8Z" fill="#082f4f"/>
+  <path d="M9.7 18.8 12.4 14.5 14.9 18.8Z" fill="#1f5e96"/>
+  <path d="M15.2 18.8 18.3 12.7 23.2 18.8Z" fill="#164a7b"/>
+  <path d="M12.1 12.7 13.1 16.4 14.1 16.8Z" fill="#ffffff"/>
+  <path d="M18.2 10.6 18.9 15.3 20.6 16.4Z" fill="#ffffff"/>
+  <path d="M5.3 18.4 8.1 19.1h15.8l2.8-.7 1.3 2.4-1.3 2.7H5.3L4 20.8Z" fill="url(#red)" stroke="#c59a36" stroke-width="1"/>
+  <text x="16" y="22.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="5.25" font-weight="800" letter-spacing=".2" fill="#ffffff" stroke="#5d0710" stroke-width=".28" paint-order="stroke">PNET</text>
+  <path d="M16 24.1 17.2 26.2 19.6 26.4 17.8 27.9 18.3 30.1 16 28.9 13.7 30.1 14.2 27.9 12.4 26.4 14.8 26.2Z" fill="#c41527" stroke="#d9b34e" stroke-width=".45"/>
+</svg>
