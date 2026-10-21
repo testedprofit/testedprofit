@@ -654,22 +654,22 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
 ## earning guide (12)
 - https://testedprofit.com/pages/bubblecash/
   - Title: Bubble Cash Review | Papaya Gaming Guide
-  - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026. Referral link and the June 24, 2025 test restored on the same PR.
 - https://testedprofit.com/pages/contenthub/
   - Title: Content Hub | Earn Smarter with Your Degree | TestedProfit
   - Status: open. no OG | 179 words
 - https://testedprofit.com/pages/earnapp/
   - Title: EarnApp Review | Bright Data Bandwidth
-  - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026. Referral link restored on the same PR. No dated hands-on note was on the previous page.
 - https://testedprofit.com/pages/earnapp-definitive-review-philippines/
   - Title: Redirect to earnapp | TestedProfit
   - Status: redirect. noindex redirect; omitted from sitemap.xml
 - https://testedprofit.com/pages/honeygain/
   - Title: Honeygain Review | Unused Bandwidth Guide
-  - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026. Referral link restored on the same PR. The old $3 bonus line was not put back.
 - https://testedprofit.com/pages/honeygain-content-delivery/
   - Title: Honeygain Content Delivery | Hourly Credits
-  - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026. Referral link, country list, earnings post, Honeygain review link, and the undated hands-on note restored on the same PR.
 - https://testedprofit.com/pages/how-to-start-a-vending-machine-business-a-beginners-passive-income-journey/
   - Title: How to Start a Vending Machine Business | Profitnet Guides
   - Status: open. description 168 chars
