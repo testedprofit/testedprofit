@@ -86,7 +86,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the Iowa landmarks PR. Cards for all 12 Iowa guides use the revised titles.
 - https://testedprofit.com/IN/
   - Title: Indiana Statues and Landmarks | TestedProfit
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the Indiana landmarks PR. Cards for all 6 Indiana guides use the revised titles.
 - https://testedprofit.com/KS/
   - Title: Kansas Statues and Landmarks | TestedProfit
   - Status: open. 76 words
@@ -376,23 +376,23 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Black Angel in Oakland Cemetery | Guide
   - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IN/Bigfoot%20Fishing/
-  - Title: Bigfoot Fishing Statue | French Lick, IN Directory
-  - Status: open. no OG
+  - Title: Otis at French Lick Cabins | Guide
+  - Status: updated in the Indiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IN/Constitution%20Elm%20Stump/
-  - Title: Constitution Elm Stump | Corydon, IN Directory
-  - Status: open. no OG
+  - Title: Constitution Elm in Corydon | Guide
+  - Status: updated in the Indiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IN/Larry%20Bird's%20Childhood%20Home/
-  - Title: Larry Bird's Childhood Home | French Lick, IN Directory
-  - Status: open. no OG
+  - Title: Larry Bird in French Lick | Guide
+  - Status: updated in the Indiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IN/Rosie%20the%20Riveter%20Statue/
-  - Title: Rosie the Riveter Statue | Clarksville, IN Directory
-  - Status: open. no OG
+  - Title: Rosie Statue in Ashland Park | Guide
+  - Status: updated in the Indiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IN/Vincennes%20River%20Walk/
-  - Title: Vincennes River Walk | Vincennes, IN Directory
-  - Status: open. description 170 chars | no OG
+  - Title: Vincennes Riverwalk on the Wabash | Guide
+  - Status: updated in the Indiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IN/William%20Hayden%20English%20Statue/
-  - Title: William Hayden English Statue | English, IN Directory
-  - Status: open. no OG
+  - Title: English Statue in Crawford County | Guide
+  - Status: updated in the Indiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KS/The%20Keeper%20of%20the%20Plains/
   - Title: Keeper of the Plains | TestedProfit Landmark
   - Status: open. description 170 chars | no OG
