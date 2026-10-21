@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# Review copy of the SEO structure. Not part of the public site.
+Disallow: /preview/
+
+# Shopify-style parameters (?_pos, ?_sid, ?_ss) are the same page as the clean URL.
+# Each public page declares a canonical on https://testedprofit.com/.../ so those
+# parameter URLs are not separate documents. They are intentionally crawlable
+# so Google can see that canonical.
+
 Sitemap: https://testedprofit.com/sitemap.xml

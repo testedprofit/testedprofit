@@ -131,6 +131,18 @@
             transform: translateY(0);
         }
     </style>
+<style id="tp-seo-style">
+.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
+.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
+.tp-seo-crumbs a:hover{text-decoration:underline}
+.tp-seo-crumbs li{color:#e5e7eb}
+.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
+.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
+.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
+.tp-seo-related ul{margin:0;padding-left:1.1rem}
+.tp-seo-related a{color:#5eead4}
+.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
+</style>
 </head>
 <body class="antialiased overflow-x-hidden relative">
 
@@ -171,6 +183,15 @@
 
     <!-- Main Content Area -->
     <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
+<!-- tp-seo:breadcrumbs -->
+<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
+<li><a href="/">Home</a></li>
+<li><a href="/pages/landmarks/">Landmarks</a></li>
+<li aria-current="page">Hawaii</li>
+</ol></nav>
+<!-- /tp-seo:breadcrumbs -->
+
+
         
         <!-- Hero Section -->
         <section class="text-center max-w-5xl mx-auto mb-20" data-aos="fade-up">
@@ -431,7 +452,23 @@
             <p class="text-gray-400">Try searching for a specific statue or location.</p>
         </div>
 
-    </main>
+    
+
+<!-- tp-seo:related -->
+<aside class="tp-seo-related" aria-label="Other states">
+    <h2>Other states</h2>
+    <ul>
+        <li><a href="/AL/">Alabama</a></li>
+<li><a href="/CO/">Colorado</a></li>
+<li><a href="/IA/">Iowa</a></li>
+<li><a href="/IN/">Indiana</a></li>
+<li><a href="/KS/">Kansas</a></li>
+<li><a href="/KY/">Kentucky</a></li>
+    </ul>
+    <p><a href="/pages/guides/">Earning-app guides are a separate section.</a></p>
+</aside>
+<!-- /tp-seo:related -->
+</main>
 
     <!-- Footer -->
     <footer class="border-t border-white/5 bg-black/20 pt-20 pb-10">

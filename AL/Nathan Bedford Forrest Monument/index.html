@@ -91,6 +91,18 @@
         ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #334155; }
     </style>
+<style id="tp-seo-style">
+.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
+.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
+.tp-seo-crumbs a:hover{text-decoration:underline}
+.tp-seo-crumbs li{color:#e5e7eb}
+.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
+.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
+.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
+.tp-seo-related ul{margin:0;padding-left:1.1rem}
+.tp-seo-related a{color:#5eead4}
+.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
+</style>
 </head>
 <body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
 
@@ -130,6 +142,16 @@
 
     <!-- Main Content Area -->
     <main class="relative z-10 pt-12 lg:pt-20 container mx-auto px-6 pb-24">
+<!-- tp-seo:breadcrumbs -->
+<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
+<li><a href="/">Home</a></li>
+<li><a href="/pages/landmarks/">Landmarks</a></li>
+<li><a href="/AL/">Alabama</a></li>
+<li aria-current="page">Nathan Bedford Forrest Monument</li>
+</ol></nav>
+<!-- /tp-seo:breadcrumbs -->
+
+
         
         <!-- Header / Intro -->
         <section class="max-w-4xl mx-auto mb-16" data-aos="fade-up">
@@ -266,7 +288,22 @@
                 <div class="bg-white/5 p-5 rounded-xl border border-white/10"><h3 class="font-bold text-white mb-1">Alabama Department of Archives and History</h3><p class="text-sm text-gray-400">For those seeking to understand the full complexity of Alabama history — including the Reconstruction era, the rise of the Klan, disfranchisement, and Jim Crow — the Alabama Archives in Montgomery is the primary research resource. The museum portion provides a comprehensive narrative of Alabama history available free to the public. Understanding this history in its full context is essential for making sense of the Confederate monument landscape visitors encounter in Alabama today.</p></div>
             </div>
         </div>
-    </main>
+    
+
+<!-- tp-seo:related -->
+<aside class="tp-seo-related" aria-label="Related landmarks">
+    <h2>Related landmarks</h2>
+    <ul>
+        <li><a href="/AL/">Alabama statues and landmarks</a></li>
+<li><a href="/AL/Albert%20Patterson%20Statue/">Albert Patterson Statue</a></li>
+<li><a href="/AL/Angel%20of%20Hope/">Angel of Hope</a></li>
+<li><a href="/AL/Atticus%20Finch%20Memorial%20Park%20Monument/">Atticus Finch Monument</a></li>
+<li><a href="/AL/Bigfoot%20Statue/">Bigfoot Capital of Alabama</a></li>
+    </ul>
+    <p><a href="/AL/">All Alabama pages</a></p>
+</aside>
+<!-- /tp-seo:related -->
+</main>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

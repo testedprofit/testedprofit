@@ -89,6 +89,18 @@
         ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #334155; }
     </style>
+<style id="tp-seo-style">
+.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
+.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
+.tp-seo-crumbs a:hover{text-decoration:underline}
+.tp-seo-crumbs li{color:#e5e7eb}
+.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
+.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
+.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
+.tp-seo-related ul{margin:0;padding-left:1.1rem}
+.tp-seo-related a{color:#5eead4}
+.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
+</style>
 </head>
 <body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
 
@@ -128,6 +140,16 @@
 
     <!-- Main Content Area -->
     <main class="relative z-10 pt-12 lg:pt-20 container mx-auto px-6 pb-24">
+<!-- tp-seo:breadcrumbs -->
+<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
+<li><a href="/">Home</a></li>
+<li><a href="/pages/landmarks/">Landmarks</a></li>
+<li><a href="/KS/">Kansas</a></li>
+<li aria-current="page">Keeper of the Plains</li>
+</ol></nav>
+<!-- /tp-seo:breadcrumbs -->
+
+
         
         <!-- Header / Intro -->
         <section class="max-w-4xl mx-auto mb-16" data-aos="fade-up">
@@ -233,7 +255,18 @@
             </p>
         </div>
 
-    </main>
+    
+
+<!-- tp-seo:related -->
+<aside class="tp-seo-related" aria-label="Related landmarks">
+    <h2>Related landmarks</h2>
+    <ul>
+        <li><a href="/KS/">Kansas statues and landmarks</a></li>
+    </ul>
+    <p><a href="/KS/">All Kansas pages</a></p>
+</aside>
+<!-- /tp-seo:related -->
+</main>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
