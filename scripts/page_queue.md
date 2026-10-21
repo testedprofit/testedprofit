@@ -122,10 +122,9 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the West Virginia landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026. Each card uses the title of the page it opens.
 - https://testedprofit.com/WY/
   - Title: Wyoming Statues and Landmarks | TestedProfit
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the Wyoming landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026. Each card uses the title of the page it opens, including the Gillette Rock Paper Scissors guide.
 
 ## state page (175)
-
 - https://testedprofit.com/AL/Albert%20Patterson%20Statue/
   - Title: Albert Patterson Statue in Phenix City | Guide
   - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -625,35 +624,34 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Muffler Man Big Red in Parkersburg | Guide
   - Status: updated in the West Virginia landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WY/Benjamin%20Franklin%20Statue/
-  - Title: Benjamin Franklin Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Benjamin Franklin Statue in Laramie | Guide
+  - Status: updated in the Wyoming landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WY/Big%20Boy%20Statue/
-  - Title: The Wapiti Big Boy | Profitnet Landmarks
-  - Status: open. description 185 chars | no OG
+  - Title: Big Boy Statue in Wapiti | Guide
+  - Status: updated in the Wyoming landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WY/BSA%20Replica%20of%20Statue%20of%20Liberty/
-  - Title: BSA Replica of the Statue of Liberty | Profitnet Landmarks
-  - Status: open. description 173 chars | no OG
+  - Title: BSA Statue of Liberty Replica, Cheyenne | Guide
+  - Status: updated in the Wyoming landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WY/Buffalo%20Bill%20–%20“The%20Scout”%20Statue/
-  - Title: The Scout - Buffalo Bill Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: The Scout Statue in Cody | Guide
+  - Status: updated in the Wyoming landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WY/Dead%20Indian%20Summit%20Overlook/
-  - Title: Dead Indian Summit Overlook | Profitnet Landmarks
-  - Status: open. description 179 chars | no OG
+  - Title: Dead Indian Summit Overlook | Guide
+  - Status: updated in the Wyoming landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WY/Jackalope%20Square/
-  - Title: Jackalope Square | Profitnet Landmarks
-  - Status: open. description 165 chars | no OG
+  - Title: Jackalope Square in Douglas | Guide
+  - Status: updated in the Wyoming landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WY/Just%20Ledoux%20It/
-  - Title: Chris LeDoux Memorial Statue | Profitnet Landmarks
-  - Status: open. description 168 chars | no OG
+  - Title: Just LeDoux It in Cheyenne | Guide
+  - Status: updated in the Wyoming landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WY/Robert%20Burns%20Memorial%20Statue/
-  - Title: Robert Burns Memorial Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Robert Burns Statue in Cheyenne | Guide
+  - Status: updated in the Wyoming landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/WY/Soil%20To%20Riches%20Statue/
-  - Title: Soil to Riches Statue | Profitnet Landmarks
-  - Status: open. no OG
+  - Title: Soil to Riches Statue in Thermopolis | Guide
+  - Status: updated in the Wyoming landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 
 ## earning guide (12)
-
 - https://testedprofit.com/pages/bubblecash/
   - Title: Bubble Cash Review 2025: Legit Payouts & Earning Guide | Profitnet Reviews
   - Status: open. title 74 chars | no OG
