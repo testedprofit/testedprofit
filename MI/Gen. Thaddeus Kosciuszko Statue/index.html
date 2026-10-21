@@ -177,13 +177,17 @@
             <button id="mobile-menu-btn" class="lg:hidden text-[#64ffda]"><i class="fa-solid fa-terminal"></i></button>
         </div>
 
-        <div id="mobile-menu" class="fixed inset-0 bg-[#001529] z-40 flex flex-col items-center justify-center space-y-8 lg:hidden border-l-2 border-[#64ffda]">
+        
+    </header>
+
+    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#001529] z-[60] flex flex-col items-center justify-center space-y-8 lg:hidden border-l-2 border-[#64ffda]">
             <button id="close-menu-btn" class="absolute top-6 right-6 text-[#64ffda] text-2xl"><i class="fa-solid fa-xmark"></i></button>
             <a href="/" class="text-xl font-mono-tech text-white">:: HOME</a>
             <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-mono-tech text-[#64ffda]">:: LANDMARKS</a>
             <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-mono-tech text-white">:: $PNET_CONSOLE</a>
         </div>
-    </header>
+
 
     <main class="relative z-10 pt-32 pb-20">
 <!-- tp-seo:breadcrumbs -->

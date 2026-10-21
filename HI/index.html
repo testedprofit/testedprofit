@@ -173,13 +173,17 @@
             <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors"><i class="fa-solid fa-bars-staggered"></i></button>
         </div>
 
-        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
+        
+    </header>
+
+    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-[60] hidden flex-col items-center justify-center space-y-8 lg:hidden">
             <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl p-2 hover:bg-white/10 rounded-full transition-colors"><i class="fa-solid fa-xmark"></i></button>
             <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-hi-blue transition-colors">Home</a>
             <a href="#" class="text-xl font-black text-hi-blue uppercase tracking-widest">Landmarks</a>
             <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
         </div>
-    </header>
+
 
     <!-- Main Content Area -->
     <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">

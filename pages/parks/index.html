@@ -142,13 +142,17 @@
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-8 lg:hidden">
+        
+    </header>
+
+    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-[60] hidden flex-col items-center justify-center space-y-8 lg:hidden">
             <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
             <a href="/" class="text-xl font-black text-white uppercase tracking-widest">Home</a>
             <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
             <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
         </div>
-    </header>
+
 
     <!-- Main Content Area -->
     <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
@@ -280,10 +284,8 @@
                         <h3 class="font-display text-xl font-bold text-white">AI & Growth</h3>
                     </div>
                     <div class="flex-grow space-y-2">
-                        <a href="https://testedprofit.com/pages/generative-engine-optimization-geo-master-ai-search-visibility" class="link-item block py-2 px-3 -mx-3 rounded-lg bg-blue-500/10 border border-blue-500/20 text-sm font-bold text-blue-300 mb-2">GEO Strategy Guide 🔥</a>
-                        <a href="https://testedprofit.com/pages/free-ai-paraphrasing-tool" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Free AI Paraphrasing Tool</a>
-                        <a href="https://testedprofit.com/pages/the-ai-powered-kdp-revolution" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">AI KDP Revolution</a>
-                        <a href="https://testedprofit.com/pages/how-small-businesses-use-ai-to-work-smarter" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Small Business AI Guide</a>
+                        <a href="https://testedprofit.com/pages/free-ai-paraphrasing-tool/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Free AI Paraphrasing Tool</a>
+                        <a href="https://testedprofit.com/pages/the-ai-powered-kdp-revolution/" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">AI KDP Revolution</a>
                         <a href="https://testedprofit.com/pages/bubblecash" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">BubbleCash Insights</a>
                         <a href="https://testedprofit.com/pages/honeygain" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">Honeygain Dashboard</a>
                         <a href="https://testedprofit.com/pages/earnapp" class="link-item block py-2 px-3 -mx-3 rounded-lg text-sm font-medium text-gray-300">EarnApp Integration</a>
@@ -310,10 +312,7 @@
                         <a href="mailto:testedprofit@gmail.com" class="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 rounded-xl font-bold hover:bg-teal-50 transition-colors">
                             Contact for Removal
                         </a>
-                        <div class="flex items-center text-gray-400 text-sm px-4">
-                            <span class="w-2 h-2 bg-emerald-500 rounded-full mr-3 animate-pulse"></span>
-                            Verified requests processed within 24h
-                        </div>
+                        <a href="https://testedprofit.com/pages/data-sharing-opt-out/" class="inline-flex items-center justify-center px-6 py-3 border border-white/15 text-white rounded-xl font-bold hover:border-teal-400 transition-colors">Data opt-out form</a>
                     </div>
                 </div>
                 <div class="hidden md:block border-l border-white/10 pl-12">
@@ -347,18 +346,16 @@
                 <div>
                     <h4 class="font-bold text-white mb-4">Platform</h4>
                     <ul class="space-y-3 text-sm text-gray-500">
-                        <li><a href="https://testedprofit.com/pages/roadmap" class="hover:text-teal-400 transition-colors">Strategic Roadmap</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Integration API</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Coverage Map</a></li>
+                        <li><a href="https://testedprofit.com/pages/roadmap/" class="hover:text-teal-400 transition-colors">Strategic Roadmap</a></li>
+                        <li><a href="https://testedprofit.com/pages/guides/" class="hover:text-teal-400 transition-colors">Earning guides</a></li>
+                        <li><a href="https://testedprofit.com/pages/landmarks/" class="hover:text-teal-400 transition-colors">Landmark directory</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-bold text-white mb-4">Governance</h4>
                     <ul class="space-y-3 text-sm text-gray-500">
-                        <li><a href="https://testedprofit.com/pages/governance-gateway" class="hover:text-teal-400 transition-colors">Governance Gateway</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Ethics Committee</a></li>
-                        <li><a href="https://testedprofit.com/pages/data-sharing-opt-out" class="hover:text-teal-400 transition-colors">Data Opt-Out</a></li>
+                        <li><a href="https://testedprofit.com/pages/data-sharing-opt-out/" class="hover:text-teal-400 transition-colors">Data opt-out</a></li>
                     </ul>
                 </div>
 
@@ -366,7 +363,6 @@
                     <h4 class="font-bold text-white mb-4">Connect</h4>
                     <ul class="space-y-3 text-sm text-gray-500">
                         <li><a href="mailto:testedprofit@gmail.com" class="hover:text-teal-400 transition-colors">Support</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">Partnerships</a></li>
                     </ul>
                 </div>
             </div>
@@ -374,8 +370,7 @@
             <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-gray-600 text-sm">© 2026 TestedProfit. All rights reserved.</p>
                 <div class="flex gap-6 text-sm text-gray-600">
-                    <a href="#" class="hover:text-gray-400">Privacy Policy</a>
-                    <a href="#" class="hover:text-gray-400">Terms of Service</a>
+                    <a href="https://testedprofit.com/pages/data-sharing-opt-out/" class="hover:text-gray-400">Data opt-out</a>
                 </div>
             </div>
         </div>

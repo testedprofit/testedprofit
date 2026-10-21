@@ -165,13 +165,17 @@
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-40 hidden flex-col items-center justify-center space-y-10 lg:hidden">
+        
+    </header>
+
+    <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-[60] hidden flex-col items-center justify-center space-y-10 lg:hidden">
             <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
             <a href="/" class="text-2xl font-black text-white uppercase tracking-tighter">Home</a>
             <a href="https://testedprofit.com/pages/landmarks/" class="text-2xl font-black text-emerald-400 uppercase tracking-tighter">Landmarks</a>
             <a href="https://testedprofit.com/pages/PNET/" class="text-2xl font-black text-white uppercase tracking-tighter">$PNET Dashboard</a>
         </div>
-    </header>
+
 
     <!-- Main Content Area -->
     <main class="relative z-10 pt-40 container mx-auto px-6 pb-24">
