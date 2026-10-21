@@ -76,8 +76,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Alabama Statues and Landmarks | TestedProfit
   - Status: updated in the Alabama landmarks PR (second half). Directory cards now use the revised titles for all 22 guides.
 - https://testedprofit.com/CO/
-  - Title: Colorado 150 | Profitnet Landmark Directory
-  - Status: open. no OG
+  - Title: Colorado Statues and Landmarks | TestedProfit
+  - Status: updated in the first Colorado landmarks PR. Directory cards use revised titles for nine guides and the bear keeper, and current titles for the rest.
 - https://testedprofit.com/HI/
   - Title: Hawaii Heritage | Profitnet Landmark Directory
   - Status: open. no OG
@@ -193,35 +193,35 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: World's Smallest City Block in Dothan | Guide
   - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Boy%20Scout%20Statue%20of%20Liberty/
-  - Title: Boy Scout Statue of Liberty | La Junta, CO Directory
-  - Status: open. no OG
+  - Title: Boy Scout Liberty Replica in La Junta | Guide
+  - Status: updated in the first Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Christ%20of%20the%20Mines%20Shrine/
-  - Title: Christ of the Mines Shrine | Silverton, CO Directory
-  - Status: open. no OG
+  - Title: Christ of the Mines Shrine in Silverton | Guide
+  - Status: updated in the first Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Desert%20Metal%20Art/
-  - Title: Desert Metal Art | Grand Junction, CO Directory
-  - Status: open. no OG
+  - Title: Desert Metal Art in Grand Junction | Guide
+  - Status: updated in the first Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/James%20Dalton%20Trumbo%20Statue/
-  - Title: James Dalton Trumbo Statue | Grand Junction, CO Directory
-  - Status: open. no OG
+  - Title: Dalton Trumbo Statue in Grand Junction | Guide
+  - Status: updated in the first Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/Bear-Statue/
   - Title: Redirect to bear-statue | TestedProfit
   - Status: redirect. noindex redirect; omitted from sitemap.xml
 - https://testedprofit.com/CO/Landmarks/Big-Baldy-Statue/
-  - Title: TestedProfit | Big Baldy Statue
-  - Status: open. description 168 chars | no OG
+  - Title: Big Baldy Statue in Dillon | Guide
+  - Status: updated in the first Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/Cedar-Mountain/
-  - Title: Cedar Mountain | Craig, CO Local Guide
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Title: Cedar Mountain near Craig | Visit Guide
+  - Status: updated in the first Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/coolin'dog/
-  - Title: Coolin' the Dogs | TestedProfit Local Guide
-  - Status: open. no OG
+  - Title: Coolin' the Dogs in Castle Rock | Guide
+  - Status: updated in the first Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/Former-Mine-Sites-of-Mt.%20Harris/
-  - Title: The Former Mine Sites of Mt. Harris | Profitnet Landmark
-  - Status: open. description 168 chars | no OG
+  - Title: Former Mount Harris Townsite | Guide
+  - Status: updated in the first Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/Hank%20the%20Cowboy%20statue/
-  - Title: Hank the Cowboy | TestedProfit Landmark Series
-  - Status: open. description 166 chars | no OG
+  - Title: Hank the Cowboy in Colorado Springs | Guide
+  - Status: updated in the first Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/Hayden-Town-Park/
   - Title: Hayden Town Park | Yampa Valley
   - Status: open. description 167 chars | no OG
