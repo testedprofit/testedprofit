@@ -98,7 +98,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Louisiana landmarks PR. Each card uses the title of the page it opens, including the ten guides revised in the second Louisiana PR.
 - https://testedprofit.com/MI/
   - Title: Michigan Statues and Landmarks | TestedProfit
-  - Status: updated in the first Michigan landmarks PR. Each card uses the title of the page it opens, including the eleven guides revised in the first Michigan PR.
+  - Status: updated in the second Michigan landmarks PR. Each card uses the title of the page it opens, including the seven guides revised in the second Michigan PR.
 - https://testedprofit.com/OR/
   - Title: Oregon Statues and Landmarks | TestedProfit
   - Status: open. title, description, H1, canonical, and OG are in range
@@ -538,8 +538,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Kirtland's Warbler Monument in Mio
   - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Lion%20Statue/
-  - Title: Lion Statue | Bay City, MI | Profitnet Heritage
-  - Status: open. no OG
+  - Title: Center Avenue in Bay City | Guide
+  - Status: updated in the second Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Magic%20Johnson%20Statue/
   - Title: Magic Johnson Statue at Breslin | Guide
   - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -547,29 +547,29 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Noahquageshik Statue in Grand Rapids
   - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Paul%20Bunyan%20carving/
-  - Title: Paul Bunyan Carving | Gladwin, MI | Profitnet Heritage
-  - Status: open. description 160 chars | no OG
+  - Title: Paul Bunyan and Gladwin | Guide
+  - Status: updated in the second Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Saint%20Patrick,%20Patron%20Saint%20of%20The%20Irish%20Hills,%20Statue/
-  - Title: Saint Patrick Statue | Irish Hills, MI | Profitnet Heritage
-  - Status: open. no OG
+  - Title: Saint Joseph Shrine in the Irish Hills
+  - Status: updated in the second Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Schiller%20Statue/
   - Title: Schiller Monument on Belle Isle | Guide
   - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Sculpture%20in%20the%20Park/
-  - Title: Sculpture in the Park | Ottawa Hills, OH | Profitnet Archive
-  - Status: open. title 60 chars | no OG
+  - Title: Sculpture in the Park | Ottawa Hills
+  - Status: updated in the second Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Skanderbeg%20Statue/
-  - Title: Skanderbeg Statue | Rochester Hills, MI | Profitnet Heritage
-  - Status: open. title 60 chars | no OG
+  - Title: Skanderbeg Statue in Rochester Hills
+  - Status: updated in the second Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Statue%20of%20Liberty%20Torch%20Sculpture/
-  - Title: Statue of Liberty Torch | Rogers City, MI | Profitnet Assets
-  - Status: open. title 60 chars | no OG
+  - Title: Liberty Torch in Rogers City | Guide
+  - Status: updated in the second Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Statue%20of%20Woodbridge%20N.%20Ferris/
   - Title: Woodbridge Ferris Statue in Big Rapids
   - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Stevie%20Wonder%20Landmark/
-  - Title: Stevie Wonder Landmark | Saginaw Birthplace | Profitnet Landmarks
-  - Status: open. title 65 chars | no OG
+  - Title: Stevie Wonder's Saginaw Birthplace
+  - Status: updated in the second Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Verlen%20Kruger%20Statue/
   - Title: Verlen Kruger Statue in Portland | Guide
   - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
