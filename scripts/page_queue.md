@@ -770,8 +770,8 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: Dr. Martin Luther King, Jr. Memorial - Denver
   - Status: updated in the local-pages PR. Description, Open Graph, and a Denver Public Art link added. One H1.
 - https://testedprofit.com/pages/PR-President-Walkway/
-  - Title: Walkway of the Presidents | San Juan, Puerto Rico
-  - Status: updated in the landmark-layout batch 1 PR. Capitol article locator, schema, and internal links. URL unchanged.
+  - Title: Walkway of the Presidents and the Obama Statue | San Juan
+  - Status: updated in the Obama walkway PR. 2012 bronze, ninth visiting president, and the 11 July 2011 marker. URL unchanged.
 - https://testedprofit.com/pages/things%20to%20do%20in%20vail%20colorado/
   - Title: Vail on a Budget | Free & Local Guide 2026
   - Status: updated in the local-pages PR. Description shortened and Open Graph added. The page script was not edited.
