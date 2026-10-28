@@ -157,7 +157,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Hank%20Williams%20Statue/
   - Title: Hank Williams Statue in Montgomery | Guide
-  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the outreach guide-layout PR. Photo, map, visit box, and fact table added.
 - https://testedprofit.com/AL/Heaviest%20Corner%20On%20Earth/
   - Title: Heaviest Corner on Earth in Birmingham | Guide
   - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -277,13 +277,13 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Westminster%20City%20Park/
   - Title: Westminster City Park | Visit Guide
-  - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the outreach guide-layout PR. Map, visit box, and fact table added. No reusable Commons photo of this park was found.
 - https://testedprofit.com/HI/Boat%20Rotor%20Statue/
   - Title: Boat Rotor Statue near Papakōlea | Guide
   - Status: Landmark name kept in the title, H1, description, and directory card. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/HI/Captain%20James%20Cook%20Monument/
   - Title: Cook Monument at Kealakekua Bay | Guide
-  - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the outreach guide-layout PR. Photo, map, Kaʻawaloa trail rules, visit box, and fact table added.
 - https://testedprofit.com/HI/Charles%20Lindbergh's%20Grave/
   - Title: Lindbergh Grave in Kipahulu | Guide
   - Status: updated in the first Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
