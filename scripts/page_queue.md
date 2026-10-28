@@ -818,14 +818,14 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Title: ProfitLock | Algorand Time-Lock Vault for ALGO & ASA Tokens | AlgoFlow by Profitnet
   - Status: excluded. out of the content pass
 - https://testedprofit.com/Crypto%20Tax-Loss%20Harvester/
-  - Title: (no title)
-  - Status: excluded. out of the content pass
+  - Title: Crypto Tax-Loss Harvester | 2026 Estimate
+  - Status: rebuilt as a static 2026 estimator in the calculators PR
 - https://testedprofit.com/espanol/
   - Title: Spanish path redirect | TestedProfit
   - Status: excluded. out of the content pass
 - https://testedprofit.com/Freelance%20Rate%20Fairness%20Checker/
-  - Title: (no title)
-  - Status: excluded. out of the content pass
+  - Title: Freelance Rate Fairness Checker | Hourly
+  - Status: rebuilt as a static rate checker in the calculators PR
 - https://testedprofit.com/Impermanent%20Loss%20Visualizer/
   - Title: Impermanent Loss Visualizer | Profitnet
   - Status: excluded. out of the content pass

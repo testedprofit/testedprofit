@@ -282,6 +282,16 @@
     <priority>0.60</priority>
   </url>
   <url>
+    <loc>https://testedprofit.com/Crypto%20Tax-Loss%20Harvester/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://testedprofit.com/Freelance%20Rate%20Fairness%20Checker/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
     <loc>https://testedprofit.com/HI/</loc>
     <lastmod>2026-10-21</lastmod>
     <priority>0.80</priority>
@@ -1349,6 +1359,11 @@
   <url>
     <loc>https://testedprofit.com/superbowlLX/</loc>
     <lastmod>2026-10-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://testedprofit.com/tools/</loc>
+    <lastmod>2026-10-28</lastmod>
     <priority>0.60</priority>
   </url>
 </urlset>
