@@ -160,7 +160,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the outreach guide-layout PR. Photo, map, visit box, and fact table added.
 - https://testedprofit.com/AL/Heaviest%20Corner%20On%20Earth/
   - Title: Heaviest Corner on Earth in Birmingham | Guide
-  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 2 PR. Four towers, 1902-1913, listed 11 July 1985.
 - https://testedprofit.com/AL/Karl%20Richter%20Memorial%20Statue/
   - Title: Karl Richter Memorial at Maxwell AFB | Guide
   - Status: updated in the landmark-layout batch 1 PR. Registry inscription plus Maxwell visitor-pass rules.
@@ -169,13 +169,13 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Nathan%20Bedford%20Forrest%20Monument/
   - Title: Forrest Monument at Old Live Oak | Guide
-  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 2 PR. Confederate Circle, 2012 theft, 2015 replacement, and the Klan record.
 - https://testedprofit.com/AL/Rainbow%20Division%20Statue/
   - Title: Rainbow Soldier at Union Station | Guide
-  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 2 PR. Butler bronze, 28 August 1917 and 2017.
 - https://testedprofit.com/AL/Rosa%20Parks%20Bus%20Stop/
   - Title: Rosa Parks Arrest Site in Montgomery | Guide
-  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 2 PR. Empire Theatre arrest and the museum at 252 Montgomery Street.
 - https://testedprofit.com/AL/The%20Bronze%20Bomber%20-%20Deontay%20Wilder%20Statue/
   - Title: Deontay Wilder Statue in Tuscaloosa | Guide
   - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -226,7 +226,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Landmarks/Horse-Statue-Intersection/
   - Title: Palmer Statue at Nevada and Platte | Guide
-  - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 2 PR. 1929 equestrian by Potter at Nevada and Platte.
 - https://testedprofit.com/CO/Landmarks/Isak-Heartstone/
   - Title: Isak Heartstone in Breckenridge | Guide
   - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -412,7 +412,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/George%20Rogers%20Clark%20Statue/
   - Title: George Rogers Clark on the Belvedere
-  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 2 PR. de Weldon bronze, 1973, 485 West Main.
 - https://testedprofit.com/KY/Harry%20Potter%20Chess%20King%20Statue%20Carving/
   - Title: Harry Potter Chess King Statue Carving | Guide
   - Status: Landmark name kept in the title, H1, description, and directory card. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -454,7 +454,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Wooldridge%20Monuments/
   - Title: Wooldridge Monuments in Mayfield
-  - Status: updated in the second Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 2 PR. Eighteen figures, 1892-1899, restored after 2009.
 - https://testedprofit.com/LA/Anne%20Frank%20Statue/
   - Title: Anne Frank at the WWII Museum | Guide
   - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -472,7 +472,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Huey%20Pierce%20Long%20Statue%20and%20Tombstone/
   - Title: Huey Long Statue at the State Capitol
-  - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 2 PR. Keck statue, 1940, grave on the capitol grounds.
 - https://testedprofit.com/LA/Hurricane%20Katrina%20Sculpture%20-%20House%20In%20A%20Tree/
   - Title: Scraphouse in New Orleans | Guide
   - Status: updated in the first Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -535,7 +535,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Kirtland's%20Warbler%20Monument/
   - Title: Kirtland's Warbler Monument in Mio
-  - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 2 PR. Courthouse lawn monument and the recovery.
 - https://testedprofit.com/MI/Lion%20Statue/
   - Title: Lion Statue on Center Avenue, Bay City | Guide
   - Status: Landmark name kept in the title, H1, description, and directory card. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -544,7 +544,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/MI/Noahquageshik%20Statue/
   - Title: Noahquageshik Statue in Grand Rapids
-  - Status: updated in the first Michigan landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 2 PR. Mendez bronze, 2010, Eberhard Center.
 - https://testedprofit.com/MI/Paul%20Bunyan%20carving/
   - Title: Paul Bunyan Carving in Gladwin | Guide
   - Status: Landmark name kept in the title, H1, description, and directory card. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
