@@ -133,7 +133,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Atticus%20Finch%20Memorial%20Park%20Monument/
   - Title: Atticus Finch Monument in Monroeville | Guide
-  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 1 PR. Courthouse photo, map, and 1997 bar monument kept.
 - https://testedprofit.com/AL/Big%20Peanut/
   - Title: The Big Peanut at the Dothan Fairgrounds | Guide
   - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -148,7 +148,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Confederate%20Memorial%20Monument/
   - Title: Confederate Monument on Capitol Hill | Guide
-  - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 1 PR. Encyclopedia of Alabama account, including the 2015 flag order.
 - https://testedprofit.com/AL/Court%20Square%20Fountain%20-%20Artesian%20Basin/
   - Title: Court Square Fountain in Montgomery | Guide
   - Status: updated in the Alabama landmarks PR (first half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -163,7 +163,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/AL/Karl%20Richter%20Memorial%20Statue/
   - Title: Karl Richter Memorial at Maxwell AFB | Guide
-  - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 1 PR. Registry inscription plus Maxwell visitor-pass rules.
 - https://testedprofit.com/AL/Manny,%2012%20Foot%20Tall%20Fish/
   - Title: Manny the Bass in Eufaula | Guide
   - Status: updated in the Alabama landmarks PR (second half). Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -250,7 +250,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/CO/Pueblo%20Heritage%20Walk/
   - Title: Pueblo History and Art Walk | Guide
-  - Status: updated in the second Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 1 PR. February 2023 county brochure and a Riverwalk photo.
 - https://testedprofit.com/CO/Pyro-DuBois-Memorial/
   - Title: Pyro DuBois Memorial in New Castle | Guide
   - Status: updated in the final Colorado landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -352,7 +352,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/IA/Iowa%20Statue%20of%20Liberty/
   - Title: Liberty Replica at the Iowa Capitol | Guide
-  - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 1 PR. Legislature tour sheet and the 1950 Strengthen the Arm of Liberty theme.
 - https://testedprofit.com/IA/L.J.%20Maasdam%20Wagon%20Wheel%20Sculpture/
   - Title: Maasdam Wagon Wheels near Grinnell | Guide
   - Status: updated in the Iowa landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -403,7 +403,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Booker%20Noe%20Statue/
   - Title: Booker Noe and Dot at Jim Beam | Guide
-  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 1 PR. Society note on the bronze and the Jim Beam visit page.
 - https://testedprofit.com/KY/Coxs%20Creek%20Rooster%20Statue/
   - Title: Ozzie Frank at Rooster Run | Guide
   - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -421,7 +421,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/KY/Jefferson%20Monument%20(Louisville,%20Kentucky)/
   - Title: Jefferson Monument at Metro Hall | Guide
-  - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 1 PR. Ezekiel record, with both street numbers kept.
 - https://testedprofit.com/KY/Keith%20Whitley%20Memorial%20Statue/
   - Title: Keith Whitley Statue in Sandy Hook
   - Status: updated in the first Kentucky landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -493,7 +493,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/LA/Marquis%20de%20Lafayette%20Statue/
   - Title: Lafayette Statue on University Avenue
-  - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 1 PR. Registry address and the Correia caption.
 - https://testedprofit.com/LA/Mother%20River%20statue/
   - Title: Mother River at the Port of New Orleans
   - Status: updated in the second Louisiana landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -583,7 +583,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/OR/Barclay%20Park/
   - Title: Barclay Park in Sisters | Guide
-  - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
+  - Status: updated in the landmark-layout batch 1 PR. Nugget dedication and the Travel Oregon listing.
 - https://testedprofit.com/OR/Black%20Bird%20Statue%20(Medford)/
   - Title: Black Bird Statue in Medford | Guide
   - Status: updated in the first Oregon landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
@@ -771,7 +771,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the local-pages PR. Description, Open Graph, and a Denver Public Art link added. One H1.
 - https://testedprofit.com/pages/PR-President-Walkway/
   - Title: Walkway of the Presidents | San Juan, Puerto Rico
-  - Status: updated in the local-pages PR. Description shortened and Open Graph added. Body kept.
+  - Status: updated in the landmark-layout batch 1 PR. Capitol article locator, schema, and internal links. URL unchanged.
 - https://testedprofit.com/pages/things%20to%20do%20in%20vail%20colorado/
   - Title: Vail on a Budget | Free & Local Guide 2026
   - Status: updated in the local-pages PR. Description shortened and Open Graph added. The page script was not edited.
