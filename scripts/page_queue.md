@@ -741,43 +741,43 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the browser-games PR. Open Graph added. Game code was not edited.
 - https://testedprofit.com/gameinfo/omgpets/
   - Title: OMG Pets! | Recipes, Effects & Strategy Guide
-  - Status: open. no OG
+  - Status: updated in the local-pages PR. Open Graph added. Recipe tables kept.
 - https://testedprofit.com/pages/bear-statue/
-  - Title: TestedProfit | The Guardian of Grizzly Gulch
-  - Status: open. no OG
+  - Title: Bear Statue in Lakewood | Guide
+  - Status: updated in the local-pages PR. Barnaby, the carver name, the Colfax street number, and the plus code were removed. The map pin stays.
 - https://testedprofit.com/pages/bulldog-towing-recovery/
   - Title: Bulldog Towing & Recovery - 24/7 Service in Craig, CO
-  - Status: open. 136 words
+  - Status: updated in the local-pages PR. Address, phone, and 24-hour hours kept from the public listing. Lockout and tire-change claims removed.
 - https://testedprofit.com/pages/data-sharing-opt-out/
   - Title: Data Sharing Opt-Out | Profitnet
   - Status: open. no OG
 - https://testedprofit.com/pages/goldens-vibrant-triceratops/
-  - Title: Colorado's Ancient Guardians | TestedProfit
-  - Status: open. no OG
+  - Title: Triceratops Sculptures near Golden | Guide
+  - Status: updated in the local-pages PR. Title and H1 name the triceratops sculptures. Denver7 link added. Body kept.
 - https://testedprofit.com/pages/honey-rock-dogs-boarding-kennels/
   - Title: Honey Rock Dogs Boarding Kennels - Craig, CO
-  - Status: open. no description | no OG
+  - Status: updated in the local-pages PR. Description and Open Graph added from the address and phone already on the page.
 - https://testedprofit.com/pages/james-dalton-trumbo-statue/
   - Title: Redirect to Dalton Trumbo Statue | TestedProfit
   - Status: redirect. noindex redirect to https://testedprofit.com/CO/James%20Dalton%20Trumbo%20Statue/; removed from sitemap.xml
 - https://testedprofit.com/pages/lowell-ponds-state-wildlife-area/
   - Title: Lowell Ponds Natural Area | Thornton, CO Directory
-  - Status: open. no OG
+  - Status: updated in the local-pages PR. The 43-acre and former-agency claims were removed. Fishing and wildlife watching stay.
 - https://testedprofit.com/pages/madre-e-hijo-sculpture/
   - Title: Fernando Botero: Madre e Hijo | TestedProfit
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the local-pages PR. Open Graph description matched to the page description. Body kept.
 - https://testedprofit.com/pages/martin-luther-king-memorial/
   - Title: Dr. Martin Luther King, Jr. Memorial - Denver
-  - Status: open. no description | no OG
+  - Status: updated in the local-pages PR. Description, Open Graph, and a Denver Public Art link added. One H1.
 - https://testedprofit.com/pages/PR-President-Walkway/
   - Title: Walkway of the Presidents | San Juan, Puerto Rico
-  - Status: open. description 169 chars | no OG
+  - Status: updated in the local-pages PR. Description shortened and Open Graph added. Body kept.
 - https://testedprofit.com/pages/things%20to%20do%20in%20vail%20colorado/
   - Title: Vail on a Budget | Free & Local Guide 2026
-  - Status: open. description 156 chars | no OG | 42 words
+  - Status: updated in the local-pages PR. Description shortened and Open Graph added. The page script was not edited.
 - https://testedprofit.com/pages/things-to-do-in-vail-colorado/
-  - Title: Things to Do in Vail, Colorado | Official 2026 Visitor Guide
-  - Status: open. title 60 chars | no OG
+  - Title: Things to Do in Vail, Colorado | Guide
+  - Status: updated in the local-pages PR. Official removed from the title. Open Graph added. Body kept.
 - https://testedprofit.com/pages/tokenomics/
   - Title: Profitnet | Tokenomics, Vaults & Tools
   - Status: open. description 178 chars | no OG
