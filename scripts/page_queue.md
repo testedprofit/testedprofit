@@ -107,13 +107,13 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second earning-guides PR. Cards added for the PNET roadmap and AlgoSocial, and the gig-apps card uses the shortened title. Tool cards were left as they were.
 - https://testedprofit.com/pages/landmarks/
   - Title: Landmarks Directory by State | Guide
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the landmarks-hub PR. Title, description, one H1, canonical, and OG were already in range. Marked done with the browser-games batch.
 - https://testedprofit.com/pages/landmarks/denver/
   - Title: Denver Landmark Guides | Directory
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the Denver hub PR. Title, description, one H1, canonical, and OG were already in range. Marked done with the browser-games batch.
 - https://testedprofit.com/pages/landmarks/vail/
   - Title: Vail Landmark Guides | Directory
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the Vail hub PR. Title, description, one H1, canonical, and OG were already in range. Marked done with the browser-games batch.
 - https://testedprofit.com/pages/parks/
   - Title: About the Landmark Archive | TestedProfit
   - Status: updated in the guides-hub PR. Archive index. Open Graph URL is the page itself. Park links use the keeper URLs.
@@ -696,49 +696,49 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Hawaii landmarks PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026.
 - https://testedprofit.com/freebrowsergames/
   - Title: ProfitNet Games - Free Browser Arcade
-  - Status: open. no OG
+  - Status: updated in the browser-games PR. Open Graph added. Cards use each game title. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/conservation%20game%20for%20kids/
   - Title: Protect Our Planet – Interactive Conservation Portal
-  - Status: open. no OG
+  - Status: updated in the browser-games PR. Open Graph added. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/darkpulse/
   - Title: DARK PULSE
-  - Status: open. no OG | 23 words
+  - Status: updated in the browser-games PR. Open Graph added. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/deadzone/
   - Title: Dead Zone: Goth Ops
-  - Status: open. no OG | 20 words
+  - Status: updated in the browser-games PR. Open Graph added. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/glitchswarm/
   - Title: GLITCH SWARM
-  - Status: open. no OG | 22 words
+  - Status: updated in the browser-games PR. Open Graph added. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/GRIDLOCKTD/
   - Title: GRIDLOCK: Gacha Defense
-  - Status: open. no OG | 59 words
+  - Status: updated in the browser-games PR. Open Graph added. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/ludusmagnus/
   - Title: LUDUS MAGNUS: Grand Strategy
-  - Status: open. no OG
+  - Status: updated in the browser-games PR. Open Graph added. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/neonleap/
   - Title: Neon Leap: Chrono Climb
-  - Status: open. no OG | 26 words
+  - Status: updated in the browser-games PR. Open Graph added. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/neonvoidOVERDRIVE/
   - Title: Neon Void: Overdrive
-  - Status: open. description 171 chars | no OG | 72 words
+  - Status: updated in the browser-games PR. Description shortened under 155 characters. Open Graph added. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/nikbtd/
   - Title: Nikb: The Debugger
-  - Status: open. no OG | 54 words
+  - Status: updated in the browser-games PR. Open Graph added. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/polymergeTD/
   - Title: Endless Fusion Defense - Improved Edition
-  - Status: open. no OG | 120 words
+  - Status: updated in the browser-games PR. Open Graph added. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/scrapstation/
   - Title: SCRAP STATION
-  - Status: open. no OG | 32 words
+  - Status: updated in the browser-games PR. Open Graph added. The score label stays Scrap Mass. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/singularity/
   - Title: SINGULARITY
-  - Status: open. no OG | 29 words
+  - Status: updated in the browser-games PR. Open Graph added. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/solarcycle/
   - Title: Solar Cycle - A Game of Balance
-  - Status: open. no OG | 24 words
+  - Status: updated in the browser-games PR. Open Graph added. Game code was not edited.
 - https://testedprofit.com/freebrowsergames/terrahex/
   - Title: TerraHex: Strategy
-  - Status: open. no OG | 45 words
+  - Status: updated in the browser-games PR. Open Graph added. Game code was not edited.
 - https://testedprofit.com/gameinfo/omgpets/
   - Title: OMG Pets! | Recipes, Effects & Strategy Guide
   - Status: open. no OG

@@ -6,6 +6,12 @@
     <title>SCRAP STATION</title>
     <meta name="description" content="Scrap Station. Aim with mouse or touch and hold click to attract scrap while watching core integrity.">
     <link rel="canonical" href="https://testedprofit.com/freebrowsergames/scrapstation/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SCRAP STATION">
+    <meta property="og:description" content="Scrap Station. Aim with mouse or touch and hold click to attract scrap while watching core integrity.">
+    <meta property="og:url" content="https://testedprofit.com/freebrowsergames/scrapstation/">
+    <meta property="og:site_name" content="ProfitNet Games">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"SCRAP STATION","description":"Scrap Station. Aim with mouse or touch and hold click to attract scrap while watching core integrity.","url":"https://testedprofit.com/freebrowsergames/scrapstation/","gamePlatform":"Web browser","applicationCategory":"Game"}</script>
     <style>
         body {
             margin: 0;
@@ -24,13 +30,14 @@
             pointer-events: none;
             z-index: 10;
         }
-        h1 {
+        #ui .hud-label {
             font-size: 1.2rem;
             margin: 0;
             letter-spacing: 2px;
             color: #ccc;
             text-transform: uppercase;
         }
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
         #score-display {
             font-size: 2.5rem;
             font-weight: 800;
@@ -121,8 +128,9 @@
 </head>
 <body>
 
+<h1 class="sr-only">SCRAP STATION</h1>
 <div id="ui">
-    <h1>Scrap Mass</h1>
+    <div class="hud-label">Scrap Mass</div>
     <div id="score-display">0 KG</div>
     <div class="sub-text">Armor Integrity: <span id="parts-count">0</span> Units</div>
 </div>
