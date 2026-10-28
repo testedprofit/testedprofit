@@ -104,7 +104,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Oregon landmarks PR. Each card uses the title of the page it opens, including the Lincoln, Dawson Creek, and Dancing Mary guides.
 - https://testedprofit.com/pages/guides/
   - Title: Earning-App Guides | TestedProfit
-  - Status: updated in the guides-hub PR. Index of earning articles with live titles. Bonuses are not restated here.
+  - Status: updated in the second earning-guides PR. Cards added for the PNET roadmap and AlgoSocial, and the gig-apps card uses the shortened title. Tool cards were left as they were.
 - https://testedprofit.com/pages/landmarks/
   - Title: Landmarks Directory by State | Guide
   - Status: open. title, description, H1, canonical, and OG are in range
