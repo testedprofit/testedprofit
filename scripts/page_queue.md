@@ -104,7 +104,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the second Oregon landmarks PR. Each card uses the title of the page it opens, including the Lincoln, Dawson Creek, and Dancing Mary guides.
 - https://testedprofit.com/pages/guides/
   - Title: Earning-App Guides | TestedProfit
-  - Status: updated in the guides-hub PR. Index of earning articles with live titles. Bonuses are not restated here.
+  - Status: updated in the second earning-guides PR. Cards added for the PNET roadmap and AlgoSocial, and the gig-apps card uses the shortened title. Tool cards were left as they were.
 - https://testedprofit.com/pages/landmarks/
   - Title: Landmarks Directory by State | Guide
   - Status: open. title, description, H1, canonical, and OG are in range
@@ -657,7 +657,7 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026. Referral link and the June 24, 2025 test restored on the same PR.
 - https://testedprofit.com/pages/contenthub/
   - Title: Content Hub | Earn Smarter with Your Degree | TestedProfit
-  - Status: open. no OG | 179 words
+  - Status: updated in the second earning-guides PR. Description, one H1, canonical, OG, and a cite note set 21 October 2026. Hourly amounts kept and labeled as examples. No referral link or first-hand test was on the page.
 - https://testedprofit.com/pages/earnapp/
   - Title: EarnApp Review | Bright Data Bandwidth
   - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026. Referral link restored on the same PR. No dated hands-on note was on the previous page.
@@ -672,22 +672,22 @@ Index pages: 287. sitemap.xml lists final indexable URLs only, so noindex redire
   - Status: updated in the first earning-guides PR. Description, one H1, canonical, OG, and sources set from records checked 21 October 2026. Referral link, country list, earnings post, Honeygain review link, and the undated hands-on note restored on the same PR.
 - https://testedprofit.com/pages/how-to-start-a-vending-machine-business-a-beginners-passive-income-journey/
   - Title: How to Start a Vending Machine Business | Profitnet Guides
-  - Status: open. description 168 chars
+  - Status: updated in the second earning-guides PR. Description shortened, OG matched, and the six-step path kept. Dollar bands kept and labeled as planning examples. No referral link or first-hand test was on the page.
 - https://testedprofit.com/pages/roadmap/
-  - Title: Profitnet ($PNET) | Project Roadmap
-  - Status: open. description 177 chars | no OG | 119 words
+  - Title: PNET Roadmap on Algorand | Profitnet
+  - Status: updated in the second earning-guides PR. Milestones kept. Algorand ASA 3169177585 and the 100,000,000 supply added beside the 77 percent line. No Base content.
 - https://testedprofit.com/pages/social/
-  - Title: AlgoSocial | Permanent On-Chain Social Posts on Algorand | AlgoFlow by Profitnet
-  - Status: open. description 189 chars | title 80 chars
+  - Title: AlgoSocial | On-Chain Posts on Algorand
+  - Status: updated in the second earning-guides PR. TestNet steps kept. PNET named as Algorand mainnet ASA 3169177585. No Base content.
 - https://testedprofit.com/pages/student-loan-delinquency-tips/
   - Title: Profitnet | Student Loan Delinquency Strategy
-  - Status: open. no OG
+  - Status: updated in the second earning-guides PR. RAP floor and parent PLUS rules corrected from the Federal Student Aid IDR FAQ. The 270-day table kept. No referral link or first-hand test was on the page.
 - https://testedprofit.com/pages/the-ai-powered-kdp-revolution/
   - Title: What is KDP? The AI-Powered Self-Publishing Guide (2026)
-  - Status: open. title, description, H1, canonical, and OG are in range
+  - Status: updated in the second earning-guides PR. OG synced to the title and description. AI disclosure aligned to the KDP content guidelines. Workflow kept.
 - https://testedprofit.com/pages/top-gig-apps-to-make-money-fast-in-2025/
-  - Title: Top Gig Apps to Make Money Fast in 2025 | TestedProfit Edition
-  - Status: open. description 178 chars | title 62 chars | no OG
+  - Title: Top Gig Apps to Make Money Fast | Guide
+  - Status: updated in the second earning-guides PR. Three categories kept. Legacy index comment removed. No referral link or first-hand test was on the page.
 
 ## other content (33)
 
