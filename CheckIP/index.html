@@ -33,9 +33,12 @@
         .crumbs { display:flex; flex-wrap:wrap; gap:.35rem .5rem; list-style:none; padding:0; margin:0 0 1rem; color:var(--muted); }
         .lede { font-size:1.05rem; max-width:46rem; }
         .ip-rows { display:flex; flex-direction:column; gap:.75rem; margin:1rem 0; }
-        .ip-row { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem .75rem; padding:.75rem 1rem; border:1px solid rgba(45,212,191,.35); border-radius:16px; background:rgba(15,23,42,.82); }
-        .ip-row .kind { color:var(--teal); font-weight:800; letter-spacing:.06em; min-width:3.2rem; }
-        .addr { flex:1 1 12rem; margin:0; min-width:0; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:clamp(1.6rem,5vw,2.4rem); font-weight:750; line-height:1.25; overflow-wrap:anywhere; color:#fff; }
+        .ip-row { display:flex; flex-wrap:wrap; align-items:flex-start; gap:.6rem .75rem; padding:.75rem 1rem; border:1px solid rgba(45,212,191,.35); border-radius:16px; background:rgba(15,23,42,.82); }
+        .ip-row .kind { color:var(--teal); font-weight:800; letter-spacing:.06em; min-width:3.2rem; padding-top:.35rem; }
+        .copy-btn { margin-top:.15rem; }
+        .ip-main { flex:1 1 12rem; min-width:0; }
+        .addr { margin:0; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:clamp(1.6rem,5vw,2.4rem); font-weight:750; line-height:1.25; overflow-wrap:anywhere; color:#fff; }
+        .ip-note { margin:.25rem 0 0; color:var(--muted); font-size:.95rem; }
         .copy-btn, .tool-btn, .tab { min-height:44px; min-width:44px; border-radius:12px; font:inherit; font-weight:700; }
         .copy-btn { padding:0 1rem; border:0; background:#134e4a; color:#fff; cursor:pointer; }
         .notice { margin:.75rem 0 0; padding:.75rem 1rem; border-radius:12px; background:rgba(45,212,191,.1); border:1px solid rgba(45,212,191,.28); }
@@ -96,12 +99,18 @@
         <section class="ip-rows" aria-label="Public addresses">
             <div class="ip-row">
                 <span class="kind">IPv4</span>
-                <p class="addr" id="ipv4-display">Detecting your IP...</p>
+                <div class="ip-main">
+                    <p class="addr" id="ipv4-display">Detecting your IP...</p>
+                    <p class="ip-note" id="ipv4-note" hidden>No IPv4 address was returned for this connection.</p>
+                </div>
                 <button type="button" class="copy-btn" data-target="ipv4-display" onclick="copyToClipboard(this)">Copy</button>
             </div>
             <div class="ip-row">
                 <span class="kind">IPv6</span>
-                <p class="addr" id="ipv6-display">Detecting your IP...</p>
+                <div class="ip-main">
+                    <p class="addr" id="ipv6-display">Detecting your IP...</p>
+                    <p class="ip-note" id="ipv6-note" hidden>No IPv6 address was returned for this connection.</p>
+                </div>
                 <button type="button" class="copy-btn" data-target="ipv6-display" onclick="copyToClipboard(this)">Copy</button>
             </div>
             <p class="notice">Visible to every site you visit. That public address is what those sites can store with the pages you open.</p>
@@ -182,7 +191,7 @@
             <summary><h2>IPv4 and IPv6</h2></summary>
             <div class="acc-body">
                 <p>IPv4 is four numbers from 0 to 255, separated by dots. The documentation shape 203.0.113.10 shows the pattern without pointing at a real host. About 4.3 billion combinations exist, which is not enough for every phone and server, so networks share IPv4 widely.</p>
-                <p>IPv6 is 128 bits, written as hexadecimal groups separated by colons. <a href="https://www.rfc-editor.org/info/rfc8200/">RFC 8200</a> is the current specification. Many networks run both at once. An address starting with fe80 is link-local and is not the public address a website sees. This checker fills the family the lookup returned. The other row says Not detected when that call did not include it.</p>
+                <p>IPv6 is 128 bits, written as hexadecimal groups separated by colons. <a href="https://www.rfc-editor.org/info/rfc8200/">RFC 8200</a> is the current specification. Many networks run both at once. An address starting with fe80 is link-local and is not the public address a website sees. The IPv4 row and the IPv6 row are separate lookups. A dotted number is kept only on the IPv4 row, and a value with a colon is kept only on the IPv6 row. If a family does not answer, that row says Not detected.</p>
             </div>
         </details>
         <details class="acc" id="what-others-see">
@@ -269,8 +278,6 @@
     </main>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const ipv4Display = document.getElementById('ipv4-display');
-        const ipv6Display = document.getElementById('ipv6-display');
         const uaData = document.getElementById('ua-data');
 
         // Set User Agent immediately
@@ -333,8 +340,65 @@
             empty.textContent = 'Not detected';
         }
 
+        const familyState = { v4: 'pending', v6: 'pending' };
+
+        function classify(value) {
+            const s = String(value || '').trim();
+            if (!s) return '';
+            if (s.indexOf(':') !== -1) return 'v6';
+            if (/^(?:25[0-5]|2[0-4]\d|1?\d?\d)(?:\.(?:25[0-5]|2[0-4]\d|1?\d?\d)){3}$/.test(s)) return 'v4';
+            return '';
+        }
+
+        function showFound(kind, ip, dedicated) {
+            if (familyState[kind] === 'ok' && !dedicated) return;
+            const display = document.getElementById(kind === 'v4' ? 'ipv4-display' : 'ipv6-display');
+            const note = document.getElementById(kind === 'v4' ? 'ipv4-note' : 'ipv6-note');
+            display.textContent = ip;
+            display.classList.remove('text-red-400', 'text-4xl');
+            note.hidden = true;
+            familyState[kind] = dedicated ? 'ok' : 'fallback';
+        }
+
+        function showMissing(kind) {
+            if (familyState[kind] === 'ok' || familyState[kind] === 'fallback') return;
+            const display = document.getElementById(kind === 'v4' ? 'ipv4-display' : 'ipv6-display');
+            const note = document.getElementById(kind === 'v4' ? 'ipv4-note' : 'ipv6-note');
+            display.textContent = 'Not detected';
+            note.hidden = false;
+            familyState[kind] = 'missing';
+        }
+
+        function fetchWithTimeout(url, ms) {
+            const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+            const timer = ctrl ? setTimeout(() => ctrl.abort(), ms) : null;
+            return fetch(url, ctrl ? { signal: ctrl.signal } : undefined).finally(() => {
+                if (timer) clearTimeout(timer);
+            });
+        }
+
+        function readFamily(url, kind) {
+            fetchWithTimeout(url, 8000)
+                .then((response) => {
+                    if (!response.ok) throw new Error('status');
+                    return response.json();
+                })
+                .then((data) => {
+                    const ip = data && data.ip ? String(data.ip).trim() : '';
+                    if (classify(ip) !== kind) throw new Error('format');
+                    showFound(kind, ip, true);
+                })
+                .catch(() => {
+                    showMissing(kind);
+                });
+        }
+
+        // Separate lookups. One family failing does not cancel the other.
+        readFamily('https://api4.ipify.org?format=json', 'v4');
+        readFamily('https://api6.ipify.org?format=json', 'v6');
+
         // Fetch Data from ipapi.co (Free, no key required for frontend limits)
-        fetch('https://ipapi.co/json/')
+        fetchWithTimeout('https://ipapi.co/json/', 8000)
             .then(response => response.json())
             .then(data => {
                 // Clear skeletons
@@ -342,27 +406,12 @@
                     el.classList.remove('skeleton', 'h-8', 'h-4', 'w-3/4', 'w-1/2', 'w-2/3', 'w-1/3');
                 });
 
-                // Populate Data
-                const ip = data.ip || '';
-                const is6 = String(data.version || '').toLowerCase() === 'ipv6' || ip.indexOf(':') !== -1;
-
-                if (!ip) {
-                    ipv4Display.textContent = 'Not detected';
-                    ipv6Display.textContent = 'Not detected';
-                    markEmpty('panel-v4');
-                    markEmpty('panel-v6');
-                } else if (is6) {
-                    ipv6Display.textContent = ip;
-                    ipv4Display.textContent = 'Not detected';
-                    showFields('panel-v6', data);
-                    markEmpty('panel-v4');
-                    selectTab('v6');
-                } else {
-                    ipv4Display.textContent = ip;
-                    ipv6Display.textContent = 'Not detected';
-                    showFields('panel-v4', data);
-                    markEmpty('panel-v6');
-                    selectTab('v4');
+                const ip = data.ip ? String(data.ip).trim() : '';
+                const kind = classify(ip);
+                if (kind === 'v4' || kind === 'v6') {
+                    if (familyState[kind] !== 'ok') showFound(kind, ip, false);
+                    showFields(kind === 'v4' ? 'panel-v4' : 'panel-v6', data);
+                    selectTab(kind);
                 }
 
                 const lat = Number(data.latitude);
@@ -379,10 +428,6 @@
             })
             .catch(error => {
                 console.error('Error fetching IP:', error);
-                ipv4Display.textContent = 'Connection Error';
-                ipv6Display.textContent = 'Connection Error';
-                ipv4Display.classList.add('text-red-400', 'text-4xl');
-                ipv6Display.classList.add('text-red-400', 'text-4xl');
                 document.querySelectorAll('.skeleton').forEach(el => el.classList.remove('skeleton'));
                 markEmpty('panel-v4');
                 markEmpty('panel-v6');
