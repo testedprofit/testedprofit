@@ -68,6 +68,9 @@
 
     <meta property="og:image" content="https://testedprofit.com/assets/profitnet-logo.webp">
     <meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/site-nav.css">
+<script src="/assets/site-nav.js" defer></script>
+<script>(function(){var ids={"mobile-menu-btn":1,"close-menu-btn":1,"mobile-menu":1};var real=Document.prototype.getElementById;Document.prototype.getElementById=function(id){var el=real.call(this,id);if(el||!ids[id])return el;var d=document.createElement("div");d.querySelectorAll=function(){return [];};return d;};})();</script>
 </head>
 <body class="bg-white text-gray-800">
 <!-- tp-seo:breadcrumbs -->
@@ -97,32 +100,10 @@
 
 
     <!-- Header & Navigation -->
-    <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-black text-amber-900">Honey Rock Dogs</a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#about" class="hover:text-amber-700 transition duration-300">About</a>
-                <a href="#services" class="hover:text-amber-700 transition duration-300">Services</a>
-                <a href="#reviews" class="hover:text-amber-700 transition duration-300">Reviews</a>
-                <a href="#contact" class="hover:text-amber-700 transition duration-300">Contact</a>
-            </nav>
-            <a href="tel:970-824-9518" class="hidden md:inline-block bg-amber-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-amber-700 transition duration-300">Call to Book</a>
-             <button id="mobile-menu-button" class="md:hidden text-amber-900">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </div>
-        <!-- Mobile Menu -->
-        
-    </header>
+    
 
     <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
-    <div id="mobile-menu" class="z-[60] hidden md:hidden px-6 pb-4">
-            <a href="#about" class="block py-2 text-center hover:text-amber-700 transition duration-300">About</a>
-            <a href="#services" class="block py-2 text-center hover:text-amber-700 transition duration-300">Services</a>
-            <a href="#reviews" class="block py-2 text-center hover:text-amber-700 transition duration-300">Reviews</a>
-            <a href="#contact" class="block py-2 text-center hover:text-amber-700 transition duration-300">Contact</a>
-            <a href="tel:970-824-9518" class="block mt-2 text-center bg-amber-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-amber-700 transition duration-300">Call to Book</a>
-        </div>
+    
 
 
     <!-- Hero Section -->
