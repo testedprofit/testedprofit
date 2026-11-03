@@ -1,292 +1,290 @@
 ﻿<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NetBeacon | My IP 2026</title>
+    <title>What Is My IP Address? Free IP Checker | Profitnet</title>
     <link rel="canonical" href="https://testedprofit.com/CheckIP/">
-    <meta name="description" content="NetBeacon is a free instant IP address lookup tool. Instantly find your public IP, location, browser info, and internet provider with one click — no login required.">
-    
-    <!-- External Scripts & Styles -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        primary: '#0A091B',
-                        accent: {
-                            teal: '#2DD4BF',
-                            emerald: '#10B981',
-                            blue: '#60A5FA',
-                            purple: '#818cf8'
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'spin-slow': 'spin 3s linear infinite',
-                    }
-                }
-            }
-        }
-    </script>
-
+    <meta name="description" content="See your public IP address in the browser with a free IP lookup. Learn what an IP is, why the city is only a network estimate, and how to find it on any device.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="What Is My IP Address? Free IP Checker | Profitnet">
+    <meta property="og:description" content="See your public IP address in the browser with a free IP lookup. Learn what an IP is, why the city is only a network estimate, and how to find it on any device.">
+    <meta property="og:url" content="https://testedprofit.com/CheckIP/">
+    <meta property="og:image" content="https://testedprofit.com/assets/profitnet-logo.webp">
+    <meta property="og:site_name" content="Profitnet">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Is My IP Address? Free IP Checker | Profitnet">
+    <meta name="twitter:description" content="See your public IP address in the browser with a free IP lookup. Learn what an IP is, why the city is only a network estimate, and how to find it on any device.">
+    <meta name="twitter:image" content="https://testedprofit.com/assets/profitnet-logo.webp">
     <style>
+        :root {
+            --bg: #0A091B;
+            --card: rgba(15, 23, 42, 0.72);
+            --line: rgba(255, 255, 255, 0.08);
+            --text: #E5E7EB;
+            --muted: #9CA3AF;
+            --teal: #2DD4BF;
+        }
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0A091B;
-            color: #E5E7EB;
-            line-height: 1.6;
-            min-height: 100vh;
+            margin: 0;
+            font-family: Inter, system-ui, sans-serif;
+            background:
+                radial-gradient(circle at 30% 0%, rgba(45, 212, 191, 0.12), transparent 42%),
+                radial-gradient(circle at 80% 20%, rgba(129, 140, 248, 0.08), transparent 36%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.65;
         }
-
-        .hero-glow {
-            background: radial-gradient(circle at 30% 20%, rgba(45, 212, 191, 0.15) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(129, 140, 248, 0.1) 0%, transparent 60%);
-            will-change: opacity;
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: #5eead4; }
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.25rem;
+            align-items: center;
+            padding: 0.75rem 1.25rem;
+            border-bottom: 1px solid var(--line);
+            background: rgba(10, 9, 27, 0.92);
         }
-
-        .bg-grid-pattern {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 2.5rem 2.5rem;
+        header a {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            font-size: 1rem;
         }
-
-        /* Glass Card */
-        .glass-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
+        .brand { color: #fff; font-weight: 800; text-decoration: none; gap: 0.5rem; }
+        header img { width: 32px; height: 32px; }
+        main { max-width: 72rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+        h1 { font-size: clamp(2rem, 7vw, 2.8rem); line-height: 1.15; margin: 0.35rem 0 0.75rem; color: #fff; }
+        h2 { font-size: clamp(1.35rem, 4vw, 1.6rem); margin: 2rem 0 0.6rem; color: #fff; scroll-margin-top: 1rem; }
+        h3 { scroll-margin-top: 1rem; }
+        .crumbs { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; list-style: none; padding: 0; margin: 0 0 1rem; color: var(--muted); font-size: 0.95rem; }
+        .lede { font-size: 1.05rem; max-width: 42rem; }
+        .ip-panel { text-align: center; margin: 1.25rem 0 1.5rem; }
+        .ip-kicker { margin: 0 0 0.75rem; color: var(--teal); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+        .ip-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
+            width: 100%;
+            max-width: 40rem;
+            margin: 0 auto;
+            min-height: 44px;
+            min-width: 44px;
+            padding: 1rem 1rem 0.85rem;
+            border-radius: 18px;
+            border: 1px solid rgba(45, 212, 191, 0.35);
+            background: rgba(15, 23, 42, 0.82);
+            color: #fff;
+            cursor: pointer;
+            font: inherit;
         }
-        .glass-card:hover {
-            border-color: rgba(45, 212, 191, 0.3);
-            box-shadow: 0 0 30px rgba(45, 212, 191, 0.05);
+        #ip-display {
+            margin: 0;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: clamp(1.75rem, 8vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            overflow-wrap: anywhere;
         }
-
-        /* Loading Skeleton */
-        .skeleton {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        .copy-label {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--teal);
+            font-weight: 700;
+            font-size: 1rem;
         }
-
-        #mobile-menu {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-            transform: translateY(-100%);
-            opacity: 0;
-            pointer-events: none;
+        #copy-toast {
+            margin: 0.75rem auto 0;
+            max-width: 100%;
+            color: var(--teal);
+            font-family: ui-monospace, Menlo, Consolas, monospace;
+            font-size: 0.95rem;
         }
-        #mobile-menu.active {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
+        .grid { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 1.1rem 1.15rem;
+        }
+        .card h3 { margin: 0 0 0.45rem; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+        .val { margin: 0; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 1.15rem; font-weight: 700; color: #fff; overflow-wrap: anywhere; }
+        .sub { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.92rem; overflow-wrap: anywhere; }
+        details { margin-top: 1rem; border-top: 1px solid var(--line); padding-top: 0.4rem; }
+        summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 650; color: #fff; }
+        #ua-data { margin: 0.5rem 0 0; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.85rem; color: var(--muted); overflow-wrap: anywhere; }
+        .guide p { margin: 0.75rem 0; }
+        .guide ul, .faq-list { padding-left: 1.15rem; }
+        .guide li, .faq-list li { margin: 0.45rem 0; }
+        .faq details { border-top: 1px solid var(--line); padding: 0.35rem 0; }
+        .faq p { margin: 0.35rem 0 0.6rem; }
+        .text-red-400 { color: #f87171; }
+        .text-4xl { font-size: 2.25rem; }
+        @media (min-width: 768px) {
+            main { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .grid { grid-template-columns: 1fr 1fr; }
+            .card.wide { grid-column: 1 / -1; }
+            .ip-btn { width: auto; min-width: 18rem; padding-left: 2rem; padding-right: 2rem; }
+        }
+        @media (min-width: 1024px) {
+            .grid { grid-template-columns: 1fr 1fr 1fr; }
+            .card.wide { grid-column: auto; }
         }
     </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"NetBeacon","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","url":"https://testedprofit.com/CheckIP/","description":"See your public IP address in the browser with a free IP lookup. Learn what an IP is, why the city is only a network estimate, and how to find it on any device.","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://testedprofit.com/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://testedprofit.com/tools/"},{"@type":"ListItem","position":3,"name":"What Is My IP","item":"https://testedprofit.com/CheckIP/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is my IP address?","acceptedAnswer":{"@type":"Answer","text":"It is the public address of the connection you are using, shown at the top of this page once the lookup returns. That number is what websites see. It is not the 192.168 or 10.x address printed in your phone Wi-Fi settings."}},{"@type":"Question","name":"What is my IP?","acceptedAnswer":{"@type":"Answer","text":"The same public address. What is my IP and what is my IP address are one question, and this checker answers it for the browser you have open."}},{"@type":"Question","name":"How does an IP lookup work?","acceptedAnswer":{"@type":"Answer","text":"The page asks a lookup service which public address reached it. The service returns that address plus the provider and an approximate network location. Your browser fills in the boxes. Nothing is typed in, and no account is required."}},{"@type":"Question","name":"What is the difference between a public and a private IP?","acceptedAnswer":{"@type":"Answer","text":"A public IP is the address on the internet side of your router, assigned or shared by your provider. A private IP, such as 192.168.x.x or 10.x.x.x, is used only inside your home or office network. Websites see the public one."}},{"@type":"Question","name":"Does my IP address show my home address?","acceptedAnswer":{"@type":"Answer","text":"No. The city and coordinates are an estimate for the network block, usually near the provider or a gateway. They are not a GPS fix and they are not your street address."}},{"@type":"Question","name":"Is it safe to share my IP address?","acceptedAnswer":{"@type":"Answer","text":"A public IP is not a password, and it does not reveal your street by itself. Do not post it beside your name. Do not read it to a caller who claims to be your bank. Keep your router admin page off the public internet."}},{"@type":"Question","name":"How do I find my IP address on my phone?","acceptedAnswer":{"@type":"Answer","text":"The Wi-Fi settings on an iPhone or Android show the private address on that network. This page shows the public address. Turn Wi-Fi off and reload if you want the address your carrier is using."}},{"@type":"Question","name":"Can I hide my IP address?","acceptedAnswer":{"@type":"Answer","text":"A VPN, a proxy, or Tor can show a different public address to websites. Mobile data shows the carrier address instead of your home router. Restarting the router sometimes changes a dynamic home address and sometimes does not."}}]}]}
+    </script>
 </head>
-<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
-
-    <!-- Global Background -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
-    </div>
-
-    <!-- Navigation -->
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            
-            <!-- Logo Section -->
-            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
-                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
-                     alt="Profitnet Logo"
-                     width="32" 
-                     height="32"
-                     fetchpriority="high">
-                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
-            </a>
-            
-            <!-- Desktop Nav -->
-            <nav class="hidden lg:flex space-x-10 items-center">
-                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
-                
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
-                
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
-                    $PNET Asset Dashboard
-                </a>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button>
-        </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 lg:hidden flex flex-col items-center justify-center space-y-8">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-
-            <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
-        </div>
+<body>
+    <header>
+        <a class="brand" href="/"><img src="/assets/profitnet-logo.webp" width="32" height="32" alt="Profitnet logo">Profitnet</a>
+        <a href="/">Home</a>
+        <a href="/tools/">Tools</a>
+        <a href="/pages/landmarks/">Landmarks</a>
     </header>
+    <main>
+        <nav aria-label="Breadcrumb">
+            <ol class="crumbs">
+                <li><a href="/">Home</a></li>
+                <li aria-hidden="true">/</li>
+                <li><a href="/tools/">Tools</a></li>
+                <li aria-hidden="true">/</li>
+                <li aria-current="page">What Is My IP</li>
+            </ol>
+        </nav>
+        <h1>What Is My IP Address?</h1>
+        <p class="lede">NetBeacon is a free IP lookup for the public address of this browser. People type what is my ip, whats my ip, my ip address, and what is my ip address when they want that number. The box below fills it in from the connection you are on right now.</p>
 
-    <!-- Main Layout Adjusted for Mobile/Tablet/Desktop -->
-    <main class="relative z-10 pt-28 md:pt-32 pb-16 md:pb-20 container mx-auto px-4 md:px-6 max-w-6xl">
-        
-        <!-- Main IP Display - Optimized Size -->
-        <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
-            <h1 class="text-xs md:text-sm font-bold text-accent-teal uppercase tracking-[0.3em] mb-6">Public IPv4 Address</h1>
-            
-            <div class="relative inline-block group max-w-full">
-                <div class="absolute -inset-4 bg-gradient-to-r from-teal-500/20 to-blue-500/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-500"></div>
-                
-                <!-- Sizing Logic: 
-                     text-xl (Mobile) -> Very standard readable size
-                     md:text-3xl (Tablet) -> Clear header
-                     lg:text-4xl (Desktop) -> Professional, not overwhelming
-                -->
-                <button 
-                    onclick="copyToClipboard(this)" 
-                    class="relative group/btn flex items-center justify-center space-x-2 md:space-x-4 mx-auto w-full transition-transform hover:scale-[1.01] active:scale-95"
-                >
-                    <h2 id="ip-display" class="text-xl md:text-3xl lg:text-4xl font-bold text-white font-mono tracking-tight break-all md:break-normal text-center">
-                        <span class="animate-pulse">...</span>
-                    </h2>
-                    
-                    <!-- Hover Copy Icon -->
-                    <div class="hidden md:flex opacity-0 group-hover/btn:opacity-100 transition-opacity text-accent-teal">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 md:w-6 md:h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5" />
-                        </svg>
-                    </div>
-                </button>
-                
-                <p class="mt-4 text-xs text-gray-500 font-mono hidden md:block opacity-60">Click to copy</p>
+        <section class="ip-panel" aria-labelledby="ip-heading">
+            <p id="ip-heading" class="ip-kicker">Your public IP</p>
+            <button type="button" class="ip-btn" onclick="copyToClipboard(this)">
+                <h2 id="ip-display">Detecting your IP...</h2>
+                <span class="copy-label">Copy</span>
+            </button>
+            <div id="copy-toast" style="opacity:0">Copied to clipboard</div>
+            <noscript>
+                <p>JavaScript is off, so NetBeacon cannot request your public IP from the lookup service. The guide below still explains how to find your IP on Windows, Mac, iPhone, Android, and your router.</p>
+            </noscript>
+        </section>
 
-                <!-- Toast Notification -->
-                <div id="copy-toast" class="absolute left-1/2 -translate-x-1/2 -bottom-10 opacity-0 transition-opacity duration-300 text-sm text-accent-teal font-mono bg-slate-900/90 px-3 py-1 rounded border border-teal-500/20 pointer-events-none whitespace-nowrap z-50">
-                    Copied to clipboard
-                </div>
-            </div>
+        <div class="grid">
+            <article class="card">
+                <h3>ISP provider</h3>
+                <p id="isp-data" class="val">Detecting your provider</p>
+                <p id="org-data" class="sub">Detecting the network</p>
+            </article>
+            <article class="card">
+                <h3>Location</h3>
+                <p id="location-data" class="val">Detecting the network location</p>
+                <p id="country-data" class="sub">Detecting the country</p>
+            </article>
+            <article class="card wide">
+                <h3>Coordinates</h3>
+                <p id="coords-data" class="val">Detecting coordinates</p>
+                <p class="sub">Approximate latitude and longitude for the network, not a street address.</p>
+            </article>
         </div>
 
-        <!-- Data Grid - Responsive Layout
-             Mobile: 1 Column
-             Tablet: 2 Columns (col-span logic handles orphans)
-             Desktop: 3 Columns
-        -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            
-            <!-- ISP Card -->
-            <div class="glass-card rounded-xl p-5 md:p-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex items-center space-x-3 mb-3">
-                    <div class="p-2 bg-blue-500/10 rounded-lg text-accent-blue shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.25l.07-.08a5.25 5.25 0 0114.94 0l.07.08a4.5 4.5 0 01.9 2.25" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider">ISP Provider</h3>
-                </div>
-                <div id="isp-data" class="text-lg md:text-xl font-bold text-white font-mono skeleton h-8 w-3/4 break-words"></div>
-                <div id="org-data" class="text-xs md:text-sm text-gray-500 mt-2 skeleton h-4 w-1/2"></div>
-            </div>
+        <details>
+            <summary>Advanced: show user agent string</summary>
+            <p id="ua-data">Detecting the user agent</p>
+        </details>
 
-            <!-- Location Card -->
-            <div class="glass-card rounded-xl p-5 md:p-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="flex items-center space-x-3 mb-3">
-                    <div class="p-2 bg-emerald-500/10 rounded-lg text-accent-emerald shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Location</h3>
-                </div>
-                <div id="location-data" class="text-lg md:text-xl font-bold text-white font-mono skeleton h-8 w-2/3"></div>
-                <div id="country-data" class="text-xs md:text-sm text-gray-500 mt-2 skeleton h-4 w-1/3"></div>
-            </div>
+        <article class="guide">
+            <h2>What an IP address is</h2>
+            <p>An IP address is the number a network uses to deliver data to a device. IP stands for Internet Protocol. The reply to a page load comes back to that number. It belongs to the connection, so joining another Wi-Fi network changes it.</p>
+            <p>NetBeacon, the IP lookup above, shows the public address that reached the internet from this browser, plus the provider and a rough network location. Websites see that public address. A phone's Wi-Fi settings usually show the private address used only on the local network.</p>
 
-            <!-- Technical Card - Spans full width on tablet (md:col-span-2) to balance grid, back to 1 col on Desktop -->
-            <div class="glass-card rounded-xl p-5 md:p-6 md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="300">
-                <div class="flex items-center space-x-3 mb-3">
-                    <div class="p-2 bg-purple-500/10 rounded-lg text-accent-purple shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Coordinates</h3>
-                </div>
-                <div id="coords-data" class="text-lg md:text-xl font-bold text-white font-mono skeleton h-8 w-3/4"></div>
-                <div class="text-xs md:text-sm text-gray-500 mt-2 font-mono">Approximate Lat/Long</div>
-            </div>
+            <h2>Public and private IP addresses</h2>
+            <p>Private addresses stay on local networks and are not routed on the public internet, so the same numbers repeat in many homes. <a href="https://www.rfc-editor.org/info/rfc1918/">RFC 1918</a> reserves 10.0.0.0 through 10.255.255.255, 172.16.0.0 through 172.31.255.255, and 192.168.0.0 through 192.168.255.255. Day to day that is 10.x.x.x, 192.168.x.x, and the 172.16 through 172.31 block.</p>
+            <p>A home router stands in the middle. Inside, it often uses 192.168.0.1, 192.168.1.1, or 10.0.0.1 and gives each device a private address. Outside, it uses a public address from the provider, sometimes shared with other customers. It presents that public address when you open a site, so the site does not learn that the laptop is 192.168.1.42.</p>
+            <p>Some carriers put many customers behind one public IPv4 address, called carrier-grade NAT. This page still shows the address websites see, and it may belong to a group rather than one house.</p>
 
-        </div>
+            <h2>IPv4 and IPv6</h2>
+            <p>IPv4 is four numbers from 0 to 255, separated by dots, as in the documentation example 203.0.113.10. About 4.3 billion combinations exist, so networks share them heavily.</p>
+            <p>IPv6 is 128 bits, written as hexadecimal groups separated by colons. <a href="https://www.rfc-editor.org/info/rfc8200/">RFC 8200</a> is the current specification. Many networks run both at once, called dual stack. An address starting with fe80 is link-local and stays on the local link. This checker shows the address the lookup saw, whether that is IPv4 or the longer IPv6 form.</p>
 
-        <!-- Raw Data Toggle -->
-        <div class="mt-12 border-t border-white/5 pt-8" data-aos="fade-in" data-aos-delay="400">
-            <details class="group">
-                <summary class="flex items-center cursor-pointer text-xs md:text-sm text-gray-500 hover:text-accent-teal transition-colors select-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2 group-open:rotate-90 transition-transform">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                    </svg>
-                    Advanced: Show User Agent String
-                </summary>
-                <div class="mt-4 p-4 bg-black/30 rounded-lg border border-white/5 font-mono text-[10px] md:text-xs text-gray-400 break-all leading-relaxed" id="ua-data">
-                    <!-- JS fills this -->
-                </div>
+            <h2>Why the location is only approximate</h2>
+            <p>The city, region, and coordinates describe the network block, not a GPS fix and not a street. Records usually place the block near the provider, often a city and sometimes only a state or country. Mobile traffic can appear in another city because the carrier gateway is there, and a VPN shows the server's city. Extra decimal places do not make the pin a building.</p>
+
+            <h2>What your provider and websites can see</h2>
+            <p>The provider routes your traffic and can see which servers you contact. On HTTPS the page text is encrypted, though the site name is often visible as the connection starts. The provider's DNS also sees the names you look up. Encrypted DNS sends those lookups to the resolver you chose.</p>
+            <p>A website sees the public IP, the time, the pages you open there, and headers such as the user agent. It does not see a 192.168 or 10.x address or a street hidden in the number. If you sign in, the site can store that public address beside the account.</p>
+
+            <h2>How to find your IP on each device</h2>
+            <p>The figure at the top is the public address. These steps find the private address and the router's local address. Menu names vary by version.</p>
+            <p><strong>Windows.</strong> Run ipconfig in Command Prompt. IPv4 Address on the active adapter is private, and Default Gateway is the router. Settings, Network and internet, then hardware properties, shows the same IPv4 address.</p>
+            <p><strong>Mac.</strong> System Settings, Network, Wi-Fi, Details, TCP/IP lists the private address and the Router. Older macOS uses System Preferences. In Terminal, ipconfig getifaddr en0 is Wi-Fi on many Macs. If it is blank, use the TCP/IP pane.</p>
+            <p><strong>iPhone.</strong> Settings, Wi-Fi, the info button, then IP Address is the private number, and Router is the gateway. This page shows the public address. Turn Wi-Fi off and reload for the carrier address.</p>
+            <p><strong>Android.</strong> On a Pixel: Settings, Network and internet, Internet, the gear beside Wi-Fi. On many Samsung phones: Settings, Connections, Wi-Fi, the gear, View more. That address is private. Search Settings for IP address if the labels differ.</p>
+            <p><strong>Router.</strong> Type the gateway into a browser on a device joined to that network. 192.168.0.1, 192.168.1.1, and 10.0.0.1 are common. The admin page can show the provider's internet address. Open it from inside the network, and leave remote administration off unless you need it.</p>
+
+            <h2>Static and dynamic IP addresses</h2>
+            <p>A dynamic address is leased and can change. Home routers usually get a dynamic public address, and laptops get a dynamic private one from the router. A static address is set to stay. Reserve one in the router's DHCP list when a printer should keep its number. A static public address lets a server stay findable. Most homes do not have one.</p>
+
+            <h2>How to change or hide your IP</h2>
+            <p>A restart may swap one dynamic public address for another from the same provider. A VPN, proxy, or Tor shows websites a different network. The private address inside the house is a separate matter.</p>
+            <p><strong>Restart the router.</strong> Unplug the modem and router, wait a minute, then plug the modem in first. You might get a new public IP or the same one again. Nothing is encrypted, and a shared address stays shared.</p>
+            <p><strong>VPN.</strong> Sites see the VPN server's address, and the path to that server is encrypted. The operator can see destinations, so the logging policy matters. Some sites block VPN ranges, speed often drops, and a free service may log you or show ads.</p>
+            <p><strong>Proxy.</strong> One app is forwarded and the site sees the proxy. Many proxies do not encrypt the hop, and a web proxy can read pages it fetches. Use one only if you know the operator.</p>
+            <p><strong>Tor.</strong> Traffic crosses several relays, and the site sees the exit relay. It is slower, some sites block those exits, and an exit can read traffic that is not HTTPS.</p>
+            <p><strong>Mobile data.</strong> Turn Wi-Fi off and reload to use the carrier address instead of the home router. That spends cellular data. The carrier still knows the line, and the city shown may be a gateway city.</p>
+
+            <h2>What a user agent is</h2>
+            <p>A user agent is text the browser sends with a request. It names the browser family and the operating system, such as Chrome on Windows or Safari on an iPhone. It is not an IP address. Sites use it to pick a layout. The panel under the checker shows this browser's string. It can be shortened or replaced, so it is only a hint about the device.</p>
+
+            <h2>Is it safe to share my IP?</h2>
+            <p>A public IP names the network that reached the internet. It is not your street, a password, or the laptop's private address. Do not post it beside your name. Anyone can try to open services on a public address, so keep the router admin page, file shares, and old camera ports off the internet. Forward a port only when a device must be reached from outside.</p>
+            <p>Use the private address for jobs on your own Wi-Fi, such as a printer. A stranger cannot deliver traffic to 192.168.1.20 inside the house. If someone asks you to read a number aloud to prove an account, call the number on the card or the bill.</p>
+            <p>More tools are in the <a href="/tools/">Tools and Calculators | TestedProfit</a> directory, including the <a href="/Crypto%20Tax-Loss%20Harvester/">Crypto Tax-Loss Harvester | 2026 Estimate</a>, the <a href="/Freelance%20Rate%20Fairness%20Checker/">Freelance Rate Fairness Checker | Hourly</a>, and the <a href="/Impermanent%20Loss%20Visualizer/">Impermanent Loss Visualizer | Profitnet</a>.</p>
+            <p>Last updated <time datetime="2026-11-03">3 November 2026</time>.</p>
+        </article>
+
+        <section class="faq" aria-labelledby="faq-heading">
+            <h2 id="faq-heading">Questions</h2>
+            <details>
+                <summary>What is my IP address?</summary>
+                <p>It is the public address of the connection you are using, shown at the top of this page once the lookup returns. That number is what websites see. It is not the 192.168 or 10.x address printed in your phone Wi-Fi settings.</p>
             </details>
-        </div>
-
+            <details>
+                <summary>What is my IP?</summary>
+                <p>The same public address. What is my IP and what is my IP address are one question, and this checker answers it for the browser you have open.</p>
+            </details>
+            <details>
+                <summary>How does an IP lookup work?</summary>
+                <p>The page asks a lookup service which public address reached it. The service returns that address plus the provider and an approximate network location. Your browser fills in the boxes. Nothing is typed in, and no account is required.</p>
+            </details>
+            <details>
+                <summary>What is the difference between a public and a private IP?</summary>
+                <p>A public IP is the address on the internet side of your router, assigned or shared by your provider. A private IP, such as 192.168.x.x or 10.x.x.x, is used only inside your home or office network. Websites see the public one.</p>
+            </details>
+            <details>
+                <summary>Does my IP address show my home address?</summary>
+                <p>No. The city and coordinates are an estimate for the network block, usually near the provider or a gateway. They are not a GPS fix and they are not your street address.</p>
+            </details>
+            <details>
+                <summary>Is it safe to share my IP address?</summary>
+                <p>A public IP is not a password, and it does not reveal your street by itself. Do not post it beside your name. Do not read it to a caller who claims to be your bank. Keep your router admin page off the public internet.</p>
+            </details>
+            <details>
+                <summary>How do I find my IP address on my phone?</summary>
+                <p>The Wi-Fi settings on an iPhone or Android show the private address on that network. This page shows the public address. Turn Wi-Fi off and reload if you want the address your carrier is using.</p>
+            </details>
+            <details>
+                <summary>Can I hide my IP address?</summary>
+                <p>A VPN, a proxy, or Tor can show a different public address to websites. Mobile data shows the carrier address instead of your home router. Restarting the router sometimes changes a dynamic home address and sometimes does not.</p>
+            </details>
+        </section>
     </main>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Init AOS
-        AOS.init({ 
-            duration: 800, 
-            once: true,
-            offset: 30
-        });
-
-        // Mobile Menu Logic
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const body = document.body;
-
-        function toggleMenu(show) {
-            mobileMenu.classList.toggle('active', show);
-            body.style.overflow = show ? 'hidden' : '';
-        }
-
-        menuBtn.addEventListener('click', () => toggleMenu(true));
-        closeBtn.addEventListener('click', () => toggleMenu(false));
-        mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
-
         // --- IP Fetch Logic ---
         const ipDisplay = document.getElementById('ip-display');
         const ispData = document.getElementById('isp-data');
@@ -328,22 +326,22 @@
     // Copy to Clipboard Function - Updated for robustness in iframes
     function copyToClipboard(element) {
         // Get text from the H2 inside the button if 'element' is the button, or the element itself
-        const target = element.querySelector('h2') || element; 
+        const target = element.querySelector('h2') || element;
         const text = target.innerText;
-        
+
         // Use document.execCommand as fallback for permissions restrictions
         const textArea = document.createElement("textarea");
         textArea.value = text;
-        
+
         // Ensure it's not visible but part of DOM
         textArea.style.position = "fixed";
         textArea.style.left = "-9999px";
         textArea.style.top = "0";
         document.body.appendChild(textArea);
-        
+
         textArea.focus();
         textArea.select();
-        
+
         try {
             document.execCommand('copy');
             const toast = document.getElementById('copy-toast');
@@ -354,7 +352,7 @@
         } catch (err) {
             console.error('Copy failed', err);
         }
-        
+
         document.body.removeChild(textArea);
     }
     </script>
