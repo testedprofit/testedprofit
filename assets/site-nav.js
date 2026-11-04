@@ -135,9 +135,55 @@
     main.appendChild(wrap);
   }
 
+  var path = location.pathname;
+  var slim = /^\/freebrowsergames\/.+/.test(path) ||
+    path.indexOf("/libreng-browser-laro/") === 0 ||
+    path.indexOf("/Algohub/") === 0;
+  var app = !slim && (
+    path.indexOf("/pages/PNET/") === 0 ||
+    path.indexOf("/pages/tokenomics/") === 0 ||
+    path.indexOf("/tokenomics/") === 0 ||
+    path.indexOf("/scam-scan/") === 0 ||
+    path.indexOf("/pages/data-sharing-opt-out/") === 0 ||
+    path.indexOf("/pages/algoflow/") === 0 ||
+    path.indexOf("/pages/inspector/") === 0 ||
+    path.indexOf("/pages/launchpad/") === 0 ||
+    path.indexOf("/pages/multisend/") === 0 ||
+    path.indexOf("/pages/nfts/") === 0 ||
+    path.indexOf("/pages/genesis/") === 0 ||
+    path.indexOf("/pages/Security%20Lab/") === 0 ||
+    path.indexOf("/pages/Security Lab/") === 0 ||
+    path.indexOf("/TikTok%20Shop") === 0 ||
+    path.indexOf("/TikTok Shop") === 0 ||
+    path.indexOf("/US%20Kitchen") === 0 ||
+    path.indexOf("/US Kitchen") === 0 ||
+    path.indexOf("/pages/things%20to%20do%20in%20vail") === 0 ||
+    path.indexOf("/pages/things to do in vail") === 0 ||
+    path.indexOf("/gameinfo/") === 0 ||
+    path === "/404.html"
+  );
+
   document.body.classList.add("pn-has-nav");
+  if (slim) document.body.classList.add("pn-slim");
+  if (app) document.body.classList.add("pn-app");
   document.body.insertBefore(header, document.body.firstChild);
   document.body.appendChild(menu);
-  addLandmarkButtons();
+  if (slim) {
+    var shells = [];
+    Array.prototype.forEach.call(document.body.children, function (node) {
+      if (node === header || node === footer || node === menu) return;
+      var pos = window.getComputedStyle(node).position;
+      if (pos === "absolute" || pos === "fixed") return;
+      if (node.matches && node.matches("script, link, style")) return;
+      shells.push(node);
+    });
+    var chosen = null;
+    shells.forEach(function (node) {
+      if (node.querySelector && node.querySelector("canvas, #game-container, #game-wrapper, #root")) chosen = node;
+    });
+    if (!chosen && shells.length) chosen = shells[0];
+    if (chosen) chosen.classList.add("pn-slim-fill");
+  }
+  if (!slim) addLandmarkButtons();
   document.body.appendChild(footer);
 })();
