@@ -1,388 +1,122 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors Sculpture in Gillette, WY | Visit Guide</title>
+    <title>Rock Paper Scissors Sculpture in Gillette, WY</title>
+    <meta name="description" content="Rock Paper Scissors sculpture in Gillette, WY: Kevin Box and Warren Cullar's free 2011 stack at 1201 W 2nd St, in front of the News-Record offices.">
     <link rel="canonical" href="https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/">
-    <meta name="description" content="Free, open 24/7 at 1201 W 2nd St, Gillette, WY. See Kevin Box & Warren Cullar's bronze-and-steel Rock Paper Scissors sculpture: map, facts, FAQ.">
-    
-    <!-- External Scripts & Styles -->
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-    
-    <!-- Fonts: Preconnected for speed -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome: Required for content icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0A091B',
-                        accent: {
-                            teal: '#2DD4BF',
-                            emerald: '#10B981',
-                            blue: '#60A5FA',
-                            bronze: '#D97706', /* Bronze Accent */
-                            steel: '#94A3B8'   /* Steel Accent */
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0A091B;
-            color: #E5E7EB;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Optimization: Animations */
-        .hero-glow {
-            background: radial-gradient(circle at 30% 20%, rgba(217, 119, 6, 0.1) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(148, 163, 184, 0.1) 0%, transparent 60%);
-            will-change: opacity;
-        }
-
-        .bg-grid-pattern {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 2.5rem 2.5rem;
-        }
-
-        /* Custom Content Styles */
-        .gradient-text {
-            background: linear-gradient(90deg, #D97706, #94A3B8); /* Bronze to Steel */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .card-blur {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-blur:hover {
-            border-color: #D97706;
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-        }
-
-        .info-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: #D97706;
-        }
-
-        .stat-badge {
-            background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(148, 163, 184, 0.1));
-            border: 1px solid rgba(217, 119, 6, 0.3);
-            border-radius: 8px;
-            padding: 0.75rem 1.25rem;
-            display: inline-block;
-        }
-
-        .cta-button {
-            background: linear-gradient(90deg, #D97706, #475569);
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.4);
-        }
-
-        /* Mobile Menu */
-        #mobile-menu {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-            transform: translateY(-100%);
-            opacity: 0;
-            pointer-events: none;
-        }
-        #mobile-menu.active {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0A091B; }
-        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #334155; }
-    </style>
-<style id="tp-seo-style">
-.tp-seo-crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem .45rem;margin:0 0 1.25rem;padding:.55rem .9rem;font:500 .82rem/1.4 Inter,system-ui,sans-serif;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.28);border-radius:999px}
-.tp-seo-crumbs a{color:#5eead4;text-decoration:none}
-.tp-seo-crumbs a:hover{text-decoration:underline}
-.tp-seo-crumbs li{color:#e5e7eb}
-.tp-seo-crumbs li+li::before{content:"/";color:#94a3b8;margin-right:.45rem}
-.tp-seo-related{margin:2rem 0 0;padding:1rem 1.1rem;border:1px solid rgba(148,163,184,.28);border-radius:16px;background:rgba(15,23,42,.55);font-family:Inter,system-ui,sans-serif}
-.tp-seo-related h2{margin:0 0 .6rem;font-size:1rem;color:#fff}
-.tp-seo-related ul{margin:0;padding-left:1.1rem}
-.tp-seo-related a{color:#5eead4}
-.source-list a{color:#5eead4;text-decoration:underline}
-.tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
-</style>
-
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Rock Paper Scissors Sculpture in Gillette, WY | Visit Guide">
-    <meta property="og:description" content="Free, open 24/7 at 1201 W 2nd St, Gillette, WY. See Kevin Box & Warren Cullar's bronze-and-steel Rock Paper Scissors sculpture: map, facts, FAQ.">
+    <meta property="og:title" content="Rock Paper Scissors Sculpture in Gillette, WY">
+    <meta property="og:description" content="Rock Paper Scissors sculpture in Gillette, WY: Kevin Box and Warren Cullar's free 2011 stack at 1201 W 2nd St, in front of the News-Record offices.">
     <meta property="og:url" content="https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/">
+    <meta property="og:image" content="https://testedprofit.com/assets/profitnet-logo.webp">
+    <meta property="og:image:width" content="320">
+    <meta property="og:image:height" content="320">
     <meta property="og:site_name" content="Profitnet Landmarks">
     <meta name="twitter:card" content="summary">
-    <meta name="geo.region" content="US-WY"><meta name="geo.placename" content="Gillette">
-    <meta name="geo.position" content="44.2930;-105.5199"><meta name="ICBM" content="44.2930, -105.5199">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
- {"@type":["TouristAttraction","LandmarksOrHistoricalBuildings"],"@id":"https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/#place","name":"Rock Paper Scissors Sculpture","alternateName":"Rock-Paper-Scissors","description":"Public sculpture of the hand game Rock Paper Scissors by Kevin Box and Warren Cullar, installed in 2011 through Gillette's Avenues of Art program.","url":"https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/",
-  "address":{"@type":"PostalAddress","streetAddress":"1201 W 2nd St","addressLocality":"Gillette","addressRegion":"WY","postalCode":"82716","addressCountry":"US"},
-  "geo":{"@type":"GeoCoordinates","latitude":44.2930,"longitude":-105.5199},
-  "hasMap":"https://www.google.com/maps/search/?api=1&query=44.2930,-105.5199","isAccessibleForFree":true,"publicAccess":true,
-  "touristType":["Road trippers","Families","Public art fans"],"dateModified":"2026-10-21"},
- {"@type":"BreadcrumbList","itemListElement":[
-  {"@type":"ListItem","position":1,"name":"Home","item":"https://testedprofit.com/"},
-  {"@type":"ListItem","position":2,"name":"Landmarks","item":"https://testedprofit.com/pages/landmarks/"},
-  {"@type":"ListItem","position":3,"name":"Wyoming","item":"https://testedprofit.com/WY/"},
-  {"@type":"ListItem","position":4,"name":"Rock Paper Scissors Sculpture","item":"https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/"}]},
- {"@type":"FAQPage","mainEntity":[
-  {"@type":"Question","name":"Where is the Rock Paper Scissors sculpture in Gillette?","acceptedAnswer":{"@type":"Answer","text":"At 1201 W 2nd St, Gillette, WY 82716, on the southwest corner of S. Burma Ave. and W. 2nd St. (US Hwy 16), in front of the Gillette News-Record offices."}},
-  {"@type":"Question","name":"Who made the Rock Paper Scissors sculpture?","acceptedAnswer":{"@type":"Answer","text":"Artists Kevin Box and Warren Cullar. It was installed in 2011 as part of Gillette's Avenues of Art public-art program."}},
-  {"@type":"Question","name":"Does it cost anything to see?","acceptedAnswer":{"@type":"Answer","text":"No. It is outdoor public art on a street corner, free to view at any time."}},
-  {"@type":"Question","name":"So who wins: rock, paper or scissors?","acceptedAnswer":{"@type":"Answer","text":"Scissors. The pieces are stacked with the rock at the base, the paper in the middle and the scissors on top."}},
-  {"@type":"Question","name":"What else is nearby?","acceptedAnswer":{"@type":"Answer","text":"The Rockpile Museum, a county history museum at 900 W 2nd St, is less than a mile east on the same street."}}]}
+    <meta name="twitter:title" content="Rock Paper Scissors Sculpture in Gillette, WY">
+    <meta name="twitter:description" content="Rock Paper Scissors sculpture in Gillette, WY: Kevin Box and Warren Cullar's free 2011 stack at 1201 W 2nd St, in front of the News-Record offices.">
+    <meta name="twitter:image" content="https://testedprofit.com/assets/profitnet-logo.webp">
+    <meta name="geo.region" content="US-WY">
+    <meta name="geo.placename" content="Gillette">
+    <meta name="geo.position" content="44.2930;-105.5199">
+    <meta name="ICBM" content="44.2930, -105.5199">
+    <link rel="stylesheet" href="/assets/landmark-guide.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[
+{"@type":"TouristAttraction","@id":"https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/#place","name":"Rock Paper Scissors Sculpture","description":"Rock Paper Scissors sculpture in Gillette, WY: Kevin Box and Warren Cullar's free 2011 stack at 1201 W 2nd St, in front of the News-Record offices.","url":"https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/","isAccessibleForFree":true,"publicAccess":true,"image":"https://testedprofit.com/assets/profitnet-logo.webp","address":{"@type":"PostalAddress","streetAddress":"1201 W 2nd St","addressLocality":"Gillette","addressRegion":"WY","postalCode":"82716","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":44.293,"longitude":-105.5199}},
+{"@type":"Article","headline":"Rock Paper Scissors Sculpture in Gillette, WY","author":{"@type":"Organization","name":"Profitnet"},"publisher":{"@type":"Organization","name":"Profitnet"},"datePublished":"2026-11-04","dateModified":"2026-11-04","image":"https://testedprofit.com/assets/profitnet-logo.webp","mainEntityOfPage":{"@type":"WebPage","@id":"https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/"}},
+{"@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"https://testedprofit.com/"},
+{"@type":"ListItem","position":2,"name":"Landmarks","item":"https://testedprofit.com/pages/landmarks/"},
+{"@type":"ListItem","position":3,"name":"Wyoming","item":"https://testedprofit.com/WY/"},
+{"@type":"ListItem","position":4,"name":"Rock Paper Scissors","item":"https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Where is the Rock Paper Scissors sculpture in Gillette?","acceptedAnswer":{"@type":"Answer","text":"At 1201 W 2nd St, Gillette, WY 82716, on the southwest corner of S Burma Avenue and W 2nd Street, US-16, in front of the Gillette News-Record. It stands on the street corner. Park at the curb or at the corner building and walk to the stack."}},
+{"@type":"Question","name":"Who made the Rock Paper Scissors sculpture?","acceptedAnswer":{"@type":"Answer","text":"Kevin Box and Warren Cullar. Roadside America dates the Gillette installation to 2011 and places it in the Avenues of Art program. The materials are powder-coated cast bronze and stainless steel."}},
+{"@type":"Question","name":"Who wins on the Gillette stack?","acceptedAnswer":{"@type":"Answer","text":"Scissors. The rock is the base, the paper is in the middle, and the scissors sit on top."}},
+{"@type":"Question","name":"Is the rock paper scissors parking garage the same stop?","acceptedAnswer":{"@type":"Answer","text":"The rock paper scissors parking garage search leads to this sidewalk sculpture at the News-Record corner, 1201 W 2nd St. Visitors park along 2nd Street or at the corner building and walk to it."}},
+{"@type":"Question","name":"What are things to do in Gillette, Wyoming, near the sculpture?","acceptedAnswer":{"@type":"Answer","text":"The Rockpile Museum, a county history museum at 900 W 2nd St, is less than a mile east on the same street. The sculpture itself is a free five to ten minute stop."}}
 ]}
-</script>
-<style>
-.qf dt{color:#94A3B8;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
-.qf dd{color:#fff;font-weight:600;margin:0 0 1rem}
-details.faq{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1rem 1.25rem;margin-bottom:.75rem}
-details.faq summary{cursor:pointer;font-weight:700;color:#fff;list-style:none}
-details.faq summary::after{content:"+";float:right;color:#D97706;font-weight:900}
-details.faq[open] summary::after{content:"–"}
-details.faq p{color:#9CA3AF;margin-top:.6rem}
-.map-frame{width:100%;height:320px;border:0;border-radius:12px;filter:grayscale(.2) contrast(1.05)}
-</style>
-
-    <meta property="og:image" content="https://testedprofit.com/assets/profitnet-logo.webp">
+]}</script>
 </head>
-<body class="antialiased overflow-x-hidden relative bg-primary text-gray-200">
+<body>
+    <header class="lg-header"><div class="lg-header-inner"><a class="lg-brand" href="/"><img src="/assets/profitnet-logo.webp" width="32" height="32" alt="Profitnet logo" style="width:32px;height:32px;display:inline-block;vertical-align:middle"> Profitnet</a> <a href="/pages/landmarks/">Landmarks</a> <a href="/WY/">Wyoming</a></div></header>
+    <main class="lg-main">
+        <nav aria-label="Breadcrumb"><ol class="lg-crumbs"><li><a href="/">Home</a></li><li aria-hidden="true">/</li><li><a href="/pages/landmarks/">Landmarks</a></li><li aria-hidden="true">/</li><li><a href="/WY/">Wyoming</a></li><li aria-hidden="true">/</li><li aria-current="page">Rock Paper Scissors</li></ol></nav>
+        <p class="lg-actions"><a class="lg-btn" href="/WY/">Back to Wyoming</a> <a class="lg-btn" href="/pages/landmarks/">All landmarks</a></p>
+        <h1>Rock Paper Scissors Sculpture in Gillette, WY</h1>
+        <p class="lg-lede">The Rock Paper Scissors sculpture in Gillette, Wyoming, is a street-corner stack by Kevin Box and Warren Cullar. Rock is the base, paper is the middle, and scissors sit on top, so scissors wins. It was installed in 2011 in the Avenues of Art program, at 1201 W 2nd St, on the southwest corner of S Burma Avenue and W 2nd Street, US-16, in front of the Gillette News-Record. It is free, outdoors, and one of the quick things to do in Gillette, Wyoming.</p>
 
-    <!-- Global Background -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div class="absolute inset-0 hero-glow animate-pulse-slow"></div>
-    </div>
+        <section class="lg-visit" aria-labelledby="visit-heading"><h2 id="visit-heading">Plan your visit</h2>
+        <dl>
+            <dt>Place</dt><dd>1201 W 2nd St, Gillette, WY 82716. Southwest corner of S Burma Avenue and W 2nd Street, in front of the Gillette News-Record.</dd>
+            <dt>Artists</dt><dd>Kevin Box and Warren Cullar.</dd>
+            <dt>Year</dt><dd>2011, Avenues of Art.</dd>
+            <dt>Materials</dt><dd>Powder-coated cast bronze and stainless steel.</dd>
+            <dt>Nearby</dt><dd>Campbell County Rockpile Museum, 900 W 2nd St, less than a mile east.</dd>
+        </dl>
+        <p class="lg-actions"><a class="lg-btn" href="https://www.openstreetmap.org/directions?to=44.2930%2C-105.5199">Directions</a> <a class="lg-btn" href="https://www.openstreetmap.org/?mlat=44.2930&amp;mlon=-105.5199#map=17/44.2930/-105.5199">Open the corner pin</a></p>
+        </section>
 
-    <!-- Sticky Navigation -->
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            
-            <!-- Logo Section -->
-            <a href="/" class="flex items-center space-x-3 group" aria-label="Go to Homepage">
-                <img src="/assets/profitnet-logo.webp" 
-                     class="h-8 w-8 transition-transform group-hover:rotate-12" 
-                     alt="Profitnet Logo"
-                     width="32" 
-                     height="32"
-                     fetchpriority="high">
-                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
-            </a>
-            
-            <!-- Desktop Nav -->
-            <nav class="hidden lg:flex space-x-10 items-center">
-                <a href="/" class="text-sm font-bold text-white hover:text-accent-emerald transition-colors duration-200">HOME</a>
-                
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-accent-emerald hover:text-emerald-300 transition-colors duration-200">Landmarks</a>
-                
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 hover:border-teal-500/60 hover:shadow-[0_0_15px_rgba(45,212,191,0.2)] transition-all duration-300 uppercase tracking-[0.2em]">
-                    $PNET Asset Dashboard
-                </a>
-            </nav>
+        <h2>At a glance</h2>
+        <table class="lg-facts">
+            <tr><th>Winner</th><td>Scissors, stacked on top of paper, with the rock at the base.</td></tr>
+            <tr><th>Program</th><td>Gillette's Avenues of Art, a Mayor's Art Council program that places sculptures along city streets.</td></tr>
+            <tr><th>Corner</th><td>A Roadside America visitor note says the piece is on the street corner, in front of the brick wall, and easy to miss.</td></tr>
+            <tr><th>Studio line</th><td>Kevin Box Studio describes the game as a way of making decisions or resolving conflicts for things that are not serious.</td></tr>
+            <tr><th>Pin</th><td>44.2930, -105.5199.</td></tr>
+        </table>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button>
-        </div>
-    </header>
+        <section class="lg-map" aria-labelledby="map-heading">
+            <h2 id="map-heading">Map</h2>
+            <iframe title="Map of the Rock Paper Scissors sculpture in Gillette" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-105.531900%2C44.285000%2C-105.507900%2C44.301000&amp;layer=mapnik&amp;marker=44.2930%2C-105.5199"></iframe>
+            <p>Map: W 2nd St and S Burma Ave, Gillette. <a href="https://www.openstreetmap.org/?mlat=44.2930&amp;mlon=-105.5199#map=17/44.2930/-105.5199">Open this pin in OpenStreetMap</a>. <a href="https://www.openstreetmap.org/directions?to=44.2930%2C-105.5199">Directions</a>.</p>
+        </section>
 
-    <!-- Mobile menu sits outside the header. The header's backdrop blur would otherwise
-         become the containing block and shrink this fixed overlay to the nav bar. -->
-    <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[60] lg:hidden flex flex-col items-center justify-center space-y-8">
-        <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors" aria-label="Close Menu">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
+        <h2>The stack</h2>
+        <p>Three pieces of the game become one tower. The rock is the base, the paper is the middle, and a pair of scissors balances on top. Kevin Box is known for origami-inspired sculpture cast in metal. His studio describes rock paper scissors as a way of making decisions or resolving conflicts for not so serious things, the kind of call that picks a front seat or the last piece of cake. Serious matters, he writes, take a real conversation. On this corner, scissors wins.</p>
+        <p>Roadside America records Warren Cullar and Kevin Box, installed in 2011, part of Avenues of Art, at 1201 W. 2nd St., southwest corner of S. Burma Ave. and W. 2nd St. (US Hwy 16). Admission is free. A 2012 visitor tip places it in front of the Gillette News-Record offices, just west of the Rockpile Museum, and says scissors wins. Another note on that page says the piece is smaller than people expect and sits on the street corner, in front of a brick wall.</p>
+        <p>Avenues of Art is the Mayor's Art Council program. The Gillette News Record of 23 July 2009 describes sculptures on city streets and the 25 percent of sales used to buy work for the city's collection. Keep that story with the program. The Rock Paper Scissors piece itself is the 2011 Roadside America record. The materials named for the Gillette work are powder-coated cast bronze and stainless steel.</p>
 
-        <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-accent-emerald transition-colors">Home</a>
-        <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-accent-emerald uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
-        <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest hover:text-teal-400 transition-colors">$PNET Dashboard</a>
-    </div>
+        <h2>The corner, and where to leave the car</h2>
+        <p>The rock paper scissors parking garage search leads to this sidewalk sculpture. It stands at 1201 W 2nd St, on the southwest corner of S Burma Avenue and W 2nd Street, in front of the Gillette News-Record offices. US-16 runs through this stretch of 2nd Street. The piece is on the corner itself. Park at the curb along 2nd Street, or at the corner building, and walk to the stack. A photo from the sidewalk is the whole visit, and you can throw your own rock, paper, or scissors beside it.</p>
+        <p>Give it five to ten minutes. It is outdoors and free at any time, which makes it an easy pause on a Wyoming drive through Gillette.</p>
 
-    <!-- Main Content Area -->
-    <main class="relative z-10 pt-28 md:pt-32 pb-24 container mx-auto px-4 md:px-6">
-<nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
-<li><a href="/">Home</a></li>
-<li><a href="/pages/landmarks/">Landmarks</a></li>
-<li><a href="/WY/">Wyoming</a></li>
-<li aria-current="page">Rock Paper Scissors Sculpture</li>
-</ol></nav>
+        <h2>Things to do in Gillette, Wyoming</h2>
+        <p>Pair the sculpture with the Rockpile Museum at 900 W 2nd St, a county history museum less than a mile east on the same street. WyoHistory places the Campbell County Rockpile Museum at 900 W. Second St. in Gillette. The two stops share 2nd Street, so the sculpture and the museum are a simple pair of things to do in Gillette, Wyoming, without leaving that road.</p>
+        <p>Other Wyoming roadside guides on this site include <a href="/WY/Jackalope%20Square/">Jackalope Square in Douglas</a>, <a href="/WY/Soil%20To%20Riches%20Statue/">Soil to Riches Statue in Thermopolis</a>, and <a href="/WY/Big%20Boy%20Statue/">Big Boy Statue in Wapiti</a>. The state list is <a href="/WY/">Wyoming Statues and Landmarks</a>.</p>
 
-<article>
-  <header class="max-w-5xl mx-auto mb-10" data-aos="fade-up">
-    <span class="stat-badge text-xs font-bold text-accent-bronze uppercase tracking-wider"><i class="fa-solid fa-hand-scissors mr-2" aria-hidden="true"></i>Gillette Avenues of Art · Free · Open 24/7</span>
-    <h1 class="text-4xl md:text-6xl font-black mt-5 mb-4 leading-tight"><span class="gradient-text">Rock Paper Scissors Sculpture</span><span class="block text-2xl md:text-3xl text-white mt-2">Gillette, Wyoming: how to see it</span></h1>
-    <p class="text-lg md:text-xl text-gray-300 max-w-3xl">A street-corner sculpture of the world's favorite tie-breaker game by <strong>Kevin Box and Warren Cullar</strong>, stacked rock, paper, then scissors on top. Spoiler: <strong>scissors wins</strong>. It's free, it's outdoors, and it takes five minutes off US-16.</p>
-    <p class="text-sm text-gray-400 mt-4">Last updated <time datetime="2026-10-21">21 October 2026</time>.</p>
-    <div class="flex flex-wrap gap-3 mt-6">
-      <a href="https://www.google.com/maps/search/?api=1&query=1201+W+2nd+St+Gillette+WY+82716" target="_blank" rel="noopener" class="cta-button inline-block px-6 py-3 rounded-full text-white font-bold text-sm uppercase tracking-wider"><i class="fa-solid fa-map-location-dot mr-2" aria-hidden="true"></i>Get directions</a>
-      <a href="#faq" class="inline-block px-6 py-3 rounded-full border border-white/20 text-white font-bold text-sm uppercase tracking-wider hover:border-accent-bronze">Visitor FAQ</a>
-    </div>
-  </header>
+        <h2>A short history of the game</h2>
+        <p>Rock paper scissors is a hand game for two people who throw at the same moment. A fist is rock, a flat hand is paper, and two extended fingers are scissors. Rock breaks scissors, scissors cut paper, and paper covers rock. Each sign beats one and loses to one, so a tie means you throw again.</p>
+        <p>A written ancestor is Chinese. The Ming writer Xie Zhaozhe, in the book Wuzazu around 1600, described a hand game called shoushiling and said players had used it since the Han dynasty. The game reached Japan, where fist games of this kind are called sansukumi-ken, games of the three who are afraid of one another. An early import used a frog, a slug, and a snake. The version with rock, paper, and scissors is jan-ken, and that is the game the English name translates. It spread beyond East Asia in the early 20th century. Kevin Box's line fits the history: it is a cheerful way to settle a small argument, and the Gillette stack lets scissors have the last word.</p>
 
-  <div class="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
-    <aside class="info-card lg:col-span-1" aria-labelledby="qf-h" data-aos="fade-up">
-      <h2 id="qf-h" class="text-xl font-black text-white mb-4"><i class="fa-solid fa-circle-info text-accent-bronze mr-2" aria-hidden="true"></i>Quick facts</h2>
-      <dl class="qf">
-        <dt>Address</dt><dd><a class="text-teal-300 underline" href="https://www.roadsideamerica.com/tip/35294">1201 W 2nd St, Gillette, WY 82716</a></dd>
-        <dt>Exact spot</dt><dd>SW corner of S. Burma Ave &amp; W. 2nd St (US-16), in front of the Gillette News-Record</dd>
-        <dt>Artists</dt><dd>Kevin Box &amp; Warren Cullar</dd>
-        <dt>Installed</dt><dd>2011, Avenues of Art program</dd>
-        <dt>Materials</dt><dd>Powder-coated cast bronze &amp; stainless steel</dd>
-        <dt>Cost &amp; hours</dt><dd>Free · outdoors · any time</dd>
-        <dt>GPS</dt><dd>44.2930, -105.5199</dd>
-      </dl>
-    </aside>
-    <figure class="info-card lg:col-span-2 p-3" data-aos="fade-up" data-aos-delay="100">
-      <iframe class="map-frame" title="Map showing the Rock Paper Scissors sculpture at 1201 W 2nd St, Gillette, Wyoming"
-        src="https://maps.google.com/maps?q=1201%20W%202nd%20St%2C%20Gillette%2C%20WY%2082716&amp;z=16&amp;output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <figcaption class="text-xs text-gray-400 mt-2 px-1">Map: the sculpture sits at W 2nd St &amp; S Burma Ave. <a class="text-teal-300 underline" href="https://www.google.com/maps/search/?api=1&query=44.2930,-105.5199" target="_blank" rel="noopener">Open in Google Maps</a></figcaption>
-    </figure>
-  </div>
+        <p class="lg-updated">Last verified <time datetime="2026-11-04">4 November 2026</time>.</p>
 
-  <section class="max-w-5xl mx-auto mb-12" data-aos="fade-up">
-    <div class="card-blur rounded-2xl p-6 md:p-10">
-      <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">What you'll see</h2>
-      <div class="grid md:grid-cols-3 gap-4 mb-6 text-center" role="list" aria-label="The three stacked pieces">
-        <div class="bg-slate-900/50 rounded-xl p-5 border border-white/10" role="listitem"><i class="fa-solid fa-hand-back-fist text-3xl text-accent-steel" aria-hidden="true"></i><p class="font-bold text-white mt-2">Rock</p><p class="text-xs text-gray-400">the base</p></div>
-        <div class="bg-slate-900/50 rounded-xl p-5 border border-white/10" role="listitem"><i class="fa-solid fa-hand text-3xl text-accent-steel" aria-hidden="true"></i><p class="font-bold text-white mt-2">Paper</p><p class="text-xs text-gray-400">the middle</p></div>
-        <div class="bg-slate-900/50 rounded-xl p-5 border border-accent-bronze/40" role="listitem"><i class="fa-solid fa-hand-scissors text-3xl text-accent-bronze" aria-hidden="true"></i><p class="font-bold text-white mt-2">Scissors</p><p class="text-xs text-gray-400">on top, the winner</p></div>
-      </div>
-      <p class="text-gray-300 mb-4">The three pieces of the game are stacked into one tower, with the rock below, the paper in the middle and a pair of scissors balanced on top. Kevin Box, the co-artist, is known for origami-inspired sculpture cast in metal. His studio describes the game as "a way of making decisions or resolving conflicts for not so serious things." The joke is that serious matters deserve real conversation.</p>
-      <p class="text-gray-300">The sculpture is part of Gillette's <strong><a class="text-teal-300 underline" href="https://www.gillettenewsrecord.com/news/article_a8829f8d-62a1-56a7-9c19-2e29095656f6.html">Avenues of Art</a></strong>, a Mayor's Art Council program. It places sculptures along city streets and uses a share of sales to add pieces to the city's permanent collection.</p>
-    </div>
-  </section>
+        <section class="lg-faq" aria-labelledby="faq-heading"><h2 id="faq-heading">Questions</h2>
+            <details><summary>Where is the Rock Paper Scissors sculpture in Gillette?</summary><p>At 1201 W 2nd St, Gillette, WY 82716, on the southwest corner of S Burma Avenue and W 2nd Street, US-16, in front of the Gillette News-Record. It stands on the street corner. Park at the curb or at the corner building and walk to the stack.</p></details>
+            <details><summary>Who made the Rock Paper Scissors sculpture?</summary><p>Kevin Box and Warren Cullar. Roadside America dates the Gillette installation to 2011 and places it in the Avenues of Art program. The materials are powder-coated cast bronze and stainless steel.</p></details>
+            <details><summary>Who wins on the Gillette stack?</summary><p>Scissors. The rock is the base, the paper is in the middle, and the scissors sit on top.</p></details>
+            <details><summary>Is the rock paper scissors parking garage the same stop?</summary><p>The rock paper scissors parking garage search leads to this sidewalk sculpture at the News-Record corner, 1201 W 2nd St. Visitors park along 2nd Street or at the corner building and walk to it.</p></details>
+            <details><summary>What are things to do in Gillette, Wyoming, near the sculpture?</summary><p>The Rockpile Museum, a county history museum at 900 W 2nd St, is less than a mile east on the same street. The sculpture itself is a free five to ten minute stop.</p></details>
+        </section>
 
-  <section class="max-w-5xl mx-auto mb-12" data-aos="fade-up">
-    <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">Visiting tips</h2>
-    <ul class="grid md:grid-cols-2 gap-4 text-gray-300">
-      <li class="info-card"><strong class="text-white">Find it fast:</strong> look for the News-Record building at W 2nd St &amp; S Burma Ave. US-16 runs through this stretch of 2nd St.</li>
-      <li class="info-card"><strong class="text-white">Best photo:</strong> take it from the sidewalk, and throw your own "rock, paper or scissors" next to the stack.</li>
-      <li class="info-card"><strong class="text-white">Pair it with:</strong> the <a class="text-teal-300 underline" href="https://www.wyohistory.org/field-trips/campbell-county-rockpile-museum">Rockpile Museum (900 W 2nd St)</a>, less than a mile east on the same street.</li>
-      <li class="info-card"><strong class="text-white">Time needed:</strong> about 5–10 minutes, which makes it an easy stop on a Wyoming road trip.</li>
-    </ul>
-  </section>
-
-  <section id="faq" class="max-w-5xl mx-auto mb-12" data-aos="fade-up">
-    <h2 class="text-2xl md:text-3xl font-black mb-5 text-white">Rock Paper Scissors sculpture FAQ</h2>
-    <details class="faq" open><summary>Where is the Rock Paper Scissors sculpture in Gillette?</summary><p>At 1201 W 2nd St, Gillette, WY 82716, on the southwest corner of S. Burma Ave. and W. 2nd St. (US Hwy 16), in front of the Gillette News-Record offices.</p></details>
-    <details class="faq"><summary>Who made the Rock Paper Scissors sculpture?</summary><p>Artists Kevin Box and Warren Cullar. It was installed in 2011 as part of Gillette's Avenues of Art public-art program.</p></details>
-    <details class="faq"><summary>Does it cost anything to see?</summary><p>No. It is outdoor public art on a street corner, free to view at any time.</p></details>
-    <details class="faq"><summary>So who wins: rock, paper or scissors?</summary><p>Scissors. The pieces are stacked with the rock at the base, the paper in the middle and the scissors on top.</p></details>
-    <details class="faq"><summary>What else is nearby?</summary><p>The Rockpile Museum, a county history museum at 900 W 2nd St, is less than a mile east on the same street.</p></details>
-  </section>
-
-  <aside class="tp-seo-related max-w-5xl mx-auto" aria-label="More Wyoming landmarks">
-    <h2>More Wyoming roadside landmarks</h2>
-    <ul>
-      <li><a href="https://testedprofit.com/WY/Jackalope%20Square/">Jackalope Square: the Jackalope Capital in Douglas, WY</a></li>
-      <li><a href="https://testedprofit.com/WY/Big%20Boy%20Statue/">The Wapiti Big Boy on the road to Yellowstone</a></li>
-      <li><a href="https://testedprofit.com/WY/Buffalo%20Bill%20–%20“The%20Scout”%20Statue/">The Scout: Buffalo Bill statue in Cody</a></li>
-      <li><a href="https://testedprofit.com/WY/Soil%20To%20Riches%20Statue/">Soil to Riches Statue in Thermopolis</a></li>
-      <li><a href="https://testedprofit.com/WY/Just%20Ledoux%20It/">Chris LeDoux Memorial Statue in Cheyenne</a></li>
-    </ul>
-    <p><a href="https://testedprofit.com/WY/">All Wyoming landmarks →</a> · <a href="https://testedprofit.com/pages/landmarks/">All U.S. landmarks →</a></p>
-  </aside>
-  <section class="max-w-5xl mx-auto mt-10" aria-labelledby="sources-heading">
-    <h2 id="sources-heading" class="text-2xl font-black text-white mb-4">Sources</h2>
-    <ul class="source-list list-disc pl-5 space-y-2 text-gray-300">
-      <li><a href="https://www.roadsideamerica.com/tip/35294">Roadside America, Gillette Rock Paper Scissors</a>. Warren Cullar and Kevin Box, installed in 2011, part of Avenues of Art. 1201 W. 2nd St., southwest corner of S. Burma Ave. and W. 2nd St. (US Hwy 16). Admission free. A 2012 visitor tip places it in front of the Gillette News-Record offices, just west of the Rockpile Museum, and says scissors wins.</li>
-      <li><a href="https://www.gillettenewsrecord.com/news/article_a8829f8d-62a1-56a7-9c19-2e29095656f6.html">Gillette News Record, "Feast your eyes on this," July 23, 2009</a>. The Mayor's Art Council's Avenues of Art program places sculptures on city streets. Twenty-five percent of sales stay with the council and are used to buy art for the city's collection. This story does not name the Rock Paper Scissors sculpture.</li>
-      <li><a href="https://www.wyohistory.org/field-trips/campbell-county-rockpile-museum">WyoHistory, Campbell County Rockpile Museum</a>. The museum is at 900 W. Second St. in Gillette.</li>
-    </ul>
-    <p class="text-sm text-gray-500 mt-4">Kevin Box Studio is the source for the line about the game as a way of settling things that are not serious. Last updated <time datetime="2026-10-21">21 October 2026</time>.</p>
-  </section>
-  <section class="max-w-5xl mx-auto mt-8" aria-labelledby="cite-heading">
-    <h2 id="cite-heading" class="text-2xl font-black text-white mb-4">Cite or link to this guide</h2>
-    <p class="text-gray-300">If you mention this guide, link to <a class="text-teal-300 underline" href="https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/">https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/</a>. For the sculpture, cite Roadside America.</p>
-  </section>
-</article>
-</main>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Init AOS
-        AOS.init({ 
-            duration: 800, 
-            once: true,
-            offset: 50
-        });
-
-        // Mobile Menu Toggle Logic
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const body = document.body;
-
-        function toggleMenu(show) {
-            if (show) {
-                mobileMenu.classList.add('active');
-                body.style.overflow = 'hidden';
-            } else {
-                mobileMenu.classList.remove('active');
-                body.style.overflow = '';
-            }
-        }
-
-        menuBtn.addEventListener('click', () => toggleMenu(true));
-        closeBtn.addEventListener('click', () => toggleMenu(false));
-
-        // Close menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => toggleMenu(false));
-        });
-    });
-    </script>
+        <section aria-labelledby="sources-heading"><h2 id="sources-heading">Sources</h2><ul class="lg-sources">
+            <li><a href="https://www.roadsideamerica.com/tip/35294">Roadside America, Gillette Rock Paper Scissors</a>. Warren Cullar and Kevin Box, 2011, Avenues of Art, 1201 W. 2nd St., free. A visitor tip places it in front of the Gillette News-Record and says scissors wins. Another note says it is on the street corner.</li>
+            <li><a href="https://www.gillettenewsrecord.com/news/article_a8829f8d-62a1-56a7-9c19-2e29095656f6.html">Gillette News Record, Feast your eyes on this, 23 July 2009</a>. Avenues of Art places sculptures on city streets. Twenty-five percent of sales buy art for the city collection.</li>
+            <li><a href="https://www.wyohistory.org/field-trips/campbell-county-rockpile-museum">WyoHistory, Campbell County Rockpile Museum</a>, 900 W. Second St. in Gillette.</li>
+            <li><a href="https://outsidetheboxstudio.com/gallery/add-on-pieces/rock-paper-scissors-monument/">Kevin Box Studio, Rock Paper Scissors</a>. The game as a way of settling things that are not serious.</li>
+            <li><a href="https://en.wikipedia.org/wiki/Rock_paper_scissors">Rock paper scissors</a>. The hand signs, the Chinese written ancestor, jan-ken, and the early 20th century spread of the English name.</li>
+        </ul></section>
+        <section aria-labelledby="cite-heading"><h2 id="cite-heading">Cite or link to this guide</h2><p>Link to <a href="https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/">https://testedprofit.com/WY/rock%20paper%20scissors%20sculpture/</a>.</p></section>
+        <aside class="lg-related" aria-label="Related guides"><h2>Related Wyoming guides</h2><ul>
+            <li><a href="/WY/">Back to Wyoming</a></li>
+            <li><a href="/WY/Jackalope%20Square/">Jackalope Square in Douglas</a></li>
+            <li><a href="/WY/Soil%20To%20Riches%20Statue/">Soil to Riches Statue in Thermopolis</a></li>
+            <li><a href="/WY/Big%20Boy%20Statue/">Big Boy Statue in Wapiti</a></li>
+            <li><a href="/pages/landmarks/">All landmarks</a></li>
+        </ul></aside>
+    </main>
 </body>
 </html>
