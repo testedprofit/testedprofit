@@ -123,6 +123,9 @@
 .tp-seo-related a{color:#5eead4}
 .tp-seo-related p{margin:.75rem 0 0;color:#cbd5e1;font-size:.92rem}
 </style>
+<link rel="stylesheet" href="/assets/site-nav.css">
+<script src="/assets/site-nav.js" defer></script>
+<script>(function(){var ids={"mobile-menu-btn":1,"close-menu-btn":1,"mobile-menu":1};var real=Document.prototype.getElementById;Document.prototype.getElementById=function(id){var el=real.call(this,id);if(el||!ids[id])return el;var d=document.createElement("div");d.querySelectorAll=function(){return [];};return d;};})();</script>
 </head>
 <body class="antialiased overflow-x-hidden relative">
 
@@ -133,49 +136,14 @@
     </div>
 
     <!-- Sticky Navigation -->
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo Section -->
-            <a href="/" class="flex items-center space-x-3 group">
-                <img src="https://emerald-urgent-cuckoo-166.mypinata.cloud/ipfs/bafybeibelhobbfhgcur4j5qmnzvnjlfkpwawy3rttzdnfr4t22ikcj263m" 
-                     class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet">
-                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
-            </a>
-            
-            <!-- Desktop Nav -->
-            <nav class="hidden lg:flex space-x-8 items-center">
-                <a href="#forecast" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">Forecast</a>
-                <a href="#math" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">Calculator</a>
-                <a href="#toolkit" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">Toolkit</a>
-                
-                <div class="h-4 w-px bg-white/10 mx-2"></div>
-
-                <a href="https://testedprofit.com/pages/landmarks/" target="_blank" class="text-xs font-bold uppercase tracking-widest text-emerald-400">Landmarks</a>
-                <a href="https://testedprofit.com/pages/PNET/" class="px-6 py-2 rounded-full border border-teal-500/30 text-[10px] font-black text-teal-400 hover:bg-teal-500/10 transition-all uppercase tracking-[0.2em]">
-                    $PNET Asset Dashboard
-                </a>
-            </nav>
-
-            <button id="mobile-menu-btn" class="lg:hidden text-white"><i class="fa-solid fa-bars-staggered"></i></button>
-        </div>
-
-        <!-- Mobile Menu Overlay -->
-        
-    </header>
+    
 
     <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
-    <div id="mobile-menu" class="fixed inset-0 bg-slate-950 z-[60] hidden flex-col items-center justify-center space-y-8 lg:hidden">
-            <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
-            <a href="#forecast" class="text-xl font-black text-white uppercase tracking-widest">Forecast</a>
-            <a href="#math" class="text-xl font-black text-white uppercase tracking-widest">Calculator</a>
-            <a href="#toolkit" class="text-xl font-black text-white uppercase tracking-widest">Toolkit</a>
-            <a href="https://testedprofit.com/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
-            <a href="https://testedprofit.com/pages/PNET/" class="text-xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
-        </div>
+    
 
 
     <!-- Main Content Area -->
-    <main class="relative z-10 pt-32 container mx-auto px-6 pb-20">
+    <main class="relative z-10 container mx-auto px-6 pb-20">
 <!-- tp-seo:breadcrumbs -->
 <nav aria-label="Breadcrumb"><ol class="tp-seo-crumbs">
 <li><a href="/">Home</a></li>

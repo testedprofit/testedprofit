@@ -41,33 +41,17 @@
     #mobile-menu{transform:translateY(-100%);opacity:0;pointer-events:none;transition:transform .3s ease,opacity .3s ease}
     #mobile-menu.active{transform:translateY(0);opacity:1;pointer-events:auto}
   </style>
+<link rel="stylesheet" href="/assets/site-nav.css">
+<script src="/assets/site-nav.js" defer></script>
+<script>(function(){var ids={"mobile-menu-btn":1,"close-menu-btn":1,"mobile-menu":1};var real=Document.prototype.getElementById;Document.prototype.getElementById=function(id){var el=real.call(this,id);if(el||!ids[id])return el;var d=document.createElement("div");d.querySelectorAll=function(){return [];};return d;};})();</script>
 </head>
 <body class="text-white antialiased">
 
   <!-- NAV -->
-  <header class="fixed w-full top-0 z-50 bg-[#0A091B]/80 backdrop-blur-xl border-b border-white/5">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="/" class="flex items-center space-x-3 group">
-        <img src="/assets/profitnet-logo.webp" class="h-8 w-8 transition-transform group-hover:rotate-12" alt="Profitnet" width="320" height="320">
-        <span class="text-xl font-bold tracking-tight">Profitnet</span>
-      </a>
-      <nav class="hidden lg:flex items-center space-x-8">
-        <a href="/" class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-white transition-colors">Home</a>
-        <a href="https://testedprofit.com/pages/landmarks/" class="text-xs font-bold uppercase tracking-widest text-emerald-400 hover:text-emerald-300 transition-colors">Landmarks</a>
-        <a href="https://testedprofit.com/pages/PNET/" class="px-5 py-2 rounded-full border border-pink-500/30 text-[10px] font-black text-pink-400 hover:bg-pink-500/10 transition-all uppercase tracking-[0.2em]">$PNET Asset Dashboard</a>
-      </nav>
-      <button id="mobile-menu-btn" class="lg:hidden text-white text-xl"><i class="fa-solid fa-bars"></i></button>
-    </div>
-    
-  </header>
+  
 
     <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
-    <div id="mobile-menu" class="z-[60] fixed inset-0 bg-[#0A091B] flex flex-col items-center justify-center space-y-8">
-      <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-2xl"><i class="fa-solid fa-xmark"></i></button>
-      <a href="/" class="text-2xl font-black text-white uppercase tracking-widest">Home</a>
-      <a href="https://testedprofit.com/pages/landmarks/" class="text-2xl font-black text-emerald-400 uppercase tracking-widest">Landmarks</a>
-      <a href="https://testedprofit.com/pages/PNET/" class="text-2xl font-black text-white uppercase tracking-widest">$PNET Dashboard</a>
-    </div>
+    
 
 
   <!-- HERO -->

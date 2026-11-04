@@ -70,6 +70,9 @@
     </style>
 
     <meta property="og:image" content="https://testedprofit.com/assets/profitnet-logo.webp">
+<link rel="stylesheet" href="/assets/site-nav.css">
+<script src="/assets/site-nav.js" defer></script>
+<script>(function(){var ids={"mobile-menu-btn":1,"close-menu-btn":1,"mobile-menu":1};var real=Document.prototype.getElementById;Document.prototype.getElementById=function(id){var el=real.call(this,id);if(el||!ids[id])return el;var d=document.createElement("div");d.querySelectorAll=function(){return [];};return d;};})();</script>
 </head>
 <body class="antialiased overflow-x-hidden relative">
     <div class="fixed inset-0 z-0 pointer-events-none">
@@ -77,33 +80,11 @@
         <div class="absolute inset-0 hero-glow"></div>
     </div>
 
-    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="flex items-center space-x-3 group">
-                <img src="/assets/profitnet-logo.webp" class="h-8 w-8" alt="Profitnet" width="320" height="320">
-                <span class="text-xl font-bold tracking-tight text-white">Profitnet</span>
-            </a>
-            <nav class="hidden lg:flex space-x-10 items-center">
-                <a href="/" class="text-sm font-bold text-white hover:text-emerald-400 transition-colors">HOME</a>
-                <a href="/pages/landmarks/" class="text-xs font-bold uppercase tracking-widest text-emerald-400 hover:text-emerald-300 transition-colors">Landmarks</a>
-                <a href="/CO/" class="text-xs font-bold uppercase tracking-widest text-white hover:text-emerald-300 transition-colors">Colorado</a>
-            </nav>
-            <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Open Menu" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
-            </button>
-        </div>
-    </header>
+    
     <!-- Mobile menu sits outside the header so backdrop-blur does not trap the fixed overlay. -->
-    <div id="mobile-menu" class="fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-[60] lg:hidden flex flex-col items-center justify-center space-y-8">
-        <button id="close-menu-btn" class="absolute top-6 right-6 text-white p-2" aria-label="Close Menu" type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-        </button>
-        <a href="/" class="text-xl font-black text-white uppercase tracking-widest hover:text-emerald-400 transition-colors">Home</a>
-        <a href="/pages/landmarks/" class="text-xl font-black text-emerald-400 uppercase tracking-widest hover:text-emerald-300 transition-colors">Landmarks</a>
-        <a href="/CO/" class="text-xl font-black text-white uppercase tracking-widest hover:text-emerald-300 transition-colors">Colorado</a>
-    </div>
+    
 
-    <main class="relative z-10 pt-32 pb-24 container mx-auto px-6">
+    <main class="relative z-10 pb-24 container mx-auto px-6">
         <nav aria-label="Breadcrumb">
             <ol class="tp-seo-crumbs">
                 <li><a href="/">Home</a></li>

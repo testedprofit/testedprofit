@@ -1,0 +1,228 @@
+/* Shared sticky header and footer. Scoped so page CSS cannot restyle the chrome. */
+header.pn-header {
+  all: unset;
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: #0b1220;
+  color: #e5e7eb;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.28);
+  font-family: Inter, system-ui, sans-serif;
+  box-sizing: border-box;
+}
+header.pn-header *,
+footer.pn-footer,
+footer.pn-footer * { box-sizing: border-box; }
+.pn-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.35rem 1rem;
+}
+.pn-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+.pn-brand img { width: 32px; height: 32px; display: block; }
+header.pn-header nav.pn-links {
+  display: none;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.25rem 0.35rem;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  position: static;
+  order: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.pn-links a,
+.pn-menu a,
+.pn-menu button,
+.pn-burger,
+.pn-back-btn,
+footer.pn-footer a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+}
+.pn-links a {
+  color: #5eead4;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0 0.55rem;
+}
+.pn-burger {
+  border: 1px solid rgba(94, 234, 212, 0.45);
+  background: #134e4a;
+  color: #fff;
+  border-radius: 12px;
+  padding: 0 1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.pn-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: #0b1220;
+  color: #e5e7eb;
+  overflow: auto;
+  padding: 0.75rem 1rem 2rem;
+  font-family: Inter, system-ui, sans-serif;
+}
+.pn-menu[hidden] { display: none; }
+.pn-menu-top { display: flex; justify-content: space-between; align-items: center; }
+.pn-menu button {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 0 0.25rem;
+}
+.pn-menu h2 {
+  margin: 1.25rem 0 0.35rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+.pn-menu a { color: #5eead4; text-decoration: none; font-weight: 700; }
+.pn-menu ul, footer.pn-footer ul { list-style: none; margin: 0; padding: 0; }
+.pn-back {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+}
+.pn-back-btn {
+  text-decoration: none;
+  background: #134e4a;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 0 1rem;
+}
+footer.pn-footer {
+  all: unset;
+  display: block;
+  margin-top: 2.5rem;
+  background: #0b1220;
+  color: #cbd5e1;
+  border-top: 1px solid rgba(148, 163, 184, 0.28);
+  font-family: Inter, system-ui, sans-serif;
+}
+.pn-foot-grid {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+footer.pn-footer h2 {
+  margin: 0 0 0.35rem;
+  color: #fff;
+  font-size: 1rem;
+}
+footer.pn-footer a { color: #5eead4; text-decoration: none; }
+footer.pn-footer p { margin: 1rem 0 0; color: #94a3b8; font-size: 0.9rem; }
+@media (min-width: 900px) {
+  header.pn-header nav.pn-links { display: flex; }
+  .pn-burger { display: none; }
+  .pn-foot-grid { grid-template-columns: repeat(4, 1fr); }
+}
+body.pn-has-nav h1,
+body.pn-has-nav h2,
+body.pn-has-nav h3 { scroll-margin-top: 4.5rem; }
+
+/* App pages keep their own controls. Hide only the old site bar, not wallet UI inside the page. */
+body.pn-app:not(.pn-slim) > header:not(.pn-header) { display: none !important; }
+body.pn-app:not(.pn-slim) header.pn-header,
+body.pn-slim header.pn-header { z-index: 30; }
+body.pn-app:not(.pn-slim) .pn-menu,
+body.pn-slim .pn-menu { z-index: 40; }
+
+/* Full-screen games and the Algohub shell: a 48px bar, and the game keeps the rest of the screen. */
+body.pn-slim {
+  height: 100dvh !important;
+  max-height: 100dvh !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  margin: 0 !important;
+}
+body.pn-slim > header.pn-header,
+body.pn-slim > footer.pn-footer {
+  width: 100%;
+  align-self: stretch;
+}
+body.pn-slim > header.pn-header {
+  position: relative;
+  top: auto;
+  flex: 0 0 48px;
+  height: 48px;
+  min-height: 48px;
+}
+body.pn-slim > header.pn-header .pn-bar {
+  height: 48px;
+  min-height: 48px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+body.pn-slim .pn-slim-fill {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 100%;
+}
+body.pn-slim > footer.pn-footer {
+  flex: 0 0 48px;
+  height: 48px;
+  margin: 0;
+  overflow: hidden;
+  z-index: 30;
+}
+body.pn-slim .pn-foot-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 48px;
+  max-height: 48px;
+  padding: 0 0.5rem;
+  gap: 0.25rem;
+  overflow-x: auto;
+  grid-template-columns: none;
+}
+body.pn-slim footer.pn-footer h2,
+body.pn-slim footer.pn-footer p { display: none; }
+body.pn-slim footer.pn-footer section { display: contents; }
+body.pn-slim footer.pn-footer ul { display: flex; gap: 0.15rem; }
+body.pn-slim footer.pn-footer a { white-space: nowrap; padding: 0 0.4rem; }
